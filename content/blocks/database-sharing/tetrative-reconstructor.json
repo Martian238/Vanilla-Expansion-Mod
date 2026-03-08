@@ -1,0 +1,14 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","phoon" ],
+  "upgrades": [
+    [ "antumbra","eclipse" ],
+    /*[ "flare","eclire" ],*/
+    [ "arkyid","toxopid" ],
+    [ "scepter","reign" ],
+    [ "sei","omura" ],
+    [ "quad","oct" ],
+    [ "vela","corvus" ],
+    [ "alev","corvus" ],
+    [ "aegires","navanax" ]
+  ]
+}

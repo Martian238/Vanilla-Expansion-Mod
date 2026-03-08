@@ -1,0 +1,23 @@
+{
+  "planet": "cyclant",
+  "sector": 98,
+  "difficulty": 7,
+  "research": {
+    "parent": "unit-laboratory",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "unit-laboratory"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

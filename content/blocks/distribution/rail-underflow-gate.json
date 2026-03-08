@@ -1,0 +1,12 @@
+{
+  "type": "OverflowDuct",
+  "requirements": [ "aluminium/4","lead/2" ],
+  "speed": 2.5,
+  "solid": false,
+  "invert": true,
+  "research": "rail-overflow-gate",
+  "buildCostMultiplier": 4,
+  "researchCostMultiplier": 0.1,
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

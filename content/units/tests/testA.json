@@ -1,0 +1,105 @@
+{
+  "type": "mech",
+  "researchCostMultiplier": 0,
+  "alwaysUnlocked": true,
+  "isEnemy": true,
+  "outlineColor": "2d2f39",
+  "drag": 0.1,
+  "speed": 2.0,
+  "rotateSpeed": 9,
+  "health": 500,
+  "armor": 5,
+  "hitSize": 16,
+  "itemCapacity": 100,
+  "faceTarget": true,
+  "buildSpeed": 3,
+  "weapons": [
+    /*{
+      "name": "test-weapon",
+      "top": true,
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "rotate": true,
+      "rotateSpeed": 15,
+      "reload": 180,
+      "shootSound": "shootBig",
+      "bullet": {
+        "type": "PointBulletType",
+        "speed": 10,
+        "shootEffect": "launchPod",
+        "smokeEffect": "none",
+        "trailSpacing": 5,
+        "trailEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "shootSmall",
+        "damage": 0,
+        "hitShake": 8,
+        "collidesAir": false,
+        "collidesGround": false,
+        "collidesTiles": true,
+        "collides": true,
+        "spawnBullets": [
+          {
+            "despawnEffect": "blastExplosion"
+          }
+        ],
+        "fragBullets": 1,
+        "fragBullet": {
+          "despawnEffect": "flakExplosion"
+        }
+      }
+    },*/
+    {
+      "alternate": false,
+      "x": 8,
+      "y": 0,
+      "shootY": 0,
+      "reload": 12,
+      "shootSound": "shootAlpha",
+      "bullet": {
+        "type": "LaserBoltBulletType",
+        "maxRange": 192,
+        "speed": 8,
+        "frontColor": "ffa665",
+        "backColor": "d06b53",
+        "damage": 20,
+        "smokeEffect": "none",
+        "hitEffect": "hitLaserBlast",
+        "despawnEffect": "hitLaserBlast",
+        "hitColor": "ffa665",
+        "lifetime": 24
+      }
+    },
+    {"minWarmup":0.06,"shootStatus":"gatling-accel1",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.12,"shootStatus":"gatling-accel2",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.18,"shootStatus":"gatling-accel3",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.24,"shootStatus":"gatling-accel4",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.30,"shootStatus":"gatling-accel5",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.36,"shootStatus":"gatling-accel6",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.42,"shootStatus":"gatling-accel7",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.48,"shootStatus":"gatling-accel8",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.54,"shootStatus":"gatling-accel9",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.60,"shootStatus":"gatling-accel10",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.66,"shootStatus":"gatling-accel11",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.72,"shootStatus":"gatling-accel12",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.78,"shootStatus":"gatling-accel13",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.84,"shootStatus":"gatling-accel14",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}},
+    {"minWarmup":0.90,"shootStatus":"gatling-accel15",
+"shootWarmupSpeed":0.006,"linearWarmup":true,"reload":10,"shootStatusDuration":12,"useAttackRange":false,"shootCone":361,"shootSound":"none","mirror":false,"bullet":{"instantDisappear":true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","collides":false,"absorbable":false,"reflectable":false,"hittable":false,"damage":0,"maxRange":192}}
+  ]
+}

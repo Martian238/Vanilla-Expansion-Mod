@@ -1,0 +1,24 @@
+{
+  "planet": "phoon",
+  "sector": 9,
+  "difficulty": 10,
+  "research": {
+    "parent": "community-xingyunxueshan",
+    "objectives": [
+      "core-singularity"
+      {
+        "type": "SectorComplete",
+        "preset": "retreat-zone"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 0,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": false
+}
+
+
+

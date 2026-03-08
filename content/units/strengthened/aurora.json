@@ -1,0 +1,87 @@
+{
+  //"type": "flying",
+  "health": 250,
+  "armor": 1,
+  "speed": 3.3,
+  "accel": 0.08,
+  "hitSize": 10,
+  "faceTarget": false,
+  "lowAltitude": true,
+  "drag": 0.04,
+  "flying": true,
+  "engineOffset": 4.5,
+  "engineSize": 3.25,
+  "alwaysShootWhenMoving": true,
+  "itemCapacity": 20,
+  "targetFlags": [
+    "factory"
+  ],
+  "itemCapacity": 10,
+  "immunities": [ "electrified","frozen" ],
+  "lightColor": "ffa665",
+  "shownPlanets": [ "cyclant","phoon","maress","serpulo" ],
+  "weapons": [
+    {
+      "name": "aurora-weapon",
+      "x": 5.5,
+      "y": 1.25,
+      "top": true,
+      "rotateSpeed": 20,
+      "rotate": true,
+      "shootX": 0,
+      "shootY": 2.75,
+      "reload": 20,
+      "ejectEffect": "none",
+      "shootSound": "shootElude",
+      "bullet": {
+        "speed": 5,
+        "damage": 14,
+        "keepVelocity": false,
+        "width": 7,
+        "height": 12,
+        "lifetime": 30,
+        "trailLength": 8,
+        "trailWidth": 1.5,
+        "shootEffect": "sparkShoot",
+        "smokeEffect": "shootSmallSmoke",
+        "fragBullets": 2,
+        "trailColor": "ffa665",
+        "hitSound": "shockBullet",
+        "despawnSound": "shockBullet",
+        "lightColor": "ffa665",
+        "backColor": "ffa665",
+        "hitColor": "ffa665",
+        "fragRandomSpread": 240,
+        "fragAngle": 180,
+        "fragBullet": {
+          "type": "LightningBulletType",
+          "lightningLength": 7,
+          "lightningLengthRand": 4,
+          "damage": 8,
+          "status": "shocked",
+          "statusDuration": 10,
+          "speed": 0.0001,
+          "lightningColor": "ffa665",
+          "hitColor": "ffa665",
+          "lightColor": "ffa665"
+        },
+        "lightningLength": 8,
+        "lightningCone": 0,
+        "lightningLengthRand": 5,
+        "lightning": 1,
+        "lightningDamage": 8,
+        "lightningColor": "ffa665"
+      }
+    }
+  ],
+  "research": {
+    "parent": "blade",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "unit-laboratory"
+      }
+    ],
+    "requirements": [ "silicon/2500","lead/1000" ]
+  }
+}

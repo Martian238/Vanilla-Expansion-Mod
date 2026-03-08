@@ -1,0 +1,18 @@
+{
+  "type": "LiquidRouter",
+  "requirements": [ "metaglass/20","chromium/90","silicide/50" ],
+  "category": "liquid",
+  "liquidCapacity": 2200,
+  "research": {
+    "parent": "can-silicide",
+    "objectives": [ "tank" ]
+  },
+  "size": 3,
+  "solid": true,
+  "armor": 24,
+  "health": 4500,
+  "crushDamageMultiplier": 0.05,
+  "flammabilityScale": 0,
+  "explosivenessScale": 0.25,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

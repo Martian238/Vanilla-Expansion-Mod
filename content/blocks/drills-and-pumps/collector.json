@@ -1,0 +1,31 @@
+{
+  "type": "Drill",
+  "category": "production",
+  "requirements": [ "ferrum/20" ],
+  "researchCost": [ "ferrum/20" ],
+  "research": {
+    "parent": "core-nucleus-root-sitrullus",
+  },
+  "drillTime": 400,
+  "hardnessDrillMultiplier": 0,
+  "itemCapacity": 10,
+  "size": 2,
+  "tier": 3,
+  "consumes": {
+    "coolant": {
+      "amount": 0.025,
+      "booster": true,
+      "optional": true
+    }
+  },
+  "shownPlanets": [ "sitrullus" ],
+  "rotateSpeed": 5,
+  "squareSprite": false,
+  "drillMultipliers": {
+    "melon-dirt": 2,
+    "spore-pod": 2,
+  },
+  "blockedItems": [
+    "copper","lead","coal","aluminium","titanium","beryllium"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "UnitCargoLoader",
+  "buildTime": 1800,
+  "unitType": "delta-tether",
+  "category": "distribution",
+  "size": 3,
+  "consumes": {
+    "power": 2.5,
+    "liquids": [ "chlorine/0.15" ]
+  },
+  "research": {
+    "parent": "mass-launcher",
+    "objectives": [
+      "core-quark",
+      "ground-factory",
+      "platform-sigma"
+    ]
+  },
+  "itemCapacity": 270,
+  "hasLiquids": true,
+  "liquidCapacity": 60,
+  "hasItems": true,
+  "requirements": [ "aluminium/300","silicon/200","cobalt/50" ],
+  "polySides": 4,
+  "polyRadius": 7.5,
+  "polyStroke": 1
+}

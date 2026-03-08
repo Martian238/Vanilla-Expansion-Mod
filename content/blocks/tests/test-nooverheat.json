@@ -1,0 +1,14 @@
+{
+  "type": "HeatCrafter",
+  "buildVisibility": "sandboxOnly",
+  "heatRequirement": 6,
+  "overheatScale": -1,
+  "maxEfficiency": 1,
+  "consumes": {
+    "items": [ "copper/1" ]
+  },
+  "outputItems": [ "lead/1" ],
+  "craftTime": 15,
+  "alwaysUnlocked": true,
+  "size": 3
+}

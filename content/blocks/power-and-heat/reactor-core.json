@@ -1,0 +1,37 @@
+{
+  "type": "HeatProducer",
+  "requirements": [ "lead/300","silicon/160","graphite/180","thorium/60","ferrum/80" ]
+  "category": "crafting",
+  "hasItems": true,
+  "itemCapacity": 80,
+  "warmupRate": 0.05,
+  "heatOutput": 115,
+  "armor": 24,
+  "baseExplosiveness": 10,
+  "consumes": {
+    "items": [ "thorium/40" ]
+  },
+  "craftTime": 14400,
+  "health": 1400,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-lights",
+        "alpha": 0.8,
+        "glowIntensity": 0.1,
+        "glowScale": 2.5,
+        "color": "bf92f9"
+      },
+      { "type": "DrawHeatOutput" }
+    ]
+  },
+  "size": 2,
+  "ambientSound": "loopThoriumReactor",
+  "ambientSoundVolume": 0.14,
+  "updateEffect": "fuelburn",
+  "updateEffectChance": 0.02,
+  "research": "boiler"
+}

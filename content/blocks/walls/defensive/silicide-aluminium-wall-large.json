@@ -1,0 +1,12 @@
+{
+  "type": "Wall",
+  "requirements": [ "aluminium/24","silicide/16" ],
+  "category": "defense",
+  "research": "silicide-aluminium-wall",
+  "health": 2560,
+  "armor": 6,
+  "size": 2,
+  "researchCostMultiplier": 0.2,
+  "crushDamageMultiplier": 0.25,
+  "shownPlanets": [ "cyclant","phoon","maress" ]
+}

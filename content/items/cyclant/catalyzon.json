@@ -1,0 +1,9 @@
+{
+  "color": "a799a6",
+  "hardness": 2,
+  "healthScaling": 0,
+  "cost": 0.7,
+  "charge": 0.2,
+  "research": "aluminium",
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+}

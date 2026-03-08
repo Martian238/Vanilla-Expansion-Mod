@@ -1,0 +1,33 @@
+{
+  "type": "OverdriveProjector",
+  "category": "effect",
+  "reload": 60,
+  "range": 96,
+  "speedBoost": 1.5,
+  "speedBoostPhase": 1,
+  "phaseRangeBoost": 72,
+  "useTime": 240,
+  "lightRadius": 96,
+  "research": {
+    "parent": "overdrive-point",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "shale-quarry"
+      }
+    ]
+  },
+  "consumes": {
+    "power": 3.7,
+    "items": {
+      "items": [ "phase-fabric/1" ],
+      "booster": true,
+      "optional": true
+    }
+  },
+  "size": 2,
+  "researchCostMultiplier": 0.1,
+  "requirements": [ "plastanium/30","lead/195","silicon/160","fibralt/100" ],
+  "health": 800,
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+}

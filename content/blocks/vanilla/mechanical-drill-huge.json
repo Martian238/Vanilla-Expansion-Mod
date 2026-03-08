@@ -1,0 +1,21 @@
+{
+  "type": "Drill",
+  "category": "production",
+  "requirements": [ "copper/50" ],
+  "research": {
+    "parent": "mechanical-drill-micro",
+    "objectives": [ "mechanical-drill" ]
+  },
+  "drillTime": 600,
+  "itemCapacity": 10,
+  "size": 4,
+  "tier": 2,
+  "consumes": {
+    "liquid": {
+      "liquid": "water",
+      "amount": 0.1,
+      "booster": true,
+      "optional": true
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "ShieldWall",
+  "shieldHealth": 1200,
+  "health": 3600,
+  "breakCooldown": 240,
+  "regenSpeed": 2,
+  "lightningChance": 50,
+  "consumes": {
+    "power": 0.1
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly",
+  "size": 2,
+  "category": "defense"
+}

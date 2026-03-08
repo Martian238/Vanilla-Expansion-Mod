@@ -1,0 +1,19 @@
+{
+  "type": "RainWeather",
+  "attrs": {
+    "light": -0.6,
+    "water": 1,
+    "steam": 2
+  },
+  "sound": "si2Rain",
+  "soundVol": 1.2,
+  "status": "wet",
+  "yspeed": 9,
+  "xspeed": 6,
+  "density": 720,
+  "stroke": 1,
+  "padding": 24,
+  "sizeMax": 80,
+  "sizeMin": 16,
+  "opacityMultiplier": 0.7
+}

@@ -1,0 +1,25 @@
+{
+  "type": "SolidPump",
+  "category": "production",
+  "requirements": [ "chromium/180","graphite/200","silicon/40","silicide/70" ],
+  "result": "lava",
+  "pumpAmount": 0.26666666667,
+  "size": 4,
+  "liquidCapacity": 100,
+  "rotateSpeed": 2,
+  "attribute": "sand",
+  "consumes": { "power": 6 },
+  "research": {
+    "parent": "pressure-well",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.3,
+  "updateEffect": "drillSteam",
+  "baseEfficiency": 0,
+  "shownPlanets": [ "cyclant","phoon" ]
+}

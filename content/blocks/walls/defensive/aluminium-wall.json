@@ -1,0 +1,9 @@
+{
+  "type": "Wall",
+  "requirements": [ "aluminium/6" ],
+  "category": "defense",
+  "research": "click",
+  "health": 300,
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","phoon","maress" ]
+}

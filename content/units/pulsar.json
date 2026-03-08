@@ -1,0 +1,74 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus" ],
+  "drag": 0.05,
+  "mineWalls": true,
+  "mineItems": [ "copper","lead","graphite","quartz","aluminium" ],
+  "boostMultiplier": 2.8,
+  "boostWhenMining": true,
+  "immunities": [ "dusty","frozen" ],
+  "weapons": [
+    {
+      "name": "heal-shotgun-weapon",
+      "top": false,
+      "shootY": 2.5,
+      "reload": 36,
+      "x": 5,
+      "shake": 2.2,
+      "y": 0.5,
+      "inaccuracy": 35
+      "ejectEffect": "none",
+      "recoil": 2.5,
+      "shootSound": "shootPulsar",
+      "shoot": {
+        "shots": 3,
+        "shotDelay": 0.5
+      },
+      "bullet": {
+        "type": "LightningBulletType",
+        "lightningColor": "98ffa9",
+        "damage": 15,
+        "lightningLength": 8,
+        "shootEffect": "shootHeal",
+        "lightningLengthRand": 7,
+        "healPercent": 2,
+        "hitColor": "98ffa9",
+        "status": "shocked",
+        "lightningType": {
+          "speed": 0.0001,
+          "damage": 0,
+          "frontColor": "ffffff00",
+          "backColor": "ffffff00",
+          "lifetime": 10,
+          "status": "shocked",
+          "statusDuration": 10,
+          "hittable": false,
+          "hitEffect": "hitLancer",
+          "healPercent": 2,
+          "despawnEffect": "none"
+        }
+      }
+    },
+    {
+      "display": false,
+      "reload": 1,
+      "shootStatus": "walking",
+      "shootStatusDuration": 2,
+      "controllable": false,
+      "alwaysShooting": true,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "mirror": false,
+      "noAttack": true,
+      "bullet": {
+        "instantDisappear": true,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "despawnEffect": "none",
+        "hitEffect": "none",
+        "collides": false,
+        "hittable": false,
+        "absorbable": false
+      }
+    }
+  ]
+}

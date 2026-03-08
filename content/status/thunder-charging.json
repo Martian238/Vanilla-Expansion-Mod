@@ -1,0 +1,24 @@
+{
+  "color": "00ffce",
+  "show": false,
+  "effect": {
+    "type": "ParticleEffect",
+    "particles": 4,
+    "line": true,
+    "strokeFrom": 3,
+    "strokeTo": 0,
+    "lenFrom": 10,
+    "lenTo": 0,
+    "length": 20,
+    "baseLength": 0,
+    "lifetime": 10,
+    "colorFrom": "ffffff",
+    "colorTo": "00ffce"
+  },
+  "applyEffect": "none",
+  "reloadMultiplier": 2.5,
+  "healthMultiplier": 0.6,
+  "effectChance": 0.3,
+  "speedMultiplier": 0,
+  "dragMultiplier": 2
+}

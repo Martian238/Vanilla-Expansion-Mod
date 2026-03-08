@@ -1,0 +1,15 @@
+{
+  "color": "f17e10",
+  "barColor": "df1717",
+  "lightColor": "df171744",
+  "temperature": 1.2,
+  "effect": "melting",
+  "boilPoint": 2,
+  "viscosity": 0.95,
+  "heatCapacity": 0.2,
+  "research": {
+    "parent": "quartz"
+  },
+  "canStayOn": [ "slag" ],
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+}

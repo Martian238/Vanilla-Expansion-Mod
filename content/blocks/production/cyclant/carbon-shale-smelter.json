@@ -1,0 +1,36 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "aluminium/60","lead/55","silicide/30" ],
+  "category": "crafting",
+  "craftEffect": "smeltsmoke",
+  "size": 2,
+  "outputItems": [ "silicon/2","sand/5" ]
+  "craftTime": 120,
+  "itemCapacity": 20,
+  "hasPower": true,
+  "hasItems": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffef99",
+        "flameRadiusScl": 10
+      }
+    ]
+  }
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.09,
+  "consumes": {
+    "items": {
+      "items": [ "carbon-shale-cobble/2" ]
+    },
+    "power": 1.3
+  },
+  "research": {
+    "parent": "titanium-extractor"
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

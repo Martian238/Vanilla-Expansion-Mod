@@ -1,0 +1,147 @@
+{
+  "type": "missile",
+  "template": "MissileUnitType",
+  "lifetime": 300,
+  "engineSize": 0,
+  "health": 50,
+  "rotateSpeed": 1,
+  "missileAccelTime": 0,
+  "physics": false,
+  "bounded": false,
+  "drawCell": false,
+  "drawBody": true,
+  "lightRadius": 8,
+  "lightColor": "7457ce",
+  "deathExplosionEffect": "none",
+  "maxRange": 20,
+  "deathShake": 0,
+  "hittable": true,
+  "targetable": true,
+  "deathSound": "none",
+  "wobble": false,
+  "speed": 1.5,
+  "flyingLayer": 90.7,
+  "hitSize": 16,
+  "hidden": false,
+  //"loopSound": "none",
+  "hidden": true,
+  "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
+  "parts": [
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "hollow": true,
+          "radius": 48,
+          "color": "7457ce",
+          "colorTo": "7457ce",
+          "stroke": 0,
+          "strokeTo": 1,
+          "radiusTo": 48,
+          "progress": "life",
+          "layer": 90.4
+        },
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "hollow": false,
+          "radius": 0,
+          "color": "7457ce88",
+          "colorTo": "7457ce88"
+          "radiusTo": 48,
+          "progress": "life",
+          "layer": 90.4
+        },
+    {
+      "type": "EffectSpawnerPart",
+      "width": 0,
+      "height": 0,
+      "x": 0,
+      "y": -4,
+      "effectRandRot": 360,
+      "useProgress": false,
+      "effectChance": 0.5,
+      "effect": {
+        "type": "ParticleEffect",
+        "layer": 90.6,
+        "colorFrom": "7c4b80aa",
+        "colorTo": "6b447400",
+        "length": 10,
+        "lifetime": 40,
+        "sizeFrom": 3,
+        "sizeTo": 6,
+        "particles": 1
+      }
+    },
+    {
+      "type": "EffectSpawnerPart",
+      "width": 1,
+      "height": 1,
+      "x": 0,
+      "y": 0,
+      "effectRandRot": 360,
+      "useProgress": false,
+      "effectChance": 0.1,
+      "effect": {
+        "type": "ParticleEffect",
+        "layer": 89.5,
+        "colorFrom": "7c4b80aa",
+        "colorTo": "6b447400",
+        "length": 10,
+        "lifetime": 40,
+        "sizeFrom": 6,
+        "sizeTo": 4,
+        "particles": 1
+      }
+    }
+  ],
+  "weapons": [
+    {
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "shootOnDeath": true,
+      "shootSound": "none",
+      "mirror": false,
+      "shootCone": 361,
+      "inaccuracy": 360,
+      "bullet": {
+        "maxRange": 16,
+        "killShooter": true,
+        "instantDisappear": true,
+        "splashDamage": 100,
+        "scaledSplashDamage": false,
+        "splashDamageRadius": 48,
+        "despawnHit": true,
+        "despawnEffect": {
+          "type": "SoundEffect",
+          "sound": "explosionCrawler",
+          "effect": "blastExplosion"
+        },
+        "hitEffect": {
+          "type": "ExplosionEffect",
+          "waveColor": "7457ce",
+          "waveStroke": 2,
+          "smokeColor": "7c4b8088",
+          "sparkColor": "7457ce",
+          "sparks": 8,
+          "sparkLen": 10,
+          "sparkStroke": 2,
+          "sparkRad": 48,
+          "smokeSize": 12,
+          "smokeRad": 56,
+          "lifetime": 60,
+          "waveRad": 48,
+          "smokes": 24
+        },
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitSound": [ "lbp3Splat1","lbp3Splat2","lbp3Splat3" ],
+        "despawnSound": [ "lbp3Splat1","lbp3Splat2","lbp3Splat3" ],
+        "hitShake": 6,
+        "despawnShake": 6,
+        "status": "spore-slowed",
+        "statusDuration": 300
+      }
+    }
+  ]
+}

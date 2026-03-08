@@ -1,0 +1,22 @@
+{
+  "type": "StorageBlock",
+  "requirements": [ "titanium/100","silicide/30" ],
+  "category": "effect",
+  "research": {
+    "parent": "bank-silicide",
+    "objectives": [ 
+      "container",
+      "titanium-extractor"
+    ]
+  },
+  "size": 2,
+  "itemCapacity": 400,
+  "researchCostMultiplier": 0.1,
+  "armor": 24,
+  "health": 3000,
+  "crushDamageMultiplier": 0.05,
+  "shownPlanets": [ "serpulo","cyclant","phoon" ],
+  "drawTeamOverlay": false,
+  "flammabilityScale": 0,
+  "explosivenessScale": 0.5
+}

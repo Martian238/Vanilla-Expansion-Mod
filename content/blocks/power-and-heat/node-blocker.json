@@ -1,0 +1,14 @@
+{
+  "type": "Wall",
+  "requirements": [ "quartz/4" ],
+  "category": "power",
+  "research": "power-battery",
+  "health": 40,
+  "solid": true,
+  "researchCostMultiplier": 1,
+  "insulated": true,
+  "absorbLasers": false,
+  "schematicPriority": 10,
+  "buildCostMultiplier": 1,
+  "shownPlanets": [ "serpulo","cyclant","maress","sitrullus","phoon" ]
+}

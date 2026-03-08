@@ -1,0 +1,10 @@
+{
+  "color": "00ffce",
+  "cost": 1.2,
+  "shownPlanets": [ "maress" ],
+  "charge": 1.5,
+  "explosiveness": 0.5,
+  "research": "tantalum",
+  "frames": 18,
+  "frameTime": 5
+}

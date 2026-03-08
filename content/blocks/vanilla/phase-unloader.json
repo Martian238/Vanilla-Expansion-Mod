@@ -1,0 +1,16 @@
+{
+  "type": "Unloader",
+  "category": "distribution",
+  "requirements": [
+    "graphite/25","silicon/30","plastanium/25","phase-fabric/15"
+  ],
+  "size": 1,
+  "speed": 1,
+  "group": "transportation",
+  "research": {
+    "parent": "phase-conveyor",
+    "objectives": [ "unloader" ]
+  },
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon" ]
+  //"health": 200
+}

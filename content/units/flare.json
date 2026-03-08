@@ -1,0 +1,48 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus" ],
+  "immunities": [ "frozen" ],
+  "omniMovement": true,
+  "engineLayer": 114.99,
+  "wreckSound": [ "roExplodingFlyHit1","roExplodingFlyHit2","roExplodingFlyHit3" ],
+  "weapons": [
+    {
+      "y": 1,
+      "x": 0,
+      //"minShootVelocity": 2,
+      "shootCone": 10,
+      "reload": 80,
+      "shoot": {
+        "shots": 3,
+        "shotDelay": 3
+      },
+      "mirror": false,
+      "ejectEffect": "casing1",
+      "shootSound": "pewClassicEdited",
+      "bullet": {
+        "type": "MultiBulletType",
+        "bullets": [
+          {
+            "speed": 2.5,
+            "damage": 9,
+            "lifetime": 45,
+            "width": 7,
+            "height": 9
+          },
+          {
+            "speed": 2.5,
+            "damage": 9,
+            "lifetime": 90,
+            "width": 7,
+            "height": 9,
+            "randomAngleOffset": 35
+          }
+        ],
+        "shootEffect": "shootSmall",
+        "smokeEffect": "shootSmallSmoke",
+        "ammoMultiplier": 2,
+        "maxRange": 112.5,
+        "damage": 9
+      }
+    }
+  ]
+}

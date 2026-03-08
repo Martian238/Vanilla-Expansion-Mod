@@ -1,0 +1,11 @@
+{
+  "opposites": [ "tarred","melting" ],
+  "effect": "none",
+  "color": "d4e5ed",
+  "permanent": false,
+  "buildSpeedMultiplier": 0.25,
+  "applyEffect": "none",
+  "affinities": [ "wet","freezing","muddy","corroded" ],
+  "transitionDamage": 50,
+  "show": true
+}

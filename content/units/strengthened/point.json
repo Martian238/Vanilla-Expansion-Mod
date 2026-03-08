@@ -1,0 +1,53 @@
+{
+  //"type": "flying",
+  "research": {
+    "parent": "aurora",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "unit-laboratory"
+      }
+    ],
+    "requirements": [ "silicon/4500","quartz/2000" ]
+  },
+  "isEnemy": false,
+  "lowAltitude": true,
+  "defaultCommand": "mine",
+  //"defaultController": "MinerAI",
+  "fogRadius": 0,
+  "flying": true,
+  "drag": 0.06,
+  "speed": 3.3,
+  "rotateSpeed": 15,
+  "mineBeamOffset": 4.5,
+  "accel": 0.1,
+  "health": 180,
+  "armor": 0,
+  "engineOffset": 6,
+  "engineSize": 2.75,
+  "hitSize": 10,
+  "targetPriority": -3,
+  "itemCapacity": 60,
+  "faceTarget": false,
+  "buildSpeed": 0.8,
+  "buildBeamOffset": 0.75,
+  "mineTier": 3,
+  "controlSelectGlobal": false,
+  "mineSpeed": 9,
+  "mineWalls": true,
+  "mineRange": 120,
+  "mineItems": [ "copper","lead","aluminium","titanium","cobalt","quartz","silver","ferrum","beryllium" ],
+  "targetable": false,
+  "lightColor": "98ffa9",
+  "immunities": [ "frozen","disarmed" ],
+  "shownPlanets": [ "cyclant","phoon","maress","serpulo","sitrullus" ],
+  "abilities": [
+    {
+      "type": "RegenAbility",
+      "amount": 0.3
+
+
+
+    }
+  ]
+}

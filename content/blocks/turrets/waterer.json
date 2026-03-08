@@ -1,0 +1,71 @@
+{
+  "type": "LiquidTurret",
+  "requirements": [ "aluminium/25","metaglass/25" ],
+  "category": "turret",
+  "size": 1,
+  "ammoTypes": {
+    "water": {
+      "type": "LiquidBulletType",
+      "liquid": "water",
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 0.4,
+      "layer": 98,
+      "damage": 0,
+      "puddleSize": 4,
+      "status": "wet",
+      "statusDuration": 90
+    },
+    "oil": {
+      "type": "LiquidBulletType",
+      "liquid": "oil",
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 0.4,
+      "layer": 98,
+      "ammoMultiplier": 3,
+      "damage": 0,
+      "puddleSize": 4,
+      "status": "tarred",
+      "statusDuration": 90
+    },
+    "cryofluid": {
+      "type": "LiquidBulletType",
+      "liquid": "cryofluid",
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 0.4,
+      "ammoMultiplier": 3,
+      "damage": 0,
+      "puddleSize": 4,
+      "status": "freezing",
+      "statusDuration": 90
+    }
+  },
+  "shoot": {
+    "shots": 3,
+    "shotDelay": 2
+  },
+  "recoil": 0,
+  "shootSound": "none",
+  "inaccuracy": 5,
+  "shootCone": 50,
+  "liquidCapacity": 15,
+  "shootX": 0,
+  "shootY": 3.25,
+  "reload": 6,
+  "range": 110,
+  "health": 300,
+  "rotateSpeed": 20,
+  "research": {
+    "parent": "pulse",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "wetland-miningfield"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

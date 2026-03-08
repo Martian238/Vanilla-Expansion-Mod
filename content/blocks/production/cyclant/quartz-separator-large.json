@@ -1,0 +1,51 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "aluminium/55","chromium/30","graphite/40" ],
+  "category": "crafting",
+  "research": {
+    "parent": "quartz-separator",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "size": 2,
+  "outputItem": "quartz/4",
+  "craftEffect": "pulverize",
+  "itemCapacity": 20,
+  "craftTime": 50,
+  "updateEffect": "pulverizeSmall",
+  "hasItems": true,
+  "hasPower": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawRegion",
+        "spinSprite": true,
+        "rotateSpeed": 4,
+        "suffix": "-rotator1"
+      },
+      {
+        "type": "DrawRegion",
+        "spinSprite": true,
+        "rotateSpeed": -6,
+        "suffix": "-rotator2"
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-top"
+      }
+    ]
+  },
+  "ambientSound": "loopGrind",
+  "ambientSoundVolume": 0.07,
+  "consumes": {
+    "items": [ "sand/6" ],
+    "power": 0.7
+  },
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

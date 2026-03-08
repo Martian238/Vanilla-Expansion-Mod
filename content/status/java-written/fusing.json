@@ -1,0 +1,12 @@
+{
+  "color": "f17e10",
+  "affinities": [ "tarred","sodiumified","blasted" ],
+  "transitionDamage": 100,
+  "show": true,
+  "effect": "melting",
+  "applyEffect": "none",
+  "damage": 0.5,
+  "speedMultiplier": 0.5,
+  "dragMultiplier": 1.5,
+  "effectChance": 0.5
+}

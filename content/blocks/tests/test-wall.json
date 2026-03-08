@@ -1,0 +1,13 @@
+{
+  "type": "Wall",
+  "chanceDeflect": 100,
+  "flashHit": true,
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly",
+  "category": "defense",
+  "size": 2,
+  "health": 624,
+  "attributes": {
+    "sand": 1
+  }
+}

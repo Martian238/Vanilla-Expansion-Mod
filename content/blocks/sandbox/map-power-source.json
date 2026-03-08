@@ -1,0 +1,21 @@
+{
+  "type": "ConsumeGenerator",
+  "category": "power",
+  "buildVisibility": "sandboxOnly",
+  "alwaysUnlocked": true,
+  "health": 2147483647,
+  "armor": 2147483647,
+  "destructible": false,
+  "targetable": false,
+  "underBullets": true,
+  "powerProduction": 99999,
+  "hasColor": true,
+  "mapColor": "000000",
+  "drawer": {
+    "type": "DrawRegion",
+    "suffix": "-dark",
+    "layer": 81
+  },
+  "drawTeamOverlay": false,
+  "useColor": false
+}

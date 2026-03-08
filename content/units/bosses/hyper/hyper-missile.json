@@ -1,0 +1,158 @@
+{
+  "type": "missile",
+  "template": "MissileUnitType",
+  "allowedInPayloads": true,
+  "logicControllable": true,
+  "lifetime": 180,
+  "engineOffset": 14,
+  "engineSize": 4,
+  "speed": 8,
+  "rotateSpeed": 1,
+  "maxRange": 24,
+  "health": 500,
+  "armor": 6,
+  "lowAltitude": true,
+  "missileAccelTime": 10,
+  "hidden": false,
+  "hitSize": 12,
+  "flying": true,
+  "alwaysUnlocked": true,
+  "outlineColor": "565666",
+  "engineColor": "98ffa9",
+  "trailColor": "98ffa9",
+  "immunities": [ "coordinate","interrupted","blown","disarmed","sodiumified" ],
+  "deathSound": "shootLancer",
+  "shadowElevation": 3,
+  "envDisabled": 0,
+  "lightColor": "98ffa9",
+  "drawCell": true,
+  "weapons": [
+    {
+      "reload": 1,
+      "shootOnDeath": true,
+      "mirror": false,
+      "shootCone": 360,
+      "shootSound": "shootNavanax",
+      "bullet": {
+        "maxRange": 64,
+        "type": "ExplosionBulletType",
+        "shootEffect": {
+          "type": "ExplosionEffect",
+          "waveColor": "98ffa9",
+          "smokeColor": "98ffa9",
+          "sparkColor": "98ffa9",
+          "sparks": 20,
+          "smokeRad": 120,
+          "waveRad": 160,
+          "sparkRad": 160,
+          "smokes": 13,
+          "lifetime": 60
+        },
+        "lightColor": "98ffa9",
+        "lightRadius": 120,
+        "lifetime": 30,
+        "splashDamage": 200,
+        "splashDamageRadius": 120,
+        "damage": 2000,
+        "hitShake": 8,
+        "despawnShake": 8,
+        "healAmount": 1000,
+        "fragBullets": 1,
+          "fragBullet": {
+            "type": "EmpBulletType",
+            "hittable": false,
+            "radius": 160,
+            "timeIncrease": 1.5,
+            "timeDuration": 900,
+            "powerDamageScl": 8,
+            "powerSclDecrease": 0.5,
+            "instantDisappear": true,
+            "damage": 0,
+            "splashDamage": 360,
+            "collidesAir": false,
+            "splashDamageRadius": 160,
+            "status": "electrified",
+            "statusDuration": 240,
+            "despawnEffect": "none",
+            "despawnShake": 4,
+            "hitShake": 4,
+            "healAmount": 3000,
+        "despawnHit": true,
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "98ffa9",
+                  "colorFrom": "ffffff",
+                  "colorTo": "98ffa9",
+                  "sizeTo": 160,
+                  "strokeFrom": 2,
+                  "strokeTo": 1,
+                  "lifetime": 7
+                },
+          {
+            "type": "WaveEffect",
+            "lightColor": "98ffa9",
+            "startDelay": 7,
+            "colorFrom": "98ffa9",
+            "colorTo": "98ffa900",
+            "sizeFrom": 160,
+            "sizeTo": 160,
+            "strokeFrom": 1,
+            "strokeTo": 1,
+            "lifetime": 90,
+            "interp": "circleIn"
+          },
+          {
+            "type": "WaveEffect",
+            "lightColor": "98ffa9",
+            "startDelay": 7,
+            "colorFrom": "98ffa9",
+            "colorTo": "98ffa900",
+            "sizeFrom": 160,
+            "sizeTo": 155,
+            "strokeFrom": 1,
+            "strokeTo": 0,
+            "lifetime": 60,
+            "interp": "circleOut"
+          },
+          {
+            "type": "WaveEffect",
+            "lightColor": "98ffa9",
+            "startDelay": 7,
+            "colorFrom": "98ffa9",
+            "colorTo": "98ffa900",
+            "sizeFrom": 160,
+            "sizeTo": 165,
+            "strokeFrom": 1,
+            "strokeTo": 0,
+            "lifetime": 60,
+            "interp": "circleOut"
+          }
+          ]
+        }
+        }
+      }
+    },
+    {
+      "type": "PointDefenseWeapon",
+      "name": "point-defense-mount"
+      "x": 0,
+      "y": -0.25,
+      "reload": 3,
+      "targetInterval": 5,
+      "targetSwitchInterval": 5,
+      "heatColor": "ffffffee",
+      "cooldownTime": 10,
+      "shootSound": "shootSegment",
+      "mirror": false,
+      "bullet": {
+        "maxRange": 180,
+        "damage": 36,
+        "hitEffect": "pointHit",
+        "shootEffect": "sparkShoot"
+      }
+    }
+  ]
+}

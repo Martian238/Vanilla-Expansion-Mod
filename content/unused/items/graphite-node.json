@@ -1,0 +1,11 @@
+{
+  "color": "b2c6d2",
+  "cost": 1,
+  "research": {
+    "parent": "coal-node",
+    "objectives": [ "graphite" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

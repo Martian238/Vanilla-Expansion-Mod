@@ -1,0 +1,12 @@
+{
+  "color": "9eabf7",
+  "gas": true,
+  "flammability": 1,
+  "research": {
+    "parent": "water-node",
+    "objectives": [ "hydrogen" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

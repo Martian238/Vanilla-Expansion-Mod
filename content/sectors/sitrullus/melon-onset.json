@@ -1,0 +1,21 @@
+{
+  "planet": "sitrullus",
+  "sector": 15,
+  "difficulty": 1,
+  "research": {
+    "parent": "core-nucleus-root-sitrullus",
+    /*"objectives": [
+      "interplanetary-accelerator",
+      "core-nucleus"
+    ]*/
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 20,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": false,
+  "allowLaunchLoadout": false
+}
+
+
+

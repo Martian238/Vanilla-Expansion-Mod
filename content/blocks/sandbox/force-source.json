@@ -1,0 +1,20 @@
+{
+  "type": "BaseShield",
+  "radius": 40,
+  "sides": 24,
+  "buildVisibility": "sandboxOnly"
+  "alwaysUnlocked": true,
+  "size": 1,
+  "category": "effect",
+  "solid": false,
+  "destructible": false,
+  "targetable": false,
+  "underBullets": true,
+  "canOverdrive": false,
+  "drawDisabled": false,
+  "health": 2147483247,
+  "armor": 2147483247,
+  "hasPower": false,
+  "rebuildable": true,
+  "absorbLasers": true
+}

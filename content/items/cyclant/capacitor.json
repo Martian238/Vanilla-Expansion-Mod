@@ -1,0 +1,9 @@
+{
+  "color": "e8d174",
+  "healthScaling": 0,
+  "cost": 1.2,
+  "charge": 3.6,
+  "research": "cobalt",
+  "explosiveness": 1,
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+}

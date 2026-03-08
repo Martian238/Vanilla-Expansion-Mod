@@ -1,0 +1,83 @@
+{
+  "type": "PointDefenseTurret",
+  "category": "effect",
+  "requirements": [ "aluminium/200","silicon/200","phase-fabric/50","warp-nucleus/30" ],
+  "color": "bf92f9",
+  "beamEffect": "chainLightning",
+  "retargetTime": 1,
+  "range": 200,
+  "reload": 0,
+  "rotateSpeed": 360,
+  "shootEffect": {
+    "type": "MultiEffect",
+    "effects": [ "hitLaserBlast",
+      {
+        "type": "WaveEffect",
+        "colorFrom": "bf92f9aa",
+        "colorTo": "bf92f900",
+        "sizeFrom": 0,
+        "sizeTo": 40,
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sides": 24,
+        "interp": "circleOut",
+        "lifetime": 20
+      },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "bf92f9",
+        "colorTo": "bf92f900",
+        "sizeFrom": 0,
+        "sizeTo": 4,
+        "strokeFrom": 5,
+        "strokeTo": 4,
+        "sides": 24,
+        "interp": "circleOut",
+        "lifetime": 20
+      },
+      {
+        "type": "ParticleEffect",
+        "sizeFrom": 4,
+        "sizeTo": 0,
+        "particles": 1,
+        "length": 0,
+        "baseLength": 0,
+        "colorFrom": "ffffff",
+        "colorTo": "bf92f9",
+        "lifetime": 20,
+        "interp": "circleIn"
+      }
+    ]
+  },
+  "consumes": {
+    "power": 10
+  },
+  "shootLength": 5,
+  "bulletDamage": 30,
+  "hasPower": true,
+  "size": 3,
+  /*"drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawShape",
+        "sides": 24,
+        "color": "bf92f9",
+        "layer": 105,
+        "radius": 3
+      },
+      {
+        "type": "DrawShape",
+        "sides": 24,
+        "color": "ffffff",
+        "layer": 110,
+        "radius": 2.5
+      }
+    ]
+  },*/
+  "research": {
+    "parent": "forcerator",
+  },
+  "researchCostMultiplier": 0.3,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

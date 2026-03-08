@@ -1,0 +1,10 @@
+{
+  "color": "777777",
+  "research": {
+    "parent": "sand-node",
+    "objectives": [ "scrap" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

@@ -1,0 +1,88 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [
+    "aluminium/150","graphite/100","lead/80","ferrum/40"
+  ],
+  "researchCost": [ "aluminium/75","graphite/50","lead/40","ferrum/20" ],
+  "category": "crafting"
+  "research": {
+    "parent": "blast-furnace"
+  },
+  "size": 3,
+  "craftTime": 120,
+  "itemCapacity": 30,
+  "hasItems": true,
+  "hasPower": true,
+  "consumes": {
+    "items": {
+      "items": [ "red-soil/5","coal/7" ]
+    },
+    "power": 1.3
+  },
+  "armor": 4,
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.12,
+  "craftEffect": {
+    "type": "RadialEffect",
+    "effect": {
+      "type": "MultiEffect",
+      "effects": [ "heatReactorSmoke",
+        "smeltsmoke" ],
+    },
+    "rotationOffset": 45,
+    "rotationSpacing": 90,
+    "amount": 4,
+    "lengthOffset": 4.25
+  },
+  "outputItems": [ "ferrum/4","silicon/3" ],
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawRegion", "suffix": "" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "alpha": 0.9,
+        "color": "ffffff",
+        "blending": "normal",
+        "glowIntensity": 0,
+        "layer": -1
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-heat",
+        "alpha": 0.9,
+        "color": "ffa665",
+        "glowScale": 5
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffb6a5",
+        "flameX": -3,
+        "flameY": 3,
+        "flameRadius": 3
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffd19a",
+        "flameX": 3,
+        "flameY": 3,
+        "flameRadius": 3
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffd19a",
+        "flameX": -3,
+        "flameY": -3,
+        "flameRadius": 3
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffc999",
+        "flameX": 3,
+        "flameY": -3,
+        "flameRadius": 3
+      }
+    ]
+  }
+}

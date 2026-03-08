@@ -1,0 +1,17 @@
+{
+  "type": "Floor",
+  "speedMultiplier": 0.2,
+  "variants": 0,
+  "liquidDrop": "water",
+  "liquidMultiplier": 1.5,
+  "isLiquid": true,
+  "status": "wet",
+  "statusDuration": 120,
+  "cacheLayer": "water",
+  "albedo": 0.9,
+  "supportsOverlay": true,
+  "mapColor": "3d4980",
+  "hasColor": true,
+  "useColor": false,
+  "drownTime": 0
+}

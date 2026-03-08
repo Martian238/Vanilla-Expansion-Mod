@@ -1,0 +1,72 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [
+    "ferrum/100","silicide/100","graphite/60","silicon/40"
+  ],
+  "category": "crafting",
+  "research": {
+    "parent": "multi-furnace"
+  },
+  "size": 4,
+  "craftTime": 90,
+  "itemCapacity": 50,
+  "hasItems": true,
+  "hasPower": true,
+  "hasLiquids": true,
+  "liquidCapacity": 60,
+  "consumes": {
+    "items": {
+      "items": [ "red-soil/15" ]
+    },
+    "liquids": [ "hydrogen/0.2" ]
+    "power": 5.5
+  },
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.14,
+  "craftEffect": "drillSteam",
+  "outputItems": [ "ferrum/12","silicon/9" ],
+  "outputLiquid": "water/0.333333333333",
+  "warmupSpeed": 0.005,
+  "baseExplosiveness": 5,
+  "updateEffect": {
+      "type": "WrapEffect"
+      "effect": "mine",
+      "color": "d1efff"
+  },
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen"
+      },
+      { "type": "DrawRegion", "suffix": "" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow2",
+        "alpha": 0.7,
+        "color": "d1efff",
+        "glowScale": 3,
+        "glowIntensity": 0.1
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow1",
+        "alpha": 0.9,
+        "color": "ffa665",
+        "glowScale": 5
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "d1efff",
+        "flameRadius": 5,
+        "flameRadiusIn": 3,
+        "lightRadius": 45
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "PayloadConveyor",
+  "requirements": [ "aluminium/10","graphite/10" ],
+  "category": "units",
+  "size": 3,
+  "research": {
+    "parent": "ground-fabricator"
+  },
+  "canOverdrive": true,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

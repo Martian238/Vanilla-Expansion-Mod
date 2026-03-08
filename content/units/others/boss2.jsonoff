@@ -1,0 +1,120 @@
+{
+  "type": "flying",
+  "flying": true,
+  "speed": 1,
+  "accel": 0.05,
+  "drag": 0.03,
+  "lowAltitude": true,
+  "engineOffset": 9,
+  "engineSize": 4,
+  "hitSize": 17,
+  "engines": [
+    {
+      "x": 9,
+      "y": -10,
+      "rotation": -45,
+      "radius": 3.5
+    },
+    {
+      "x": -9,
+      "y": -10,
+      "rotation": -135,
+      "radius": 3.5
+    }
+  ],
+  "health": 3100,
+  "armor": 7,
+  "rotateSpeed": 2,
+  "faceTarget": false,
+  "buildVisibility": "sandboxOnly",
+  "targetFlags": 
+[ "turret","battery","reactor","factory" ],
+  "parentizeEffects": true,
+  "weapons": [
+    {
+      "name": "boss2-weapon",
+      "x": 0,
+      "y": -3,
+      "mirror": false,
+      "rotate": true,
+      "rotateSpeed": 2,
+      "shadow": 20,
+      "top": true,
+      "recoil": 5,
+      "reload": 240,
+      "shootSound": "railgun",
+      "shake": 5,
+      "shoot": { "firstShotDelay": 50 },
+      "shootStatus": "drag",
+      "shootStatusDuration": 60,
+      "bullet": {
+        "type": "PointBulletType",
+        "chargeEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "ParticleEffect",
+              "particles": 1,
+              "sizeFrom": 0,
+              "sizeTo": 4,
+              "colorFrom": "ffffff",
+              "colorTo": "f25555"
+              "lifetime": 40,
+              "length": 0,
+              "baseLength": 0,
+              "startDelay": 15
+            },
+            {
+              "type": "WaveEffect",
+              "lightColor": "f25555",
+              "colorFrom": "f25555",
+              "sizeTo": 0,
+              "sizeFrom": 24,
+              "sides": 24,
+              "strokeFrom": 0,
+              "strokeTo": 2.5,
+              "lifetime": 35
+            }
+          ]
+        },
+        "speed": 8.08,
+        "shootEffect": "none",
+        "smokeEffect": "smokeCloud",
+        "trailSpacing": 5,
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "sizeFrom": 2.5,
+          "sizeTo": 0,
+          "colorFrom": "ffffff",
+          "colorTo": "f25555"
+        },
+        "hitEffect": {
+          "type": "WaveEffect",
+          "lightColor": "f25555",
+          "colorTo": "f25555",
+          "sizeTo": 32,
+          "sides": 24,
+          "strokeFrom": 10,
+          "lifetime": 15
+        },
+        "despawnEffect": {
+          "type": "WaveEffect",
+          "lightColor": "f25555",
+          "colorTo": "f25555",
+          "sizeTo": 32,
+          "sides": 24,
+          "strokeFrom": 10,
+          "lifetime": 15
+        },
+        "damage": 1,
+        "buildingDamageMultiplier": 20000,
+        "hitShake": 8,
+        "collidesAir": false,
+        "collidesGround": false,
+        "collidesTile": true,
+        "collides": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "Floor",
+  "speedMultiplier": 0.4,
+  "variants": 3,
+  "liquidDrop": "water",
+  "liquidMultiplier": 1,
+  "isLiquid": true,
+  "status": "wet",
+  "statusDuration": 120,
+  "cacheLayer": "water",
+  "supportsOverlay": true,
+  "drownTime": 0,
+  "attributes": {
+    "spore": 2,
+    "steam": -9.99
+  }
+}

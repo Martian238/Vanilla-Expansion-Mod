@@ -1,0 +1,75 @@
+{
+  "type": "ConsumeGenerator",
+  "requirements": [ "lead/100","graphite/80","silicide/60","chromium/30" ],
+  "category": "power",
+  "powerProduction": 297.5,
+  "itemDuration": 10,
+  "ambientSound": "loopHum",
+  "ambientSoundVolume": 0,
+  "size": 2,
+  "consumes": {
+    "items": [ "capacitor/1" ]
+  },
+  "itemCapacity": 10,
+  /*"drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      { 
+        "type": "DrawFade",
+        "suffix": "-heat"
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffc59a",
+        "flameRadius": 1.3,
+        "flameRadiusIn": 1
+      }
+    ]
+  },*/
+  "consumeEffect": {
+    "type": "MultiEffect",
+    "effects": [
+  {
+    "type": "ParticleEffect",
+    "particles": 4,
+    "line": true,
+    "strokeFrom": 3,
+    "strokeTo": 0,
+    "lenFrom": 10,
+    "lenTo": 0,
+    "length": 20,
+    "baseLength": 0,
+    "lifetime": 10,
+    "colorFrom": "ffffff",
+    "colorTo": "f3e979"
+  },
+  {
+    "type": "ParticleEffect",
+    "particles": 1,
+    "colorFrom": "ffffff44",
+    "colorTo": "ffffff00",
+    "region": "ve-discharger-heat",
+    "sizeFrom": 8,
+    "sizeTo": 8,
+    "length": 0,
+    "baseLength": 0,
+    "lifetime": 60,
+    "layer": 30.1
+  },
+  {
+    "type": "SoundEffect",
+    "sound": "roSpark",
+    "minVolume": 0.2,
+    "maxVolume": 0.2,
+    "effect": "none"
+  }
+  ]
+  },
+  "research": {
+    "parent": "charger"
+  },
+  "researchCostMultiplier": 0.05,
+  "generateEffectRange": 0,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

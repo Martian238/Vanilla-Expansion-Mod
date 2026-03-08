@@ -1,0 +1,22 @@
+{
+  "type": "PowerNode",
+  "requirements": [ "lead/5","quartz/10" ],
+  "category": "power",
+  "laserRange": 16,
+  "maxNodes": 3,
+  "research": {
+    "parent": "node-blocker",
+    "objectives": [   
+      "isomorphic-memory"
+    ]
+  },
+  "researchCostMultiplier": 1,
+  "insulated": true,
+  "conductivePower": false,
+  "autolink": false,
+  "health": 300,
+  "drawRange": true,
+  "absorbLasers": true,
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon" ],
+  "drawTeamOverlay": false
+}

@@ -1,0 +1,12 @@
+{
+  "type": "PayloadRouter",
+  "requirements": [ "aluminium/10","graphite/15","lead/15" ],
+  "category": "units",
+  "size": 3,
+  "research": {
+    "parent": "payload-rail"
+  },
+  "canOverdrive": true,
+  "moveTime": 45,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

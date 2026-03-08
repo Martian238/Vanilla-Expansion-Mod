@@ -1,0 +1,23 @@
+{
+  "type": "SolarGenerator",
+  "category": "power",
+  "requirements": [ "aluminium/5","catalyzon/10" ],
+  "powerProduction": 0.8,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawFade",
+        "suffix": "-fade",
+        "scale": 120,
+        "alpha": 1
+      }
+    ]
+  },
+  "research": "geothermal-generator",
+  "size": 2,
+  "solid": false,
+  "underBullets": true,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

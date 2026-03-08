@@ -1,0 +1,10 @@
+{
+  "type": "Duct",
+  "requirements": [ "astro-plate/1","phecteel/1" ],
+  "category": "distribution",
+  "health": 300,
+  "armor": 32,
+  "speed": 1,
+  "crushDamageMultiplier": 0,
+  "hidden": true
+}

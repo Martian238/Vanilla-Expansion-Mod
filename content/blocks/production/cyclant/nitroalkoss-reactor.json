@@ -1,0 +1,73 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "chromium/100","silicon/80","catalyzon/20","nitroalkoss/50" ],
+  "category": "crafting",
+  "outputLiquids": [ "chlorine/0.2" ],
+  "research": {
+    "parent": "nitroalkoss-cultivator",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "isolate-island"
+      }
+    ]
+  },
+  "consumes": {
+    "items": {
+      "items": [ "coal/6" ]
+    },
+    "liquids": {
+      "liquids": [ "water/0.4" ]
+    }
+    "power": 1.25
+  },
+  "baseExplosiveness": 10,
+  "hasItems": true,
+  "hasLiquids": true,
+  "hasPower": true,
+  "craftEffect": "none",
+  "liquidCapacity": 100,
+  "itemCapacity": 20,
+  "craftTime": 300,
+  "warmupSpeed": 0.001,
+  "size": 3,
+  "armor": 6,
+  "crushDamageMultiplier": 0.2,
+  "legacyReadWarmup": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water"
+      },
+      { 
+        "type": "DrawCultivator",
+        "plantColorLight": "ff8a6780",
+        "plantColor": "e1604980",
+        "bottomColor": "ba352b80"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "chlorine"
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": ""
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "alpha": 0.5,
+        "color": "ff8a67",
+        "glowScale": 8
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

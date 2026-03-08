@@ -1,0 +1,14 @@
+{
+  "color": "ffa166",
+  "temperature": 1,
+  "effect": "melting",
+  "viscosity": 0.7,
+  "lightColor": "f0511d40"
+  "research": {
+    "parent": "scrap-node",
+    "objectives": [ "slag" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

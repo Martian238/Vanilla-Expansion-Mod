@@ -1,0 +1,43 @@
+{
+  "type": "ThermalGenerator",
+  "requirements": [ "aluminium/40","graphite/35","lead/50","silicide/40","silicon/35" ],
+  "category": "power",
+  "powerProduction": 1.8,
+  "generateEffect": "redgeneratespark",
+  "effectChance": 0.011,
+  "size": 2,
+  "floating": false,
+  "ambientSound": "loopDifferential",
+  "ambientSoundVolume": 0.06,
+  "health": 160,
+  "armor": 6,
+  "research": {
+    "parent": "large-combustion-generator",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "wetland-miningfield"
+      },
+      {
+        "type": "SectorComplete",
+        "preset": "intervalley"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "floating": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "alpha": 0.7,
+        "glowIntensity": 0.2
+        "color": "ffa665",
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

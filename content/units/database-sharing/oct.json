@@ -1,0 +1,5 @@
+{
+  "immunities": [ "interrupted","disarmed","frozen" ],
+  "shownPlanets": [ "serpulo","cyclant","phoon" ],
+  "deathSound": "si2ExplodeLoud",
+}

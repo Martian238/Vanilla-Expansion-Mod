@@ -1,0 +1,24 @@
+{
+  "type": "ArmoredConveyor",
+  "requirements": [ "chromium/1","lead/1" ]
+  "health": 300,
+  "armor": 10,
+  "category": "distribution",
+  "speed": 0.12,
+  "research": {
+    "parent": "silicide-rail",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "hasShadow": true,
+  "junctionReplacement": "rail-junction",
+  "bridgeReplacement": "rail-bridge",
+  "displayedSpeed": 15,
+  "buildCostMultiplier": 3,
+  "crushDamageMultiplier": 0.2,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

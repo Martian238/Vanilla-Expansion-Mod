@@ -1,0 +1,15 @@
+{
+  "targetFlags": [
+    "drill","factory"
+  ],
+  "immunities": [ "frozen" ],
+  /*"abilities": [
+    {
+      "type": "EnergyFieldAbility",
+      "range": 80,
+      "reload": 1,
+      "damage": 999,
+      "color": "ffd37f"
+    }
+  ]*/
+}

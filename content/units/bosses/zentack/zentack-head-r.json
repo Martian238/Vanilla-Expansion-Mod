@@ -1,0 +1,23 @@
+{
+  "isEnemy": false,
+  "flying": true,
+  "wobble": false,
+  "flyingLayer": 113,
+  "physics": false,
+  "rotateSpeed": 0,
+  "targetable": false,
+  "hittable": true,
+  "drawSoftShadow": false,
+  "drawCell": true,
+  "hitSize": 8,
+  "health": 5600,
+  "armor": 5,
+  "speed": 1,
+  "createScorch": false,
+  "createWreck": false,
+  "engineSize": 0,
+  "lightRadius": 0,
+  "bounded": false,
+  "drawShields": true
+  "hidden": true,
+}

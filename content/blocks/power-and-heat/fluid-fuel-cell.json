@@ -1,0 +1,60 @@
+{
+  "type": "ConsumeGenerator",
+  "requirements": [ "graphite/55","metaglass/15","chromium/40","catalyzon/20" ],
+  "research": {
+    "parent": "solid-fuel-cell",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "powerProduction": 8.25,
+  "size": 2,
+  "category": "power",
+  "ambientSound": "loopCircuit",
+  "ambientSoundVolume": 0.1,
+  "researchCostMultiplier": 0.1,
+  "consumes": {
+    "liquidFlammable": {
+      "type": "ConsumeLiquidFlammable",
+      "minFlammability": 1,
+      "amount": 0.075
+    }
+  },
+  "generateEffect": "generatespark",
+  "liquidCapacity": 60,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { 
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "oil"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "cyanogen"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "ozone"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen"
+      },
+      { "type": "DrawRegion", "suffix": "" },
+      { 
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "color": "ffffff"
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

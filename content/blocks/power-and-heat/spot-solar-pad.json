@@ -1,0 +1,24 @@
+{
+  "type": "SolarGenerator",
+  "category": "power",
+  "requirements": [ "aluminium/30","reflector-matter/15","silicon/10" ],
+  "powerProduction": 2,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      { 
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "color": "fbd367",
+        "alpha": 0.5,
+        "glowIntensity": 0.1
+      }
+    ]
+  },
+  "research": "core-singularity-root",
+  "size": 3,
+  "solid": false,
+  "underBullets": true,
+  "variants": 3
+}

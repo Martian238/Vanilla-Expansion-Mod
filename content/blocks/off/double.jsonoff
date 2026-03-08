@@ -1,0 +1,90 @@
+{
+  "type": "ItemTurret",
+  "requirements": [ "copper/85" ],
+  "category": "turret",
+  "hidden": true,
+  "size": 2,
+  "ammoTypes": {
+    "copper": {
+      "width": 7,
+      "height": 9,
+      "lifetime": 80,
+      "ammoMultiplier": 2,
+      "speed": 3.5,
+      "damage": 11,
+      "shootSound": "shoot",
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootSmallSmoke"
+    },
+    "graphite": {
+      "width": 9,
+      "height": 12,
+      "lifetime": 80,
+      "ammoMultiplier": 4,
+      "speed": 3.5,
+      "damage": 23,
+      "reloadMultiplier": 0.6,
+      "shootSound": "shoot",
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootSmallSmoke"
+    },
+    "silicon": {
+      "width": 7,
+      "height": 9,
+      "lifetime": 100,
+      "ammoMultiplier": 5,
+      "speed": 4,
+      "damage": 17,
+      "reloadMultiplier": 1.5,
+      "homingPower": 0.15,
+      "shootSound": "shoot",
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootSmallSmoke"
+    }
+  },
+  "shoot": {
+    "type": "ShootAlternate",
+    "shotDelay": 8,
+    "shots": 2
+  },
+  "recoils": 2,
+  "recoil": 0.7,
+  "shootX": 0,
+  "shootY": 6,
+  "reload": 16,
+  "range": 220,
+  "health": 560,
+  "shootCone": 15,
+  "ammoUseEffect": "casing1",
+  "inaccuracy": 1,
+  "rotateSpeed": 15,
+  "drawer": {
+    "type": "DrawTurret",
+    "parts": [
+      {
+        "type": "RegionPart",
+        "suffix": "-side",
+        "progress": "warmup",
+        "moveX": 0.5,
+        "moveRot": -10,
+        "mirror": true
+      },
+      {
+        "type": "RegionPart",
+        "suffix": "-bar-r",
+        "progress": "recoil",
+        "mirror": false
+        "moveY": -1.5,
+        "weaponIndex": 0.5
+      },
+      {
+        "type": "RegionPart",
+        "suffix": "-bar-l",
+        "progress": "recoil",
+        "mirror": false,
+        "moveY": -1.5,
+        "weaponIndex": 0
+      }
+    ]
+  }
+}

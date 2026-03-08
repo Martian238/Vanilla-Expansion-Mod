@@ -1,0 +1,32 @@
+{
+  "type": "Reconstructor",
+  "category": "units",
+  "size": 5,
+  "requirements": [ "lead/650","silicon/500","titanium/400","chromium/700" ],
+  "consumes": {
+    "power": 6,
+    "items": [ "silicon/130","titanium/80","metaglass/40" ]
+  },
+  "constructTime": 1800,
+  "upgrades": [
+    [ "mace","fortress" ],
+    [ "horizon","zenith" ],
+    [ "minke","bryde" ],
+    [ "pulsar","quasar" ],
+    [ "poly","mega" ],
+    [ "oxynoe","cyerce" ],
+    [ "atrax","spiroct" ]
+  ],
+  "research": {
+    "parent": "isomorphic-additive-reconstructor",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.01,
+  "shownPlanets": [ "cyclant","phoon" ]
+  //"regionSuffix": "-rail"
+}

@@ -1,0 +1,38 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "copper/16","graphite/12" ],
+  "category": "crafting",
+  "research": {
+    "parent": "graphite-press",
+    "objectives": [
+      "quartz-separator"
+    ]
+  },
+  "size": 1,
+  "outputItem": "quartz/1",
+  "craftEffect": "pulverize",
+  "craftTime": 35,
+  "updateEffect": "pulverizeSmall",
+  "hasItems": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawRegion",
+        "spinSprite": true,
+        "rotateSpeed": 3.5,
+        "suffix": "-rotator"
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-top"
+      }
+    ]
+  },
+  "ambientSound": "loopGrind",
+  "ambientSoundVolume": 0.03,
+  "consumes": {
+    "items": [ "sand/2" ]
+  }
+}

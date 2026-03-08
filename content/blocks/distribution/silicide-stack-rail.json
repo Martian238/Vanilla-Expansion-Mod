@@ -1,0 +1,27 @@
+{
+  "type": "StackConveyor",
+  "category": "distribution",
+  "requirements": [ "silicide/2","graphite/1","silicon/1" ],
+  "speed": 0.12,
+  "health": 500,
+  "underBullets": true,
+  "armor": 24,
+  "itemCapacity": 10,
+  "research": {
+    "parent": "stack-rail",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "intervalley"
+      },
+      "silicide-rail"
+    ]
+  },
+  "crushDamageMultiplier": 0.05,
+  "drawTeamOverlay": false,
+  "ambientSound": "none",
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "cyclant","maress","sitrullus","phoon" ],
+  "dumpTime": 1
+}

@@ -1,0 +1,33 @@
+{
+  "type": "OverdriveProjector",
+  "category": "effect",
+  "reload": 60,
+  "range": 48,
+  "speedBoost": 1.5,
+  "speedBoostPhase": 0.5,
+  "phaseRangeBoost": 32,
+  "useTime": 360,
+  "lightRadius": 48,
+  "research": {
+    "parent": "mend-point",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "gobi"
+      }
+    ]
+  },
+  "consumes": {
+    "power": 1.16666666667,
+    "items": {
+      "items": [ "silicon/1" ],
+      "booster": true,
+      "optional": true
+    }
+  },
+  "size": 1,
+  "researchCostMultiplier": 0.1,
+  "requirements": [ "aluminium/25","lead/45","silicon/40","titanium/35" ],
+  "shownPlanets": [ "cyclant","phoon" ],
+  "health": 200
+}

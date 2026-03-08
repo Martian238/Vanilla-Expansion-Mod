@@ -1,0 +1,19 @@
+{
+  "type": "LiquidRouter",
+  "requirements": [ "metaglass/10","chromium/15" ],
+  "category": "liquid",
+  "liquidCapacity": 800,
+  "research": {
+    "parent": "fluid-router",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "size": 2,
+  "solid": true,
+  "armor": 6,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

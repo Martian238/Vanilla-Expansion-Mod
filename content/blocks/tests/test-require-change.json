@@ -1,0 +1,84 @@
+{
+  "type": "UnitFactory",
+  "category": "units",
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly",
+  "size": 3,
+  "plans": [
+    {
+      "unit": "firelock",
+      "time": 3000,
+      "requirements": [ "silicon/800","fibralt/500","thorium/350","silicide/50" ]
+    },
+    {
+      "unit": "magnetic",
+      "time": 2700,
+      "requirements": [ "silicon/800","fibralt/500","thorium/350","silicide/50" ]
+    },
+    {
+      "unit": "galaxy",
+      "time": 3600,
+      "requirements": [ "silicon/800","fibralt/500","thorium/350","silicide/50" ]
+    },
+    {
+      "unit": "stereo",
+      "time": 3900,
+      "requirements": [ "silicon/800","fibralt/500","thorium/350","silicide/50" ]
+    },
+    {
+      "unit": "ray",
+      "time": 8400,
+      "requirements": [ "silicon/2000","fibralt/900","surge-alloy/750","phase-fabric/500","silicide/200" ]
+    },
+    {
+      "unit": "corona",
+      "time": 9000,
+      "requirements": [ "silicon/2000","fibralt/900","surge-alloy/750","phase-fabric/500","silicide/200" ]
+    },
+    {
+      "unit": "universe",
+      "time": 10800,
+      "requirements": [ "silicon/2000","fibralt/900","surge-alloy/750","phase-fabric/500","silicide/200" ]
+    },
+    {
+      "unit": "meta",
+      "time": 12000,
+      "requirements": [ "silicon/2000","fibralt/900","surge-alloy/750","phase-fabric/500","silicide/200" ]
+    },
+    {
+      "unit": "hyper",
+      "time": 18000,
+      "requirements": [ "silicon/5000","fibralt/3000","surge-alloy/2000","warp-nucleus/100","silicide/750" ]
+    },
+    {
+      "unit": "alev",
+      "time": 300,
+      "requirements": [ "silicon/850","titanium/750","plastanium/650" ]
+    },
+    {
+      "unit": "antumbright",
+      "time": 300,
+      "requirements": [ "silicon/850","titanium/750","plastanium/650" ]
+    },
+    {
+      "unit": "toxorpion",
+      "time": 300,
+      "requirements": [ "silicon/1000","plastanium/600","surge-alloy/500","phase-fabric/350" ]
+    },
+    {
+      "unit": "thorium-rocketeer",
+      "time": 300,
+      "requirements": [ "silicon/270","lead/40","graphite/90","thorium/220" ]
+    },
+    {
+      "unit": "test9",
+      "time": 60,
+      "requirements": [ "silicon/0" ]
+    }
+  ],
+  "consumes": {
+  },
+  //"regionSuffix": "-rail",
+  
+  //"buildVisibility": "shown"
+}

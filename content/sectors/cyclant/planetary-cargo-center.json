@@ -1,0 +1,28 @@
+{
+  "planet": "cyclant",
+  "sector": 245,
+  "difficulty": 10,
+  "research": {
+    "parent": "prime-route",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "prime-route"
+      },
+      "advanced-landing-pad",
+      "space-digger",
+      "core-singularity",
+      "buster",
+      "ultra-assembler"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

@@ -1,0 +1,409 @@
+{
+  "health": 4900,
+  "hitSize": 24,//24
+  "speed": 1.1,
+  "accel": 0.01,
+  "drag": 0.01,
+  "rotateSpeed": 2,
+  "strafePenalty": 0.8,
+  "armor": 5,
+  "abilities": [
+    {
+      "type": "RegenAbility",
+      "amount": 0.1
+    }
+  ],
+  "flying": true,
+  "deathSound": "si2Explode",
+  "engineSize": 0,
+  "fallEngineEffect": "none",
+  "fallEffect": "fireHit",
+  "immunities": [ "dusty" ],
+  "lowAltitude": true,
+  "shownPlanets": [ "sitrullus","maress" ],
+  "range": 200,
+  "weapons": [
+    {
+      "name": "firebee-laser",
+      "x": 4.5,//18
+      "y": 17.25,//69
+      "shootY": 5.75,
+      "rotateSpeed": 0.8,
+      "baseRotation": -20,
+      "shootSound": [ "lbp3ScifiLaserFire1","lbp3ScifiLaserFire2","lbp3ScifiLaserFire3" ],
+      "recoil": 1.5,
+      "reload": 25,
+      "mirror": false,
+      "rotate": true,
+      "shoot": { "firstShotDelay": 10 },
+      "bullet": {
+        "type": "PointBulletType",
+        "speed": 2.675,
+        "shootEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "ParticleEffect",
+              "particles": 1,
+              "length": 0,
+              "interp": "circleOut",
+              "sizeInterp": "circleOut",
+              "colorFrom": "fc8e6c",
+              "colorTo": "f2555500",
+              "sizeFrom": 4,
+              "sizeTo": 0,
+              "lifetime": 10,
+              "layer": 100.1
+            },
+            {
+              "type": "ParticleEffect",
+              "particles": 1,
+              "length": 0,
+              "interp": "circleOut",
+              "sizeInterp": "circleOut",
+              "colorFrom": "ffffff",
+              "colorTo": "fc8e6c",
+              "sizeFrom": 2,
+              "sizeTo": 0,
+              "lifetime": 10,
+              "layer": 100.4
+            }
+          ]
+        },
+        "smokeEffect": "none",
+        "trailSpacing": 1,
+        "trailEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "ParticleEffect",
+              "particles": 1,
+              "length": 10,
+              "interp": "circleOut",
+              "sizeInterp": "circleIn",
+              "colorFrom": "fc8e6c",
+              "colorTo": "f2555500",
+              "sizeFrom": 1,
+              "sizeTo": 0,
+              "layer": 100.2
+            },
+            {
+              "type": "ParticleEffect",
+              "particles": 1,
+              "length": 0,
+              "interp": "circleOut",
+              "sizeInterp": "circleOut",
+              "colorFrom": "ffffff",
+              "colorTo": "fc8e6c",
+              "sizeFrom": 2.5,
+              "sizeTo": 0,
+              "lifetime": 10,
+              "layer": 100.3
+            }
+          ]
+        },
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "hitColor": "f25555",
+        "damage": 22,
+        "hitShake": 1,
+        "despawnShake": 1
+      }
+    },
+    {
+      "name": "firebee-laser",
+      "x": -4.5,//18
+      "y": 17.25,//69
+      "shootY": 5.75,
+      "rotateSpeed": 0.8,
+      "baseRotation": 20,
+      "shootSound": [ "lbp3ScifiLaserFire1","lbp3ScifiLaserFire2","lbp3ScifiLaserFire3" ],
+      "recoil": 1.5,
+      "reload": 50,
+      "mirror": false,
+      "rotate": true,
+      "bullet": {
+        "type": "PointBulletType",
+        "speed": 2.675,
+        "shootEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "ParticleEffect",
+              "particles": 1,
+              "length": 0,
+              "interp": "circleOut",
+              "sizeInterp": "circleOut",
+              "colorFrom": "fc8e6c",
+              "colorTo": "f2555500",
+              "sizeFrom": 4,
+              "sizeTo": 0,
+              "lifetime": 10,
+              "layer": 100.1
+            },
+            {
+              "type": "ParticleEffect",
+              "particles": 1,
+              "length": 0,
+              "interp": "circleOut",
+              "sizeInterp": "circleOut",
+              "colorFrom": "ffffff",
+              "colorTo": "fc8e6c",
+              "sizeFrom": 2,
+              "sizeTo": 0,
+              "lifetime": 10,
+              "layer": 100.4
+            }
+          ]
+        },
+        "smokeEffect": "none",
+        "trailSpacing": 1,
+        "trailEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "ParticleEffect",
+              "particles": 1,
+              "length": 10,
+              "interp": "circleOut",
+              "sizeInterp": "circleIn",
+              "colorFrom": "fc8e6c",
+              "colorTo": "f2555500",
+              "sizeFrom": 1,
+              "sizeTo": 0,
+              "layer": 100.2
+            },
+            {
+              "type": "ParticleEffect",
+              "particles": 1,
+              "length": 0,
+              "interp": "circleOut",
+              "sizeInterp": "circleOut",
+              "colorFrom": "ffffff",
+              "colorTo": "fc8e6c",
+              "sizeFrom": 2.5,
+              "sizeTo": 0,
+              "lifetime": 10,
+              "layer": 100.3
+            }
+          ]
+        },
+        "hitEffect": "flakExplosion",
+        "despawnEffect": "flakExplosion",
+        "hitColor": "f25555"
+        "damage": 22,
+        "hitShake": 1,
+        "despawnShake": 1
+      }
+    },
+    {
+      "x": 9,//8,12,16
+      "y": 16,//75
+      "shootY": 0,
+      "top": false,
+      "mirror": false,
+      "shootSound": "shootMissileLong",
+      "shoot": {
+        "type": "ShootBarrel",
+        "barrels": [ -3,0,0,0,0,0,3,0,0 ],
+        "shots": 3,
+        "shotDelay": 20,
+        "firstShotDelay": 10
+      },
+      "reload": 90,
+      "bullet": {
+        "sprite": "missile",
+        "width": 8,
+        "height": 8,
+        "frontColor": "fc8e6c",
+        "backColor": "f25555",
+        "trailChance": 0.8,
+        "splashDamage": 45,
+        "splashDamageRadius": 40,
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "shootEffect": "shootSmallColor",
+        "smokeEffect": "shootSmallSmoke",
+        "speed": 2.6,//2.6*81=210.6
+        "weaveMag": 1.8,
+        "weaveScale": 7,
+        "status": "burning",
+        "statusDuration": 180,
+        "incendChance": 0.2,
+        "incendAmount": 1,
+        "incendSpread": 0,
+        "hitColor": "f25555",
+        "collidesAir": false,
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "layer": 89.5,
+          "colorFrom": "ffffff66",
+          "colorTo": "ffffff00",
+          "length": 8,
+          "lifetime": 60,
+          "sizeFrom": 1,
+          "sizeInterp": "circleOut",
+          "sizeTo": 4,
+          "particles": 1
+        },
+        "shrinkY": 0,
+        "hitShake": 1,
+        "despawnShake": 1,
+        "lifetime": 81
+      }
+    },
+    {
+      "x": -9,//8,12,16
+      "y": 16,//75
+      "shootY": 0,
+      "top": false,
+      "mirror": false,
+      "shootSound": "shootMissileLong",
+      "shoot": {
+        "type": "ShootBarrel",
+        "barrels": [ 3,0,0,0,0,0,-3,0,0 ],
+        "shots": 3,
+        "shotDelay": 20,
+      },
+      "reload": 90,
+      "bullet": {
+        "sprite": "missile",
+        "width": 8,
+        "height": 8,
+        "frontColor": "fc8e6c",
+        "backColor": "f25555",
+        "trailChance": 0.8,
+        "splashDamage": 45,
+        "splashDamageRadius": 40,
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "shootEffect": "shootSmallColor",
+        "smokeEffect": "shootSmallSmoke",
+        "speed": 2.6,
+        "weaveMag": 1.8,
+        "weaveScale": 7,
+        "status": "burning",
+        "statusDuration": 180,
+        "incendChance": 0.2,
+        "incendAmount": 1,
+        "incendSpread": 0,
+        "hitColor": "f25555",
+        "collidesAir": false,
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "layer": 89.5,
+          "colorFrom": "ffffff66",
+          "colorTo": "ffffff00",
+          "length": 8,
+          "lifetime": 60,
+          "sizeFrom": 1,
+          "sizeInterp": "circleOut",
+          "sizeTo": 4,
+          "particles": 1
+        },
+        "shrinkY": 0,
+        "hitShake": 1,
+        "despawnShake": 1,
+        "lifetime": 81
+      }
+    },
+    {
+      "name": "shimmer-rotator"
+      "x": 9,
+      "y": 5,
+      "reload": 20,
+      "alwaysShooting": true,
+      "display": false,
+      "top": false,
+      "shootSound": "none",
+      "recoil": 0,
+      "alternate": false,
+      "noAttack": true,
+      "useAttackRange": false,
+      "bullet": {
+        "instantDisappear": true,
+        "collides": false,
+        "damage": 0,
+        "absorbable": false,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none"
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": 1,
+          "color": "ffffff50",
+          "colorTo": "ffffff50",
+          "under": false,
+          "layer": 90.1,
+          "outline": false,
+          "xScl": 0.59375,
+          "yScl": 0.59375
+        },
+        {
+          "type": "RegionPart",
+          "suffix": 3,
+          "color": "ffffff50",
+          "colorTo": "ffffff50",
+          "progress": "reload",
+          "moveRot": 180,
+          "under": false,
+          "layer": 90.11,
+          "outline": false,
+          "xScl": 0.59375,
+          "yScl": 0.59375
+        },
+        {
+          "type": "RegionPart",
+          "suffix": 1,
+          "color": "ffffff00",
+          "colorTo": "ffffff70",
+          "progress": "reload",
+          "growX": -1,
+          "growY": -1,
+          "under": false,
+          "growProgress": "reload",
+          "layer": 90.12,
+          "outline": false,
+          "xScl": 0.59375,
+          "yScl": 0.59375
+        },
+        {
+          "type": "RegionPart",
+          "suffix": 2,
+          "color": "ffffff50",
+          "colorTo": "ffffff50",
+          "progress": "reload",
+          "moveRot": -720,
+          "under": false,
+          "layer": 90.13,
+          "outline": false,
+          "xScl": 0.59375,
+          "yScl": 0.59375
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-wings",
+      "x": 0,
+      "y": 0,
+      "outline": false,
+      "under": false,
+      "layer": 90.05
+    },
+    {
+      "type": "RegionPart",
+      "suffix": "-wings-top",
+      "x": 0,
+      "y": 0,
+      "outline": false,
+      "under": false,
+      "layer": 90.2
+    }
+  ]
+}

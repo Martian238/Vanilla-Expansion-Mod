@@ -1,0 +1,160 @@
+{
+  "type": "payload",
+  "payloadCapacity": 300,
+  "health": 1100,
+  "armor": 4,
+  "speed": 3.2,
+  "accel": 0.08,
+  "faceTarget": false,
+  "hitSize": 16,
+  "circleTarget": true,
+  "lowAltitude": true,
+  "drag": 0.016,
+  "flying": true,
+  "engineOffset": 7.75,
+  "targetAir": true,
+  "engineSize": 0,
+  "immunities": [ "burning","frozen" ],
+  "itemCapacity": 60,
+  "targetFlags": [
+    "drill","generator","storage"
+  ],
+  "lightColor": "ffa665",
+  "engines": [
+    {
+      "x": 6,
+      "y": -8,
+      "radius": 2.75,
+      "rotation": -90
+    },
+    {
+      "x": -6,
+      "y": -8,
+      "radius": 2.75,
+      "rotation": -90
+    }
+  ],
+  "itemCapacity": 0,
+  "shownPlanets": [ "cyclant","phoon" ],
+  "weapons": [
+    /*{
+      "x": 6,
+      "y": -5,
+      "top": false,
+      "rotate": false,
+      "shootCone": 360,
+      "baseRotation": 180,
+      "inaccuracy": 15
+      "shootX": 0,
+      "shootY": 0,
+      "reload": 48,
+      "ejectEffect": "none",
+      "shootSound": "pewClassic",
+      "alternative": false,
+      "shoot": {
+        "shots": 3,
+        "shotDelay": 12
+      },
+      "bullet": {
+        "type": "BombBulletType",
+        "drag": 0.05,
+        "makeFire": true,
+        "speed": 0.6,
+        "damage": 16,
+        "shrinkY": 0.5,
+        "splashDamage": 14,
+        "splashDamageRadius": 24,
+        "status": "burning",
+        "statusDuration": 360,
+        "width": 11,
+        "height": 11,
+        "lifetime": 30,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "frontColor": "f8ad42",
+        "backColor": "f8e096",
+        "despawnEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "RadialEffect",
+              "effect": "hitFlameSmall",
+              "rotationOffset": 0,
+              "rotationSpacing": 45,
+              "amount": 8,
+              "lengthOffset": 4
+            }
+          ]
+        },
+        "fragBullets": 4,
+        "despawnShake": 1,
+        "hitShake": 2,
+        "fragBullet": {
+          "type": "BulletType",
+          "damage": 11,
+          "status": "burning",
+          "statusDuration": 360,
+          "speed": 2.5,
+          "pierce": true,
+          "pierceBuilding": true,
+          "lifetime": 6,
+          "pierceCap": 2,
+          "hitEffect": "hitFlameSmall",
+          "despawnSound": "flame2",
+          "despawnEffect": "hitFlameSmall",
+          "hitSize": 7,
+          "hittable": false
+        }
+      }
+    },*/
+    {
+      "name": "prominence-weapon",
+      "x": 6.25,
+      "y": -3.75,
+      "shootX": -0.5,
+      "shootY": 5,
+      "reload": 18,
+      "top": true,
+      "shootSound": "shootClassic",
+      "ejectEffect": "casing1",
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 3
+      },
+      "rotate": true,
+      "rotateSpeed": 7,
+      "inaccuracy": 1,
+      "bullet": {
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [ 
+            "hitBulletSmall",
+            "fireHit"
+          ]
+        },
+        "frontColor": "f8ad42",
+        "backColor": "f8e096",
+        "makeFire": true,
+        "trailColor": "f8e096",
+        "splashDamage": 12,
+        "splashDamageRadius": 28,
+        "status": "burning"
+        "statusDuration": 240,
+        "lightColor": "f8e096",
+        "damage": 13,
+        "width": 8,
+        "height": 10,
+        "lifetime": 25,
+        "speed": 4,
+        "shootEffect": "shootSmall",
+        "smokeEffect": "shootSmallSmoke"
+      }
+    }
+  ],
+  "research": {
+    "parent": "hoe",
+    "objectives": [ "plasma" ],
+    "requirements": [  ]
+  }
+}

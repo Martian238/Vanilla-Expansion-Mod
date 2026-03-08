@@ -1,0 +1,37 @@
+{
+  "type": "Accelerator",
+  "launchCandidates": [ "cyclant","phoon" ],
+  "launchBlock": "isomorphic-core-shard",
+  "category": "effect",
+  "powerBufferRequirement": 50000,
+  "chargeDuration": 220,
+  "buildDuration": 300,
+  "chargeRings": 3,
+  "ringRadBase": 48,
+  "ringColor": "f25555",
+  "lightningColor": "f25555",
+  "launchLightning": 12,
+  "lightningLengthMax": 15,
+  "lightningLaunchChance": 0.5,
+  "itemCapacity": 6000,
+  "lightColor": "f25555",
+  "lightRadius": 50,
+  "consumes": { "power": 8 },
+  "scaledHealth": 80,
+  "requirements": [ "aluminium/7000","silicon/6000","surge-alloy/4000","cobalt/2000" ],
+  "buildCostMultiplier": 0.5,
+  "hasPower": true,
+  "size": 5,
+  "research": {
+    "parent": "advanced-landing-pad",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "planetary-cargo-center"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.05,
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","phoon" ]
+}

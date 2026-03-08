@@ -1,0 +1,43 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "aluminium/80","lead/40","graphite/50","silicon/35" ],
+  "category": "crafting",
+  "craftEffect": "mineBig",
+  "size": 2,
+  "outputItems": [ "titanium/5","sand/8" ]
+  "craftTime": 120,
+  "itemCapacity": 30,
+  "hasItems": true,
+  "hasPower": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawFlame",
+        "flameColor": "bcccff",
+        //"lightColor": "bcccff",
+        "flameRadiusScl": 10
+      }
+    ]
+  }
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.09,
+  "consumes": {
+    "items": {
+      "items": [ "shale-cobble/2" ]
+    },
+    "power": 1.8
+  },
+  "research": {
+    "parent": "salt-electrolyzer",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "gobi"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","phoon","maress" ]
+}

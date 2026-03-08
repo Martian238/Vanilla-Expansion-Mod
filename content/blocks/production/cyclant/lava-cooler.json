@@ -1,0 +1,44 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "graphite/100","metaglass/40","silicon/35" ],
+  "category": "crafting",
+  "outputItems": [
+    "sand/2"
+  ],
+  "hasPower": true,
+  "craftTime": 40,
+  "hasItems": true,
+  "hasLiquids": true,
+  "size": 2,
+  "consumes": {
+    "power": 0.4,
+    "liquids": [ "lava/0.066666667","water/0.2" ]
+  },
+  "researchCostMultiplier": 0.01,
+  "craftEffect": "vapor",
+  "updateEffect": "fuelburn",
+  "ambientSound": "si2Steamvent",
+  "ambientSoundVolume": 0.2,
+  "lightLiquid": "lava",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {"type":"DrawRegion","suffix":"-bottom"},
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "lava"
+      },
+      {  "type": "DrawRegion", "suffix": ""  }
+    ]
+  },
+  "research": {
+    "parent": "decomposer",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "volcanic-top"
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

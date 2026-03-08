@@ -1,0 +1,106 @@
+{
+  "isEnemy": false,
+  "flying": true,
+  "wobble": false,
+  "flyingLayer": 112.5,
+  "physics": false,
+  "rotateSpeed": 0,
+  "targetable": false,
+  "hittable": true,
+  "drawSoftShadow": false,
+  "drawCell": false,
+  "drawBody": false,
+  "hitSize": 8,
+  "health": 5600,
+  "armor": 5,
+  "speed": 1,
+  "createScorch": false,
+  "createWreck": false,
+  "engineSize": 0,
+  "lightRadius": 0,
+  "bounded": false,
+  "drawShields": true,
+  "hidden": true,
+  "weapons": [
+    {
+      "name": "zentack-gun-weapon"
+      "x": 0,
+      "y": 0,
+      "rotate": true,
+      "rotateSpeed": 10,
+      "inaccuracy": 12,
+      "reload": 10,
+      "shootCone": 30,
+      "shootSound": [ "lbp3LaserFire1","lbp3LaserFire2","lbp3LaserFire3","lbp3LaserFire4" ],
+      "cooldownTime": 10,
+      "mirror": false,
+      "bullet": { 
+        "sprite": "circle-bullet",
+        "height": 6,
+        "width": 6,
+        "speed": 1.9,
+        "lifetime": 360,
+        "frontColor": "ffffff",
+        "backColor": "ffa665",
+        "status": "plasma-status-orange",
+        "statusDuration": 120,
+        "hittable": false,
+        "shrinkY": 0,
+        "shootEffect": "shootSmallColor",
+        "hitColor": "ffa665",
+        "smokeEffect": {
+          "type": "SoundEffect",
+          "sound": "lbp3PlasmEmit",
+          "maxPitch": 1.1,
+          "minPitch": 0.95,
+          "maxVolume": 0,//0.15
+          "minVolume": 0,//0.15
+          "effect": "none"
+        },
+        "damage": 50,
+        "hitShake": 1,
+        "despawnShake": 1,
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "WrapEffect",
+              "color": "ffa665",
+              "effect": "hitBulletColor"
+            },
+            {
+              "type": "WrapEffect",
+              "color": "ffa665",
+              "effect": "hitLaserBlast"
+            },
+            {
+              "type": "SoundEffect",
+              "sound": [ "lbp3PlasmDestroy1","lbp3PlasmDestroy2","lbp3PlasmDestroy3" ],
+              "maxPitch": 1.1,
+              "minPitch": 0.95,
+              "maxVolume": 0.08,
+              "minVolume": 0.08,
+              "effect": "none"
+            }
+          ]
+        },
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "lifetime": 3,
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "colorFrom": "ffa665",
+          "colorTo": "ffa665",
+          "length": 0,
+          "baseLength": 4,
+          "interp": "circleIn",
+          "region": "ve-square-effect"
+        },
+        "trailChance": 0.6
+      }
+    }
+  ]
+}

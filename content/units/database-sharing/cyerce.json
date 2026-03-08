@@ -1,0 +1,6 @@
+{
+  "mineSpeed": 13,
+  "mineTier": 4,
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress" ],
+  "itemCapacity": 320
+}

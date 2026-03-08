@@ -1,0 +1,52 @@
+
+const SFlib = require("SFlib");
+
+const cyclant = new Planet("cyclant", Planets.sun, 1, 3.75);
+
+cyclant.meshLoader = prov(() => new MultiMesh(
+	new HexMesh(cyclant, 6)
+));
+
+
+cyclant.cloudMeshLoader = prov(() => new MultiMesh(
+	new HexSkyMesh(cyclant, 9, 2.8, 0.07, 5, Color.valueOf("938C9CF0"), 2, 0.42, 0.9, 0.43),
+	new HexSkyMesh(cyclant, 19, 1.0, 0.15, 5, Color.valueOf("B8C1E0A0"), 2, 0.40, 0.5, 0.45),
+ new HexSkyMesh(cyclant, 29, 0.6, 0.2, 5, Color.valueOf("C7E5FF50"), 2, 0.38, 0.3, 0.47)
+));
+//cyclant.ruleSetter = prov(r => {r.waveTeam = Team.crux,r.showSpawns = true,r.placeRangeCheck = false,r.coreDestroyClear = true});
+cyclant.visible = cyclant.accessible = cyclant.alwaysUnlocked = true;
+cyclant.allowLaunchToNumbered = false;
+cyclant.clearSectorOnLose = false;
+cyclant.allowSectorInvasion = true;
+cyclant.enemyCoreSpawnReplace = true;
+cyclant.allowLaunchSchematics = true;
+cyclant.allowWaves = false;
+cyclant.allowWaveSimulation = true;
+cyclant.allowLaunchLoadout = false;
+cyclant.launchCapacityMultiplier = 0.25;
+cyclant.tidalLock = false;
+cyclant.prebuildBase = true;
+cyclant.bloom = false;
+cyclant.startSector = 16;
+cyclant.orbitRadius = 120;
+cyclant.orbitTime = 360 * 60;
+cyclant.rotateTime = 100 * 60;
+cyclant.atmosphereRadIn = 0.02;
+cyclant.atmosphereRadOut = 0.4;
+cyclant.atmosphereColor = cyclant.lightColor = Color.valueOf("3FC2FFDD");
+cyclant.landCloudColor = Color.valueOf("938C9CF0");
+cyclant.defaultEnv = Env.terrestrial | Env.oxygen;
+cyclant.iconColor = Color.valueOf("90DBFF"),
+cyclant.hiddenItems.addAll(Items.erekirOnlyItems).removeAll(Items.serpuloItems);
+cyclant.defaultAttributes.set(Attribute.spores,-1);
+cyclant.defaultCore = Blocks.coreNucleus;
+
+cyclant.generator = extend(ErekirPlanetGenerator,{
+genLakes: true,
+//terrain: [Blocks.regolith,Blocks.regolith,Blocks.regolith,Blocks.regolith,Blocks.yellowStone,Blocks.rhyolite,Blocks.rhyolite,Blocks.carbonStone]
+});
+
+
+
+exports.cyclant = cyclant
+

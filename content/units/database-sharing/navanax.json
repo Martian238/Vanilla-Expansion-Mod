@@ -1,0 +1,8 @@
+{
+  "immunities": [ 
+    "burning","interrupted","electrified"
+  ],
+  "shownPlanets": [ "serpulo","cyclant","phoon" ],
+  "deathSound": "si2ExplodeLoud",
+  "itemCapacity": 920
+}

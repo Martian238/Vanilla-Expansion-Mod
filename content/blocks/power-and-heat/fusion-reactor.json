@@ -1,0 +1,132 @@
+{
+  "type": "ImpactReactor",
+  "requirements": [ "lead/400","chromium/200","cobalt/250","silicon/500","surge-alloy/1000","graphite/350","quartz/100","silicide/300" ],
+  "category": "power",
+  "health": 30000,
+  "armor": 24,
+  "size": 6,
+  "consumes": {
+    "items": {
+      "items": [ "fusion-fuel/1" ]
+    },
+    "power": 100
+  },
+  "hasLiquids": false,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow3",
+        "alpha": 0.3,
+        "color": "9eabf7",
+        "glowScale": 2,
+        "glowIntensity": 0.1
+      },
+      {
+        "type": "DrawPlasma",
+        "plasma1": "d1efffaa",
+        "plasma2": "9eabf766"
+      },
+      {
+        "type": "DrawDefault"
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow1",
+        "alpha": 0.9,
+        "color": "9eabf7",
+        "glowScale": 2
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow2",
+        "alpha": 0.7,
+        "color": "9eabf7",
+        "glowScale": 10
+      }
+    ]
+  },
+  "itemCapacity": 50,
+  "liquidCapacity": 0,
+  "warmupSpeed": 0.0005,
+  "itemDuration": 125,
+  "powerProduction": 5500,
+  "explosionShake": 32,
+  "explosionShakeDuration": 60,
+  "explosionDamage": 50000,
+  "explosionMinWarmup": 0.5,
+  "explosionRadius": 35,
+  "baseExplosiveness": 8,
+  "explodeEffect": {
+    "type": "MultiEffect",
+    "effects": [
+      {
+        "type": "ExplosionEffect",
+        "waveColor": "f3e979",
+        "smokeColor": "9eabf766",
+        "sparkColor": "f3e979",
+        "waveLife": 18,
+        "waveStroke": 4,
+        "waveRad": 160,
+        "waveRadBase": 0,
+        "sparkStroke": 7,
+        "sparkRad": 500,
+        "sparkLen": 50,
+        "smokeSize": 50,
+        "smokeSizeBase": 1,
+        "smokeRad": 700,
+        "smokes": 50,
+        "sparks": 30,
+        "lifetime": 360
+      },
+      "launchPod",
+      "massiveExplosion"
+    ]
+  },
+  "destroyBullet": {
+    "instantDisappear": true,
+    "lightning": 18,
+    "lightningColor": "f3e979",
+    "lightningLength": 50,
+    "lightningLengthRand": 15,
+    "lightningDamage": 300,
+    "lifetime": 10,
+    "speed": 0,
+    "hittable": false,
+    "collides": false,
+    "fragBullets": 12,
+    "hitSound": "explosionReactor",
+    "despawnSound": "explosionReactor",
+    "fragBullet": {
+      "type": "LightningBulletType",
+      "lifetime": 15,
+      "lightningColor": "f3e979",
+      "lightningLength": 30,
+      "damage": 300,
+      "lightningLengthRand": 20
+    }
+  },
+  "lightColor": "9eabf7",
+  "explodeSound": "rlElectricBlockerBreakLoud",
+  "research": {
+    "parent": "isomorphic-reactor",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "ruins"
+      }, 
+      "fusion-refueller"
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "ambientSound": "si2OverchargedLaserLoop",
+  "ambientSoundVolume": 0.3,
+  "shownPlanets": [ "cyclant","phoon" ],
+}

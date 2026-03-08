@@ -1,0 +1,642 @@
+{
+  //"type": "flying",
+  "flying": true,
+  "lowAltitude": true,
+  "accel": 0.06,
+  "speed": 1.8,
+  "drag": 0.03,
+  "health": 15000,//12000
+  "armor": 16,
+  "rotateSpeed": 2,
+  "research": {
+    "parent": "solar",
+    "objectives": [ "assemble-selector1","super-assembler" ],
+    "requirements": [ "silicon/8000","fibralt/5000","thorium/3500","silicide/500" ]
+  },
+  "researchCostMultiplier": 0.01,
+  "hitSize": 48,
+  "engineSize": 6,
+  "engineOffset": 21,
+  "targetFlags": [ "drill","factory" ],
+  "itemCapacity": 200,
+  "itemOffsetY": -9,
+  "deathSound": "si2Explode",
+  "strafePenalty": 0.7,
+  "immunities": [ "electrified","charging","frozen" ],
+  /*"abilities": [
+    { 
+      "type": "StatusFieldAbility",
+      "range": 96,
+      "reload": 210,
+      "duration": 300,
+      "effect": "charging"
+    }
+  ],*/
+  "range": 320,
+  "engines": [
+    {
+      "x": 19.5,
+      "y": -25,
+      "rotation": -60,
+      "radius": 4
+    },
+    {
+      "x": -19.5,
+      "y": -25,
+      "rotation": -120,
+      "radius": 4
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "rotation": -90,
+      "radius": 3
+    }
+  ],
+  "lightColor": "ffa665",
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "weapons": [
+    {
+      "name": "magnetic-weapon",
+      "x": 19.75,
+      "y": -6,
+      "shootY": 3,
+      "reload": 8,
+      "recoilTime": 30,
+      "ejectEffect": "none",
+      "shootSound": "none",
+      "soundPitchMin": 1.0,
+      "soundPitchMax": 1.0,
+      "recoil": 1.5,
+      "cooldownTime": 120,
+      "minWarmup": 0.225,
+      "shootWarmupSpeed": 0.025,
+      "alternate": true,
+      "rotateSpeed": 4,
+      "rotate": true,
+      "shootCone": 90,
+      "inaccuracy": 45,
+      "shadow": 12,
+      "layerOffset": 0.01,
+      "shoot": { 
+        "shots": 3,
+        "shotDelay": 0
+      },
+      "shake": 3,
+      "velocityRnd": 0.05,
+      "bullet": {
+        "keepVelocity": true,
+        "followAimSpeed": 0,
+        "shootEffect": {
+          "type": "SoundEffect",
+          "sound": "shootMalign",
+          "maxPitch": 1.15,
+          "minPitch": 1,
+          "maxVolume": 0.9,
+          "minVolume": 0.9,
+          "effect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "WaveEffect",
+              "lifetime": 10,
+              "sizeFrom": 0,
+              "sizeTo": 16,
+              "strokeFrom": 3,
+              "colorFrom": "ffffff",
+              "colorTo": "ffa665",
+              "sides": 24
+            },
+            {
+              "type": "WaveEffect",
+              "lifetime": 8,
+              "sizeFrom": 0,
+              "sizeTo": 22,
+              "strokeFrom": 3,
+              "colorFrom": "ffa665",
+              "colorTo": "ffa665aa",
+              "sides": 24
+            },
+            "shootBig"
+          ],
+          }
+        },
+        "lightColor": "ffa665",
+        "smokeEffect": "shootBigSmoke",
+        "status": "interrupted",
+        "statusDuration": 3600,
+        "width": 12,
+        "maxRange": 368,
+        "height": 16,
+        "shrinkX": 0,
+        "shrinkY": 0,
+        "speed": 1,
+        "drag": 0.002,
+        "accel": 0.16,
+        "lifetime": 63,
+        "sprite": "ve-magnetic-bullet",
+        "trailEffect": "missileTrail",
+        "trailLength": 20,
+        "trailColor": "ffa665",
+        "backColor": "ffa665",
+        "hitColor": "ffa665",
+        "frontColor": "ffffff",
+        "homingPower": 0.05,
+        "homingRange": 240,
+        "homingDelay": 25,
+        "damage": 36,
+        "hitShake": 2,
+        "hitSound": "shootArc",
+        "hitSoundVolume": 0.3,
+        "fragBullets": 3,
+        "lightning": 1,
+        "lightningLength": 20,
+        "lightningCone": 0,
+        "lightningColor": "ffa665",
+        "lightningDamage": 45,
+        "fragBullet": {
+          "type": "LightningBulletType",
+          "lightningLength": 10,
+          "lightningLengthRand": 6,
+          "damage": 27,
+          "status": "shocked",
+          "statusDuration": 10,
+          "lightningColor": "ffa665",
+          "hitColor": "ffa665"
+        },
+        "intervalBullets": 1,
+        "bulletInterval": 20,
+        "intervalBullet": {
+          "type": "LightningBulletType",
+          "lightningLength": 4,
+          "lightningLengthRand": 4,
+          "damage": 12,
+          "status": "shocked",
+          "statusDuration": 10,
+          "lightningColor": "ffa665",
+          "collidesAir": false,
+          "hitColor": "ffa665",
+          "hitColor": "ffa665"
+        },
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "ParticleEffect",
+              "particles": 7,
+              "lifetime": 20,
+              "sizeFrom": 4,
+              "sizeTo": 0,
+              "colorFrom": "ffffff",
+              "colorTo": "ffa665",
+              "length": 32
+            },
+            {
+              "type": "WaveEffect",
+              "lifetime": 7,
+              "sizeFrom": 0,
+              "sizeTo": 32,
+              "strokeFrom": 4,
+              "colorFrom": "ffa665",
+              "colorTo": "ffa665",
+              "sides": 24
+            }
+          ]
+        }
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "x": 0,
+          "y": -1.5,//speed: 1.5->15
+          "under": true,//speed=90/time (degree/tick)
+          "progress": {
+            "type": "time",
+            "ops": [
+              {
+                "op": "loop",
+                "time": 60//1.5
+              }
+            ]
+          },
+          "moves": [
+            {
+              "rot": 90,//acceleration1
+              "progress": {
+                "type": "time",
+                "ops": [
+                  {
+                    "op": "loop",
+                    "time": 60//1.5
+                  },
+                  {
+                    "op": "mul",
+                    "other": {
+                      "type": "warmup",//a
+                      "ops": [
+                        {
+                          "op": "add",
+                          "amount": -0.1
+                        },
+                        {
+                          "op": "mul",
+                          "amount": 10000
+                        },
+                        { "op": "clamp" }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "rot": 90,//acceleration2
+              "progress": {
+                "type": "time",
+                "ops": [
+                  {
+                    "op": "loop",
+                    "time": 60//1.5
+                  },
+                  {
+                    "op": "mul",
+                    "other": {
+                      "type": "warmup",//a
+                      "ops": [
+                        {
+                          "op": "add",
+                          "amount": -0.2
+                        },
+                        {
+                          "op": "mul",
+                          "amount": 10000
+                        },
+                        { "op": "clamp" }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "rot": 90,//acceleration3
+              "progress": {
+                "type": "time",
+                "ops": [
+                  {
+                    "op": "loop",
+                    "time": 60//1.5
+                  },
+                  {
+                    "op": "mul",
+                    "other": {
+                      "type": "warmup",//a
+                      "ops": [
+                        {
+                          "op": "add",
+                          "amount": -0.3
+                        },
+                        {
+                          "op": "mul",
+                          "amount": 10000
+                        },
+                        { "op": "clamp" }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "rot": 90,//acceleration4
+              "progress": {
+                "type": "time",
+                "ops": [
+                  {
+                    "op": "loop",
+                    "time": 60//1.5
+                  },
+                  {
+                    "op": "mul",
+                    "other": {
+                      "type": "warmup",//a
+                      "ops": [
+                        {
+                          "op": "add",
+                          "amount": -0.4
+                        },
+                        {
+                          "op": "mul",
+                          "amount": 10000
+                        },
+                        { "op": "clamp" }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "rot": 90,//acceleration5
+              "progress": {
+                "type": "time",
+                "ops": [
+                  {
+                    "op": "loop",
+                    "time": 60//1.5
+                  },
+                  {
+                    "op": "mul",
+                    "other": {
+                      "type": "warmup",//a
+                      "ops": [
+                        {
+                          "op": "add",
+                          "amount": -0.5
+                        },
+                        {
+                          "op": "mul",
+                          "amount": 10000
+                        },
+                        { "op": "clamp" }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "rot": 90,//acceleration6
+              "progress": {
+                "type": "time",
+                "ops": [
+                  {
+                    "op": "loop",
+                    "time": 60//1.5
+                  },
+                  {
+                    "op": "mul",
+                    "other": {
+                      "type": "warmup",//a
+                      "ops": [
+                        {
+                          "op": "add",
+                          "amount": -0.6
+                        },
+                        {
+                          "op": "mul",
+                          "amount": 10000
+                        },
+                        { "op": "clamp" }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "rot": 90,//acceleration7
+              "progress": {
+                "type": "time",
+                "ops": [
+                  {
+                    "op": "loop",
+                    "time": 60//1.5
+                  },
+                  {
+                    "op": "mul",
+                    "other": {
+                      "type": "warmup",//a
+                      "ops": [
+                        {
+                          "op": "add",
+                          "amount": -0.7
+                        },
+                        {
+                          "op": "mul",
+                          "amount": 10000
+                        },
+                        { "op": "clamp" }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "rot": 90,//acceleration8
+              "progress": {
+                "type": "time",
+                "ops": [
+                  {
+                    "op": "loop",
+                    "time": 60//1.5
+                  },
+                  {
+                    "op": "mul",
+                    "other": {
+                      "type": "warmup",//a
+                      "ops": [
+                        {
+                          "op": "add",
+                          "amount": -0.8
+                        },
+                        {
+                          "op": "mul",
+                          "amount": 10000
+                        },
+                        { "op": "clamp" }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "rot": 90,//acceleration9
+              "progress": {
+                "type": "time",
+                "ops": [
+                  {
+                    "op": "loop",
+                    "time": 60//1.5
+                  },
+                  {
+                    "op": "mul",
+                    "other": {
+                      "type": "warmup",//a
+                      "ops": [
+                        {
+                          "op": "add",
+                          "amount": -0.9
+                        },
+                        {
+                          "op": "mul",
+                          "amount": 10000
+                        },
+                        { "op": "clamp" }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "moveRot": 90,
+          "suffix": "-cog",
+          "mirror": false
+        },
+        {
+          "type": "RegionPart",
+          "x": 0,
+          "y": 0,
+          "under": false,
+          "progress": {
+            "type": "warmup",
+            "op": "mul",
+            "amount": 4
+          },
+          "moveX": 2,
+          "moveY": -3,
+          "suffix": "-blade",
+          "mirror": true
+        }
+      ]
+    },
+    /*{
+      "name": "large-bullet-mount-flipped",
+      "x": 9.5,
+      "y": 3.75,
+      "rotate": true,
+      "rotateSpeed": 6,
+      "top": true,
+      "reload": 12,
+      "shootY": 10,
+      "shootSound": "shootBig",
+      "soundVolume": 0.5,
+      "ejectEffect": "casing1",
+      "shadow": 8,
+      "shake": 1,
+      "bullet": {
+        "type": "BasicBulletType",
+        "speed": 7,
+        "damage": 45,
+        "keepVelocity": true,
+        "width": 11,
+        "height": 16,
+        "shootEffect": "shootBig",
+        "lifetime": 42
+      }
+    },*/
+    {
+      "name": "magnetic-missile",
+      "x": 17,
+      "y": -17.5,
+      "rotate": true,
+      "useAttackRange": false,
+      "top": true,
+      "reload": 20,
+      "shootSound": "shootMissile",
+      "ejectEffect": "casing1",
+      "shadow": 6,
+      "shootY": 3.5,
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 4,
+      },
+      "bullet": {
+        "type": "MissileBulletType",
+        "speed": 3.5,
+        "damage": 18,
+        "keepVelocity": true,
+        "width": 8,
+        "height": 8,
+        "shrinkY": 0,
+        "homingPower": 0.03,
+        "homingRange": 48,
+        "splashDamage": 32,
+        "splashDamageRadius": 40,
+        "lifetime": 77,
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "status": "blasted",
+        "statusDuration": 60,
+        "lightColor": "ffa665"
+      }
+    },
+    {
+      "name": "magnetic-missile",
+      "x": 10.75,
+      "y": 10.25,
+      "rotate": true,
+      "useAttackRange": false,
+      "top": true,
+      "reload": 15,
+      "shootSound": "shootMissile",
+      "ejectEffect": "casing1",
+      "shadow": 6,
+      "shootY": 3.5,
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 4,
+      },
+      "bullet": {
+        "type": "MissileBulletType",
+        "speed": 3.5,
+        "damage": 18,
+        "keepVelocity": true,
+        "width": 8,
+        "height": 8,
+        "shrinkY": 0,
+        "homingPower": 0.03,
+        "homingRange": 48,
+        "splashDamage": 32,
+        "splashDamageRadius": 40,
+        "lifetime": 77,
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "status": "blasted",
+        "statusDuration": 60,
+        "lightColor": "ffa665"
+      }
+    }
+    /*{
+      "name": "missiles-mount-mid",
+      "x": 0,
+      "y": 10.75,
+      "rotate": true,
+      "top": true,
+      "useAttackRange": false,
+      "reload": 50,
+      "mirror": false,
+      "shootSound": "missile",
+      "ejectEffect": "casing1",
+      "shadow": 6,
+      "bullet": {
+        "type": "MissileBulletType",
+        "speed": 3,
+        "damage": 10,
+        "keepVelocity": true,
+        "width": 6,
+        "height": 8,
+        "shrinkY": 0,
+        "homingPower": 0.03,
+        "homingRange": 48,
+        "splashDamage": 22,
+        "splashDamageRadius": 25,
+        "lifetime": 77,
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "status": "blasted",
+        "statusDuration": 60,
+        "lightColor": "ffa665"
+      }
+    }*/
+  ]
+}

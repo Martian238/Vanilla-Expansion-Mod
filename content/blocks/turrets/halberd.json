@@ -1,0 +1,93 @@
+{
+  "type": "PowerTurret",
+  "requirements": [ "cobalt/90","graphite/70","silicon/55","aluminium/80" ],
+  "category": "turret",
+  "size": 3,
+  "shootType": {
+    "type": "LaserBulletType",
+    "colors": [ "809fff66","809fff","ffffff" ],
+    "length": 245,
+    "sideAngle": 135,
+    "sideLength": 50,
+    "shootEffect": "hitLancer",
+    "smokeEffect": "hitLancer",
+    "width": 25,
+    "sideWidth": 1,
+    "largeHit": true,
+    "hitSize": 8,
+    "lifetime": 20
+    "damage": 125
+  },
+  "shoot": { "shots": 2, "shotDelay": 3 },
+  "recoil": 2,
+  "shootSound": "shootLancer",
+  "shootX": 0,
+  "shootY": 0,
+  "reload": 90,
+  "range": 245,
+  "shake": 4,
+  "health": 2600,
+  "ammoUseEffect": "none",
+  "rotateSpeed": 8,
+  "drawer": {
+    "type": "DrawTurret",
+    "parts": [
+      {
+        "type": "RegionPart",
+        "progress": "recoil",
+        "color": "809fff00",
+        "colorTo": "ffffff",
+        "blending": "additive",
+        "outline": false,
+        "under": false,
+        "suffix": "-glow"
+      },
+      {
+        "type": "RegionPart",
+        "progress": "warmup",
+        "mirror": true,
+        "suffix": "-blade",
+        "moveRot": -15,
+        "moveX": 1,
+        "moveY": 0,
+        "under": false,
+        "moves": [
+          {
+            "progress": "recoil",
+            "rot": -5,
+            "y": -0.5
+          }
+        ]
+      },
+      {
+        "type": "RegionPart",
+        "progress": "warmup",
+        "mirror": true,
+        "suffix": "-plate",
+        "moveRot": 0,
+        "moveX": 4.5,
+        "moveY": -4.5,
+        "under": true
+      }
+    ]
+  },
+  "minWarmup": 0.9,
+  "warmupMaintainTime": 30,
+  "trackingRange": 275,
+  "recoilTime": 45,
+  "shootWarmupSpeed": 0.1,
+  "cooldownTime": 120,
+  "research": {
+    "parent": "snipe"
+  },
+  "researchCostMultiplier": 0.03,
+  "coolantMultiplier": 14,
+  "consumes": {
+    "coolant": {
+      "type": "ConsumeCoolant",
+      "amount": 0.2
+    },
+    "power": 5
+  },
+  "shownPlanets": [ "cyclant","phoon" ]
+}

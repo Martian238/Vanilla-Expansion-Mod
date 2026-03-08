@@ -1,0 +1,11 @@
+{
+  "type": "Floor",
+  "variants": 3,
+  "attributes": {
+    "water": -0.5
+  },
+  "itemDrop": "ferric-shale-cobble",
+  "playerUnmineable": true,
+  "wall": "ferric-shale-wall",
+  "decoration": "ferric-shale-boulder"
+}

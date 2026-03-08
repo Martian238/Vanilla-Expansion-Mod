@@ -1,0 +1,19 @@
+{
+  "type": "StorageBlock",
+  "requirements": [ "aluminium/90" ],
+  "category": "effect",
+  "research": {
+    "parent": "rail-unloader",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "barrier-hill"
+      }
+    ]
+  },
+  "size": 2,
+  "itemCapacity": 160,
+  "researchCostMultiplier": 0.3,
+  "drawTeamOverlay": false,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

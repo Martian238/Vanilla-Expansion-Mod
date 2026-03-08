@@ -1,0 +1,7 @@
+{
+  "buildSpeedMultiplier": 1.75,
+  "damage": 0.3,
+  "intervalDamageTime": 5,
+  "intervalDamage": 7,
+  "intervalDamagePierce": true
+}

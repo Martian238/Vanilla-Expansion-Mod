@@ -1,0 +1,14 @@
+{
+  "type": "OverflowGate",
+  "requirements": [ "ferrum/4","silicon/1" ],
+  "category": "distribution",
+  "health": 120,
+  "armor": 6,
+  "invert": true,
+  "buildCostMultiplier": 3,
+  "research": {
+    "parent": "valve-overflow"
+  },
+  "crushDamageMultiplier": 0.2,
+  "shownPlanets": [ "sitrullus","maress" ]
+}

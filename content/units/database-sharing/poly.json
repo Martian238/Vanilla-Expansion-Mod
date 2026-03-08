@@ -1,0 +1,6 @@
+{
+  "mineWalls": true,
+  "mineItems": [ "copper","lead","aluminium","quartz","graphite" ],
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress" ],
+  "immunities": [ "frozen" ]
+}

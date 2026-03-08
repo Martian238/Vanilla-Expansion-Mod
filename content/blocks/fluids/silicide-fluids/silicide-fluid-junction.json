@@ -1,0 +1,13 @@
+{
+  "type": "LiquidJunction",
+  "requirements": [ "metaglass/8","graphite/4","titanium/4","silicide/4" ],
+  "category": "liquid",
+  "health": 370,
+  "armor": 16,
+  "solid": false,
+  "research": "silicide-conduit",
+  "crushDamageMultiplier": 0.05,
+  "flammabilityScale": 0,
+  "explosivenessScale": 0.25,
+  "shownPlanets": [ "serpulo","cyclant","phoon" ]
+}

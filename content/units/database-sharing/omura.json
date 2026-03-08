@@ -1,0 +1,6 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","phoon" ],
+  "deathSound": "si2ExplodeLoud",
+  "targetUnderBlocks": false,
+  "itemCapacity": 920
+}

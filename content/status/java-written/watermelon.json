@@ -1,0 +1,22 @@
+{
+  "effect": "none",
+  "color": "ff5555",
+  "damage": -1.25,
+  "permanent": false,
+  "buildSpeedMultiplier": 0,
+  "applyEffect": {
+    "type": "SoundEffect",
+    "sound": "mcBurp",
+    "effect": "none",
+    "startDelay": 72,
+    "rotWithParent": true,
+    "followParent": true,
+    "maxVolume": 0.45,
+    "minVolume": 0.45
+  },
+  "parentizeEffect": true,
+  "show": true,
+  "opposites": [ "burning","melting","corroded","blown","suppressed","combusting" ],
+  "affinities": [ "sodiumified" ],
+  "transitionDamage": 300
+}

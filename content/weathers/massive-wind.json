@@ -1,0 +1,27 @@
+{
+  "type": "ParticleWeather",
+  "color": "c7e5ff",
+  "noiseColor": "938c9c",
+  "particleRegion": "circle-small",
+  "drawNoise": true,
+  "useWindVector": true,
+  "sizeMax": 5,
+  "sizeMin": 1,
+  "yspeed": 0,
+  "xspeed": 3,
+  "minAlpha": 0.01,
+  "maxAlpha": 0.1,
+  "density": 1000,
+  "baseSpeed": 15,
+  "attrs": {
+    "heat": -0.3
+    "light": -0.1,
+    "steam": 4
+  },
+  "force": 0.25,
+  "sound": "si2Wind",
+  "soundVol": 0.8,
+  "duration": 10800,
+  "statusGround": false,
+  "status": "blown"
+}

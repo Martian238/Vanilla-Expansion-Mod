@@ -1,0 +1,84 @@
+{
+  "type": "LaunchPad",
+  "category": "effect",
+  "research": {
+    "parent": "rail-router",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "gobi"
+      }
+    ]
+  },
+  "requirements": [ "aluminium/150","chromium/100","silicon/100","graphite/300" ],
+  "launchSound": "padLaunchAdvanced",
+  "launchSoundPitchRand": 0,
+  "launchTime": 600,
+  "itemCapacity": 150,
+  "buildVisibility": "shown",
+  "shownPlanets": [ "cyclant" ],
+  "size": 3,
+  "hasPower": true,
+  "acceptMultipleItems": true,
+  "consumes": {
+    "power": 5
+  },
+  /*"launchEffect": {
+    "type": "MultiEffect",
+    "effects": [
+      "launchPod",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 96,
+                  "sides": 24,
+                  "strokeFrom": 4,
+                  "lifetime": 5
+                },
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 90,
+                  "sides": 24,
+                  "strokeFrom": 6,
+                  "lifetime": 5
+                },
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 84,
+                  "sides": 24,
+                  "strokeFrom": 6,
+                  "lifetime": 5
+                },
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 78,
+                  "sides": 24,
+                  "strokeFrom": 6,
+                  "lifetime": 5
+                },
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 72,
+                  "sides": 24,
+                  "strokeFrom": 6,
+                  "lifetime": 5
+                }
+              ]
+            }
+    ]
+  },*/
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

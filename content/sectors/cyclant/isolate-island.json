@@ -1,0 +1,24 @@
+{
+  "planet": "cyclant",
+  "sector": 91,
+  "difficulty": 6,
+  "research": {
+    "parent": "fungus-factory",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "fungus-factory"
+      },
+      "cultivate-tank"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 50,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

@@ -1,0 +1,12 @@
+{
+  "type": "DuctRouter",
+  "requirements": [ "metaglass/4","thorium/4","plastanium/4" ],
+  "health": 190,
+  "speed": 4,
+  "regionRotated1": 1,
+  "solid": false,
+  "research": {
+    "parent": "armored-conveyor",
+    "objectives": [ "armored-conveyor" ]
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "generator": {},
+  "parent": "sol2",
+  "launchCandidates": [ "serpulo","maress","cyclant","sitrullus","phoon" ],
+  "solarSystem": "sol2",
+  "iconColor": "90dbff",
+  "orbitRadius": 90,
+  "orbitTime": 12000,
+  "rotateTime": 1200,
+  /*60*/
+  "hasAtmosphere": true,
+  "updateLighting": true,
+  "atmosphereRadIn": 0.02,
+  "atmosphereRadOut": 0.4,
+  "atmosphereColor": "90dbff80",
+  "lightColor": "3fc2ff80",
+  "landCloudColor": "938c9c7f",
+  "allowSelfSectorLaunch": false,
+  "defaultAttributes": {
+    "spores": -1,
+    "steam": 1
+  },
+  "drawOrbit": true,
+  "accessible": true,
+  "lightSrcFrom": 0,
+  "lightSrcTo": 0.8,
+  "lightDstFrom": 0.25,
+  "lightDstTo": 0.85,
+  "research": {
+    "parent": "interplanetary-accelerator"
+  },
+  "defaultCore": "isomorphic-core-shard",
+  "sectorSeed": 0,
+  "alwaysUnlocked": true,
+  "startSector": 170,
+  "sectorSize": 3.75,
+  "clearSectorOnLose": true,
+  "allowSectorInvasion": false,
+  "allowLaunchToNumbered": false,
+  "allowCampaignRules": true,
+  "showRtsAIRule": false,
+  "enemyCoreSpawnReplace": true,
+  "allowLaunchSchematics": true,
+  "allowWaveSimulation": true,
+  "launchMusic": "game4",
+  "allowLaunchLoadout": true,
+  "launchCapacityMultiplier": 0.5,
+  "tidalLock": false,
+  "prebuildBase": true,
+  "radius": 1,
+  "bloom": false,
+  "visible": true,
+  "minZoom": 0.001,
+  "maxZoom": 10,
+  "cloudMesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      {
+        "type": "HexSkyMesh",
+        "planet": "cyclant",
+        "seed": 9,
+        "speed": 2.8,
+        "radius": 0.07,
+        "divisions": 5,
+        "color": "938c9cd0",
+        "octaves": 2,
+        "persistence": 0.42,
+        "scl": 0.9,
+        "thresh": 0.43
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "cyclant",
+        "seed": 19,
+        "speed": 1,
+        "radius": 0.15,
+        "divisions": 5,
+        "color": "b8c1e050",
+        "octaves": 2,
+        "persistence": 0.4,
+        "scl": 0.5,
+        "thresh": 0.45
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "cyclant",
+        "seed": 29,
+        "speed": 0.6,
+        "radius": 0.2,
+        "divisions": 5,
+        "color": "c7e5ff30",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.3,
+        "thresh": 0.47
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "cyclant",
+        "seed": 39,
+        "speed": 0.8,
+        "radius": 0.25,
+        "divisions": 5,
+        "color": "b8c1e020",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.3,
+        "thresh": 0.6
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "cyclant",
+        "seed": 49,
+        "speed": 1.2,
+        "radius": 0.3,
+        "divisions": 5,
+        "color": "c7e5ff10",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.3,
+        "thresh": 0.75
+      }
+    ]
+  },
+  "mesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      {
+        "type": "NoiseMesh",
+        "planet": "cyclant",
+        "seed": 204,
+        "color1": "c59a78",//antigrass
+        "color2": "909862",//semigrass
+        "divisions": 6,
+        "radius": 1,
+        "octaves": 10,
+        "persistence": 0.5,
+        "scale": 1,
+        "mag": 0.5
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "cyclant",
+        "seed": 3,
+        "color1": "4d5ca420",//deepwater22317a
+        "color2": "5867ac20",//deepwater32408a
+        "divisions": 6,
+        "radius": 1,
+        "octaves": 6,
+        "persistence": 0.5,
+        "scale": 0.5,
+        "mag": 0.5
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "cyclant",
+        "seed": 2,
+        "color1": "3c4448",//carbonshale
+        "color2": "909862",//semigrass
+        "divisions": 6,
+        "radius": 0.982,
+        "octaves": 8,
+        "persistence": 0.5,
+        "scale": 2,
+        "mag": 0.5
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "cyclant",
+        "seed": 9,
+        "color1": "00ff00",
+        "color2": "00ff00",
+        "divisions": 3,
+        "radius": 0.3,
+        "octaves": 8,
+        "persistence": 0.5,
+        "scale": 5,
+        "mag": 0.5
+      },/*
+      {
+        "type": "NoiseMesh",
+        "planet": "cyclant",
+        "seed": 1005,
+        "color1": "c2c2c2",//snow
+        "color2": "676593",//shale
+        "divisions": 6,
+        "radius": 0.988,
+        "octaves": 6,
+        "persistence": 0.9,
+        "scale": 0.1,
+        "mag": 0.5
+      },*/
+      {
+        "type": "SunMesh",
+        "planet": "cyclant",
+        "speed": 996,
+        "mag": 1.5,
+        "scl": 0.01,
+        "octaves": 6,
+        "persistence": 0.5,
+        "divisions": 2,
+        "pow": 1.2,
+        "colorScale": 1.1,
+        "colors": [ 
+          "ffa665",
+          "feb380"
+        ]
+      }
+    ]
+  },
+  /*"hiddenItems": [
+    "copper","beryllium","tungsten","oxide",
+    "carbide"
+  ],
+  "itemWhitelist": [ "lead","titanium","coal","plastanium","sand","graphite","surge-alloy","phase-fabric","thorium","scrap","pyratite","blast-compound","spore-pod","silicon","metaglass",
+  "aluminium","chromium","cobalt","salt","shale-cobble","carbon-shale-cobble","nitroalkoss","plant-matter","wrap-nucleus","capacitor","quartz","sodium","fibralt","catalyzon" ],*/
+  "defaultEnv": 225
+}

@@ -1,0 +1,42 @@
+{
+  "type": "BaseShield",
+  "requirements": [ "phase-fabric/8","silicon/20","thorium/20" ],
+  "radius": 8,
+  "sides": 4,
+  "consumes": {
+    "power": 0.23333333
+  },
+  "conductivePower": true,
+  "size": 2,
+  "category": "defense",
+  "solid": true,
+  "buildCostMultiplier": 6,
+  "group": "walls",
+  "crushDamageMultiplier": 5,
+  "canOverdrive": false,
+  "researchCostMultiplier": 0.05,
+  "drawDisabled": false,
+  "priority": -2,
+  /*"drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      { 
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "color": "bf92f9"
+      }
+    ]
+  },*/
+  "health": 3000,
+  //"hidden": false,
+  "hasPower": true,
+  "research": "fibralt-wall",
+  "rebuildable": true,
+  "ambientSoundVolume": 0.06,
+  "ambientSound": "loopShield",
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon" ],
+  "drawTeamOverlay": false,
+  "destroySound": "blockExplodeWall",
+  "destroySoundVolume": 1.5
+}

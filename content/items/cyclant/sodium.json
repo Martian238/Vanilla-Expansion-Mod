@@ -1,0 +1,9 @@
+{
+  "color": "d4e5ed",
+  "hardness": 0,
+  "healthScaling": 0,
+  "cost": 0.1,
+  "flammability": 0.6,
+  "research": "salt",
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+}

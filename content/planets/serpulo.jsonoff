@@ -1,0 +1,6 @@
+{
+  "launchCandidates": [ "cyclant" ], 
+  "itemWhitelist": [ "lead","titanium","coal","plastanium","sand","graphite","surge-alloy","phase-fabric","thorium","scrap","pyratite","blast-compound","spore-pod","silicon","metaglass",
+  "silicide","salt","shale-cobble"
+  ]
+}

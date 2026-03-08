@@ -1,0 +1,128 @@
+{
+  "type": "tank",
+  "hitSize": 28,
+  "speed": 1,
+  "treadPullOffset": 6,
+  "treadFrames": 24,
+  "rotateSpeed": 2,
+  "health": 4700,
+  "armor": 16,
+  "itemCapacity": 90,
+  "omniMovement": false,
+  "squareShape": true,
+  "rotateMoveFirst": true,
+  "targetGround": true,
+  "generateIcons": true,
+  "crushDamage": 0.5,
+  "fogRadius": 180,
+  "immunities": [ "melting","burning","combusting","corroded","fusing" ],
+  "drag": 0.07,
+  "accel": 0.09,
+  "envDisabled": 0,
+  "lightColor": "feb380",
+  "emitWalkSound": false,
+  "treadRects": [
+    {
+      "type": "Rect",
+      "x": -49,
+      "y": -55,
+      "width": 24,
+      "height": 102
+    }
+  ],
+  "envDisabled": 0,
+  "research": {
+    "parent": "arrange",
+    "objectives": [ "senior-armorcar-reconstructor" ],
+    "requirements": [ "silicon/1800","titanium/1200","silicide/400" ]
+  },
+  "targetFlags": [
+    "turret","core"
+  ],
+  "researchCostMultiplier": 0.3,
+  "tankMoveSound": "lbp3TankTreads",
+  "tankMoveVolume": 0.3,
+  "floorMultiplier": 0.65,
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "weapons": [
+    {
+      "name": "charge-turret",
+      "recoil": 3,
+      "mirror": false,
+      "reload": 45,
+      "x": 0,
+      "y": -2,
+      "layerOffset": 0.001,
+      "predictTarget": false,
+      "shootY": 9,
+      "shootX": 0,
+      "rotate": true,
+      "rotateSpeed": 2.1,
+      "shootSound": "lbp3SearchlightEdited",
+      "shootCone": 30,
+      "shake": 3,
+      "shadow": 20,
+      "shoot": {
+        "type": "ShootBarrel",
+        "barrels": [
+          -9,0,0,-3,0,0,3,0,0,9,0,0
+        ],
+        "shotDelay": 6,
+        "shots": 4
+      },
+      "bullet": {
+        "spawnUnit": "charge-missile",
+        "speed": 999,
+        "damage": 32,
+        "drag": -0.01,
+        "smokeEffect": "shootBigSmoke",
+        "buildingDamageMultiplier": 0.5,
+        "shootEffect": {
+          "type": "MultiEffect",
+          "effects": [ 
+            "shootBig",
+            { 
+              "type": "RadialEffect",
+              "effect": "shootBigSmoke",
+              "rotationOffset": 180,
+              "lengthOffset": 16,
+              "amount": 1
+            }
+          ]
+        },
+        "width": 4,
+        "height": 24,
+        "sprite": "missile-large",
+        "lifetime": 80,
+        "collidesGround": true,
+        "collidesTiles": true,
+        "hitColor": "feb380",
+        "backColor": "feb380",
+        "frontColor": "ffffff",
+        "shrinkY": 0,
+        "despawnEffect": "massiveExplosion",
+        "despawnShake": 4,
+        "hitEffect": "massiveExplosion",
+        "hitSound": "bang",
+        "status": "blasted",
+        "statusDuration": 60,
+        "splashDamage": 58,
+        "splashDamageRadius": 48,
+        "trailLength": 30,
+        "trailColor": "feb380",
+        "homingPower": 0.06,
+        "homingDelay": 10
+        "parts": [
+          {
+            "type": "FlarePart",
+            "sides": 2,
+            "radius": 6,
+            "stroke": 4,
+            "spinSpeed": 5,
+            "color1": "feb380"
+          }
+        ]
+      }
+    }
+  ]
+}

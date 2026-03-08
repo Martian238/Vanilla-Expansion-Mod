@@ -1,0 +1,60 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "chromium/35","silicon/60","metaglass/40","nitroalkoss/2" ],
+  "category": "production",
+  "outputItems": [ "nitroalkoss/7","blast-compound/2" ],
+  "research": {
+    "parent": "cell-laboratory",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "isolate-island"
+      }
+    ]
+  },
+  "consumes": {
+    "items": {
+      "items": [ "pyratite/3" ]
+    },
+    "liquids": {
+      "liquids": [ "water/0.2333333" ]
+    }
+    "power": 0.75
+  },
+  "baseExplosiveness": 2,
+  "hasItems": true,
+  "hasLiquids": true,
+  "hasPower": true,
+  "craftEffect": "none",
+  "liquidCapacity": 20,
+  "itemCapacity": 15,
+  "craftTime": 440,
+  "size": 2,
+  "armor": 2,
+  "legacyReadWarmup": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water"
+      },
+      { 
+        "type": "DrawCultivator",
+        "plantColorLight": "ff8a67",
+        "plantColor": "e16049",
+        "bottomColor": "ba352b"
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": ""
+      }
+    ]
+  },
+  "researchCost": [ "nitroalkoss/1" ],
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

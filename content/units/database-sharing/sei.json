@@ -1,0 +1,5 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","phoon" ],
+  "deathSound": "si2Explode",
+  "itemCapacity": 600
+}

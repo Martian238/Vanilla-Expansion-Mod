@@ -1,0 +1,591 @@
+{
+  "type": "ItemTurret",
+  "requirements": [ "aluminium/130","chromium/100","graphite/80","silicon/50" ],
+  "category": "turret",
+  "size": 3,
+  "outlineColor": "2d2f39",
+  "ammoTypes": {
+    "graphite": {
+      "width": 10,
+      "height": 13,
+      "lifetime": 48,
+      "ammoMultiplier": 4,
+      "speed": 5,
+      "damage": 24,
+      /*"reloadMultiplier": 0.7,*/
+      "backColor": "7d89d8",
+      "frontColor": "dae1ee",
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "hitEffect": "hitBulletColor"
+      "despawnEffect": "hitBulletColor",
+      "hitColor": "dae1ee",
+      "hitColor": "dae1ee"
+    },
+    "thorium": {
+      "width": 11,
+      "height": 15,
+      "lifetime": 40,
+      "ammoMultiplier": 2,
+      "speed": 6,
+      "damage": 40,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "hitEffect": "hitBulletColor"
+      "despawnEffect": "hitBulletColor",
+      "backColor": "f9a3c7",
+      "frontColor": "ffffff",
+      "hitColor": "f9a3c7",
+      "hitColor": "f9a3c7",
+      "armorMultiplier": 0.8
+    },
+    "surge-alloy": {
+      "speed": 6,
+      "lifetime": 40,
+      "width": 11,
+      "height": 15,
+      "damage": 30,
+      "ammoMultiplier": 4,
+      "backColor": "f3e979",
+      "frontColor": "ffffff",
+      "hitColor": "f3e979",
+      "hitColor": "f3e979",
+      "hitEffect": "hitBulletColor",
+      "despawnEffect": "hitBulletColor",
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "lightning": 2,
+      "lightningLength": 8,
+      "hitShake": 1,
+      "despawnShake": 1,
+      "status": "shocked",
+      "statusDuration": 10,
+      "hitSound": "shockBullet",
+      "despawnSound": "shockBullet"
+    },
+    "fusion-fuel": {
+      "speed": 7,
+      "randomAngleOffset": 4,
+      "lifetime": 30,
+      "rangeChange": -30,
+      "ammoMultiplier": 4,
+      "width": 13,
+      "height": 16,
+      "trailColor": "9eabf799",
+      "trailSpread": 2,
+      "trailChance": 0.7,
+      "trailEffect": "missileTrail",
+      "damage": 12,
+      "splashDamage": 138,
+      "splashDamageRadius": 56,
+      "status": "burning",
+      "statusDuration": 360,
+      "hitShake": 4,
+      "despawnShake": 4,
+      "despawnHit": true,
+      "despawnEffect": "none",
+      "makeFire": true,
+      "frontColor": "9eabf7",
+      "backColor": "9eabf7",
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "hitColor": "9eabf7",
+      "hitEffect": {
+        "type": "ExplosionEffect",
+        "waveColor": "9eabf7",
+        "smokeColor": "9eabf766",
+        "sparkColor": "f3e979",
+        "waveLife": 6,
+        "waveStroke": 1,
+        "waveRad": 56,
+        "waveRadBase": 0,
+        "sparkStroke": 2,
+        "sparkRad": 56,
+        "sparkLen": 8,
+        "smokeSize": 16,
+        "smokeSizeBase": 1,
+        "smokeRad": 64,
+        "smokes": 12,
+        "sparks": 12,
+        "lifetime": 60
+      },
+      "reloadMultiplier": 0.7,
+      "hitSound": "boom",
+      "despawnSound": "boom"
+    },
+    "quartz": {
+      "width": 8,
+      "height": 15,
+      "lifetime": 40,
+      "ammoMultiplier": 2,
+      "pierce": true,
+      "pierceCap": 5,
+      "pierceBuilding": false,
+      "speed": 6,
+      "damage": 23,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "hitEffect": "hitSquaresColor",
+      "hitColor": "f68021",
+      "despawnEffect": "hitSquaresColor",
+      "hitColor": "f68021",
+      "backColor": "f68021"
+    },
+    "silicide": {
+      "width": 10,
+      "height": 13,
+      "lifetime": 48,
+      "ammoMultiplier": 6,
+      "speed": 6,
+      "rangeChange": 48,
+      "damage": 35,
+      "reloadMultiplier": 1.1,
+      "knockback": 4,
+      "hittable": false,
+      "shootEffect": "shootBig",
+      "smokeEffect": "shootBigSmoke",
+      "hitEffect": {
+        "type": "MultiEffect",
+        "effects": [
+          "hitBulletSmall",
+          {
+          "type": "WaveEffect",
+          "lightColor": "565666ff",
+          "colorFrom": "565666ff",
+          "colorTo": "565666ff",
+          "sizeTo": 14,
+          "strokeFrom": 6,
+          "strokeTo": 4,
+          "lifetime": 7
+          },
+          {
+          "type": "WaveEffect",
+          "lightColor": "565666ff",
+          "colorFrom": "565666ff",
+          "colorTo": "565666ff",
+          "sizeTo": 20,
+          "strokeFrom": 5,
+          "strokeTo": 3,
+          "lifetime": 5
+          }
+        ]
+      },
+      "despawnHit": true,
+      "splashDamage": 14,
+      "splashDamageRadius": 17
+    },
+    "pyratite": {
+      "width": 10,
+      "height": 13,
+      "lifetime": 48,
+      "ammoMultiplier": 5,
+      "speed": 5,
+      "damage": 27,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "hitFlameSmall",
+      "hitEffect": {
+        "type": "MultiEffect",
+        "effects": [ 
+          "hitBulletSmall",
+          "fireHit"
+        ]
+      },
+      "backColor": "f8ad42",
+      "frontColor": "f8e096",
+      "hitColor": "f8e096",
+      "makeFire": true,
+      "splashDamage": 12,
+      "splashDamageRadius": 28,
+      "status": "burning"
+    },
+    "chromium": {
+      "width": 8,
+      "height": 18,
+      "lifetime": 48,
+      "shrinkY": 0,
+      "ammoMultiplier": 3,
+      "speed": 5,
+      "damage": 32,
+      "hitSize": 12,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "backColor": "ff6b41",
+      "hitColor": "ff6b41",
+      "hitColor": "ff6b41",
+      "hitEffect": "hitBulletColor",
+      "despawnEffect": "hitBulletColor",
+      "pierceArmor": true,
+      "spin": 12,
+      "shieldDamageMultiplier": 4
+    },
+    "ferrum": {
+      "width": 10,
+      "height": 13,
+      "lifetime": 48,
+      "speed": 5,
+      "damage": 27,
+      "ammoMultiplier": 3,
+      "shrinkY": 0,
+      "frontColor": "9f8c88",
+      "backColor": "7e6863",
+      "hitColor": "9f8c88",
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "hitEffect": "flakExplosion",
+      "despawnHit": true,
+      "setDefaults": false,
+      "despawnEffect": "hitBulletColor",
+      "splashDamage": 9,
+      "splashDamageRadius": 16,
+      "fragBullets": 3,
+      "fragLifeMin": 0,
+      "fragOffsetMax": 1,
+      "fragRandomSpread": 30,
+      "fragVelocityMin": 0.5,
+      "fragBullet": {
+        "width": 7,
+        "height": 10,
+        "lifetime": 30,
+        "speed": 5,
+        "damage": 6,
+        "shrinkY": 0,
+        "spin": 10,
+        "frontColor": "9f8c88",
+        "backColor": "7e6863",
+        "hitColor": "9f8c88",
+        "hitEffect": "hitBulletColor",
+        "despawnEffect": "hitBulletColor",
+        "pierce": true,
+        "pierceBuilding": false,
+        "pierceCap": 4,
+        "pierceArmor": true
+      }
+    }
+    "sodium": {
+      "width": 8,
+      "height": 12,
+      "lifetime": 72,
+      "ammoMultiplier": 3,
+      "speed": 5,
+      "rangeChange": 120,
+      "damage": 2,
+      "shootEffect": "shootBig",
+      "smokeEffect": "shootBigSmoke",
+      "backColor": "d4e5ed",
+      "hitColor": "d4e5ed",
+      "hitColor": "d4e5ed",
+      "hitEffect": "mineSmall",
+      "despawnEffect": "hitBulletColor",
+      "status": "sodiumified",
+      "statusDuration": 180
+    },
+    "nitroalkoss": {
+      "width": 7,
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootBigSmoke",
+      "ammoMultiplier": 6,
+      "reloadMultiplier": 1.2,
+      "height": 12,
+      "shrinkY": 0.3,
+      "knockback": 1,
+      "lifetime": 40,
+      "rangeChange": -40,
+      "speed": 5,
+      "damage": 20,
+      "pierceArmor": true,
+      "hitEffect": {
+        "type": "MultiEffect",
+        "effects": [ "blastExplosion","fireHit" ]
+      },
+      "despawnEffect": {
+        "type": "MultiEffect",
+        "effects": [ "blastExplosion","fireHit" ]
+      },
+      "hitSound": "bangClassic",
+      "despawnSound": "bangClassic",
+      "frontColor": "ff8a67",
+      "backColor": "ff8a67",
+      "status": "combusting",
+      "statusDuration": 240,
+      "makeFire": true,
+      "splashDamage": 25,
+      "splashDamageRadius": 32,
+      "hitShake": 3,
+      "despawnShake": 3,
+      "fragBullets": 3,
+      "fragBullet": {
+        "createChance": 0.8,
+        "type": "BulletType",
+        "damage": 50,
+        "status": "combusting",
+        "statusDuration": 360,
+        "speed": 3.5,
+        "pierce": true,
+        "pierceBuilding": true,
+        "makeFire": true,
+        "lifetime": 6,
+        "pierceCap": 3,
+        "hitEffect": "hitFlameSmall",
+        "despawnSound": "shootFlame",
+        "despawnEffect": "hitFlameSmall",
+        "hitSize": 7,
+        "hittable": false,
+        "lightColor": "f8e096"
+      }
+    },
+    "salt": {
+      "killShooter": true,
+      "damage": 999,
+      "speed": 0.1,
+      "lifetime": 3600,
+      "collides": false,
+      "rangeChange": -240,
+      "ammoMultiplier": 10,
+      "reloadMultiplier": 5,
+      "hittable": false,
+      "absorbable": true,
+      "reflectable": false,
+      "width": 35,
+      "height": 7,
+      "sprite": "ve-buffet-preview",
+      "frontColor": "ffffff",
+      "backColor": "ffffff",
+      "despawnShake": 200,
+      "hitShake": 200,
+      "hitSound": "stAstroExplode",
+      "despawnSound": "stAstroExplode",
+      "hitEffect": "pulverize",
+      "despawnEffect": "pulverize",
+      "spin": 45,
+      "shieldDamageMultiplier": 0.01
+    }
+  },
+  "recoil": 1,
+  "shootSound": "shootCyclone",
+  "shootX": 0,
+  "shootY": 11,
+  "reload": 6,
+  "range": 240,
+  "health": 4400,
+  "armor": 6,
+  "shake": 1,
+  "ammoUseEffect": "casing2",
+  "inaccuracy": 3,
+  "rotateSpeed": 10,
+  "drawer": {
+    "type": "DrawTurret",
+    "basePrefix": "dark-",
+    "parts": [
+      {
+        "type": "RegionPart",
+        "suffix": "-plate",
+        "progress": "warmup",
+        "moveX": 1.25,
+        "moveY": -1.25,
+        "mirror": true
+      },
+      {
+        "type": "RegionPart",
+        "suffix": "-tube",
+        "progress": "reload",
+        "x": 0,
+        "y": 0,
+        "under": true,
+        "layerOffset": -0.003,
+        "mirror": false,
+        "moves": [
+          {
+            "x": 0,
+            "y": -1,
+            "progress": {
+              "type": "reload",
+              "op": "mul",
+              "other": "reload"
+            }
+          },
+          {
+            "x": -4,
+            "y": 0,
+            "progress": {
+              "type": "reload", 
+              "ops": [
+                {
+                  "op": "mul",
+                  "other": "reload"
+                },
+                { 
+                  "op": "mul",
+                  "amount": -0.5
+                },
+                {
+                  "op": "add",
+                  "other": "reload"
+                },
+                {
+                  "op": "mul",
+                  "amount": 2
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "RegionPart",
+        "suffix": "-tube",
+        "progress": "reload",
+        "x": 4,
+        "y": -1,
+        "under": true,
+        "layerOffset": -0.002,
+        "mirror": false,
+        "moves": [
+          {
+            "x": -4,
+            "y": 0,
+            "progress": {
+              "type": "reload",
+              "op": "mul",
+              "other": "reload"
+            }
+          },
+          {
+            "x": 0,
+            "y": 1,
+            "progress": {
+              "type": "reload",
+              "ops": [
+                {
+                  "op": "mul",
+                  "other": "reload"
+                },
+                { 
+                  "op": "mul",
+                  "amount": -0.5
+                },
+                {
+                  "op": "add",
+                  "other": "reload"
+                },
+                {
+                  "op": "mul",
+                  "amount": 2
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "RegionPart",
+        "suffix": "-tube",
+        "progress": "reload",
+        "x": 0,
+        "y": -2,
+        "under": true,
+        "layerOffset": -0.005,
+        "mirror": false,
+        "moves": [
+          {
+            "x": 0,
+            "y": 1,
+            "progress": {
+              "type": "reload",
+              "op": "mul",
+              "other": "reload"
+            }
+          },
+          {
+            "x": 4,
+            "y": 0,
+            "progress": {
+              "type": "reload",     
+              "ops": [
+                {
+                  "op": "mul",
+                  "other": "reload"
+                },
+                { 
+                  "op": "mul",
+                  "amount": -0.5
+                },
+                {
+                  "op": "add",
+                  "other": "reload"
+                },
+                {
+                  "op": "mul",
+                  "amount": 2
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "type": "RegionPart",
+        "suffix": "-tube",
+        "progress": "reload",
+        "x": -4,
+        "y": -1,
+        "under": true,
+        "layerOffset": -0.004,
+        "mirror": false,
+        "moves": [
+          {
+            "x": 4,
+            "y": 0,
+            "progress": {
+              "type": "reload",
+              "op": "mul",
+              "other": "reload"
+            }
+          },
+          {
+            "x": 0,
+            "y": -1,
+            "progress": {
+              "type": "reload",
+              "ops": [
+                {
+                  "op": "mul",
+                  "other": "reload"
+                },
+                { 
+                  "op": "mul",
+                  "amount": -0.5
+                },
+                {
+                  "op": "add",
+                  "other": "reload"
+                },
+                {
+                  "op": "mul",
+                  "amount": 2
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "research": {
+    "parent": "beat",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.03,
+  "consumes": {
+    "coolant": {
+      "type": "ConsumeCoolant",
+      "amount": 0.3
+    }
+  },
+  "crushDamageMultiplier": 0.2,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

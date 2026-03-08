@@ -1,0 +1,8 @@
+{
+  "immunities": [ 
+    "interrupted","electrified","frozen"
+  ],
+  "shownPlanets": [ "serpulo","cyclant","phoon" ],
+  "deathSound": "rlElectricBlockerBreak",
+  "itemCapacity": 680
+}

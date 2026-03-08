@@ -1,0 +1,200 @@
+{
+  "type": "payload",
+  "researchCostMultiplier": 0,
+  "isEnemy": false,
+  "lowAltitude": true,
+  "fogRadius": 0,
+  "flying": true,
+  "drag": 0.035,
+  "speed": 4.3,
+  "rotateSpeed": 9,
+  "accel": 0.095,
+  "health": 620,
+  "armor": 5,
+  "engineOffset": 9,
+  "engineSize": 3.75,
+  "hitSize": 16,
+  "itemCapacity": 110,
+  "faceTarget": true,
+  "mineTier": 3,
+  "mineSpeed": 11,
+  "mineWalls": true,
+  "buildSpeed": 2.1,
+  "mineRange": 110,
+  "drawBuildBeam": true,
+  "mineBeamOffset": 5.75,
+  "buildBeamOffset": 3.5,
+  "buildRange": 320,
+  "payloadCapacity": 400,
+  "lightColor": "ffd37f",
+  "pickupUnits": true,
+  "targetFlags": [
+    "battery","generator","repair","turret"
+  ],
+  "immunities": [ "frozen" ],
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "abilities": [
+    {
+      "type": "ShieldArcAbility",
+      "radius": 20,
+      "regen": 0.4,
+      "max": 380,
+      "cooldown": 60,
+      "angle": 120,
+      "angleOffset": 0,
+      "whenShooting": true,
+      "width": 9,
+      "pushUnits": false
+    }
+  ],
+  "weapons": [
+    {
+      "type": "BuildWeapon",
+      "rotate": false,
+      "top": false,
+      "x": 6,
+      "y": 6,
+      "shootY": 0,
+      "shootX": 0
+    },
+    {
+      "name": "fast-power-weapon",
+      "x": 3.75,
+      "y": -4.25,
+      "top": false,
+      "rotate": false,
+      "shootX": 0,
+      "shootY": 4,
+      "reload": 20,
+      "ejectEffect": "casing1",
+      "shootSound": "shootSalvo",
+      "shoot": {
+        "shots": 5,
+        "shotDelay": 3
+      },
+      "inaccuracy": 1.5,
+      "bullet": {
+        "speed": 7,
+        "damage": 17,
+        "width": 7,
+        "height": 16,
+        "lifetime": 45,
+        "shootEffect": "shootSmall",
+        "lightColor": "ffd37f",
+        "smokeEffect": "shootSmallSmoke",
+        "buildingDamageMultiplier": 0.01,
+        "homingPower": 0.12,
+        "homingDelay": 10,
+        "fragBullets": 2,
+        "hitSound": "shockBullet",
+        //"despawnSound": "sparkBullet",
+        "trailColor": "ffd37f",
+        "trailLength": 3,
+        "hitEffect": "hitScepterSecondary",
+        "despawnEffect": "hitScepterSecondary",
+        "trailEffect": "bulletSparkSmokeTrailSmall",
+        "trailChance": 0.04,
+        "shrinkY": 0,
+        "trailSpread": 12,
+        "fragBullet": {
+          "type": "LightningBulletType",
+          "lightningLength": 5,
+          "damage": 5,
+          "status": "shocked",
+          "statusDuration": 10,
+          "speed": 0.0001,
+          "buildingDamageMultiplier": 0,
+          "collidesTiles": false,
+          "lightningColor": "ffd37f",
+          "hitColor": "ffd37f",
+          "lightColor": "ffd37f"
+        },
+        "spawnBullets": [
+          {
+            "createChance": 0.0001,
+            "sprite": "ve-gggg",
+            "damage": 99.99,
+            "layer": 139,
+            "spin": 45,
+            "hittable": false,
+            "splashDamage": 99.99,
+            "splashDamageRadius": 99.99,
+            "buildingDamageMultiplier": 0.01,
+            "speed": 3,
+            "lifetime": 199.98,
+            "hitEffect": "blastExplosion",
+            "despawnHit": true,
+            "despawnEffect": "none",
+            "width": 15.25,
+            "height": 10.5,
+            "trailColor": "ffd37f",
+            "trailLength": 10
+          }
+        ]
+      }
+    },
+    {
+      "name": "omega-weapon",
+      "x": 4.5,
+      "y": 0.25,
+      "top": false,
+      "rotate": true,
+      "shootX": 7.5,
+      "shootY": -0.25,
+      "reload": 32,
+      "recoilTime": 25,
+      "rotateSpeed": 7,
+      "rotationLimit": 150,
+      "ejectEffect": "none",
+      "soundPitchMin": 1,
+      "soundPitchMax": 1.05,
+      "shootSound": "shootLancer",
+      "shake": 3,
+      "recoil": 4,
+      "layerOffset": -0.002,
+      "minWarmup": 0.9,
+      "cooldownTime": 60,
+      "heatColor": "ffd37f",
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "-weapon",
+          "moveX": 7.5,
+          "moveY": -4,
+          "progress": "warmup",
+          "moveRot": 3,
+          "under": false,
+          "layerOffset": 0.001,
+          "color": "aaaaaa",
+          "colorTo": "ffffff"
+        }
+      ],
+      "shoot": {
+        "type": "ShootBarrel",
+        "barrels": [ 0,0,3 ]
+      },
+      "bullet": {
+        "type": "LaserBulletType",
+        "buildingDamageMultiplier": 0.01,
+        "damage": 100,
+        "armorMultiplier": 0.5,
+        "recoil": 0,
+        "sideAngle": 30,
+        "sideWidth": 0.75,
+        "sideLength": 45,
+        "length": 265,
+        "colors": [ "ffd37f66","ffd37f","ffffff" ],
+        "hitColor": "ffd37f",
+        "lightColor": "ffd37f",
+        "shootEffect": {
+          "type": "MultiEffect",
+          "effects": [ 
+            "hitLaserBlast",
+            "colorSpark"
+          ]
+        },
+        "hitColor": "ffd37f"
+      }
+    }
+  ]
+}

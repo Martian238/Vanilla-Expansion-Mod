@@ -1,0 +1,24 @@
+{
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly",
+  "destructible": false,
+  "targetable": false,
+  "suppressable": false,
+
+  "type": "OverdriveProjector",
+  "category": "effect",
+  "reload": 1,
+  "range": 24,
+  "speedBoost": 100,
+  "phaseRangeBoost": 56,
+  "speedBoostPhase": 900,
+  "useTime": 6000,
+  "itemCapacity": 100,
+  "consumes": {
+    "items": {
+      "items": [ "phase-fabric/1" ]
+      "optional": true,
+      "booster": true
+    }
+  }
+}

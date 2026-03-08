@@ -1,0 +1,27 @@
+{
+  "type": "SolidPump",
+  "category": "production",
+  "requirements": [ "ferrum/20","silver/30" ],
+  "result": "melon-water",
+  "pumpAmount": 0.06666666667,
+  "size": 2,
+  "liquidCapacity": 40,
+  "rotateSpeed": 2,
+  "attribute": "steam",
+  "consumes": {
+    "liquids": {
+      "liquids": [ "melon-water/0" ],
+      "optional": true,
+      "booster": false
+    }
+  },
+  "research": {
+    "parent": "chained-pump"
+  },
+  "researchCostMultiplier": 0.3,
+  "shownPlanets": [ "sitrullus" ],
+  "baseEfficiency": 0,
+  "armor": 4,
+  "hasPower": false,
+  "consumesPower": false
+}

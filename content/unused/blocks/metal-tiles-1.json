@@ -1,0 +1,6 @@
+{
+  "walkSound": [ "roStepMetal1","roStepMetal2","roStepMetal3" ],
+  "walkSoundVolume": 0.07,
+  "walkSoundPitchMin": 0.8,
+  "walkSoundPitchMax": 1
+}

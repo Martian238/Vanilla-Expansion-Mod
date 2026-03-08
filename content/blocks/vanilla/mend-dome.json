@@ -1,0 +1,28 @@
+{
+  "type": "MendProjector",
+  "category": "effect",
+  "requirements": [
+    "lead/200","titanium/75","silicon/100","copper/100","surge-alloy/60"
+  ],
+  "research": {
+    "parent": "mend-projector",
+    "objectives": [ "mend-projector" ]
+  },
+  "size": 3,
+  "reload": 100,
+  "range": 200,
+  "healPercent": 13,
+  "useTime": 300,
+  "phaseBoost": 0,
+  "phaseRangeBoost": 0,
+  "consumes": {
+    "power": 5.5
+    "items": {
+      "items": [
+        "phase-fabric/1","silicon/1"
+      ],
+      "optional": false,
+      "booster": false
+    }
+  }
+}

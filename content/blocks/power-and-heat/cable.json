@@ -1,0 +1,22 @@
+{
+  "type": "TileableLogicDisplay",
+  "requirements": [ "silver/1" ],
+  "maxDisplayDimensions": 400,
+  "research": "core-nucleus-root-sitrullus",
+  "shownPlanets": [ "maress","sitrullus" ],
+  "conductivePower": true,
+  "hasPower": true,
+  "baseExplosiveness": 1,
+  "health": 80,
+  "schematicPriority": -9,
+  "canOverdrive": false,
+  "category": "power",
+  "researchCost": [ "silver/10" ],
+  "buildCostMultiplier": 2,
+  "underBullets": true,
+  "solid": false,
+  "group": "power",
+  "color": 0,
+  "drawDisabled": true,
+  "consumes": { "power": 0 }
+}

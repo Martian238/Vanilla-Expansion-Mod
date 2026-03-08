@@ -1,0 +1,14 @@
+{
+  "type": "Router",
+  "requirements": [ "ferrum/4" ],
+  "category": "distribution",
+  "health": 120,
+  "armor": 6,
+  "speed": 2,
+  "buildCostMultiplier": 4,
+  "research": {
+    "parent": "valve-cross"
+  },
+  "crushDamageMultiplier": 0.2,
+  "shownPlanets": [ "sitrullus","maress" ]
+}

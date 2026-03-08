@@ -1,0 +1,6 @@
+{
+  "targetFlags": [
+    "drill","factory"
+  ],
+  "immunities": [ "frozen" ]
+}

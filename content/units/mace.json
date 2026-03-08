@@ -1,0 +1,56 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon" ],
+  "immunities": [ "dusty","burning","frozen" ],
+  "weapons": [
+    {
+      "name": "flamethrower",
+      "top": false,
+      "shootY": 6,
+      "reload": 11,
+      "shootSound": "shootFlame",
+      "recoil": 1,
+      "ejectEffect": "none",
+      "shoot": {
+        "shots": 1,
+        "shotDelay": 4
+      },
+      "bullet": {
+        "type": "BasicBulletType",
+        "speed": 4.2,
+        "damage": 74,
+        "shrinkY": 0,
+        "ammoMultiplier": 3,
+        "hitSize": 7,
+        "lifetime": 13,
+        "pierce": true,
+        "pierceBuilding": true,
+        "pierceCap": 2,
+        "statusDuration": 240,
+        "shootEffect": "shootSmallFlame",
+        "hitEffect": "hitFlameSmall",
+        "despawnEffect": "none",
+        "status": "burning",
+        "keepVelocity": false,
+        "hittable": false,
+        "frontColor": "00000000",
+        "backColor": "00000000",
+        "smokeEffect": "shootBigSmoke"
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "x": 0,
+          "y": 0,
+          "suffix": "-glow",
+          "color": "ab340000",
+          "colorTo": "ab3400",
+          "outline": false,
+          "blending": "additive",
+          "layerOffset": 0.001,
+          "progress": "warmup"
+        }
+      ],
+      "shootWarmupSpeed": 0.2
+    }
+  ]
+}

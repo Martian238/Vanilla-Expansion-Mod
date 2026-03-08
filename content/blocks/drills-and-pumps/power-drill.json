@@ -1,0 +1,37 @@
+{
+  "type": "Drill",
+  "category": "production",
+  "requirements": [ "aluminium/20","graphite/16" ],
+  "research": {
+    "parent": "isomorphic-drill",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "barrier-hill"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.01,
+  "drillTime": 320,
+  "itemCapacity": 10,
+  "size": 2,
+  "tier": 3,
+  "consumes": {
+    "liquid": {
+      "liquid": "water",
+      "amount": 0.025,
+      "booster": true,
+      "optional": true
+    },
+    "power": 0.133333333
+  },
+  "hasPower": true,
+  "conductivePower": true,
+  "rotateSpeed": 5,
+  "liquidBoostIntensity": 1.8,
+  "warmupSpeed": 0.03,
+  "drillMultipliers": {
+    "spore-pod": 0
+  },
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

@@ -1,0 +1,35 @@
+{
+  "bloom": true,
+  "accessible": false,
+  "alwaysUnlocked": true,
+  "radius": 2,
+  "mesh": {
+    "type": "SunMesh",
+    "planet": "sol2",
+    "divisions": 5,
+    "octaves": 5,
+    "persistence": 0.3,
+    "scl": 1.5,
+    "pow": 1.2,
+    "mag": 1,
+    "colorScale": 1.1,
+    "colors": [ 
+      "387aff",
+      "3896ff",
+      "4cc6ff",
+      "4cc6ff",
+      "71e3ff",
+      "8eeef4"
+    ]
+  },
+  "iconColor": "387aff",
+  "rotateTime": 600,
+  "solarSystem": "sol2",
+  "visible": true,
+  "alwaysUnlocked": false,
+  "parent": "sun",
+  "orbitRadius": 300,
+  "drawOrbit": false,
+  "orbitTime": 12000,
+  "children": [ "cyclant","maress","sitrullus" ]
+}

@@ -1,0 +1,7 @@
+{
+  "type": "OreBlock",
+  "itemDrop": "chromium",
+  "variants": 3,
+  "oreDefault": false,
+  "useColor": true
+}

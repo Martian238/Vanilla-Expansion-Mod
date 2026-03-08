@@ -1,0 +1,102 @@
+{
+  "type": "legs",
+  "speed": 1.2,
+  "accel": 0.07,
+  "drag": 0.05,
+  "hitSize": 8,
+  "rotateSpeed": 9,
+  "health": 160,
+  "armor": 2,
+  "legStraightness": 0.3,
+  "stepShake": 0,
+  "legCount": 4,
+  "legLength": 8,
+  "lockLegBase": true,
+  "legContinuousMove": true,
+  "legExtension": -2,
+  "legBaseOffset": 1,
+  "legMaxLength": 1.1,
+  "legMinLength": 0.2,
+  "legLengthScl": 0.96,
+  "legForwardScl": 1.3,
+  "legGroupSize": 2,
+  "rippleScale": 0.1,
+  "legMoveSpace": 1.5,
+  "allowLegStep": true,
+  "hovering": true,
+  "legPhysicsLayer": false,
+  "shadowElevation": 0.1,
+  "groundLayer": 75,
+  "lightColor": "bf92f9",
+  "immunities": [ "dusty" ],
+  "stepSound": "walkerStepTiny",
+  "stepSoundPitch": 1,
+  "stepSoundPitchRange": 0.1,
+  "stepSoundVolume": 0.3,
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "weapons": [
+    {
+      "x": 0,
+      "y": 3,
+      "mirror": false,
+      "recoil": 0,
+      "reload": 50,
+      "shoot": {
+        "shots": 3,
+        "shotDelay": 3
+      },
+      "shootY": 0,
+      "shootSound": "shootLaser",
+      "ejectEffect": "none",
+      "bullet": {
+        "recoil": 0.3,
+        "damage": 10,
+        "status": "sapped",
+        "statusDuration": 300,
+        "frontColor": "bf92f9",
+        "backColor": "bf92f9",
+        "hitColor": "bf92f9",
+        "lightColor": "bf92f9",
+        "type": "LaserBoltBulletType",
+        "shootEffect": "shootSmallColor"
+        "speed": 5.2,
+        "lifetime": 25,
+        "hittable": false,
+        "smokeEffect": "none",
+        "hitEffect": {
+          "type": "WaveEffect",
+          "colorFrom": "bf92f9",
+          "colorTo": "bf92f9",
+          "sizeFrom": 1,
+          "sizeTo": 6,
+          "strokeFrom": 2,
+          "strokeTo": 0,
+          "sides": 24,
+          "lifetime": 15
+        },
+        "despawnEffect": {
+          "type": "WaveEffect",
+          "colorFrom": "bf92f9",
+          "colorTo": "bf92f9",
+          "sizeFrom": 1,
+          "sizeTo": 4,
+          "strokeFrom": 3,
+          "strokeTo": 0,
+          "sides": 24,
+          "lifetime": 12
+        }
+      }
+    }
+  ],
+  "research": {
+    "parent": "dust",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ],
+    "requirements": [ "silicon/800","chromium/400" ]
+  },
+  "researchCostMultiplier": 0.5
+}

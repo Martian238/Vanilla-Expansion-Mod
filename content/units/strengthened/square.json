@@ -1,0 +1,235 @@
+{
+  "type": "payload",
+  "research": {
+    "parent": "line",
+    "objectives": [ "senior-refabricator" ],
+    "requirements": [ "silicon/5500","cobalt/3750","plastanium/2250" ]
+  },
+  "isEnemy": true,
+  "lowAltitude": true,
+  "flying": true,
+  "drag": 0.04,
+  "speed": 2.5,
+  "rotateSpeed": 5,
+  "accel": 0.08,
+  "health": 3200,
+  "armor": 11,
+  "engineOffset": 11,
+  "engineSize": 3.5,
+  "mineBeamOffset": 16.5,
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "engines": [
+    {
+      "x": 12,
+      "y": 0,
+      "rotation": -45,
+      "radius": 3
+    },
+    {
+      "x": -12,
+      "y": 0,
+      "rotation": -135,
+      "radius": 3
+    }
+  ],
+  "hitSize": 24,
+  "itemCapacity": 90,
+  "mineTier": 3,
+  "mineSpeed": 8,
+  "mineWalls": true,
+  "buildSpeed": 3.25,
+  "buildBeamOffset": 13.5,
+  "buildRange": 270,
+  "payloadCapacity": 576,
+  "lightColor": "98ffa9",
+  "mineItems": [ "copper","lead","aluminium","quartz","titanium","cobalt","ferrum","silver","beryllium" ],
+  "targetFlags": [
+    "battery","factory"
+  ],
+  "immunities": [ "electrified","sapped","interrupted","frozen" ],
+  "itemOffsetY": 10,
+  "range": 220,
+  "abilities": [
+    {
+      "type": "SuppressionFieldAbility",
+      "x": 0,
+      "y": 0.5,
+      "range": 240,
+      "orbRadius": 3.75,
+      "orbSinMag": 0.5,
+      "color": "98ffa9",
+      "layer": 99.99,
+      "particleSize": 2.5,
+      "particleColor": "98ffa950",
+      "effectColor": "98ffa9"
+    },
+    {
+      "type": "ShieldArcAbility",
+      "radius": 48,
+      "regen": 0.5,
+      "max": 3200,
+      "cooldown": 300,
+      "angle": 180,
+      "angleOffset": 0,
+      "whenShooting": true,
+      "width": 12
+    }
+  ],
+  "parts": [
+    {
+      "type": "ShapePart",
+      "radius": 240,
+      "radiusTo": 240,
+      "stroke": 0,
+      "strokeTo": 1.5,
+      "color": "98ffa933",
+      "colorTo": "98ffa955",
+      "circle": true,
+      "hollow": true,
+      "layer": 110,
+      "y": 0.5,
+      "progress": "warmup"
+    }
+  ],
+  "drawMineBeam": false
+  "weapons": [
+    {
+      "reload": 45,
+      "x": 0,
+      "y": 0.5,
+      "mirror": false,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "autoTarget": true,
+      "controllable": true,
+      "aiControllable": true,
+      "shootCone": 361,
+      "display": false,
+      "recoil": 0,
+      "useAttackRange": false,
+      "bullet": {
+        "damage": 0,
+        "speed": 0,
+        "instantDisappear": true,
+        "shootEffect": "none"
+        "smokeEffect": "none",
+        "despawnEffect": "none",
+        "hitEffect": "none",
+        "maxRange": 240,
+        "collidesTiles": true,
+        "collidesAir": false,
+        "absorbable": false,
+        "hittable": false
+      },
+      "shootWarmupSpeed": 0.2
+    },
+    {
+      "name": "square-weapon",
+      "x": 7.5,
+      "y": 6,
+      "reload": 18,
+      "recoil": 2,
+      "rotate": true,
+      "rotateSpeed": 8,
+      "top": true,
+      "shootX": -1.25,
+      "shootY": 4.75,
+      "shootSound": "trLaserGatling",
+      "heatColor": "ffffffee",
+      "shoot": {
+        "type": "ShootHelix",
+        "mag": 1,
+        "scl": 4,
+        "shots": 3,
+        "shotDelay": 4
+      },
+      "cooldownTime": 20,
+      "bullet": {
+        "speed": 5,
+        "lifetime": 48,
+        "backColor": "98ffa9",
+        "frontColor": "ffffff"
+        "trailColor": "98ffa9",
+        "lightColor": "98ffa9",
+        "trailLength": 5,
+        "height": 6,
+        "width": 6,
+        "damage": 9,
+        "collidesTeam": true,
+        "healAmount": 50,
+        "healPercent": 5,
+        "shootEffect": "shootHeal",
+        "smokeEffect": {
+          "type": "WaveEffect",
+          "lightColor": "98ffa9",
+          "colorTo": "98ffa9",
+          "sizeTo": 14,
+          "strokeFrom": 4,
+          "lifetime": 5
+        },
+        "inaccuracy": 2,
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "WaveEffect",
+              "lightColor": "98ffa9",
+              "colorTo": "98ffa9",
+              "sizeTo": 18,
+              "strokeFrom": 2,
+              "lifetime": 5
+            },
+            "hitBulletColor"
+          ]
+        },
+        "hitColor": "98ffa9",
+        "despawnEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "WaveEffect",
+              "lightColor": "98ffa9",
+              "colorTo": "98ffa9",
+              "sizeTo": 18,
+              "strokeFrom": 2,
+              "lifetime": 5
+            },
+            "hitBulletColor"
+          ]
+        },
+        "splashDamage": 13,
+        "splashDamageRadius": 16,
+        "hitColor": "98ffa9",
+        "sprite": "missile",
+        "shrinkY": 0,
+        "trailWidth": 3,
+        //"waveRad": 40,
+        //"waveStroke": 3,
+        "trailEffect": "missileTrail",
+        "status": "electrified",
+        "statusDuration": 480
+      }
+    },
+    {
+      "type": "MineWeapon",
+      "x": 7.25,
+      "y": 11.25,
+      "shootY": 0,
+      "shootX": 0
+    },
+    {
+      "type": "RepairBeamWeapon",
+      "name": "repair-beam-weapon-center-large",
+      "x": 10.5,
+      "y": -8.25,
+      "shootY": 6,
+      "beamWidth": 0.8,
+      "repairSpeed": 1.4,
+      "bullet": {
+        "maxRange": 120,
+      },
+      "targetSwitchInterval": 1,
+      "targetBuildings": true
+    }
+  ]
+}

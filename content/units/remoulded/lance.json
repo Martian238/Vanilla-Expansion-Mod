@@ -1,0 +1,110 @@
+{
+  "type": "mech",
+  "speed": 0.75,
+  "hitSize": 10,
+  "health": 280,
+  "armor": 2,
+  "research": {
+    "parent": "blade",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "unit-laboratory"
+      }
+    ],
+    "requirements": [  ]
+  },
+  "itemCapacity": 30,
+  "lightColor": "ffa665",
+  "immunities": [ "dusty" ],
+  "stepSound": "mechStepSmall",
+  "stepSoundPitch": 1,
+  "stepSoundPitchRange": 0.1,
+  "stepSoundVolume": 0.5,
+  "parts": [
+    {
+      "type": "RegionPart",
+      "x": 0,
+      "y": 0,
+      "suffix": "-glow",
+      "color": "ab340000",
+      "colorTo": "ab3400",
+      "outline": false,
+      "blending": "additive",
+      "layerOffset": 0.001,
+      "progress": "warmup"
+    }
+  ],
+  "shownPlanets": [ "cyclant","phoon","maress","serpulo" ],
+  "weapons": [
+    {
+      "name": "lance-weapon",
+      "x": 4.5,
+      "y": 0,
+      "shootX": 0,
+      "shootY": 6,
+      "reload": 12,
+      "top": false,
+      "shootSound": "shootClassic",
+      "ejectEffect": "casing1",
+      /*"shoot": {
+        "shots": 3,
+        "shotDelay": 3
+      },*/
+      "inaccuracy": 2,
+      "velocityRnd": 0.1,
+      "bullet": {
+        "spawnBullets": [
+          {
+            "instantDisappear": true,
+            "despawnEffect": "none",
+            "hitEffect": "none",
+            "damage": 0,
+            "speed": 0,
+            "fragBullets": 3,
+            "fragBullet": {
+              "speed": 4,
+              "damage": 5,
+              "shrinkX": 1,
+              "lifetime": 12,
+              "collides": true,
+              "lightColor": "ffa665",
+              "despawnEffect": "none",
+              "backColor": "d06b53",
+              "frontColor": "ffa665",
+              "lightRadius": 0
+            },
+            "fragRandomSpread": 10
+          }
+        ],
+        "damage": 10,
+        "splashDamage": 23,
+        "splashDamageRadius": 30,
+        "width": 10,
+        "shrinkY": 0,
+        "height": 11,
+        "lifetime": 35,
+        "speed": 5,
+        "shootEffect": "shootSmall",
+        "smokeEffect": "shootSmallSmoke",
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitEffect": "flakExplosion",
+        "despawnEffect": "flakExplosion",
+        "fragBullets": 3,
+        "lightColor": "ffa665",
+        "fragBullet": {
+          "speed": 3,
+          "damage": 5,
+          "shrinkY": 1,
+          "lifetime": 20,
+          "collides": true,
+          "despawnEffect": "none",
+          "backColor": "d06b53",
+          "frontColor": "ffa665",
+          "lightColor": "ffa665"
+        }
+      }
+    }
+  ]
+}

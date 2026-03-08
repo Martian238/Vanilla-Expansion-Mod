@@ -1,0 +1,11 @@
+{
+  "color": "53565c",
+  "cost": 0.8,
+  "research": {
+    "parent": "quartz",
+    "objectives": [ "silicon" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

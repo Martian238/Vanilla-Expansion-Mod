@@ -1,0 +1,132 @@
+{
+  "type": "flying",
+  "accel": 0.1,
+  "drag": 0.05,
+  "speed": 2,
+  "rotateSpeed": 9,
+  "hitSize": 8,
+  "health": 220,
+  "armor": 1,
+  "createWreck": false,
+  "createScorch": false,
+  "deathExplosionEffect": "flakExplosion",
+  "deathSound": "explosionArtillery",
+  "deathShake": 4,
+  "engineSize": 2,
+  "engineOffset": 5,
+  "defaultCommand": "rebuild",
+  "drawShields": false,
+  "alwaysUnlocked": true,
+  "flying": true,
+  "lowAltitude": true,
+  "itemCapacity": 0,
+  "lightColor": "e470e9",
+  "hidden": true,
+  "immunities": [ "frozen","disarmed" ],
+  "abilities": [
+    {
+      "type": "ShieldRegenFieldAbility",
+      "amount": 136,
+      "reload": 59,
+      "max": 680,
+      "range": 1,
+      "applyEffect": "none",
+      "activeEffect": {
+          "type": "WaveEffect",
+          "colorFrom": "e470e9aa",
+          "colorTo": "e470e955",
+          "lifetime": 10,
+          "strokeTo": 0,
+          "strokeFrom": 1,
+          "interp": "circleOut",
+          "sizeFrom": 0,
+          "sizeTo": 24,
+          "sides": 24,
+          "followParent": true
+      },
+      "parentizeEffects": true
+    }
+  ],
+  "weapons": [
+    {
+      "mirror": false,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "shoot": {
+        "firstShotDelay": 300
+      },
+      "reload": 300,
+      "display": false,
+      "noAttack": true,
+      "alwaysShooting": true,
+      "controllable": false,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "bullet": {
+        "killShooter": true,
+        "damage": 0,
+        "instantDisappear": true,
+        "collides": false,
+        "hittable": false,
+        "absorbable": false,
+        "despawnEffect": {
+          "type": "ParticleEffect",
+          "colorFrom": "e470e9",
+          "colorTo": "e470e9",
+          "lifetime": 60,
+          "baseLength": 2,
+          "length": 30,
+          "interp": "circleOut",
+          "sizeFrom": 3,
+          "sizeTo": 0,
+          "followParent": true,
+          "sizeInterp": "circleIn",
+          "particles": 10
+        },
+        "despawnShake": 2,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "despawnUnit": "duplicator",
+        "hitEffect": "none"
+      }
+    },
+    {
+      "mirror": false,
+      "reload": 3,
+      "display": false,
+      "noAttack": true,
+      "alwaysShooting": true,
+      "controllable": false,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "shootY": 0,
+      "x": 0,
+      "y": 0,
+      "parentizeEffects": true,
+      "bullet": {
+        "shootEffect": {
+          "type": "ParticleEffect",
+          "colorFrom": "e470e9",
+          "colorTo": "e470e9",
+          "lifetime": 10,
+          "baseLength": 13,
+          "length": -13,
+          "interp": "circleIn",
+          "sizeFrom": 0,
+          "sizeTo": 2,
+          "followParent": true,
+          "particles": 3
+        },
+        "instantDisappear": true,
+        "smokeEffect": "none",
+        "despawnEffect": "none",
+        "collides": false,
+        "damage": 0,
+        "hittable": false,
+        "absorbable": false,
+        "hitEffect": "none"
+      }
+    }
+  ]
+}

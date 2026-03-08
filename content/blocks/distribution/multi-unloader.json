@@ -1,0 +1,22 @@
+{
+  "type": "Unloader",
+  "category": "distribution",
+  "size": 3,
+  "health": 500,
+  "speed": 1,
+  "group": "transportation",
+  "requirements": [ "graphite/50","silicon/50","cobalt/40","lead/40" ],
+  "researchCostMultiplier": 0.4,
+  "research": {
+    "parent": "rail-unloader",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "shale-quarry"
+      }
+    ]
+  },
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","phoon" ],
+  "dumpTime": 0.1
+}

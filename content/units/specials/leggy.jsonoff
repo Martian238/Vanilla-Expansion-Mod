@@ -1,0 +1,11 @@
+{
+  "hitSize": 8,
+  "health": 500,
+  "legLength": 240,
+  "legCount": 2,
+  "legSplashDamage": 400,
+  "legSplashRange": 16,
+  "type": "legs",
+  "hovering": true,
+  "speed": 1.5
+}

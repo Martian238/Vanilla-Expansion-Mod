@@ -1,0 +1,45 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [
+    "silicon/1","metaglass/1"
+  ],
+  "category": "liquid",
+  "buildVisibility": "sandboxOnly",
+  "alwaysUnlocked": true,
+  "size": 1,
+  "craftTime": 1,
+  "group": "liquids",
+  "liquidCapacity": 10,
+  "hasItems": false,
+  "hasLiquids": true,
+  "hasPower": false,
+  "itemCapacity": 0,
+  "invertFlip": true,
+  "rotate": true,
+  "regionRotated1": 3,
+  "liquidOutputDirections": [ 0,2 ],
+  "consumes": {
+    "liquids": {
+      "liquids": [ "chlorine/1" ]
+    }
+  },
+  "craftEffect": "none",
+  "outputLiquids": [
+    "chlorine/1","water/0"
+  ],
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "chlorine"
+      },
+      { "type": "DrawDefault" },
+      { "type": "DrawLiquidOutputs" }
+    ]
+  }
+}

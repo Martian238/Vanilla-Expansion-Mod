@@ -1,0 +1,27 @@
+{
+  "type": "Wall",
+  "requirements": [ "silicide/8","graphite/4" ],
+  "category": "defense",
+  "research": "aluminium-lead-wall",
+  "health": 950,
+  "armor": 8,
+  "conductivePower": true,
+  "hasPower": true,
+  "destroyBulletSameTeam": true,
+  //"insulated": true,
+  "destroyBullet": {
+    "collidesTiles": false,
+    "collides": false,
+    "speed": 0,
+    "splashDamageRadius": 40,
+    "instantDisappear": true,
+    "splashDamage": 29,
+    "hittable": false,
+    "status": "blasted",
+    "statusDuration": 60,
+    "collidesAir": true
+  },
+  "researchCostMultiplier": 0.2,
+  "crushDamageMultiplier": 0.25,
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon" ]
+}

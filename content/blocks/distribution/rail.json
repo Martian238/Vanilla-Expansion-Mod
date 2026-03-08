@@ -1,0 +1,26 @@
+{
+  "type": "Conveyor",
+  "requirements": [ "aluminium/1" ]
+  "health": 25,
+  "category": "distribution",
+  "speed": 0.09,
+  "researchCost": [ "aluminium/10" ],
+  "research": {
+    "parent": "core-nucleus-root",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "barrier-hill"
+      }
+    ]
+  },
+  "ambientSound": "none",
+  "hasShadow": false,
+  "junctionReplacement": "rail-junction",
+  "bridgeReplacement": "rail-bridge",
+  "displayedSpeed": 12,
+  "drawTeamOverlay": false,
+  "pushUnits": false,
+  "drawCracks": false,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

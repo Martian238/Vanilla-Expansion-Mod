@@ -1,0 +1,12 @@
+{
+  "upgrades": [
+    [ "mace","fortress" ],
+    [ "atrax","spiroct" ],
+    [ "pulsar","quasar" ],
+    [ "horizon","zenith" ],
+    [ "mist","haze" ],
+    [ "poly","mega" ],
+    [ "minke","bryde" ],
+    [ "oxynoe","cyerce" ]
+  ]
+}

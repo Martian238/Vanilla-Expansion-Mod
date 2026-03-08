@@ -1,0 +1,10 @@
+{
+  "outlineRadius": 5,
+  "flying": true,
+  "speed": 2,
+  "wobble": false,
+  "hitSize": 24,
+  "drawSoftShadow": false,
+  "health": 400,
+  "alwaysUnlocked": true
+}

@@ -1,0 +1,96 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "chromium/400","silicon/320","graphite/200","metaglass/80","catalyzon/50" ],
+  "category": "crafting",
+  "outputItems": [ "nitroalkoss/1" ],
+  "research": {
+    "parent": "cultivate-tank",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "isolate-island"
+      }
+    ]
+  },
+  "consumes": {
+    "items": {
+      "items": [ "spore-pod/25","plant-matter/25" ]
+    },
+    "liquids": {
+      "liquids": [ "water/0.1" ]
+    }
+    "power": 3
+  },
+  "shownPlanets": [ "cyclant","phoon" ],
+  "baseExplosiveness": 1,
+  "hasItems": true,
+  "hasLiquids": true,
+  "hasPower": true,
+  "craftEffect": "shockwave",
+  "updateEffect": "smeltsmoke",
+  "liquidCapacity": 120,
+  "itemCapacity": 50,
+  "craftTime": 3600,
+  "size": 4,
+  "ambientSound": "loopBio",
+  "ambientSoundVolume": 0.2,
+  "legacyReadWarmup": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water"
+      },
+      { 
+        "type": "DrawCultivator",
+        "plantColorLight": "e16049",
+        "plantColor": "ba352b",
+        "bottomColor": "892018"
+      }
+      {
+        "type": "DrawRegion",
+        "suffix": "-rotator",
+        "rotateSpeed": -3,
+        "x": -9,
+        "y": 9
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-rotator",
+        "rotateSpeed": -3,
+        "x": 9,
+        "y": 9
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-rotator",
+        "rotateSpeed": -3,
+        "x": -9,
+        "y": -9
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-rotator",
+        "rotateSpeed": -3,
+        "x": 9,
+        "y": -9
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": ""
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "color": "ff8a67",
+        "alpha": 0.6
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.01
+}

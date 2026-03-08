@@ -1,0 +1,72 @@
+{
+  "type": "ConsumeGenerator",
+  "requirements": [ "aluminium/50","lead/60","graphite/50","silicon/40" ],
+  "category": "power",
+  "hasLiquids": true,
+  "liquidCapacity": 40,
+  "itemCapacity": 20,
+  "powerProduction": 7.75,
+  "itemDuration": 75,
+  "ambientSound": "loopMachineSpin",
+  "ambientSoundVolume": 0.1,
+  "size": 3,
+  "consumes": {
+    "itemFlammable": { "minFlammability": 1 },
+    "itemExplode": {},
+    "liquids": [ "water/0.25" ]
+  },
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "cryofluid"
+      },
+      { "type": "DrawRegion", "suffix": "" },
+      { 
+        "type": "DrawFade",
+        "suffix": "-heat"
+      },
+      {
+        "type": "DrawRegion",
+        "rotateSpeed": -4,
+        "spinSprite": true,
+        "suffix": "-rotator2"
+      },
+      {
+        "type": "DrawRegion",
+        "rotateSpeed": 2,
+        "spinSprite": true,
+        "suffix": "-rotator1"
+      },
+      {"type":"DrawRegion","suffix":"-cap"}
+    ]
+  },
+  "generateEffect": "generatespark",
+  "effectChance": 0.02,
+  "research": {
+    "parent": "large-combustion-generator",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "wetland-miningfield"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.3,
+  "itemDurationMultipliers": {
+    "plant-matter": 0.75,
+    "nitroalkoss": 2,//0.9
+    "reflector-matter": 0.75,
+    "pyratite": 3
+  },
+  "shownPlanets": [ "cyclant","maress","phoon" ],
+}

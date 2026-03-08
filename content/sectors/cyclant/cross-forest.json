@@ -1,0 +1,27 @@
+{
+  "planet": "cyclant",
+  "sector": 39,
+  "difficulty": 7,
+  "research": {
+    "parent": "ruins",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "thorium-hacienda"
+      },
+      {
+        "type": "SectorComplete",
+        "preset": "ruins"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 30,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

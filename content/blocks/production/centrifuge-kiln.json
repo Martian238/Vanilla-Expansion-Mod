@@ -1,0 +1,50 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "aluminium/80","graphite/50","ferrum/50" ],
+  "category": "crafting",
+  "craftEffect": "smeltsmoke",
+  "size": 3,
+  "armor": 4,
+  "outputItem": "metaglass/6",
+  "craftTime": 80,
+  "hasPower": true,
+  "hasItems": true,
+  "updateEffect": "fuelburn",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawRegion", "suffix": "-bottom" },
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-heat",
+        "glowScale": 2,
+        "glowIntensity": 0.05,
+        "alpha": 0.95,
+        "color": "ab3400"
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ccbcee",
+        "flameRadius": 3.5,
+        "flameRadiusIn": 2.2,
+        "lightRadius": 45
+      }
+    ]
+  },
+  "ambientSound": "loopMachineSpin",
+  "ambientSoundVolume": 0.1,
+  "itemCapacity": 30,
+  "consumes": {
+    "items": {
+      "items": [ "red-soil/10","lead/4" ]
+    },
+    "power": 2
+  },
+  "warmupSpeed": 0.005,
+  "research": {
+    "parent": "blast-furnace"
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "maress" ]
+}

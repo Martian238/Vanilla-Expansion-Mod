@@ -1,0 +1,126 @@
+{
+  //"type": "flying",
+  "health": 3900,
+  "armor": 12,
+  "speed": 1.8,
+  "accel": 0.07,
+  "hitSize": 24,
+  "lowAltitude": true,
+  "rotateSpeed": 3,
+  "drag": 0.03,
+  "flying": true,
+  "engineOffset": 16,
+  "engineSize": 5.5,
+  "targetAir": true,
+  "itemCapacity": 50,
+  "targetFlags": [
+    "repair","battery","launchPad"
+  ],
+  "itemCapacity": 40,
+  "immunities": [ "frozen" ],
+  "hidden": true,
+  "shownPlanets": [ "cyclant","phoon" ],
+  "weapons": [
+    {
+      "name": "stellar-weapon",
+      "layerOffset": -0.001,
+      "baseRotation": 30,
+      "x": 10.25,
+      "y": 4.5,
+      "reload": 80,
+      "rotate": true,
+      "rotateSpeed": 3,
+      "rotationLimit": 60,
+      "reload": 10
+      "recoil": 0,
+      "mirror": true,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "continuous": true,
+      "alwaysContinuous": true,
+      "continuous": true,
+      "shootCone": 5,
+      "minWarmup": 0.95,
+      "shootY": 7,
+      "alternate": false,
+      "cooldownTime": 120,
+      "parts": [
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "x": 0,
+          "y": 11,
+          "mirror": false,
+          "layer": 100,
+          "radius": 0,
+          "hollow": false,
+          "radiusTo": 2,
+          "color": "f8e096",
+          "progress": "warmup"
+        }
+      ],
+      "bullet": {
+        "type": "ContinuousFlameBulletType",
+        "damage": 30,
+        "length": 210,
+        "pierceBuilding": false,
+        "pierceArmor": false,
+        "knockback": 0.5,
+        "pierceCap": 0,
+        "status": "burning",
+        "statusDuration": 120,
+        "flareColor": "ffa665",
+        "lightColor": "f8ad42",
+        "hitColor": "f8e096",
+        "colors": [ "f8ad4277","f8e096aa","ffa665" ],
+        "flareLength": 0,
+        "flareWidth": 0,
+        "hitEffect": "hitLaserBlast",
+        "width": 2,
+        "drawFlare": false,
+        "divisions": 500,
+        "oscMag": 0,
+        "hitSize": 2,
+        "lifetime": 45
+      }
+    }
+    /*{
+      "name": "zenith-missiles",
+      "x": 10.75,
+      "y": -5,
+      "rotate": true,
+      "top": true,
+      "reload": 25,
+      "shootSound": "missile",
+      "ejectEffect": "casing1",
+      "shadow": 4,
+      "shootY": 2.5,
+      "shoot": {
+        "type": "ShootBarrel"
+        "shots": 2,
+        "shotDelay": 2,
+        "barrels": [ -1,0,0,1,0,0 ]
+      },
+      "bullet": {
+        "type": "MissileBulletType",
+        "speed": 3,
+        "damage": 14,
+        "keepVelocity": true,
+        "width": 6,
+        "height": 8,
+        "shrinkY": 0,
+        "homingPower": 0.04,
+        "homingRange": 80,
+        "homingDelay": 10,
+        "splashDamage": 18,
+        "splashDamageRadius": 25,
+        "lifetime": 80,
+        "backColor": "ffa665",
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "status": "blasted",
+        "statusDuration": 60
+      }
+    }*/
+  ]
+}

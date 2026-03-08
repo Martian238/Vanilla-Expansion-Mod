@@ -1,0 +1,14 @@
+{
+  "type": "Floor",
+  "variants": 6,
+  "attributes": {
+    "water": 1,
+    "spore": 0,
+    "steam": 0.25
+  },
+  "mapColor": "70ae4c",
+  "hasColor": true,
+  "useColor": false,
+  "dragMultiplier": 0.9,
+  "albedo": 0.3
+}

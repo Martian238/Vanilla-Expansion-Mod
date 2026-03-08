@@ -1,0 +1,61 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "aluminium/105","silicide/70","graphite/85" ],
+  "category": "crafting",
+  "craftEffect": "smeltsmoke",
+  "size": 3,
+  "outputItem": "silicon/12",
+  "craftTime": 80,
+  "hasPower": true,
+  "hasLiquids": true,
+  "liquidCapacity": 60,
+  "itemCapacity": 30,
+  "outputLiquid": "water/0.25",
+  "researchCostMultiplier": 0.3,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "hasItems": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen"
+      },
+      { "type": "DrawRegion", "suffix": "" },
+      {
+        "type": "DrawFlame",
+        "flameColor": "d1efff",
+        "flameRadius": 3.5,
+        "flameRadiusIn": 2.2,
+        "lightRadius": 45
+        //"lightColor": "d1efff"
+      }
+    ]
+  }
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.1,
+  "consumes": {
+    "items": {
+      "items": [ "quartz/6" ]
+    },
+    "liquids": {
+      "liquids": [ "hydrogen/0.15" ]
+    },
+    "power": 4
+  },
+  "research": {
+    "parent": "isomorphic-smelter",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

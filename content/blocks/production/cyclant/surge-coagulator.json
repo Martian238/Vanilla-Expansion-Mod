@@ -1,0 +1,90 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [
+    "aluminium/100","graphite/200","silicide/180","silicon/120"
+  ],
+  "buildCostMultiplier": 1,
+  "category": "crafting"
+  "research": {
+    "parent": "silicide-crucible",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "ruins"
+      }
+    ]
+  },
+  "size": 4,
+  "craftTime": 120,
+  "armor": 12,
+  "itemCapacity": 60,
+  "hasItems": true,
+  "hasPower": true,
+  "hasLiquids": true,
+  "liquidCapacity": 60,
+  "consumes": {
+    "items": {
+      "items": [ "chromium/8","silicon/14","titanium/12" ]
+    },
+    "liquids": {
+      "liquids": [ "water/0.0666666667" ]
+    },
+    "power": 7
+  },
+  "health": 1660,
+  "armor": 6,
+  "craftEffect": {
+    "type": "MultiEffect",
+    "effects": [
+      {  
+        "type": "MultiEffect",
+        "effects": [ "smeltsmoke","fuelburn" ]
+      },
+      {
+        "type": "RadialEffect",
+        "effect": "heatReactorSmoke",
+        "rotationOffset": 22.5,
+        "rotationSpacing": 45,
+        "amount": 8,
+        "lengthOffset": 8.5
+      },
+      {
+        "type": "ParticleEffect",
+        "particles": 4,
+        "line": true,
+        "strokeFrom": 3,
+        "strokeTo": 0,
+        "lenFrom": 10,
+        "lenTo": 0,
+        "length": 20,
+        "baseLength": 0,
+        "lifetime": 10,
+        "colorFrom": "f3e979",
+        "colorTo": "f3e979"
+      }
+    ]
+  },
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.25,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "color": "f3e979",
+        "glowScale": 2.5
+      },
+      { 
+        "type": "DrawFlame",
+        "flameColor": "f3e979",
+        "flameRadiusScl": 10,
+        "flameRadius": 4,
+        "lightRadius": 120,
+        "flameRadiusIn": 2.5
+      }
+    ]
+  },
+  "outputItem": "surge-alloy/5",
+  "shownPlanets": [ "cyclant","phoon" ]
+}

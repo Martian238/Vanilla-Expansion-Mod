@@ -1,0 +1,11 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon" ],
+  /*"consumes": {
+    "itemExplosive": {
+      "minExplosiveness": 1.2
+    },
+    "item": null,
+    "liquids": [ "cryofluid/0.25" ],
+    "power": 25
+  }*/
+}

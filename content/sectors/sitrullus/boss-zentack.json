@@ -1,0 +1,18 @@
+{
+  "planet": "sitrullus",
+  "sector": 71,
+  "difficulty": 8,
+  "research": {
+    "parent": "boss-fungitron",
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": false,
+  "alwaysUnlocked": true
+}
+
+
+

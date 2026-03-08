@@ -1,0 +1,167 @@
+{
+  "type": "missile",
+  "template": "MissileUnitType",
+  "lifetime": 150,
+  "engineSize": 0,
+  "health": 1,
+  "missileAccelTime": 0,
+  "physics": false,
+  "bounded": false,
+  "drawCell": false,
+  "drawBody": false,
+  "lightRadius": 0,
+  "deathExplosionEffect": "none",
+  "deathShake": 40,
+  "hittable": false,
+  "targetable": false,
+  "deathSound": "si2ExplodeLoud",
+  "wobble": false,
+  "speed": 0,
+  "hidden": true,
+  "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
+  "weapons": [
+    {
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "controllable": false,
+      "reload": 300,
+      "alwaysShooting": true,
+      "shootSound": "drKnightStarExplodeClose",
+      "shoot": { "shots": 5,"shotDelay": 0 },
+      "inaccuracy": 360,
+      "bullet": {
+        "instantDisappear": true,
+          "shootEffect": {
+          "type": "MultiEffect",
+          "effects": [
+      {
+        "type": "ParticleEffect",
+        "colorFrom": "7457ce",
+        "colorTo": "ffffff",
+        "sizeFrom": 0,
+        "sizeTo": 5,
+        "sizeInterp": "circleOut",
+        "length": 0,
+        "particles": 1,
+        "lifetime": 150
+      },
+        {
+          "particles": 1,
+          "region": "ve-fungitron-beam",
+          "sizeFrom": 0,
+          "sizeTo": 64,
+          "colorFrom": "ffffff00",
+          "colorTo": "ffffff88",
+          "lifetime": 150,
+          "sizeInterp": "circleOut",
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "ffa665",
+          "layer": 120
+        }
+          ]
+          },
+          "hitEffect": "none",
+          "despawnEffect": "none",
+          "smokeEffect": "none"
+      }
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "alwaysShooting": false,
+      "controllable": false,
+      "shootOnDeath": true,
+      "shootSound": "rlElectricBlockerBreakLoud",
+      "mirror": false,
+      "shootCone": 361,
+      "shake": 20,
+      "bullet": {
+        "shootEffect": {
+    "type": "MultiEffect",
+    "effects": [
+        {
+          "type": "ExplosionEffect",
+          "waveColor": "7457ce",
+          "waveStroke": 2,
+          "smokeColor": "7c4b8088",
+          "sparkColor": "ffa665",
+          "sparks": 32,
+          "sparkLen": 12,
+          "sparkStroke": 3,
+          "sparkRad": 128,
+          "smokeSize": 16,
+          "smokeRad": 128,
+          "lifetime": 180,
+          "waveRad": 256,
+          "waveLife": 10,
+          "smokes": 55
+        },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "ffffff60",
+        "colorTo": "ffffff00",
+        "layer": 91,
+        "sizeFrom": 0,
+        "sizeTo": 800,
+        "lifetime": 40,
+        "strokeFrom": 16,
+        "strokeTo": 16,
+        "startDelay": 0
+      },
+      {
+        "type": "ParticleEffect",
+        "colorFrom": "7457ce",
+        "colorTo": "7457ce",
+        "sizeFrom": 4,
+        "sizeTo": 0,
+        "sizeInterp": "circleIn",
+        "length": 64,
+        "particles": 8,
+        "lifetime": 120
+      },
+        {
+          "type": "ExplosionEffect",
+          "waveColor": "ffffff",
+          "waveStroke": 3,
+          "smokeColor": "7c4b8088",
+          "sparkColor": "ffa665",
+          "sparks": 24,
+          "sparkLen": 12,
+          "sparkStroke": 2,
+          "sparkRad": 72,
+          "smokeSize": 15,
+          "smokeRad": 64,
+          "lifetime": 80,
+          "waveRad": 56,
+          "smokes": 30
+        },
+        {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 128,
+          "sizeTo": 128,
+          "colorFrom": "ffffff88",
+          "colorTo": "ffa66500",
+          "lifetime": 20,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "ffa665",
+          "layer": 120
+        }
+    ]
+        },
+          "instantDisappear": true,
+          "killShooter": true,
+          "hitEffect": "none",
+          "despawnEffect": "none",
+          "smokeEffect": "none"
+      }
+    }
+  ]
+}

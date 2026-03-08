@@ -1,0 +1,23 @@
+{
+  "type": "PowerNode",
+  "requirements": [ "lead/10","quartz/30","graphite/5","metaglass/5" ],
+  "category": "power",
+  "laserRange": 18,
+  "maxNodes": 15,
+  "health": 160,
+  "armor": 4,
+  "research": {
+    "parent": "isomorphic-node",
+    "objectives": [   
+      {
+        "type": "SectorComplete",
+        "preset": "wetland-miningfield"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.3,
+  "size": 2,
+  "placeableLiquid": true,
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon" ],
+  "drawTeamOverlay": false
+}

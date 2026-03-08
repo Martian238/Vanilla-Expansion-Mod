@@ -1,0 +1,277 @@
+{
+  "type": "payload",
+  "research": {
+    "parent": "square",
+    "objectives": [ "assemble-selector3","super-assembler" ],
+    "requirements": [ "silicon/8000","fibralt/5000","thorium/3500","silicide/500" ]
+  },
+  "isEnemy": true,
+  "lowAltitude": true,
+  "flying": true,
+  "drag": 0.03,
+  "speed": 1.7,
+  "rotateSpeed": 2,
+  "accel": 0.06,
+  "health": 16000,//15000
+  "armor": 15,
+  "engineOffset": 30,
+  "engineSize": 6.5,
+  "researchCostMultiplier": 0.01,
+  "immunities": [ "electrified","interrupted","frozen" ],
+  "deathSound": "si2Explode",
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "engines": [
+    {
+      "x": 11,
+      "y": -27,
+      "rotation": -80,
+      "radius": 4.5
+    },
+    {
+      "x": -11,
+      "y": -27,
+      "rotation": -110,
+      "radius": 4.5
+    }
+  ],
+  "hitSize": 52,
+  "itemCapacity": 300,
+  "buildSpeed": 5,
+  "buildBeamOffset": 23.5,
+  "buildRange": 320,
+  "payloadCapacity": 1600,
+  "targetFlags": [
+    "repair","storage"
+  ],
+  "lightColor": "98ffa9",
+  "abilities": [
+    {
+      "type": "RepairFieldAbility",
+      "amount": 2000,
+      "reload": 240,
+      "range": 160,
+      "sameTypeHealMult": 0.4
+    }
+  ],
+  "weapons": [
+    {
+      "type": "PointDefenseWeapon",
+      "name": "point-defense-mount"
+      "x": 7.5,
+      "y": -1.25,
+      "reload": 4,
+      "targetInterval": 8,
+      "targetSwitchInterval": 8,
+      "heatColor": "ffffffee",
+      "cooldownTime": 10,
+      "shootSound": "shootSegment",
+      "bullet": {
+        "maxRange": 180,
+        "damage": 36,
+        "hitEffect": "pointHit",
+        "shootEffect": "sparkShoot"
+      }
+    },
+    {
+      "name": "stereo-pulse",
+      "x": 11.5,
+      "y": 10.5,
+      "reload": 20,
+      "recoil": 2,
+      "rotate": true,
+      "rotateSpeed": 5,
+      "recoilTime": 15,
+      "top": true,
+      "shootX": 0,
+      "shootY": 4.5,
+      "shootSound": "trLaserGatling",
+      "heatColor": "ffffffee",
+      "cooldownTime": 10,
+      "shoot": {
+        "type": "ShootBarrel",
+        "shotDelay": 0,
+        "shots": 2,
+        "barrels": [ -1.5,0,0,1.5,0,0 ]
+      },
+      "inaccuracy": 1,
+      "velocityRnd": 0.3,
+      "bullet": {
+        "drag": -0.02,
+        "maxRange": 220,
+        "weaveMag": 1,
+        "weaveScale": 5,
+        "backColor": "98ffa9",
+        "trailColor": "98ffa9",
+        "trailWidth": 1,
+        "sprite": "missile",
+        "frontColor": "ffffff",
+        "lightColor": "98ffa9",
+        "speed": 2,
+        "lifetime": 60,
+        "hitShake": 1,
+        "despawnEffect": "hitMeltHeal",
+        "hitEffect": "hitMeltHeal",
+        "trailEffect": "missileTrail",
+        "trailLength": 8,
+        "width": 9,
+        "height": 14,
+        "shrinkY": 0.35,
+        "damage": 15,
+        "collidesTeam": false,
+        "fragBullets": 4,
+        "fragRandomSpread": 60,
+        "fragSpread": 90,
+        "fragBullet": {
+          "type": "SapBulletType",
+          "sapStrength": 0,
+          "length": 35,
+          "damage": 17,
+          "hitColor": "98ffa9",
+          "width": 0.5,
+          "lifetime": 7,
+          "knockback": -1,
+          "healAmount": 60,
+          "healPercent": 4,
+          "collidesTeam": true,
+          "despawnEffect": "none",
+          "lightColor": "98ffa9",
+          "color": "98ffa9",
+          "status": "electrified",
+          "statusDuration": 120,
+          "speed": -0.5,
+          "fragBullets": 1,
+          "fragRandomSpread": 0,
+          "fragAngle": 45,
+          "fragBullet": {
+            "type": "SapBulletType",
+            "sapStrength": 0,
+            "length": 35,
+            "damage": 17,
+            "hitColor": "98ffa9",
+            "width": 0.5,
+            "lifetime": 7,
+            "knockback": -1,
+            "healAmount": 60,
+            "healPercent": 4,
+            "collidesTeam": true,
+            "despawnEffect": "none",
+            "color": "98ffa9",
+            "status": "electrified",
+            "statusDuration": 120,
+            "speed": -0.5,
+            "lightColor": "98ffa9",
+          }
+        },
+        "shootEffect": {
+  "type": "MultiEffect",
+  "effects": [
+    "shootHeal",
+    {
+      "type": "WaveEffect",
+      "colorTo": "98ffa9",
+      "sides": 24,
+      "strokeFrom": 3,
+      "strokeTo": 0,
+      "sizeFrom": 0,
+      "sizeTo": 8,
+      "interp": "pow3Out",
+      "lifetime": 5
+    }
+  ]
+        },
+        "parts": [ 
+    {
+      "type": "HaloPart",
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "color": "98ffa9",
+      "shapes": 4,
+      "radius": 2,
+      "tri": true,
+      "triLength": 2,
+      "triLengthTo": 3,
+      "haloRadius": 4,
+      //"HaloRadiusTo": 6,
+      "haloRotateSpeed": 10,
+      "shapeRotation": 0,
+      "layer": 110,
+      "rotateSpeed": 0
+    }
+        ]
+      }
+    },
+    {
+      "name": "stereo-plasma",
+      "x": 17.5,
+      "y": -9,
+      "reload": 35,
+      "recoil": 3,
+      "rotate": true,
+      "rotateSpeed": 2,
+      "recoilTime": 40,
+      "top": true,
+      "shootX": 0,
+      "shootY": 2.25,
+      "shootSound": "shootLancer",
+      "heatColor": "ffffffee",
+      "cooldownTime": 30,
+      "ejectEffect": "none",
+      "shake": 1,
+      "bullet": {
+        "sprite": "large-bomb",
+        "width": 20,
+        "height": 20,
+        "backColor": "98ffa9",
+        "frontColor": "ffffff",
+        "mixColorTo": "ffffff",
+        "hitSound": "explosionQuad",
+        "hitShake": 4,
+        "lightColor": "98ffa9",
+        "collidesAir": false,
+        "scaleLife": true,
+        "despawnEffect": "greenBomb",
+        "lifetime": 70,
+        "speed": 3,
+        "spin": 4,
+        "hitEffect": "massiveExplosion",
+        "keepVelocity": false,
+        "shrinkX": 0.5,
+        "shrinkY": 0.5,
+        "collides": false,
+        "healAmount": 650,
+        "healPercent": 25,
+        "splashDamage": 220,
+        "splashDamageRadius": 80,
+        "shootEffect": {
+  "type": "MultiEffect",
+  "effects": [
+    "shootHeal",
+    {
+      "type": "WaveEffect",
+      "colorTo": "98ffa9",
+      "sides": 24,
+      "strokeFrom": 4,
+      "strokeTo": 0,
+      "sizeFrom": 0,
+      "sizeTo": 12,
+      "interp": "pow3Out",
+      "lifetime": 15
+    },
+            {
+              "type": "ParticleEffect",
+              "particles": 10,
+              "lifetime": 20,
+              "sizeFrom": 5,
+              "sizeTo": 0,
+              "length": 10,
+              "interp": "pow3Out",
+              "colorFrom": "98ffa9",
+              "colorTo": "98ffa9"
+            }
+  ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "type": "ConsumeGenerator",
+  "requirements": [ "lead/80","silicon/50","phase-fabric/5","cobalt/40" ],
+  "category": "power",
+  "powerProduction": 3,
+  "itemDuration": 1260,
+  "health": 200,
+  "armor": 4,
+  "generateEffect": "generatespark",
+  "ambientSound": "loopDifferential",
+  "ambientSoundVolume": 0.05,
+  "size": 2,
+  "shownPlanets": [ "cyclant","phoon" ],
+  "research": {
+    "parent": "geothermal-generator",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "thorium-hacienda"
+      },
+      "micro-reactor"
+    ]
+  },
+  "researchCostMultiplier": 1,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "alpha": 0.5,
+        "color": "bf92f9",
+        "glowScale": 2
+      }
+    ]
+  },
+  "consumes": {
+    "itemRadioactive": {}
+  },
+  "itemDurationMultipliers": {
+    "phase-fabric": 15,
+    "warp-nucleus": 20,
+    "fusion-fuel": 0.8
+  }
+}

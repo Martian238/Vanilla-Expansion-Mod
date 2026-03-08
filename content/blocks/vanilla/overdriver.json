@@ -1,0 +1,26 @@
+{
+  "type": "OverdriveProjector",
+  "category": "effect",
+  "requirements": [
+    "lead/30","titanium/25","silicon/25","plastanium/15"
+  ],
+  "research": {
+    "parent": "overdrive-dome",
+    "objectives": [ "overdrive-projector" ]
+  },
+  "size": 1,
+  "range": 20,
+  "speedBoost": 1.5,
+  "speedBoostPhase": 0.5,
+  "phaseRangeBoost": 40,
+  "consumes": {
+    "power": 1.5,
+    "items": {
+      "items": [
+        "silicon/1"
+      ]
+      "booster": true,
+      "optional": true
+    }
+  }
+}

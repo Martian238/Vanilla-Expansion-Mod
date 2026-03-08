@@ -1,0 +1,131 @@
+{
+  "type": "flying",
+  "flying": true,
+  "health": 90,
+  "armor": 0,
+  "rotateSpeed": 0,
+  "speed": 3,
+  "accel": 0.07,
+  "drag": 0.03,
+  "hitSize": 10,
+  "lowAltitude": false,
+  "itemCapacity": 40,
+  "engineSize": 0,
+  "engineOffset": 0,
+  "createWreck": false,
+  "createScorch": false,
+  "deathSound": "missileSmall",
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly",
+  "lightColor": "90dbff",
+  "deathExplosionEffect": {
+                "type": "SeqEffect",
+                "effects": [
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 64,
+                    "strokeFrom": 6,
+                    "lifetime": 7
+                  },
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 64,
+                    "strokeFrom": 6,
+                    "lifetime": 7
+                  },
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 64,
+                    "strokeFrom": 6,
+                    "lifetime": 7
+                  }
+                ]
+  },
+  "immunities": [ "blown","wet","burning","tarred","shocked","freezing","melting","muddy","electrified","corroded","sapped","disarmed" ],
+  "abilities": [
+    {
+      "type": "EnergyFieldAbility",
+      "damage": 20,
+      "range": 96,
+      "reload": 30,
+      "healEffect": "none",
+      "hitEffect": "hitLaserBlast",
+      "damageEffect": "chainLightning",
+      "status": "blown",
+      "shootSound": "none",
+      "statusDuration": 1200,
+      "x": 0,
+      "y": 0,
+      "targetAir": true,
+      "targetGround": false,
+      "maxTargets": 1024,
+      "healPercent": 0.1,
+      "displayHeal": false,
+      "effectRadius": 0,
+      "color": "90dbff",
+      "rotateSpeed": -7.5,
+      "sectors": 2,
+      "sectorRad": 0.2,
+      "hitBuildings": false
+    }
+  ],
+  "parts": [
+    {
+      "type": "HaloPart",
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "color": "90dbff",
+      "shapes": 2,
+      "radius": 2,
+      "tri": true,
+      "triLength": 4,
+      "triLengthTo": 0,
+      "haloRadius": 5,
+      "HaloRadiusTo": 3,
+      "haloRotateSpeed": -2.5,
+      "shapeRotation": 55,
+      "layer": 110,
+      "rotateSpeed": 0
+    },
+    {
+      "type": "HaloPart",
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "color": "90dbff",
+      "shapes": 2,
+      "radius": 2,
+      "tri": true,
+      "triLength": 0,
+      "triLengthTo": 4,
+      "haloRadius": 3,
+      "haloRadiusTo": 5,
+      "haloRotateSpeed": -7.5,
+      "shapeRotation": 55,
+      "layer": 110,
+      "rotateSpeed": 0
+    },
+    {
+      "type": "ShapePart",
+      "circle": true,
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "layer": 110,
+      "color": "90dbff",
+      "radius": 4,
+      "hollow": true,
+      "stroke": 3.5,
+      "strokeTo": 4
+    }
+  ],
+  "weapons": [
+  ]
+}

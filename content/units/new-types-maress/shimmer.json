@@ -1,0 +1,139 @@
+{
+  "type": "flying",
+  "health": 120,
+  "armor": 0,
+  "speed": 4,
+  "accel": 0.08,
+  "drag": 0.06,
+  "rotateSpeed": 7,
+  "lowAltitude": true,
+  "hitSize": 10,
+  "strafePenalty": 1,
+  "flying": true,
+  "engineSize": 0,
+  "fallEffect": {
+    "type": "WrapEffect",
+    "effect": "hitLaserBlast",
+    "color": "f3e979"
+  },
+  "lightColor": "ff835e",
+  "immunities": [ "disarmed","dusty","wet" ],
+  "loopSound": "lbp3FlyingMachine",
+  "loopSoundVolume": 0.1,
+  "research": {
+    "parent": "core-singularity-root"
+  },
+  "weapons": [
+    {
+      "name": "shimmer-weapon",
+      "x": 0,
+      "y": 0,
+      "reload": 8,
+      "top": false,
+      "recoil": 1.25,
+      "recoilTime": 15,
+      "ejectEffect": "casing1",
+      "shootX": 3,
+      "shootY": 5,
+      "shootSound": "shootDuo",
+      "inaccuracy": 2,
+      "bullet": {
+        "shootEffect": "shootSmall",
+        "smokeEffect": "shootSmallSmoke",
+        "frontColor": "ff835e",
+        "lightColor": "ff835e",
+        "backColor": "bf402c",
+        "speed": 5,
+        "lifetime": 30,
+        "damage": 14,
+        "splashDamage": 18,
+        "splashDamageRadius": 32,
+        "hitShake": 1,
+        "despawnShake": 1,
+        "width": 9,
+        "height": 13,
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "knockback": 0.8,
+        "status": "blasted",
+        "statusDuration": 60
+      }
+    },
+    {
+      "name": "shimmer-rotator"
+      "x": 9,
+      "y": 0,
+      "reload": 20,
+      "alwaysShooting": true,
+      "display": false,
+      "top": false,
+      "shootSound": "none",
+      "recoil": 0,
+      "alternate": false,
+      "noAttack": true,
+      "useAttackRange": false,
+      "bullet": {
+        "instantDisappear": true,
+        "collides": false,
+        "damage": 0,
+        "absorbable": false,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none"
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": 1,
+          "color": "ffffff50",
+          "colorTo": "ffffff50",
+          "under": false,
+          "layer": 110.1,
+          "outline": false
+        },
+        {
+          "type": "RegionPart",
+          "suffix": 3,
+          "color": "ffffff50",
+          "colorTo": "ffffff50",
+          "progress": "reload",
+          "moveRot": 180,
+          "under": false,
+          "layer": 110.11,
+          "outline": false
+        },
+        {
+          "type": "RegionPart",
+          "suffix": 1,
+          "color": "ffffff00",
+          "colorTo": "ffffff70",
+          "progress": "reload",
+          "growX": -1,
+          "growY": -1,
+          "under": false,
+          "growProgress": "reload",
+          "layer": 110.12,
+          "outline": false
+        },
+        {
+          "type": "RegionPart",
+          "suffix": 2,
+          "color": "ffffff50",
+          "colorTo": "ffffff50",
+          "progress": "reload",
+          "moveRot": -720,
+          "under": false,
+          "layer": 110.13,
+          "outline": false
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "-cap",
+          "under": false,
+          "layer": 110.14
+        }
+      ]
+    }
+  ]
+}

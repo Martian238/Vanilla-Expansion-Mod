@@ -1,0 +1,54 @@
+{
+  "type": "Drill",
+  "category": "production",
+  "requirements": [ "lead/60","graphite/40","quartz/55","silicon/35" ],
+  "research": {
+    "parent": "power-drill",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "carbon-relics"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.01,
+  "drillTime": 108,
+  "itemCapacity": 30,
+  "size": 3,
+  "tier": 4,
+  "consumes": {
+    "liquid": {
+      "liquid": "hydrogen",
+      "amount": 0.05,
+      "booster": true,
+      "optional": true
+    },
+    "power": 1.2
+  },
+  "hasPower": true,
+  "rotateSpeed": 7,
+  "liquidBoostIntensity": 1.8,
+  "warmupSpeed": 0.01,
+  "ambientSound": "loopMineBeam",
+  "ambientSoundVolume": 0.2,
+  "updateEffect": {
+    "type": "ParticleEffect",
+    "particles": 4,
+    "line": true,
+    "strokeFrom": 3,
+    "strokeTo": 0,
+    "lenFrom": 10,
+    "lenTo": 0,
+    "length": 20,
+    "baseLength": 0,
+    "lifetime": 10,
+    "colorFrom": "ffffff",
+    "colorTo": "ffdaa9"
+  },
+  "drillMultipliers": {
+    "spore-pod": 0
+  },
+  "drawRim": true,
+  "heatColor": "ffdaa9",
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon" ]
+}

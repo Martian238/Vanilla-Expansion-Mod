@@ -1,0 +1,121 @@
+{
+  "type": "MassDriver",
+  "research": {
+    "parent": "mass-railgun",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "warp-tech-base"
+      }
+    ]
+  },
+  "requirements": [ "aluminium/20","warp-nucleus/10","silicon/30" ],
+  "buildCostMultiplier": 3,
+  "researchCostMultiplier": 0.01,
+  "size": 1,
+  "health": 300,
+  "itemCapacity": 100,
+  "reload": 40,
+  "rotateSpeed": 360,
+  "minDistribute": 10,
+  "smokeEffect": "none",
+  "outlineIcon": false,
+  "baseExplosiveness": 7,
+  "dumpTime": 1,
+  "shootEffect": {
+    "type": "MultiEffect",
+    "effects": [
+      {
+        "type": "WaveEffect",
+        "colorFrom": "bf92f9aa",
+        "colorTo": "bf92f900",
+        "sizeFrom": 0,
+        "sizeTo": 12,
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sides": 24,
+        "interp": "circleOut",
+        "lifetime": 40
+      },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "bf92f9",
+        "colorTo": "bf92f900",
+        "sizeFrom": 0,
+        "sizeTo": 8,
+        "strokeFrom": 2,
+        "strokeTo": 2,
+        "sides": 24,
+        "interp": "circleOut",
+        "lifetime": 40
+      },
+      {
+        "type": "SoundEffect",
+        "sound": [ "si2Teleporter1","si2Teleporter2","si2Teleporter3","si2Teleporter4" ],
+        "maxVolume": 0.1,
+        "minVolume": 0.1,
+        "maxPitch": 1,
+        "minPitch": 1,
+        "effect": {
+          "type": "ParticleEffect",
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "particles": 1,
+          "length": 0,
+          "baseLength": 0,
+          "colorFrom": "bf92f9",
+          "colorTo": "bf92f9",
+          "lifetime": 40,
+          "interp": "circleIn"
+        }
+      }
+    ]
+  },
+  "receiveEffect": {
+    "type": "SoundEffect",
+    "sound": [ "si2Teleporter1","si2Teleporter2","si2Teleporter3","si2Teleporter4" ],
+    "maxVolume": 0.1,
+    "minVolume": 0.1,
+    "maxPitch": 1,
+    "minPitch": 1,
+    "effect": {
+      "type": "ParticleEffect",
+      "sizeFrom": 2,
+      "sizeTo": 0,
+      "particles": 1,
+      "cone": 0,
+      "length": 0,
+      "baseLength": 0,
+      "colorFrom": "bf92f9",
+      "colorTo": "bf92f9",
+      "lifetime": 40,
+      "interp": "circleOut"
+    }
+  },
+  "knockback": 0,
+  "shake": 0,
+  "bulletSpeed": 800,
+  "shootSound": "none",
+  "receiveSound": "none",
+  "consumes": {
+    "power": 0.6
+  },
+  "range": 240,
+  "translation": 0,
+  "bullet": {
+    //"type": "MassDriverBolt",
+    "hitSize": 1,
+    "speed": 800,
+    "height": 0,
+    "width": 0,
+    "frontColor": "bf92f900",
+    "backColor": "bf92f900",
+    "despawnEffect": "none",
+    "hitEffect": "none",
+    "collides": false,
+    "hittable": false,
+    "absorbable": false,
+    "reflectable": false
+  },
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

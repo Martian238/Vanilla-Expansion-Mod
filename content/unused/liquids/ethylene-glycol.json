@@ -1,0 +1,12 @@
+{
+  "color": "b0bac0",
+  "heatCapacity": 0.25,
+  "effect": "tarred",
+  "boilPoint": 0.6,
+  "gasColor": "b0bac0dd",
+  "viscosity": 0.65,
+  "flammability": 0.5,
+  "research": {
+    "parent": "oil-node"
+  }
+}

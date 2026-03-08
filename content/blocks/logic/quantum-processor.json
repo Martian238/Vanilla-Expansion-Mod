@@ -1,0 +1,21 @@
+{
+  "type": "LogicBlock",
+  "category": "logic",
+  "requirements": [ "astro-plate/250","silicon/500","phecteel/350","silver/200","thorium/100" ],
+  "instructionsPerTick": 300,
+  "size": 3,
+  "research": {
+    "parent": "core-singularity-root"
+  },
+  "health": 3000,
+  "armor": 32,
+  "baseExplosiveness": 30,
+  //"maxNameLength": 64,
+  //"maxByteLen": 204800,
+  //"maxInstructionsScale": 20,
+  "range": 8000,
+  "consumes": { "power": 5 },
+  "consumesPower": true,
+  "hasPower": true,
+  "conductivePower": true
+}

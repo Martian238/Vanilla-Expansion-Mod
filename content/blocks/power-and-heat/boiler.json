@@ -1,0 +1,34 @@
+{
+  "type": "HeatProducer",
+  "requirements": [ "aluminium/30","graphite/25","ferrum/25" ]
+  "category": "crafting",
+  "hasItems": true,
+  "itemCapacity": 10,
+  "warmupRate": 0.05,
+  "heatOutput": 5,
+  "consumes": {
+    "items": [ "coal/1" ]
+  },
+  "craftTime": 90,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-center",
+        "alpha": 1,
+        "glowIntensity": 0.05,
+        "color": "ffa665"
+      },
+      { "type": "DrawHeatOutput" }
+    ]
+  },
+  "size": 2,
+  "armor": 6,
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.08,
+  "updateEffect": "coalSmeltsmoke",
+  "updateEffectChance": 0.02,
+  "research": "blast-furnace"
+}

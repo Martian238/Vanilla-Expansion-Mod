@@ -1,0 +1,21 @@
+{
+  "planet": "cyclant",
+  "sector": 170,
+  "difficulty": 1,
+  "research": {
+    "parent": "core-nucleus-root",
+    /*"objectives": [
+      "interplanetary-accelerator",
+      "core-nucleus"
+    ]*/
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 10,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": false,
+  "allowLaunchLoadout": false
+}
+
+
+

@@ -1,0 +1,25 @@
+{
+  "type": "StorageBlock",
+  "requirements": [ "aluminium/350","chromium/150","silicide/50" ],
+  "category": "effect",
+  "research": {
+    "parent": "shelf-silicide",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      },
+      "bank"
+    ]
+  },
+  "size": 3,
+  "itemCapacity": 1200,
+  "researchCostMultiplier": 0.1,
+  "armor": 24,
+  "health": 6750,
+  "crushDamageMultiplier": 0.05,
+  "drawTeamOverlay": false,
+  "flammabilityScale": 0,
+  "explosivenessScale": 0.5,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

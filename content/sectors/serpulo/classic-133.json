@@ -1,0 +1,23 @@
+{
+  "planet": "serpulo",
+  "sector": 133,
+  "difficulty": 6,
+  "research": {
+    "parent": "classic-223",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "overgrowth"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

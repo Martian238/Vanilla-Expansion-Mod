@@ -1,0 +1,42 @@
+{
+  "ammoTypes": {
+    "coal": {
+      "type": "BulletType",
+      "speed": 3.35,
+      "damage": 17,
+      "ammoMultiplier": 3,
+      "hitSize": 7,
+      "lifetime": 18,
+      "pierce": true,
+      "collidesAir": false,
+      "statusDuration": 240,
+      "shootEffect": "shootSmallFlame",
+      "hitEffect": "hitFlameSmall",
+      "despawnEffect": "none",
+      "status": "burning",
+      "keepVelocity": false,
+      "hittable": false,
+      "frontColor": "00000000",
+      "backColor": "00000000"
+    },
+    "pyratite": {
+      "type": "BulletType",
+      "speed": 4,
+      "damage": 68,
+      "ammoMultiplier": 6,
+      "hitSize": 7,
+      "lifetime": 18,
+      "pierce": true,
+      "collidesAir": false,
+      "statusDuration": 600,
+      "shootEffect": "shootPyraFlame",
+      "hitEffect": "hitFlameSmall",
+      "despawnEffect": "none",
+      "status": "burning",
+      "keepVelocity": false,
+      "hittable": false,
+      "frontColor": "00000000",
+      "backColor": "00000000"
+    }
+  }
+}

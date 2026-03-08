@@ -1,0 +1,15 @@
+{
+  "type": "CoreBlock",
+  "health": 2147483247,
+  "size": 1,
+  "armor": 0,
+  "unitType": "square",
+  "itemCapacity": 0,
+  "unitCapModifier": 8,
+  "category": "effect",
+  "buildVisibility": "editorOnly",
+  "isFirstTier": false,
+  "requiresCoreZone": false,
+  "destructible": false,
+  "targetable": false
+}

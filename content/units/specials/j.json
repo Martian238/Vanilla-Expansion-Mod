@@ -1,0 +1,140 @@
+{
+  "type": "flying",
+  "researchCostMultiplier": 0,
+  "alwaysUnlocked": true,
+  "isEnemy": true,
+  "lowAltitude": false,
+  "outlineColor": "2d2f39",
+  "flying": true,
+  "drag": 0.03,
+  "speed": 4.5,
+  "rotateSpeed": 3,
+  "omniMovement": false,
+  "accel": 0.03,
+  "health": 900,
+  "armor": 9,
+  "engineOffset": 20,
+  "engineSize": 5,
+  "hitSize": 20,
+  "itemCapacity": 90,
+  "faceTarget": false,
+  "circleTarget": true,
+  "deathSound": "poop",
+  "weapons": [
+    {
+      "rotate": false,
+      "top": true,
+      "x": 10,
+      "y": 2,
+      "recoil": 0,
+      "reload": 4,
+      "shootSound": "pewClassicEdited",
+      "ejectEffect": "casing1",
+      "rotate": true,
+      "rotationLimit": 160,
+      "rotateSpeed": 20,
+      "shootY": 0,
+      "minWarmup": 0.95,
+      "shootWarmupSpeed": 0.3,
+      "shoot": {
+        "type": "ShootBarrel",
+        "shots": 2,
+        "shotDelay": 0,
+        "barrels": [ -1,0,0,1,0,0 ]
+      },
+      "bullet": {
+        "damage": 17,
+        "speed": 9,
+        "width": 7,
+        "height": 20,
+        "lifetime": 30,
+        "shootEffect": "shootBig",
+        "smokeEffect": "shootBigSmoke",
+        "knockback": 0.8,
+        "hitEffect": "hitBulletBig",
+        "pierce": true,
+        "pierceCap": 3,
+        "pierceBuilding": true
+      }
+    },
+    {
+    "minShootVelocity": 0.5,
+    "x": 6,
+    "y": -18,
+    "shootY": 0,
+    "reload": 3,
+    "shootCone": 180,
+    "ejectEffect": "none",
+    "baseRotation": 180,
+    "inaccuracy": 15,
+    "ignoreRotation": false,
+    "shootSound": "pewClassicEdited",
+    "bullet": {
+      "type": "BombBulletType",
+      "maxRange": 32,
+      "splashDamage": 25,
+      "splashDamageRadius": 27,
+      "width": 10,
+      "height": 14,
+      "hitEffect": "flakExplosion",
+      "shootEffect": "none",
+      "status": "blasted",
+      "statusDuration": 60,
+      "smokeEffect": "none",
+      "lifetime": 30,
+      "drag": 0.05
+    }
+    },
+    {
+      "minWarmup": 0.95,
+      "x": 0,
+      "y": 0,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "reload": 60,
+      "display": false,
+      "recoil": 0,
+      "shootWarmupSpeed": 0.3,
+      "bullet": {
+        "instantDisappear": true,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "despawnEffect": "none",
+        "hitEffect": "none",
+        "maxRange": 270
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "j-wing3",
+          "x": 2,
+          "y": -18,
+          "rotation": 45,
+          "moveRot": -45,
+          "progress": "warmup",
+          "mirror": false
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "j-wing1",
+          "x": 2,
+          "y": 14,
+          "rotation": -75,
+          "moveRot": 75,
+          "progress": "warmup",
+          "mirror": false
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "j-wing2",
+          "x": 2,
+          "y": 2,
+          "rotation": -45,
+          "moveRot": 45,
+          "progress": "warmup",
+          "mirror": false
+        }
+      ]
+    }
+  ]
+}

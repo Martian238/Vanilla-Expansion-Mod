@@ -1,0 +1,180 @@
+{
+  "type": "LiquidTurret",
+  "buildVisibility": "shown",
+  "alwaysUnlocked": false,
+  "category": "turret",
+  "size": 2,
+  "ammoTypes": {
+    "water": {
+      "type": "LiquidBulletType",
+      "liquid": "water",
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 8,
+      "layer": 98,
+      "damage": 1,
+      "puddleSize": 6,
+      "status": "wet",
+      "statusDuration": 600,
+      "lifetime": 180,
+      "speed": 10,
+      "velocityScaleRandMin": 0.3,
+      "impact": true
+    },
+    "cryofluid": {
+      "type": "LiquidBulletType",
+      "liquid": "cryofluid",
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 8,
+      "layer": 98,
+      "damage": 1,
+      "puddleSize": 6,
+      "status": "freezing",
+      "statusDuration": 600,
+      "lifetime": 180,
+      "speed": 10,
+      "velocityScaleRandMin": 0.3,
+      "impact": true
+    },
+    "oil": {
+      "type": "LiquidBulletType",
+      "liquid": "oil",
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 8,
+      "layer": 98,
+      "damage": 1,
+      "puddleSize": 6,
+      "status": "tarred",
+      "statusDuration": 600,
+      "lifetime": 180,
+      "speed": 10,
+      "velocityScaleRandMin": 0.3,
+      "impact": true
+    },
+    "slag": {
+      "type": "LiquidBulletType",
+      "liquid": "slag",
+      "layer": 100,
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 8,
+      "layer": 98,
+      "damage": 1,
+      "puddleSize": 6,
+      "status": "melting",
+      "statusDuration": 600,
+      "lifetime": 180,
+      "speed": 10,
+      "velocityScaleRandMin": 0.3,
+      "impact": true
+    },
+    "lava": {
+      "type": "LiquidBulletType",
+      "liquid": "lava",
+      "layer": 100,
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 8,
+      "layer": 98,
+      "damage": 1,
+      "puddleSize": 6,
+      "status": "fusing",
+      "statusDuration": 600,
+      "lifetime": 180,
+      "speed": 10,
+      "velocityScaleRandMin": 0.3,
+      "impact": true
+    },
+    "arkycite": {
+      "type": "LiquidBulletType",
+      "liquid": "arkycite",
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 8,
+      "layer": 98,
+      "damage": 1,
+      "puddleSize": 6,
+      "status": "tarred",
+      "statusDuration": 600,
+      "lifetime": 180,
+      "speed": 10,
+      "velocityScaleRandMin": 0.3,
+      "impact": true
+    },
+    "neoplasm": {
+      "type": "LiquidBulletType",
+      "liquid": "neoplasm",
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 8,
+      "layer": 98,
+      "damage": 1,
+      "puddleSize": 6,
+      "lifetime": 180,
+      "speed": 10,
+      "velocityScaleRandMin": 0.3,
+      "impact": true
+    }
+  },
+  "shoot": {
+    "type": "ShootBarrel",
+    "shots": 40,
+    "shotDelay": 0,
+    "barrels": [ 2.25,18,60,9.75,18,-60 ]
+  },
+  "recoil": 0,
+  "shootSound": "none",
+  "inaccuracy": 25,
+  "shootCone": 361,
+  "liquidCapacity": 10000,
+  "shootX": 0,
+  "shootY": 0,
+  "reload": 1,
+  "range": 8,
+  "health": 1,
+  "armor": 1,
+  "rotateSpeed": 0,
+  "priority": -10,
+  "outlineIcon": false,
+  "minWarmup": 0.9,
+  "shootWarmupSpeed": 0.9,
+  "drawer": {
+    "type": "DrawTurret",
+    "parts": [
+      {
+        "type": "RegionPart",
+        "suffix": "n",
+        "progress": "warmup",
+        "color": "ffffffff",
+        "colorTo": "ffffff00",
+        "outline": false
+      },
+      {
+        "type": "RegionPart",
+        "suffix": "c",
+        "progress": "warmup",
+        "color": "ffffff00",
+        "colorTo": "ffffffff",
+        "outline": false
+      }
+    ]
+  },
+  "targetable": true,
+  "requirements": [
+    "phase-fabric/34"
+  ],
+  "buildCostMultiplier": 100,
+  "researchCost": [ "phase-fabric/34000" ],
+  "research": {
+    "parent": "waterer",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "thorium-hacienda"
+      }
+    ]
+  },
+  "shownPlanets": [ "serpulo","erekir","cyclant","maress","phoon" ]
+}

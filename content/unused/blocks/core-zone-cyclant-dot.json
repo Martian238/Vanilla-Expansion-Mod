@@ -1,0 +1,9 @@
+{
+  "type": "Floor",
+  "variants": 0,
+  "attributes": {
+    "water": -1
+  },
+  "allowCorePlacement": true,
+  "blendGroup": "core-zone-cyclant"
+}

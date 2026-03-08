@@ -1,0 +1,132 @@
+{
+  "generator": {
+  },
+  "parent": "sol2",
+  "launchCandidates": [ "cyclant","maress","sitrullus" ],
+  "solarSystem": "sol2",
+  "iconColor": "de8a5b",
+  "orbitRadius": 120,
+  "orbitTime": 21333,
+  "rotateTime": 1100,
+  /*60*/
+  "hasAtmosphere": true,
+  "updateLighting": true,
+  "atmosphereRadIn": 0.02,
+  "atmosphereRadOut": 0.15,
+  "atmosphereColor": "e69663",
+  "lightColor": "e69663dd",
+  "landCloudColor": "b6a49911",
+  "defaultAttributes": {
+    "spores": -1,
+    "light": 0.2,
+    "sand": 1
+  },
+  "drawOrbit": true,
+  "accessible": true,
+  "alwaysUnlocked": true,
+  "launchMusic": "game8",
+  "lightSrcFrom": 0,
+  "lightSrcTo": 1,
+  "lightDstFrom": 0,
+  "lightDstTo": 1.2,
+  "research": {
+    "parent": "isomorphic-accelerator"
+  },
+  "defaultCore": "isomorphic-core-shard",
+  "sectorSeed": 0,
+  "startSector": 43,
+  "sectorSize": 3.1,
+  "clearSectorOnLose": true,
+  "allowSectorInvasion": false,
+  "allowLaunchToNumbered": false,
+  "enemyCoreSpawnReplace": true,
+  "allowLaunchSchematics": true,
+  "allowWaveSimulation": true,
+  "allowLaunchLoadout": true,
+  "launchCapacityMultiplier": 0.5,
+  "tidalLock": false,
+  "prebuildBase": true,
+  "radius": 0.75,
+  "bloom": false,
+  "visible": true,
+  "minZoom": 0.001,
+  "maxZoom": 10,
+  "cloudMesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      {
+        "type": "HexSkyMesh",
+        "planet": "maress",
+        "seed": 78,
+        "speed": 1,
+        "radius": 0.12,
+        "divisions": 5,
+        "color": "b6a49933",
+        "octaves": 2,
+        "persistence": 0.4,
+        "scl": 0.5,
+        "thresh": 0.45
+      }
+    ]
+  },
+  "mesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      {
+        "type": "NoiseMesh",
+        "planet": "maress",
+        "seed": 177,
+        "color1": "ba754e",//brown
+        "color2": "88624c40",//wetbrown
+        "divisions": 5,
+        "radius": 0.733,//0.75
+        "octaves": 10,
+        "persistence": 0.5,
+        "scale": 2,
+        "mag": 0.3
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "maress",
+        "seed": 995,
+        "color1": "c2c2c2",//snow
+        "color2": "b6a499",//brownsnow
+        "divisions": 5,
+        "radius": 0.708,//0.725
+        "octaves": 6,
+        "persistence": 0.5,
+        "scale": 0.1,
+        "mag": 0.5
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "maress",
+        "seed": 995,
+        "color1": "c2c2c2",//snow
+        "color2": "b6a499",//brownsnow
+        "divisions": 2,
+        "radius": 0.01,//0.01
+        "octaves": 6,
+        "persistence": 0.5,
+        "scale": 10,
+        "mag": 100
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "maress",
+        "seed": 995,
+        "color1": "c2c2c2",//snow
+        "color2": "b6a499",//brownsnow
+        "divisions": 2,
+        "radius": 0.5,//0.01
+        "octaves": 6,
+        "persistence": 0.5,
+        "scale": 2,
+        "mag": 1
+      }
+    ]
+  },
+  /*"hiddenItems": [
+  ],*/
+  //"defaultEnv":
+}

@@ -1,0 +1,40 @@
+{
+  "type": "NuclearReactor",
+  "requirements": [ "lead/400","silicon/300","graphite/200","chromium/280","thorium/60" ],
+  "category": "power",
+  "ambientSound": "loopThoriumReactor",
+  "ambientSoundVolume": 0.14,
+  "powerProduction": 75,
+  "heating": 0.026666666667,
+  "size": 3,
+  "armor": 24,
+  "health": 2000,
+  "itemDuration": 360,
+  "itemCapacity": 40,
+  "consumes": {
+    "liquid": {
+      "liquid": "cryofluid",
+      "amount": 0.05333333,
+      "update": false
+    },
+    "item": "thorium"
+  },
+  "liquidCapacity": 80,
+  "heatOutput": 14,
+  "lightColor": "bf92f9",
+  "flashThreshold": 0.01,
+  "explodeSound": "explosionReactor",
+  "coolantPower": 0.5,
+  "ambientCooldownTime": 1500,
+  "research": {
+    "parent": "micro-reactor",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "thorium-hacienda"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

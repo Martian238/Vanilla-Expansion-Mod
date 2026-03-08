@@ -1,0 +1,51 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus" ],
+  "drag": 0.05,
+  "boostMultiplier": 3,
+  "immunities": [ "dusty","frozen" ],
+  "weapons": [
+    {
+      "name": "heal-weapon",
+      "top": false,
+      "shootY": 2,
+      "reload": 24,
+      "x": 4.5,
+      "alternate": false,
+      "ejectEffect": "none",
+      "recoil": 2,
+      "shootSound": "shootLaser",
+      "bullet": {
+        "type": "LaserBoltBulletType",
+        "speed": 5.2,
+        "damage": 13,
+        "lifetime": 30,
+        "healPercent": 5,
+        "collidesTeam": true,
+        "backColor": "98ffa9",
+        "frontColor": "ffffff"
+      }
+    },
+    {
+      "display": false,
+      "reload": 1,
+      "shootStatus": "walking",
+      "shootStatusDuration": 2,
+      "controllable": false,
+      "alwaysShooting": true,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "mirror": false,
+      "noAttack": true,
+      "bullet": {
+        "instantDisappear": true,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "despawnEffect": "none",
+        "hitEffect": "none",
+        "collides": false,
+        "hittable": false,
+        "absorbable": false
+      }
+    }
+  ]
+}

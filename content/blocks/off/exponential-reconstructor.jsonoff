@@ -1,0 +1,12 @@
+{
+  "upgrades": [
+    [ "fortress","scepter" ],
+    [ "spiroct","arkyid" ],
+    [ "quasar","vela" ],
+    [ "zenith","antumbra" ],
+    [ "haze","hurricane" ],
+    [ "mega","quad" ],
+    [ "bryde","sei" ],
+    [ "cyerce","aegires" ]
+  ]
+}

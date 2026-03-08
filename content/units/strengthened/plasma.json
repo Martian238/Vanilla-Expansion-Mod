@@ -1,0 +1,123 @@
+{
+  //"type": "flying",
+  "health": 1100,
+  "armor": 4,
+  "speed": 2.9,
+  "accel": 0.08,
+  "faceTarget": false,
+  "hitSize": 16,
+  "circleTarget": true,
+  "lowAltitude": false,
+  "drag": 0.016,
+  "flying": true,
+  "engineOffset": 7.75,
+  "range": 140,
+  "targetAir": false,
+  "engineSize": 0,
+  "immunities": [ "burning","frozen" ],
+  "itemCapacity": 20,
+  "targetFlags": [
+    "drill","generator","storage"
+  ],
+  "lightColor": "ffa665",
+  "autoDropBombs": true,
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "engines": [
+    {
+      "x": 6,
+      "y": -8,
+      "radius": 2.5,
+      "rotation": -90
+    },
+    {
+      "x": -6,
+      "y": -8,
+      "radius": 2.5,
+      "rotation": -90
+    }
+  ],
+  "itemCapacity": 0,
+  "weapons": [
+    {
+      "x": 6,
+      "y": -5,
+      "top": false,
+      "rotate": false,
+      "shootCone": 360,
+      "baseRotation": 180,
+      "inaccuracy": 15
+      "shootX": 0,
+      "shootY": 0,
+      "reload": 48,
+      "ejectEffect": "none",
+      "shootSound": "pewClassicEdited",
+      "shootStatus": "slow",
+      "shootStatusDuration": 30,
+      "shoot": {
+        "shots": 3,
+        "shotDelay": 12
+      },
+      "bullet": {
+        "type": "BombBulletType",
+        "drag": 0.05,
+        "makeFire": true,
+        "speed": 0.6,
+        "damage": 16,
+        "shrinkY": 0.5,
+        "splashDamage": 14,
+        "splashDamageRadius": 24,
+        "status": "burning",
+        "statusDuration": 360,
+        "width": 11,
+        "height": 11,
+        "lifetime": 30,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "backColor": "f8ad42",
+        "frontColor": "f8e096",
+        "lightColor": "f8e096",
+        "despawnEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "RadialEffect",
+              "effect": "hitFlameSmall",
+              "rotationOffset": 0,
+              "rotationSpacing": 45,
+              "amount": 8,
+              "lengthOffset": 4
+            }
+          ]
+        },
+        "fragBullets": 4,
+        "despawnShake": 1,
+        "hitShake": 2,
+        "hitSound": "explosionArtillery",
+        "despawnSound": "explosionArtillery",
+        "fragBullet": {
+          "type": "BulletType",
+          "damage": 37,
+          "status": "burning",
+          "statusDuration": 360,
+          "speed": 2.5,
+          "pierce": true,
+          "pierceBuilding": true,
+          "lifetime": 6,
+          "pierceCap": 2,
+          "hitEffect": "hitFlameSmall",
+          "despawnSound": "shootFlame",
+          "despawnEffect": "hitFlameSmall",
+          "hitSize": 7,
+          "hittable": false,
+          "lightColor": "f8e096"
+        }
+      }
+    }
+  ],
+  "research": {
+    "parent": "aurora",
+    "objectives": [ "junior-refabricator" ],
+    "requirements": [ "silicon/4500","graphite/3500","metaglass/2000" ]
+  }
+}

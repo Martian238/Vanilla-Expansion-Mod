@@ -1,0 +1,145 @@
+{
+  "type": "ItemTurret",
+  "requirements": [ "aluminium/40" ],
+  "category": "turret",
+  "size": 1,
+  "ammoTypes": {
+    "aluminium": {
+      "width": 9,
+      "height": 11,
+      "lifetime": 50,
+      "ammoMultiplier": 2,
+      "speed": 4,
+      "damage": 9,
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootSmallSmoke"
+    },
+    "graphite": {
+      "width": 11,
+      "height": 13,
+      "lifetime": 50,
+      "ammoMultiplier": 4,
+      "speed": 4,
+      "damage": 19,
+      /*"reloadMultiplier": 0.8,*/
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootSmallSmoke",
+      "hitEffect": "hitBulletColor"
+      "despawnEffect": "hitBulletColor",
+      "hitColor": "dae1ee",
+      "hitColor": "dae1ee",
+      "backColor": "7d89d8",
+      "frontColor": "dae1ee"
+    },
+    "quartz": {
+      "width": 8,
+      "height": 13,
+      "lifetime": 40,
+      "ammoMultiplier": 2,
+      "pierce": true,
+      "pierceCap": 4,
+      "pierceBuilding": false,
+      "speed": 5,
+      "damage": 13,
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootSmallSmoke",
+      "hitEffect": "hitSquaresColor",
+      "hitColor": "f68021",
+      "despawnEffect": "hitSquaresColor",
+      "hitColor": "f68021",
+      "backColor": "f68021"
+    },
+    "silicon": {
+      "width": 9,
+      "height": 11,
+      "lifetime": 60,
+      "rangeChange": 40,
+      "ammoMultiplier": 5,
+      "speed": 4,
+      "damage": 15,
+      "reloadMultiplier": 1.5,
+      "homingPower": 0.15,
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootSmallSmoke",
+      "hitEffect": "hitBulletColor"
+      "despawnEffect": "hitBulletColor",
+      "hitColor": "999ba0",
+      "hitColor": "999ba0",
+      "backColor": "707594",
+      "trailColor": "707594",
+      "frontColor": "999ba0",
+      "trailLength": 3
+    },
+    "ferrum": {
+      "width": 10,
+      "height": 12,
+      "lifetime": 57,
+      "speed": 3.5,
+      "damage": 20,
+      "ammoMultiplier": 3,
+      "shrinkY": 0,
+      "frontColor": "9f8c88",
+      "backColor": "7e6863",
+      "hitColor": "9f8c88",
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootSmallSmoke",
+      "hitEffect": "flakExplosion",
+      "despawnHit": true,
+      "setDefaults": false,
+      "despawnEffect": "hitBulletColor",
+      "splashDamage": 8,
+      "splashDamageRadius": 12,
+      "fragBullets": 2,
+      "fragLifeMin": 0,
+      "fragOffsetMax": 1,
+      "fragRandomSpread": 30,
+      "fragVelocityMin": 0.5,
+      "armorMultiplier": 0.6,
+      "fragBullet": {
+        "width": 7,
+        "height": 9,
+        "lifetime": 30,
+        "speed": 3.5,
+        "damage": 4,
+        "shrinkY": 0,
+        "spin": 10,
+        "frontColor": "9f8c88",
+        "backColor": "7e6863",
+        "hitColor": "9f8c88",
+        "hitEffect": "hitBulletColor",
+        "despawnEffect": "hitBulletColor",
+        "pierce": true,
+        "pierceBuilding": false,
+        "pierceCap": 3,
+        "pierceArmor": true
+      }
+    }
+  },
+  "recoil": 0.7,
+  "shootSound": "shootDuo",
+  "shootX": 0,
+  "shootY": 3,
+  "reload": 18,
+  "range": 200,
+  "health": 220,
+  "ammoUseEffect": "casing1",
+  "inaccuracy": 2,
+  "rotateSpeed": 15,
+  "research": {
+    "parent": "core-nucleus-root",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "barrier-hill"
+      }
+    ]
+  },
+  "researchCost": [ "aluminium/200" ],
+  "consumes": {
+    "coolant": {
+      "type": "ConsumeCoolant",
+      "amount": 0.1
+    }
+  },
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

@@ -1,0 +1,35 @@
+{
+  "type": "Reconstructor",
+  "category": "units",
+  "requirements": [
+    "aluminium/100","lead/700","silicon/500","cobalt/450"
+  ],
+  "size": 5,
+  "upgrades": [
+    [ "hammer","ballistic" ],
+    [ "vortex","nebula" ],
+    [ "plasma","solar" ],
+    [ "line","square" ],
+    [ "hoe","ballistic" ],
+    [ "astrologe","nebula" ],
+    [ "prominence","solar" ],
+    [ "string","plain" ]
+  ],
+  "consumes": {
+    "power": 7,
+    "items": {
+      "items": [ "silicon/220","cobalt/150","plastanium/90" ],
+    },
+    "liquids": {
+      "liquids": [ "hydrogen/0.1" ]
+    }
+  },
+  "constructTime": 3000,
+  "researchCostMultiplier": 0.02,
+  "research": {
+    "parent": "junior-refabricator"
+  },
+  "createSound": "unitCreateBig",
+  "shownPlanets": [ "cyclant","phoon" ]
+  //"regionSuffix": "-rail"
+}

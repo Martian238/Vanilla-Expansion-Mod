@@ -1,0 +1,34 @@
+{
+  "plans": [
+    {
+      "unit": "flare",
+      "time": 900,
+      "requirements": [ "silicon/15" ]
+    },
+    {
+      "unit": "mono",
+      "time": 2100,
+      "requirements": [ "silicon/30","lead/15" ]
+    },
+    {
+      "unit": "dust",
+      "time": 1200,
+      "requirements": [ "silicon/20","graphite/20" ]
+    },
+    {
+      "unit": "flocculate",
+      "time": 1500,
+      "requirements": [ "silicon/30","graphite/20" ]
+    },
+    {
+      "unit": "aurora",
+      "time": 1200,
+      "requirements": [ "silicon/25","lead/10" ]
+    },
+    {
+      "unit": "point",
+      "time": 3300,
+      "requirements": [ "silicon/45","quartz/20" ]
+    }
+  ]
+}

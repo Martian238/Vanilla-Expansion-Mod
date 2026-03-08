@@ -1,0 +1,15 @@
+{
+  "type": "BufferedItemBridge",
+  "requirements": [ "lead/54" ],
+  "category": "distribution",
+  "health": 360,
+  "range": 13,
+  "size": 3,
+  "bufferCapacity": 30,
+  "speed": 40,
+  "fadeIn": false,
+  "moveArrows": false,
+  "arrowSpacing": 6,
+  "buildCostMultiplier": 3,
+  "itemDrop": "lead"
+}

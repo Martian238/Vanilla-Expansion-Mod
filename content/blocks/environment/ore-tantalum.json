@@ -1,0 +1,7 @@
+{
+  "type": "OreBlock",
+  "itemDrop": "tantalum",
+  "variants": 4,
+  "oreDefault": false,
+  "useColor": true
+}

@@ -1,0 +1,155 @@
+{
+  "type": "tank",
+  "hitSize": 12,
+  "speed": -1.5,
+  "treadPullOffset": 4,
+  "treadFrames": 8,
+  "rotateSpeed": -4,
+  "health": 500,
+  "armor": 10,
+  "itemCapacity": 30,
+  "omniMovement": true,
+  "squareShape": true,
+  "rotateMoveFirst": false,
+  "strafePenalty": 1,
+  "hovering": false,
+  "outlineColor": "505040",
+  "deathSound": "trMartianCrash",
+  "drag": 0.07,
+  "accel": 0.05,
+  "envDisabled": 0,
+  "floorMultiplier": -0.5,
+  "canDrown": false,
+  "faceTarget": false,
+  "treadRects": [
+    {
+      "type": "Rect",
+      "x": -28,
+      "y": -17,
+      "width": 1,
+      "height": 36
+    },
+    {
+      "type": "Rect",
+      "x": -27,
+      "y": -16,
+      "width": 1,
+      "height": 36
+    },
+    {
+      "type": "Rect",
+      "x": -26,
+      "y": -15,
+      "width": 1,
+      "height": 36
+    },
+    {
+      "type": "Rect",
+      "x": -25,
+      "y": -14,
+      "width": 1,
+      "height": 36
+    },
+    {
+      "type": "Rect",
+      "x": -24,
+      "y": -13,
+      "width": 1,
+      "height": 36
+    },
+    {
+      "type": "Rect",
+      "x": -23,
+      "y": -12,
+      "width": 1,
+      "height": 36
+    },
+    {
+      "type": "Rect",
+      "x": -22,
+      "y": -11,
+      "width": 1,
+      "height": 36
+    },
+    {
+      "type": "Rect",
+      "x": -21,
+      "y": -10,
+      "width": 1,
+      "height": 36
+    },
+    {
+      "type": "Rect",
+      "x": -20,
+      "y": -9,
+      "width": 2,
+      "height": 36
+    }
+  ],
+  "research": {
+    "parent": "sparkle"
+  },
+  "emitWalkSound": false,
+  "immunities": [ "plasma-status","dusty","wet","muddy","tarred","fusing","frozen","sodiumified","melting","corroded" ],
+  "lightColor": "00ffce",
+  "tankMoveSound": "tankMoveSmall",
+  "tankMoveVolume": 0.6,
+  "weapons": [
+    {
+      "name": "vibrate-turret",
+      "recoil": 1,
+      "mirror": false,
+      "reload": 60,
+      "recoilTime": 45,
+      "x": 0,
+      "y": 0,
+      "layerOffset": 0.001,
+      "shootY": 4.5,
+      "recoil": 1.5,
+      "rotate": true,
+      "rotateSpeed": 6,
+      "baseRotation": 180,
+      "shootSound": [ "lbp3LaserFire1","lbp3LaserFire2","lbp3LaserFire3","lbp3LaserFire4" ],
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "heatColor": "00ffce88",
+      "cooldownTime": 30,
+      "shake": 2,
+      "bullet": {
+        "backColor": "00ffce",
+        "frontColor": "ffffff",
+        "sprite": "circle-bullet",
+        "shootEffect": "colorSpark",
+        "smokeEffect": "shootSmallSmoke",
+        "speed": 10,
+        "status": "captured",
+        "statusDuration": 20,
+        "lifetime": 26,
+        "hitColor": "00ffce",
+        "despawnEffect": "hitLaserBlast",
+        "hitEffect": "hitLaserBlast",
+        "hitShake": 4,
+        "hitSound": "shootArc",
+        "damage": 60,
+        "buildingDamageMultiplier": 2,
+        "hittable": false,
+        "width": 4,
+        "height": 20,
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "lifetime": 3,
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce",
+          "length": 0,
+          "baseLength": 4,
+          "interp": "circleIn",
+          "region": "ve-square-effect"
+        },
+        "trailChance": 1
+      }
+    }
+  ]
+}

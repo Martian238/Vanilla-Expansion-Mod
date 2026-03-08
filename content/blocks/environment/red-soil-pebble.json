@@ -1,0 +1,12 @@
+{
+  "type": "Floor",
+  "variants": 5,
+  "attributes": {
+    "water": -0.25
+  },
+  "wall": "red-soil-wall",
+  //"decoration": "red-soil-boulder",
+  "speedMultiplier": 0.7,
+  "status": "dusty",
+  "statusDuration": 600
+}

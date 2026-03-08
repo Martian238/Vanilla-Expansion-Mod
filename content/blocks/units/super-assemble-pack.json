@@ -1,0 +1,11 @@
+{
+  "type": "Wall",
+  "requirements": [ "silicon/160","fibralt/100","thorium/70","silicide/10" ],
+  "health": 1800,
+  "size": 2,
+  "buildCostMultiplier": 0.1,
+  "category": "units",
+  "research": "assemble-packer",
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","phoon","maress" ]
+}

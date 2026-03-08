@@ -1,0 +1,23 @@
+{
+  "planet": "cyclant",
+  "sector": 19,
+  "difficulty": 5,
+  "research": {
+    "parent": "carbon-relics",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "carbon-relics"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 30,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

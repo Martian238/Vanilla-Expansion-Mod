@@ -1,0 +1,25 @@
+{
+  "type": "ItemBridge",
+  "requirements": [ "ferrum/6","graphite/4" ],
+  "category": "distribution",
+  "health": 300,
+  "armor": 6,
+  "range": 4,
+  "transportTime": 2,
+  "itemCapacity": 10,
+  "fadeIn": false,
+  "moveArrows": false,
+  "arrowSpacing": 8,
+  "buildCostMultiplier": 3,
+  "research": {
+    "parent": "valve-distribute"
+  },
+  "bridgeWidth": 8,
+  "arrowPeriod": 1.6,
+  "arrowOffset": 4,
+  "arrowTimeScl": 2,
+  "researchCostMultiplier": 0.1,
+  "hasPower": false,
+  "squareSprite": false,
+  "shownPlanets": [ "sitrullus" ]
+}

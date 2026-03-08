@@ -1,0 +1,7 @@
+{
+  "mineSpeed": 11,
+  "mineTier": 3,
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress" ],
+  "immunities": [ "frozen","burning" ],
+  "itemCapacity": 200
+}

@@ -1,0 +1,20 @@
+{
+  "type": "PowerNode",
+  "requirements": [ "silver/4","quartz/4" ],
+  "category": "power",
+  "laserRange": 8,
+  "maxNodes": 8,
+  "research": {
+    "parent": "cable"
+  },
+  "researchCostMultiplier": 0.01,
+  "consumes": {
+    "powerBuffered": 500
+  },
+  "consumesPower": true,
+  "outputsPower": true,
+  "shownPlanets": [ "sitrullus","maress" ],
+  "laserColor2": "fb9567",
+  "enableDrawStatus": false,
+  "drawTeamOverlay": false
+}

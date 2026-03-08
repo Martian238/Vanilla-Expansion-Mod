@@ -1,0 +1,14 @@
+{
+  "type": "DuctRouter",
+  "requirements": [ "aluminium/4","lead/4" ],
+  "speed": 2.5,
+  "regionRotated1": 1,
+  "solid": false,
+  "research": {
+    "parent": "rail-junction"
+  },
+  "buildCostMultiplier": 4,
+  "researchCostMultiplier": 0.2,
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

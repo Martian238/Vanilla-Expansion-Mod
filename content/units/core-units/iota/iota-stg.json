@@ -1,0 +1,79 @@
+{
+  "health": 400,
+  "speed": 2.7,
+  "accel": 0.07,
+  "drag": 0.05,
+  "rotateSpeed": 0,
+  "armor": 4,
+  "buildSpeed": 1.5,
+  "buildBeamOffset": 0,
+  "flying": true,
+  "lowAltitude": true,
+  "hitSize": 10,
+  "engineOffset": 5.75,
+  "engineSize": 3.5,
+  "buildRange": 220,
+  "strafePenalty": 1,
+  "faceTarget": false,
+  "wobble": false,
+  "rotateToBuilding": false,
+  "createWreck": false,
+  "createScorch": false,
+  "weapons": [
+    {
+      "x": 0,
+      "y": 0,
+      "shootY": 6.25,
+      "recoil": 0,
+      "reload": 10,
+      "recoilTime": 10,
+      "shootSound": "none",
+      "mirror": false,
+      "shootCone": 361,
+      "rotate": true,
+      "rotateSpeed": 0,
+      "baseRotation": 0,
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "iota-stg-glow",
+          "progress": "recoil",
+          "blending": "additive",
+          "colorTo": "ffd37fbb",
+          "color": "ffd37f00",
+          "outline": false,
+          "under": false
+        }
+      ],
+      "bullet": {
+        "speed": 7,
+        "lifetime": 120,
+        "keepVelocity": false,
+        "height": 6,
+        "shrinkY": 0,
+        "width": 4,
+        "trailLength": 3.5,
+        "trailWidth": 1.75,
+        "trailColor": "ffd37f",
+        "sprite": "circle-bullet",
+        "frontColor": "ffffff",
+        "backColor": "ffd37f",
+        "hitColor": "ffd37f",
+        "damage": 40,
+        "hitEffect": "hitBulletColor",
+        "despawnEffect": "hitBulletColor",
+        "shootEffect": "colorSpark",
+        "smokeEffect": {
+          "type": "SoundEffect",
+          "sound": [ "lbp3ScifiLaserFire1","lbp3ScifiLaserFire2","lbp3ScifiLaserFire3" ],
+          "maxVolume": 0.6,
+          "minVolume": 0.6,
+          "maxPitch": 1,
+          "minPitch": 1,
+          "effect": "none"
+        },
+        "knockback": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [
+    "ferrum/30","graphite/30","silicon/20"
+  ],
+  "researchCost": [ "ferrum/30","graphite/30","silicon/20" ],
+  "category": "crafting"
+  "research": {
+    "parent": "blast-furnace"
+  },
+  "size": 2,
+  "craftTime": 120,
+  "itemCapacity": 30,
+  "hasItems": true,
+  "hasPower": true,
+  "hasLiquids": true,
+  "liquidCapacity": 20,
+  "consumes": {
+    "items": {
+      "items": [ "red-soil/10" ]
+    },
+    "liquid": "water/0.05",
+    "power": 0.6
+  },
+  "ambientSound": "loopCircuit",
+  "ambientSoundVolume": 0.06,
+  "craftEffect": "pulverizeMedium",
+  "outputItems": [ "quartz/3" ],
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawRegion", "suffix": "" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "alpha": 0.9,
+        "color": "ffb6a5",
+        "glowScale": 6
+      },
+      {
+        "type": "DrawRegion",
+        "spinSprite": true,
+        "suffix": "-rotator",
+        "rotateSpeed": -7
+      },
+      { "type": "DrawRegion","suffix":"-cap" }
+    ]
+  }
+}

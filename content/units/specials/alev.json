@@ -1,0 +1,143 @@
+{
+  "type": "mech"
+  "hitSize": 24,
+  "rotateSpeed": 7,
+  "mechFrontSway": 1,
+  "buildSpeed": 3,
+  "mechStepParticles": true,
+  "stepShake": 0.15,
+  "drownTimeMultiplier": 4,
+  "speed": 0.44,
+  "boostMultiplier": 3.6,
+  "engineOffset": 12,
+  "engineSize": 6,
+  "lowAltitude": true,
+  "riseSpeed": 0.02,
+  "health": 8200,
+  "armor": 9,
+  "canBoost": true,
+  "mechLandShake": 4,
+  "immunities": [ "burning","interrupted","dusty","frozen" ],
+  "singleTarget": true,
+  "researchCostMultiplier": 0.01,
+  "deathSound": "poop",
+  "research": {
+    "parent": "wide-fortress",
+    "objectives": [ "vela","assemble-selector1" ],
+    "requirements": [ "silicon/1700","titanium/1500","plastanium/1300" ]
+  },
+  "targetFlags": [
+    "core"
+  ],
+  "lightColor": "98ffa9",
+  "stepSound": "mechStep",
+  "stepSoundPitch": 0.9,
+  "stepSoundPitchRange": 0.1,
+  "stepSoundVolume": 0.6,
+  "shownPlanets": [ "cyclant","phoon" ],
+  "weapons": [
+    {
+      "name": "alev-weapon"
+      "mirror": false,
+      "top": false,
+      "shake": 4,
+      "shootY": 18,
+      "baseRotation": 180,
+      "shootCone": 360,
+      "cooldownTime": 125,
+      "x": 0,
+      "y": 0,
+      "shoot": {
+        "firstShotDelay": 39
+      },
+      "parentizeEffects": true,
+      "reload": 125,
+      "recoil": 0,
+      "chargeSound": "chargeVela",
+      "shootSound": "beamPlasma",
+      "initialShootSound": "shootBeamPlasma",
+      "continuous": true,
+      "shootStatus": "fast",
+      "shootStatusDuration": 45,
+      "cooldownTime": 200,
+      "bullet": {
+        "type": "ContinuousLaserBulletType",
+        "damage": 35,
+        "length": 180,
+        "hitEffect": "hitMeltHeal",
+        "drawSize": 420,
+        "lifetime": 160,
+        "shake": 1,
+        "pierceArmor": true,
+        "status": "combusting",
+        "statusDuration": 600,
+        "lightColor": "98ffa9",
+        "despawnEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "smokeCloud",
+            {
+              "type": "SeqEffect",
+              "effects": [ "fallSmoke","fallSmoke","fallSmoke","fallSmoke","fallSmoke" ]
+            }
+          ]
+        },
+        "smokeEffect": "none",
+        "chargeEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "greenLaserChargeSmall"
+          ]
+        },
+        "incendChance": 10,
+        "incendSpread": 5,
+        "incendAmount": 1,
+        "healPercent": 5,
+        "collidesTeam": true,
+        "colors": [ "98ffa933","98ffa980","b6ffcb","ffffff" ],
+        "recoil": 2,
+        "bulletInterval": 1,
+        "intervalBullet": {
+          "sprite": "alev-weapon",
+          "pierceArmor": true,
+          "damage": 50,
+          "pierce": true,
+          "pierceCap": 10,
+          "impact": true,
+          "buildingDamageMultiplier": 0.4,
+          "frontColor": "98ffa900",
+          "backColor": "98ffa900",
+          "knockback": 32,
+          "collidesAir": false,
+          "collideTerrain": false,
+          "splashDamage": 22,
+          "splashDamageRadius": 12,
+          "despawnEffect": "none",
+          "hitEffect": "none",
+          "despawnHit": false,
+          "speed": 10,
+          "lifetime": 3,
+          "reflectable": false,
+          "hittable": false,
+          "absorbable": false,
+          "shootEffect": "none",
+          "smokeEffect": "none"
+        },
+        "intervalRandomSpread": 0,
+        "intervalAngle": 180
+      }
+    },
+    {
+      "type": "RepairBeamWeapon",
+      "name": "repair-beam-weapon-center-large",
+      "x": 11,
+      "y": -7.5,
+      "shootY": 6,
+      "beamWidth": 0.9,
+      "repairSpeed": 2,
+      "bullet": {
+        "maxRange": 120
+      }
+    }
+  ]
+}

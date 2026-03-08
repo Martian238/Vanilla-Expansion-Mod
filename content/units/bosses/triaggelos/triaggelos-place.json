@@ -1,0 +1,35 @@
+{
+  "type": "flying",
+  "drawSoftShadow": true,
+  "targetable": false,
+  "lowAltitude": true,
+  "health": 7000,
+  "armor": 20,
+  "flying": true,
+  "drawCell": false,
+  "hittable": false,
+  "wobble": false,
+  "outlineColor": "201b20",
+  "hitSize": 32,
+  "rotateSpeed": 4,
+  "speed": 2,
+  "accel": 0.04,
+  "drag": 0.02,
+  "flyingLayer": 93.5,
+  "createWreck": false,
+  "engineSize": 0,
+  "lightRadius": 0,
+  "physics": true,
+  "weapons": [
+    {
+      "mirror": false,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "shootCone": 361,
+      "minWarmup": 2,
+      "shootWarmupSpeed": 0.2,
+      "bullet": { "rangeOverride": 640 }
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "generator": {
+  },
+  "parent": "sol2",
+  "launchCandidates": [ "sitrullus" ],
+  "solarSystem": "sol2",
+  "iconColor": "88c961",
+  "orbitRadius": 105,
+  "orbitTime": 15122,
+  "rotateTime": 1800,
+  /*60*/
+  "hasAtmosphere": true,
+  "updateLighting": true,
+  "atmosphereRadIn": 0.01,
+  "atmosphereRadOut": 0.1,
+  "atmosphereColor": "88c96180",
+  "lightColor": "ff555550",
+  "landCloudColor": "daf9c87f",
+  "allowSelfSectorLaunch": true,
+  "defaultAttributes": {
+    "spores": 0.5,
+    "water": 2
+  },
+  "drawOrbit": true,
+  "accessible": true,
+  "lightSrcFrom": 0,
+  "lightSrcTo": 1,
+  "lightDstFrom": 0,
+  "lightDstTo": 1,
+  "research": {
+    "parent": "interplanetary-accelerator"
+  },
+  "defaultCore": "core-general",
+  "sectorSeed": 0,
+  "alwaysUnlocked": true,
+  "startSector": 15,
+  "sectorSize": 2,
+  "clearSectorOnLose": true,
+  "allowSectorInvasion": false,
+  "allowLaunchToNumbered": false,
+  "allowCampaignRules": false,
+  "showRtsAIRule": false,
+  "enemyCoreSpawnReplace": true,
+  "allowLaunchSchematics": true,
+  //"allowWaveSimulation": true,
+  "launchMusic": "game8",
+  "allowLaunchLoadout": true,
+  "launchCapacityMultiplier": 0.25,
+  "tidalLock": false,
+  "prebuildBase": true,
+  "radius": 0.6,
+  "bloom": false,
+  "visible": true,
+  "minZoom": 1.2,
+  "maxZoom": 10,
+  "cloudMesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      {
+        "type": "HexSkyMesh",
+        "planet": "sitrullus",
+        "seed": 574,
+        "speed": 0.3,
+        "radius": 0.08,
+        "divisions": 4,
+        "color": "daf9c840",
+        "octaves": 2,
+        "persistence": 0.42,
+        "scl": 0.9,
+        "thresh": 0.43
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "sitrullus",
+        "seed": 73,
+        "speed": 0.2,
+        "radius": 0.1,
+        "divisions": 4,
+        "color": "edffe220",
+        "octaves": 2,
+        "persistence": 0.42,
+        "scl": 0.9,
+        "thresh": 0.43
+      }
+    ]
+  },
+  "mesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      {
+        "type": "NoiseMesh",
+        "planet": "sitrullus",
+        "seed": 73,
+        "color1": "ff555520",
+        "color2": "9e78dc80",
+        "divisions": 5,
+        "radius": 0.609,
+        "octaves": 10,
+        "persistence": 0.5,
+        "scale": 12,
+        "mag": 0
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "sitrullus",
+        "seed": 117,
+        "color1": "ff555520",
+        "color2": "cc343420",
+        "divisions": 5,
+        "radius": 0.6,
+        "octaves": 10,
+        "persistence": 0.5,
+        "scale": 2,
+        "mag": 0.2
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "sitrullus",
+        "seed": 128,
+        "color1": "88c961",
+        "color2": "5ba232",
+        "divisions": 5,
+        "radius": 0.585,
+        "octaves": 10,
+        "persistence": 0.5,
+        "scale": 1,
+        "mag": 0.4
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "sitrullus",
+        "seed": 128,
+        "color1": "ddf5b0",
+        "color2": "edf5b0",
+        "divisions": 5,
+        "radius": 0.59,//0.594
+        "octaves": 10,
+        "persistence": 0.5,
+        "scale": 1,
+        "mag": 0.33
+      }
+    ]
+  },
+  /*"hiddenItems": [
+    "copper","beryllium","tungsten","oxide",
+    "carbide"
+  ],
+  "itemWhitelist": [ "lead","titanium","coal","plastanium","sand","graphite","surge-alloy","phase-fabric","thorium","scrap","pyratite","blast-compound","spore-pod","silicon","metaglass",
+  "aluminium","chromium","cobalt","salt","shale-cobble","carbon-shale-cobble","nitroalkoss","plant-matter","wrap-nucleus","capacitor","quartz","sodium","fibralt","catalyzon" ],*/
+  //"defaultEnv": 225
+}

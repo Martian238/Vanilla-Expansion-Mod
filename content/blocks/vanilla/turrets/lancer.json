@@ -1,0 +1,19 @@
+{
+  "requirements": [ "copper/60","lead/70","silicon/60","titanium/30" ],
+  "shootType": {
+    "type": "LaserBulletType",
+    "damage": 235,
+    "armorMultiplier": 4,
+    "colors": [ "a9d8ff66","a9d8ff","ffffff" ],
+    "chargeEffect": [ "lancerLaserCharge","lancerLaserChargeBegin" ],
+    "buildingDamageMultiplier": 0.25,
+    "pierceCap": -1,
+    "hitEffect": "hitLancer",
+    "hitSize": 4,
+    "lifetime": 16,
+    "drawSize": 400,
+    "collidesAir": false,
+    "length": 173,
+    "ammoMultiplier": 1
+  }
+}

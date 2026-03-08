@@ -1,0 +1,5 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","phoon" ],
+  "ambientSoundVolume": 0.12,
+  "ambientSound": "shield"
+}

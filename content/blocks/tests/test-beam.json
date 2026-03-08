@@ -1,0 +1,11 @@
+{
+  "type": "BeamNode",
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly"
+  "category": "power",
+  "range": 20,
+  "size": 2,
+  "laserColor2": "ffd37f",
+  "laserWidth": 0.25,
+  "allowDiagonal": true
+}

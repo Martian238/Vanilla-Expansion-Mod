@@ -1,0 +1,62 @@
+{
+  "type": "tether",
+  "flying": true,
+  "defaultController": "AssemblerAI",
+  "drag": 0.05,
+  "accel": 0.07,
+  "speed": 3,
+  "health": 400,
+  "armor": 4,
+  "rotateSpeed": 5,
+  "engineSize": 4.5,
+  "hitSize": 16,
+  "engineOffset": 6,
+  "itemCapacity": 0,
+  "targetable": true,
+  "bounded": false,
+  "isEnemy": false,
+  "useUnitCap": false,
+  "logicControllable": false,
+  "playerControllable": false,
+  "allowedInPayloads": false,
+  "createWreck": false,
+  "buildBeamOffset": 9.75,
+  "buildSpeed": 2,
+  "lightColor": "ffd37f",
+  "research": {
+    "parent": "assembly-drone-ve",
+    "objectives": [ "boss-assembler" ]
+  },
+  "immunities": [ "frozen" ],
+  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "weapons": [
+    {
+      "name": "large-bullet-mount-core",
+      "rotate": true,
+      "rotateSpeed": 7,
+      "x": 10,
+      "y": -4.25,
+      "shake": 1,
+      "shootY": 10,
+      "ejectEffect": "casing1",
+      "reload": 12,
+      "shootSound": "shootSpectre",
+      "top": true,
+      "bullet": {
+        "recoil": 0.4,
+        "frontColor": "ffd37f",
+        "backColor": "ffd37f",
+        "lightColor": "ffd37f",
+        "damage": 45,
+        "speed": 7,
+        "lifetime": 25,
+        "buildingDamageMultiplier": 0.01,
+        "width": 12,
+        "height": 18,
+        "shootEffect": "shootBigColor",
+        "hitColor": "ffd37f",
+        "knockback": 4
+      }
+    }
+  ]
+}

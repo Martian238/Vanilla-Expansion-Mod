@@ -1,0 +1,52 @@
+{
+  "type": "AttributeCrafter",
+  "requirements": [ "ferrum/60","silicon/25","silver/10" ],
+  "category": "production",
+  "outputItem": "spore-pod/2",
+  "hasItems": true,
+  "hasLiquids": true,
+  "hasPower": true,
+  "research": {
+    "parent": "concentrator"
+  },
+  "consumes": {
+    "liquids": {
+      "liquids": [ "melon-water/0.15" ]
+    },
+    "items": {
+      "items": [ "spore-pod/0" ],
+      "optional": true,
+      "booster": false
+    },
+    "power": 0.9
+  },
+  "conductivePower": true,
+  "dumpTime": 1,
+  "outputLiquid": "melon-water/0",
+  "craftEffect": "none",
+  "liquidCapacity": 20,
+  "itemCapacity": 10,
+  "ignoreLiquidFullness": true,
+  "craftTime": 120,
+  "size": 2,
+  "armor": 6,
+  "legacyReadWarmup": true,
+  "maxBoost": 1,
+  "attribute": "spores",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "melon-water"
+      },
+      { "type": "DrawCultivator" },
+      { "type": "DrawDefault" }
+    ]
+  },
+  "researchCostMultiplier": 0.5
+}

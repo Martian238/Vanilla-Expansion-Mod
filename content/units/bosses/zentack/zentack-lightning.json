@@ -1,0 +1,66 @@
+{
+  "type": "missile",
+  "template": "MissileUnitType",
+  "lifetime": 1,
+  "flying": true,
+  "engineSize": 0,
+  "health": 1,
+  "missileAccelTime": 0,
+  "physics": false,
+  "bounded": false,
+  "drawCell": false,
+  "drawBody": false,
+  "lightRadius": 0,
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "hittable": false,
+  "targetable": false,
+  "deathSound": "none",
+  "wobble": false,
+  "drawSoftShadow": false,
+  "speed": 0,
+  "rotateSpeed": 0,
+  "createScorch": false,
+  "createWreck": false,
+  "targetGround": true,
+  "targetAir": true,
+  "hidden": true,
+  "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
+  "weapons": [
+    {
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "autoTarget": true,
+      "controllable": false,
+      "shootOnDeath": true,
+      "shootSound": [ "si2Lightning1","si2Lightning2","si2Lightning3","si2Lightning4" ],
+      "mirror": false,
+      "shootCone": 361,
+      "shake": 16,
+      "bullet": {
+        "rangeOverride": 8000,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "instantDisappear": true
+        "killShooter": true,
+        "shootEffect": "none",
+        "smokeEffect": {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 2000,
+          "sizeTo": 2000,
+          "colorFrom": "ffffff",
+          "colorTo": "ffffff00",
+          "lifetime": 90,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "ffffff",
+          "layer": 120
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "BeamNode",
+  "requirements": [ "lead/4","quartz/3" ],
+  "category": "power",
+  "range": 12,
+  "research": {
+    "parent": "isomorphic-node"
+  },
+  "laserColor2": "ffd37f",
+  "laserWidth": 0.25,
+  "researchCostMultiplier": 0.01,
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon" ],
+  "drawTeamOverlay": false
+}

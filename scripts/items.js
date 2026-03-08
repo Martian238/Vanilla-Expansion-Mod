@@ -1,0 +1,32 @@
+function newItem(name) {
+	exports[name] = extend(Item, name, {});
+}
+
+newItem("aluminium");
+newItem("quartz");
+newItem("catalyzon");
+newItem("silicide");
+newItem("salt");
+newItem("plant-matter");
+newItem("chromium");
+newItem("sodium");
+newItem("carbon-shale-cobble");
+newItem("shale-cobble");
+newItem("nitroalkoss");
+newItem("cobalt");
+newItem("fibralt");
+newItem("fusion-fuel");
+newItem("capacitor");
+newItem("warp-nucleus");
+
+newItem("red-soil");
+newItem("ferrum");
+newItem("reflector-matter");
+newItem("ferric-shale-cobble");
+newItem("silver");
+newItem("tantalum");
+newItem("astro-plate");
+newItem("phecteel");
+
+newItem("melon-dirt");
+newItem("sugar")
