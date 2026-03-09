@@ -55,7 +55,46 @@ ___
 | 左2 | 中2 | 右2 |
 
 链接
+
 [显示文本](网址 "可选标题")
+
 [可以跳到某个标题](#表格)
 
-![GitHub license](https://img.shields.io/github/license/用户名/仓库名)
+图片
+
+![文本](图片网址.jpg "可选标题")
+
+徽章
+
+![GitHub license](https://img.shields.io/github/license/Momiji142857/Ve-)
+
+脚注[^1]
+
+[^1]脚注内容
+
+警告框
+
+> [!NOTE]
+> 提示信息
+
+> [!TIP]
+> 小贴士
+
+> [!IMPORTANT]
+> 重要信息
+
+> [!WARNING]
+> 警告
+
+> [!CAUTION]
+> 小心
+
+
+折叠内容
+
+<details>
+<summary>点击展开</summary>
+
+这里是折叠的内容
+可以包含多行文本
+</details>
