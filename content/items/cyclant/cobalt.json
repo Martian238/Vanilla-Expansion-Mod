@@ -3,5 +3,6 @@
   "hardness": 3,
   "cost": 0.9,
   "research": "chromium",
-  "shownPlanets": [ "cyclant","phoon" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "databaseTag": "basic-item"
 }

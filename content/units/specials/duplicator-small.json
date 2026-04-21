@@ -1,5 +1,6 @@
 {
   "type": "flying",
+  "databaseTag": "10special-unit",
   "accel": 0.1,
   "drag": 0.05,
   "speed": 2,

@@ -1,6 +1,7 @@
 {
   //"type": "flying",
   "isEnemy": false,
+  "databaseTag": "10special-unit",
   "lowAltitude": true,
   "flying": true,
   "mineSpeed": 4.9152,
@@ -35,7 +36,9 @@
   "deathShake": 4,
   "targetPriority": -2,
   "immunities": [ "frozen","disarmed" ],
-  "mineItems": [ "copper","lead","aluminium","titanium","cobalt","thorium","beryllium","tantalum","ferrum","silver" ],
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "weapons": [
     {
       "alwaysShooting": true,

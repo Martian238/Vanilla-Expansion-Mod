@@ -9,6 +9,7 @@
     "power": 0.166666666667
   },
   "hasPower": true,
+  "ambientSound": "none",
   "drawer": {
     "type": "DrawMulti",
     "drawers": [

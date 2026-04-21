@@ -1,6 +1,6 @@
 {
   "type": "NuclearReactor",
-  "requirements": [ "lead/150","silicon/120","graphite/80","chromium/100","thorium/20" ],
+  "requirements": [ "lead/150","silicon/120","graphite/80","chromium/100","thorium/75" ],
   "category": "power",
   "ambientSound": "loopThoriumReactor",
   "ambientSoundVolume": 0.08,

@@ -69,7 +69,6 @@ newUnit("lance",MechUnit);
 newUnit("hoe",MechUnit);
 newUnit("astrologe",MechUnit);
 newUnit("prominence",PayloadUnit);
-newUnit("stellar",UnitEntity);
 newUnit("string",UnitEntity);
 newUnit("plain",PayloadUnit);
 
@@ -90,7 +89,9 @@ newUnit("toxorpion",LegsUnit);
 
 newUnit("iota",UnitEntity);
 newUnit("iota-fungikiller",UnitEntity);
+newUnit("iota-stealth",ElevationMoveUnit);
 newUnit("iota-stg",UnitEntity);
+newUnit("iota-final",ElevationMoveUnit);
 newUnit("oct-painted",PayloadUnit);
 
 newUnit("zeta",LegsUnit);

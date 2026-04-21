@@ -1,0 +1,27 @@
+{
+  "type": "Reconstructor",
+  "category": "units",
+  "size": 5,
+  "requirements": [ "lead/480","silicon/350","chromium/200" ],
+  "consumes": {
+    "power": 4.5,
+    "items": [ "silicon/160","graphite/80","chromium/60" ]
+  },
+  "constructTime": 1800,
+  "upgrades": [
+    [ "mider","velocite" ]
+  ],
+  "research": {
+    "parent": "senior-hovership-reconstructor",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      },
+      "junior-crabbot-reconstructor"
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+  //"regionSuffix": "-rail"
+}

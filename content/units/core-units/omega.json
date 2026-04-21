@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "01core-unit",
   "researchCostMultiplier": 0,
   "isEnemy": false,
   "lowAltitude": true,
@@ -32,7 +33,7 @@
     "battery","generator","repair","turret"
   ],
   "immunities": [ "frozen" ],
-  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
   "abilities": [
     {
       "type": "ShieldArcAbility",

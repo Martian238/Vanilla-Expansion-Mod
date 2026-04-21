@@ -1,5 +1,6 @@
 {
   "type": "tether",
+  "databaseTag": "13other-unit",
 //  "defaultController": "CargoAI",
   "playerControllable": true,
   "logicControllable": true,

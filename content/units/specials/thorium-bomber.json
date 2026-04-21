@@ -1,6 +1,7 @@
 {
   //"type": "flying",
   "speed": 2.5,
+  "databaseTag": "10special-unit",
   "drag": 0.05,
   "hitSize": 12,
   "rotateSpeed": 6,
@@ -22,6 +23,7 @@
   "engineSize": 3,
   "flying": true,
   "lowAltitude": false,
+  "drawSoftShadow": true,
   "wreckHealthMultiplier": 1.5,
   "research": {
     "parent": "thorium-blaster",

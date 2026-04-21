@@ -1,5 +1,6 @@
 {
   "type": "hover",
+  "databaseTag": "14sitrullus-zenith-unit",
   "health": 700,
   "speed": 1.5,
   "accel": 0.04,

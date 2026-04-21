@@ -1,5 +1,6 @@
 {
   "health": 200,
+  "databaseTag": "13sitrullus-zenith-small-unit",
   "speed": 1.9,
   "accel": 0.035,
   "drag": 0.018,
@@ -24,6 +25,7 @@
   ],
   "shownPlanets": [ "sitrullus" ],
   "range": 192,
+  "alwaysShootWhenMoving": true,
   "weapons": [
     {
       "name": "zenith-small-interceptor-weapon",

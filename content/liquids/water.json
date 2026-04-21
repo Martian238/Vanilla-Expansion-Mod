@@ -1,3 +1,4 @@
 {
-  "shownPlanets": [ "serpulo","erekir","cyclant","maress","sitrullus","phoon" ]
+  "shownPlanets": [ "serpulo","erekir","cyclant","maress","sitrullus","phoon","thavina" ],
+  "databaseTag": "liquid-fluid"
 }

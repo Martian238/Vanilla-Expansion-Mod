@@ -142,6 +142,31 @@
         "status": "spore-slowed",
         "statusDuration": 300
       }
+    },
+    {
+      "alwaysShooting": true,//biological
+      "shootSound": "none",
+      "useAttackRange": false,
+      "display": false,
+      "mirror": false,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "controllable": false,
+      "reload": 5,
+      "shootStatus": "biological",
+      "shootStatusDuration": 60,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "instantDisappear": true,
+        "hittable": false,
+        "absorbable": false,
+        "reflectable": false,
+        "collides": false
+      }
     }
   ]
 }

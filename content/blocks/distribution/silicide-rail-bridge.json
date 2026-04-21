@@ -6,7 +6,7 @@
   "armor": 24,
   "range": 4,
   "transportTime": 1,
-  "itemCapacity": 10,
+  "itemCapacity": 30,
   "fadeIn": false,
   "moveArrows": false,
   "arrowSpacing": 2,

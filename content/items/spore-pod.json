@@ -1,3 +1,4 @@
 {
-  "shownPlanets": [ "serpulo","cyclant","phoon","sitrullus" ]
+  "shownPlanets": [ "serpulo","cyclant","phoon","sitrullus" ],
+  "databaseTag": "natural-item"
 }

@@ -10,6 +10,7 @@
   },
   "hasPower": true,
   "alwaysUnlocked": true,
+  "ambientSound": "none",
   "drawer": {
     "type": "DrawMulti",
     "drawers": [

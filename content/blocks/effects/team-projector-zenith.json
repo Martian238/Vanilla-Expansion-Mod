@@ -9,7 +9,16 @@
     "power": 0.166666666667
   },
   "hasPower": true,
-  "alwaysUnlocked": true,
+  "ambientSound": "none",
+  "research": {
+    "parent": "melon-repair-bay",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "boss-chiniun"
+      }
+    ]
+  },
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
@@ -37,16 +46,72 @@
         "useWarmupRadius": true,
         "timeScl": -0.5,
         "color": "ffa66544"
-      }
+      },
       {
-        "type": "DrawGlowRegion",
-        "suffix": "-glow",
-        "color": "ffffff77",
-        "layer": 110.1,
-        "blending": "additive",
-        "alpha": 1,
-        "glowIntensity": 0.35,
-        "glowScale": 10
+        "type": "DrawBlockParts",
+        "parts": [
+          {
+            "type": "RegionPart",
+            "name": "ve-team-projector-zenith-glow",
+            "color": "ffffff",
+            "blending": "additive",
+            "growX": 0.302, "growY": -0.338,
+            "rotation": 90,
+            "moveX": 10.071,
+            "outline": false,
+            "layer": 110.1,
+            "progress": {
+              "type": "time",
+              "ops": [
+                {
+                  "op": "loop",
+                  "time": 24
+                },
+                {
+                  "op": "inv"
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3In"
+                },
+                {
+                  "op": "mul",
+                  "other": "warmup"
+                }
+              ]
+            },
+            "growProgress": {
+              "type": "time",
+              "ops": [
+                {
+                  "op": "loop",
+                  "time": 24
+                },
+                {
+                  "op": "inv"
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3In"
+                },
+                {
+                  "op": "mul",
+                  "other": "warmup"
+                }
+              ]
+            },
+            "moves": [
+              {
+                "gx": -1
+                "gy": -1,
+                "progress": {
+                  "type": "warmup",
+                  "op": "inv"
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         "type": "DrawFlame",
@@ -59,7 +124,6 @@
       }
     ]
   },
-  "buildVisibility": "sandboxOnly",
   "buildCostMultiplier": 20,
   "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus" ]
 }

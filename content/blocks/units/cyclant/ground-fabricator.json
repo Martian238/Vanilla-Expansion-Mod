@@ -1,0 +1,73 @@
+{
+  "type": "UnitFactory",
+  "category": "units",
+  "requirements": [ "aluminium/90","lead/150","silicon/110" ],
+  "size": 3,
+  "research": {
+    "parent": "core-nucleus-root",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "carbon-relics"
+      }
+    ]
+  },
+  "plans": [
+    {
+      "unit": "dagger",
+      "time": 600,
+      "requirements": [ "silicon/10","lead/10" ]
+    },
+    {
+      "unit": "nova",
+      "time": 1500,
+      "requirements": [ "silicon/30","lead/20","titanium/20" ]
+    },
+    {
+      "unit": "crawler",
+      "time": 480,
+      "requirements": [ "silicon/8","coal/10" ]
+    },
+    {
+      "unit": "conscript",
+      "time": 1800,
+      "requirements": [ "silicon/30","lead/15","silicide/10" ]
+    },
+    {
+      "unit": "smarb",
+      "time": 900,
+      "requirements": [ "silicon/20","chromium/10" ]
+    },
+    {
+      "unit": "blade",
+      "time": 1200,
+      "requirements": [ "silicon/30","lead/20" ]
+    },
+    {
+      "unit": "stardust",
+      "time": 3000,
+      "requirements": [ "silicon/50","lead/10","cobalt/20" ]
+    },
+    {
+      "unit": "lance",
+      "time": 1200,
+      "requirements": [ "silicon/30","lead/20" ]
+    },
+    {
+      "unit": "nova",
+      "time": 1500,
+      "requirements": [ "silicon/30","ferrum/35" ]
+    },
+    {
+      "unit": "stardust",
+      "time": 3000,
+      "requirements": [ "silicon/50","lead/10","silver/15" ]
+    },
+  ],
+  "consumes": {
+    "power": 1.6
+  },
+  //"regionSuffix": "-rail"
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

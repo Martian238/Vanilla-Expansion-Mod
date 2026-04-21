@@ -1,5 +1,6 @@
 {
   "type": "mech",
+  "databaseTag": "13other-unit",
   "researchCostMultiplier": 0,
   "alwaysUnlocked": true,
   "isEnemy": true,

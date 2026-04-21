@@ -18,6 +18,7 @@
   "hidden": true,
   "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
   "isEnemy": false,
+  "trailLength": 0,
   "weapons": [
     {
       "x": 0,

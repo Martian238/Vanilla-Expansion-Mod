@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "09cyclant-strengthened-unit",
   "payloadCapacity": 300,
   "health": 1100,
   "armor": 4,

@@ -1,0 +1,728 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": false,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": false,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "speed": 0,
+  "health": 999999,
+  "armor": 0,
+  "deathSound": "none",
+  "clipSize": 3200,
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "bounded": false,
+  "lightRadius": 0,
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "hidden": true,
+  "loopSound": "none",
+  "loopSoundVolume": 0,
+  "type": "missile",
+  "lifetime": 60,
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "targetAir": false,
+  "targetGround": false,    
+  "weapons": [
+    {
+      "alwaysShooting": true,
+      "recoil": 0,
+      "y": 0,
+      "recoilTime": 30,
+      "recoilPow": 1,
+      "reload": 1,
+      "mirror": false,
+      "alternate": false,
+      "x": 0,
+      "shootCone": 361,
+      "shootY": 0,
+      "shootSound": "none",
+      "shootSoundVolume": 2,
+      "ignoreRotation": true,
+      "useAttackRange": false,
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "controllable": false,
+      "aiControllable": true,
+      "parentizeEffects": true,
+      "shake": 0,
+      //"shootOnDeath": true,
+      "autoTarget": false,
+      "bullet": {
+        "type": "PointBulletType",
+        "killShooter": true,
+        "speed": 0,
+        "lifetime": 1,
+        "rangeOverride": 320,
+        "trailEffect": "none",
+        "collides": false,
+        "collidesAir": true,
+        "absorbable": false,
+        "hittable": false,
+        "reflectable": false,
+        "fragOnHit": false,
+        "fragBullets": 1,
+        "fragOffsetMin": 0,
+        "fragOffsetMax": 0,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "damage": 0,
+        "fragBullet": {
+          "speed": 0,
+          "lifetime": 60,
+          "frontColor": "00000000",
+          "backColor": "00000000",
+          "ignoreSpawnAngle": true,
+          "hittable": false,
+          "collides": false,
+          //"damage": 0,
+          "absorbable": false,
+          "reflectable": false,
+          "parts": [
+            {
+              "type": "ShapePart",
+              "circle": true,
+              "hollow": true,
+              "layer": 99.99,
+              "color": "98ffa9",
+              "stroke": 0,
+              "strokeTo": 1,
+              "radius": 0,
+              "radiusTo": 48,
+              "progress": {
+                "type": "life",
+                "op": "curve",
+                "interp": "circleOut"
+              }
+            },
+            {
+              "type": "ShapePart",
+              "circle": true,
+              "hollow": false,
+              "layer": 81,
+              "color": "98ffa980",
+              "stroke": 0,
+              "strokeTo": 1,
+              "radius": 0,
+              "radiusTo": 48,
+              "progress": {
+                "type": "life",
+                "op": "curve",
+                "interp": "circleIn"
+              }
+            },
+            {
+              "type": "ShapePart",
+              "circle": true,
+              "layer": 99.99,
+              "color": "8aa3f4",
+              "colorTo": "ffffff",
+              "radius": 0,
+              "radiusTo": 3.5,
+              "progress": "life"
+            },
+            {
+              "type": "EffectSpawnerPart",
+              "width": 32,
+              "height": 32,
+              "effectChance": 0.2,
+              "effect": {
+        "type": "ParticleEffect",
+        "particles": 4,
+        "line": true,
+        "strokeFrom": 3,
+        "strokeTo": 0,
+        "lenFrom": 10,
+        "lenTo": 0,
+        "length": 20,
+        "baseLength": 0,
+        "lifetime": 10,
+        "colorFrom": "98ffa9",
+        "colorTo": "98ffa9"
+              },
+              "progress": "life"
+            }
+          ],
+          "despawnEffect": [
+            {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 512,
+          "sizeTo": 512,
+          "colorFrom": "ffffff20",
+          "colorTo": "ffffff00",
+          "lifetime": 15,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "8aa3f4",
+          "layer": 120
+            },
+            {
+        "type": "ParticleEffect",
+        "particles": 6,
+        "line": true,
+        "strokeFrom": 4,
+        "strokeTo": 0,
+        "lenFrom": 40,
+        "lenTo": 0,
+        "length": 80,
+        "baseLength": 0,
+        "lifetime": 40,
+        "colorFrom": "ffffff",
+        "colorTo": "8aa3f4"
+            },
+            {
+        "type": "ParticleEffect",
+        "particles": 6,
+        "line": true,
+        "strokeFrom": 3,
+        "strokeTo": 0,
+        "lenFrom": 15,
+        "lenTo": 0,
+        "length": 30,
+        "baseLength": 0,
+        "lifetime": 30,
+        "colorFrom": "ffffff",
+        "colorTo": "8aa3f4"
+            },
+            {
+              "type": "WaveEffect",
+              "strokeFrom": 8,
+              "strokeTo": 8,
+              "sizeFrom": 0,
+              "sizeTo": 96,
+              "colorFrom": "ffffff80",
+              "colorTo": "ffffff00",
+              "layer": 81,
+              "lifetime": 15
+            },
+            {
+              "type": "SoundEffect",
+              "sound": "jsabLightning",
+              "effect": "hitLaserBlast",
+              "minVolume": 1,
+              "maxVolume": 1,
+              "maxPitch": 1.1,
+              "minPitch": 1.1
+            }
+          ],
+          "splashDamage": 300,
+          "splashDamageRadius": 48,
+          "status": "electrified",
+          "statusDuration": 420,
+          "despawnShake": 16,
+          "fragOnHit": false,
+          "damage": 500,
+          "armorMultiplier": 3,
+          "fragBullets": 1,
+          "fragRandomSpread": 0,
+          "fragOffsetMin": 0,
+          "fragOffsetMax": 0,
+          "fragVelocityMin": 0.8,//stemstart
+          "fragBullet": {
+            "spawnBullets": [
+              {//damage dealing
+                "damage": 500,
+                "speed": 0,
+                "lifetime": 1,
+                "hitEffect": "none",
+                "despawnEffect": "none",
+                "armorMultiplier": 3,
+                "lightning": 3,
+                "lightningColor": "98ffa9",
+                "lightningDamage": 30,
+                "lightningLength": 10
+              }
+            ],
+            "type": "PointBulletType",//lightningstem
+            "absorbable": false,
+            "angleOffset": 90,
+            "speed": 256,//lightninglength
+            "lifetime": 1,
+            "trailEffect": [
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "8aa3f4aa",//lightningcolor1
+          "colorTo": "8aa3f400"//lightningcolor2,
+          "sizeFrom": 7,//lightningwidth
+          "sizeTo": 0,
+          "lifetime": 70,
+          "layer": 109
+              },
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "ffffff",
+          "colorTo": "ffffff",
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "lifetime": 70,
+          "layer": 110
+              }
+            ],
+            "trailSpacing": 1,
+            "damage": 0,
+            "collides": false,
+            "collidesAir": false,
+            "collidesGround": false,
+            "collidesTiles": false,
+            "randomAngleOffset": 30,
+            "hitEffect": "none",
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "fragBullet": {
+            "hitEffect": "none",//anglefix
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "instantDisappear": true,
+            "ignoreSpawnAngle": true,
+            "damage": 0,
+            "hittable": false,
+            "absorbable": false,
+            "reflectable": false,
+            "collides": false,
+            "fragBullet": {
+            
+            "type": "PointBulletType",//lightningstem
+            "absorbable": false,
+            "angleOffset": 90,
+            "speed": 288,//lightninglength
+            "lifetime": 1,
+            "trailEffect": [
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "8aa3f4aa",//lightningcolor1
+          "colorTo": "8aa3f400"//lightningcolor2,
+          "sizeFrom": 7,//lightningwidth
+          "sizeTo": 0,
+          "lifetime": 68,
+          "layer": 109
+              },
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "ffffff",
+          "colorTo": "ffffff",
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "lifetime": 69,
+          "layer": 110
+              }
+            ],
+            "trailSpacing": 1,
+            "damage": 0,
+            "collides": false,
+            "collidesAir": false,
+            "collidesGround": false,
+            "collidesTiles": false,
+            "randomAngleOffset": 30,
+            "hitEffect": "none",
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "fragBullet": {
+            "hitEffect": "none",//anglefix
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "instantDisappear": true,
+            "ignoreSpawnAngle": true,
+            "damage": 0,
+            "hittable": false,
+            "absorbable": false,
+            "reflectable": false,
+            "collides": false,
+            "fragBullet": {
+            
+            "type": "PointBulletType",//lightningstem
+            "absorbable": false,
+            "angleOffset": 90,
+            "speed": 320,//lightninglength
+            "lifetime": 1,
+            "trailEffect": [
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "8aa3f4aa",//lightningcolor1
+          "colorTo": "8aa3f400"//lightningcolor2,
+          "sizeFrom": 7,//lightningwidth
+          "sizeTo": 0,
+          "lifetime": 66,
+          "layer": 109
+              },
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "ffffff",
+          "colorTo": "ffffff",
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "lifetime": 68,
+          "layer": 110
+              }
+            ],
+            "trailSpacing": 1,
+            "damage": 0,
+            "collides": false,
+            "collidesAir": false,
+            "collidesGround": false,
+            "collidesTiles": false,
+            "randomAngleOffset": 30,
+            "hitEffect": "none",
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "fragBullet": {
+            "hitEffect": "none",//anglefix
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "instantDisappear": true,
+            "ignoreSpawnAngle": true,
+            "damage": 0,
+            "hittable": false,
+            "absorbable": false,
+            "reflectable": false,
+            "collides": false,
+            "fragBullet": {
+            
+            "type": "PointBulletType",//lightningstem
+            "absorbable": false,
+            "angleOffset": 90,
+            "speed": 384,//lightninglength
+            "lifetime": 1,
+            "trailEffect": [
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "8aa3f4aa",//lightningcolor1
+          "colorTo": "8aa3f400"//lightningcolor2,
+          "sizeFrom": 7,//lightningwidth
+          "sizeTo": 0,
+          "lifetime": 64,
+          "layer": 109
+              },
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "ffffff",
+          "colorTo": "ffffff",
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "lifetime": 67,
+          "layer": 110
+              }
+            ],
+            "trailSpacing": 1,
+            "damage": 0,
+            "collides": false,
+            "collidesAir": false,
+            "collidesGround": false,
+            "collidesTiles": false,
+            "randomAngleOffset": 30,
+            "hitEffect": "none",
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "fragBullet": {
+            "hitEffect": "none",//anglefix
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "instantDisappear": true,
+            "ignoreSpawnAngle": true,
+            "damage": 0,
+            "hittable": false,
+            "absorbable": false,
+            "reflectable": false,
+            "collides": false,
+            "fragBullet": {
+            
+            "type": "PointBulletType",//lightningstem
+            "absorbable": false,
+            "angleOffset": 90,
+            "speed": 512,//lightninglength
+            "lifetime": 1,
+            "trailEffect": [
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "8aa3f4aa",//lightningcolor1
+          "colorTo": "8aa3f400"//lightningcolor2,
+          "sizeFrom": 7,//lightningwidth
+          "sizeTo": 0,
+          "lifetime": 62,
+          "layer": 109
+              },
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "ffffff",
+          "colorTo": "ffffff",
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "lifetime": 66,
+          "layer": 110
+              }
+            ],
+            "trailSpacing": 1,
+            "damage": 0,
+            "collides": false,
+            "collidesAir": false,
+            "collidesGround": false,
+            "collidesTiles": false,
+            "randomAngleOffset": 30,
+            "hitEffect": "none",
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "fragBullet": {
+            "hitEffect": "none",//anglefix
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "instantDisappear": true,
+            "ignoreSpawnAngle": true,
+            "damage": 0,
+            "hittable": false,
+            "absorbable": false,
+            "reflectable": false,
+            "collides": false,
+            "fragBullet": {
+            
+            "type": "PointBulletType",//lightningstem
+            "absorbable": false,
+            "angleOffset": 90,
+            "speed": 768,//lightninglength
+            "lifetime": 1,
+            "trailEffect": [
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "8aa3f4aa",//lightningcolor1
+          "colorTo": "8aa3f400"//lightningcolor2,
+          "sizeFrom": 7,//lightningwidth
+          "sizeTo": 0,
+          "lifetime": 60,
+          "layer": 109
+              },
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "ffffff",
+          "colorTo": "ffffff",
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "lifetime": 65,
+          "layer": 110
+              }
+            ],
+            "trailSpacing": 1,
+            "damage": 0,
+            "collides": false,
+            "collidesAir": false,
+            "collidesGround": false,
+            "collidesTiles": false,
+            "randomAngleOffset": 30,
+            "hitEffect": "none",
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "fragBullet": {
+            "hitEffect": "none",//anglefix
+            "despawnEffect": "none",
+            "fragBullets": 1,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "instantDisappear": true,
+            "ignoreSpawnAngle": true,
+            "damage": 0,
+            "hittable": false,
+            "absorbable": false,
+            "reflectable": false,
+            "collides": false,
+            "fragBullet": {
+            
+            "type": "PointBulletType",//lightningstem
+            "absorbable": false,
+            "angleOffset": 90,
+            "speed": 1600,//lightninglength
+            "lifetime": 1,
+            "trailEffect": [
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "8aa3f4aa",//lightningcolor1
+          "colorTo": "8aa3f400"//lightningcolor2,
+          "sizeFrom": 7,//lightningwidth
+          "sizeTo": 0,
+          "lifetime": 58,
+          "layer": 109
+              },
+              {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "clip": 1600,
+          "length": 0,
+          "interp": "linear",
+          "sizeInterp": "circleOut",
+          "colorFrom": "ffffff",
+          "colorTo": "ffffff",
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "lifetime": 64,
+          "layer": 110
+              }
+            ],
+            "trailSpacing": 1,
+            "damage": 0,
+            "collides": false,
+            "collidesAir": false,
+            "collidesGround": false,
+            "collidesTiles": false,
+            "randomAngleOffset": 30,
+            "hitEffect": "none",
+            "despawnEffect": "none",
+            "fragBullets": 0,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "fragBullet": {
+            "hitEffect": "none",//anglefix
+            "despawnEffect": "none",
+            "fragBullets": 0,
+            "fragRandomSpread": 0,
+            "fragOffsetMin": 0,
+            "fragOffsetMax": 0,
+            "instantDisappear": true,
+            "ignoreSpawnAngle": true,
+            "damage": 0,
+            "hittable": false,
+            "absorbable": false,
+            "reflectable": false,
+            "collides": false,
+            "fragBullet": {
+            
+            
+            
+            }
+            }
+            
+            }
+            }
+            
+            }
+            }
+            
+            }
+            }
+            
+            }
+            }
+            
+            }
+            }
+            
+            }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

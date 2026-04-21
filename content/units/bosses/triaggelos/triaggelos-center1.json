@@ -19,6 +19,7 @@
   "lightRadius": 0,
   "physics": false,
   "faceTarget": false,
+  "hidden": true,
   "parts": [
     {
       "type": "ShapePart",

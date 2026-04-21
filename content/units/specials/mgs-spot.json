@@ -22,6 +22,7 @@
   "engineSize": 0,
   "outlines": false,
   "isEnemy": false,
+  "trailLength": 0,
   "weapons": [
     {
       "alwaysShooting": true,

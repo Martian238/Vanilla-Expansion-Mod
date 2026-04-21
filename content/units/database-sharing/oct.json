@@ -1,5 +1,6 @@
 {
-  "immunities": [ "interrupted","disarmed","frozen" ],
-  "shownPlanets": [ "serpulo","cyclant","phoon" ],
+  "immunities": {"add":[ "interrupted","disarmed","frozen" ]},
+  "shownPlanets": [ "serpulo","cyclant","phoon","thavina" ],
+  "databaseTag": "03serpulo-air-unit",
   "deathSound": "si2ExplodeLoud",
 }

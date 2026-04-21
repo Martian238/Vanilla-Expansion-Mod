@@ -19,7 +19,7 @@
   "accel": 1,
   "engineSize": 0,
   "immunities": [ "blown" ],
-  "hidden": false,
+  "hidden": true,
   "alwaysUnlocked": true,
   "deathShake": 12,
   "drawShields": false,
@@ -28,6 +28,7 @@
   "lightColor": "00000000",
   "loopSound": "none",
   "lightRadius": 0,
+  "hidden": true,
   /*"abilities": [
     {
       "type": "SpawnDeathAbility",

@@ -6,4 +6,5 @@
   "hardness": 7,
   "research": "aluminium",
   "shownPlanets": [ "cyclant","phoon" ],
+  "databaseTag": "natural-item"
 }

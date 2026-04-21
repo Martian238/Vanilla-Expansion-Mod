@@ -2,5 +2,8 @@
   "targetFlags": [
     "drill","factory"
   ],
-  "immunities": [ "frozen" ]
+  "databaseTag": "01core-unit",
+  "immunities": [ "frozen" ],
+  "shownPlanets": [ "serpulo","thavina" ],
+  "engineLayer": 89.99
 }

@@ -5,11 +5,12 @@
   "launchCandidates": [ "cyclant","maress","sitrullus" ],
   "solarSystem": "sol2",
   "iconColor": "de8a5b",
-  "orbitRadius": 120,
-  "orbitTime": 21333,
+  "orbitRadius": 120,//90,12000
+  "orbitTime": 18475,
   "rotateTime": 1100,
   /*60*/
   "hasAtmosphere": true,
+  //"children": [ "lacuna-orb1" ],
   "updateLighting": true,
   "atmosphereRadIn": 0.02,
   "atmosphereRadOut": 0.15,
@@ -23,25 +24,34 @@
   },
   "drawOrbit": true,
   "accessible": true,
-  "alwaysUnlocked": true,
+  "alwaysUnlocked": false,
   "launchMusic": "game8",
   "lightSrcFrom": 0,
   "lightSrcTo": 1,
   "lightDstFrom": 0,
   "lightDstTo": 1.2,
   "research": {
-    "parent": "isomorphic-accelerator"
+    "parent": "isomorphic-accelerator",
+    "objectives": [ 
+      "isomorphic-accelerator",
+      "core-singularity",
+      {
+        "type": "SectorComplete",
+        "preset": "retreat-zone"
+      }
+    ]
   },
   "defaultCore": "isomorphic-core-shard",
   "sectorSeed": 0,
   "startSector": 43,
   "sectorSize": 3.1,
+  //"icon": "ve-planet-maress",
   "clearSectorOnLose": true,
   "allowSectorInvasion": false,
   "allowLaunchToNumbered": false,
   "enemyCoreSpawnReplace": true,
   "allowLaunchSchematics": true,
-  "allowWaveSimulation": true,
+  //"allowWaveSimulation": true,
   "allowLaunchLoadout": true,
   "launchCapacityMultiplier": 0.5,
   "tidalLock": false,

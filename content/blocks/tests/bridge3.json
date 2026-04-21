@@ -11,5 +11,13 @@
   "moveArrows": false,
   "arrowSpacing": 6,
   "buildCostMultiplier": 3,
-  "itemDrop": "lead"
+  "itemDrop": "lead",
+  "attributes": {
+    "sand": 1,
+    "spores": 1,
+    "heat": 1,
+    "steam": 1,
+    "water": 1,
+    "oil": 1
+  }
 }

@@ -1,6 +1,7 @@
 {
   //"type": "flying",
   "flying": true,
+  "databaseTag": "09cyclant-strengthened-unit",
   "lowAltitude": true,
   "accel": 0.06,
   "speed": 1.4,
@@ -206,7 +207,7 @@
         "type": "ContinuousLaserBulletType",
         "damage": 40,
         "length": 280,
-        "drawSize": 420,
+        "drawSize": 800,
         "lifetime": 120,
         "shake": 1,
         "despawnEffect": "smokeCloud",

@@ -1,0 +1,28 @@
+{
+  "type": "UnitCargoLoader",
+  "buildTime": 900,
+  "unitType": "lambda-tether",
+  "category": "units",
+  "size": 2,
+  "consumes": {
+    "power": 1.5,
+    "liquids": [ "chlorine/0.0666666667" ]
+  },
+  "research": {
+    "parent": "platform-theta",
+    "objectives": [
+      "isomorphic-core-foundation",
+      "ground-factory"
+    ]
+  },
+  "itemCapacity": 1,
+  "hasLiquids": true,
+  "liquidCapacity": 20,
+  "hasItems": true,
+  "requirements": [ "aluminium/100","silicon/150","graphite/50" ],
+  "polySides": 4,
+  "polyRadius": 5,
+  "polyStroke": 1,
+  "acceptsItems": false,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

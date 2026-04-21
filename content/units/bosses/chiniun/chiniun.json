@@ -1,5 +1,5 @@
 {
-  "health": 700,
+  "health": 70000,
   "speed": 1,//1.7
   "rotateSpeed": 0,
   "accel": 0.04,
@@ -17,6 +17,7 @@
   "engineColor": "f25555",
   "wobble": false,
   "hidden": true,
+  "canAttack": false,
   "parts": [
     {
       "type": "RegionPart",
@@ -61,6 +62,7 @@
       "velocityRnd": 0.2,
       "shootSound": "shootMissileLong",
       "minWarmup": 2,
+      "noAttack": true,
       "bullet": {
         "type": "MissileBulletType",
         "speed": 3,

@@ -1,5 +1,6 @@
 {
   "type": "legs",
+  "databaseTag": "10special-unit",
   "speed": 1,
   "drag": 0.07,
   "hitSize": 108,
@@ -29,7 +30,7 @@
   "canDrown": false,
   "allowLegStep": true,
   "hovering": true,
-  "shownPlanets": [ "serpulo","cyclant","phoon" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
   "shadowElevation": 0.5,
   "groundLayer": 80,
   "itemCapacity": 1000,
@@ -578,7 +579,8 @@
           "length": 0,
           "baseLength": 0,
           "lightColor": "bf92f9",
-          "layer": 120
+          "layer": 120,
+          "clip": 880
         },
         "speed": 0,
         "lifetime": 1,
@@ -627,7 +629,8 @@
             "length": 0,
             "baseLength": 15,
             "layer": 100,
-            "interp": "pow3Out"
+            "interp": "pow3Out",
+            "clip": 880
           },
           "hitEffect": "none",
           "frontColor": "bf92f900",

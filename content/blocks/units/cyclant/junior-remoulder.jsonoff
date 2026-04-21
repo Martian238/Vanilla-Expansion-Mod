@@ -1,0 +1,26 @@
+{
+  "type": "Reconstructor",
+  "category": "units",
+  "size": 3,
+  "requirements": [ "aluminium/90","lead/80","silicon/75","cobalt/55" ],
+  "consumes": {
+    "power": 5
+  },
+  "constructTime": 1200,
+  "upgrades": [
+    [ "test9","test7" ]
+  ],
+  /*"research": {
+    "parent": "junior-refabricator",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "unit-laboratory"
+      }
+    ]
+  },*/
+  "researchCostMultiplier": 0.5,
+  "buildVisibility": "hidden",
+  "inEditor": false,
+  "alwaysUnlocked": true
+}

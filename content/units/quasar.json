@@ -1,11 +1,14 @@
 {
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress" ],
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
   "drag": 0.05,
   "mineWalls": true,
-  "mineItems": [ "copper","lead","graphite","quartz","aluminium","titanium","cobalt" ],
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "boostMultiplier": 3,
   "boostWhenMining": true,
-  "immunities": [ "dusty","frozen" ],
+  "immunities": {"add":[ "dusty","frozen" ]},
+  "databaseTag": "02serpulo-ground-unit",
   "weapons": [
     {
       "name": "beam-weapon",
@@ -51,5 +54,6 @@
         "absorbable": false
       }
     }
-  ]
+  ],
+  "engineLayer": 114.99
 }

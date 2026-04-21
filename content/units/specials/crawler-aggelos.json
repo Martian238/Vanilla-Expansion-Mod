@@ -1,5 +1,6 @@
 {
   "type": "hover",
+  "databaseTag": "13other-unit",
   "speed": 1.2,
   "accel": 0.03,
   "drag": 0.03,

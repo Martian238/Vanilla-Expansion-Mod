@@ -16,7 +16,7 @@
   "lightRadius": 24,
   "lightColor": "7457ce",
   "hidden": true,
-  "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
+  "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock","blown","restraints","suppressed" ],
   "parts": [
     {
       "type": "EffectSpawnerPart",
@@ -107,6 +107,31 @@
         "hitEffect": "none",
         "despawnEffect": "none",
         "instantDisappear": true
+      }
+    },
+    {
+      "alwaysShooting": true,//biological
+      "shootSound": "none",
+      "useAttackRange": false,
+      "display": false,
+      "mirror": false,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "controllable": false,
+      "reload": 5,
+      "shootStatus": "biological",
+      "shootStatusDuration": 60,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "instantDisappear": true,
+        "hittable": false,
+        "absorbable": false,
+        "reflectable": false,
+        "collides": false
       }
     }
   ]

@@ -1,5 +1,6 @@
 {
   "health": 700,
+  "databaseTag": "14sitrullus-zenith-unit",
   "speed": 1.7,
   "accel": 0.04,
   "drag": 0.016,
@@ -15,7 +16,9 @@
   "mineSpeed": 8,
   "mineTier": 2,
   "defaultCommand": "repair",
-  "mineItems": [ "ferrum","silver" ],
+  "mineItems": {
+    "add": [ "aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "shownPlanets": [ "sitrullus" ],
   "range": 140,
   "abilities": [

@@ -10,7 +10,7 @@
   "hittable": false,
   "deathSound": "none",
   "deathExplosionEffect": "none",
-  "deathShake": -1,
+  "deathShake": 0,
   "rotateSpeed": 0,
   "speed": 0,
   "physics": false,
@@ -22,6 +22,7 @@
   "engineSize": 0,
   "outlines": false,
   "isEnemy": false,
+  "trailLength": 0,
   "weapons": [
     {
       "alwaysShooting": true,

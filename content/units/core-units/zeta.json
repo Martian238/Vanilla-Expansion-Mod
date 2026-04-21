@@ -1,5 +1,6 @@
 {
   "type": "legs",
+  "databaseTag": "01core-unit",
   "hovering": true,
   "allowLegStep": true,
   "health": 200,
@@ -31,6 +32,7 @@
   "stepSoundPitch": 1,
   "stepSoundPitchRange": 0.1,
   "stepSoundVolume": 0.15,
+  "shownPlanets": [ "maress","thavina" ]
   "abilities": [
     {
       "type": "RepairFieldAbility",

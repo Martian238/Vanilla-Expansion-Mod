@@ -1,5 +1,6 @@
 {
   "type": "tether",
+  "databaseTag": "01core-unit",
   "researchCostMultiplier": 0,
   "hidden": true,
   "playerControllable": true,
@@ -35,8 +36,11 @@
   "targetFlags": [
     "drill","factory"
   ],
+  "mineItems": {
+    "add": [ "aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "immunities": [ "frozen" ],
-  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
   "weapons": [
     {
       "name": "lambda-weapon",

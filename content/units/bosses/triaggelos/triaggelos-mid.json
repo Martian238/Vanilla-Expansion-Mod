@@ -20,6 +20,7 @@
   "physics": false,
   "drawBody": false,
   "faceTarget": false,
+  "hidden": true,
   "parts": [
     {
       "type": "RegionPart",

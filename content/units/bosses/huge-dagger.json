@@ -1,5 +1,6 @@
 {
   "type": "mech",
+  "databaseTag": "10special-unit",
   "health": 97000,//71680
   "armor": 36,
   "hitSize": 128,
@@ -40,7 +41,7 @@
   "stepSoundVolume": 4.5,
   "hovering": true,
   "immunities": [ "blown","dusty" ],
-  "shownPlanets": [ "cyclant","phoon" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
   "weapons": [
     {
       "name": "huge-dagger-weapon",

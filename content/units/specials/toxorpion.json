@@ -1,5 +1,6 @@
 {
   "type": "legs",
+  "databaseTag": "10special-unit",
   "drag": 0.1,
   "speed": 1.3,
   "hitSize": 30,

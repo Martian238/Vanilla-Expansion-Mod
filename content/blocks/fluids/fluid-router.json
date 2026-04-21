@@ -6,5 +6,7 @@
   "liquidCapacity": 80,
   "research": "fluid-junction",
   "squareSprite": false,
-  "shownPlanets": [ "cyclant","maress","phoon" ]
+  "shownPlanets": [ "cyclant","maress","phoon" ],
+  "liquidPadding": 2,
+  "solid": false
 }

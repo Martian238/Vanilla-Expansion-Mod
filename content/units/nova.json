@@ -1,30 +1,11 @@
 {
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus" ],
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus","thavina" ],
   "drag": 0.05,
   "boostMultiplier": 3,
-  "immunities": [ "dusty","frozen" ],
-  "weapons": [
-    {
-      "name": "heal-weapon",
-      "top": false,
-      "shootY": 2,
-      "reload": 24,
-      "x": 4.5,
-      "alternate": false,
-      "ejectEffect": "none",
-      "recoil": 2,
-      "shootSound": "shootLaser",
-      "bullet": {
-        "type": "LaserBoltBulletType",
-        "speed": 5.2,
-        "damage": 13,
-        "lifetime": 30,
-        "healPercent": 5,
-        "collidesTeam": true,
-        "backColor": "98ffa9",
-        "frontColor": "ffffff"
-      }
-    },
+  "immunities": {"add":[ "dusty","frozen" ]},
+  "databaseTag": "02serpulo-ground-unit",
+  "weapons": {
+    "add": [
     {
       "display": false,
       "reload": 1,
@@ -46,6 +27,7 @@
         "hittable": false,
         "absorbable": false
       }
-    }
-  ]
+    } ]
+  },
+  "engineLayer": 114.99
 }

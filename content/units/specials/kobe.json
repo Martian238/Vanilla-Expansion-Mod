@@ -1,5 +1,6 @@
 {
   "type": "flying",
+  "databaseTag": "13other-unit",
   "flying": true,
   "lowAltitude": true,
   "health": 1421,

@@ -25,25 +25,30 @@
   "loopSoundVolume": 0.2,
   "hidden": true,
   "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
+  "clipSize": 1000
   "parts": [
     {
       "type": "HaloPart",
       "x": 0,
       "y": 0,
       "mirror": false,
-      "color": "7457ce80",
+      "color": "f25555",
       "colorTo": "f25555",
       "shapes": 1,
-      "radius": 1,
+      "radius": 1.5,
       "tri": true,
       "triLength": 0,
-      "triLengthTo": 1200,
+      "triLengthTo": 3200,
       "haloRadius": 0,
       "haloRotateSpeed": 0,
       "shapeRotation": 0,
       "layer": 100,
       "rotateSpeed": 0,
-      "progress": "life"
+      "progress": {
+        "type": "life",
+        "op": "curve",
+        "interp": "circleIn"
+      }
     }
   ],
   "weapons": [
@@ -69,6 +74,32 @@
         "hitShake": 4,
         "hitColor": "7457ce",
         "hitEffect": "hitLaserBlast",
+        "sideLength": 0
+      }
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "alwaysShooting": true,
+      "controllable": false,
+      "reload": 600,
+      "mirror": false,
+      "shootCone": 361,
+      "bullet": {
+        "type": "LaserBulletType",
+        "length": 2000,
+        "width": 4,
+        "colors": [ "f2555560","f25555c0","f25555" ],
+        "damage": 0,
+        "largeHit": true,
+        "hitShake": 0,
+        "hitColor": "f25555",
+        "hitEffect": "none",
+        "laserEffect": "none",
+        "collidesAir": false,
+        "collidesTiles": false,
+        "collidesGround": false,
         "sideLength": 0
       }
     }

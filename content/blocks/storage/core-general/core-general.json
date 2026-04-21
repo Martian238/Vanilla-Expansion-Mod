@@ -17,5 +17,14 @@
   "crushDamageMultiplier": 0.2,
   "rebuildable": true,
   "drawTeamOverlay": false,
-  "shownPlanets": [ "sitrullus","maress" ]
+  "shownPlanets": [ "sitrullus","maress" ],
+  "connectedPower": true,
+  "conductivePower": true,
+  "hasPower": true,
+  "consumes": {
+    "powerBuffered": 100000
+  },
+  "outputsPower": true,
+  "consumesPower": true,
+  "enableDrawStatus": false
 }

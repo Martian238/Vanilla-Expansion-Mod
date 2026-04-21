@@ -21,6 +21,7 @@
   "drawBody": false,
   "shadowElevation": 999,
   "faceTarget": false,
+  "hidden": true,
   "parts": [
     {
       "type": "RegionPart",

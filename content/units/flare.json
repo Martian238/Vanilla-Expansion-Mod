@@ -1,9 +1,10 @@
 {
-  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus" ],
-  "immunities": [ "frozen" ],
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus","thavina" ],
+  "immunities": {"add":[ "frozen" ]},
   "omniMovement": true,
   "engineLayer": 114.99,
   "wreckSound": [ "roExplodingFlyHit1","roExplodingFlyHit2","roExplodingFlyHit3" ],
+  "databaseTag": "03serpulo-air-unit",
   "weapons": [
     {
       "y": 1,

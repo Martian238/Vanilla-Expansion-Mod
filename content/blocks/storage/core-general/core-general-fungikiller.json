@@ -14,5 +14,14 @@
   "requiresCoreZone": false,
   "crushDamageMultiplier": 0.2,
   "rebuildable": true,
-  "drawTeamOverlay": false
+  "drawTeamOverlay": false,
+  "connectedPower": true,
+  "conductivePower": true,
+  "hasPower": true,
+  "consumes": {
+    "powerBuffered": 100000
+  },
+  "outputsPower": true,
+  "consumesPower": true,
+  "enableDrawStatus": false
 }

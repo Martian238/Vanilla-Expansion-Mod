@@ -11,7 +11,7 @@
       "lifetime": 48,
       "ammoMultiplier": 4,
       "speed": 5,
-      "damage": 24,
+      "damage": 40,
       /*"reloadMultiplier": 0.7,*/
       "backColor": "7d89d8",
       "frontColor": "dae1ee",
@@ -20,7 +20,8 @@
       "hitEffect": "hitBulletColor"
       "despawnEffect": "hitBulletColor",
       "hitColor": "dae1ee",
-      "hitColor": "dae1ee"
+      "hitColor": "dae1ee",
+      "armorMultiplier": 0.7
     },
     "thorium": {
       "width": 11,
@@ -28,7 +29,7 @@
       "lifetime": 40,
       "ammoMultiplier": 2,
       "speed": 6,
-      "damage": 40,
+      "damage": 50,
       "shootEffect": "shootBigColor",
       "smokeEffect": "shootBigSmoke",
       "hitEffect": "hitBulletColor"
@@ -37,14 +38,14 @@
       "frontColor": "ffffff",
       "hitColor": "f9a3c7",
       "hitColor": "f9a3c7",
-      "armorMultiplier": 0.8
+      "armorMultiplier": 0.5
     },
     "surge-alloy": {
       "speed": 6,
       "lifetime": 40,
       "width": 11,
       "height": 15,
-      "damage": 30,
+      "damage": 40,
       "ammoMultiplier": 4,
       "backColor": "f3e979",
       "frontColor": "ffffff",
@@ -61,7 +62,8 @@
       "status": "shocked",
       "statusDuration": 10,
       "hitSound": "shockBullet",
-      "despawnSound": "shockBullet"
+      "despawnSound": "shockBullet",
+      "armorMultiplier": 0.6
     },
     "fusion-fuel": {
       "speed": 7,
@@ -122,14 +124,15 @@
       "pierceCap": 5,
       "pierceBuilding": false,
       "speed": 6,
-      "damage": 23,
+      "damage": 43,
       "shootEffect": "shootBigColor",
       "smokeEffect": "shootBigSmoke",
       "hitEffect": "hitSquaresColor",
       "hitColor": "f68021",
       "despawnEffect": "hitSquaresColor",
       "hitColor": "f68021",
-      "backColor": "f68021"
+      "backColor": "f68021",
+      "armorMultiplier": 0.7
     },
     "silicide": {
       "width": 10,
@@ -138,7 +141,7 @@
       "ammoMultiplier": 6,
       "speed": 6,
       "rangeChange": 48,
-      "damage": 35,
+      "damage": 65,
       "reloadMultiplier": 1.1,
       "knockback": 4,
       "hittable": false,
@@ -172,7 +175,8 @@
       },
       "despawnHit": true,
       "splashDamage": 14,
-      "splashDamageRadius": 17
+      "splashDamageRadius": 17,
+      "armorMultiplier": 0.2
     },
     "pyratite": {
       "width": 10,
@@ -180,7 +184,7 @@
       "lifetime": 48,
       "ammoMultiplier": 5,
       "speed": 5,
-      "damage": 27,
+      "damage": 47,
       "shootEffect": "shootBigColor",
       "smokeEffect": "hitFlameSmall",
       "hitEffect": {
@@ -196,7 +200,8 @@
       "makeFire": true,
       "splashDamage": 12,
       "splashDamageRadius": 28,
-      "status": "burning"
+      "status": "burning",
+      "armorMultiplier": 0.8
     },
     "chromium": {
       "width": 8,
@@ -205,7 +210,7 @@
       "shrinkY": 0,
       "ammoMultiplier": 3,
       "speed": 5,
-      "damage": 32,
+      "damage": 55,
       "hitSize": 12,
       "shootEffect": "shootBigColor",
       "smokeEffect": "shootBigSmoke",
@@ -223,7 +228,7 @@
       "height": 13,
       "lifetime": 48,
       "speed": 5,
-      "damage": 27,
+      "damage": 47,
       "ammoMultiplier": 3,
       "shrinkY": 0,
       "frontColor": "9f8c88",
@@ -242,12 +247,13 @@
       "fragOffsetMax": 1,
       "fragRandomSpread": 30,
       "fragVelocityMin": 0.5,
+      "armorMultiplier": 0.7,
       "fragBullet": {
         "width": 7,
         "height": 10,
         "lifetime": 30,
         "speed": 5,
-        "damage": 6,
+        "damage": 8,
         "shrinkY": 0,
         "spin": 10,
         "frontColor": "9f8c88",
@@ -308,7 +314,7 @@
       "status": "combusting",
       "statusDuration": 240,
       "makeFire": true,
-      "splashDamage": 25,
+      "splashDamage": 85,
       "splashDamageRadius": 32,
       "hitShake": 3,
       "despawnShake": 3,
@@ -316,7 +322,7 @@
       "fragBullet": {
         "createChance": 0.8,
         "type": "BulletType",
-        "damage": 50,
+        "damage": 60,
         "status": "combusting",
         "statusDuration": 360,
         "speed": 3.5,

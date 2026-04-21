@@ -1,5 +1,6 @@
 {
   "speed": 0.8,
+  "databaseTag": "10special-unit",
   "accel": 0.04,
   "drag": 0.04,
   "rotateSpeed": 1.9,

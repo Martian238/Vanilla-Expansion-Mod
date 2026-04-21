@@ -1,6 +1,7 @@
 {
   //"type": "flying",
   "flying": true,
+  "databaseTag": "09cyclant-strengthened-unit",
   "lowAltitude": true,
   "accel": 0.06,
   "speed": 1.8,
@@ -87,6 +88,7 @@
       "bullet": {
         "keepVelocity": true,
         "followAimSpeed": 0,
+        "drawSize": 480,
         "shootEffect": {
           "type": "SoundEffect",
           "sound": "shootMalign",

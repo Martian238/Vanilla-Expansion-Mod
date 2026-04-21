@@ -1,5 +1,6 @@
 {
   "type": "flying",
+  "databaseTag": "13other-unit",
   "flying": true,
   "health": 1100,
   "armor": 0,

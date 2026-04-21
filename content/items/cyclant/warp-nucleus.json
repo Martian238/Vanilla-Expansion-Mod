@@ -7,5 +7,6 @@
   "research": "cobalt",
   "frames": 23,
   "frameTime": 7,
-  "shownPlanets": [ "cyclant","maress","phoon" ]
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ],
+  "databaseTag": "processed-item"
 }

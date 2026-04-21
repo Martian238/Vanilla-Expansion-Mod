@@ -7,5 +7,6 @@
   "flammability": 0.8,
   "explosiveness": 1.3,
   "radioactivity": 0.9,
-  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "databaseTag": "processed-item"
 }

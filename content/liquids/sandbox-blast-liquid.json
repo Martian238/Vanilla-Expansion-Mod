@@ -3,5 +3,6 @@
   "hidden": true,
   "barColor": "f25555",
   "explosiveness": 100,
-  "gas": true
+  "gas": true,
+  "databaseTag": "gas-fluid"
 }

@@ -19,7 +19,7 @@
   "accel": 1,
   "engineSize": 0,
   "immunities": [ "blown" ],
-  "hidden": false,
+  "hidden": true,
   "alwaysUnlocked": true,
   "deathShake": 32,
   "deathSound": [ "si2Teleporter1Echo","si2Teleporter2Echo","si2Teleporter3Echo","si2Teleporter4Echo" ],

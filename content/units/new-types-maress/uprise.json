@@ -1,5 +1,6 @@
 {
   "health": 160,
+  "databaseTag": "11maress-newtype-unit",
   "armor": 1,
   "accel": 0.1,
   "speed": 3,

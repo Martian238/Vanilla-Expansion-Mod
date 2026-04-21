@@ -1,0 +1,22 @@
+{
+  "type": "Floor",
+  "speedMultiplier": 0.8,
+  "variants": 6,
+  "liquidDrop": "melon-water",
+  "liquidMultiplier": 1,
+  "isLiquid": true,
+  "status": "wet",
+  "statusDuration": 120,
+  "cacheLayer": "water",
+  "albedo": 0.9,
+  "supportsOverlay": true,
+  "mapColor": "da3939",
+  "hasColor": true,
+  "useColor": false,
+  "drownTime": 0,
+  "itemDrop": "melon-dirt",
+  "playerUnmineable": true,
+  "attributes": {
+    "spore": 2.5
+  }
+}

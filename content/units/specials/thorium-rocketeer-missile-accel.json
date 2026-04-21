@@ -1,5 +1,6 @@
 {
   "type": "missile",
+  "databaseTag": "10special-unit",
   "template": "MissileUnitType",
   "allowedInPayloads": false,
   "logicControllable": false,

@@ -1,5 +1,6 @@
 {
   "type": "mech",
+  "databaseTag": "09cyclant-strengthened-unit",
   "speed": 0.56,
   "hitSize": 24,
   "health": 16000,//12000

@@ -1,0 +1,170 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": false,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": false,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "speed": 0,
+  "health": 999999,
+  "armor": 0,
+  "deathSound": "none",
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "bounded": false,
+  "lightRadius": 0,
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "hidden": true,
+  "loopSound": "none",
+  "type": "missile",
+  "lifetime": 10,
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "targetAir": false,
+  "targetGround": false,
+  "weapons": [
+    {
+      "alwaysShooting": true,//effect
+      "recoil": 0,
+      "y": 0,
+      "recoilTime": 10,
+      "recoilPow": 1,
+      "reload": 60,
+      "mirror": false,
+      "x": 0,
+      "shootY": 0,
+      "shootSound": [ "lbp3TeleporterBallTeleport1","lbp3TeleporterBallTeleport2","lbp3TeleporterBallTeleport3","lbp3TeleporterBallTeleport4" ],
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "shootSoundVolume": 2,
+      "bullet": {
+        "lifetime": 30,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "damage": 0,
+        "hittable": false,
+        "reflectable": false,
+        "absorbable": false,
+        "speed": 0,
+        "frontColor": "00000000",
+        "backColor": "00000000",
+        "collides": false,
+        "shootEffect": {"type":"ParticleEffect","particles":18,"colorFrom":"ffd37f80","colorTo":"ffd37f80","length":50,"interp":"circleOut","sizeFrom":6,"sizeTo":0,"baseLength":0,"sizeInterp":"circleIn","lifetime":50,"layer":100},
+        "smokeEffect": "none",
+        "randomAngleOffset": 360,
+        "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-charge-arc",
+                "outline": false,
+                "layer": 100,
+                "xScl": 0.4,
+                "yScl": 0.4,
+                "color": "ffd37f00",
+                "colorTo": "ffd37f",
+                "progress": {
+                  "type": "life",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "slope"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "linear"
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "rot": -180,
+                    "progress": "life"
+                  }
+                ],
+                "y": 0
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-charge-arc",
+                "outline": false,
+                "layer": 100,
+                "xScl": 0.7,
+                "yScl": 0.7,
+                "color": "ffd37f00",
+                "colorTo": "ffd37f",
+                "progress": {
+                  "type": "life",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "slope"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "linear"//arci
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "rot": 180,
+                    "progress": "life"
+                  }
+                ],
+                "y": 0
+              }
+        ]
+      }
+    }
+  ],
+  "parts": [
+        {
+          "type": "FlarePart",
+          "sides": 4,
+          "radius": 0,
+          "radiusTo": 48,
+          "x": 0,
+          "y": 0,
+          "color1": "ffd37f",
+          "color2": "ffffff",
+          "followRotation": false,
+          "layer": 110,
+          "stroke": 6,
+          "progress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "pow2In"
+          }
+        },
+        {
+          "type": "FlarePart",
+          "sides": 4,
+          "radius": 0,
+          "radiusTo": 24,
+          "x": 0,
+          "y": 0,
+          "color1": "ffd37f",
+          "color2": "ffffff",
+          "followRotation": false,
+          "layer": 109.9,
+          "rotation": 45,
+          "stroke": 16,
+          "progress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "pow2Out"
+          }
+        }
+  ]
+}

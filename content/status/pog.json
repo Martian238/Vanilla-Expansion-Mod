@@ -3,7 +3,7 @@
   "color": "ffd37f",
   "speedMultiplier": 3,
   "healthMultiplier": 5,
-  "damage": -0.41666666666666667,
+  //"damage": -0.41666666666666667,
   "reloadMultiplier": 10,
   "damageMultiplier": 2,
   "permanent": false,

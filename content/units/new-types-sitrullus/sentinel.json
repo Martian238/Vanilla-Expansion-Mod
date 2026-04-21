@@ -1,12 +1,14 @@
 {
   "type": "mech",
+  "databaseTag": "15sitrullus-mech-unit",
   "stepSound": "none",
   "mechSideSway": 0,
   "mechFrontSway": 0,
   "speed": 0,
   "accel": 0,
   "drag": 10000,
-  "rotateSpeed": 0,
+  "rotateSpeed": 3.5,//0
+  "baseRotateSpeed": 0,
   "hitSize": 44,
   "health": 8000,
   "armor": 8,
@@ -14,7 +16,12 @@
   "groundLayer": 80,
   "immunities": [ "overdrive","overclock","pog","frozen","blown","disarmed" ],
   "singleTarget": true,
-  "faceTarget": false,
+  "faceTarget": true,//false
+  "drawBody": false,
+  "shadowElevation": 0.1,
+  "rotateMoveFirst": true,
+  "hovering": true,
+  "drownTimeMultiplier": 10,
   "weapons": [
     {
       "name": "sentinel-turret",
@@ -22,7 +29,7 @@
       "y": 0,
       "rotateSpeed": 5,
       "mirror": false,
-      "rotate": true,
+      "rotate": false,//true
       "recoil": 0,
       "recoilTime": 60,
       "shadow": 40,
@@ -1101,7 +1108,7 @@
       "name": "sentinel-zenith-small",
       "top": false,
       "layerOffset": 0.9,
-      "rotate": true,
+      "rotate": false,//true
       "rotateSpeed": 5,
       "recoil": 7,
       "recoilTime": 60,

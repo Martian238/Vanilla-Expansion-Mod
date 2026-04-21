@@ -1,5 +1,6 @@
 {
   "type": "flying",
+  "databaseTag": "11maress-newtype-unit",
   "health": 500,
   "armor": 4,
   "speed": 3,
@@ -79,82 +80,91 @@
         "trailWidth": 0.5,
         "trailEffect": "missileTrailShort"
       }
-    },
+    }
+  ],
+  "parts": [
     {
-      "name": "daybreak-rotator"
+      "type": "RegionPart",
+      "suffix": "-rotator1",
+      "color": "ffffff60",
+      "colorTo": "ffffff60",
+      "under": false,
+      "layer": 110.1,
+      "outline": false,
       "x": 14,
       "y": 0,
-      "reload": 20,
-      "alwaysShooting": true,
-      "display": false,
-      "top": false,
-      "shootSound": "none",
-      "recoil": 0,
-      "alternate": false,
-      "bullet": {
-        "instantDisappear": true,
-        "collides": false,
-        "damage": 0,
-        "absorbable": false,
-        "shootEffect": "none",
-        "smokeEffect": "none",
-        "hitEffect": "none",
-        "despawnEffect": "none"
+      "mirror": true
+    },
+    {
+      "type": "RegionPart",
+      "suffix": "-rotator3",
+      "color": "ffffff60",
+      "colorTo": "ffffff60",
+      "moveRot": -180,
+      "under": false,
+      "layer": 110.11,
+      "outline": false,
+      "progress": {
+        "type": "time",
+        "op": "loop",
+        "time": 40
       },
-      "noAttack": true,
-      "useAttackRange": false,
-      "parts": [
-        {
-          "type": "RegionPart",
-          "suffix": 1,
-          "color": "ffffff60",
-          "colorTo": "ffffff60",
-          "under": false,
-          "layer": 110.1,
-          "outline": false
-        },
-        {
-          "type": "RegionPart",
-          "suffix": 3,
-          "color": "ffffff60",
-          "colorTo": "ffffff60",
-          "progress": "reload",
-          "moveRot": 180,
-          "under": false,
-          "layer": 110.11,
-          "outline": false
-        },
-        {
-          "type": "RegionPart",
-          "suffix": 1,
-          "color": "ffffff00",
-          "colorTo": "ffffff80",
-          "progress": "reload",
-          "growX": -1,
-          "growY": -1,
-          "under": false,
-          "growProgress": "reload",
-          "layer": 110.12,
-          "outline": false
-        },
-        {
-          "type": "RegionPart",
-          "suffix": 2,
-          "color": "ffffff60",
-          "colorTo": "ffffff60",
-          "progress": "reload",
-          "moveRot": -720,
-          "under": false,
-          "layer": 110.13,
-          "outline": false
-        },
-        {
-          "type": "RegionPart",
-          "suffix": "-cap",
-          "under": false,
-          "layer": 110.14
-        }
-      ]
+      "x": 14,
+      "y": 0,
+      "mirror": true
+    },
+    {
+      "type": "RegionPart",
+      "suffix": "-rotator1",
+      "color": "ffffff00",
+      "colorTo": "ffffff80",
+      "growX": 1,
+      "growY": 1,
+      "xScl": 0,
+      "yScl": 0,
+      "under": false,
+      "growProgress": {
+        "type": "time",
+        "op": "loop",
+        "time": 40
+      },
+      "layer": 110.12,
+      "outline": false,
+      "progress": {
+        "type": "time",
+        "op": "loop",
+        "time": 40
+      },
+      "x": 14,
+      "y": 0,
+      "mirror": true
+    },
+    {
+      "type": "RegionPart",
+      "suffix": "-rotator2",
+      "color": "ffffff60",
+      "colorTo": "ffffff60",
+      "moveRot": 720,
+      "under": false,
+      "layer": 110.13,
+      "outline": false,
+      "progress": {
+        "type": "time",
+        "op": "loop",
+        "time": 40
+      },
+      "x": 14,
+      "y": 0,
+      "mirror": true
+    },
+    {
+      "type": "RegionPart",
+      "suffix": "-rotator-cap",
+      "under": false,
+      "layer": 110.14,
+      "x": 14,
+      "y": 0,
+      "mirror": true
     }
   ]
 }

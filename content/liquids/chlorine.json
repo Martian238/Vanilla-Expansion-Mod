@@ -5,5 +5,6 @@
   "explosiveness": 0.6,
   "flammability": 0.8,
   "research": "salt",
-  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "databaseTag": "gas-fluid"
 }

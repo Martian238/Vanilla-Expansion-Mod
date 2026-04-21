@@ -1,13 +1,26 @@
 {
   "armor": 1,
+  "databaseTag": "01core-unit",
   "outlines": true,
   "mineWalls": true,
   "generateIcons": false,
   "targetFlags": [
     "generator","reactor"
   ],
-  "shownPlanets": [ "serpulo","cyclant","phoon","sitrullus" ],
+  "shownPlanets": [ "serpulo","cyclant","phoon","sitrullus","thavina" ],
   "immunities": [ "frozen" ],
+  "engineLayer": 89.99,
+  "parts": {
+    "add": [
+      {
+        "type": "RegionPart",
+        "name": "ve-gamma-top",
+        "under": false,
+        "outline": false,
+        "layerOffset": 0.01
+      }
+    ]
+  },
   "weapons": [
     {
       "name": "small-power-weapon",

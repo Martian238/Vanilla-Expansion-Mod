@@ -1,6 +1,6 @@
 {
   "ammoTypes": {
-    "scrap": {
+    /*"scrap": {
       "type": "FlakBulletType",
       "speed": 4,
       "damage": 3,
@@ -65,7 +65,8 @@
         "despawnEffect": "none",
         "collidesGround": false
       }
-    },
+    },*/
+    "add": true,
     "silicide": {
       "width": 9,
       "height": 12,
@@ -115,7 +116,7 @@
       "knockback": 1,
       "hittable": false
     },
-    "ferrum": {
+    /*"ferrum": {
       "width": 8,
       "height": 10,
       "lifetime": 64,
@@ -161,6 +162,6 @@
         "pierceCap": 4,
         "pierceArmor": true
       }
-    }
+    }*/
   }
 }

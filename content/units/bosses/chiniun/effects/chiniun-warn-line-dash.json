@@ -1,0 +1,115 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": false,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": false,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "speed": 0,
+  "health": 999999,
+  "armor": 0,
+  "deathSound": "none",
+  "clipSize": 3200,
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "bounded": false,
+  "lightRadius": 0,
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "hidden": true,
+  "loopSound": "drKnightSlashLine",
+  "loopSoundVolume": 0.4,
+  "type": "missile",
+  "lifetime": 60,
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "targetAir": false,
+  "targetGround": false,
+  "parts": [
+    {
+      "type": "RegionPart",
+      "blending": "additive",
+      "name": "ve-wide-warn-line",
+      "outline": false,
+      "layer": 31,
+      "xScl": 1.5,
+      "yScl": 0,
+      "progress": {
+        "type": "life",
+        "op": "curve",
+        "interp": "pow3Out"
+      },
+      "growProgress": {
+        "type": "life",
+        "op": "curve",
+        "interp": "pow3Out"
+      },
+      "growY": 8,
+      "moveY": 256,
+      "color": "f25555",
+      "colorTo": "f2555500"
+    },
+    {
+      "type": "RegionPart",
+      "blending": "additive",
+      "name": "ve-wide-warn-line",
+      "outline": false,
+      "layer": 31,
+      "xScl": 0.75,
+      "yScl": 0,
+      "progress": {
+        "type": "life",
+        "op": "curve",
+        "interp": "pow3Out"
+      },
+      "growProgress": {
+        "type": "life",
+        "op": "curve",
+        "interp": "pow3Out"
+      },
+      "growY": 8,
+      "moveY": 256,
+      "color": "ffffff",
+      "colorTo": "f2555500",
+      "growX": -0.7,
+      "x": 9,
+      "moveX": 9
+    },
+    {
+      "type": "RegionPart",
+      "blending": "additive",
+      "name": "ve-wide-warn-line",
+      "outline": false,
+      "layer": 31,
+      "xScl": 0.75,
+      "yScl": 0,
+      "progress": {
+        "type": "life",
+        "op": "curve",
+        "interp": "pow3Out"
+      },
+      "growProgress": {
+        "type": "life",
+        "op": "curve",
+        "interp": "pow3Out"
+      },
+      "growY": 8,
+      "moveY": 256,
+      "color": "ffffff",
+      "colorTo": "f2555500",
+      "growX": -0.7,
+      "x": -9,
+      "moveX": -9
+    }
+  ]
+}

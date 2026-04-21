@@ -1,0 +1,8 @@
+{
+  "type": "Floor",
+  "variants": 3,
+  "wall": "semigrass-wall",
+  "attributes": {
+    "plant": 0.5
+  }
+}

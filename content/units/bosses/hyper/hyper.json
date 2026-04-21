@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "10special-unit",
   "research": {
     "parent": "huge-dagger",
     "objectives": [ 
@@ -26,6 +27,7 @@
   "mineSpeed": 100,
   "mineTier": 7,
   "mineBeamOffset": 0,
+  "clipSize": 3200,
   "crashDamageMultiplier": 100,
   "wreckHealthMultiplier": 2147483247,
   "fallEffect": "blastExplosion",
@@ -46,9 +48,12 @@
         "smokeRad": 256,
         "smokes": 50,
         "sparks": 30,
-        "lifetime": 120
+        "lifetime": 120,
+        "clip": 880
   },
-  "mineItems": [ "copper","lead","aluminium","beryllium","tungsten","chromium","graphite","titanium","thorium","cobalt","quartz","ferrum","silver","tantalum" ],
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "lightColor": "98ffa9",
   "engines": [
     {
@@ -77,6 +82,7 @@
     }
   ],
   //radius384->576->800
+  "clipSize": 880,
   "parts": [
     {
       "type": "ShapePart",
@@ -156,7 +162,8 @@
             "sides": 48,
             "lifetime": 10,
             "followParent": true,
-            "lightOpacity": 0
+            "lightOpacity": 0,
+            "clip": 880
           },
           {
             "type": "WaveEffect",
@@ -168,7 +175,8 @@
             "strokeTo": 2,
             "sides": 48,
             "lifetime": 10,
-            "followParent": true
+            "followParent": true,
+            "clip": 880
           }
         ]
       },
@@ -219,7 +227,8 @@
             "sides": 48,
             "lifetime": 120,
             "followParent": true,
-            "interp": "circleOut"
+            "interp": "circleOut",
+            "clip": 880
           },
           {
             "type": "WaveEffect",
@@ -232,7 +241,8 @@
             "sides": 48,
             "lifetime": 60,
             "followParent": true,
-            "interp": "circleOut"
+            "interp": "circleOut",
+            "clip": 880
           },
           {
             "type": "WaveEffect",
@@ -245,7 +255,8 @@
             "sides": 48,
             "lifetime": 60,
             "followParent": true,
-            "interp": "circleOut"
+            "interp": "circleOut",
+            "clip": 880
           },
           {
             "type": "WaveEffect",
@@ -257,7 +268,8 @@
             "strokeTo": 4,
             "sides": 48,
             "lifetime": 120,
-            "followParent": true
+            "followParent": true,
+            "clip": 880
           },
           {
             "type": "WaveEffect",
@@ -269,7 +281,8 @@
             "strokeTo": 4,
             "sides": 48,
             "lifetime": 30,
-            "followParent": true
+            "followParent": true,
+            "clip": 880
           },
           {
             "type": "WaveEffect",
@@ -282,7 +295,8 @@
             "sides": 48,
             "lifetime": 120,
             "followParent": true,
-            "interp": "circleIn"
+            "interp": "circleIn",
+            "clip": 880
           },
           {
             "type": "ParticleEffect",
@@ -295,7 +309,8 @@
             "length": 20,
             "baseLength": 7,
             "layer": 110,
-            "interp": "circleOut"
+            "interp": "circleOut",
+            "clip": 880
           },
           {
             "type": "ParticleEffect",
@@ -310,7 +325,8 @@
             "layer": 25,
             "sizeInterp": "linear",
             "interp": "linear",
-            "followParent": true
+            "followParent": true,
+            "clip": 880
           },
           {
             "type": "WaveEffect",
@@ -322,7 +338,8 @@
             "strokeTo": 2,
             "sides": 48,
             "lifetime": 10,
-            "followParent": true
+            "followParent": true,
+            "clip": 880
           }
         ]
       },

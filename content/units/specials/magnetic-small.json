@@ -1,6 +1,7 @@
 {
   //"type": "flying",
   "flying": true,
+  "databaseTag": "10special-unit",
   "lowAltitude": true,
   "accel": 0.07,
   "speed": 2.2,

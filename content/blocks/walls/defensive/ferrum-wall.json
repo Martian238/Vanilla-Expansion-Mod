@@ -5,7 +5,7 @@
   "health": 550,
   "researchCost": [ "ferrum/6" ],
   "crushDamageMultiplier": 0.2,
-  "armor": 4,
+  "armor": 6,
   "insulated": true,
   "hasPower": true,
   "research": {

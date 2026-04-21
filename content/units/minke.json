@@ -1,6 +1,7 @@
 {
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress" ],
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
   "itemCapacity": 200,
+  "databaseTag": "04serpulo-naval-unit",
   "weapons": [
     {
       "name": "blade-weapon-mount",

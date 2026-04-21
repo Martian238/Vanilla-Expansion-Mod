@@ -1,0 +1,12 @@
+{
+  "type": "WobbleProp",
+  "variants": 5,
+  "wmag": 0.2,
+  "wscl": 30,
+  "customShadow": true,
+  "albedo": 1,
+  "requirements": [ "reflector-matter/10" ],
+  "alwaysUnlocked": true,
+  "instantDeconstruct": false,
+  "buildVisibility": "sandboxOnly"
+}

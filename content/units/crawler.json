@@ -1,6 +1,7 @@
 {
-  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus" ],
-  "immunities": [ "dusty" ],
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus","thavina" ],
+  "immunities": {"add":[ "dusty" ]},
+  "databaseTag": "02serpulo-ground-unit",
   "weapons": [
     {
       "shootOnDeath": true,

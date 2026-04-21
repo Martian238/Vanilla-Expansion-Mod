@@ -36,6 +36,8 @@
           "effect": "none",
           "minPitch": 1,
           "maxPitch": 1,
+          "minVolume": 0.75,
+          "maxVolume": 0.75,
           "startDelay": 14
         },
         { "startDelay": 14,
@@ -137,7 +139,7 @@
         "despawnSound": [ "lbp3Splat1","lbp3Splat2","lbp3Splat3" ],
         "hitShake": 16,
         "despawnShake": 16,
-        "status": "spore-slowed",
-        "statusDuration": 300
+        "status": "sentry-seen",
+        "statusDuration": 10
   }
 }

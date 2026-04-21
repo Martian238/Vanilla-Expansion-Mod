@@ -1,6 +1,7 @@
 {
   //"type": "flying",
   "health": 3900,
+  "databaseTag": "09cyclant-strengthened-unit",
   "armor": 12,
   "speed": 2.1,
   "accel": 0.07,

@@ -1,0 +1,28 @@
+{
+  "type": "Reconstructor",
+  "category": "units",
+  "size": 3,
+  "requirements": [ "aluminium/200","graphite/130","silicon/80" ],
+  "consumes": {
+    "power": 2.5,
+    "items": [ "silicon/40","graphite/60" ]
+  },
+  "constructTime": 600,
+  "upgrades": [
+    [ "dust","mist" ],
+    [ "flocculate","alleviate" ],
+    [ "arrange","egnarra" ]
+  ],
+  "research": {
+    "parent": "junior-armorcar-reconstructor",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "volcanic-top"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+  //"regionSuffix": "-rail"
+}

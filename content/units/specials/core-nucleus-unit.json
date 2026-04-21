@@ -1,5 +1,6 @@
 {
   "type": "flying",
+  "databaseTag": "13other-unit",
   "flying": true,
   "fogRadius": 0,
   "health": 6000,

@@ -16,7 +16,9 @@
   "addStartingItems": false,
   "isLastSector": false,
   "allowLaunchSchematics": true,
-  "allowLaunchLoadout": true
+  "allowLaunchLoadout": true,
+  "showHidden": true,
+  "requireUnlock": false
 }
 
 

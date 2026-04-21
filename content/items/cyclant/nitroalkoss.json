@@ -6,5 +6,6 @@
   "research": "plant-matter",
   "frames": 11,
   "frameTime": 5,
-  "shownPlanets": [ "cyclant","phoon","maress","sitrullus" ],
+  "shownPlanets": [ "cyclant","phoon","maress","sitrullus","thavina" ],
+  "databaseTag": "processed-item"
 }

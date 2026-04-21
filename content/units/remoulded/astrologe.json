@@ -1,5 +1,6 @@
 {
   "type": "mech",
+  "databaseTag": "09cyclant-strengthened-unit",
   "speed": 0.65,
   "hitSize": 14,
   "health": 850,
@@ -17,7 +18,9 @@
   "mineTier": 2,
   "mineSpeed": 6,
   "mineWalls": true,
-  "mineItems": [ "aluminium","silver","lead","copper" ],
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "itemCapacity": 50,
   "lightColor": "98ffa9",
   "mineBeamOffset": 5.75,

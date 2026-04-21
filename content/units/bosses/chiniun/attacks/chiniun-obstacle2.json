@@ -1,0 +1,490 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": true,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": true,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "speed": 0.01,
+  "health": 350,
+  "hitSize": 16,
+  "armor": 0,
+  "deathSound": "explosionAfflict",
+  "clipSize": 800,
+  "deathExplosionEffect": {
+          "type": "ExplosionEffect",
+          "waveColor": "ffd37f",
+          "smokeColor": "ffd37f",
+          "sparkColor": "ffd37f",
+          "sparks": 6,
+          "smokeRad": 32,
+          "waveRad": 32,
+          "smokes": 10
+        },
+  "deathShake": 0,
+  "bounded": false,
+  "lightRadius": 40,
+  "lightColor": "ffd37f",
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "hidden": true,
+  "loopSound": "none",
+  "loopSoundVolume": 0,
+  "type": "missile",
+  "lifetime": 3600,
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "targetAir": false,
+  "targetGround": false,
+  "parts": [
+    {
+          "type": "ShapePart","layer": 101,"circle": true,
+          "radius": 2.5,
+          "x": 0,
+          "y": 0,
+          "color": "ffd37f"
+    }
+  ],
+  "weapons": [
+    {
+      "alwaysShooting": true,
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "reload": 36000,
+      "recoil": 0,
+      "recoilTime": 60,
+      "shootY": 0,
+      "bullet": {
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none"
+      },
+      "shootSound": "none",
+      "controllable": false,
+      "parts": [
+        {
+          "type": "ShapePart","layer": 101,"sides": 3,
+          "radius": 6,
+          "x": 9,
+          "y": 0,
+          "rotation": 180,
+          "moveX": -3,
+          "color": "ffd37f",
+          "progress": {
+            "type": "recoil",
+            "ops": [
+              {
+                "op": "curve",
+                "interp": "pow2Out"
+              },
+              {
+                "op": "add",
+                "other": {
+                  "type": "recoil",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "slope"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow2Out"
+                    },
+                    {
+                      "op": "mul",
+                      "amount": -1.5
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "clampProgress": false,
+"moveRot": 0
+        },
+        {
+          "type": "ShapePart","layer": 101,"sides": 3,
+          "radius": 6,
+          "x": -9,
+          "y": 0,
+          "rotation": 0,
+          "moveX": 3,
+          "color": "ffd37f",
+          "progress": {
+            "type": "recoil",
+            "ops": [
+              {
+                "op": "curve",
+                "interp": "pow2Out"
+              },
+              {
+                "op": "add",
+                "other": {
+                  "type": "recoil",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "slope"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow2Out"
+                    },
+                    {
+                      "op": "mul",
+                      "amount": -1.5
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "clampProgress": false,
+"moveRot": 0
+        },
+        {
+          "type": "ShapePart","layer": 101,"sides": 3,
+          "radius": 6,
+          "x": 4.5,
+          "y": 7.74,
+          "rotation": 0,
+          "moveX": -1.5,
+          "moveY": -2.58,
+          "color": "ffd37f",
+          "progress": {
+            "type": "recoil",
+            "ops": [
+              {
+                "op": "curve",
+                "interp": "pow2Out"
+              },
+              {
+                "op": "add",
+                "other": {
+                  "type": "recoil",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "slope"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow2Out"
+                    },
+                    {
+                      "op": "mul",
+                      "amount": -1.5
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "clampProgress": false,
+"moveRot": 0
+        },
+        {
+          "type": "ShapePart","layer": 101,"sides": 3,
+          "radius": 6,
+          "x": -4.5,
+          "y": 7.74,
+          "rotation": 180,
+          "moveX": 1.5,
+          "moveY": -2.58,
+          "color": "ffd37f",
+          "progress": {
+            "type": "recoil",
+            "ops": [
+              {
+                "op": "curve",
+                "interp": "pow2Out"
+              },
+              {
+                "op": "add",
+                "other": {
+                  "type": "recoil",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "slope"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow2Out"
+                    },
+                    {
+                      "op": "mul",
+                      "amount": -1.5
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "clampProgress": false,
+"moveRot": 0
+        },
+        {
+          "type": "ShapePart","layer": 101,"sides": 3,
+          "radius": 6,
+          "x": 4.5,
+          "y": -7.74,
+          "rotation": 0,
+          "moveX": -1.5,
+          "moveY": 2.58,
+          "color": "ffd37f",
+          "progress": {
+            "type": "recoil",
+            "ops": [
+              {
+                "op": "curve",
+                "interp": "pow2Out"
+              },
+              {
+                "op": "add",
+                "other": {
+                  "type": "recoil",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "slope"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow2Out"
+                    },
+                    {
+                      "op": "mul",
+                      "amount": -1.5
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "clampProgress": false,
+"moveRot": 0
+        },
+        {
+          "type": "ShapePart","layer": 101,"sides": 3,
+          "radius": 6,
+          "x": -4.5,
+          "y": -7.74,
+          "rotation": 180,
+          "moveX": 1.5,
+          "moveY": 2.58,
+          "color": "ffd37f",
+          "progress": {
+            "type": "recoil",
+            "ops": [
+              {
+                "op": "curve",
+                "interp": "pow2Out"
+              },
+              {
+                "op": "add",
+                "other": {
+                  "type": "recoil",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "slope"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow2Out"
+                    },
+                    {
+                      "op": "mul",
+                      "amount": -1.5
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "clampProgress": false,
+"moveRot": 0
+        },
+        {
+      "type": "HaloPart",
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "color": "f25555",
+      "colorTo": "f25555",
+      "shapes": 3,
+      "radius": 1.5,
+      "tri": true,
+      "triLength": 800,
+      "triLengthTo": 0,
+      "haloRadius": 0,
+      "haloRotateSpeed": 0,
+      "shapeRotation": 0,
+      "layer": 99.99,
+      "rotateSpeed": 0,
+      "progress": {
+        "type": "recoil"
+          }
+        },
+        {
+      "type": "HaloPart",
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "color": "ffd37f",
+      "colorTo": "ffd37f00",
+      "shapes": 3,
+      "radius": 1.5,
+      "tri": true,
+      "triLength": 1600,
+      "triLengthTo": 0,
+      "haloRadius": 0,
+      "haloRotateSpeed": 0,
+      "shapeRotation": 0,
+      "layer": 100,
+      "rotateSpeed": 0,
+      "progress": {
+        "type": "recoil",
+        "ops": [
+          {
+            "op": "compress",
+            "start": 0.25,
+            "end": 0
+          },
+          {
+        "op": "curve",
+        "interp": "pow10In"
+          }]
+        }}
+      ]
+    },
+    {
+      "alwaysShooting": true,
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "reload": 36000,
+      "recoil": 0,
+      "shootY": 2.5,
+      "baseRotation": 0,
+      "shoot": {
+        "firstShotDelay": 60,
+      },
+      "shootSound": "utyGuardenerLaserLoop",
+      "initialShootSound": "utyGuardenerLaserShoot",
+      "continuous": true,
+      "bullet": {
+        "type": "ContinuousLaserBulletType",
+        "damage": 5,
+        "pierceArmor": true,
+        "length": 1600,
+        "drawSize": 1600,
+        "lifetime": 36000,
+        "shake": 0,
+        "despawnEffect": "none",
+        "smokeEffect": "none",
+        "shootEffect": "none",
+        "incendChance": 0,
+        "incendSpread": 0,
+        "incendAmount": 0,
+        "lightColor": "ffd37f",
+        "width": 2,
+        "makeFire": true,
+        "colors": [ "ffd37f33","ffd37f80","ffd37f","ffffff" ],
+        "knockback": -0.5,
+        "hitSize": 4
+      },
+      "controllable": false
+    },
+    {
+      "alwaysShooting": true,
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "reload": 36000,
+      "recoil": 0,
+      "shootY": 2.5,
+      "baseRotation": 120,
+      "shoot": {
+        "firstShotDelay": 60,
+      },
+      "shootSound": "utyGuardenerLaserLoop",
+      "initialShootSound": "utyGuardenerLaserShoot",
+      "continuous": true,
+      "bullet": {
+        "type": "ContinuousLaserBulletType",
+        "damage": 5,
+        "pierceArmor": true,
+        "length": 1600,
+        "drawSize": 1600,
+        "lifetime": 36000,
+        "shake": 0,
+        "despawnEffect": "none",
+        "smokeEffect": "none",
+        "shootEffect": "none",
+        "incendChance": 0,
+        "incendSpread": 0,
+        "incendAmount": 0,
+        "lightColor": "ffd37f",
+        "width": 2,
+        "makeFire": true,
+        "colors": [ "ffd37f33","ffd37f80","ffd37f","ffffff" ],
+        "knockback": -3,
+        "hitSize": 4
+      },
+      "controllable": false
+    },
+    {
+      "alwaysShooting": true,
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "reload": 36000,
+      "recoil": 0,
+      "shootY": 2.5,
+      "baseRotation": -120,
+      "shoot": {
+        "firstShotDelay": 60,
+      },
+      "shootSound": "utyGuardenerLaserLoop",
+      "initialShootSound": "utyGuardenerLaserShoot",
+      "continuous": true,
+      "bullet": {
+        "type": "ContinuousLaserBulletType",
+        "damage": 5,
+        "pierceArmor": true,
+        "length": 1600,
+        "drawSize": 1600,
+        "lifetime": 36000,
+        "shake": 0,
+        "despawnEffect": "none",
+        "smokeEffect": "none",
+        "shootEffect": "none",
+        "incendChance": 0,
+        "incendSpread": 0,
+        "incendAmount": 0,
+        "lightColor": "ffd37f",
+        "width": 2,
+        "makeFire": true,
+        "colors": [ "ffd37f33","ffd37f80","ffd37f","ffffff" ],
+        "knockback": -3,
+        "hitSize": 4
+      },
+      "controllable": false
+    }
+  ]   
+}

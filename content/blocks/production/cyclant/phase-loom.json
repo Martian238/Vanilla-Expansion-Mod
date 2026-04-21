@@ -1,7 +1,7 @@
 {
   "type": "GenericCrafter",
   "requirements": [
-    "silicon/200","lead/185","thorium/105","fibralt/80"
+    "silicon/200","lead/185","thorium/100","fibralt/80"
   ],
   "category": "crafting"
   "research": {

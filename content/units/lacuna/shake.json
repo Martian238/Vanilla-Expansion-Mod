@@ -1,5 +1,6 @@
 {
   "type": "tank",
+  "databaseTag": "12lacuna-unit",
   "hitSize": 16,
   "speed": -1.8,
   "treadPullOffset": 10,
@@ -21,6 +22,7 @@
   "floorMultiplier": -0.5,
   "canDrown": false,
   "faceTarget": false,
+  "shownPlanets": [ "maress","thavina" ],
   "treadRects": [
     {
       "type": "Rect",
@@ -90,7 +92,7 @@
     "parent": "vibrate"
   },
   "emitWalkSound": false,
-  "immunities": [ "plasma-status","dusty","wet","muddy","tarred","fusing","frozen","sodiumified","melting","corroded" ],
+  "immunities": [ "plasma-status","dusty","wet","muddy","tarred","fusing","frozen","sodiumified","melting","corroded","plasma-status-orange" ],
   "lightColor": "00ffce",
   "tankMoveSound": "tankMoveSmall",
   "tankMoveVolume": 0.7,

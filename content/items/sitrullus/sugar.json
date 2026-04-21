@@ -6,5 +6,6 @@
   "shownPlanets": [ "sitrullus" ],
   "lowPriority": true,
   "research": "melon-dirt",
-  "flammability": 0.6
+  "flammability": 0.6,
+  "databaseTag": "processed-item"
 }

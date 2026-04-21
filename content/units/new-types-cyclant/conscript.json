@@ -1,5 +1,6 @@
 {
   "type": "tank",
+  "databaseTag": "08cyclant-newtype-unit",
   "hitSize": 12,
   "speed": 1.3,
   "treadPullOffset": 3,

@@ -30,5 +30,6 @@
   "useUnitCap": false,
   "drawShields": false,
   "fallEngineEffect": "none",
-  "fallEffect": "none"
+  "fallEffect": "none",
+  "hidden": true
 }

@@ -27,12 +27,21 @@
   "lightSrcTo": 1,
   "lightDstFrom": 0,
   "lightDstTo": 1,
+  //"icon": "ve-planet-sitrullus",
   "research": {
-    "parent": "interplanetary-accelerator"
+    "parent": "interplanetary-accelerator",
+    "objectives": [ 
+      "interplanetary-accelerator",
+      "core-nucleus",
+      {
+        "type": "SectorComplete",
+        "preset": "planetaryTerminal"
+      }
+    ]
   },
   "defaultCore": "core-general",
   "sectorSeed": 0,
-  "alwaysUnlocked": true,
+  "alwaysUnlocked": false,
   "startSector": 15,
   "sectorSize": 2,
   "clearSectorOnLose": true,

@@ -5,6 +5,7 @@
     "objectives": [ "line" ],
     "requirements": [  ]
   },
+  "databaseTag": "09cyclant-strengthened-unit",
   "isEnemy": false,
   "lowAltitude": true,
   "flying": true,
@@ -24,7 +25,9 @@
   "buildSpeed": 1.5,
   "buildBeamOffset": 5,
   "mineBeamOffset": 6.75,
-  "mineItems": [ "copper","lead","aluminium","quartz","silver" ],
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "targetFlags": [
     "core"
   ],

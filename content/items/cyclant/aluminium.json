@@ -3,6 +3,7 @@
   "hardness": 1,
   "healthScaling": 0,
   "cost": 0.2,
-  "shownPlanets": [ "cyclant","maress","phoon" ],
-  "research": "core-nucleus-root"
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ],
+  "research": "core-nucleus-root",
+  "databaseTag": "basic-item"
 }

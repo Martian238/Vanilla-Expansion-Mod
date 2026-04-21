@@ -1,0 +1,64 @@
+{
+  "type": "UnitFactory",
+  "category": "units",
+  "requirements": [ "aluminium/90","lead/100","silicon/60" ],
+  "size": 3,
+  "research": {
+    "parent": "ground-fabricator",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "carbon-relics"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.03,
+  "plans": [
+    {
+      "unit": "flare",
+      "time": 720,
+      "requirements": [ "silicon/15" ]
+    },
+    {
+      "unit": "mono",
+      "time": 1800,
+      "requirements": [ "silicon/30","lead/15" ]
+    },
+    {
+      "unit": "dust",
+      "time": 960,
+      "requirements": [ "silicon/20","graphite/20" ]
+    },
+    {
+      "unit": "aurora",
+      "time": 1080,
+      "requirements": [ "silicon/25","lead/10" ]
+    },
+    {
+      "unit": "point",
+      "time": 2700,
+      "requirements": [ "silicon/45","quartz/20" ]
+    },
+    {
+      "unit": "flocculate",
+      "time": 1080,
+      "requirements": [ "silicon/30","graphite/20" ]
+    },
+    {
+      "unit": "shimmer",
+      "time": 900,
+      "requirements": [ "silicon/20","aluminium/10" ]
+    },
+    {
+      "unit": "uprise",
+      "time": 900,
+      "requirements": [ "silicon/20","ferrum/10" ]
+    }
+  ],
+  "consumes": {
+    "power": 1.6
+  },
+  //"regionSuffix": "-rail"
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

@@ -6,4 +6,5 @@
   "cost": 0.1,
   "hardness": 8,
   "shownPlanets": [ "cyclant","phoon" ],
+  "databaseTag": "natural-item"
 }

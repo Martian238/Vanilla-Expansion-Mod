@@ -13,7 +13,7 @@
   "powerProduction": 6.6,
   "size": 2,
   "category": "power",
-  "ambientSound": "hum",
+  "ambientSound": "loopCircuit",
   "ambientSoundVolume": 0.1,
   "consumes": {
     "itemFlammable": {
@@ -40,9 +40,10 @@
     "nitroalkoss": 8,//1.2
     "spore-pod": 1.2,
     "reflector-matter": 8,
-    "sugar": 2.2,
-    "melon-dirt": 8,
-    "pyratite": 3
+    "sugar": 2.2,//2.2/1.5=1.466666667
+    "melon-dirt": 1.8,
+    "pyratite": 3,
+    "dense-melon-dirt": 1.5
   },
   "shownPlanets": [ "cyclant","maress","phoon" ]
 }

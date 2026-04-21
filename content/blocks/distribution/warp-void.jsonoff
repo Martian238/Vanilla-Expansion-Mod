@@ -1,0 +1,11 @@
+{
+  "type": "Incinerator",
+  "category": "distribution",
+  "baseExplosiveness": 10,
+  "requirements": [ "warp-nucleus/15","lead/10" ],
+  "flameColor": "00000000",
+  "effect": "none",
+  "research": "warp-driver",
+  "hasPower": false,
+  "connectedPower": false
+}

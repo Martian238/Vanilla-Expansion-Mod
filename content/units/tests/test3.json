@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "13other-unit",
   "researchCostMultiplier": 0,
   "alwaysUnlocked": true,
   "isEnemy": true,
@@ -63,11 +64,58 @@
       "ejectEffect": "casing1",
       "shootY": 3.5,
       "bullet": {
-        "damage": 9,
-        "speed": 3,
-        "width": 7,
-        "height": 9,
-        "lifetime": 60
+        "damage": -20,
+        "speed": 10,
+        "width": 9,
+        "height": 18,
+        "lifetime": 240,
+        "intervalRandomSpread": 0,
+        "bulletInterval": 2,
+        "frontColor": "ffffff",
+        "backColor": "ffa665",
+        "trailColor": "ffa665",
+        "trailLength": 7,
+        "shrinkY": 0,
+        /*"intervalBullet": {
+          "angleOffset": 180,
+          "type": "RailBulletType",
+          "lineEffect": "chainLightning",
+          "length": 28,
+          "pierceEffect": "none",
+          "damage": 0,
+          "despawnEffect": "none",
+          "pierce": false,
+          "collides": false,
+          "hitShake": 0,
+          "despawnShake": 0,
+          "hitEffect": "none",
+          "hitColor": "ffd37f",
+          "pointEffect": "none",
+          "pointEffectSpace": 30,
+        }*/
+        "parts": [
+          {
+            "type": "RegionPart",
+            "moveRot": 360,
+            "progress": {
+              "type": "time",
+              "op": "loop",
+              "time": 20
+            },
+            "children": [
+              {
+                "type": "EffectSpawnerPart",
+                "y": 32,
+                "effect": "pulverize",
+                "effectChance": 1,
+                "height": 0,
+                "width": 0,
+                "effectColor": "ffa665",
+                "useProgress": false,
+              }
+            ]
+          }
+        ]
       }
     }
   ]

@@ -35,7 +35,7 @@
         "type": "DrawGlowRegion",
         "layer": -1,
         "color": "feb380",
-        "alpha": 0.6,
+        "alpha": 0.8,
         "glowIntensity": 0.35,
         "glowScale": 3,
         "suffix": "-heat"
@@ -46,9 +46,29 @@
         "suffix": "-rotator2"
       },
       {
+        "type": "DrawGlowRegion",
+        "layer": -1,
+        "color": "feb380",
+        "alpha": 0.8,
+        "glowIntensity": 0.35,
+        "glowScale": 3,
+        "suffix": "-heat-edge2",
+        "rotateSpeed": 4
+      },
+      {
         "type": "DrawRegion",
         "rotateSpeed": -5,
         "suffix": "-rotator1"
+      },
+      {
+        "type": "DrawGlowRegion",
+        "layer": -1,
+        "color": "feb380",
+        "alpha": 0.8,
+        "glowIntensity": 0.35,
+        "glowScale": 3,
+        "suffix": "-heat-edge1",
+        "rotateSpeed": -5
       },
       { "type": "DrawRegion", "suffix": "-shadow" },
       {

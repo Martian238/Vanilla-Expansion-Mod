@@ -3,6 +3,7 @@
   "healthScaling": 2,
   "cost": 1,
   "flammability": -0.5,
-  "shownPlanets": [ "maress" ],
-  "research": "tantalum"
+  "shownPlanets": [ "maress","thavina" ],
+  "research": "tantalum",
+  "databaseTag": "processed-item"
 }

@@ -1,0 +1,29 @@
+{
+  "type": "GenericCrafter",
+  "category": "power",
+  "buildVisibility": "sandboxOnly",
+  "alwaysUnlocked": true,
+  "health": 2147483647,
+  "armor": 2147483647,
+  "destructible": false,
+  "targetable": false,
+  "underBullets": true,
+  "hasColor": true,
+  "mapColor": "000000",
+  "drawer": {
+    "type": "DrawBlockParts",
+    "parts": [
+      {
+        "type": "ShapePart",
+        "layer": 120,
+        "sides": 4,
+        "rotation": 45,
+        "radius": 512,
+        "color": "000000"
+      }
+    ]
+  },
+  "drawTeamOverlay": false,
+  "useColor": false,
+  "clipSize": 800
+}

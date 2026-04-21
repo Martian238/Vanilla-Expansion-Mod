@@ -14,7 +14,7 @@
   "strafePenalty": 1,
   "itemCapacity": 90,
   "payloadCapacity": 576,
-  "immunities": [ "blown","plasma-status","dusty","frozen","melting","fusing","corroded" ],
+  "immunities": [ "blown","plasma-status","dusty","frozen","melting","fusing","corroded","plasma-status-orange" ],
   "buildSpeed": 3,
   "buildBeamOffset": 1.25,
   "engineOffset": 0,
@@ -25,6 +25,9 @@
   "hidden": true,
   "drawCell": false,
   //"playerControllable": false,
+  "controlSelectGlobal": false,
+  "allowChangeCommands": false,
+  "shownPlanets": [ "maress","thavina" ],
   "abilities": [
     {
       "type": "MoveEffectAbility",

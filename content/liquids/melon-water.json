@@ -5,5 +5,8 @@
   "boilPoint": 0.6,
   "viscosity": 0.55,
   "gasColor": "ffffff",
-  "temperature": 0.4
+  "temperature": 0.4,
+  "databaseTag": "liquid-fluid",
+  "research": "melon-dirt",
+  "shownPlanets": [ "sitrullus" ]
 }

@@ -1,6 +1,7 @@
 {
-  "immunities": [ "frozen" ],
+  "immunities": {"add":[ "frozen" ]},
   "engineLayer": 89.99,
+  "databaseTag": "03serpulo-air-unit",
   "weapons": [
     {
       "name": "zenith-missiles",
@@ -240,5 +241,5 @@
       }
     }
   ],
-  "shownPlanets": [ "serpulo","cyclant","sitrullus","maress","phoon" ]
+  "shownPlanets": [ "serpulo","cyclant","sitrullus","maress","phoon","thavina" ]
 }

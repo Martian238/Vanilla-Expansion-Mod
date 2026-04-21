@@ -1,5 +1,6 @@
 {
   "health": 200,
+  "databaseTag": "13sitrullus-zenith-small-unit",
   "speed": 1.9,
   "accel": 0.04,
   "drag": 0.02,
@@ -17,7 +18,9 @@
   "mineTier": 3,
   "isEnemy": false,
   "defaultCommand": "mine",
-  "mineItems": [ "ferrum","silver","aluminium","lead","beryllium","titanium","copper","cobalt" ],
+  "mineItems": {
+    "add": [ "aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "shownPlanets": [ "sitrullus" ],
   "abilities": [
     {

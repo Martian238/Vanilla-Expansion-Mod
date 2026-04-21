@@ -1,0 +1,36 @@
+{
+  "bloom": true,
+  "accessible": false,
+  "alwaysUnlocked": true,
+  "radius": 1,
+  "mesh": {
+    "type": "SunMesh",
+    "planet": "sol4a",
+    "divisions": 4,
+    "octaves": 5,
+    "persistence": 0.5,
+    "scl": 5,
+    "pow": 1.5,
+    "mag": 1,
+    "colorScale": 1.2,
+    "colors": [ 
+      "ffffff",
+      "eeeeee",
+      "dddddd",
+      "cccccc",
+      "bbbbbb",
+      "aaaaaa"
+    ]
+  },
+  "iconColor": "ffffff",
+  "lightColor": "ffffff",
+  "rotateTime": 60,
+  "solarSystem": "sol4b",
+  "visible": true,
+  "alwaysUnlocked": false,
+  "parent": "sol4b",
+  "orbitRadius": 10,
+  "drawOrbit": false,
+  "orbitTime": 60,
+  "children": [ "axesiles" ]
+}

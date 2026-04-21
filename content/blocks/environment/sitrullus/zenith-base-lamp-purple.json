@@ -1,0 +1,9 @@
+{
+  "type": "Floor",
+  "drawEdgeOut": false,
+  "drawEdgeIn": false,
+  "variants": 0,
+  "emitLight": true,
+  "lightColor": "bf92f9",
+  "lightRadius": 192
+}

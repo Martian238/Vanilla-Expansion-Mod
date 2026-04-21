@@ -1,5 +1,6 @@
 {
   "type": "flying",
+  "databaseTag": "13other-unit",
   "researchCostMultiplier": 0,
   "alwaysUnlocked": true,
   "isEnemy": true,
@@ -40,7 +41,8 @@
       "shootY": 0,
       "shootSound": "none",
       "shake": 0.5,
-      "reload": 20,//30
+      "reload": 20,
+//30
       "mirror": false,
       "shoot": {
         "type": "ShootBarrel",

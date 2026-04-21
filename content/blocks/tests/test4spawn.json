@@ -9,5 +9,5 @@
   },
   "buildVisibility": "sandboxOnly",
   "alwaysUnlocked": true,
-  "itemCapacity": 0
+  "itemCapacity": 1
 }

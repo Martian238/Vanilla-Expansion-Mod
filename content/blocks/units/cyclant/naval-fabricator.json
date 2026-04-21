@@ -1,0 +1,36 @@
+{
+  "type": "UnitFactory",
+  "category": "units",
+  "requirements": [ "aluminium/180","lead/130","metaglass/120" ],
+  "size": 3,
+  "research": {
+    "parent": "air-fabricator",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "carbon-relics"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.03,
+  "plans": [
+    {
+      "unit": "risso",
+      "time": 1200,
+      "requirements": [ "silicon/20","metaglass/35" ]
+    },
+    {
+      "unit": "retusa",
+      "time": 1500,
+      "requirements": [ "silicon/15","lead/25","titanium/20" ]
+    },
+  ],
+  "configurable": true,
+  "consumes": {
+    "power": 1.6
+  },
+  "floating": true,
+  //"regionSuffix": "-rail"
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

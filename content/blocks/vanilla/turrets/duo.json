@@ -1,6 +1,6 @@
 {
   "ammoTypes": {
-    "copper": {
+    /*"copper": {
       "type": "BasicBulletType",
       "speed": 2.5,
       "damage": 9,
@@ -49,8 +49,9 @@
       "frontColor": "999ba0",
       "homingPower": 0.2,
       "reloadMultiplier": 1.5
-    },
-    "aluminium": {
+    },*/
+    "add": true,
+    /*"aluminium": {
       "type": "BasicBulletType",
       "speed": 3,
       "damage": 9,
@@ -61,7 +62,7 @@
       "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
       "reloadMultiplier": 1.5
-    },
+    },*/
     "quartz": {
       "type": "BasicBulletType",
       "speed": 4,
@@ -78,7 +79,7 @@
       "hitColor": "f68021",
       "backColor": "f68021"
     },
-    "ferrum": {
+    /*"ferrum": {
       "width": 9,
       "height": 12,
       "lifetime": 60,
@@ -119,6 +120,6 @@
         "pierceCap": 3,
         "pierceArmor": true
       }
-    }
+    }*/
   }
 }

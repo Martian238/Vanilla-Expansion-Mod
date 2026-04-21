@@ -1,6 +1,7 @@
 {
   //"type": "flying",
   "isEnemy": false,
+  "databaseTag": "01core-unit",
   "lowAltitude": true,
   "fogRadius": 0,
   "flying": true,
@@ -30,7 +31,7 @@
     "drill","factory"
   ],
   "immunities": [ "frozen" ],
-  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
   "weapons": [
     {
       "name": "lambda-weapon",

@@ -1,5 +1,6 @@
 {
   "type": "tank",
+  "databaseTag": "13other-unit",
   "hitSize": 8,
   "treadPullOffset": 0,
   "treadFrames": 16,

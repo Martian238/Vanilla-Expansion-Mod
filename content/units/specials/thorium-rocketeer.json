@@ -1,6 +1,7 @@
 {
   "type": "naval",
   "hitSize": 24,
+  "databaseTag": "10special-unit",
   "speed": 0.85,
   "accel": 0.17,
   "rotateSpeed": 1.8,

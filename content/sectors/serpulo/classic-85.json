@@ -17,7 +17,9 @@
   "isLastSector": false,
   "allowLaunchSchematics": true,
   "allowLaunchLoadout": true,
-  "originalPosition": 85
+  "originalPosition": 85,
+  "showHidden": true,
+  "requireUnlock": false
 }
 
 

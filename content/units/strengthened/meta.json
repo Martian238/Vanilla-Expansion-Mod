@@ -1,5 +1,6 @@
 {
   //"type": "payload",
+  "databaseTag": "09cyclant-strengthened-unit",
   "research": {
     "parent": "stereo",
     "objectives": [ "assemble-selector3","ultra-assembler",

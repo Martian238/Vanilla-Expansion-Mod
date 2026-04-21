@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "09cyclant-strengthened-unit",
   "research": {
     "parent": "line",
     "objectives": [ "senior-refabricator" ],
@@ -42,7 +43,9 @@
   "buildRange": 270,
   "payloadCapacity": 576,
   "lightColor": "98ffa9",
-  "mineItems": [ "copper","lead","aluminium","quartz","titanium","cobalt","ferrum","silver","beryllium" ],
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "targetFlags": [
     "battery","factory"
   ],

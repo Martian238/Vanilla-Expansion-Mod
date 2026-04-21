@@ -1,5 +1,6 @@
 {
   "health": 4900,
+  "databaseTag": "10special-unit",
   "hitSize": 24,//24
   "speed": 1.1,
   "accel": 0.01,
@@ -306,84 +307,6 @@
         "despawnShake": 1,
         "lifetime": 81
       }
-    },
-    {
-      "name": "shimmer-rotator"
-      "x": 9,
-      "y": 5,
-      "reload": 20,
-      "alwaysShooting": true,
-      "display": false,
-      "top": false,
-      "shootSound": "none",
-      "recoil": 0,
-      "alternate": false,
-      "noAttack": true,
-      "useAttackRange": false,
-      "bullet": {
-        "instantDisappear": true,
-        "collides": false,
-        "damage": 0,
-        "absorbable": false,
-        "shootEffect": "none",
-        "smokeEffect": "none",
-        "hitEffect": "none",
-        "despawnEffect": "none"
-      },
-      "parts": [
-        {
-          "type": "RegionPart",
-          "suffix": 1,
-          "color": "ffffff50",
-          "colorTo": "ffffff50",
-          "under": false,
-          "layer": 90.1,
-          "outline": false,
-          "xScl": 0.59375,
-          "yScl": 0.59375
-        },
-        {
-          "type": "RegionPart",
-          "suffix": 3,
-          "color": "ffffff50",
-          "colorTo": "ffffff50",
-          "progress": "reload",
-          "moveRot": 180,
-          "under": false,
-          "layer": 90.11,
-          "outline": false,
-          "xScl": 0.59375,
-          "yScl": 0.59375
-        },
-        {
-          "type": "RegionPart",
-          "suffix": 1,
-          "color": "ffffff00",
-          "colorTo": "ffffff70",
-          "progress": "reload",
-          "growX": -1,
-          "growY": -1,
-          "under": false,
-          "growProgress": "reload",
-          "layer": 90.12,
-          "outline": false,
-          "xScl": 0.59375,
-          "yScl": 0.59375
-        },
-        {
-          "type": "RegionPart",
-          "suffix": 2,
-          "color": "ffffff50",
-          "colorTo": "ffffff50",
-          "progress": "reload",
-          "moveRot": -720,
-          "under": false,
-          "layer": 90.13,
-          "outline": false,
-          "xScl": 0.59375,
-          "yScl": 0.59375
-        }
-      ]
     }
   ],
   "parts": [
@@ -404,6 +327,88 @@
       "outline": false,
       "under": false,
       "layer": 90.2
+    },
+
+
+    {
+      "type": "RegionPart",
+      "name": "ve-shimmer-rotator1",
+      "color": "ffffff50",
+      "colorTo": "ffffff50",
+      "under": false,
+      "layer": 90.1,
+      "outline": false,
+      "x": 9,
+      "y": 5,
+      "mirror": true,
+      "xScl": 0.59375,
+      "yScl": 0.59375
+    },
+    {
+      "type": "RegionPart",
+      "name": "ve-shimmer-rotator3",
+      "color": "ffffff50",
+      "colorTo": "ffffff50",
+      "moveRot": -180,
+      "under": false,
+      "layer": 90.11,
+      "outline": false,
+      "progress": {
+        "type": "time",
+        "op": "loop",
+        "time": 40
+      },
+      "x": 9,
+      "y": 5,
+      "mirror": true,
+      "xScl": 0.59375,
+      "yScl": 0.59375
+    },
+    {
+      "type": "RegionPart",
+      "name": "ve-shimmer-rotator1",
+      "color": "ffffff00",
+      "colorTo": "ffffff70",
+      "growX": 0.59375,
+      "growY": 0.59375,
+      "xScl": 0,
+      "yScl": 0,
+      "under": false,
+      "growProgress": {
+        "type": "time",
+        "op": "loop",
+        "time": 40
+      },
+      "layer": 90.12,
+      "outline": false,
+      "progress": {
+        "type": "time",
+        "op": "loop",
+        "time": 40
+      },
+      "x": 9,
+      "y": 5,
+      "mirror": true
+    },
+    {
+      "type": "RegionPart",
+      "name": "ve-shimmer-rotator2",
+      "color": "ffffff50",
+      "colorTo": "ffffff50",
+      "moveRot": 720,
+      "under": false,
+      "layer": 90.13,
+      "outline": false,
+      "progress": {
+        "type": "time",
+        "op": "loop",
+        "time": 40
+      },
+      "x": 9,
+      "y": 5,
+      "mirror": true,
+      "xScl": 0.59375,
+      "yScl": 0.59375
     }
   ]
 }

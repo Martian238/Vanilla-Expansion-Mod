@@ -2,7 +2,7 @@
   "type": "BurstDrill",
   "category": "production",
   "requirements": [ "chromium/90","graphite/60","silicide/70","silicon/50" ],
-  "drillTime": 240,
+  "drillTime": 150,//240
   "size": 3,
   "tier": 7,
   "drillEffect": {
@@ -30,7 +30,9 @@
   "glowColor": "ff6b41",
   "baseArrowColor": "2d2f39",
   "itemCapacity": 30,
-  "blockedItems": [ "scrap","copper","lead","aluminium","titanium","thorium","catalyzon","beryllium","tungsten"]
+  "blockedItems": [ "scrap","copper","lead","aluminium","titanium","thorium","catalyzon","beryllium","tungsten",
+  "silver","ferrum","cobalt","tantalum"
+  ],
   "researchCostMultiplier": 0.1,
   "consumes": {
     "power": 1.5,
@@ -56,9 +58,12 @@
     "silver": 0,
     "tantalum": 1,
     "melon-dirt": 4,
-    "spore-pod": 6
+    "spore-pod": 6,
+    "ferric-shale-cobble": 3,
+    "red-soil": 2
   },
   "crushDamageMultiplier": 0.2,
+  "liquidBoostIntensity": 1,
   "squareSprite": false,
   "shownPlanets": [ "cyclant","maress","phoon" ]
 }

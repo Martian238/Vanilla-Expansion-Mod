@@ -1,0 +1,109 @@
+{
+  "health": 700,
+  "databaseTag": "14sitrullus-zenith-unit",
+  "speed": 1.7,
+  "accel": 0.04,
+  "drag": 0.016,
+  "flying": true,
+  "hitSize": 20,
+  "lowAltitude": true,
+  "armor": 0,
+  "engineOffset": 12,
+  "engineSize": 0,
+  "immunities": [ "frozen","wet","shocked","freezing","burning","blown","tarred","melting","dusty","fusing","dysharmony","plasma-status","plasma-status-orange","sodiumified","silverified","muddy","sapped","electrified","blasted","spore-slowed","corroded","combusting","restraints" ],
+  "shownPlanets": [ "sitrullus" ],
+  "range": 140,
+  "flyingLayer": 99.99,
+  "drawBody": false,
+  "createWreck": false,
+  "createScorch": false,
+  "drawSoftShadow": false,
+  "outlines": false,
+  "deathExplosionEffect": {
+    "type": "ParticleEffect",
+    "sizeFrom": 8,
+    "sizeTo": 0,
+    "sizeInterp": "pow3In",
+    "length": 40,
+    "baseLength": 5,
+    "particles": 12,
+    "colorFrom": "ffa66560",
+    "colorTo": "ffa66560",
+    "lifetime": 50,
+    "interp": "pow2Out"
+  },
+  "deathShake": 0,
+  "deathSound": "trPhantomDeath",
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "",
+      "outline": false,
+      "blending": "additive",
+      "colorFrom": "ffffff90",
+      "colorTo": "ffffff70",
+      "layer": 90,
+      "progress": {
+        "type": "warmup",
+        "ops": [
+          {
+            "op": "mul",
+            "amount": 0
+          },
+          {
+            "op": "sin",
+            "mag": 0.5,
+            "scl": 15
+          },
+          {
+            "op": "add",
+            "amount": 0.5
+          }
+        ]
+      }
+    }
+  ],
+  "weapons": [
+    {
+      "reload": 80,
+      "x": 7,
+      "rotate": true,
+      "shoot": { "shots": 2 },
+      "inaccuracy": 5,
+      "velocityRnd": 0.2,
+      "shootSound": "shootMissilePlasma",
+      "top": false,
+      "parts": [
+        {
+          "type": "RegionPart",
+          "name": "ve-phantom-zenith-missiles",
+          "blending": "additive",
+          "outline": false,
+          "layer": 90.01,
+          "color": "ffffff80"
+        }
+      ],
+      "bullet": {
+        "type": "MissileBulletType",
+        "speed": 3,
+        "damage": 14,
+        "width": 8,
+        "height": 8,
+        "shrinkY": 0,
+        "drag": -0.003,
+        //"homingRange": 60,
+        "keepVelocity": false,
+        "splashDamageRadius": 25,
+        "splashDamage": 15,
+        "lifetime": 50,
+        "trailColor": "d06b53",
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "weaveScale": 6,
+        "weaveMag": 1
+      }
+    }
+  ]
+}

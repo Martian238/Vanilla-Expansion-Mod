@@ -4,10 +4,14 @@
   "difficulty": 1,
   "research": {
     "parent": "core-nucleus-root-sitrullus",
-    /*"objectives": [
+    "objectives": [
       "interplanetary-accelerator",
-      "core-nucleus"
-    ]*/
+      "core-nucleus",
+      {
+        "type": "SectorComplete",
+        "preset": "planetaryTerminal"
+      }
+    ]
   },
   "overrideLaunchDefaults": true,
   "captureWave": 20,

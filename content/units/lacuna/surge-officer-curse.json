@@ -1,0 +1,43 @@
+{
+  "isEnemy": false,
+  "flying": true,
+  "killable": false,
+  "hittable": false,
+  "hidden": true,
+  "weapons": [
+    {
+      "alwaysShooting": true,
+      "inaccuracy": 360,
+      "shootSound": "stAstroExplode",
+      "velocityRnd": 0.9,
+      "shake": 64,
+      "bullet": {
+        "sprite": "ve-curse",
+        "splashDamage": 795335901,
+        "splashDamageRadius": 800,
+        "layer": 156,
+        "pierce": true,
+        "pierceCap": -1,
+        "spin": 45,
+        "hitSize": 128,
+        "pierceBuilding": true,
+        "armorMultiplier": -10000,
+        "hittable": false,
+        "absorbable": false,
+        "reflectable": false,
+        "speed": 20,
+        "lifetime": 600,
+        "hitShake": 256,
+        "homingPower": 1,
+        "homingRange": 800,
+        "despawnShake": 256,
+        "hitSound": "stAstroExplode",
+        "despawnSound": "stAstroExplode",
+        "hitEffect": "mineHuge",
+        "hitColor": "00ffce",
+        "width": 256,
+        "height": 256
+      }
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "01core-unit",
   "researchCostMultiplier": 0,
   "isEnemy": false,
   "lowAltitude": true,

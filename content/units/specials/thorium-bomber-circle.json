@@ -1,6 +1,7 @@
 {
   //"type": "flying",
   "speed": 2.5,
+  "databaseTag": "10special-unit",
   "drag": 0.05,
   "hitSize": 12,
   "rotateSpeed": 6,

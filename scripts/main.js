@@ -2,7 +2,7 @@ MapResizeDialog.minSize = 5
 MapResizeDialog.maxSize = 1000
 Vars.maxSchematicSize = 600
 require("sectorSize");
-require("base/library");
+//require("base/library");
 require("units");
 require("items");
 Vars.renderer.maxZoom = 25;
@@ -16,3 +16,4 @@ Team.green.palette[2].set(Color.valueOf("189886"));
 Team.green.hasPalette = true;
 Team.green.ignoreUnitCap = true;
 Team.green.name = "lacuna";
+Planets.tantros.visible = true;

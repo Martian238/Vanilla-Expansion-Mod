@@ -1,5 +1,6 @@
 {
   "type": "legs",
+  "databaseTag": "08cyclant-newtype-unit",
   "speed": 4.2,
   "accel": 0.04,
   "drag": 0.04,

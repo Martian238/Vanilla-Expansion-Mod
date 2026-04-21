@@ -2,16 +2,16 @@
   "bloom": true,
   "accessible": false,
   "alwaysUnlocked": true,
-  "radius": 2,
+  "radius": 12,
   "mesh": {
     "type": "SunMesh",
     "planet": "sol2",
-    "divisions": 5,
+    "divisions": 6,
     "octaves": 5,
     "persistence": 0.3,
-    "scl": 1.5,
+    "scl": 3,
     "pow": 1.2,
-    "mag": 1,
+    "mag": 0.8,
     "colorScale": 1.1,
     "colors": [ 
       "387aff",
@@ -31,5 +31,5 @@
   "orbitRadius": 300,
   "drawOrbit": false,
   "orbitTime": 12000,
-  "children": [ "cyclant","maress","sitrullus" ]
+  "children": [ "cyclant","maress","sitrullus","sol4b" ]
 }

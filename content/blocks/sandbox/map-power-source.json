@@ -17,5 +17,6 @@
     "layer": 81
   },
   "drawTeamOverlay": false,
-  "useColor": false
+  "useColor": false,
+  "clipSize": 800
 }

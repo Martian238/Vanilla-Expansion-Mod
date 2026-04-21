@@ -1,0 +1,100 @@
+{
+  "type": "GenericCrafter",
+  "requirements": [ "lead/120","silicon/180","titanium/240","metaglass/80" ],
+  "category": "crafting",
+  "craftEffect": "none",
+  "size": 4,
+  "craftTime": 240,
+  "hasPower": true,
+  "hasLiquids": true,
+  "liquidCapacity": 300,
+  "itemCapacity": 30,
+  "outputLiquid": "cryofluid/1",
+  "researchCostMultiplier": 0.5,
+  "hasItems": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { 
+        "type": "DrawRegion"
+        "suffix": "-bottom2" 
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water",
+        "padding": 1
+      },
+      {
+        "type": "DrawBubbles",
+        "color": "7693e3",
+        "sides": 8,
+        "recurrence": 3,
+        "spread": 12,
+        "amount": 15
+      },    
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "cryofluid",
+        "padding": 1
+      },
+      {
+        "type": "DrawBubbles",
+        "color": "73afc6",
+        "sides": 8,
+        "recurrence": 3,
+        "spread": 12,
+        "amount": 5
+      },
+      { 
+        "type": "DrawRegion"
+        "suffix": "-shadow2",
+        "rotateSpeed": -2.5,
+        "x": -1,
+        "y": -1
+      },
+      { 
+        "type": "DrawRegion"
+        "suffix": "-rotator" ,
+        "rotateSpeed": -2.5
+      },
+      { 
+        "type": "DrawRegion"
+        "suffix": "-bottom1" 
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "cryofluid",
+        "padding": 11.75
+      },
+      { 
+        "type": "DrawRegion"
+        "suffix": "-shadow1" 
+      },
+      { 
+        "type": "DrawRegion"
+      }
+    ]
+  },
+  "lightLiquid": "cryofluid",
+  "ambientSound": "loopMachinSpin",
+  "ambientSoundVolume": 0.05,
+  "consumes": {
+    "items": {
+      "items": [ "titanium/10","graphite/1" ]
+    },
+    "liquids": {
+      "liquids": [ "water/1" ]
+    },
+    "power": 3
+  },
+  "research": {
+    "parent": "cryofluid-mixer",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "nuclearComplex"
+      }
+    ]
+  },
+  "shownPlanets": [ "serpulo","cyclant","phoon","thavina" ]
+}

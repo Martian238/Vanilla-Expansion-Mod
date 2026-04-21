@@ -1,3 +1,4 @@
 {
-  "shownPlanets": [ "serpulo","erekir","cyclant","maress","phoon","sitrullus" ]
+  "shownPlanets": [ "serpulo","erekir","cyclant","maress","phoon","sitrullus","thavina" ],
+  "databaseTag": "basic-item"
 }

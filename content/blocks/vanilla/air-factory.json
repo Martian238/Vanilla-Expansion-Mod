@@ -1,6 +1,6 @@
 {
-  "plans": [
-    {
+  "plans": {"add":[
+    /*{
       "unit": "flare",
       "time": 900,
       "requirements": [ "silicon/15" ]
@@ -9,7 +9,7 @@
       "unit": "mono",
       "time": 2100,
       "requirements": [ "silicon/30","lead/15" ]
-    },
+    },*/
     {
       "unit": "dust",
       "time": 1200,
@@ -29,6 +29,16 @@
       "unit": "point",
       "time": 3300,
       "requirements": [ "silicon/45","quartz/20" ]
+    },
+    {
+      "unit": "shimmer",
+      "time": 1080,
+      "requirements": [ "silicon/20","aluminium/10" ]
+    },
+    {
+      "unit": "uprise",
+      "time": 1080,
+      "requirements": [ "silicon/20","ferrum/10" ]
     }
-  ]
+  ]}
 }

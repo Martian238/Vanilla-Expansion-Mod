@@ -20,6 +20,7 @@
   "engineSize": 0,
   "lightRadius": 0,
   "physics": true,
+  "hidden": true,
   "weapons": [
     {
       "mirror": false,

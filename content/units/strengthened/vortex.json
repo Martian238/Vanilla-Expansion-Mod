@@ -1,5 +1,6 @@
 {
   "type": "mech",
+  "databaseTag": "09cyclant-strengthened-unit",
   "speed": 0.65,
   "hitSize": 14,
   "health": 850,
@@ -31,7 +32,9 @@
   ],
   "drag": 0.05,
   "lightColor": "98ffa9",
-  "mineItems": [ "aluminium","lead","silver","copper" ],
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "immunities": [ "dusty","frozen" ],
   "shownPlanets": [ "cyclant","phoon","maress" ],
   "stepSound": "mechStepSmall",

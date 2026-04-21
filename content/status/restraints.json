@@ -1,0 +1,24 @@
+{
+  "color": "8aa3f4",
+  "show": true,
+  "speedMultiplier": 0.2,
+  "opposites": [ "blown" ],
+  "affinities": [ "wet" ],
+  "transitionDamage": 10,
+  "effect": {
+    "type": "ParticleEffect",
+    "line": true,
+    "lenFrom": 3,
+    "lenTo": 0,
+    "strokeFrom": 1,
+    "strokeTo": 1,
+    "colorFrom": "8aa3f4",
+    "colorTo": "8aa3f4",
+    "lifetime": 40,
+    "length": -10,
+    "baseLength": 14,
+    "randLength": false,
+    "interp": "circleOut",
+    "particles": 2
+  }
+}

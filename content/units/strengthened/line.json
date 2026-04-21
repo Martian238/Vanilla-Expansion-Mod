@@ -1,5 +1,6 @@
 {
   //"type": "flying",
+  "databaseTag": "09cyclant-strengthened-unit",
   "research": {
     "parent": "point",
     "objectives": [ "junior-refabricator" ],
@@ -24,7 +25,9 @@
   "mineBeamOffset": 6.75,
   "buildSpeed": 1.5,
   "buildBeamOffset": 5,
-  "mineItems": [ "copper","lead","aluminium","quartz","silver" ],
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "targetFlags": [
     "core"
   ],

@@ -1,9 +1,10 @@
 {
-  "shownPlanets": [ "serpulo","cyclant","maress","phoon" ],
-  "immunities": [ "dusty","burning","frozen" ],
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","thavina" ],
+  "immunities": {"add":[ "dusty","burning","frozen" ]},
+  "databaseTag": "02serpulo-ground-unit",
   "weapons": [
     {
-      "name": "flamethrower",
+      "name": "flamethrower-new",
       "top": false,
       "shootY": 6,
       "reload": 11,
@@ -36,7 +37,7 @@
         "backColor": "00000000",
         "smokeEffect": "shootBigSmoke"
       },
-      "parts": [
+      /*"parts": [
         {
           "type": "RegionPart",
           "x": 0,
@@ -49,7 +50,7 @@
           "layerOffset": 0.001,
           "progress": "warmup"
         }
-      ],
+      ],*/
       "shootWarmupSpeed": 0.2
     }
   ]

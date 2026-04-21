@@ -1,0 +1,265 @@
+{
+  "generator": {},
+  "parent": "sol4b",
+  "launchCandidates": [ "axesiles","thavina" ],
+  "solarSystem": "sol4b",
+  "iconColor": "6f99b4",
+  "orbitRadius": 40,
+  "orbitTime": 12000,
+  "rotateTime": 1200,
+  /*60*/
+  "hasAtmosphere": true,
+  "updateLighting": true,
+  "atmosphereRadIn": 6,
+  "atmosphereRadOut": 6.5,
+  "clipRadius": 100,
+  "atmosphereColor": "5d98bd",
+  "lightColor": "4e98c5",
+  "landCloudColor": "6f99b4",
+  "allowSelfSectorLaunch": false,
+  "defaultAttributes": {
+    "spores": -1,
+    "steam": 10,
+    "water": -1
+  },
+  "drawOrbit": true,
+  "accessible": false,
+  "lightSrcFrom": 0,
+  "lightSrcTo": 1,
+  "lightDstFrom": 0.1,
+  "lightDstTo": 1,
+  "defaultCore": "core-shard",
+  "sectorSeed": 0,
+  "alwaysUnlocked": false,
+  "startSector": 0,
+  "sectorSize": 3.75,
+  "clearSectorOnLose": true,
+  "allowSectorInvasion": false,
+  "allowLaunchToNumbered": false,
+  "allowCampaignRules": true,
+  "showRtsAIRule": false,
+  "enemyCoreSpawnReplace": true,
+  "allowLaunchSchematics": true,
+  //"allowWaveSimulation": true,
+  "launchMusic": "boss2",
+  "allowLaunchLoadout": true,
+  "launchCapacityMultiplier": 0.5,
+  "tidalLock": false,
+  "prebuildBase": true,
+  "radius": 6,
+  "bloom": false,
+  "visible": false,
+  "minZoom": 0.001,
+  "maxZoom": 20,
+  "cloudMesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      /*{
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 1959,
+        "speed": 3,
+        "radius": 0.12,
+        "divisions": 7,
+        "color": "b0bac011",
+        "octaves": 2,
+        "persistence": 0.42,
+        "scl": 0.2,
+        "thresh": 0.1
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 1829,
+        "speed": -2.5,
+        "radius": 0.11,
+        "divisions": 7,
+        "color": "93a8b422",
+        "octaves": 2,
+        "persistence": 0.4,
+        "scl": 0.15,
+        "thresh": 0.2
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 2379,
+        "speed": -2,
+        "radius": 0.10,
+        "divisions": 7,
+        "color": "809aaa33",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.15,
+        "thresh": 0.3
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 3249,
+        "speed": -1.5,
+        "radius": 0.09,
+        "divisions": 7,
+        "color": "6f99b444",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.1,
+        "thresh": 0.45
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 5493,
+        "speed": -1,
+        "radius": 0.08,
+        "divisions": 7,
+        "color": "5d9bbd55",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.1,
+        "thresh": 0.6
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 4963,
+        "speed": -0.5,
+        "radius": 0.07,
+        "divisions": 7,
+        "color": "4e98c566",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.1,
+        "thresh": 0.8
+      },*/
+      
+      
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 199,
+        "speed": 1,
+        "radius": 0.06,
+        "divisions": 7,
+        "color": "b0bac0aa",
+        "octaves": 2,
+        "persistence": 0.42,
+        "scl": 0.2,
+        "thresh": 0.5
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 189,
+        "speed": 2,
+        "radius": 0.05,
+        "divisions": 7,
+        "color": "93a8b4bb",
+        "octaves": 2,
+        "persistence": 0.4,
+        "scl": 0.15,
+        "thresh": 0.6
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 279,
+        "speed": 3,
+        "radius": 0.04,
+        "divisions": 7,
+        "color": "809aaacc",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.15,
+        "thresh": 0.7
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 329,
+        "speed": 4,
+        "radius": 0.03,
+        "divisions": 7,
+        "color": "6f99b4dd",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.1,
+        "thresh": 0.8
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 493,
+        "speed": 5,
+        "radius": 0.02,
+        "divisions": 7,
+        "color": "5d9bbdee",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.1,
+        "thresh": 0.9
+      },
+      {
+        "type": "HexSkyMesh",
+        "planet": "axesiles",
+        "seed": 493,
+        "speed": 6,
+        "radius": 0.01,
+        "divisions": 7,
+        "color": "4e98c5",
+        "octaves": 2,
+        "persistence": 0.38,
+        "scl": 0.1,
+        "thresh": 1
+      }
+    ]
+  },
+  "mesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      {
+        "type": "MatMesh",
+        "mat": {
+          "scl": 5
+        },
+        "mesh": {
+        "type": "NoiseMesh",
+        "planet": "axesiles",
+        "seed": 1225,
+        "color1": "5d98bd",
+        "color2": "4e98c5",
+        "divisions": 8,
+        "radius": 6,
+        "octaves": 6,
+        "persistence": 0.5,
+        "scale": 0.5,
+        "mag": 0
+      }},
+      {
+        "type": "MatMesh",
+        "mat": {
+          "type": "Mat3D"
+          "values": [
+            6,0,0,0,
+            0,0.1,0,0,
+            0,0,1,0,
+            0,0,0,0
+          ]
+        },
+        "mesh": {
+        "type": "NoiseMesh",
+        "planet": "axesiles",
+        "seed": 1225,
+        "color1": "5d98bd",
+        "color2": "4e98c5",
+        "divisions": 8,
+        "radius": 6.1,
+        "octaves": 6,
+        "persistence": 0.5,
+        "scale": 0.5,
+        "mag": 0,
+        //"shader": "atmosphere"
+      }}
+    ]
+  }
+}

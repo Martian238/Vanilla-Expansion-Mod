@@ -1,0 +1,9 @@
+{
+  "type": "PayloadConveyor",
+  "buildVisibility": "sandboxOnly",
+  "category": "units",
+  "size": 3,
+  "canOverdrive": true,
+  "payloadLimit": 40,
+  "health": 500
+}

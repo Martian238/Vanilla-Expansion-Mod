@@ -1,6 +1,10 @@
 {
   "mineWalls": true,
-  "mineItems": [ "copper","lead","aluminium","quartz","graphite" ],
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress" ],
-  "immunities": [ "frozen" ]
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
+  "databaseTag": "03serpulo-air-unit",
+  "immunities": {"add":[ "frozen" ]},
+  "priority": -1
 }

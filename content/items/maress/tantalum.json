@@ -5,6 +5,8 @@
   "cost": 0.6,
   "flammability": -0.75,
   "charge": 0.25,
-  "shownPlanets": [ "maress" ],
-  "research": "silver"
+  "shownPlanets": [ "maress","thavina" ],
+  "research": "silver",
+  "databaseTag": "basic-item",
+  "radioactivity": -0.8
 }

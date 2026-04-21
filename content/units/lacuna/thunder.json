@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "12lacuna-unit",
   "flying": true,
   "lowAltitude": true,
   "hitSize": 68,
@@ -15,13 +16,14 @@
   "strafePenalty": 1,
   "itemCapacity": 400,
   "payloadCapacity": 25600,
-  "immunities": [ "blown","plasma-status","dusty","frozen","pog","overdrive","overclock","melting","fusing","corroded" ],
+  "immunities": [ "blown","plasma-status","dusty","frozen","pog","overdrive","overclock","melting","fusing","corroded","plasma-status-orange" ],
   "buildSpeed": 5.5,
   "drawBuildBeam": false,
   "engineOffset": 0,
   "envDisabled": 0,
   "wobble": false,
   "targetUnderBlocks": false,
+  "shownPlanets": [ "maress","thavina" ],
   "research": {
     "parent": "tide"
   },
@@ -102,6 +104,7 @@
       "shootSoundVolume": 2.5,
       "minWarmup": 0.5,
       "recoil": 0,
+      "recoilTime": 10,
       "bullet": {
         "type": "ContinuousBulletType",
         "damage": 0,
@@ -114,7 +117,8 @@
         "smokeEffect": "none",
         "absorbable": false,
         "reflectable": false,
-        "hittable": false
+        "hittable": false,
+        "fadeTime": 0
       }
     },
     {
@@ -142,7 +146,7 @@
           "layer": 109,
           "radius": 7.5,
           "radiusTo": 6,
-          "progress": "recoil",
+          "progress": "reload",
           "color": "00ffce",
           "circle": true
         },
@@ -151,7 +155,7 @@
           "layer": 110,
           "radius": 6,
           "radiusTo": 0,
-          "progress": "recoil",
+          "progress": "reload",
           "color": "ffffff",
           "circle": true
         },
@@ -190,26 +194,94 @@
           "layer": 90,
           "rotateSpeed": 0,
           "progress": "warmup"
-        }
+        },
+        {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 0,
+      "radiusTo": 300,
+      "x": 0,
+      "y": 20,
+      "color1": "00ffcecc",
+      "color2": "ffffff",
+      "followRotation": true,
+      "rotation": 90,
+      "layer": 109.9,
+      "spinSpeed": 0,
+      "stroke": 3.5,
+      "progress": {
+        "type": "reload",
+        "ops": [{"op":"sin",
+        "scl": 0.9,
+        "mag": 0.7,
+        "offset": 1},{"op":"mul","other":"recoil"}]
+      }
+    },
+    {
+      "type": "FlarePart",
+      "sides": 4,
+      "radius": 0,
+      "radiusTo": 60,
+      "rotation": 45,
+      "x": 0,
+      "y": 20,
+      "color1": "00ffcecc",
+      "color2": "ffffff",
+      "followRotation": true,
+      "layer": 109.9,
+      "spinSpeed": 0,
+      "stroke": 3,
+      "progress": {
+        "type": "reload",
+        "ops": [{"op": "sin",
+        "scl": 0.9,
+        "mag": 0.6,
+        "offset": 3},{"op":"mul","other":"recoil"}]
+      }
+    },
+    {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 0,
+      "radiusTo": 120,
+      "rotation": 0,
+      "x": 0,
+      "y": 20,
+      "color1": "00ffcecc",
+      "color2": "ffffff",
+      "followRotation": true,
+      "layer": 109.9,
+      "spinSpeed": 0,
+      "stroke": 2,
+      "progress": {
+        "type": "reload",
+        "ops": [{"op": "sin",
+        "scl": 0.9,
+        "mag": 0.5,
+        "offset": 2},{"op":"mul","other":"recoil"}]
+      }
+    }
       ],
       "recoil": 0,
       "shootWarmupSpeed": 0.03,
       "minWarmup": 0.5,
       "mirror": false,
       "continuous": true,
-      "shoot": {
-        "firstShotDelay": 800
-      },
       "shootStatus": "thunder-charging",
       "shootStatusDuration": 1010,
       "shootSound": "none",
       "chargeSound": "none",
       "parentizeEffects": true,
       "reload": 2000,
-      "recoilTime": 2000,
-      "shake": 64,
+      "recoilTime": 10,
+      "shake": 16,
+      "shoot": {
+        "shots": 210,
+        "shotDelay": 1,
+        "firstShotDelay": 800
+      },
       "bullet": {
-        "type": "ContinuousLaserBulletType",
+        /*"type": "ContinuousLaserBulletType",
         "damage": 320,
         "damageInterval": 1,
         "hitShake": 12,
@@ -243,13 +315,15 @@
         "lightColor": "00ffce",
         "width": 24,
         "makeFire": true,
-        "colors": [ "00ffce80","88ffde","aaffef","ffffff" ],
+        */"colors": [ "00ffce40","00ffce80","88ffde","aaffef","ffffff" ],
         "status": "plasma-status",
         "statusDuration": 1200,
         "knockback": 10,
         "impact": true,
         "largeHit": true,
+        "pierce": false,
         "hitSize": 28,
+        "pierceArmor": false,
         "rangeOverride": 1500,
         "chargeEffect": {
           "type": "SoundEffect",
@@ -354,9 +428,34 @@
     }
   ]
 }
-        },
-      }
-    },
+      },
+      "type": "ContinuousFlameBulletType",
+        "width": 35,
+        "length": 12800,
+        "drawFlare": false,
+        "drawSize": 4000,
+        "damage": 1280,
+        "buildingDamageMultiplier": 0.45,
+        "hitShake": 16,
+        "armorMultiplier": -1
+        /*"shootEffect": {
+          "type": "WaveEffect",
+          "sizeFrom": 0,
+          "sizeTo": 4000,
+          "strokeFrom": 800,
+          "strokeTo": 800,
+          "colorFrom": "00000000",
+          "colorTo": "00000020",
+          "lifetime": 180,
+          "interp": "pow2Out",
+          "layer": 120,
+          "lightColor": "000000",
+          "clip": 3200
+        },  
+        "smokeEffect": "none",
+        "hitSize": 50*/
+    }
+  },
 
 
   {
@@ -373,7 +472,7 @@
       "shootSound": ["lbp3LaserFire1","lbp3LaserFire2","lbp3LaserFire3","lbp3LaserFire4"],
       "x": 42.5,
       "y": -6.5,
-      "reload": 40,
+      "reload": 25,
       "shootY": 4.75,
       "recoil": 1,
       "shake": 1,

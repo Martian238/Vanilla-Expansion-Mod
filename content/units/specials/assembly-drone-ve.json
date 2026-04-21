@@ -1,5 +1,6 @@
 {
   "type": "tether",
+  "databaseTag": "10special-unit",
   "flying": true,
   "defaultController": "AssemblerAI",
   "drag": 0.06,

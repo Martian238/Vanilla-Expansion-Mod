@@ -1,0 +1,12 @@
+{
+  "type": "UnitAssemblerModule",
+  "requirements": [ "silicon/200" ],
+  "category": "units",
+  "research": "assembly-drone-ve",
+  "size": 2,
+  "tier": 1,
+  "acceptsPayload": false,
+  "shownPlanets": [ "cyclant","phoon","sitrullus","maress" ]
+}
+
+

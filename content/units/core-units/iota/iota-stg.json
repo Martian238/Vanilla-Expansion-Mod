@@ -1,5 +1,6 @@
 {
   "health": 400,
+  "databaseTag": "01core-unit",
   "speed": 2.7,
   "accel": 0.07,
   "drag": 0.05,
@@ -19,6 +20,7 @@
   "rotateToBuilding": false,
   "createWreck": false,
   "createScorch": false,
+  "shownPlanets": [ "sitrullus" ],
   "weapons": [
     {
       "x": 0,

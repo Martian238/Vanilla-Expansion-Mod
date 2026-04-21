@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "01core-unit",
   "isEnemy": false,
   "lowAltitude": true,
   "fogRadius": 0,

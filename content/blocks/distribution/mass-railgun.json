@@ -46,7 +46,17 @@
   "bullet": {
     //"type": "MassDriverBolt",
     "height": 30,
-    "despawnEffect": "mineHuge"
+    "despawnEffect": "mineHuge",
+    "impact": true,
+    "knockback": 20,
+    "hitEffect": "blastExplosion",
+    "hitSound": "explosionCrawler",
+    "hitShake": 4,
+    "despawnHit": false,
+    "armorMultiplier": 0.5,
+    "trailLength": 5,
+    "trailWidth": 3,
+    "trailColor": "f9c27a"
   },
   "shownPlanets": [ "cyclant","phoon" ],
 }

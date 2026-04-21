@@ -1,5 +1,6 @@
 {
   "type": "mech",
+  "databaseTag": "10special-unit",
   "speed": 0.43,
   "hitSize": 16,
   "rotateSpeed": 3,

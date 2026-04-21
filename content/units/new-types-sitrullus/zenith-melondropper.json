@@ -1,5 +1,6 @@
 {
   "health": 700,
+  "databaseTag": "14sitrullus-zenith-unit",
   "speed": 1.7,
   "accel": 0.04,
   "drag": 0.016,
@@ -13,6 +14,9 @@
   "isEnemy": false,
   "hidden": true,
   "shownPlanets": [ "sitrullus" ],
+  
+  "deathExplosionEffect": "none",
+  "deathSound": "none",
   "weapons": [
     /*{
       "name": "zenith-missiles",
@@ -254,7 +258,7 @@
         "collidesTiles": false
       }
     },
-    {
+    /*{
       "controllable": false,
       "autoTarget": false,
       "shootOnDeath": true,
@@ -415,6 +419,6 @@
         "absorbable": false,
         "reflectable": false
       }
-    }
+    }*/
   ]
 }

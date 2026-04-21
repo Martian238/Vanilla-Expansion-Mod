@@ -1,4 +1,5 @@
 {
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress" ],
-  "immunities": [ "dusty","melting","frozen" ]
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
+  "databaseTag": "02serpulo-ground-unit",
+  "immunities": {"add":[ "dusty","melting","frozen" ]}
 }

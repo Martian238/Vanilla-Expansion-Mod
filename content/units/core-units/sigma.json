@@ -1,5 +1,6 @@
 {
   //"type": "flying",
+  "databaseTag": "01core-unit",
   "researchCostMultiplier": 0,
   "isEnemy": false,
   "lowAltitude": true,
@@ -31,7 +32,7 @@
   ],
   "immunities": [ "frozen" ],
   "lightColor": "ffd37f",
-  "shownPlanets": [ "cyclant","phoon","maress" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
   "weapons": [
     {
       "name": "sigma-weapon",

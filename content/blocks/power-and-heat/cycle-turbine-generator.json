@@ -16,7 +16,9 @@
       "optional": false,
       "booster": true
     },
-    "item": "coal"
+    "itemFlammable": {
+      "minFlammability": 1
+    }
   },
   "drawer": {
     "type": "DrawMulti",
@@ -44,5 +46,11 @@
     "parent": "melon-cell"
   },
   "researchCostMultiplier": 0.01,
-  "shownPlanets": [ "sitrullus","maress" ]
+  "shownPlanets": [ "sitrullus","maress" ],
+  "itemDurationMultipliers": {
+    "plant-matter": 0.75,
+    "nitroalkoss": 2,//0.9
+    "reflector-matter": 0.75,
+    "pyratite": 3
+  }
 }

@@ -1,5 +1,6 @@
 {
   "type": "hover",
+  "databaseTag": "08cyclant-newtype-unit",
   "hovering": true,
   "health": 700,
   "armor": 4,

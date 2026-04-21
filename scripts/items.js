@@ -29,4 +29,12 @@ newItem("astro-plate");
 newItem("phecteel");
 
 newItem("melon-dirt");
-newItem("sugar")
+newItem("sugar");
+newItem("dense-melon-dirt");
+newItem("crystallon");
+newItem("mect-complex");
+
+newItem("motiphite");
+newItem("technolite");
+newItem("chrysopite");
+newItem("finallite");

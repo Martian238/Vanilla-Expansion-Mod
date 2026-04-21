@@ -5,7 +5,11 @@
   "research": {
     "parent": "core-singularity-root",
     "objectives": [
-      "core-singularity"
+      "core-singularity",
+      {
+        "type": "SectorComplete",
+        "preset": "retreat-zone"
+      }
     ]
   },
   "overrideLaunchDefaults": true,

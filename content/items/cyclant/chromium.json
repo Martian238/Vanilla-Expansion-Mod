@@ -4,5 +4,6 @@
   "healthScaling": 1.1,
   "cost": 1.3,
   "research": "aluminium",
-  "shownPlanets": [ "cyclant","maress","phoon" ]
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ],
+  "databaseTag": "basic-item"
 }

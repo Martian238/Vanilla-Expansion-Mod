@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "09cyclant-strengthened-unit",
   "research": {
     "parent": "square",
     "objectives": [ "assemble-selector3","super-assembler" ],

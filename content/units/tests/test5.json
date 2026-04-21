@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "13other-unit",
   "researchCostMultiplier": 0,
   "alwaysUnlocked": true,
   "isEnemy": false,

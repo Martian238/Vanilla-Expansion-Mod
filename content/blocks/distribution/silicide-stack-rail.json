@@ -23,5 +23,6 @@
   "flammabilityScale": 0,
   "explosivenessScale": 1.5,
   "shownPlanets": [ "cyclant","maress","sitrullus","phoon" ],
-  "dumpTime": 1
+  "dumpTime": 1,
+  "recharge": 1
 }

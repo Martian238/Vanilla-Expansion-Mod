@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "12lacuna-unit",
   "flying": true,
   "lowAltitude": false,
   "hitSize": 12,
@@ -15,7 +16,7 @@
   "strafePenalty": 1,
   "itemCapacity": 10,
   "payloadCapacity": 256,
-  "immunities": [ "blown","plasma-status","dusty","frozen","melting","fusing","corroded" ],
+  "immunities": [ "blown","plasma-status","dusty","frozen","melting","fusing","corroded","plasma-status-orange" ],
   "lightColor": "00ffce",
   "alwaysShootWhenMoving": true,
   "buildSpeed": 1.5,
@@ -26,6 +27,7 @@
   "research": {
     "parent": "shimmer"
   },
+  "shownPlanets": [ "maress","thavina" ],
   "range": 240,
   "abilities": [
     {

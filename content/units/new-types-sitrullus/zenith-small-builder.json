@@ -1,5 +1,6 @@
 {
   "health": 200,
+  "databaseTag": "13sitrullus-zenith-small-unit",
   "speed": 1.9,
   "accel": 0.04,
   "drag": 0.02,

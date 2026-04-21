@@ -1,0 +1,8 @@
+{
+  "type": "Floor",
+  "variants": 4,
+  "attributes": {
+    "water": -0.3
+  },
+  "wall": "antigrass-wall"
+}

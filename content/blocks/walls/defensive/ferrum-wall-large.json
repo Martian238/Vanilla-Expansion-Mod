@@ -7,7 +7,7 @@
   "researchCost": [ "ferrum/24" ],
   "crushDamageMultiplier": 0.2,
   "research": "ferrum-wall",
-  "armor": 4,
+  "armor": 6,
   "insulated": true,
   "hasPower": true,
   "shownPlanets": [ "sitrullus","maress" ]

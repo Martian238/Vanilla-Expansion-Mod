@@ -13,15 +13,15 @@
   "useUnitCap": false,
   "drawSoftShadow": false,
   "drawMinimap": false,
-  "speed": 2,
+  "speed": 4.2,
   "health": 700,
   "armor": 5,
-  "accel": 0.08,
-  "drag": 0.032,
+  "accel": 0.1,
+  "drag": 0.05,
   "deathSound": "none",
   "deathExplosionEffect": "none",
   "deathShake": 0,
-  "bounded": false,
+  "bounded": true,
   "lightRadius": 0,
   "engineSize": 0,
   "drawBody": false,
@@ -29,6 +29,11 @@
   "buildBeamOffset": 0,
   "buildSpeed": 5,
   "hidden": true,
+  "strafePenalty": 1,
+  "immunities": [ "sentry-seen" ],
+  "canAttack": false,
+  "faceTarget": false,
+  "range": 0,
   "weapons": [
     {
       "x": 0,
@@ -36,6 +41,7 @@
       "minWarmup": 2,
       "shootY": 0,
       "mirror": false,
+      "noAttack": true,
       "bullet": { "maxRange": 1600 }
     }
   ]

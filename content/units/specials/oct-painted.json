@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "10special-unit",
   "armor": 20,
   "health": 100000,
   "speed": 1.2,

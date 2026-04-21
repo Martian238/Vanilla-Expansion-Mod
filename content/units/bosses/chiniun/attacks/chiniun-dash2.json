@@ -1,0 +1,248 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": false,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": false,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "missileAccelTime": 0,
+  "speed": 10,
+  "health": 999999,
+  "armor": 0,
+  "deathSound": "none",
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "bounded": false,
+  "lightRadius": 0,
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "hidden": true,
+  "loopSound": "loopMissileTrail",
+  "loopSoundVolume": 1,
+  "type": "missile",
+  "lifetime": 60,
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "targetAir": false,
+  "targetGround": true,
+  "parts": [
+    {
+      "type": "EffectSpawnerPart",
+      "width": 16,
+      "height": 0,
+      "y": -16,
+      "effectChance": 1,
+      "useProgress": false,
+      "effect": [
+          {
+            "type": "ParticleEffect",
+            "particles": 10,
+            "lifetime": 30,
+            "sizeFrom": 6,
+            "sizeTo": 0,
+            "colorFrom": "ffa665",
+            "colorTo": "f2555500",
+            "length": 0,
+            "baseLength": 8,
+            "layer": 100,
+            "interp": "pow3Out",
+            "clip": 880
+          },
+          {
+            "type": "ParticleEffect",
+            "particles": 5,
+            "lifetime": 30,
+            "sizeFrom": 4,
+            "sizeTo": 0,
+            "colorFrom": "ffffff",
+            "colorTo": "ffa66500",
+            "length": 0,
+            "baseLength": 5,
+            "layer": 100.1,
+            "interp": "pow3Out",
+            "clip": 880
+          }
+      ]
+    },
+              {
+                "type": "RegionPart",
+                "name": "ve-charge-arc",
+                "outline": false,
+                "layer": 100,
+                "xScl": 0.4,
+                "yScl": 0.4,
+                "color": "f2555500",
+                "colorTo": "f25555",
+                "progress": {
+                  "type": "life",
+                  "ops": [
+                    {
+                      "op": "inv",
+                      //"interp": "slope"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow3Out"
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "rot": 360,
+                    "progress": {
+                      "type": "time",
+                      "op": "loop",
+                      "time": 15
+                    }
+                  }
+                ],
+                "y": 0
+              }
+  ],
+  "weapons": [
+    {
+      "alwaysShooting": true,//start effect
+      "recoil": 0,
+      "y": 0,
+      "recoilTime": 60,
+      "recoilPow": 2,
+      "reload": 3605,
+      "mirror": false,
+      "x": 0,
+      "shootY": 0,
+      "shootSound": "shootBeamPlasmaSmall",
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "shootSoundVolume": 2,
+      "shake": 8,
+      "bullet": {
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": [
+          {
+            "type": "WaveEffect",
+            "strokeFrom": 2,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 64,
+            "lifetime": 10,
+            "colorFrom": "f25555",
+            "colorTo": "f25555",
+            "sides": 24
+          }
+        ],
+        "smokeEffect": "none"
+      }
+    },
+    {
+      "alwaysShooting": true,//car
+      "recoil": 0,
+      "y": 0,
+      "recoilTime": 10,
+      "recoilPow": 1,
+      "reload": 1,
+      "mirror": false,
+      "x": 0,
+      "shootY": 0,
+      "shootSound": "none",
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "shootSoundVolume": 1,
+      "shake": 1,
+      "bullet": {
+        "lifetime": 3,
+        "hitSize": 24,
+        "speed": 13,
+        "keepVelocity": false,
+        "impact": true,
+        "knockback": 40,
+        "damage": 80,
+        "hitShake": 8,
+        "hitEffect": "hitLaserBlast",
+        "hittable": false,
+        "hitSound": "massdriver",
+        "reflectable": false,
+        "despawnHit": false,
+        "hitColor": "f25555",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "frontColor": "00000000",
+        "backColor": "00000000"
+      }
+    },
+    {
+      "alwaysShooting": true,//orbs
+      "recoil": 0,
+      "y": 0,
+      "recoilTime": 10,
+      "recoilPow": 1,
+      "reload": 5,
+      "mirror": false,
+      "x": 0,
+      "shootY": -16,
+      "shootSound": "none",
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "shootSoundVolume": 1,
+      "shake": 1,
+      "controllable": false,
+      "shootCone": 361,
+      "bullet": {
+        "speed": 0,
+        "keepVelocity": false,
+        "sprite": "circle-bullet",
+        "frontColor": "f25555",
+        "backColor": "f2555580",
+        "width": 12,
+        "height": 12,
+        "shrinkY": -0.1,
+        "shrinkX": -0.1,
+        "lifetime": 90,
+        "hitSize": 12,
+        "splashDamage": 100,
+        "splashDamageRadius": 32,
+        "damage": 100,
+        "despawnSound": "explosionArtilleryShock",
+        "hitSound": "explosionArtilleryShock",
+        "hitShake": 3,
+        "despawnShake": 2,
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",
+          "waveColor": "f25555",
+          "smokeColor": "f2555580",
+          "sparkColor": "f25555",
+          "sparks": 10,
+          "smokeRad": 32,
+          "waveRad": 32,
+          "waveStroke": 2,
+          "sparkLen": 10,
+          "smokes": 8
+        },
+        "intervalBullet": {
+          "type": "LightningBulletType",
+          "lightningLength": 4,
+          "lightningLengthRand": 2,
+          "lightningColor": "f25555",
+          "damage": 12,
+          "hitColor": "f25555",
+          "createChance": 0.5
+        },
+        "bulletInterval": 5
+      }
+    }
+  ]
+}

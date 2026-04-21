@@ -4,5 +4,6 @@
   "cost": 1.6,
   "research": "quartz",
   "flammability": -1,
-  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus" ]
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus","thavina" ],
+  "databaseTag": "processed-item"
 }

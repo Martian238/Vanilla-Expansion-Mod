@@ -3,5 +3,6 @@
   "lowPriority": true,
   "cost": 0.9,
   "hardness": 7,
-  "research": "ferrum"
+  "research": "ferrum",
+  "databaseTag": "natural-item"
 }

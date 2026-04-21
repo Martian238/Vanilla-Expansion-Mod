@@ -44,7 +44,8 @@
         "sizeInterp": "circleOut",
         "length": 0,
         "particles": 1,
-        "lifetime": 150
+        "lifetime": 150,
+        "clip": 1000
       },
         {
           "particles": 1,
@@ -59,7 +60,8 @@
           "length": 0,
           "baseLength": 0,
           "lightColor": "ffa665",
-          "layer": 120
+          "layer": 120,
+          "clip": 1000
         }
           ]
           },
@@ -98,7 +100,8 @@
           "lifetime": 180,
           "waveRad": 256,
           "waveLife": 10,
-          "smokes": 55
+          "smokes": 55,
+          "clip": 1000
         },
       {
         "type": "WaveEffect",
@@ -110,7 +113,8 @@
         "lifetime": 40,
         "strokeFrom": 16,
         "strokeTo": 16,
-        "startDelay": 0
+        "startDelay": 0,
+        "clip": 1000
       },
       {
         "type": "ParticleEffect",
@@ -121,7 +125,8 @@
         "sizeInterp": "circleIn",
         "length": 64,
         "particles": 8,
-        "lifetime": 120
+        "lifetime": 120,
+        "clip": 1000
       },
         {
           "type": "ExplosionEffect",
@@ -137,7 +142,8 @@
           "smokeRad": 64,
           "lifetime": 80,
           "waveRad": 56,
-          "smokes": 30
+          "smokes": 30,
+          "clip": 1000
         },
         {
           "particles": 1,
@@ -152,7 +158,8 @@
           "length": 0,
           "baseLength": 0,
           "lightColor": "ffa665",
-          "layer": 120
+          "layer": 120,
+          "clip": 1000
         }
     ]
         },

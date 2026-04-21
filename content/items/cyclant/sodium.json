@@ -6,4 +6,5 @@
   "flammability": 0.6,
   "research": "salt",
   "shownPlanets": [ "cyclant","phoon","maress" ],
+  "databaseTag": "basic-item"
 }

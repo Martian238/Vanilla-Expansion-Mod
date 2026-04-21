@@ -1,0 +1,33 @@
+{
+  "type": "Reconstructor",
+  "category": "units",
+  "requirements": [
+    "aluminium/240","lead/150","silicon/90","chromium/60"
+  ],
+  "size": 3,
+  "upgrades": [
+    [ "blade","hammer" ],
+    [ "stardust","vortex" ],
+    [ "aurora","plasma" ],
+    [ "point","line" ],
+    [ "lance","hoe" ]
+  ],
+  "consumes": {
+    "power": 4,
+    "items": {
+      "items": [ "silicon/90","graphite/70","metaglass/40" ]
+    }
+  },
+  "constructTime": 1500,
+  "research": {
+    "parent": "isomorphic-additive-reconstructor",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "unit-laboratory"
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+  //"regionSuffix": "-rail"
+}

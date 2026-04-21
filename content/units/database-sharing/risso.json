@@ -1,4 +1,5 @@
 {
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress" ],
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
+  "databaseTag": "04serpulo-naval-unit",
   "itemCapacity": 160
 }

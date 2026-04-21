@@ -27,11 +27,20 @@
   "lightDstFrom": 0.25,
   "lightDstTo": 0.85,
   "research": {
-    "parent": "interplanetary-accelerator"
+    "parent": "interplanetary-accelerator",
+    "objectives": [
+      "interplanetary-accelerator",
+      "core-nucleus",
+      {
+        "type": "SectorComplete",
+        "preset": "planetaryTerminal"
+      }
+    ]
   },
   "defaultCore": "isomorphic-core-shard",
+  //"icon": "ve-planet-cyclant",
   "sectorSeed": 0,
-  "alwaysUnlocked": true,
+  "alwaysUnlocked": false,
   "startSector": 170,
   "sectorSize": 3.75,
   "clearSectorOnLose": true,

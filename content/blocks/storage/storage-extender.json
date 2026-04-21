@@ -15,5 +15,14 @@
   "buildCostMultiplier": 0.5,
   "armor": 8,
   "drawTeamOverlay": false,
-  "shownPlanets": [ "sitrullus","maress" ]
+  "shownPlanets": [ "sitrullus","maress" ],
+  "connectedPower": true,
+  "conductivePower": true,
+  "hasPower": true,
+  "consumes": {
+    "powerBuffered": 10000
+  },
+  "outputsPower": true,
+  "consumesPower": true,
+  "enableDrawStatus": false
 }

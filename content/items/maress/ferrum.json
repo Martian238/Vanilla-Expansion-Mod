@@ -3,6 +3,7 @@
   "hardness": 3,
   "healthScaling": 0.8,
   "cost": 0.4,
-  "shownPlanets": [ "maress","sitrullus" ],
-  "research": "red-soil"
+  "shownPlanets": [ "maress","sitrullus","thavina" ],
+  "research": "red-soil",
+  "databaseTag": "basic-item"
 }

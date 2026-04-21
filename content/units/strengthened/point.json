@@ -1,5 +1,6 @@
 {
   //"type": "flying",
+  "databaseTag": "09cyclant-strengthened-unit",
   "research": {
     "parent": "aurora",
     "objectives": [ 
@@ -36,7 +37,9 @@
   "mineSpeed": 9,
   "mineWalls": true,
   "mineRange": 120,
-  "mineItems": [ "copper","lead","aluminium","titanium","cobalt","quartz","silver","ferrum","beryllium" ],
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
   "targetable": false,
   "lightColor": "98ffa9",
   "immunities": [ "frozen","disarmed" ],

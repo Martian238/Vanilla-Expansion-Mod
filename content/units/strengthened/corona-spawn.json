@@ -1,6 +1,7 @@
 {
   "type": "missile",
   "template": "MissileUnitType",
+  "databaseTag": "09cyclant-strengthened-unit",
   "lifetime": 120,
   "flying": true,
   "isEnemy": false,
@@ -19,7 +20,7 @@
   "accel": 1,
   "engineSize": 0,
   "immunities": [ "blown" ],
-  "hidden": false,
+  "hidden": true,
   "alwaysUnlocked": true,
   "deathShake": 20,
   "drawShields": false,

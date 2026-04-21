@@ -1,0 +1,14 @@
+{
+  "type": "PayloadConveyor",
+  "requirements": [ "aluminium/30","graphite/40" ],
+  "category": "units",
+  "size": 5,
+  "research": {
+    "parent": "payload-rail-router"
+  },
+  "canOverdrive": true,
+  "payloadLimit": 5,
+  "moveTime": 60,
+  "moveForce": 335,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

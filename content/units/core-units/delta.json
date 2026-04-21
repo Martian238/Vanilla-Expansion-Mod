@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "databaseTag": "01core-unit",
   "researchCostMultiplier": 0,
   "isEnemy": false,
   "lowAltitude": true,
@@ -30,7 +31,7 @@
     "repair","storage"
   ],
   "immunities": [ "frozen" ],
-  "shownPlanets": [ "cyclant","phoon" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
   "weapons": [
     {
       "type": "BuildWeapon",
@@ -73,7 +74,7 @@
         "lifetime": 95,
         "shootEffect": "shootBig",
         "smokeEffect": "shootBigSmoke",
-        "armoeMultiplier": 0.3,
+        "armorMultiplier": 0.3,
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [

@@ -29,5 +29,6 @@
   "underBullets": true,
   "thrusterLength": 0,
   "landSound": "none",
-  "requirements": [ "ferrum/3000","silver/1000","silicon/1000" ]
+  "requirements": [ "ferrum/3000","silver/1000","silicon/1000" ],
+  "enableDrawStatus": false
 }

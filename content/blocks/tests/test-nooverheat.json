@@ -5,10 +5,458 @@
   "overheatScale": -1,
   "maxEfficiency": 1,
   "consumes": {
-    "items": [ "copper/1" ]
+    "items": [ "copper/4" ]
   },
-  "outputItems": [ "lead/1" ],
-  "craftTime": 15,
+  "outputItems": [ "lead/4" ],
+  "craftTime": 60,
   "alwaysUnlocked": true,
-  "size": 3
+  "size": 3,
+  "ambientSound": "carrionNuclearGenerator",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawRegion",
+        "name": "ve-surge-ring",
+        "spinSprite": true,
+        "rotateSpeed": -20
+      },
+      {
+        "type": "DrawBlockParts",
+        "parts": [
+          {
+            "type": "ShapePart",
+            "x": 4,
+            "moveX": 16,
+            "progress": "warmup",
+            "color": "f25555",
+            "radius": 4,
+            "layer": 99.99,
+            "clampProgress": false
+          },
+          {
+            "type": "ShapePart",
+            "y": 4,
+            "moveY": 16,
+            "progress": {
+              "type": "reload",
+              "op": "curve",
+              "interp": "sine"
+            },
+            "color": "90dbff",
+            "radius": 4,
+            "layer": 99.99
+          },
+          {
+            "type": "RegionPart",
+            "name": "ve-blade"
+            "y": -12,
+            "clampProgress": false,
+            "children": [
+              {
+                "type": "EffectSpawnerPart",
+                "progress": {
+                  "type": "warmup",
+                  "op": "compress",
+                  "start": 0.75,
+                  "end": 1
+                },
+                "height": 2,
+                "effectChance": 1,
+                "rotation": 0,
+                "x": -6,
+                "y": 2,
+                "effect": {
+                  "type": "RadialEffect",
+                  "amount": 1,
+                  "effectRotationOffset": 80,
+                  "effect": {
+                  "type": "ParticleEffect",
+                  "line": true,
+                  "lenFrom": 4,
+                  "lenTo": 0,
+                  "strokeFrom": 0.5,
+                  "strokeTo": 0.5,
+                  "colorFrom": "f3e979",
+                  "colorTo": "ffa665",
+                  "lifetime": 30,
+                  "length": 30,
+                  "cone": 15,
+                  "particles": 1,
+                  "interp": "pow3Out",
+                  "randLength": false,
+                  "baseLength": 0.01
+                }}
+              }
+            ],
+            "moves": [
+            {
+            "x": 0.75,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.353,
+                        "scl": 1.414,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.288,
+                        "scl": 1.732,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.318,
+                        "scl": 3.142,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.363,
+                        "scl": 2.758,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.404,
+                        "scl": 1.225,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.308,
+                        "scl": 3.250,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            },
+            {
+            "y": 0.5,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.501,
+                        "scl": 1.997,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.494,
+                        "scl": 2.026,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.170,
+                        "scl": 5.870,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.108,
+                        "scl": 9.220,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.350,
+                        "scl": 2.857,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.574,
+                        "scl": 1.742,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            }
+            ],
+            "rotation": 0
+          },
+          {
+            "type": "RegionPart",
+            "name": "ve-blade"
+            "y": 12,
+            "clampProgress": false,
+            "children": [
+              {
+                "type": "EffectSpawnerPart",
+                "progress": {
+                  "type": "warmup",
+                  "op": "compress",
+                  "start": 0.75,
+                  "end": 1
+                },
+                "height": 2,
+                "effectChance": 1,
+                "rotation": 0,
+                "x": -6,
+                "y": 2,
+                "effect": {
+                  "type": "RadialEffect",
+                  "amount": 1,
+                  "effectRotationOffset": 80,
+                  "effect": {
+                  "type": "ParticleEffect",
+                  "line": true,
+                  "lenFrom": 4,
+                  "lenTo": 0,
+                  "strokeFrom": 0.5,
+                  "strokeTo": 0.5,
+                  "colorFrom": "f3e979",
+                  "colorTo": "ffa665",
+                  "lifetime": 30,
+                  "length": 30,
+                  "cone": 15,
+                  "particles": 1,
+                  "interp": "pow3Out",
+                  "randLength": false,
+                  "baseLength": 0.01
+                }}
+              }
+            ],
+            "moves": [
+            {
+            "x": 0.75,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.353,
+                        "scl": 1.236,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.288,
+                        "scl": 1.645,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.318,
+                        "scl": 3.162,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.363,
+                        "scl": 2.671,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.404,
+                        "scl": 1.744,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.308,
+                        "scl": 3.019,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            },
+            {
+            "y": 0.5,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.501,
+                        "scl": 1.023,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.494,
+                        "scl": 2.007,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.170,
+                        "scl": 5.240,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.108,
+                        "scl": 4.210,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.350,
+                        "scl": 2.832,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.574,
+                        "scl": 1.234,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            }
+            ],
+            "rotation": 180
+          },
+          {
+            "type": "RegionPart",
+            "name": "ve-zenith-missiles"
+            "y": 0,
+            "clampProgress": false,
+            "moves": [
+            {
+            "y": 0.25,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.501,
+                        "scl": 1.019,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.494,
+                        "scl": 0.949,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.170,
+                        "scl": 2.680,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.108,
+                        "scl": 1.295,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.350,
+                        "scl": 0.801,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.574,
+                        "scl": 1.505,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            }
+            ],
+            "rotation": 90
+          }
+        ]
+      }
+    ]
+  },
+  "category": "crafting"
 }

@@ -24,5 +24,6 @@
   "allowRectanglePlacement": true,
   "shownPlanets": [ "serpulo","cyclant","maress","phoon" ],
   "destroySound": "blockExplodeWall",
-  "destroySoundVolume": 1
+  "destroySoundVolume": 1,
+  //"ignoreResizeConfig": false
 }
