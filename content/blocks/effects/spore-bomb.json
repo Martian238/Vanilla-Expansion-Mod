@@ -1,5 +1,5 @@
 {
-  "type": "PowerTurret",
+  //"type": "PowerTurret",
   "requirements": [ "spore-pod/20" ],
   "size": 2,
   "category": "effect",

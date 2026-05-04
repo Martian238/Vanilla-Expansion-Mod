@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "requirements": [ "ferrum/20","silver/10","spore-pod/10" ],
   "category": "power",
   "powerProduction": 2.25,

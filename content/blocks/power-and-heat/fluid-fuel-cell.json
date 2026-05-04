@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "requirements": [ "graphite/55","metaglass/15","chromium/40","catalyzon/20" ],
   "research": {
     "parent": "solid-fuel-cell",

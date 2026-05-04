@@ -1,5 +1,5 @@
 {
-  "type": "Drill",
+  //"type": "Drill",
   "category": "production",
   "requirements": [ "ferrum/20" ],
   "researchCost": [ "ferrum/20" ],

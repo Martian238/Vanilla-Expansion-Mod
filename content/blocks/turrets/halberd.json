@@ -1,5 +1,5 @@
 {
-  "type": "PowerTurret",
+  //"type": "PowerTurret",
   "requirements": [ "cobalt/90","graphite/70","silicon/55","aluminium/80" ],
   "category": "turret",
   "size": 3,

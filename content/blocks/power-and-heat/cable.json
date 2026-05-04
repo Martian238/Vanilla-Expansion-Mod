@@ -1,5 +1,5 @@
 {
-  "type": "TileableLogicDisplay",
+  //"type": "TileableLogicDisplay",
   "requirements": [ "silver/1" ],
   "maxDisplayDimensions": 400,
   "research": "core-nucleus-root-sitrullus",
@@ -16,7 +16,7 @@
   "underBullets": true,
   "solid": false,
   "group": "power",
-  "color": 0,
+  //"color": 0,
   "drawDisabled": true,
   "consumes": { "power": 0 }
 }

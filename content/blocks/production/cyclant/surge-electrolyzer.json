@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [
     "graphite/100","metaglass/50","chromium/100","surge-alloy/250"
   ],

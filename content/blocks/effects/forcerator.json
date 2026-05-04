@@ -1,5 +1,5 @@
 {
-  "type": "ForceProjector",
+  //"type": "ForceProjector",
   "category": "effect",
   "radius": 200,
   "phaseShieldBoost": 2000,

@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "aluminium/24" ],
   "category": "defense",
   "research": "aluminium-wall",

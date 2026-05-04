@@ -1,5 +1,5 @@
 {
-  "type": "LiquidBridge",
+  //"type": "LiquidBridge",
   "requirements": [ "metaglass/6","graphite/4","titanium/6","silicide/6" ],
   "category": "liquid",
   "health": 370,

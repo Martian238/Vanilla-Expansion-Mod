@@ -1,5 +1,5 @@
 {
-  "type": "BaseShield",
+  //"type": "BaseShield",
   "requirements": [ "phase-fabric/12","silicon/45","thorium/36","silicide/54" ],
   "radius": 14,
   "sides": 4,

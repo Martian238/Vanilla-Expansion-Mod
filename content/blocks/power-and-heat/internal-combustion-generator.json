@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "category": "power",
   "requirements": [
     "chromium/30","graphite/15","lead/15"

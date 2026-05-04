@@ -1,5 +1,5 @@
 {
-  "type": "LiquidJunction",
+  //"type": "LiquidJunction",
   "requirements": [ "aluminium/12","graphite/4" ],
   "health": 40,
   "category": "liquid",

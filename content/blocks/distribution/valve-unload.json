@@ -1,5 +1,5 @@
 {
-  "type": "Unloader",
+  //"type": "Unloader",
   "category": "distribution",
   "requirements": [
     "ferrum/15","silicon/15"

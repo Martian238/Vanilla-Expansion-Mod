@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "cobalt/300","silicon/550","thorium/250","phase-fabric/300","graphite/150","quartz/100" ],
   "category": "crafting",
   "size": 4,
@@ -89,7 +89,7 @@
     "objectives": [
       {
         "type": "OnSector",
-        "preset": "cross-forest"
+        "preset": "warp-tech-base"
       }
     ]
   },

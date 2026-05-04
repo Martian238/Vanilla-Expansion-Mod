@@ -1,5 +1,5 @@
 {
-  "type": "LiquidRouter",
+  //"type": "LiquidRouter",
   "requirements": [ "aluminium/8","graphite/4" ],
   "category": "liquid",
   "health": 40,

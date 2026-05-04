@@ -1,5 +1,5 @@
 {
-  "type": "Router",
+  //"type": "Router",
   "requirements": [ "plastanium/14","quartz/28","aluminium/57" ],
   "category": "effect",
   "research": "mend-point",

@@ -1,0 +1,56 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": false,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": false,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "speed": 0,
+  "health": 999999,
+  "armor": 0,
+  "deathSound": "none",
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "bounded": false,
+  "lightRadius": 0,
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "hidden": true,
+  "loopSound": "none",
+  "type": "missile",
+  "lifetime": 2,
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "targetAir": false,
+  "targetGround": false,
+  "weapons": [
+  ],
+  "abilities": [
+    {
+      "type": "StatusFieldAbility",
+      "range": 400,
+      "reload": 1,
+      "duration": 60,
+      "effect": "gatling-accel8",
+      "color": "ff5555"
+    },
+    {
+      "type": "StatusFieldAbility",
+      "range": 400,
+      "reload": 1,
+      "duration": 2,
+      "effect": "watermelon",
+      "color": "ff5555"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "aluminium/54","silicide/36" ],
   "category": "defense",
   "research": "silicide-aluminium-wall-large",

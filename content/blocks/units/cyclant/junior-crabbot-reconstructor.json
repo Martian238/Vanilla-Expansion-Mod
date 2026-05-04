@@ -1,5 +1,5 @@
 {
-  "type": "Reconstructor",
+  //"type": "Reconstructor",
   "category": "units",
   "size": 3,
   "requirements": [ "aluminium/220","graphite/110","silicon/90" ],

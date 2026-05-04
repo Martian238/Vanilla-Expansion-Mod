@@ -1,5 +1,5 @@
 {
-  "type": "BeamDrill",
+  //"type": "BeamDrill",
   "requirements": [ "aluminium/10","quartz/8" ],
   "category": "production",
   "drillTime": 240,

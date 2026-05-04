@@ -1,5 +1,5 @@
 {
-  "type": "ThermalGenerator",
+  //"type": "ThermalGenerator",
   "requirements": [ "aluminium/40","graphite/35","lead/50","silicide/40","silicon/35" ],
   "category": "power",
   "powerProduction": 1.8,

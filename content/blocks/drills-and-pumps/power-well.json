@@ -1,5 +1,5 @@
 {
-  "type": "SolidPump",
+  //"type": "SolidPump",
   "category": "production",
   "requirements": [ "aluminium/20","metaglass/40","graphite/35" ],
   "result": "water",

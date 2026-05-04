@@ -1,5 +1,5 @@
 {
-  "type": "SolarGenerator",
+  //"type": "SolarGenerator",
   "category": "power",
   "requirements": [ "aluminium/5","catalyzon/10" ],
   "powerProduction": 0.8,

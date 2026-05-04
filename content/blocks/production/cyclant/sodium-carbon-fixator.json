@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "metaglass/35","chromium/50","catalyzon/10" ],
   "size": 2,
   "category": "crafting",

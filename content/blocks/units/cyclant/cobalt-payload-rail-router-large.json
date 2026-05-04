@@ -1,5 +1,5 @@
 {
-  "type": "PayloadRouter",
+  //"type": "PayloadRouter",
   "requirements": [ "aluminium/30","graphite/75","lead/50","cobalt/50" ],
   "category": "units",
   "size": 5,

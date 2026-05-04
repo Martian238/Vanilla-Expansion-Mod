@@ -1,5 +1,5 @@
 {
-  "type": "Battery",
+  //"type": "Battery",
   "requirements": [ "aluminium/6","lead/25" ],
   "consumes": {
     "powerBuffered": 5000

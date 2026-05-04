@@ -8,5 +8,6 @@
   "temperature": 0.4,
   "databaseTag": "liquid-fluid",
   "research": "melon-dirt",
-  "shownPlanets": [ "sitrullus" ]
+  "shownPlanets": [ "sitrullus" ],
+  "canStayOn": [ "water","melon-water-corrupted" ]
 }

@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "graphite/100","metaglass/40","silicon/35" ],
   "category": "crafting",
   "outputItems": [

@@ -1,5 +1,5 @@
 {
-  "type": "ItemSource",
+  //"type": "ItemSource",
   "category": "distribution",
   "buildVisibility": "sandboxOnly",
   "alwaysUnlocked": true,

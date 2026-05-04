@@ -1,5 +1,5 @@
 {
-  "type": "ItemTurret",
+  //"type": "ItemTurret",
   "requirements": [ "thorium/90","chromium/60","graphite/50","silicon/70" ],
   "category": "turret",
   "size": 3,

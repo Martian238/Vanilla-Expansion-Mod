@@ -1,5 +1,5 @@
 {
-  "type": "Unloader",
+  //"type": "Unloader",
   "category": "distribution",
   "size": 3,
   "health": 500,

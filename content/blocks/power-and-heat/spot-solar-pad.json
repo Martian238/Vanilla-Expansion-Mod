@@ -1,5 +1,5 @@
 {
-  "type": "SolarGenerator",
+  //"type": "SolarGenerator",
   "category": "power",
   "requirements": [ "aluminium/30","reflector-matter/15","silicon/10" ],
   "powerProduction": 2,

@@ -1,5 +1,5 @@
 {
-  "type": "OverflowGate",
+  //"type": "OverflowGate",
   "requirements": [ "ferrum/4","silicon/1" ],
   "category": "distribution",
   "health": 120,

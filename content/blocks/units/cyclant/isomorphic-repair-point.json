@@ -1,5 +1,5 @@
 {
-  "type": "RepairTurret",
+  //"type": "RepairTurret",
   "category": "units",
   "research": {
     "parent": "mend-point",

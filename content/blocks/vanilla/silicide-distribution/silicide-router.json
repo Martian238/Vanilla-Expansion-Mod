@@ -1,5 +1,5 @@
 {
-  "type": "Router",
+  //"type": "Router",
   "requirements": [ "copper/6","silicide/3" ],
   "category": "distribution",
   "health": 370,

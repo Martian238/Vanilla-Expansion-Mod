@@ -1,5 +1,5 @@
 {
-  "type": "BufferedItemBridge",
+  //"type": "BufferedItemBridge",
   "requirements": [ "copper/6","lead/6","silicide/6" ],
   "category": "distribution",
   "health": 370,

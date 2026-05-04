@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "thorium/54" ],
   "size": 3,
   "health": 7200,

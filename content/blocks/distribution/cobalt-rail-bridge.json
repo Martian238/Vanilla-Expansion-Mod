@@ -1,5 +1,5 @@
 {
-  "type": "ItemBridge",
+  //"type": "ItemBridge",
   "requirements": [ "cobalt/10","lead/10" ],
   "category": "distribution",
   "health": 150,

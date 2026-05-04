@@ -1,5 +1,5 @@
 {
-  "type": "BurstDrill",
+  //"type": "BurstDrill",
   "category": "production",
   "requirements": [ "chromium/90","graphite/60","silicide/70","silicon/50" ],
   "drillTime": 150,//240

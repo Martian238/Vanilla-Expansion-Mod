@@ -28,7 +28,7 @@
   "landMusic": "none",
   "underBullets": true,
   "thrusterLength": 0,
-  "landSound": "none",
+  "landSound": "carrionLevelStinger",
   "requirements": [ "ferrum/3000","silver/1000","silicon/1000" ],
   "enableDrawStatus": false
 }

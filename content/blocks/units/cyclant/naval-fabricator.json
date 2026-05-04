@@ -1,5 +1,5 @@
 {
-  "type": "UnitFactory",
+  //"type": "UnitFactory",
   "category": "units",
   "requirements": [ "aluminium/180","lead/130","metaglass/120" ],
   "size": 3,

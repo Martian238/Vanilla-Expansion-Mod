@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "explodeOnFull": true,
   "outputLiquid": "sandbox-blast-liquid/100",
   "category": "effect",

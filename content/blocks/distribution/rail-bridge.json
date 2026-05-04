@@ -1,5 +1,5 @@
 {
-  "type": "ItemBridge",
+  //"type": "ItemBridge",
   "requirements": [ "aluminium/8","lead/8" ],
   "category": "distribution",
   "health": 80,

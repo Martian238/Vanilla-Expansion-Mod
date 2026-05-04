@@ -1,5 +1,5 @@
 {
-  "type": "Battery",
+  //"type": "Battery",
   "requirements": [ "silicide/40","silicon/20","graphite/20","lead/80" ],
   "consumes": {
     "power": {

@@ -1,0 +1,20 @@
+{
+  "planet": "phoon",
+  "sector": 3,
+  "difficulty": 1,
+  "research": {
+    "parent": "phoon",
+    "objectives": [
+      "floor-crusher"
+    ]
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 0,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": false,
+  "allowLaunchLoadout": false
+}
+
+
+

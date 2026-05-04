@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "requirements": [ "graphite/40","silicon/20","silicide/30","catalyzon/15" ],
   "research": {
     "parent": "solar-pad",

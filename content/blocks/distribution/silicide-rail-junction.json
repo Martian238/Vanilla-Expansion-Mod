@@ -1,5 +1,5 @@
 {
-  "type": "Junction",
+  //"type": "Junction",
   "requirements": [ "aluminium/2","silicide/1" ],
   "category": "distribution",
   "health": 280,

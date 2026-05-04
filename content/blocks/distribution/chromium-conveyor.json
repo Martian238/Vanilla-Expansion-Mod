@@ -1,5 +1,5 @@
 {
-  "type": "ArmoredConveyor",
+  //"type": "ArmoredConveyor",
   "requirements": [ "chromium/1","lead/1" ]
   "health": 300,
   "armor": 10,

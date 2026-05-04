@@ -1,5 +1,5 @@
 {
-  "type": "Drill",
+  //"type": "Drill",
   "category": "production",
   "requirements": [ "aluminium/80","lead/100","graphite/60","silicide/50" ],
   "research": {

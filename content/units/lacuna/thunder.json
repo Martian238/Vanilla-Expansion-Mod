@@ -112,13 +112,48 @@
         "collides": false,
         "maxRange": 2400,
         "hitEffect": "none",
-        "despawnEffect": "none",
+        "despawnEffect": [
+              {
+                "type": "SoundEffect",
+                "maxVolume": 2,
+                "minVolume": 2,
+                "maxPitch": 1,
+                "minPitch": 1,
+                "effect": "none",
+                "sound": "stAstroExplode"
+              },
+              {
+                "type": "SoundEffect",
+                "maxVolume": 2.5,
+                "minVolume": 2.5,
+                "maxPitch": 1,
+                "minPitch": 1,
+                "effect": "none",
+                "sound": "shootCorvus"
+              }
+        ],
         "shootEffect": "none",
         "smokeEffect": "none",
         "absorbable": false,
         "reflectable": false,
         "hittable": false,
-        "fadeTime": 0
+        "fadeTime": 0,
+        /*"spawnBullets": [
+          {
+            "lifetime": 800,
+            "collides": false,
+            "absorbable": false,
+            "reflectable": false,
+            "hittable": false,
+            "damage": 0,
+            "width": 0,
+            "height": 0,
+            "despawnHit": true,
+            "despawnEffect": "none",
+            "hitEffect": [
+            ]
+          }
+        ]*/
       }
     },
     {

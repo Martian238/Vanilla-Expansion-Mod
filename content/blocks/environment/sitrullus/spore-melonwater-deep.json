@@ -2,7 +2,7 @@
   "type": "Floor",
   "speedMultiplier": 0.1,
   "variants": 3,
-  "liquidDrop": "water",
+  "liquidDrop": "melon-water-corrupted",
   "liquidMultiplier": 1.5,
   "isLiquid": true,
   "status": "wet",

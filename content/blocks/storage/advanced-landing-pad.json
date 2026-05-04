@@ -1,5 +1,5 @@
 {
-  "type": "LandingPad",
+  //"type": "LandingPad",
   "category": "effect",
   "research": {
     "parent": "ve-advanced-launch-pad",

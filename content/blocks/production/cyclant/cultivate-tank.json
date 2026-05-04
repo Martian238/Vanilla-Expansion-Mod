@@ -1,5 +1,5 @@
 {
-  "type": "AttributeCrafter",
+  //"type": "AttributeCrafter",
   "requirements": [ "aluminium/50","lead/45","silicon/25","metaglass/30","silicide/50","spore-pod/5" ],
   "category": "production",
   "outputItem": "spore-pod/8",

@@ -17,3 +17,5 @@ Team.green.hasPalette = true;
 Team.green.ignoreUnitCap = true;
 Team.green.name = "lacuna";
 Planets.tantros.visible = true;
+require("blocks");
+require("sectors");

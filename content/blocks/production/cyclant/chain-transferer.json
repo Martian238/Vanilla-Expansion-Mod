@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [
     "cobalt/100","thorium/90","silicon/130","lead/85","catalyzon/20"
   ],

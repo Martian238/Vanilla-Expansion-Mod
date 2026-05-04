@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "silicide/8","graphite/4" ],
   "category": "defense",
   "research": "aluminium-lead-wall",

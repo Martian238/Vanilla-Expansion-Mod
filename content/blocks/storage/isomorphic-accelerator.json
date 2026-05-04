@@ -1,5 +1,5 @@
 {
-  "type": "Accelerator",
+  //"type": "Accelerator",
   "launchCandidates": [ "cyclant","phoon","serpulo","maress" ],
   "launchBlock": "core-singularity",
   "category": "effect",

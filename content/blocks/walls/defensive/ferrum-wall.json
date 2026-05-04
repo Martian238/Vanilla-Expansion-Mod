@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "ferrum/6" ],
   "category": "defense",
   "health": 550,

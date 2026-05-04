@@ -41,7 +41,7 @@
   "launchCapacityMultiplier": 0.5,
   "launchMusic": "game4",
   "tidalLock": true,
-  "prebuildBase": true,
+  "prebuildBase": false,
   "radius": 0.2,
   "bloom": false,
   "visible": true,

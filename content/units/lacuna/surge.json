@@ -92,7 +92,7 @@
       "y": -2,
       "rotate": false,
       "recoil": 1,
-      "reload": 50,
+      "reload": 35,//50
       "mirror": true,
       "ejectEffect": "none",
       "shootSound": "lbp3SearchlightEdited",
@@ -104,7 +104,7 @@
       "shoot": {
         "type": "ShootBarrel"
         "shots": 2,
-        "shotDelay": 12,
+        "shotDelay": 8,
         "barrels": [ 0,0,0,0,0,-30 ]
       },
       "recoilTime": 20,

@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "aluminium/80","lead/40","graphite/50","silicon/35" ],
   "category": "crafting",
   "craftEffect": "mineBig",

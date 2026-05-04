@@ -1,5 +1,5 @@
 {
-  "type": "PowerTurret",
+  //"type": "PowerTurret",
   "requirements": [ "astro-plate/300","thorium/1000","phecteel/200","silicon/200" ],
   "category": "effect",
   "shootType": {

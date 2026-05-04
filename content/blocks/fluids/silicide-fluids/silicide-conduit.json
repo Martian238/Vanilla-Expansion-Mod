@@ -1,10 +1,10 @@
 {
-  "type": "Conduit",
+  //"type": "Conduit",
   "requirements": [ "metaglass/1","titanium/1","silicide/1" ],
   "category": "liquid",
   "health": 280,
   "armor": 16,
-  "liquidCapacity": 16,
+  "liquidCapacity": 70,
   "liquidPressure": 1.025,
   "research": {
     "parent": "pressure-conduit"

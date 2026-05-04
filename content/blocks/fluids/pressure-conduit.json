@@ -1,5 +1,5 @@
 {
-  "type": "ArmoredConduit",
+  //"type": "ArmoredConduit",
   "requirements": [ "chromium/1","metaglass/1" ],
   "category": "liquid",
   "research": {

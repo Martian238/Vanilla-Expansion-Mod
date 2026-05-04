@@ -1,5 +1,5 @@
 {
-  "type": "StackConveyor",
+  //"type": "StackConveyor",
   "category": "distribution",
   "requirements": [ "silicide/2","graphite/1","silicon/1" ],
   "speed": 0.12,

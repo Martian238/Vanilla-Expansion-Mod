@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "category": "crafting",
   "outputItem": "sand/3",
   "requirements": [ "aluminium/50","graphite/20","chromium/30" ],

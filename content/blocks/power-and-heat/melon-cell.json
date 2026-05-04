@@ -1,5 +1,5 @@
 {
-  "type": "NuclearReactor",
+  //"type": "NuclearReactor",
   "requirements": [ "silver/10","melon-dirt/10" ],
   "category": "power",
   "ambientSound": "none",

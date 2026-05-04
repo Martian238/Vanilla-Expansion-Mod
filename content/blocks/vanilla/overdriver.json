@@ -1,5 +1,5 @@
 {
-  "type": "OverdriveProjector",
+  //"type": "OverdriveProjector",
   "category": "effect",
   "requirements": [
     "lead/30","titanium/25","silicon/25","plastanium/15"

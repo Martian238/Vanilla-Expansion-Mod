@@ -1,5 +1,5 @@
 {
-  "type": "Separator",
+  //"type": "Separator",
   "requirements": [ "aluminium/50","lead/55","graphite/25" ],
   "category": "crafting",
   "results": [

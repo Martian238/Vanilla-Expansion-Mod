@@ -1,5 +1,5 @@
 {
-  "type": "LiquidSource",
+  //"type": "LiquidSource",
   "category": "liquid",
   "buildVisibility": "sandboxOnly",
   "alwaysUnlocked": true,

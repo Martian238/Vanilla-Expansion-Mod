@@ -97,7 +97,7 @@
               "width": 9,
               "height": 9,
               "trailInterval": 1,
-              "trailSize": 2,
+              //"trailSize": 2,
               "trailColor": "f25555",
               "collideTerrain": true,
               "hitEffect": {

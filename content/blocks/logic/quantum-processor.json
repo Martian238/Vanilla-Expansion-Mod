@@ -1,5 +1,5 @@
 {
-  "type": "LogicBlock",
+  //"type": "LogicBlock",
   "category": "logic",
   "requirements": [ "astro-plate/250","silicon/500","phecteel/350","silver/200","thorium/100" ],
   "instructionsPerTick": 300,

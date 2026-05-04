@@ -1,5 +1,5 @@
 {
-  "type": "MemoryBlock",
+  //"type": "MemoryBlock",
   "category": "logic",
   "requirements": [ "astro-plate/50","phecteel/50","silicon/50" ],
   "size": 2,

@@ -1,5 +1,5 @@
 {
-  "type": "LongPowerNode",
+  //"type": "LongPowerNode",
   "requirements": [ "aluminium/800","quartz/500","graphite/500","plastanium/300","silicon/250","silicide/100" ],
   "category": "power",
   "laserRange": 4000,

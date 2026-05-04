@@ -1,5 +1,5 @@
 {
-  "type": "Reconstructor",
+  //"type": "Reconstructor",
   "category": "units",
   "requirements": [ "ferrum/200","silver/240","silicon/400","mect-complex/100" ],
   "size": 4,

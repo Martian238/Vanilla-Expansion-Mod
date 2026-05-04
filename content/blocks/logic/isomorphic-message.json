@@ -1,5 +1,5 @@
 {
-  "type": "MessageBlock",
+  //"type": "MessageBlock",
   "category": "logic",
   "requirements": [ "aluminium/5","graphite/10" ],
   "size": 1,

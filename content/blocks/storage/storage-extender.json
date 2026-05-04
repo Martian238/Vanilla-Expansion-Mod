@@ -1,5 +1,5 @@
 {
-  "type": "StorageBlock",
+  //"type": "StorageBlock",
   "requirements": [ "ferrum/300","silicon/300" ],
   "category": "effect",
   "research": {

@@ -1,5 +1,5 @@
 {
-  "type": "MassDriver",
+  //"type": "MassDriver",
   "requirements": [ "lead/170","silicon/115","cobalt/85","silicide/60" ],
   "research": {
     "parent": "mass-launcher",

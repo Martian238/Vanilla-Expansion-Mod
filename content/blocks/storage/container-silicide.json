@@ -1,5 +1,5 @@
 {
-  "type": "StorageBlock",
+  //"type": "StorageBlock",
   "requirements": [ "titanium/100","silicide/30" ],
   "category": "effect",
   "research": {

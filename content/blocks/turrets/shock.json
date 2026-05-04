@@ -1,5 +1,5 @@
 {
-  "type": "PowerTurret",
+  //"type": "PowerTurret",
   "requirements": [ "aluminium/65","silicide/20","silicon/30" ],
   "category": "turret",
   "size": 2,

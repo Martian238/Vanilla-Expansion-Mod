@@ -1,5 +1,5 @@
 {
-  "type": "LiquidBridge",
+  //"type": "LiquidBridge",
   "requirements": [ "aluminium/20","graphite/4" ],
   "category": "liquid",
   "range": 4,

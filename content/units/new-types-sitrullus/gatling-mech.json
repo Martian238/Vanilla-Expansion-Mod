@@ -4748,8 +4748,8 @@
         "lifetime": 21,
         "hitShake": 2,
         "despawnShake": 1,
-        "frontColor": "ffa665",
-        "backColor": "d06b53",
+        "frontColor": "ffffff",
+        "backColor": "ffa665",//d06b53
         "hitColor": "ffa665",
         "impact": true,
         "knockback": 0.8,

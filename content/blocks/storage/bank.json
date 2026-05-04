@@ -1,5 +1,5 @@
 {
-  "type": "StorageBlock",
+  //"type": "StorageBlock",
   "requirements": [ "aluminium/350","chromium/150" ],
   "category": "effect",
   "research": {

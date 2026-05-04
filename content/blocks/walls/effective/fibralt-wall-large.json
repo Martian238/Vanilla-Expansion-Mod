@@ -1,5 +1,5 @@
 {
-  "type": "RegenProjector",
+  //"type": "RegenProjector",
   "requirements": [ "fibralt/24","silicon/16" ],
   "range": 2,
   "healPercent": 0.15,

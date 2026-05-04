@@ -1,5 +1,5 @@
 {
-  "type": "UnitFactory",
+  //"type": "UnitFactory",
   "category": "units",
   "requirements": [ "aluminium/90","lead/150","silicon/110" ],
   "size": 3,

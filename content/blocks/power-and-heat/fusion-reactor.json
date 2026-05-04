@@ -1,5 +1,5 @@
 {
-  "type": "ImpactReactor",
+  //"type": "ImpactReactor",
   "requirements": [ "lead/400","chromium/200","cobalt/250","silicon/500","surge-alloy/1000","graphite/350","quartz/100","silicide/300" ],
   "category": "power",
   "health": 30000,

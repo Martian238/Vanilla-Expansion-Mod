@@ -1,5 +1,5 @@
 {
-  "type": "SolidPump",
+  //"type": "SolidPump",
   "category": "production",
   "requirements": [ "aluminium/270","chromium/200","graphite/230","silicon/100" ],
   "result": "oil",

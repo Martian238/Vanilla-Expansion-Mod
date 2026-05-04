@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "chromium/100","silicon/80","catalyzon/20","nitroalkoss/50" ],
   "category": "crafting",
   "outputLiquids": [ "chlorine/0.2" ],

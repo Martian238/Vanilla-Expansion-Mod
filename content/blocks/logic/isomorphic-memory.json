@@ -1,5 +1,5 @@
 {
-  "type": "MemoryBlock",
+  //"type": "MemoryBlock",
   "category": "logic",
   "requirements": [ "aluminium/10","graphite/40","silicon/30" ],
   "size": 1,

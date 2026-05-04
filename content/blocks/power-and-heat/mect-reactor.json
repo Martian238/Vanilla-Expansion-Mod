@@ -1,0 +1,1539 @@
+{
+  //"type": "ConsumeGenerator",
+  "consumes": {
+    "items": [ "mect-complex/1" ],
+    "liquids": [ "water/0.5" ]
+  },
+  "outputLiquid": "melon-water/0.5"
+  "itemDuration": 600,
+  "health": 30000,
+  "armor": 16,
+  "requirements": [ "ferrum/1000","silver/800","silicon/800","graphite/600","crystallon/500","silicide/500" ]
+  "size": 8,
+  "ambientSound": "carrionNuclearGenerator",
+  "ambientSoundVolume": 1,
+  "warmupSpeed": 0.005,
+  "legacyReadWarmup": true,
+  "powerProduction": 200,
+  "consumeEffect": "drillSteam",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawRegion",
+        "name": "ve-mect-reactor-rotator-shadow",
+        "spinSprite": false,
+        "rotateSpeed": -20,
+        "layer": 30.2,
+        "x": -2.25,
+        "y": -2.25
+      },
+      {
+        "type": "DrawRegion",
+        "name": "ve-mect-reactor-rotator",
+        "spinSprite": true,
+        "rotateSpeed": -20,
+        "layer": 31.2
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-rotator-rim",
+        "rotateSpeed": -20,
+        "alpha": 1,
+        "glowScale": 1,
+        "glowIntensity": 0.2,
+        "layer": 31.25,
+        "rotate": true
+      },
+      {
+        "type": "DrawBlockParts",
+        "parts": [
+          {
+            "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+            "name": "ve-mect-reactor-rim",
+            "color": "ffab3400",
+            "colorTo": "ff0000",
+            "blending": "additive",
+            "layer": 30.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.75,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.349,
+                        "scl": 1.321,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.376,
+                        "scl": 1.456,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.167,
+                        "scl": 3.987,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.463,
+                        "scl": 2.741,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.137,
+                        "scl": 1.852,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.263,
+                        "scl": 3.369,
+                        "offset": 60
+                      },
+                {
+                  "op": "mul",
+                  "amount": 0.15
+                },
+                {
+                  "op": "add",
+                  "amount": 0.7
+                }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+            "name": "ve-mect-reactor-tower-lu",//lu
+            "x": 12,
+            "y": 12,
+            "layer": 31.1,
+            "moves": [
+              {
+                "x": -12,
+                "y": -12,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "compress",
+                      "start": 0.1,
+                      "end": 0.35
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  ]
+                }
+              },
+              {
+            "x": 0.25,//towershake
+            "y": -0.25,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.349,
+                        "scl": 1.902,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.376,
+                        "scl": 1.603,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.167,
+                        "scl": 3.309,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.463,
+                        "scl": 2.105,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.137,
+                        "scl": 1.886,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.263,
+                        "scl": 3.125,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+              }
+              }
+            ],
+            "children": [
+              {
+                "type": "EffectSpawnerPart",
+                "x": -20,
+                "y": 20,
+                "effectChance": 0.012,//sparkchance
+                "progress": {
+                  "type": "warmup",
+                  "op": "compress",
+                  "start": 0.8,
+                  "end": 1
+                },
+                "effect": [
+                  {
+                    "type": "SoundEffect",
+                    "sound": "shockBullet",
+                    "minVolume": 0.75,//sparkvolume
+                    "maxVolume": 0.75,//sparkvolume
+                    "minPitch": 1,
+                    "maxPitch": 1,
+                    "effect": {
+                      "type": "ParticleEffect",
+    "particles": 4,
+    "line": true,
+    "strokeFrom": 1,
+    "strokeTo": 0,
+    "lenFrom": 20,
+    "lenTo": 0,
+    "length": 20,
+    "baseLength": 0,
+    "lifetime": 5,//sparklife
+    "colorFrom": "ffffff",
+    "colorTo": "ffdaa9"
+                    }
+                  },
+                  {
+                    "particles": 1,
+            "cone": 0,
+            "region": "ve-circle-soft",
+            "sizeFrom": 32,
+            "sizeTo": 32,
+            "colorFrom": "ffffffa0",
+            "colorTo": "ffdaa900",
+            "lifetime": 2,//sparklightlife
+            "interp": "linear",
+            "length": 0,
+            "baseLength": 0,
+            "lightColor": "ffdaa9",
+            "layer": 99.98
+                  },
+                  {
+                    "type": "ParticleEffect",
+          "layer": 89.5,
+          "colorFrom": "ffffff22",
+          "colorTo": "ffffff00",//sparksmokecolor
+          "length": 20,
+          "lifetime": 90,
+                    "sizeFrom": 0,
+          "interp": "pow2Out",
+          "sizeInterp": "circleOut",
+          "sizeTo": 12,
+          "particles": 3//sparksmokes
+                  }
+                ]
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-tower-lu-shadow",
+                "rotation": 0,
+                "layer": 30.1
+              }
+            ],
+            "rotation": 90
+          },
+          {
+            "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+            "name": "ve-mect-reactor-tower-rd",//rd
+            "x": -12,
+            "y": -12,
+            "layer": 31.1,
+            "moves": [
+              {
+                "x": 12,
+                "y": 12,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "compress",
+                      "start": 0.1,
+                      "end": 0.35
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  ]
+                }
+              },
+              {
+            "x": 0.25,//towershake
+            "y": -0.25,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.349,
+                        "scl": 1.587,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.376,
+                        "scl": 1.922,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.167,
+                        "scl": 3.511,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.463,
+                        "scl": 2.409,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.137,
+                        "scl": 1.555,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.263,
+                        "scl": 3.329,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+              }
+              }
+            ],
+            "children": [
+              {
+                "type": "EffectSpawnerPart",
+                "x": 20,
+                "y": -20,
+                "effectChance": 0.012,//sparkchance
+                "progress": {
+                  "type": "warmup",
+                  "op": "compress",
+                  "start": 0.8,
+                  "end": 1
+                },
+                "effect": [
+                  {
+                    "type": "SoundEffect",
+                    "sound": "shockBullet",
+                    "minVolume": 0.75,//sparkvolume
+                    "maxVolume": 0.75,//sparkvolume
+                    "minPitch": 1,
+                    "maxPitch": 1,
+                    "effect": {
+                      "type": "ParticleEffect",
+    "particles": 4,
+    "line": true,
+    "strokeFrom": 1,
+    "strokeTo": 0,
+    "lenFrom": 20,
+    "lenTo": 0,
+    "length": 20,
+    "baseLength": 0,
+    "lifetime": 5,//sparklife
+    "colorFrom": "ffffff",
+    "colorTo": "ffdaa9"
+                    }
+                  },
+                  {
+                    "particles": 1,
+            "cone": 0,
+            "region": "ve-circle-soft",
+            "sizeFrom": 32,
+            "sizeTo": 32,
+            "colorFrom": "ffffffa0",
+            "colorTo": "ffdaa900",
+            "lifetime": 2,//sparklightlife
+            "interp": "linear",
+            "length": 0,
+            "baseLength": 0,
+            "lightColor": "ffdaa9",
+            "layer": 99.98
+                  },
+                  {
+                    "type": "ParticleEffect",
+          "layer": 89.5,
+          "colorFrom": "ffffff22",
+          "colorTo": "ffffff00",//sparksmokecolor
+          "length": 20,
+          "lifetime": 90,
+                    "sizeFrom": 0,
+          "interp": "pow2Out",
+          "sizeInterp": "circleOut",
+          "sizeTo": 12,
+          "particles": 3//sparksmokes
+                  }
+                ]
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-tower-rd-shadow",
+                "rotation": 0,
+                "layer": 30.1
+              }
+            ],
+            "rotation": 90
+          },
+          {
+            "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+            "name": "ve-mect-reactor-tower-ru",
+            "x": 12,
+            "y": -12,
+            "layer": 31.1,
+            "moves": [
+              {
+                "x": -12,
+                "y": 12,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "compress",
+                      "start": 0.1,
+                      "end": 0.35
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  ]
+                }
+              },
+              {
+            "x": 0.25,//towershake
+            "y": 0.25,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.349,
+                        "scl": 1.130,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.376,
+                        "scl": 1.807,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.167,
+                        "scl": 3.288,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.463,
+                        "scl": 2.256,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.137,
+                        "scl": 1.068,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.263,
+                        "scl": 3.679,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+              }
+              }
+            ],
+            "children": [
+              {
+                "type": "EffectSpawnerPart",
+                "x": 20,
+                "y": 20,
+                "effectChance": 0.012,//sparkchance
+                "progress": {
+                  "type": "warmup",
+                  "op": "compress",
+                  "start": 0.8,
+                  "end": 1
+                },
+                "effect": [
+                  {
+                    "type": "SoundEffect",
+                    "sound": "shockBullet",
+                    "minVolume": 0.75,//sparkvolume
+                    "maxVolume": 0.75,//sparkvolume
+                    "minPitch": 1,
+                    "maxPitch": 1,
+                    "effect": {
+                      "type": "ParticleEffect",
+    "particles": 4,
+    "line": true,
+    "strokeFrom": 1,
+    "strokeTo": 0,
+    "lenFrom": 20,
+    "lenTo": 0,
+    "length": 20,
+    "baseLength": 0,
+    "lifetime": 5,//sparklife
+    "colorFrom": "ffffff",
+    "colorTo": "ffdaa9"
+                    }
+                  },
+                  {
+                    "particles": 1,
+            "cone": 0,
+            "region": "ve-circle-soft",
+            "sizeFrom": 32,
+            "sizeTo": 32,
+            "colorFrom": "ffffffa0",
+            "colorTo": "ffdaa900",
+            "lifetime": 2,//sparklightlife
+            "interp": "linear",
+            "length": 0,
+            "baseLength": 0,
+            "lightColor": "ffdaa9",
+            "layer": 99.98
+                  },
+                  {
+                    "type": "ParticleEffect",
+          "layer": 89.5,
+          "colorFrom": "ffffff22",
+          "colorTo": "ffffff00",//sparksmokecolor
+          "length": 20,
+          "lifetime": 90,
+                    "sizeFrom": 0,
+          "interp": "pow2Out",
+          "sizeInterp": "circleOut",
+          "sizeTo": 12,
+          "particles": 3//sparksmokes
+                  }
+                ]
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-tower-ru-shadow",
+                "rotation": 0,
+                "layer": 30.1
+              }
+            ],
+            "rotation": 90
+          },
+          {
+            "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+            "name": "ve-mect-reactor-tower-ld",
+            "x": -12,
+            "y": 12,
+            "layer": 31.1,
+            "moves": [
+              {
+                "x": 12,
+                "y": -12,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "compress",
+                      "start": 0.1,
+                      "end": 0.35
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  ]
+                }
+              },
+              {
+            "x": 0.25,//towershake
+            "y": 0.25,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.349,
+                        "scl": 1.772,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.376,
+                        "scl": 1.202,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.167,
+                        "scl": 3.502,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.463,
+                        "scl": 2.409,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.137,
+                        "scl": 1.158,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.263,
+                        "scl": 3.420,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+              }
+              }
+            ],
+            "children": [
+              {
+                "type": "EffectSpawnerPart",
+                "x": -20,
+                "y": -20,
+                "effectChance": 0.012,//sparkchance
+                "progress": {
+                  "type": "warmup",
+                  "op": "compress",
+                  "start": 0.8,
+                  "end": 1
+                },
+                "effect": [
+                  {
+                    "type": "SoundEffect",
+                    "sound": "shockBullet",
+                    "minVolume": 0.75,//sparkvolume
+                    "maxVolume": 0.75,//sparkvolume
+                    "minPitch": 1,
+                    "maxPitch": 1,
+                    "effect": {
+                      "type": "ParticleEffect",
+    "particles": 4,
+    "line": true,
+    "strokeFrom": 1,
+    "strokeTo": 0,
+    "lenFrom": 20,
+    "lenTo": 0,
+    "length": 20,
+    "baseLength": 0,
+    "lifetime": 5,//sparklife
+    "colorFrom": "ffffff",
+    "colorTo": "ffdaa9"
+                    }
+                  },
+                  {
+                    "particles": 1,
+            "cone": 0,
+            "region": "ve-circle-soft",
+            "sizeFrom": 32,
+            "sizeTo": 32,
+            "colorFrom": "ffffffa0",
+            "colorTo": "ffdaa900",
+            "lifetime": 2,//sparklightlife
+            "interp": "linear",
+            "length": 0,
+            "baseLength": 0,
+            "lightColor": "ffdaa9",
+            "layer": 99.98
+                  },
+                  {
+                    "type": "ParticleEffect",
+          "layer": 89.5,
+          "colorFrom": "ffffff22",
+          "colorTo": "ffffff00",//sparksmokecolor
+          "length": 20,
+          "lifetime": 90,
+                    "sizeFrom": 0,
+          "interp": "pow2Out",
+          "sizeInterp": "circleOut",
+          "sizeTo": 12,
+          "particles": 3//sparksmokes
+                  }
+                ]
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-tower-ld-shadow",
+                "rotation": 0,
+                "layer": 30.1
+              }
+            ],
+            "rotation": 90
+          },
+          {
+            "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+            "name": "ve-mect-reactor-claw-l"
+            "y": 0,
+            "clampProgress": false,
+            "moves": [
+            {
+            "x": 0.75,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.353,
+                        "scl": 1.414,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.288,
+                        "scl": 1.732,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.318,
+                        "scl": 3.142,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.363,
+                        "scl": 2.758,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.404,
+                        "scl": 1.225,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.308,
+                        "scl": 3.250,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            },
+            {
+            "y": 0.5,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.501,
+                        "scl": 1.997,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.494,
+                        "scl": 2.026,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.170,
+                        "scl": 5.870,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.108,
+                        "scl": 9.220,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.350,
+                        "scl": 2.857,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.574,
+                        "scl": 1.742,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            },
+                  {
+                    "y": 3,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.4,
+                          "end": 0.5
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+            ],
+            "rotation": 90,
+            "layer": 31.3,
+            "children": [
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-claw-l-shadow",
+                "layer": 30.3,
+                "rotation": 0
+              },
+              {
+                "type": "EffectSpawnerPart",
+                "progress": {
+                  "type": "warmup",
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                "height": 3,
+                "effectChance": 1,
+                "rotation": 45,
+                "x": -19.5,
+                "y": 10,
+                "effect": {
+                  "type": "RadialEffect",
+                  "amount": 1,
+                  "effectRotationOffset": -55,
+                  "effect": {
+                  "type": "ParticleEffect",
+                  "line": true,
+                  "lenFrom": 8,
+                  "lenTo": 0,
+                  "strokeFrom": 0.5,
+                  "strokeTo": 0.5,
+                  "colorFrom": "f3e979",
+                  "colorTo": "ffa665",
+                  "lifetime": 30,
+                  "length": 60,
+                  "cone": 15,
+                  "particles": 1,
+                  "interp": "pow3Out",
+                  "randLength": false,
+                  "baseLength": 0.01
+                }}
+              }
+            ]
+          },
+          {
+            "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+            "name": "ve-mect-reactor-claw-r"
+            "y": 0,
+            "clampProgress": false,
+            "moves": [
+            {
+            "x": 0.75,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.353,
+                        "scl": 1.236,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.288,
+                        "scl": 1.645,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.318,
+                        "scl": 3.162,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.363,
+                        "scl": 2.671,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.404,
+                        "scl": 1.744,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.308,
+                        "scl": 3.019,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            },
+            {
+            "y": 0.5,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.501,
+                        "scl": 1.023,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.494,
+                        "scl": 2.007,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.170,
+                        "scl": 5.240,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.108,
+                        "scl": 4.210,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.350,
+                        "scl": 2.832,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.574,
+                        "scl": 1.234,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            },
+                  {
+                    "y": -3,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.4,
+                          "end": 0.5
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+            ],
+            "rotation": 90,
+            "layer": 31.3,
+            "children": [
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-claw-r-shadow",
+                "layer": 30.3,
+                "rotation": 0
+              },
+              {
+                "type": "EffectSpawnerPart",
+                "progress": {
+                  "type": "warmup",
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                "height": 3,
+                "effectChance": 1,
+                "rotation": 45,
+                "x": 19.5,
+                "y": -10,
+                "effect": {
+                  "type": "RadialEffect",
+                  "amount": 1,
+                  "effectRotationOffset": 125,
+                  "effect": {
+                  "type": "ParticleEffect",
+                  "line": true,
+                  "lenFrom": 8,
+                  "lenTo": 0,
+                  "strokeFrom": 0.5,
+                  "strokeTo": 0.5,
+                  "colorFrom": "f3e979",
+                  "colorTo": "ffa665",
+                  "lifetime": 30,
+                  "length": 60,
+                  "cone": 15,
+                  "particles": 1,
+                  "interp": "pow3Out",
+                  "randLength": false,
+                  "baseLength": 0.01
+                }}
+              }
+            ]
+          },
+          {
+            "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+            "name": "ve-mect-reactor-center"
+            "y": 0,
+            "clampProgress": false,
+            "moves": [
+            {
+            "y": 0.25,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5,
+                  "end": 1
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.501,
+                        "scl": 1.019,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.494,
+                        "scl": 0.949,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.170,
+                        "scl": 2.680,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.108,
+                        "scl": 1.295,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.350,
+                        "scl": 0.801,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.574,
+                        "scl": 1.505,
+                        "offset": 60
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+            }
+            ],
+            "rotation": 0,
+            "layer": 31.4,
+            "children": [
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-center-shadow1",
+                "layer": 30.4,
+                "rotation": 90,
+                "color": "ffffffff",
+                "colorTo": "ffffff00",
+                "progress": {
+                  "type": "warmup",
+                  "op": "compress",
+                  "start": 0,
+                  "end": 0.5
+                }
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-center-shadow2",
+                "layer": 30.4,
+                "rotation": 90,
+                "color": "ffffff00",
+                "colorTo": "ffffffff",
+                "progress": {
+                  "type": "warmup",
+                  "op": "compress",
+                  "start": 0,
+                  "end": 0.5
+                }
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-center-lu",
+                "layer": 31.5,
+                "rotation": 90,
+                "moves": [
+                  {
+                    "x": 0,
+                    "y": 1.75,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.25
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"//close
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": 1.75,
+                    "y": 0,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.5
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"//close
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-center-rd",
+                "layer": 31.5,
+                "rotation": 90,
+                "moves": [
+                  {
+                    "x": 0,
+                    "y": -1.75,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.25
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"//close
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": -1.75,
+                    "y": 0,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.5
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"//close
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-center-ru",
+                "layer": 31.5,
+                "rotation": 90,
+                "moves": [
+                  {
+                    "x": 0,
+                    "y": -1.75,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.25
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"//close
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": 1.75,
+                    "y": 0,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.5
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"//close
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-center-ld",
+                "layer": 31.5,
+                "rotation": 90,
+                "moves": [
+                  {
+                    "x": 0,
+                    "y": 1.75,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.25
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"//close
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": -1.75,
+                    "y": 0,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.5
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"//close
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-center-l",
+                "layer": 31.6,
+                "rotation": 90,
+                "moves": [
+                  {
+                    "y": 3.5,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.35,
+                          "end": 0.5
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "RegionPart", "outline": false,
+"mirror": false,
+"under": false,
+                "name": "ve-mect-reactor-center-r",
+                "layer": 31.6,
+                "rotation": 90,
+                "moves": [
+                  {
+                    "y": -3.5,
+                    "progress": {
+                      "type": "warmup",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.35,
+                          "end": 0.5
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "category": "power"
+}

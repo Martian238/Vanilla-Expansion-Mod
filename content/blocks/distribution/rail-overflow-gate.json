@@ -1,5 +1,5 @@
 {
-  "type": "OverflowDuct",
+  //"type": "OverflowDuct",
   "requirements": [ "aluminium/4","lead/2" ],
   "speed": 2.5,
   "solid": false,

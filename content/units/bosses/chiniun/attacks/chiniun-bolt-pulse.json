@@ -102,7 +102,7 @@
       "layer": 100.1,
       "spinSpeed": 0,
       "stroke": 1.5,
-      "useProgress": true,
+      //"useProgress": true,
       "progress": {
         "type": "recoil",
         "op": "curve",

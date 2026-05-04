@@ -1,5 +1,5 @@
 {
-  "type": "MendProjector",
+  //"type": "MendProjector",
   "category": "effect",
   "reload": 60,
   "range": 96,

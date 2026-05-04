@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "requirements": [ "aluminium/60","lead/45" ],
   "category": "power",
   "powerProduction": 3.25,

@@ -1,5 +1,5 @@
 {
-  "type": "Drill",
+  //"type": "Drill",
   "category": "production",
   "requirements": [ "ferrum/120","graphite/70","silicon/40","quartz/40" ],
   "research": {
@@ -48,6 +48,7 @@
     "spore-pod": 0,
     "pyratite": 0.6
   },
+  "blockedItems": [ "spore-pod" ],
   "drawRim": true,
   "heatColor": "cc8270",
   "shownPlanets": [ "sitrullus","maress" ]

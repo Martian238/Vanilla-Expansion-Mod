@@ -1,5 +1,5 @@
 {
-  "type": "Door",
+  //"type": "Door",
   "requirements": [ "chromium/40","silicon/10" ],
   "category": "defense",
   "research": "silicide-wall",

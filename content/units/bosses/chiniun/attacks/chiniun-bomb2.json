@@ -260,7 +260,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -446,7 +446,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -632,7 +632,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -818,7 +818,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -1004,7 +1004,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -1190,7 +1190,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -1376,7 +1376,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -1562,7 +1562,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -1748,7 +1748,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -1934,7 +1934,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -2120,7 +2120,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -2306,7 +2306,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -2492,7 +2492,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -2678,7 +2678,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -2864,7 +2864,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -3050,7 +3050,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -3236,7 +3236,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -3422,7 +3422,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -3608,7 +3608,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -3794,7 +3794,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -3980,7 +3980,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -4166,7 +4166,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -4352,7 +4352,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -4538,7 +4538,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [
@@ -4724,7 +4724,7 @@
             "layer": 99.99,
             "spinSpeed": 0,
             "stroke": 1.5,//flarestroke
-            "useProgress": true,
+            //"useProgress": true,
             "progress": {
               "type": "life",//flareprogress
               "ops": [

@@ -1,5 +1,5 @@
 {
-  "type": "BeamNode",
+  //"type": "BeamNode",
   "requirements": [ "lead/4","quartz/3" ],
   "category": "power",
   "range": 12,

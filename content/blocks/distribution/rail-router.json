@@ -1,5 +1,5 @@
 {
-  "type": "DuctRouter",
+  //"type": "DuctRouter",
   "requirements": [ "aluminium/4","lead/4" ],
   "speed": 2.5,
   "regionRotated1": 1,

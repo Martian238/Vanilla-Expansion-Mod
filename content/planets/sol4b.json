@@ -32,5 +32,5 @@
   "orbitRadius": 12000,
   "drawOrbit": false,
   "orbitTime": 120000,
-  "children": [ "axesiles","thavina" ]
+  "children": [ "thavina" ]
 }

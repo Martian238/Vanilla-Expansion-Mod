@@ -1,5 +1,5 @@
 {
-  "type": "UnitAssemblerModule",
+  //"type": "UnitAssemblerModule",
   "requirements": [ "silicon/200" ],
   "category": "units",
   "research": "assemble-selector1",

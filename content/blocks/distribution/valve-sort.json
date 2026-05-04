@@ -1,5 +1,5 @@
 {
-  "type": "Sorter",
+  //"type": "Sorter",
   "requirements": [ "ferrum/3","silicon/2" ],
   "category": "distribution",
   "health": 120,

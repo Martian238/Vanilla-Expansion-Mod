@@ -1,5 +1,5 @@
 {
-  "type": "Conveyor",
+  //"type": "Conveyor",
   "requirements": [ "aluminium/1" ]
   "health": 25,
   "category": "distribution",

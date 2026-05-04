@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "requirements": [ "lead/80","silicon/50","phase-fabric/5","cobalt/40" ],
   "category": "power",
   "powerProduction": 3,

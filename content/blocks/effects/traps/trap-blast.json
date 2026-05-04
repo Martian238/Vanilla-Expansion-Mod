@@ -1,5 +1,5 @@
 {
-  "type": "PowerTurret",
+  //"type": "PowerTurret",
   "underBullets": true,
   "priority": -2,
   "hasShadow": false,
@@ -15,7 +15,7 @@
   "conductivePower": true,
   "category": "effect",
   "research": {
-    "parent": "burst"
+    "parent": "trap-flame"
   },
   "requirements": [
     "silver/5","silicon/15","silicide/15","blast-compound/10"

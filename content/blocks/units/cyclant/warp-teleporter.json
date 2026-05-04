@@ -1,5 +1,5 @@
 {
-  "type": "PayloadAmmoTurret",
+  //"type": "PayloadAmmoTurret",
   "size": 5,
   "rotateSpeed": 2,
   "health": 20000,

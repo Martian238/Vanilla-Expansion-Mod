@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "ferrum/24","silicide/24" ],
   "category": "defense",
   "health": 4000,

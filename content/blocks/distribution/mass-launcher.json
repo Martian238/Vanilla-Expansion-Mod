@@ -1,5 +1,5 @@
 {
-  "type": "MassDriver",
+  //"type": "MassDriver",
   "requirements": [ "lead/60","silicon/55","silicide/30" ],
   "research": {
     "parent": "rail-bridge",

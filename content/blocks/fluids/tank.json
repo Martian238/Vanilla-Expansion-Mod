@@ -1,5 +1,5 @@
 {
-  "type": "LiquidRouter",
+  //"type": "LiquidRouter",
   "requirements": [ "metaglass/20","chromium/50" ],
   "category": "liquid",
   "liquidCapacity": 2200,

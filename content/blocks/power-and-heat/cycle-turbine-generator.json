@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "requirements": [ "ferrum/50","silver/20","graphite/30","silicon/20" ],
   "category": "power",
   "hasLiquids": true,

@@ -1,5 +1,5 @@
 {
-  "type": "Junction",
+  //"type": "Junction",
   "requirements": [ "ferrum/2" ],
   "category": "distribution",
   "capacity": 5,

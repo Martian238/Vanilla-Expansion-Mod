@@ -1,5 +1,5 @@
 {
-  "type": "PowerNode",
+  //"type": "PowerNode",
   "requirements": [ "lead/5","quartz/10" ],
   "category": "power",
   "laserRange": 16,

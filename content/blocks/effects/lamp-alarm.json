@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "category": "effect",
   "requirements": [ "silicon/10","quartz/10" ],
   "consumes": { "power": 0.0266666666667 },

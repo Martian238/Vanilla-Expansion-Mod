@@ -24,22 +24,22 @@
   },
   "drawOrbit": true,
   "accessible": true,
-  "alwaysUnlocked": false,
+  "alwaysUnlocked": true,
   "launchMusic": "game8",
   "lightSrcFrom": 0,
   "lightSrcTo": 1,
   "lightDstFrom": 0,
   "lightDstTo": 1.2,
   "research": {
-    "parent": "isomorphic-accelerator",
-    "objectives": [ 
+    "parent": "retreat-zone",
+    /*"objectives": [ 
       "isomorphic-accelerator",
       "core-singularity",
       {
         "type": "SectorComplete",
         "preset": "retreat-zone"
       }
-    ]
+    ]*/
   },
   "defaultCore": "isomorphic-core-shard",
   "sectorSeed": 0,

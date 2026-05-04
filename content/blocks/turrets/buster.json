@@ -1,5 +1,5 @@
 {
-  "type": "ItemTurret",
+  //"type": "ItemTurret",
   "requirements": [ "thorium/300","graphite/130","silicon/200","silicide/70" ],
   "category": "turret",
   "size": 4,
@@ -229,7 +229,7 @@
       "ammoMultiplier": 3,
       "armorMultiplier": 0.7
     },
-    "fusion-fuel": {"knockback":1.2,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":16,"splashDamage":250,"splashDamageRadius":64,"status":"burning","statusDiration":360,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
+    "fusion-fuel": {"knockback":1.2,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":16,"splashDamage":250,"splashDamageRadius":64,"status":"burning","statusDuration":360,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
       "randomAngleOffset": 4,
       "speed": 9,
       "lifetime": 30,

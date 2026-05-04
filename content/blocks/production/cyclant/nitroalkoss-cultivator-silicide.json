@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "chromium/140","silicon/150","metaglass/40","nitroalkoss/10","silicide/80" ],
   "category": "production",
   "health": 4000,

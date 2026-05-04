@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "titanium/54" ],
   "size": 3,
   "health": 3960,

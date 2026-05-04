@@ -1,5 +1,5 @@
 {
-  "type": "OverflowGate",
+  //"type": "OverflowGate",
   "requirements": [ "copper/6","lead/4","silicide/3" ],
   "category": "distribution",
   "health": 370,

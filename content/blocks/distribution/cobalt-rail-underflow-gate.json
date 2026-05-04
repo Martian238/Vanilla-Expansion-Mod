@@ -1,5 +1,5 @@
 {
-  "type": "OverflowGate",
+  //"type": "OverflowGate",
   "requirements": [ "cobalt/4","lead/2" ],
   "category": "distribution",
   "invert": true,

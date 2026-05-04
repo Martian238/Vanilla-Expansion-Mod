@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "plastanium/12","metaglass/8","phase-fabric/12","surge-alloy/12","silicide/16","graphite/16" ],
   "category": "defense",
   "research": "effective-wall",

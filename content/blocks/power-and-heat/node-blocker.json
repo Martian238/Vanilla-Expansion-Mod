@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "quartz/4" ],
   "category": "power",
   "research": "power-battery",

@@ -1,5 +1,5 @@
 {
-  "type": "SwitchBlock",
+  //"type": "SwitchBlock",
   "category": "logic",
   "requirements": [ "aluminium/5","graphite/10" ],
   "size": 1,

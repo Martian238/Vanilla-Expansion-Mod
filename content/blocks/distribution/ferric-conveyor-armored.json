@@ -1,5 +1,5 @@
 {
-  "type": "ArmoredConveyor",
+  //"type": "ArmoredConveyor",
   "requirements": [ "ferrum/2" ]
   "health": 180,
   "armor": 6,

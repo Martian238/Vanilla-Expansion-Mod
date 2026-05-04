@@ -1,5 +1,5 @@
 {
-  "type": "Door",
+  //"type": "Door",
   "requirements": [ "chromium/10" ],
   "category": "defense",
   "research": "mechanical-gate",

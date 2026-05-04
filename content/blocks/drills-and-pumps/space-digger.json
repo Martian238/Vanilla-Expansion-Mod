@@ -1,5 +1,5 @@
 {
-  "type": "Drill",
+  //"type": "Drill",
   "category": "production",
   "requirements": [ "silicon/300","lead/150","graphite/120","cobalt/90","warp-nucleus/40" ],
   "research": {

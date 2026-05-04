@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "chromium/6","silicide/6" ],
   "category": "defense",
   "research": "chromium-wall",

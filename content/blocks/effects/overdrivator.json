@@ -1,5 +1,5 @@
 {
-  "type": "OverdriveProjector",
+  //"type": "OverdriveProjector",
   "category": "effect",
   "reload": 60,
   "range": 96,

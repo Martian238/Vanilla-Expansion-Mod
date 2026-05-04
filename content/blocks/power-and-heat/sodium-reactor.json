@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "requirements": [
     "aluminium/30","chromium/20","silicon/20"
   ],

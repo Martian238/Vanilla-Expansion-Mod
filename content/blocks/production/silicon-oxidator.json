@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "ferrum/60" ],
   "category": "crafting",
   "craftEffect": "smeltsmoke",

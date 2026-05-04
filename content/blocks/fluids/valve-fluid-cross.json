@@ -1,5 +1,5 @@
 {
-  "type": "LiquidJunction",
+  //"type": "LiquidJunction",
   "requirements": [ "silver/2" ],
   "health": 40,
   "category": "liquid",

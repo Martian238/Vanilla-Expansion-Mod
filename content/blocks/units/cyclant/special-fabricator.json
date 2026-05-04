@@ -1,5 +1,5 @@
 {
-  "type": "UnitFactory",
+  //"type": "UnitFactory",
   "category": "units",
   "requirements": [ "lead/140","silicon/210","thorium/80" ],
   "size": 3,

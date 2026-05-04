@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "copper/54" ],
   "size": 3,
   "health": 2880,

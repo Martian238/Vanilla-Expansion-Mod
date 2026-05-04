@@ -1,5 +1,5 @@
 {
-  "type": "Router",
+  //"type": "Router",
   "requirements": [ "ferrum/4" ],
   "category": "distribution",
   "health": 120,

@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "category": "crafting",
   "consumes": {
     "liquids": {
@@ -14,6 +14,7 @@
       "booster": false
     }
   },
+  "alwaysUnlocked": true,
   "outputLiquids": [ "melon-water/0","melon-water/0","melon-water/0","water/0.03333333333" ],
   "craftTime": 60,
   "size": 1,

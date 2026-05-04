@@ -1,5 +1,5 @@
 {
-  "type": "RepairTower",
+  //"type": "RepairTower",
   "requirements": [ "graphite/70","silicon/70","silver/50" ],
   "size": 2,
   "category": "units",

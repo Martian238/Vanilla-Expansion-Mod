@@ -1,5 +1,5 @@
 {
-  "type": "LiquidTurret",
+  //"type": "LiquidTurret",
   "requirements": [ "chromium/55","metaglass/20" ],
   "category": "turret",
   "size": 2,

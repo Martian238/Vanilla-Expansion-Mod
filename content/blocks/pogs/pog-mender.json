@@ -5,7 +5,7 @@
   "targetable": false,
   "suppressable": false,
 
-  "type": "MendProjector",
+  //"type": "MendProjector",
   "category": "effect",
   "reload": 1,
   "range": 24,

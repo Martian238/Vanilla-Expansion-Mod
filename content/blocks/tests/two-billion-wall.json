@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "silicide/1000000" ],
   "category": "defense",
   "health": 2147483247,

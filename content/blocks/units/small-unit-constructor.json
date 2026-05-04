@@ -1,5 +1,5 @@
 {
-  "type": "UnitFactory",
+  //"type": "UnitFactory",
   "category": "units",
   "requirements": [ "ferrum/80","silver/30","silicon/50" ],
   "size": 2,

@@ -1,5 +1,5 @@
 {
-  "type": "ItemBridge",
+  //"type": "ItemBridge",
   "requirements": [ "ferrum/6","graphite/4" ],
   "category": "distribution",
   "health": 300,

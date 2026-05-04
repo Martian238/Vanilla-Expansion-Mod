@@ -1,5 +1,5 @@
 {
-  "type": "Sorter",
+  //"type": "Sorter",
   "requirements": [ "copper/6","lead/2","silicide/3" ],
   "category": "distribution",
   "health": 370,

@@ -1,5 +1,5 @@
 {
-  "type": "NuclearReactor",
+  //"type": "NuclearReactor",
   "requirements": [ "lead/400","silicon/300","graphite/200","chromium/280","thorium/200" ],
   "category": "power",
   "ambientSound": "loopThoriumReactor",

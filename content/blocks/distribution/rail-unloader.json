@@ -1,5 +1,5 @@
 {
-  "type": "DirectionalUnloader",
+  //"type": "DirectionalUnloader",
   "requirements": [ "graphite/10","silicon/10" ],
   "speed": 2.5,
   "regionRotated1": 1,

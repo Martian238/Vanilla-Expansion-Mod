@@ -1,5 +1,5 @@
 {
-  "type": "MassDriver",
+  //"type": "MassDriver",
   "research": {
     "parent": "mass-railgun",
     "objectives": [ 

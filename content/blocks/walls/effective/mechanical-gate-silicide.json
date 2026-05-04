@@ -1,5 +1,5 @@
 {
-  "type": "Door",
+  //"type": "Door",
   "requirements": [ "chromium/70","silicide/50","silicon/10" ],
   "category": "defense",
   "research": "mechanical-gate-small",

@@ -1,5 +1,5 @@
 {
-  "type": "PayloadConveyor",
+  //"type": "PayloadConveyor",
   "buildVisibility": "sandboxOnly",
   "category": "units",
   "size": 3,

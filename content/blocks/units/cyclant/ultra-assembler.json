@@ -1,5 +1,5 @@
 {
-  "type": "UnitAssembler",
+  //"type": "UnitAssembler",
   "requirements": [ "lead/2800","silicon/2000","cobalt/1500","thorium/1000","surge-alloy/1000","phase-fabric/650" ],
   "category": "units",
   "researchCostMultiplier": 0.2,

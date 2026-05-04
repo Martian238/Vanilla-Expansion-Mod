@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "silicon/400","fibralt/180","surge-alloy/150","phase-fabric/100","silicide/40" ],
   "health": 2700,
   "size": 2,

@@ -1,5 +1,5 @@
 {
-  "type": "AutoDoor",
+  //"type": "AutoDoor",
   "requirements": [ "chromium/40","silicon/25" ],
   "category": "defense",
   "research": "mechanical-gate",

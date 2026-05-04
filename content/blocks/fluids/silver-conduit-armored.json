@@ -1,5 +1,5 @@
 {
-  "type": "ArmoredConduit",
+  //"type": "ArmoredConduit",
   "requirements": [ "silver/1","ferrum/1" ],
   "health": 120,
   "armor": 6,

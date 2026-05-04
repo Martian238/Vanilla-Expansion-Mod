@@ -1,5 +1,5 @@
 {
-  "type": "UnitAssembler",
+  //"type": "UnitAssembler",
   "requirements": [ "lead/600","cobalt/350","silicon/500","chromium/100" ],
   "category": "units",
   "research": {

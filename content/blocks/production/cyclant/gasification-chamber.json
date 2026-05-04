@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "aluminium/75","silicide/20","catalyzon/5" ],
   "category": "crafting",
   "craftEffect": "fireHit",

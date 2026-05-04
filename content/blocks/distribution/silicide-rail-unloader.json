@@ -1,5 +1,5 @@
 {
-  "type": "DirectionalUnloader",
+  //"type": "DirectionalUnloader",
   "requirements": [ "graphite/10","silicon/10","silicide/5" ],
   "health": 400,
   "armor": 24,

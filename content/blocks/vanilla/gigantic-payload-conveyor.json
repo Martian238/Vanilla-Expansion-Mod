@@ -1,5 +1,5 @@
 {
-  "type": "PayloadConveyor",
+  //"type": "PayloadConveyor",
   "requirements": [ "copper/500","silicon/300","titanium/200" ],
   "category": "units",
   "size": 9,

@@ -20,5 +20,6 @@
   "removeScaling": 0,
   "spreadConversion": 0,
   "maxSpread": 1,
-  "databaseTag": "liquid-fluid"
+  "databaseTag": "liquid-fluid",
+  "coolant": false
 }

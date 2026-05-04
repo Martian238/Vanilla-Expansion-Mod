@@ -1,5 +1,5 @@
 {
-  "type": "PowerNode",
+  //"type": "PowerNode",
   "requirements": [ "plastanium/5","quartz/3","silicide/2" ],
   "category": "defense",
   "research": "silicide-wall",

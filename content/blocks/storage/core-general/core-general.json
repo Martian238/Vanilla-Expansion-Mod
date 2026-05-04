@@ -1,5 +1,5 @@
 {
-  "type": "CoreBlock",
+  //"type": "CoreBlock",
   "requirements": [ "ferrum/3000","silver/1000","silicon/1000" ],
   "health": 8000,
   "size": 4,

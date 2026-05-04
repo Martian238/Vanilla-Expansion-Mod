@@ -1,5 +1,5 @@
 {
-  "type": "Conveyor",
+  //"type": "Conveyor",
   "requirements": [ "cobalt/1","graphite/1" ]
   "health": 35,
   "category": "distribution",

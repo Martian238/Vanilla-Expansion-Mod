@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "aluminium/50","lead/30","ferrum/20","silicon/40","reflector-matter/10" ],
   "category": "production",
   "outputItem": "reflector-matter/5",

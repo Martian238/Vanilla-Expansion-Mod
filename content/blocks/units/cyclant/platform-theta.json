@@ -1,5 +1,5 @@
 {
-  "type": "UnitCargoLoader",
+  //"type": "UnitCargoLoader",
   "buildTime": 600,
   "unitType": "theta-tether",
   "category": "units",

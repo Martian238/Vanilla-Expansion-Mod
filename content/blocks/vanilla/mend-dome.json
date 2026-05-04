@@ -1,5 +1,5 @@
 {
-  "type": "MendProjector",
+  //"type": "MendProjector",
   "category": "effect",
   "requirements": [
     "lead/200","titanium/75","silicon/100","copper/100","surge-alloy/60"

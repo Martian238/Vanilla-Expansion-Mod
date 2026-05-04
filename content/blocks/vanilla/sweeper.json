@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "requirements": [ "plastanium/3" ],
   "buildCostMultiplier": 6,
   "explodeOnFull": true,

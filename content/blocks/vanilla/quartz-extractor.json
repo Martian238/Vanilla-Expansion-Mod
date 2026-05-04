@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "copper/16","graphite/12" ],
   "category": "crafting",
   "research": {

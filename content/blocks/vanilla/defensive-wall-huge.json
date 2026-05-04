@@ -1,5 +1,5 @@
 {
-  "type": "Wall",
+  //"type": "Wall",
   "requirements": [ "copper/36","titanium/36","thorium/36","silicide/36" ],
   "category": "defense",
   "research": "defensive-wall-large",

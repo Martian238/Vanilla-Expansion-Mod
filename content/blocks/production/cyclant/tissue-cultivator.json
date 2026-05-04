@@ -1,5 +1,5 @@
 {
-  "type": "AttributeCrafter",
+  //"type": "AttributeCrafter",
   "requirements": [ "aluminium/40","silicon/35","metaglass/25" ],
   "category": "production",
   "outputItem": "plant-matter/2",

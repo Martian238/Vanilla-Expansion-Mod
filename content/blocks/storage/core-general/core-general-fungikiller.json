@@ -23,5 +23,7 @@
   },
   "outputsPower": true,
   "consumesPower": true,
-  "enableDrawStatus": false
+  "enableDrawStatus": false,
+  "landMusic": "none",
+  "landSound": "carrionLevelStingerCoreLand"
 }

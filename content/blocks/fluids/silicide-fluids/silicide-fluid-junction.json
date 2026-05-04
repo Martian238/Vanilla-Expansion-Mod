@@ -1,5 +1,5 @@
 {
-  "type": "LiquidJunction",
+  //"type": "LiquidJunction",
   "requirements": [ "metaglass/8","graphite/4","titanium/4","silicide/4" ],
   "category": "liquid",
   "health": 370,

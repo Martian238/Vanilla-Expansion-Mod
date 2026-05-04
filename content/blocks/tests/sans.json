@@ -1,5 +1,5 @@
 {
-  "type": "LiquidTurret",
+  //"type": "LiquidTurret",
   "buildVisibility": "shown",
   "alwaysUnlocked": false,
   "category": "turret",

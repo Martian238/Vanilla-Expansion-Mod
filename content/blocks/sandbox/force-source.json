@@ -1,5 +1,5 @@
 {
-  "type": "BaseShield",
+  //"type": "BaseShield",
   "radius": 40,
   "sides": 24,
   "buildVisibility": "sandboxOnly"

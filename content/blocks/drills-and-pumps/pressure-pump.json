@@ -1,5 +1,5 @@
 {
-  "type": "Pump",
+  //"type": "Pump",
   "requirements": [ "chromium/40","lead/30" ],
   "category": "liquid",
   "pumpAmount": 0.4,

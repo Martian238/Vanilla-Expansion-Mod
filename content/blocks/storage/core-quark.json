@@ -1,5 +1,5 @@
 {
-  "type": "CoreBlock",
+  //"type": "CoreBlock",
   "category": "effect",
   "requirements": [ "aluminium/7000","lead/7000","silicon/8000","cobalt/5000","silicide/2000" ],
   "research": {

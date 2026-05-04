@@ -1,5 +1,5 @@
 {
-  "type": "Separator",
+  //"type": "Separator",
   "requirements": [ "lead/120","chromium/80","graphite/150","silicide/100","phase-fabric/60" ],
   "category": "crafting",
   "results": [

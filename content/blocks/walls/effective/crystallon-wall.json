@@ -1,5 +1,5 @@
 {
-  "type": "PowerTurret",
+  //"type": "PowerTurret",
   "priority": -2,
   "size": 1,
   "crushDamageMultiplier": 5,

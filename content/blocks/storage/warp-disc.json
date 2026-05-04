@@ -1,5 +1,5 @@
 {
-  "type": "StorageBlock",
+  //"type": "StorageBlock",
   "requirements": [ "cobalt/500","silicon/200","warp-nucleus/80" ],
   "category": "effect",
   "research": {

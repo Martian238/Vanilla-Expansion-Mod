@@ -1,5 +1,5 @@
 {
-  "type": "SolidPump",
+  //"type": "SolidPump",
   "category": "production",
   "requirements": [ "chromium/140","graphite/90","silicon/60" ],
   "result": "water",

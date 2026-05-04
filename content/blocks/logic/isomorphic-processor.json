@@ -1,5 +1,5 @@
 {
-  "type": "LogicBlock",
+  //"type": "LogicBlock",
   "category": "logic",
   "requirements": [ "aluminium/30","silicon/50","graphite/10" ],
   "instructionsPerTick": 1,

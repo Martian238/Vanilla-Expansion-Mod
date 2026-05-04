@@ -1,5 +1,5 @@
 {
-  "type": "LiquidRouter",
+  //"type": "LiquidRouter",
   "requirements": [ "silver/6" ],
   "category": "liquid",
   "health": 40,

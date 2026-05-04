@@ -1,5 +1,5 @@
 {
-  "type": "PayloadConveyor",
+  //"type": "PayloadConveyor",
   "requirements": [ "aluminium/5","graphite/5","silicon/5" ],
   "category": "units",
   "size": 1,

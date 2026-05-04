@@ -1,5 +1,5 @@
 {
-  "type": "ItemTurret",
+  //"type": "ItemTurret",
   "requirements": [ "ferrum/160","graphite/100","silicon/40" ],
   "researchCost": [ "ferrum/80","graphite/50","silicon/20" ],
   "category": "turret",

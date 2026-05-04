@@ -1,5 +1,5 @@
 {
-  "type": "Pump",
+  //"type": "Pump",
   "requirements": [ "silver/20","ferrum/10" ],
   "category": "liquid",
   "pumpAmount": 0.15,

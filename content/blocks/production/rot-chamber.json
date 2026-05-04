@@ -1,5 +1,5 @@
 {
-  "type": "AttributeCrafter",
+  //"type": "AttributeCrafter",
   "requirements": [ "ferrum/60","silicon/25","silver/10" ],
   "category": "production",
   "outputItem": "spore-pod/2",

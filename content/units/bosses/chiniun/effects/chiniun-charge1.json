@@ -9,7 +9,7 @@
   "wobble": false,
   "createScorch": false,
   "targetable": false,
-  "noAttack": true,
+  //"noAttack": true,
   "useUnitCap": false,
   "drawSoftShadow": false,
   "drawMinimap": false,

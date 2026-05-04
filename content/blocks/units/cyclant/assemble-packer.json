@@ -1,5 +1,5 @@
 {
-  "type": "Constructor",
+  //"type": "Constructor",
   "requirements": [ "silicon/200","fibralt/50","graphite/50" ],
   "size": 3,
   "maxBlockSize": 3,

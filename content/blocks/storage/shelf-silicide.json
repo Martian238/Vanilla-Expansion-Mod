@@ -1,5 +1,5 @@
 {
-  "type": "StorageBlock",
+  //"type": "StorageBlock",
   "requirements": [ "aluminium/90","silicide/30" ],
   "category": "effect",
   "research": {

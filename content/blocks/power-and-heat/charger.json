@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "aluminium/200","cobalt/120","graphite/110","silicon/90","surge-alloy/60" ],
   "category": "power",
   "hasItems": true,

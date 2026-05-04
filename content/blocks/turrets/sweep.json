@@ -1,5 +1,5 @@
 {
-  "type": "PowerTurret",
+  //"type": "PowerTurret",
   "requirements": [ "surge-alloy/200","graphite/280","silicon/220" ],
   "category": "turret",
   "size": 4,

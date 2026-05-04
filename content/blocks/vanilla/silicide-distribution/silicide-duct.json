@@ -1,5 +1,5 @@
 {
-  "type": "Duct",
+  //"type": "Duct",
   "requirements": [ "titanium/1","silicide/1" ],
   "category": "distribution",
   "health": 280,

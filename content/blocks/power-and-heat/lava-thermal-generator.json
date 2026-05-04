@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "requirements": [ "aluminium/200","graphite/100","silicide/50","metaglass/80","silicon/60" ],
   "category": "power",
   "powerProduction": 27.5,//10.5

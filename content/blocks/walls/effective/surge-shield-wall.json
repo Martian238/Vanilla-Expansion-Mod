@@ -1,5 +1,5 @@
 {
-  "type": "ShieldWall",
+  //"type": "ShieldWall",
   "shieldHealth": 6000,
   "breakCooldown": 240,
   "regenSpeed": 4,

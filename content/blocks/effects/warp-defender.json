@@ -1,5 +1,5 @@
 {
-  "type": "PointDefenseTurret",
+  //"type": "PointDefenseTurret",
   "category": "effect",
   "requirements": [ "aluminium/200","silicon/200","phase-fabric/50","warp-nucleus/30" ],
   "color": "bf92f9",

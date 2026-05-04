@@ -1,5 +1,5 @@
 {
-  "type": "ItemTurret",
+  //"type": "ItemTurret",
   "requirements": [ "aluminium/45","graphite/30" ],
   "category": "turret",
   "size": 1,

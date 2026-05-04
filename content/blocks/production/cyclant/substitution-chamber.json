@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "requirements": [ "aluminium/105","silicide/70","graphite/85" ],
   "category": "crafting",
   "craftEffect": "smeltsmoke",

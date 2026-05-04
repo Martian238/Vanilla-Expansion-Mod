@@ -1,5 +1,5 @@
 {
-  "type": "Reconstructor",
+  //"type": "Reconstructor",
   "category": "units",
   "size": 7,
   "requirements": [ "lead/1000","silicon/800","cobalt/600","plastanium/500" ],

@@ -1,5 +1,5 @@
 {
-  "type": "ContinuousLiquidTurret",
+  //"type": "ContinuousLiquidTurret",
   "requirements": [ "chromium/150","silicon/80","metaglass/50","silicide/70" ],
   "category": "turret",
   "size": 3,

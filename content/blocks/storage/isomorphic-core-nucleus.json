@@ -1,5 +1,5 @@
 {
-  "type": "CoreBlock",
+  //"type": "CoreBlock",
   "requirements": [ "aluminium/5000","lead/5000","silicon/7000","chromium/3000","silicide/1000" ],
   "health": 10000,
   "size": 5,
