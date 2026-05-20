@@ -14,7 +14,13 @@
   "engineOffset": 20,
   "lightColor": "8ca9e8",
   "research": {
-    "parent": "hover"
+    "parent": "hover",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "surface-cracks"
+      }
+    ]
   },
   "range": 280,
   "weapons": [

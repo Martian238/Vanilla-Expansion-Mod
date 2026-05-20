@@ -2,7 +2,6 @@
 function newBlock(name, blockType) {
 	exports[name] = extend(blockType, name, {});
 }
-
 //distribution
 log("0");
 newBlock("duct-junction",DuctJunction);
@@ -129,7 +128,7 @@ newBlock("warper",GenericCrafter);
 log("11");
 newBlock("blast-furnace",GenericCrafter);
 newBlock("multi-furnace",GenericCrafter);
-newBlock("reduction-chamber",GenericCrafter);
+//newBlock("reduction-chamber",GenericCrafter);
 newBlock("centrifuge-kiln",GenericCrafter);
 newBlock("reflector-thermolyzer",GenericCrafter);
 newBlock("magnetic-separator",GenericCrafter);
@@ -280,6 +279,7 @@ newBlock("silicide-fluid-junction",LiquidJunction);
 newBlock("silicide-bridge-conduit",LiquidBridge);
 newBlock("silicide-fluid-source",LiquidSource);
 newBlock("silicide-fluid-void",LiquidVoid);
+//newBlock("fluid-sorter",MultiCrafter);
 newBlock("silver-conduit",Conduit);
 newBlock("silver-conduit-armored",ArmoredConduit);
 newBlock("valve-fluid-distribute",LiquidRouter);
@@ -393,6 +393,7 @@ newBlock("double",ItemTurret);
 newBlock("burst",ItemTurret);
 newBlock("ash",ItemTurret);
 newBlock("pantype",ItemTurret);
+newBlock("meteor",ItemTurret);
 newBlock("vector",PowerTurret);
 newBlock("guarden",PowerTurret);
 newBlock("melonic-array-pillar",PowerTurret);
@@ -450,9 +451,13 @@ newBlock("boss-assembler",UnitAssembler);
 
 log("35");
 newBlock("small-unit-constructor",UnitFactory);
+newBlock("small-unit-constructor-sharded",UnitFactory);
 newBlock("standard-constructor",UnitFactory);
+newBlock("standard-constructor-sharded",UnitFactory);
 newBlock("elite-upgrader",Reconstructor);
+newBlock("elite-upgrader-sharded",Reconstructor);
 newBlock("melon-repair-bay",RepairTower);
+newBlock("watermelon-printer",Constructor);
 
 //logic
 log("36");

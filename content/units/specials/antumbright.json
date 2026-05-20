@@ -18,7 +18,8 @@
     {
       "type": "RegionPart",
       "suffix": "-light",
-      "layer": 105
+      "layer": 105,
+      "outline": false
     }
     /*{
       "type": "RegionPart",
@@ -150,8 +151,7 @@
       }
     },
 
-//ff0000,c04000,808000,40c000,00ff00,00c040,
-//008080,0040c0,0000ff,4000c0,800080,c00040
+
 
     {
       "alwaysShooting": true,
@@ -162,9 +162,152 @@
       "x": 0,
       "y": 0,
       "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 0 },
+      "reload": 360,
+      "recoil": 0,
       "parentizeEffects": true,
+      "parts": [
+        {
+          "type": "RegionPart",
+          "layer": 102,
+          "rotation": 90,
+          "name": "ve-antumbright-shell",
+"outline": false,
+          "color": "ff6060",
+          "colorTo": "60ff60",
+          "xScl": 0,
+          "yScl": 0,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              { "op": "inv" },
+              {
+                "op": "compress",
+                "start": 0,
+                "end": 0.333333333
+              }
+            ]
+          },
+          "moves": [
+            {
+              "gx": 1,
+              "gy": 1,
+              "progress": {
+                "type": "reload",
+                "ops": [
+                  { "op": "inv" },
+                  {
+                    "op": "compress",
+                    "start": 0,
+                    "end": 0.333333333
+                  },
+                  {
+                    "op": "curve",
+                    "interp": "slope"
+                  },
+                  {
+                    "op": "mul",
+                    "amount": 1000000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "RegionPart",
+          "layer": 102,
+          "rotation": 90,
+          "name": "ve-antumbright-shell",
+"outline": false,
+          "color": "60ff60",
+          "colorTo": "6060ff",
+          "xScl": 0,
+          "yScl": 0,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              { "op": "inv" },
+              {
+                "op": "compress",
+                "start": 0.333333333,
+                "end": 0.666666667
+              }
+            ]
+          },
+          "moves": [
+            {
+              "gx": 1,
+              "gy": 1,
+              "progress": {
+                "type": "reload",
+                "ops": [
+                  { "op": "inv" },
+                  {
+                    "op": "compress",
+                    "start": 0.333333333,
+                    "end": 0.666666667
+                  },
+                  {
+                    "op": "curve",
+                    "interp": "slope"
+                  },
+                  {
+                    "op": "mul",
+                    "amount": 1000000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "RegionPart",
+          "layer": 102,
+          "rotation": 90,
+          "name": "ve-antumbright-shell",
+"outline": false,
+          "color": "6060ff",
+          "colorTo": "ff6060",
+          "xScl": 0,
+          "yScl": 0,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              { "op": "inv" },
+              {
+                "op": "compress",
+                "start": 0.666666667,
+                "end": 1
+              }
+            ]
+          },
+          "moves": [
+            {
+              "gx": 1,
+              "gy": 1,
+              "progress": {
+                "type": "reload",
+                "ops": [
+                  { "op": "inv" },
+                  {
+                    "op": "compress",
+                    "start": 0.666666667,
+                    "end": 1
+                  },
+                  {
+                    "op": "curve",
+                    "interp": "slope"
+                  },
+                  {
+                    "op": "mul",
+                    "amount": 1000000
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
       "bullet": {
         "instantDisappear": true,
         "despawnEffect": "none",
@@ -172,417 +315,10 @@
         "damage": 0,
         "absorbable": false,
         "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "ff6666",
-          "colorTo": "d08066",
-          "lightOpacity": 30
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 10 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "d08066",
-          "colorTo": "b0b066",
-          "lightOpacity": 30
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 20 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "b0b066",
-          "colorTo": "80d066",
-          "lightOpacity": 30
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 30 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "80d066",
-          "colorTo": "66ff66",
-          "lightOpacity": 30
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 40 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "66ff66",
-          "colorTo": "66d080",
-          "lightOpacity": 30
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 50 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "66d080",
-          "colorTo": "66b0b0",
-          "lightOpacity": 30
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 60 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "66b0b0",
-          "colorTo": "6680d0",
-          "lightOpacity": 30
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 70 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "6680d0",
-          "colorTo": "6666ff",
-          "lightOpacity": 30
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 80 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "6666ff",
-          "colorTo": "8066d0",
-          "lightOpacity": 30
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 90 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "8066d0",
-          "colorTo": "b066b0",
-          "lightOpacity": 20
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 100 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "b066b0",
-          "colorTo": "d06680",
-          "lightOpacity": 30
-        }
-      }
-    },
-    {
-      "alwaysShooting": true,
-      "controllable": false,
-      "display": false,
-      "mirror": false,
-      "shootSound": "none",
-      "x": 0,
-      "y": 0,
-      "shootY": 0,
-      "reload": 120,
-      "shoot": { "firstShotDelay": 110 },
-      "parentizeEffects": true,
-      "bullet": {
-        "instantDisappear": true,
-        "despawnEffect": "none",
-        "hitEffect": "none",
-        "damage": 0,
-        "absorbable": false,
-        "smokeEffect": "none",
-        "shootEffect": {
-          "type": "ParticleEffect",
-          "region": "ve-antumbright-shell",
-          "layer": 102,
-          "sizeFrom": 30,
-          "sizeTo": 30,
-          "lifetime": 11,
-          "length": 0,
-          "baseLength": 0,
-          "followParent": true,
-          "rotWithParent": true,
-          "colorFrom": "d06680",
-          "colorTo": "ff6666",
-          "lightOpacity": 30
-        }
+        "shootEffect": "none",
+        "reflectable": false,
+        "hittable": false,
+        "collides": false
       }
     }
   ]

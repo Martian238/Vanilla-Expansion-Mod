@@ -94,5 +94,6 @@
         "lightColor": "f8e096"
       }
     }
-  }
+  },
+  "buildCostMultiplier": 150
 }

@@ -14,5 +14,6 @@
   "lightRadius": 35,
   "lightColor": "df171744",
   "liquidMultiplier": 0.5,
-  "blendGroup": "basalt"
+  "blendGroup": "basalt",
+  "canShadow": false
 }

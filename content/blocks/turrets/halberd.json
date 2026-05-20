@@ -31,6 +31,7 @@
   "rotateSpeed": 8,
   "drawer": {
     "type": "DrawTurret",
+    "basePrefix": "cobalt-",
     "parts": [
       {
         "type": "RegionPart",

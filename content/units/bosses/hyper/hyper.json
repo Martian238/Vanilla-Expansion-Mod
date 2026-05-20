@@ -824,7 +824,7 @@
       "shootY": 7.5,
       "reload": 2,
       "alternate": false,
-      "shadow": 20,
+      "shadow": 60,
       "shoot": {
         "type": "ShootBarrel",
         "shots": 2,
@@ -931,7 +931,7 @@
       "shootY": 7.5,
       "reload": 2,
       "alternate": false,
-      "shadow": 20,
+      "shadow": 60,
       "shoot": {
         "type": "ShootBarrel",
         "shots": 2,
@@ -1038,7 +1038,7 @@
       "shootY": 7.5,
       "reload": 2,
       "alternate": false,
-      "shadow": 20,
+      "shadow": 60,
       "shoot": {
         "type": "ShootBarrel",
         "shots": 2,
@@ -1145,7 +1145,7 @@
       "shootY": 7.5,
       "reload": 2,
       "alternate": false,
-      "shadow": 20,
+      "shadow": 60,
       "shoot": {
         "type": "ShootBarrel",
         "shots": 2,
@@ -1245,12 +1245,12 @@
       "layerOffset": 1
       "type": "RepairBeamWeapon",
       "shootY": 13.5,
-      "beamWidth": 1,
-      "repairSpeed": 10,
+      "beamWidth": 1.5,
+      "repairSpeed": 20,
       "shadow": 20,
       "rotateSpeed": 8,
-      "bullet": { "maxRange": 288 },
-      "fractionRepairSpeed": 0.005
+      "bullet": { "maxRange": 512 },
+      "fractionRepairSpeed": 0.05
     },
     {
       "name": "hyper-repairer",
@@ -1259,12 +1259,12 @@
       "layerOffset": 1
       "type": "RepairBeamWeapon",
       "shootY": 13.5,
-      "beamWidth": 1,
-      "repairSpeed": 10,
+      "beamWidth": 1.5,
+      "repairSpeed": 20,
       "shadow": 20,
       "rotateSpeed": 8,
-      "bullet": { "maxRange": 288 },
-      "fractionRepairSpeed": 0.005
+      "bullet": { "maxRange": 512 },
+      "fractionRepairSpeed": 0.05
     },
     {
       "name": "hyper-missile-weapon"

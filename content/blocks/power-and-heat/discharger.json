@@ -3,7 +3,7 @@
   "requirements": [ "lead/100","graphite/80","silicide/60","chromium/30" ],
   "category": "power",
   "powerProduction": 297.5,
-  "itemDuration": 10,
+  "itemDuration": 40,
   "ambientSound": "loopHum",
   "ambientSoundVolume": 0,
   "size": 2,

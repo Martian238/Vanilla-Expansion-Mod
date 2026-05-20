@@ -7,7 +7,7 @@
   "outputItem": "capacitor/1",
   "size": 3,
   "consumes": {
-    "power": 50,
+    "power": 200,
     "items": [ "surge-alloy/3" ]
   },
   "craftTime": 60,

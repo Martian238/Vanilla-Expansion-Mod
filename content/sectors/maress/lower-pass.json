@@ -1,0 +1,24 @@
+{
+  "planet": "maress",
+  "sector": 26,
+  "difficulty": 5,
+  "research": {
+    "parent": "negotiation",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "negotiation"
+      },
+      "chiniun-shockwave"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 50,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

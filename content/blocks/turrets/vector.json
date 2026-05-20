@@ -103,5 +103,9 @@
     },
     "power": 6
   },
-  "shownPlanets": [ "maress","sitrullus" ]
+  "shownPlanets": [ "maress","sitrullus" ],
+  "drawer": {
+    "type": "DrawTurret",
+    "basePrefix": "silver-"
+  }
 }

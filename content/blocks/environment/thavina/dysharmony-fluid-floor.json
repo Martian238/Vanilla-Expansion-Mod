@@ -1,0 +1,29 @@
+{
+  "type": "Floor",
+  "isLiquid": true,
+  "status": "dysharmony",
+  "drownTime": 120,
+  "speedMultiplier": 0.1,
+  "variants": 0,
+  "liquidDrop": "dysharmony-fluid",
+  "cacheLayer": "tar",
+  "damageTaken": 2,
+  "emitLight": true,
+  "lightRadius": 64,
+  "lightColor": "ff3a73",
+  "mapColor": "ff3a73",
+  "liquidMultiplier": 1,
+  "drownUpdateEffect": {
+    "type": "SoundEffect",
+    "effect": {
+      "type": "WrapEffect",
+      "effect": "mine",
+      "color": "ff3a73"
+    },
+    "sound": "none",
+    "maxPitch": 1,
+    "minPitch": 0.9
+  },
+  "canShadow": false,
+  "placeableOn": false
+}

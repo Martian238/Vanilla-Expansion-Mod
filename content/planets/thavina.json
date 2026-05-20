@@ -32,7 +32,7 @@
   "lightDstFrom": 0.4,
   "lightDstTo": 0.8,
   "research": {
-    "parent": "core-singularity-root"
+    "parent": "reunion"
   },
   "defaultCore": "core-shard",
   //"icon": "donate",
@@ -50,7 +50,7 @@
   "tidalLock": true,
   "prebuildBase": true,
   "radius": 0.85,
-  "bloom": false,
+  "bloom": true,
   "visible": true,
   "minZoom": 0.1,
   "maxZoom": 10,

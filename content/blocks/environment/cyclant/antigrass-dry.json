@@ -4,5 +4,6 @@
   "attributes": {
     "water": -0.3
   },
-  "wall": "antigrass-wall"
+  "wall": "antigrass-wall",
+  "mapColor": "cda17f"
 }

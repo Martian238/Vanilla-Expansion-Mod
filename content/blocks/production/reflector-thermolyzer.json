@@ -5,8 +5,15 @@
   ],
   "category": "crafting",
   "research": {
-    "parent": "reflector-cultivator"
+    "parent": "reflector-cultivator",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "mirror-swamp"
+      }
+    ]
   },
+  "researchCostMultiplier": 0.04,
   "size": 3,
   "craftTime": 240,
   "itemCapacity": 30,

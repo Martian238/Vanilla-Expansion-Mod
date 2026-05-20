@@ -22,7 +22,13 @@
   "loopSound": "lbp3FlyingMachine",
   "loopSoundVolume": 0.1,
   "research": {
-    "parent": "core-singularity-root"
+    "parent": "core-singularity-root",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "lower-pass"
+      }
+    ]
   },
   "weapons": [
     {

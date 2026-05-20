@@ -36,6 +36,11 @@
       "requirements": [ "silicon/240","graphite/40","ferrum/90","silicide/60" ]
     },
     {
+      "unit": "zenith-sweeper",
+      "time": 3600,
+      "requirements": [ "silicon/240","graphite/40","silicide/80","dense-melon-dirt/60" ]
+    },
+    {
       "unit": "zenith-supporter",
       "time": 3600,
       "requirements": [ "silicon/220","ferrum/50","silver/60","quartz/40" ]

@@ -26,7 +26,7 @@
   "buildBeamOffset": 3.5,
   "buildRange": 320,
   "payloadCapacity": 400,
-  "lightColor": "ffd37f",
+  "lightColor": "f25555",
   "pickupUnits": true,
   "targetable": false,
   "immunities": [ "frozen","blown" ],

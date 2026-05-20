@@ -224,7 +224,7 @@
   "rotateSpeed": 14,
   "drawer": {
     "type": "DrawTurret",
-    "basePrefix": "dark-",
+    "basePrefix": "silicide-",
     "parts": [
       {
         "type": "RegionPart",

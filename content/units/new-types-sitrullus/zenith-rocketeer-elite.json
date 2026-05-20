@@ -12,8 +12,9 @@
   "engineOffset": 12,
   "immunities": [ "frozen" ],
   "shownPlanets": [ "sitrullus" ],
-  "range": 336,
+  "range": 416,
   "outlineColor": "16161b"
+  "alwaysShootWhenMoving": true,
   "weapons": [
     {
       "x": 16.5,
@@ -36,7 +37,7 @@
         "shotDelay": 10
       },
       "bullet": {
-        "rangeOverride": 336,
+        "rangeOverride": 416,
         "spawnUnit": "zenith-rocketeer-elite-missile",
         "shootEffect": {
           "type": "MultiEffect",
@@ -222,7 +223,7 @@
       "autoTarget": true,
       "useAttackRange": false,
       "bullet": {
-        "maxRange": 150,
+        "maxRange": 256,
         "shootEffect": {
           "type": "ParticleEffect",
           "lifetime": 60,

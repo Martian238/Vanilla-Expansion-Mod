@@ -129,7 +129,9 @@
             "width": 15.25,
             "height": 10.5,
             "trailColor": "ffd37f",
-            "trailLength": 10
+            "trailLength": 10,
+            "status": "killed",
+            "statusDuration": 3600
           }
         ]
       }

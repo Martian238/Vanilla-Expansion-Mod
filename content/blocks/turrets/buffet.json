@@ -380,7 +380,7 @@
   "rotateSpeed": 10,
   "drawer": {
     "type": "DrawTurret",
-    "basePrefix": "dark-",
+    "basePrefix": "chromium-",
     "parts": [
       {
         "type": "RegionPart",

@@ -22,7 +22,13 @@
   "loopSound": "lbp3FlyingMachine",
   "loopSoundVolume": 0.25,
   "research": {
-    "parent": "daybreak"
+    "parent": "daybreak",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "slate-guardpost"
+      }
+    ]
   },
   "range": 280,
   "weapons": [

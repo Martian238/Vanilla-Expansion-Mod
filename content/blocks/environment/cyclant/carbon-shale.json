@@ -8,5 +8,6 @@
   "itemDrop": "carbon-shale-cobble",
   "playerUnmineable": true,
   "wall": "carbon-shale-wall",
-  "decoration": "carbon-shale-boulder"
+  "decoration": "carbon-shale-boulder",
+  "mapColor": "282b34"
 }

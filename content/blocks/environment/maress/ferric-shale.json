@@ -7,5 +7,6 @@
   "itemDrop": "ferric-shale-cobble",
   "playerUnmineable": true,
   "wall": "ferric-shale-wall",
-  "decoration": "ferric-shale-boulder"
+  "decoration": "ferric-shale-boulder",
+  "mapColor": "675b53"
 }

@@ -1,15 +1,55 @@
 {
-  "type": "HeatProducer",
+  "type": "MultiCraft.MultiCrafter",
   "requirements": [ "aluminium/30","graphite/25","ferrum/25" ]
   "category": "crafting",
   "hasItems": true,
   "itemCapacity": 10,
-  "warmupRate": 0.05,
-  "heatOutput": 5,
-  "consumes": {
-    "items": [ "coal/1" ]
-  },
-  "craftTime": 90,
+  "conductivePower": false,
+  "hasLiquids": true,
+  "liquidCapacity": 30,
+  "recipe": [
+    {
+      "inputItems": [ "coal/1" ],
+      "craftTime": 90,
+      "outputHeat": 10
+    },
+    {
+      "inputItems": [ "ve-plant-matter/1" ],
+      "craftTime": 60,
+      "outputHeat": 10
+    },
+    {
+      "inputItems": [ "spore-pod/1" ],
+      "craftTime": 120,
+      "outputHeat": 10
+    }
+    {
+      "inputItems": [ "ve-reflector-matter/1" ],
+      "craftTime": 75,
+      "outputHeat": 15
+    },
+    {
+      "inputLiquids": [ "oil/0.1" ],
+      "craftTime": 120,
+      "outputHeat": 20
+    },
+    {
+      "inputLiquids": [ "hydrogen/0.05" ],
+      "craftTime": 120,
+      "outputHeat": 20, 
+      "outputLiquids": [ "water/0.08333333333" ]
+    },
+    {
+      "inputItems": [ "pyratite/1" ],
+      "craftTime": 180,
+      "outputHeat": 25
+    },
+    {
+      "inputItems": [ "ve-nitroalkoss/1" ],
+      "craftTime": 600,
+      "outputHeat": 30
+    }
+  ],
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
@@ -30,5 +70,16 @@
   "ambientSoundVolume": 0.08,
   "updateEffect": "coalSmeltsmoke",
   "updateEffectChance": 0.02,
-  "research": "blast-furnace"
+  "rotate": true,
+  "warmupRate": 0.01,
+  "rotateDraw": false,
+  "research": {
+    "parent": "blast-furnace",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "icy-boundary"
+      }
+    ]
+  }
 }

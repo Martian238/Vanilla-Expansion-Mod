@@ -15,15 +15,15 @@
     "colorScale": 0.9,
     "colors": [ 
       "ffffff",
-      "eeeeee",
-      "dddddd",
-      "cccccc",
-      "bbbbbb",
-      "aaaaaa"
+      "ffeeee",
+      "eedddd",
+      "ddcccc",
+      "ccbbbb",
+      "bbaaaa"
     ]
   },
-  "iconColor": "ffffff",
-  "lightColor": "ffffff",
+  "iconColor": "ffeeee",
+  "lightColor": "ffeeee",
   "rotateTime": 80,
   "solarSystem": "sol4b",
   "visible": true,

@@ -5,7 +5,7 @@
   "hasItems": true,
   "itemCapacity": 80,
   "warmupRate": 0.05,
-  "heatOutput": 57.5,//115
+  "heatOutput": 50,//115 57.5
   "armor": 24,
   "baseExplosiveness": 10,
   "consumes": {
@@ -33,5 +33,13 @@
   "ambientSoundVolume": 0.14,
   "updateEffect": "fuelburn",
   "updateEffectChance": 0.02,
-  "research": "boiler"
+  "research": {
+    "parent": "boiler",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "radioactive-islands"
+      }
+    ]
+  }
 }

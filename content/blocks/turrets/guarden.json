@@ -142,7 +142,13 @@
   "ammoUseEffect": "none",
   "rotateSpeed": 3,
   "research": {
-    "parent": "vector"
+    "parent": "vector",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "fruit-flats"
+      }
+    ]
   },
   "researchCostMultiplier": 0.5,
   "coolantMultiplier": 2,
@@ -157,6 +163,7 @@
   "shownPlanets": [ "maress","sitrullus" ],
   "drawer": {
     "type": "DrawTurret",
+    "basePrefix": "silver-",
     "parts": [
       {
         "type": "RegionPart",

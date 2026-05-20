@@ -2,15 +2,15 @@
   "type": "ParticleWeather",
   "color": "ba754e",
   "noiseColor": "ba754e",
-  "particleRegion": "circle-small",
+  "particleRegion": "particle",
   "drawNoise": true,
   "useWindVector": true,
-  "sizeMax": 4,
-  "sizeMin": 0.1,
+  "sizeMax": 280,
+  "sizeMin": 140,
   "yspeed": 0,
   "xspeed": 2,
-  "minAlpha": 0.7,
-  "maxAlpha": 1,
+  "minAlpha": 0.1,
+  "maxAlpha": 0.7,
   "density": 3000,
   "baseSpeed": 10,
   "attrs": {
@@ -23,5 +23,6 @@
   "sound": "utySandstorm",
   "soundVol": 0.5,
   "duration": 36000,
-  "statusGround": true
+  "statusGround": true,
+  "status": "dusty"
 }

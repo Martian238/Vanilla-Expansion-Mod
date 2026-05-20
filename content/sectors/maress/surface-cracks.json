@@ -1,0 +1,24 @@
+{
+  "planet": "maress",
+  "sector": 68,
+  "difficulty": 7,
+  "research": {
+    "parent": "slate-guardpost",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "slate-guardpost"
+      },
+      "chiniun-shockwave"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 50,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

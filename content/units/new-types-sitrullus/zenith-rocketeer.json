@@ -12,7 +12,8 @@
   "engineOffset": 12,
   "immunities": [ "frozen" ],
   "shownPlanets": [ "sitrullus" ],
-  "range": 256,
+  "range": 336,
+  "alwaysShootWhenMoving": true,
   "weapons": [
     {
       "name": "zenith-rocketeer-missile-ful",
@@ -29,7 +30,7 @@
       "mirror": false,
       "recoil": 0,
       "bullet": {
-        "rangeOverride": 256,
+        "rangeOverride": 336,
         "spawnUnit": "zenith-rocketeer-missile",
         "shootEffect": {
           "type": "MultiEffect",
@@ -93,7 +94,7 @@
       "mirror": false,
       "recoil": 0,
       "bullet": {
-        "rangeOverride": 256,
+        "rangeOverride": 336,
         "spawnUnit": "zenith-rocketeer-missile",
         "shootEffect": {
           "type": "MultiEffect",
@@ -157,7 +158,7 @@
       "mirror": false,
       "recoil": 0,
       "bullet": {
-        "rangeOverride": 256,
+        "rangeOverride": 336,
         "spawnUnit": "zenith-rocketeer-missile",
         "shootEffect": {
           "type": "MultiEffect",
@@ -221,7 +222,7 @@
       "mirror": false,
       "recoil": 0,
       "bullet": {
-        "rangeOverride": 256,
+        "rangeOverride": 336,
         "spawnUnit": "zenith-rocketeer-missile",
         "shootEffect": {
           "type": "MultiEffect",
@@ -329,7 +330,7 @@
       "autoTarget": true,
       "useAttackRange": false,
       "bullet": {
-        "maxRange": 150,
+        "maxRange": 256,
         "shootEffect": {
           "type": "ParticleEffect",
           "lifetime": 60,

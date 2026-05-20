@@ -34,5 +34,6 @@
   "ambientSoundVolume": 0.03,
   "consumes": {
     "items": [ "sand/2" ]
-  }
+  },
+  "shownPlanets": [ "serpulo" ]
 }

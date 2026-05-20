@@ -133,5 +133,6 @@
     "color": "ff5555"
   },
   "drawTeamOverlay": false,
-  "allowDerelictRepair": false
+  "allowDerelictRepair": false,
+  "buildCostMultiplier": 50
 }

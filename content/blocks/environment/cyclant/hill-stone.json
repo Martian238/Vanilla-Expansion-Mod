@@ -5,5 +5,8 @@
     "water": 0.1
   },
   "wall": "hill-stone-wall",
-  "decoration": "hill-stone-boulder"
+  "decoration": "hill-stone-boulder",
+  "mapColor": "3a374b",
+  "hasColor": true,
+  "useColor": false
 }

@@ -24,8 +24,9 @@
   "drillMultipliers": {
     "melon-dirt": 2,
     "spore-pod": 2,
+    "scrap": 4
   },
   "blockedItems": [
-    "copper","lead","coal","aluminium","titanium","beryllium"
+    "copper","lead","coal","aluminium","titanium","beryllium","cobalt"
   ]
 }

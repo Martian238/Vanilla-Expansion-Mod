@@ -1111,7 +1111,7 @@
   "shootCone": 20,
   "drawer": {
     "type": "DrawTurret",
-    "basePrefix": "dark-",
+    "basePrefix": "thorium-",
     "parts": [
       {
         "type": "RegionPart",

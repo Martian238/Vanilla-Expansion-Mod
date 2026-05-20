@@ -1,0 +1,24 @@
+{
+  "planet": "maress",
+  "sector": 239,
+  "difficulty": 6,
+  "research": {
+    "parent": "lower-pass",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "lower-pass"
+      },
+      "chiniun-shockwave"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

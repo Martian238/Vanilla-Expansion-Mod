@@ -6,5 +6,6 @@
   "requirements": [ "plant-matter/10" ],
   "alwaysUnlocked": true,
   "instantDeconstruct": false,
-  "buildVisibility": "sandboxOnly"
+  "buildVisibility": "sandboxOnly",
+  "buildCostMultiplier": 30
 }

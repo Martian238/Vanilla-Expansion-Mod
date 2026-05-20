@@ -106,7 +106,7 @@
   "rotateSpeed": 20,
   "drawer": {
     "type": "DrawTurret",
-    "basePrefix": "dark-"
+    "basePrefix": "chromium-"
   },
   "research": {
     "parent": "dot",

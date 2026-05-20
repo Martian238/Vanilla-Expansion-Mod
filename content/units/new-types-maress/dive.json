@@ -14,7 +14,13 @@
   "engineOffset": 28,
   "lightColor": "8ca9e8",
   "research": {
-    "parent": "ambush"
+    "parent": "ambush",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "thermal-powerplant"
+      }
+    ]
   },
   "abilities": [
     {

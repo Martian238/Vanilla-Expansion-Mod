@@ -16,5 +16,6 @@
   "drownTime": 600,
   "attributes": {
     "spore": 3
-  }
+  },
+  //"damageTaken": -0.5
 }

@@ -15,7 +15,13 @@
   "conductivePower": true,
   "category": "effect",
   "research": {
-    "parent": "burst"
+    "parent": "burst",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "lower-pass"
+      }
+    ]
   },
   "requirements": [
     "silver/10","silicon/15","ferrum/20"

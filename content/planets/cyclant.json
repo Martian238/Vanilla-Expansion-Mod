@@ -57,7 +57,7 @@
   "tidalLock": false,
   "prebuildBase": true,
   "radius": 1,
-  "bloom": false,
+  "bloom": true,
   "visible": true,
   "minZoom": 0.001,
   "maxZoom": 10,

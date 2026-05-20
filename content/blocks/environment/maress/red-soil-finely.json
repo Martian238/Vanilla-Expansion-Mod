@@ -10,5 +10,6 @@
   "playerUnmineable": true,
   "speedMultiplier": 0.9,
   "status": "dusty",
-  "statusDuration": 600
+  "statusDuration": 600,
+  "mapColor": "a1603a"
 }

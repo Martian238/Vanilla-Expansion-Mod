@@ -1,0 +1,24 @@
+{
+  "planet": "maress",
+  "sector": 182,
+  "difficulty": 8,
+  "research": {
+    "parent": "temporary-frontier",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "temporary-frontier"
+      },
+      "chiniun-shockwave"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

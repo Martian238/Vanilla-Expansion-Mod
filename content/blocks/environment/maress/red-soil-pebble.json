@@ -8,5 +8,6 @@
   //"decoration": "red-soil-boulder",
   "speedMultiplier": 0.7,
   "status": "dusty",
-  "statusDuration": 600
+  "statusDuration": 600,
+  "mapColor": "9b6140"
 }

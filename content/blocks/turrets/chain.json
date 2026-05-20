@@ -1669,12 +1669,13 @@
   "rotateSpeed": 3,
   "drawer": {
     "type": "DrawTurret",
+    "basePrefix": "surge-"
     "parts": [
       {
         "type": "ShapePart",
-        "radius": 4,
+        "radius": 6,
         "stroke": 0,
-        "strokeTo": 0.75,
+        "strokeTo": 1.125,
         "layer": 110,
         "y": -5.5,
         "hollow": true,
@@ -1685,7 +1686,7 @@
       {
         "type": "ShapePart",
         "radius": 0,
-        "radiusTo": 2,
+        "radiusTo": 3,
         "layer": 110,
         "y": -5.5,
         "hollow": false
@@ -1701,10 +1702,10 @@
         "layer": 110,
         "shapes": 2,
         "haloRotation": 65,
-        "haloRadius": 6,
+        "haloRadius": 9,
         "triLength": 0,
-        "triLengthTo": 5,
-        "radius": 1.5,
+        "triLengthTo": 7.5,
+        "radius": 2.25,
         "y": -5.5,
         "tri": true
       },
@@ -1715,10 +1716,10 @@
         "layer": 110,
         "shapes": 2,
         "haloRotation": 65,
-        "haloRadius": 6,
+        "haloRadius": 9,
         "triLength": 0,
-        "triLengthTo": 1,
-        "radius": 1.5,
+        "triLengthTo": 1.5,
+        "radius": 2.25,
         "y": -5.5,
         "tri": true,
         "shapeRotation": 180
@@ -1730,10 +1731,10 @@
         "layer": 110,
         "shapes": 2,
         "haloRotation": 115,
-        "haloRadius": 6,
+        "haloRadius": 9,
         "triLength": 0,
-        "triLengthTo": 5,
-        "radius": 1.5,
+        "triLengthTo": 7.5,
+        "radius": 2.25,
         "y": -5.5,
         "tri": true
       },
@@ -1744,10 +1745,10 @@
         "layer": 110,
         "shapes": 2,
         "haloRotation": 115,
-        "haloRadius": 6,
+        "haloRadius": 9,
         "triLength": 0,
-        "triLengthTo": 1,
-        "radius": 1.5,
+        "triLengthTo": 1.5,
+        "radius": 2.25,
         "y": -5.5,
         "tri": true,
         "shapeRotation": 180

@@ -43,7 +43,7 @@
   "tidalLock": true,
   "prebuildBase": false,
   "radius": 0.2,
-  "bloom": false,
+  "bloom": true,
   "visible": true,
   "camRadius": 0.25,
   "minZoom": 0.2,

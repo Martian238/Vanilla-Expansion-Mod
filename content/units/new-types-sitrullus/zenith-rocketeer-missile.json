@@ -3,7 +3,7 @@
   "template": "MissileUnitType",
   "allowedInPayloads": true,
   "logicControllable": true,
-  "lifetime": 46,
+  "lifetime": 54,
   "engineOffset": 6.5,
   "engineSize": 2,
   "speed": 10,

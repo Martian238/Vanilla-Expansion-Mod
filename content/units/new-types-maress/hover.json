@@ -14,7 +14,13 @@
   "engineOffset": 11,
   "lightColor": "8ca9e8",
   "research": {
-    "parent": "soar"
+    "parent": "soar",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "slate-guardpost"
+      }
+    ]
   },
   "range": 308,
   "weapons": [

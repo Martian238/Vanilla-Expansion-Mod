@@ -1,0 +1,18 @@
+{
+  //"type": "Constructor",
+  "requirements": [ "silicon/100","silver/100" ],
+  "size": 2,
+  "maxBlockSize": 2,
+  "category": "units",
+  "research": "melon-repair-bay",
+  "researchCostMultiplier": 0.1,
+  "filter": [ "watermelon","nitroalkoss-plant","mirmat","semigrass-bush" ],
+  "itemCapacity": 50,
+  "hasPower": true,
+  "consumes": {
+    "power": 0.2,
+    "liquids": [ "water/0.0333333333" ]
+  },
+  "health": 200,
+  "shownPlanets": [ "sitrullus","maress" ]
+}

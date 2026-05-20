@@ -282,7 +282,7 @@
   //"flags": [ "shield" ],
   "drawer": {
     "type": "DrawTurret",
-    "basePrefix": "dark-",
+    "basePrefix": "thorium-",
     "parts": [
       {
         "type": "RegionPart",

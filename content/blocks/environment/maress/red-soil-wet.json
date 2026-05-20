@@ -8,6 +8,7 @@
   //"decoration": "red-soil-boulder",
   "itemDrop": "red-soil",
   "playerUnmineable": true,
-  "status": "muddy",
-  "statusDuration": 30
+  "mapColor": "724e39"
+  //"status": "muddy",
+  //"statusDuration": 30
 }

@@ -1,4 +1,7 @@
 {
   "type": "StaticWall",
-  "variants": 2
+  "variants": 2,
+  "mapColor": "504d63",
+  "hasColor": true,
+  "useColor": false
 }

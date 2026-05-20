@@ -35,6 +35,7 @@
       "rotationLimit": 30
       "shootY": 13.25,
 "shootSound": [ "lbp3Flamethrower1","lbp3Flamethrower2","lbp3Flamethrower3" ],
+"shootSoundVolume": 0.6,
   "soundPitchMax": 1,
   "soundPitchMin": 1,
       "cooldownTime": 180,

@@ -787,6 +787,7 @@
   "recoilTime": 60,
   "drawer": {
     "type": "DrawTurret",
+    "basePrefix": "cobalt-",
     "parts": [
       {
         "type": "RegionPart",

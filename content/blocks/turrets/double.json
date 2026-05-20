@@ -263,7 +263,7 @@
   "recoils": 2,
   "drawer": {
     "type": "DrawTurret",
-    "basePrefix": "dark-",
+    "basePrefix": "ferrum-",
     "parts": [
       {
         "type": "RegionPart",
