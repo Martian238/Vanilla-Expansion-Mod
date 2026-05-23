@@ -208,7 +208,9 @@
       "hitColor": "f9a3c7",
       "armorMultiplier": 0.7,
       "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor"
+      "despawnEffect": "hitBulletColor",
+      "pierce": true,
+      "pierceCap": 3
 },{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f9a3c7","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
       "randomAngleOffset": 1,
       "speed": 9,
@@ -224,10 +226,14 @@
       "hitColor": "f9a3c7",
       "armorMultiplier": 0.7,
       "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor"
+      "despawnEffect": "hitBulletColor",
+      "pierce": true,
+      "pierceCap": 3
 },{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f9a3c7","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
       "ammoMultiplier": 3,
-      "armorMultiplier": 0.7
+      "armorMultiplier": 0.7,
+      "pierce": true,
+      "pierceCap": 3
     },
     "fusion-fuel": {"knockback":1.2,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":16,"splashDamage":250,"splashDamageRadius":64,"status":"burning","statusDuration":360,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
       "randomAngleOffset": 4,

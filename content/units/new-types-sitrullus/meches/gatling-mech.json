@@ -4739,7 +4739,7 @@
           "minVolume": 0.7,
           "effect": "hitBulletBig"
         },
-        "damage": 20,
+        "damage": 50,
         "speed": 16,
         "rangeOverride": 320,
         "width": 3.5,

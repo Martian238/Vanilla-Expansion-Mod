@@ -4,7 +4,7 @@
   "breakSound": [ "pvzMelonImpact1","pvzMelonImpact2" ],
   "requirements": [ "melon-dirt/10" ],
   "instantDeconstruct": false,
-  "buildVisibility": "sandboxOnly",
+  "buildVisibility": "shown",
   "destroyBullet": {
         "instantDisappear": true,
         "fragBullets": 12,
@@ -126,12 +126,14 @@
   "drawCracks": false,
   "createRubble": false,
   "forceTeam": "lacuna",
+  "alwaysUnlocked": true,
   "health": 5,
   "breakEffect": {
     "type": "WarpEffect",
     "effect": "breakProp",
     "color": "ff5555"
   },
+  "shownPlanets": [ "sitrullus" ],
   "drawTeamOverlay": false,
   "allowDerelictRepair": false,
   "buildCostMultiplier": 50

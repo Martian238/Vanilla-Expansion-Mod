@@ -24,12 +24,12 @@
       "armorMultiplier": 0.7
     },
     "thorium": {
-      "width": 11,
-      "height": 15,
+      "width": 13,
+      "height": 17,
       "lifetime": 40,
       "ammoMultiplier": 2,
-      "speed": 6,
-      "damage": 50,
+      "speed": 10,
+      "damage": 30,
       "shootEffect": "shootBigColor",
       "smokeEffect": "shootBigSmoke",
       "hitEffect": "hitBulletColor"
@@ -38,7 +38,9 @@
       "frontColor": "ffffff",
       "hitColor": "f9a3c7",
       "hitColor": "f9a3c7",
-      "armorMultiplier": 0.5
+      "armorMultiplier": 0.5,
+      "pierce": true,
+      "pierceCap": 2
     },
     "surge-alloy": {
       "speed": 6,
