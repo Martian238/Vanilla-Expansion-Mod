@@ -227,8 +227,8 @@
             "length": 320,
             "particles": 25,
             "layer": 100,
-            "colorFrom": "ffa855aa",
-            "colorTo": "ee661c00",
+            "colorFrom": "ffaaaaaa",//ffa885
+            "colorTo": "ff808000",//ee661c
             "interp": "circleOut",
             "sizeFrom": 6,
             "sizeTo": 5,
@@ -241,8 +241,8 @@
             "length": 210,
             "particles": 15,
             "layer": 99.99,
-            "colorFrom": "ffa855aa",
-            "colorTo": "ee661c00",
+            "colorFrom": "ffaaaaaa",
+            "colorTo": "ff808000",
             "interp": "circleOut",
             "sizeFrom": 4,
             "sizeTo": 3,

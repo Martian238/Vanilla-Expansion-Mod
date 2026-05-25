@@ -5,6 +5,7 @@
   "requirements": [ "melon-dirt/10" ],
   "instantDeconstruct": false,
   "buildVisibility": "shown",
+  "allowDerelictRepair": false,
   "destroyBullet": {
         "instantDisappear": true,
         "fragBullets": 12,
@@ -125,7 +126,7 @@
   "underBullets": true,
   "drawCracks": false,
   "createRubble": false,
-  "forceTeam": "lacuna",
+  "forceTeam": "derelict",
   "alwaysUnlocked": true,
   "health": 5,
   "breakEffect": {

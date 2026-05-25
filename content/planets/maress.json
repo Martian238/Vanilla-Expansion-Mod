@@ -22,6 +22,15 @@
     "light": 0.2,
     "sand": 1
   },
+  "rules": {
+    "coreDestroyClear": true,
+    "worldProcessorPlayerLink": true,
+    "unitPayloadsExplode": true,
+    "showSpawns": true,
+    "logicUnitDeconstruct": true,
+    "randomWaveAI": true,
+    "planet": "maress"
+  },
   "drawOrbit": true,
   "accessible": true,
   "alwaysUnlocked": true,

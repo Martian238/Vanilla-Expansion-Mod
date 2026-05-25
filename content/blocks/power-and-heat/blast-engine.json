@@ -57,7 +57,7 @@
       },
       {
         "type": "DrawGlowRegion",
-        "glowColor": "feb380",
+        "color": "feb380",
         "suffix": "-rotator-glow",
         "rotateSpeed": -15,
         "alpha": 0.8,
@@ -150,7 +150,12 @@
                 },
                 {
                     "op": "mul",
-                    "other": "warmup"
+                    "other": {
+                      "type": "warmup",
+                      "op": "compress",
+                      "start": 0.95,
+                      "end": 1
+                    }
                   },
                   {
                     "op": "add",

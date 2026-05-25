@@ -40,11 +40,13 @@
       "hitColor": "f9a3c7",
       "armorMultiplier": 0.5,
       "pierce": true,
-      "pierceCap": 2
+      "pierceCap": 2,
+      "trailColor": "f9a3c7",
+      "trailLength": 3
     },
     "surge-alloy": {
-      "speed": 6,
-      "lifetime": 40,
+      "speed": 8,
+      "lifetime": 30,
       "width": 11,
       "height": 15,
       "damage": 40,
@@ -65,7 +67,10 @@
       "statusDuration": 10,
       "hitSound": "shockBullet",
       "despawnSound": "shockBullet",
-      "armorMultiplier": 0.6
+      "armorMultiplier": 0.6,
+      "trailEffect": "bulletSparkSmokeTrailSmall",
+      "trailChance": 0.1,
+      "trailSpread": 12
     },
     "fusion-fuel": {
       "speed": 7,
@@ -120,12 +125,12 @@
     "quartz": {
       "width": 8,
       "height": 15,
-      "lifetime": 40,
+      "lifetime": 24,
       "ammoMultiplier": 2,
       "pierce": true,
       "pierceCap": 5,
       "pierceBuilding": false,
-      "speed": 6,
+      "speed": 10,
       "damage": 43,
       "shootEffect": "shootBigColor",
       "smokeEffect": "shootBigSmoke",
@@ -134,14 +139,16 @@
       "despawnEffect": "hitSquaresColor",
       "hitColor": "f68021",
       "backColor": "f68021",
-      "armorMultiplier": 0.7
+      "armorMultiplier": 0.7,
+      "trailColor": "f68021",
+      "trailLength": 7
     },
     "silicide": {
       "width": 10,
       "height": 13,
-      "lifetime": 48,
+      "lifetime": 36,
       "ammoMultiplier": 6,
-      "speed": 6,
+      "speed": 8,
       "rangeChange": 48,
       "damage": 65,
       "reloadMultiplier": 1.1,
@@ -203,7 +210,9 @@
       "splashDamage": 12,
       "splashDamageRadius": 28,
       "status": "burning",
-      "armorMultiplier": 0.8
+      "armorMultiplier": 0.8,
+      "trailColor": "f8ad42",
+      "trailLength": 3
     },
     "chromium": {
       "width": 8,
@@ -217,8 +226,8 @@
       "shootEffect": "shootBigColor",
       "smokeEffect": "shootBigSmoke",
       "backColor": "ff6b41",
-      "hitColor": "ff6b41",
-      "hitColor": "ff6b41",
+      "frontColor": "ff987b",
+      "hitColor": "ff987b",
       "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
       "pierceArmor": true,
@@ -250,6 +259,8 @@
       "fragRandomSpread": 30,
       "fragVelocityMin": 0.5,
       "armorMultiplier": 0.7,
+      "trailColor": "7e6863",
+      "trailLength": 3,
       "fragBullet": {
         "width": 7,
         "height": 10,
@@ -313,6 +324,8 @@
       "despawnSound": "bangClassic",
       "frontColor": "ff8a67",
       "backColor": "ff8a67",
+      "trailColor": "ff8a67",
+      "trailInterval": 2,
       "status": "combusting",
       "statusDuration": 240,
       "makeFire": true,

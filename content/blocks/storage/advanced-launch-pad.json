@@ -16,7 +16,6 @@
   "launchTime": 600,
   "itemCapacity": 150,
   "buildVisibility": "shown",
-  "shownPlanets": [ "cyclant" ],
   "size": 3,
   "hasPower": true,
   "acceptMultipleItems": true,
@@ -80,5 +79,5 @@
     ]
   },*/
   "squareSprite": false,
-  "shownPlanets": [ "cyclant","maress","phoon" ]
+  "shownPlanets": [ "cyclant","phoon" ]
 }

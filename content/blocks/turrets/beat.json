@@ -35,13 +35,13 @@
     "quartz": {
       "width": 8,
       "height": 13,
-      "lifetime": 40,
+      "lifetime": 25,
       "ammoMultiplier": 4,
       "pierce": true,
       "pierceCap": 4,
       "pierceDamageFactor": 0.75,
       "pierceBuilding": false,
-      "speed": 5,
+      "speed": 8,
       "damage": 16,
       "shootEffect": "shootSmall",
       "smokeEffect": "shootSmallSmoke",
@@ -49,7 +49,9 @@
       "hitColor": "f68021",
       "despawnEffect": "hitSquaresColor",
       "hitColor": "f68021"
-      "backColor": "f68021"
+      "backColor": "f68021",
+      "trailColor": "f68021",
+      "trailLength": 5
     },
     "silicon": {
       "width": 9,
@@ -75,9 +77,9 @@
     "silicide": {
       "width": 10,
       "height": 12,
-      "lifetime": 50,
+      "lifetime": 36,
       "ammoMultiplier": 7,
-      "speed": 5,
+      "speed": 7,
       "damage": 28,
       "rangeChange": 50,
       "reloadMultiplier": 1.1,
@@ -137,7 +139,9 @@
       "makeFire": true,
       "splashDamage": 12,
       "splashDamageRadius": 22,
-      "status": "burning"
+      "status": "burning",
+      "trailColor": "f8ad42",
+      "trailLength": 3
     },
     "chromium": {
       "width": 9,
@@ -150,8 +154,8 @@
       "shootEffect": "shootSmall",
       "smokeEffect": "shootSmallSmoke",
       "backColor": "ff6b41",
-      "hitColor": "ff6b41",
-      "hitColor": "ff6b41",
+      "frontColor": "ff987b",
+      "hitColor": "ff987b",
       "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
       "pierceArmor": true,

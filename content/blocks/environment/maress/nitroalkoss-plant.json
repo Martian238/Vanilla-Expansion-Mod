@@ -8,6 +8,7 @@
   "lightColor": "ff8a67",
   "lightRadius": 12,
   "requirements": [ "nitroalkoss/10" ],
+  "allowDerelictRepair": false,
   "alwaysUnlocked": true,
   "instantDeconstruct": false,
   "buildVisibility": "sandboxOnly",
@@ -19,7 +20,7 @@
   "drawCracks": false,
   "createRubble": false,
   "baseExplosiveness": 5,
-  "forceTeam": "lacuna",
+  "forceTeam": "derelict",
   "health": 5,
   "breakEffect": {
     "type": "WarpEffect",

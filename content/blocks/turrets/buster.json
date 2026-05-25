@@ -4,11 +4,20 @@
   "category": "turret",
   "size": 4,
   "outlineColor": "2d2f39",
+  "ammoEjectBack": 8,
   "ammoTypes": {
-
-    //outer
-
-    "aluminium": {"knockback":0.4,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":40,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
+    "aluminium": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ 8,15,0,-8,15,0 ]
+      },
+      "ammoMultiplier": 2,
+      "reloadMultiplier": 1,
+      "randomAngleOffset": 4,
+      "rangeChange": 0,
+      "shootEffect": "shootBig",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
       "speed": 9,
       "lifetime": 33,
       "width": 10,
@@ -16,20 +25,19 @@
       "shrinkY": 0.1,
       "damage": 40,
       "knockback": 0.4
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"ffa665","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 10,
-      "height": 16,
-      "shrinkY": 0.1,
-      "damage": 40,
-      "knockback": 0.4
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"ffa665","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
-      "ammoMultiplier": 2
     },
-
-
-    "graphite": {"knockback":0.4,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":55,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
+    "graphite": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ 8,15,0,-8,15,0 ]
+      },
+      "ammoMultiplier": 4,
+      "reloadMultiplier": 1,
+      "randomAngleOffset": 4,
+      "rangeChange": 0,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
       "speed": 9,
       "lifetime": 33,
       "width": 11,
@@ -40,30 +48,21 @@
       "backColor": "7d89d8",
       "frontColor": "dae1ee",
       "hitColor": "dae1ee",
-      "hitColor": "dae1ee",
       "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor"
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"dae1ee","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 11,
-      "height": 17,
-      "shrinkY": 0.1,
-      "damage": 55,
-      "knockback": 0.4,
-      "backColor": "7d89d8",
-      "frontColor": "dae1ee",
-      "hitColor": "dae1ee",
-      "hitColor": "dae1ee",
-      "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor"
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"dae1ee","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
-      "ammoMultiplier": 4
     },
-
-
-    "chromium": {"pierceArmor":true,"knockback":0.6,"shieldDamageMultiplier":4,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":75,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "randomAngleOffset": 2,
+    "chromium": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ 8,15,0,-8,15,0 ]
+      },
+      "ammoMultiplier": 4,
+      "reloadMultiplier": 1,
+      "randomAngleOffset": 4,
+      "rangeChange": 0,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
       "speed": 9,
       "lifetime": 33,
       "width": 10,
@@ -71,40 +70,28 @@
       "spin": 12,
       "shrinkY": 0.1,
       "damage": 75,
-      "hitSize": 12,
+      "hitSize": 16,
       "pierceArmor": true,
       "knockback": 0.6,
+      "frontColor": "ff987b",
       "backColor": "ff6b41",
-      "hitColor": "ff6b41",
-      "hitColor": "ff6b41",
+      "hitColor": "ff987b",
       "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
       "shieldDamageMultiplier": 4
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"ff6b41","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "randomAngleOffset": 2,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 10,
-      "height": 19,
-      "spin": -12,
-      "shrinkY": 0.1,
-      "damage": 75,
-      "hitSize": 12,
-      "pierceArmor": true,
-      "knockback": 0.6,
-      "backColor": "ff6b41",
-      "hitColor": "ff6b41",
-      "hitColor": "ff6b41",
-      "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor",
-      "shieldDamageMultiplier": 4
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"ff6b41","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
-      "ammoMultiplier": 4
     },
-
-
-    "ferrum": {"knockback":0.5,"splashDamage":10,"splashDamageRadius":20,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":70,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "randomAngleOffset": 1,
+    "ferrum": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ 8,15,0,-8,15,0 ]
+      },
+      "ammoMultiplier": 3   ,
+      "reloadMultiplier": 1,
+      "randomAngleOffset": 4,
+      "rangeChange": 0,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
       "knockback": 0.5,
       "width": 12,
       "height": 17,
@@ -121,6 +108,8 @@
       "despawnEffect": "hitBulletColor",
       "splashDamage": 10,
       "splashDamageRadius": 20,
+      "trailColor": "7e6863",
+      "trailLength": 3,
       "fragBullets": 4,
       "fragLifeMin": 0,
       "fragOffsetMax": 1,
@@ -145,976 +134,493 @@
         "pierceCap": 4,
         "pierceArmor": true
       }
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"9f8c88","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "randomAngleOffset": 1,
-      "knockback": 0.5,
-      "width": 12,
-      "height": 17,
-      "lifetime": 34,
-      "speed": 9,
-      "damage": 60,
-      "shrinkY": 0,
-      "frontColor": "9f8c88",
-      "backColor": "7e6863",
-      "hitColor": "9f8c88",
-      "hitEffect": "flakExplosion",
-      "despawnHit": true,
-      "setDefaults": false,
-      "despawnEffect": "hitBulletColor",
-      "splashDamage": 10,
-      "splashDamageRadius": 20,
-      "fragBullets": 4,
-      "fragLifeMin": 0,
-      "fragOffsetMax": 1,
-      "fragRandomSpread": 30,
-      "fragVelocityMin": 0.5,
-      "armorMultiplier": 0.6,
-      "fragBullet": {
-        "width": 7,
-        "height": 12,
-        "lifetime": 20,
-        "speed": 9,
-        "damage": 27,
-        "shrinkY": 0,
-        "spin": 10,
-        "frontColor": "9f8c88",
-        "backColor": "7e6863",
-        "hitColor": "9f8c88",
-        "hitEffect": "hitBulletColor",
-        "despawnEffect": "hitBulletColor",
-        "pierce": true,
-        "pierceBuilding": false,
-        "pierceCap": 4,
-        "pierceArmor": true
-      }
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"9f8c88","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
-      "ammoMultiplier": 3,
-      "armorMultiplier": 0.6
     },
-
-
-    "thorium": {"knockback":0.6,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":90,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "randomAngleOffset": 1,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 12,
-      "height": 18,
-      "shrinkY": 0.1,
-      "damage": 90,
-      "knockback": 1,
-      "backColor": "f9a3c7",
-      "frontColor": "ffffff",
-      "hitColor": "f9a3c7",
-      "hitColor": "f9a3c7",
-      "armorMultiplier": 0.7,
-      "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor",
-      "pierce": true,
-      "pierceCap": 3
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f9a3c7","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "randomAngleOffset": 1,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 12,
-      "height": 18,
-      "shrinkY": 0.1,
-      "damage": 90,
-      "knockback": 1,
-      "backColor": "f9a3c7",
-      "frontColor": "ffffff",
-      "hitColor": "f9a3c7",
-      "hitColor": "f9a3c7",
-      "armorMultiplier": 0.7,
-      "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor",
-      "pierce": true,
-      "pierceCap": 3
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f9a3c7","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
-      "ammoMultiplier": 3,
-      "armorMultiplier": 0.7,
-      "pierce": true,
-      "pierceCap": 3
-    },
-    "fusion-fuel": {"knockback":1.2,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":16,"splashDamage":250,"splashDamageRadius":64,"status":"burning","statusDuration":360,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "randomAngleOffset": 4,
-      "speed": 9,
-      "lifetime": 30,
-      "width": 13,
-      "height": 20,
-      "knockback": 1.2,
-      "trailColor": "9eabf799",
-      "trailSpread": 2,
-      "trailChance": 0.7,
-      "trailEffect": "missileTrail",
-      "damage": 16,
-      "splashDamage": 250,
-      "splashDamageRadius": 64,
-      "status": "burning",
-      "statusDuration": 360,
-      "hitShake": 4,
-      "despawnShake": 4,
-      "despawnHit": true,
-      "despawnEffect": "none",
-      "makeFire": true,
-      "frontColor": "9eabf7",
-      "backColor": "9eabf7",
-      "hitEffect": {
-        "type": "ExplosionEffect",
-        "waveColor": "9eabf7",
-        "smokeColor": "9eabf766",
-        "sparkColor": "f3e979",
-        "waveLife": 6,
-        "waveStroke": 1,
-        "waveRad": 64,
-        "waveRadBase": 0,
-        "sparkStroke": 2,
-        "sparkRad": 64,
-        "sparkLen": 8,
-        "smokeSize": 16,
-        "smokeSizeBase": 1,
-        "smokeRad": 72,
-        "smokes": 12,
-        "sparks": 12,
-        "lifetime": 60
+    "thorium": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ 8,15,0,-8,15,0 ]
       },
-      "hitSound": "boom",
-      "despawnSound": "boom"
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"9eabf7","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "randomAngleOffset": 4,
-      "speed": 9,
-      "lifetime": 30,
-      "width": 13,
-      "height": 20,
-      "knockback": 1.2,
-      "trailColor": "9eabf799",
-      "trailSpread": 2,
-      "trailChance": 0.7,
-      "trailEffect": "missileTrail",
-      "damage": 16,
-      "splashDamage": 250,
-      "splashDamageRadius": 64,
-      "status": "burning",
-      "statusDuration": 360,
-      "hitShake": 4,
-      "despawnShake": 4,
-      "despawnHit": true,
-      "despawnEffect": "none",
-      "makeFire": true,
-      "frontColor": "9eabf7",
-      "backColor": "9eabf7",
-      "hitEffect": {
-        "type": "ExplosionEffect",
-        "waveColor": "9eabf7",
-        "smokeColor": "9eabf766",
-        "sparkColor": "f3e979",
-        "waveLife": 6,
-        "waveStroke": 1,
-        "waveRad": 64,
-        "waveRadBase": 0,
-        "sparkStroke": 2,
-        "sparkRad": 64,
-        "sparkLen": 8,
-        "smokeSize": 16,
-        "smokeSizeBase": 1,
-        "smokeRad": 72,
-        "smokes": 12,
-        "sparks": 12,
-        "lifetime": 60
-      },
-      "hitSound": "boom",
-      "despawnSound": "boom"
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"9eabf7","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
       "ammoMultiplier": 4,
+      "reloadMultiplier": 1,
+      "randomAngleOffset": 4,
+      "rangeChange": 0,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
+      "speed": 10,
+      "lifetime": 28,
+      "width": 12,
+      "height": 18,
+      "shrinkY": 0.1,
+      "damage": 90,
+      "knockback": 1,
+      "backColor": "f9a3c7",
+      "frontColor": "ffffff",
+      "hitColor": "f9a3c7",
+      "hitColor": "f9a3c7",
+      "trailColor": "f9a3c7",
+      "trailLength": 3,
+      "armorMultiplier": 0.7,
+      "hitEffect": "hitBulletColor",
+      "despawnEffect": "hitBulletColor",
+      "pierce": true,
+      "pierceCap": 3
+    },
+    "fusion-fuel": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ 8,15,0,-8,15,0 ]
+      },
+      "ammoMultiplier": 4,
+      "reloadMultiplier": 0.7,
+      "randomAngleOffset": 4,
       "rangeChange": -27,
-      "reloadMultiplier": 0.7
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
+      "speed": 9,
+      "lifetime": 30,
+      "width": 13,
+      "height": 20,
+      "knockback": 1.2,
+      "trailColor": "9eabf799",
+      "trailSpread": 2,
+      "trailChance": 0.7,
+      "trailEffect": "missileTrail",
+      "damage": 16,
+      "splashDamage": 250,
+      "splashDamageRadius": 64,
+      "status": "burning",
+      "statusDuration": 360,
+      "hitShake": 4,
+      "despawnShake": 4,
+      "despawnHit": true,
+      "despawnEffect": "none",
+      "makeFire": true,
+      "frontColor": "9eabf7",
+      "backColor": "9eabf7",
+      "hitEffect": {
+        "type": "ExplosionEffect",
+        "waveColor": "9eabf7",
+        "smokeColor": "9eabf766",
+        "sparkColor": "f3e979",
+        "waveLife": 6,
+        "waveStroke": 1,
+        "waveRad": 64,
+        "waveRadBase": 0,
+        "sparkStroke": 2,
+        "sparkRad": 64,
+        "sparkLen": 8,
+        "smokeSize": 16,
+        "smokeSizeBase": 1,
+        "smokeRad": 72,
+        "smokes": 12,
+        "sparks": 12,
+        "lifetime": 60
+      },
+      "hitSound": "explosionCrawler",
+      "despawnSound": "explosionCrawler"
     },
-    
-
-    "pyratite": {"knockback":0.2,"status":"burning","statusDuration":240,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":70,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 11,
-      "height": 17,
-      "shrinkY": 0.1,
-      "damage": 70,
-      "knockback": 0.2,
-      "frontColor": "f8e096",
-      "backColor": "f8ad42",
-      "makeFire": true,
-      "splashDamage": 12,
-      "splashDamageRadius": 32,
-      "status": "burning",
-      "statusDuration": 240,
-      "hitEffect": {
-        "type": "MultiEffect",
-        "effects": [ 
-          "hitBulletSmall",
-          "fireHit"
-        ]
+    "pyratite": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ 8,15,0,-8,15,0 ]
       },
-      "despawnEffect": {
-        "type": "MultiEffect",
-        "effects": [ 
-          "hitBulletSmall",
-          "fireHit"
-        ]
-      }
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f8ad42","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 11,
-      "height": 17,
-      "shrinkY": 0.1,
-      "damage": 70,
-      "knockback": 0.2,
-      "frontColor": "f8e096",
-      "backColor": "f8ad42",
-      "makeFire": true,
-      "splashDamage": 12,
-      "splashDamageRadius": 32,
-      "status": "burning",
-      "statusDuration": 240,
-      "hitEffect": {
-        "type": "MultiEffect",
-        "effects": [ 
-          "hitBulletSmall",
-          "fireHit"
-        ]
-      },
-      "despawnEffect": {
-        "type": "MultiEffect",
-        "effects": [ 
-          "hitBulletSmall",
-          "fireHit"
-        ]
-      }
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f8ad42","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
       "ammoMultiplier": 4,
+      "reloadMultiplier": 1,
+      "randomAngleOffset": 4,
+      "rangeChange": 0,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
+      "speed": 9,
+      "lifetime": 33,
+      "width": 11,
+      "height": 17,
+      "shrinkY": 0.1,
+      "damage": 70,
+      "knockback": 0.2,
+      "frontColor": "f8e096",
+      "hitColor": "f8e096",
+      "backColor": "f8ad42",
+      "trailColor": "f8ad42",
+      "trailLength": 5,
+      "makeFire": true,
       "splashDamage": 12,
       "splashDamageRadius": 32,
       "status": "burning",
-      "statusDuration": 240
+      "statusDuration": 240,
+      "hitEffect": {
+        "type": "MultiEffect",
+        "effects": [ 
+          "hitBulletSmall",
+          "fireHit"
+        ]
+      },
+      "despawnEffect": {
+        "type": "MultiEffect",
+        "effects": [ 
+          "hitBulletSmall",
+          "fireHit"
+        ]
+      }
     },
-    
-
-    "nitroalkoss": {"pierceArmor": true,"knockback":1.2,"status":"combusting","statusDuration":300,"splashDamage":150,"splashDamageRadius":36,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":42,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact": true,
-      "width": 9,
-      "height": 16,
-      "shrinkY": 0.3,
-      "knockback": 1.2,
-      "lifetime": 30,
-      "speed": 9,
-      "damage": 42,
-      "pierceArmor": true,
-      "hitEffect": {
-        "type": "MultiEffect",
-        "effects": [ "blastExplosion","fireHit" ]
+    "nitroalkoss": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ 8,15,0,-8,15,0 ]
       },
-      "despawnEffect": {
-        "type": "MultiEffect",
-        "effects": [ "blastExplosion","fireHit" ]
-      },
-      "hitSound": "bangClassic",
-      "despawnSound": "bangClassic",
-      "frontColor": "ff8a67",
-      "backColor": "ff8a67",
-      "status": "combusting",
-      "statusDuration": 300,
-      "makeFire": true,
-      "splashDamage": 150,
-      "splashDamageRadius": 36,
-      "hitShake": 3,
-      "despawnShake": 3,
-      "fragBullets": 3,
-      "fragBullet": {
-        "createChance": 0.8,
-        "type": "BulletType",
-        "damage": 50,
-        "status": "combusting",
-        "statusDuration": 360,
-        "speed": 3.5,
-        "pierce": true,
-        "pierceBuilding": true,
-        "makeFire": true,
-        "lifetime": 6,
-        "pierceCap": 3,
-        "hitEffect": "hitFlameSmall",
-        "despawnSound": "shootFlame",
-        "despawnEffect": "hitFlameSmall",
-        "hitSize": 7,
-        "hittable": false,
-        "lightColor": "f8e096"
-      }
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootSmallColor","despawnHit":true,"hitColor":"ff8a67","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "width": 9,
-      "height": 16,
-      "shrinkY": 0.3,
-      "knockback": 1.2,
-      "lifetime": 30,
-      "speed": 9,
-      "damage": 42,
-      "hitEffect": {
-        "type": "MultiEffect",
-        "effects": [ "blastExplosion","fireHit" ]
-      },
-      "despawnEffect": {
-        "type": "MultiEffect",
-        "effects": [ "blastExplosion","fireHit" ]
-      },
-      "hitSound": "bangClassic",
-      "despawnSound": "bangClassic",
-      "frontColor": "ff8a67",
-      "backColor": "ff8a67",
-      "status": "combusting",
-      "statusDuration": 300,
-      "makeFire": true,
-      "pierceArmor": true,
-      "splashDamage": 150,
-      "splashDamageRadius": 36,
-      "hitShake": 3,
-      "despawnShake": 3,
-      "fragBullets": 3,
-      "fragBullet": {
-        "createChance": 0.8,
-        "type": "BulletType",
-        "damage": 50,
-        "status": "combusting",
-        "statusDuration": 360,
-        "speed": 3.5,
-        "pierce": true,
-        "pierceBuilding": true,
-        "makeFire": true,
-        "lifetime": 6,
-        "pierceCap": 3,
-        "hitEffect": "hitFlameSmall",
-        "despawnSound": "shootFlame",
-        "despawnEffect": "hitFlameSmall",
-        "hitSize": 7,
-        "hittable": false,
-        "lightColor": "f8e096"
-      }
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootSmallColor","despawnHit":true,"hitColor":"ff8a67","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
       "ammoMultiplier": 8,
-      "rangeChange": -30
-    }
-
-    //inner
-
-    "silicon": {"knockback":0.4,"homingPower":0.2,"homingRange":0,"speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":55,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":12,"fragOffsetMax":12,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "speed": 9,
-      "lifetime": 37,
+      "reloadMultiplier": 1,
+      "randomAngleOffset": 7,
+      "rangeChange": -30,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
       "width": 9,
-      "height": 18,
-      "shrinkY": 0.1,
-      "damage": 55,
-      "knockback": 0.4,
-      "homingPower": 0.2,
-      "homingRange": 300,
-      "homingDelay": 5,
-      "backColor": "707594",
-      "trailColor": "707594",
-      "trailLength": 5,
-      "frontColor": "999ba0",
-      "hitColor": "999ba0",
-      "hitColor": "999ba0"
-      "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor"
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"999ba0","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
+      "height": 16,
+      "shrinkY": 0.3,
+      "knockback": 1.2,
+      "lifetime": 30,
       "speed": 9,
-      "lifetime": 37,
-      "width": 9,
-      "height": 18,
-      "shrinkY": 0.1,
-      "damage": 55,
-      "knockback": 0.4,
-      "homingPower": 0.2,
-      "homingRange": 300,
-      "homingDelay": 5,
-      "backColor": "707594",
-      "trailColor": "707594",
-      "trailLength": 5,
-      "frontColor": "999ba0",
-      "hitColor": "999ba0",
-      "hitColor": "999ba0"
-      "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor"
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"999ba0","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
-      "ammoMultiplier": 3,
-      "rangeChange": 30
-    },
-
-
-    "fibralt": {"knockback":1,"pierce":true,"pierceCap":8,"speed":10,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":70,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":12,"fragOffsetMax":12,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "speed": 10,
-      "lifetime": 36,
-      "width": 7,
-      "height": 24,
-      "shrinkY": 0,
-      "damage": 70,
-      "knockback": 1,
-      "pierce": true,
-      "pierceCap": 8,
-      "pierceBuilding": true,
-      "backColor": "90dbff",
-      "frontColor": "90dbff",
-      "hitColor": "90dbff",
-      "hitColor": "90dbff",
-      "armorMultiplier": -1,
-      "hitEffect": {
-          "type": "MultiEffect",
-          "effects": [
-            "hitBulletColor",
-            {
-              "type": "SeqEffect",
-              "effects": [
-                {
-                  "type": "WaveEffect",
-                  "lightColor": "90dbff",
-                  "colorTo": "90dbff",
-                  "sizeTo": 16,
-                  "sides": 4,
-                  "strokeFrom": 4,
-                  "lifetime": 5
-                },
-              ]
-            }
-          ]
-      },
-      "despawnEffect": "hitBulletColor"
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"90dbff","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 10,
-      "lifetime": 36,
-      "width": 7,
-      "height": 24,
-      "shrinkY": 0,
-      "damage": 70,
-      "knockback": 1,
-      "pierce": true,
-      "pierceCap": 8,
-      "pierceBuilding": true,
-      "backColor": "90dbff",
-      "frontColor": "90dbff",
-      "hitColor": "90dbff",
-      "hitColor": "90dbff",
-      "armorMultiplier": -1,
-      "hitEffect": {
-          "type": "MultiEffect",
-          "effects": [
-            "hitBulletColor",
-            {
-              "type": "SeqEffect",
-              "effects": [
-                {
-                  "type": "WaveEffect",
-                  "lightColor": "90dbff",
-                  "colorTo": "90dbff",
-                  "sizeTo": 16,
-                  "sides": 4,
-                  "strokeFrom": 4,
-                  "lifetime": 5
-                },
-              ]
-            }
-          ]
-      },
-      "despawnEffect": "hitBulletColor"
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"90dbff","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
-      "ammoMultiplier": 6,
-      "rangeChange": 60,
-      "armorMultiplier": -1
-    },
-
-
-    "blast-compound": {"knockback":0.8,"splashDamage":75,"splashDamageRadius":32,"status":"blasted","speed":9,"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":32,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":12,"fragOffsetMax":12,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 11,
-      "height": 17,
-      "shrinkY": 0.1,
-      "damage": 32,
-      "knockback": 0.8,
-      "backColor": "e9665b",
-      "frontColor": "eeab89",
-      "hitEffect": "blastExplosion",
-      "despawnEffect": "blastExplosion",
-      "hitShake": 1,
-      "despawnShake": 1,
-      "splashDamage": 75,
-      "splashDamageRadius": 32,
-      "status": "blasted",
-      "statusDuration": 60,
-      "hitSound": "explosion",
-      "despawnSound": "explosion",
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"eeab89","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 11,
-      "height": 17,
-      "shrinkY": 0.1,
-      "damage": 32,
-      "knockback": 0.8,
-      "backColor": "e9665b",
-      "frontColor": "eeab89",
-      "hitEffect": "blastExplosion",
-      "despawnEffect": "blastExplosion",
-      "hitShake": 1,
-      "despawnShake": 1,
-      "splashDamage": 75,
-      "splashDamageRadius": 32,
-      "status": "blasted",
-      "statusDuration": 60,
-      "hitSound": "explosion",
-      "despawnSound": "explosion",
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"eeab89","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]},
-      "ammoMultiplier": 6
-    },
-
-    //all
-
-    "quartz": {"knockback":0.8,"pierce":true,"pierceCap":4,"speed":10,"damage":50,"shootEffect":"none","smokeEffect":"none","type":"MultiBulletType","bullets":[{"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":25,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":12,"fragOffsetMax":12,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "speed": 10,
-      "lifetime": 33,
-      "width": 8,
-      "height": 21,
-      "shrinkY": 0,
-      "damage": 50,
-      "knockback": 0.8,
-      "pierce": true,
-      "pierceCap": 4,
-      "pierceBuilding": false,
-      "backColor": "f68021",
-      "hitColor": "f68021",
-      "hitColor": "f68021",
-      "hitEffect": "hitSquaresColor",
-      "despawnEffect": "hitSquaresColor"
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f68021","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 10,
-      "lifetime": 33,
-      "width": 8,
-      "height": 21,
-      "shrinkY": 0,
-      "damage": 50,
-      "knockback": 0.8,
-      "pierce": true,
-      "pierceCap": 4,
-      "pierceBuilding": false,
-      "backColor": "f68021",
-      "hitColor": "f68021",
-      "hitColor": "f68021",
-      "hitEffect": "hitSquaresColor",
-      "despawnEffect": "hitSquaresColor"
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f68021","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]}},{"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":25,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "speed": 10,
-      "lifetime": 33,
-      "width": 8,
-      "height": 21,
-      "shrinkY": 0,
-      "damage": 50,
-      "knockback": 0.8,
-      "pierce": true,
-      "pierceCap": 4,
-      "pierceBuilding": false,
-      "backColor": "f68021",
-      "hitColor": "f68021",
-      "hitColor": "f68021",
-      "hitEffect": "hitSquaresColor",
-      "despawnEffect": "hitSquaresColor"
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f68021","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 10,
-      "lifetime": 33,
-      "width": 8,
-      "height": 21,
-      "shrinkY": 0,
-      "damage": 50,
-      "knockback": 0.8,
-      "pierce": true,
-      "pierceCap": 4,
-      "pierceBuilding": false,
-      "backColor": "f68021",
-      "hitColor": "f68021",
-      "hitColor": "f68021",
-      "hitEffect": "hitSquaresColor",
-      "despawnEffect": "hitSquaresColor"
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f68021","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]}}],
-      "ammoMultiplier": 3,
-      "rangeChange": 30
-    },
-
-
-    "silicide": {"knockback":4,"splashDamage":20,"splashDamageRadius":24,"speed":9,"damage":30,"shootEffect":"none","smokeEffect":"none","type":"MultiBulletType","bullets":[{"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":80,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":12,"fragOffsetMax":12,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 12,
-      "height": 18,
-      "shrinkY": 0.1,
-      "damage": 80,
-      "knockback": 4,
-      "hittable": false,
-      "splashDamage": 20,
-      "splashDamageRadius": 24,
-      "armorMultiplier": 0.4,
+      "trailColor": "ff8a67",
+      "trailInterval": 1,
+      "damage": 42,
+      "pierceArmor": true,
       "hitEffect": {
         "type": "MultiEffect",
-        "effects": [
-          "hitBulletSmall",
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 12,
-          "strokeFrom": 6,
-          "strokeTo": 4,
-          "lifetime": 7
-          },
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 16,
-          "strokeFrom": 5,
-          "strokeTo": 3,
-          "lifetime": 5
-          }
-        ]
+        "effects": [ "blastExplosion","fireHit" ]
       },
       "despawnEffect": {
         "type": "MultiEffect",
-        "effects": [
-          "hitBulletSmall",
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 12,
-          "strokeFrom": 6,
-          "strokeTo": 4,
-          "lifetime": 7
-          },
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 16,
-          "strokeFrom": 5,
-          "strokeTo": 3,
-          "lifetime": 5
-          }
-        ]
-      }
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"ffa665","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 12,
-      "height": 18,
-      "shrinkY": 0.1,
-      "damage": 80,
-      "knockback": 4,
-      "hittable": false,
-      "splashDamage": 20,
-      "splashDamageRadius": 24,
-      "armorMultiplier": 0.4,
-      "hitEffect": {
-        "type": "MultiEffect",
-        "effects": [
-          "hitBulletSmall",
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 12,
-          "strokeFrom": 6,
-          "strokeTo": 4,
-          "lifetime": 7
-          },
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 16,
-          "strokeFrom": 5,
-          "strokeTo": 3,
-          "lifetime": 5
-          }
-        ]
+        "effects": [ "blastExplosion","fireHit" ]
       },
-      "despawnEffect": {
-        "type": "MultiEffect",
-        "effects": [
-          "hitBulletSmall",
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 12,
-          "strokeFrom": 6,
-          "strokeTo": 4,
-          "lifetime": 7
-          },
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 16,
-          "strokeFrom": 5,
-          "strokeTo": 3,
-          "lifetime": 5
-          }
-        ]
+      "hitSound": "bangClassic",
+      "despawnSound": "bangClassic",
+      "frontColor": "ff8a67",
+      "hitColor": "ff8a67",
+      "backColor": "ff8a67",
+      "status": "combusting",
+      "statusDuration": 300,
+      "makeFire": true,
+      "splashDamage": 150,
+      "splashDamageRadius": 36,
+      "hitShake": 3,
+      "despawnShake": 3,
+      "fragBullets": 3,
+      "fragBullet": {
+        "createChance": 0.8,
+        "type": "BulletType",
+        "damage": 50,
+        "status": "combusting",
+        "statusDuration": 360,
+        "speed": 3.5,
+        "pierce": true,
+        "pierceBuilding": true,
+        "makeFire": true,
+        "lifetime": 6,
+        "pierceCap": 3,
+        "hitEffect": "hitFlameSmall",
+        "despawnSound": "shootFlame",
+        "despawnEffect": "hitFlameSmall",
+        "hitSize": 7,
+        "hittable": false,
+        "lightColor": "f8e096"
       }
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"ffa665","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]}},{"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":25,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 12,
-      "height": 18,
-      "shrinkY": 0.1,
-      "damage": 80,
-      "knockback": 4,
-      "hittable": false,
-      "splashDamage": 20,
-      "splashDamageRadius": 24,
-      "armorMultiplier": 0.4,
-      "hitEffect": {
-        "type": "MultiEffect",
-        "effects": [
-          "hitBulletSmall",
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 12,
-          "strokeFrom": 6,
-          "strokeTo": 4,
-          "lifetime": 7
-          },
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 16,
-          "strokeFrom": 5,
-          "strokeTo": 3,
-          "lifetime": 5
-          }
-        ]
-      },
-      "despawnEffect": {
-        "type": "MultiEffect",
-        "effects": [
-          "hitBulletSmall",
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 12,
-          "strokeFrom": 6,
-          "strokeTo": 4,
-          "lifetime": 7
-          },
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 16,
-          "strokeFrom": 5,
-          "strokeTo": 3,
-          "lifetime": 5
-          }
-        ]
-      }
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"ffa665","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 12,
-      "height": 18,
-      "shrinkY": 0.1,
-      "damage": 80,
-      "knockback": 4,
-      "hittable": false,
-      "splashDamage": 20,
-      "splashDamageRadius": 24,
-      "armorMultiplier": 0.4,
-      "hitEffect": {
-        "type": "MultiEffect",
-        "effects": [
-          "hitBulletSmall",
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 12,
-          "strokeFrom": 6,
-          "strokeTo": 4,
-          "lifetime": 7
-          },
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 16,
-          "strokeFrom": 5,
-          "strokeTo": 3,
-          "lifetime": 5
-          }
-        ]
-      },
-      "despawnEffect": {
-        "type": "MultiEffect",
-        "effects": [
-          "hitBulletSmall",
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 12,
-          "strokeFrom": 6,
-          "strokeTo": 4,
-          "lifetime": 7
-          },
-          {
-          "type": "WaveEffect",
-          "lightColor": "565666ff",
-          "colorFrom": "565666ff",
-          "colorTo": "565666ff",
-          "sizeTo": 16,
-          "strokeFrom": 5,
-          "strokeTo": 3,
-          "lifetime": 5
-          }
-        ]
-      }
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"ffa665","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]}}],
-      "ammoMultiplier": 6,
-      "reloadMultiplier": 1.2,
-      "armorMultiplier": 0.4,
     },
     
-
-    "surge-alloy": {"knockback":0.8,"lightning":2,"status":"shocked","speed":9,"damage":40,"shootEffect":"none","smokeEffect":"none","type":"MultiBulletType","bullets":[{"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":30,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":12,"fragOffsetMax":12,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 11,
-      "height": 17,
+    
+    
+    "silicon": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ -2.5,12.75,0,2.5,12.75,0 ]
+      },
+      "ammoMultiplier": 3,
+      "reloadMultiplier": 1,
+      "randomAngleOffset": 2,
+      "rangeChange": 30,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
+      "speed": 10,
+      "lifetime": 31,
+      "width": 9,
+      "height": 18,
       "shrinkY": 0.1,
-      "damage": 80,
-      "knockback": 0.8,
-      "backColor": "f3e979",
-      "frontColor": "ffffff",
-      "hitColor": "f3e979",
-      "hitColor": "f3e979",
+      "damage": 55,
+      "knockback": 0.4,
+      "homingPower": 0.2,
+      "homingRange": 300,
+      "homingDelay": 5,
+      "backColor": "707594",
+      "trailColor": "707594",
+      "trailLength": 7,
+      "frontColor": "999ba0",
+      "hitColor": "999ba0",
       "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor",
-      "lightning": 2,
-      "lightningLength": 12,
-      "hitShake": 1,
-      "despawnShake": 1,
-      "status": "shocked",
-      "statusDuration": 10,
-      "hitSound": "shockBullet",
-      "despawnSound": "shockBullet",
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f3e979","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":3.25,"fragOffsetMax":3.25,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 11,
-      "height": 17,
-      "shrinkY": 0.1,
-      "damage": 80,
-      "knockback": 0.8,
-      "backColor": "f3e979",
-      "frontColor": "ffffff",
-      "hitColor": "f3e979",
-      "hitColor": "f3e979",
-      "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor",
-      "lightning": 2,
-      "lightningLength": 12,
-      "hitShake": 1,
-      "despawnShake": 1,
-      "status": "shocked",
-      "statusDuration": 10,
-      "hitSound": "shockBullet",
-      "despawnSound": "shockBullet",
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f3e979","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]}},{"instantDisappear": true,"shootEffect":"none","smokeEffect":"none","hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":25,"fragBullets":1,"fragRandomSpread": 0,"fragOffsetMin":15.25,"fragOffsetMax":15.25,"fragVelocityMin":1,"fragBullet":{"type": "MultiBulletType","bullets":[{"fragAngle":-90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 11,
-      "height": 17,
-      "shrinkY": 0.1,
-      "damage": 80,
-      "knockback": 0.8,
-      "backColor": "f3e979",
-      "frontColor": "ffffff",
-      "hitColor": "f3e979",
-      "hitColor": "f3e979",
-      "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor",
-      "lightning": 2,
-      "lightningLength": 12,
-      "hitShake": 1,
-      "despawnShake": 1,
-      "status": "shocked",
-      "statusDuration": 10,
-      "hitSound": "shockBullet",
-      "despawnSound": "shockBullet",
-},{"angleOffset":90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f3e979","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}},{"fragAngle":90,"instantDisappear":true,"hitEffect":"none","despawnEffect":"none","hittable":false,"absorbable":false,"collides":false,"damage":0,"fragBullets":1,"fragRandomSpread":0,"fragOffsetMin":8.75,"fragOffsetMax":8.75,"fragVelocityMin":1,"fragBullet":{"type":"MultiBulletType","bullets":[{"angleOffset":-90,"impact":true,
-      "speed": 9,
-      "lifetime": 33,
-      "width": 11,
-      "height": 17,
-      "shrinkY": 0.1,
-      "damage": 80,
-      "knockback": 0.8,
-      "backColor": "f3e979",
-      "frontColor": "ffffff",
-      "hitColor": "f3e979",
-      "hitColor": "f3e979",
-      "hitEffect": "hitBulletColor",
-      "despawnEffect": "hitBulletColor",
-      "lightning": 2,
-      "lightningLength": 12,
-      "hitShake": 1,
-      "despawnShake": 1,
-      "status": "shocked",
-      "statusDuration": 10,
-      "hitSound": "shockBullet",
-      "despawnSound": "shockBullet",
-},{"angleOffset":-90,"instantDisappear": true,"hittable":false,"absorbable":false,"hitEffect":"shootBigColor","despawnHit":true,"hitColor":"f3e979","collides":false,"damage":0,"despawnEffect":"shootBigSmoke"}]}}]}}],
+      "despawnEffect": "hitBulletColor"
+    },
+    "fibralt": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ -2.5,12.75,0,2.5,12.75,0 ]
+      },
       "ammoMultiplier": 6,
+      "reloadMultiplier": 1,
+      "randomAngleOffset": 1,
+      "rangeChange": 96,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
+      "speed": 12,
+      "lifetime": 33,
+      "width": 7,
+      "height": 24,
+      "shrinkY": 0,
+      "damage": 70,
+      "knockback": 1,
+      "pierce": true,
+      "pierceCap": 8,
+      "pierceBuilding": true,
+      "backColor": "90dbff",
+      "frontColor": "90dbff",
+      "hitColor": "90dbff",
+      "hitColor": "90dbff",
+      "trailColor": "90dbff",
+      "trailLength": 7,
+      "armorMultiplier": -1,
+      "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "hitBulletColor",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 16,
+                  "sides": 4,
+                  "strokeFrom": 4,
+                  "lifetime": 5
+                },
+              ]
+            }
+          ]
+      },
+      "despawnEffect": "hitBulletColor"
+    },
+    "blast-compound": {
+      "shootPattern": {
+        "type": "ShootBarrel",
+        "barrels": [ -2.5,12.75,0,2.5,12.75,0 ]
+      },
+      "ammoMultiplier": 6,
+      "reloadMultiplier": 1,
+      "randomAngleOffset": 3,
+      "rangeChange": 0,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
+      "speed": 9,
+      "lifetime": 33,
+      "width": 11,
+      "height": 17,
+      "shrinkY": 0.1,
+      "damage": 32,
+      "knockback": 0.8,
+      "backColor": "e9665b",
+      "trailColor": "e9665b",
+      "trailInterval": 1,
+      "hitColor": "eeab89",
+      "frontColor": "eeab89",
+      "hitEffect": "blastExplosion",
+      "despawnEffect": "blastExplosion",
+      "hitShake": 1,
+      "despawnShake": 1,
+      "splashDamage": 75,
+      "splashDamageRadius": 32,
+      "status": "blasted",
+      "statusDuration": 60,
+      "hitSound": "explosion",
+      "despawnSound": "explosion",
+    },
+    
+    
+    
+    "quartz": {
+      "shootPattern": {
+            "type": "ShootBarrel",
+            "barrels": [ 8,15,0,-2.5,12.75,0,-8,15,0,2.5,12.75,0 ],
+            "shots": 1,
+            "shotDelay": 0
+      },
+      "ammoMultiplier": 4,
+      "reloadMultiplier": 2,
+      "randomAngleOffset": 1,
+      "rangeChange": 30,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
+      "speed": 11,
+      "lifetime": 30,
+      "width": 8,
+      "height": 24,
+      "shrinkY": 0,
+      "damage": 50,
+      "knockback": 0.8,
+      "pierce": true,
+      "pierceCap": 4,
+      "pierceBuilding": false,
+      "backColor": "f68021",
+      "hitColor": "f68021",
+      "trailColor": "f68021",
+      "trailLength": 7,
+      "hitEffect": "hitSquaresColor",
+      "despawnEffect": "hitSquaresColor"
+    },
+    "silicide": {
+      "shootPattern": {
+            "type": "ShootBarrel",
+            "barrels": [ 8,15,0,-2.5,12.75,0,-8,15,0,2.5,12.75,0 ],
+            "shots": 1,
+            "shotDelay": 0
+      },
+      "ammoMultiplier": 6,
+      "reloadMultiplier": 2.4,
+      "randomAngleOffset": 4,
+      "rangeChange": 0,
+      "shootEffect": "shootBig",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
+      "speed": 9,
+      "lifetime": 33,
+      "width": 12,
+      "height": 18,
+      "shrinkY": 0.1,
+      "damage": 80,
+      "knockback": 4,
+      "hittable": false,
+      "splashDamage": 20,
+      "splashDamageRadius": 24,
+      "armorMultiplier": 0.4,
+      "hitEffect": {
+        "type": "MultiEffect",
+        "effects": [
+          "hitBulletSmall",
+          {
+          "type": "WaveEffect",
+          "lightColor": "565666ff",
+          "colorFrom": "565666ff",
+          "colorTo": "565666ff",
+          "sizeTo": 12,
+          "strokeFrom": 6,
+          "strokeTo": 4,
+          "lifetime": 7
+          },
+          {
+          "type": "WaveEffect",
+          "lightColor": "565666ff",
+          "colorFrom": "565666ff",
+          "colorTo": "565666ff",
+          "sizeTo": 16,
+          "strokeFrom": 5,
+          "strokeTo": 3,
+          "lifetime": 5
+          }
+        ]
+      },
+      "despawnEffect": {
+        "type": "MultiEffect",
+        "effects": [
+          "hitBulletSmall",
+          {
+          "type": "WaveEffect",
+          "lightColor": "565666ff",
+          "colorFrom": "565666ff",
+          "colorTo": "565666ff",
+          "sizeTo": 12,
+          "strokeFrom": 6,
+          "strokeTo": 4,
+          "lifetime": 7
+          },
+          {
+          "type": "WaveEffect",
+          "lightColor": "565666ff",
+          "colorFrom": "565666ff",
+          "colorTo": "565666ff",
+          "sizeTo": 16,
+          "strokeFrom": 5,
+          "strokeTo": 3,
+          "lifetime": 5
+          }
+        ]
+      }
+    },
+    "surge-alloy": {
+      "shootPattern": {
+            "type": "ShootBarrel",
+            "barrels": [ 8,15,0,-2.5,12.75,0,-8,15,0,2.5,12.75,0 ],
+            "shots": 1,
+            "shotDelay": 0
+      },
+      "ammoMultiplier": 8,
+      "reloadMultiplier": 2,
+      "randomAngleOffset": 1,
+      "rangeChange": 0,
+      "shootEffect": "shootBigColor",
+      "smokeEffect": "shootBigSmoke",
+      "impact": true,
+      "speed": 11,
+      "lifetime": 27,
+      "width": 13,
+      "height": 19,
+      "shrinkY": 0.1,
+      "damage": 80,
+      "knockback": 0.8,
+      "backColor": "f3e979",
+      "frontColor": "ffffff",
+      "trailSpread": 12,
+      "trailEffect": "bulletSparkSmokeTrailSmall",
+      "trailColor": "f3e979",
+      "trailLength": 5,
+      "trailChance": 0.1,
+      "hitColor": "f3e979",
+      "hitEffect": "hitBulletColor",
+      "despawnEffect": "hitBulletColor",
       "lightning": 2,
-      "lightningLength": 12
+      "lightningLength": 12,
+      "hitShake": 2,
+      "despawnShake": 1,
+      "status": "shocked",
+      "statusDuration": 10,
+      "hitSound": "shockBullet",
+      "despawnSound": "shockBullet"
     }
   },
-  "recoil": 1,
+  "recoil": 2,
   "shootSound": "shootSpectre",
   "shootX": 0,
-  "shootY": 0,
-  "reload": 7,
+  "shootY": -1,
+  "reload": 4,
   "range": 300,
   "health": 6000,
   "armor": 9,
-  "shake": 1,
+  "shake": 2,
   "ammoUseEffect": "casing4",
   "inaccuracy": 0,
   "rotateSpeed": 5,
   "shootWarmupSpeed": 0.15,
-  "liquidCapacity": 40,
+  "liquidCapacity": 60,
   "maxAmmo": 80,
-  "ammoPerShot": 2,
+  "ammoPerShot": 1,
   "shootCone": 20,
+  "soundPitchMax": 1.02,
+  "soundPitchMin": 0.98,
+  "recoils": 2,
+  "recoilTime": 8,
   "drawer": {
     "type": "DrawTurret",
     "basePrefix": "thorium-",
@@ -1123,21 +629,1217 @@
         "type": "RegionPart",
         "suffix": "-blade",
         "progress": "warmup",
-        "moveRot": -15,
-        "moveX": 2,
-        "moveY": 0.5,
+        "moveX": 1.75,
         "mirror": true,
-        "under": false
+        "under": true
       },
       {
         "type": "RegionPart",
-        "suffix": "-mid",
-        "progress": "warmup",
-        "moveY": 1,
-        "under": false,
-        "mirror": false
+        "suffix": "-null",
+        "progress": {
+          "type": "warmup",
+          "ops": [
+            {
+              "op": "compress",
+              "start": 0,
+              "end": 0.01
+            },
+            { "op": "inv" },
+            {
+              "op": "mul",
+              "amount": 10000
+            },
+            { "op": "clamp" }
+          ]
+        },
+        "outline": false,
+        "under": true,
+        "color": "ffffff00",
+        "colorTo": "ffffff"
       }
-    ]
+    ],
+    "ammoParts": {
+      "aluminium": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "graphite": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "chromium": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "thorium": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "pyratite": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "nitroalkoss": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "fusion-fuel": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "ferrum": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-inner-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "silicon": [
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-outer-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-outer-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "fibralt": [
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-outer-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-outer-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "blast-compound": [
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-outer-barrel-r",
+              "heatColor": "ab340000"
+            },
+            { 
+              "type": "RegionPart",
+              "under": true,
+              "suffix": "-outer-barrel-l",
+              "heatColor": "ab340000"
+            }
+      ],
+      "quartz": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-r",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-r-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-l",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-l-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            }
+      ],
+      "silicide": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-r",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-r-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-l",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-l-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            }
+      ],
+      "surge-alloy": [
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-r",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-r-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-outer-barrel-l",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-outer-barrel-l-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-r",
+              "recoilIndex": 1,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-r-heat",
+                  "recoilIndex": 1,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "suffix": "-inner-barrel-l",
+              "recoilIndex": 0,
+              "progress": "recoil",
+              "moveY": -1.25,
+              "under": true,
+              "heatProgress": { 
+                "type": "warmup",
+                "op": "mul",
+                "amount": 0
+              },
+              "children": [
+                {
+                  "type": "RegionPart",
+                  "suffix": "-inner-barrel-l-heat",
+                  "recoilIndex": 0,
+                  "progress": {
+  "type": "recoil",
+  "op": "add",
+  "other": "warmup"
+},
+                  "color": "ab340000",
+                  "colorTo": "ab3400",
+                  "blending": "additive",
+                  "under": false,
+                  "outline": false
+                }
+              ]
+            }
+      ]
+    }
   },
   "research": {
     "parent": "buffet",

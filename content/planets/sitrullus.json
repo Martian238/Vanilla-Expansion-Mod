@@ -21,6 +21,16 @@
     "spores": 0.5,
     "water": 2
   },
+  "rules": {
+    "coreDestroyClear": true,
+    "worldProcessorPlayerLink": true,
+    "unitPayloadsExplode": true,
+    "showSpawns": true,
+    "logicUnitDeconstruct": true,
+    "randomWaveAI": true,
+    "pauseDisabled": true,
+    "planet": "sitrullus"
+  },
   "drawOrbit": true,
   "accessible": true,
   "lightSrcFrom": 0,

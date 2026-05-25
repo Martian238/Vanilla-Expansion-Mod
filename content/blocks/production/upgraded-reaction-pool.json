@@ -96,7 +96,7 @@
       },
       {
         "type": "DrawRegion",
-        "suffix": "-top",
+        "suffix": "-shell",
         "layer": 32
       },
       {
@@ -500,6 +500,9 @@
       "outputHeat": 30,
       "craftTime": 60,
       "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
             "type": "DrawBlockParts",
             "parts": [
               {
@@ -530,6 +533,11 @@
               "interp": "sine"
             }}
             ]
+          },
+          {
+            "type": "DrawHeatOutput"
+          }
+        ]
       }
     },
     {
@@ -540,6 +548,9 @@
       "outputHeat": 60,
       "craftTime": 30,
       "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
             "type": "DrawBlockParts",
             "parts": [
               {
@@ -570,6 +581,11 @@
               "interp": "sine"
             }}
             ]
+          },
+          {
+            "type": "DrawHeatOutput"
+          }
+        ]
       }
     },
     {
@@ -580,6 +596,9 @@
       "outputHeat": 20,
       "craftTime": 60,
       "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
             "type": "DrawBlockParts",
             "parts": [
               {
@@ -610,6 +629,11 @@
               "interp": "sine"
             }}
             ]
+          },
+          {
+            "type": "DrawHeatOutput"
+          }
+        ]
       }
     },
     {
@@ -738,6 +762,9 @@
       "outputHeat": 50,
       "craftTime": 120,
       "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
             "type": "DrawBlockParts",
             "parts": [
               {
@@ -768,6 +795,11 @@
               "interp": "sine"
             }}
             ]
+          },
+          {
+            "type": "DrawHeatOutput"
+          }
+        ]
       }
     },
     {
@@ -778,6 +810,9 @@
       "outputHeat": 100,
       "craftTime": 60,
       "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
             "type": "DrawBlockParts",
             "parts": [
               {
@@ -808,6 +843,11 @@
               "interp": "sine"
             }}
             ]
+          },
+          {
+            "type": "DrawHeatOutput"
+          }
+        ]
       }
     },
   ],

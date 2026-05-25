@@ -56,11 +56,23 @@
       "outputLiquids": [ "water/0.3333333333" ],
       "craftTime": 90,
       "visual": {
-        "type": "DrawFlame",
-        "flameColor": "d1efff",
-        "flameRadius": 5,
-        "flameRadiusIn": 3,
-        "lightRadius": 45
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawRegion",
+            "suffix": "-heatmode"
+          },
+          {
+            "type": "DrawHeatInput"
+          },
+          {
+            "type": "DrawFlame",
+            "flameColor": "d1efff",
+            "flameRadius": 5,
+            "flameRadiusIn": 3,
+            "lightRadius": 45
+          }
+        ]
       }
     },
     {
@@ -82,10 +94,22 @@
       "outputItems": [ "ve-ferrum/8","pyratite/4","sand/5" ],
       "craftTime": 120,
       "visual": {
-        "type": "DrawFlame",
-        "flameRadius": 5,
-        "flameRadiusIn": 3,
-        "lightRadius": 45
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawRegion",
+            "suffix": "-heatmode"
+          },
+          {
+            "type": "DrawHeatInput"
+          },
+          {
+            "type": "DrawFlame",
+            "flameRadius": 5,
+            "flameRadiusIn": 3,
+            "lightRadius": 45
+          }
+        ]
       }
     },
     {
@@ -97,11 +121,23 @@
       "outputLiquids": [ "water/0.333333333333" ],
       "craftTime": 120,
       "visual": {
-        "type": "DrawFlame",
-        "flameColor": "d1efff",
-        "flameRadius": 5,
-        "flameRadiusIn": 3,
-        "lightRadius": 45
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawRegion",
+            "suffix": "-heatmode"
+          },
+          {
+            "type": "DrawHeatInput"
+          },
+          {
+            "type": "DrawFlame",
+            "flameColor": "d1efff",
+            "flameRadius": 5,
+            "flameRadiusIn": 3,
+            "lightRadius": 45
+          }
+        ]
       }
     }
   ],
