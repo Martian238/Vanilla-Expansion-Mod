@@ -1,5 +1,5 @@
 {
   "type": "Floor",
   "variants": 8,
-  "mapColor": "3c3837"
+  "wall": "deepslate-wall"
 }

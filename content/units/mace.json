@@ -15,6 +15,7 @@
         "shots": 1,
         "shotDelay": 4
       },
+      "cooldownTime": 30,
       "bullet": {
         "type": "BasicBulletType",
         "speed": 4.2,

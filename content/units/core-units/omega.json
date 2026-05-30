@@ -180,7 +180,7 @@
         "type": "LaserBulletType",
         "buildingDamageMultiplier": 0.01,
         "damage": 100,
-        "armorMultiplier": 0.5,
+        "armorMultiplier": -1,
         "recoil": 0,
         "sideAngle": 30,
         "sideWidth": 0.75,

@@ -14,5 +14,6 @@
     "liquids": [ "water/0.0333333333" ]
   },
   "health": 200,
-  "shownPlanets": [ "sitrullus","maress" ]
+  "shownPlanets": [ "sitrullus","maress" ],
+  "buildSpeed": 0.2
 }

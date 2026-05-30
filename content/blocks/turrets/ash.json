@@ -470,6 +470,7 @@
   "shootSound": [ "lbp3Flamethrower1","lbp3Flamethrower2","lbp3Flamethrower3" ],
   "soundPitchMax": 1,
   "soundPitchMin": 1,
+  "shootSoundVolume": 0.5,
   "shootX": 0,
   "xRand": 1,
   "shootY": 4.75,

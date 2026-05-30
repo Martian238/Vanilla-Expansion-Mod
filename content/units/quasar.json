@@ -14,11 +14,12 @@
       "name": "beam-weapon",
       "top": false,
       "shake": 2,
-      "shootY": 4,
+      "shootY": 0,
       "x": 6.5,
       "recoil": 4,
       "shootSound": "shootLancer",
       "reload": 45,
+      "cooldownTime": 30,
       "bullet": {
         "type": "LaserBulletType",
         "damage": 45,
@@ -28,7 +29,7 @@
         "sideLength": 70,
         "healPercent": 10,
         "collidesTeam": true,
-        "length": 152,
+        "length": 156,
         "colors": [ "98ffa966","98ffa9","ffffff" ]
       }
     },

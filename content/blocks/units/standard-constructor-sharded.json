@@ -41,17 +41,22 @@
     {
       "unit": "zenith-rocketeer-sharded",
       "time": 3000,
-      "requirements": [ "silicon/240","graphite/40","ferrum/90","silicide/60" ]
+      "requirements": [ "silicon/300","graphite/40","ferrum/90","silicide/60" ]
     },
     {
       "unit": "zenith-sweeper-sharded",
       "time": 3600,
-      "requirements": [ "silicon/240","graphite/40","silicide/80","dense-melon-dirt/60" ]
+      "requirements": [ "silicon/300","graphite/40","silicide/80","dense-melon-dirt/60" ]
     },
     {
       "unit": "zenith-supporter-sharded",
       "time": 3600,
-      "requirements": [ "silicon/220","ferrum/50","silver/60","quartz/40" ]
+      "requirements": [ "silicon/240","ferrum/50","silver/60","quartz/40" ]
+    },
+    {
+      "unit": "zenith-shielder-sharded",
+      "time": 5400,
+      "requirements": [ "silicon/350","ferrum/60","silver/80","crystallon/60" ]
     }
   ],
   "consumes": {

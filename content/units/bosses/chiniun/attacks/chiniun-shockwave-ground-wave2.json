@@ -96,7 +96,7 @@
               "frontColor": "ffffff",
               "backColor": "ffd37f",
               "shrinkY": 0,
-              "damage": 50,
+              "damage": 200,
               "width": 12,
               "height": 12,
               "trailInterval": 1,

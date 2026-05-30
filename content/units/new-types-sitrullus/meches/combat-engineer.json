@@ -188,8 +188,8 @@
       "name": "heal-weapon-mount",
       "shootSound": "shootLaser",
       "reload": 15,
-      "x": 4,
-      "y": -4.5,//5
+      "x": 3.75,
+      "y": -4.75,//5
       "rotate": true,
       "layerOffset": 0.3,
       "shoot": {

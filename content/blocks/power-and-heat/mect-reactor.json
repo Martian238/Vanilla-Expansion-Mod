@@ -158,8 +158,8 @@
                 }
               },
               {
-            "x": 0.25,//towershake
-            "y": -0.25,
+            "x": 0.5,//towershake
+            "y": -0.5,
             "progress": {
               "type": "warmup",
               "ops": [
@@ -324,8 +324,8 @@
                 }
               },
               {
-            "x": 0.25,//towershake
-            "y": -0.25,
+            "x": 0.5,//towershake
+            "y": -0.5,
             "progress": {
               "type": "warmup",
               "ops": [
@@ -490,8 +490,8 @@
                 }
               },
               {
-            "x": 0.25,//towershake
-            "y": 0.25,
+            "x": 0.5,//towershake
+            "y": 0.5,
             "progress": {
               "type": "warmup",
               "ops": [
@@ -656,8 +656,8 @@
                 }
               },
               {
-            "x": 0.25,//towershake
-            "y": 0.25,
+            "x": 0.5,//towershake
+            "y": 0.5,
             "progress": {
               "type": "warmup",
               "ops": [

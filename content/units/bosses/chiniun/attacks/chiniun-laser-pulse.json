@@ -148,7 +148,7 @@
           "length": 800,
           "colors": [ "bf92f980","bf92f9","ffffff" ],
           "sideLength": 0,
-          "damage": 50,
+          "damage": 240,
           "knockback": 4,
           "hitColor": "bf92f9",
           "width": 15,

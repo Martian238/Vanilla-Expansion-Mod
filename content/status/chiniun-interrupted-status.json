@@ -46,5 +46,5 @@
   "show": true,
   "parentizeEffect": true,
   "affinities": [ "sentry-seen" ],
-  "transitionDamage": 4000
+  "transitionDamage": 3000
 }

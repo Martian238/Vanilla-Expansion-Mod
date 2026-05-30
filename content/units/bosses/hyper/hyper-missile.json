@@ -36,6 +36,7 @@
       "shootSound": "shootNavanax",
       "bullet": {
         "maxRange": 64,
+        "armorMultiplier": -1,
         "type": "ExplosionBulletType",
         "shootEffect": {
           "type": "ExplosionEffect",
@@ -70,6 +71,7 @@
             "instantDisappear": true,
             "damage": 0,
             "splashDamage": 360,
+            "armorMultiplier": -1,
             "collidesAir": false,
             "splashDamageRadius": 160,
             "status": "electrified",

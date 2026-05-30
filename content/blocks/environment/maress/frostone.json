@@ -1,0 +1,10 @@
+{
+  "type": "Floor",
+  "variants": 5,
+  "attributes": {
+    "water": 0.1,
+    "heat": -0.2
+  },
+  "wall": "frostone-wall",
+  "decoration": "frostone-boulder"
+}

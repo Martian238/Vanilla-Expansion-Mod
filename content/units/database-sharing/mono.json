@@ -6,5 +6,6 @@
   "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
   "databaseTag": "03serpulo-air-unit",
   "immunities": {"add":[ "frozen","disarmed" ]},
-  "priority": -1
+  "priority": -1,
+  "engineLayer": 114.99
 }

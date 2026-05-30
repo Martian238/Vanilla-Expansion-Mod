@@ -1,5 +1,5 @@
 {
-  "type": "ConsumeGenerator",
+  //"type": "ConsumeGenerator",
   "warmupSpeed": 0.01,
   "consumes": {
     "itemExplosive": {

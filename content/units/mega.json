@@ -6,9 +6,10 @@
   "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus","thavina" ],
   "databaseTag": "03serpulo-air-unit",
   "immunities": {"add":[ "frozen" ]},
+  "engineLayer": 89.99,
   "weapons": [
     {
-      "name": "heal-weapon-mount",
+      "name": "heal-weapon-mount-new",
       "shootSound": "shootLaser",
       "reload": 24,
       "x": 8,
@@ -32,11 +33,11 @@
       }
     },
     {
-      "name": "heal-weapon-mount",
+      "name": "heal-weapon-mount-new",
       "shootSound": "shootLaser",
       "reload": 15,
-      "x": 4,
-      "y": 5,
+      "x": 3.75,//4
+      "y": 4.75,//5
       "rotate": true,
       "shoot": {
         "shots": 2,

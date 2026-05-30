@@ -180,7 +180,7 @@
                 "colors": [ "98ffa980","98ffa9","ffffff" ],
                 "sideLength": 20,
                 "sideAngle": 45,
-                "damage": 80,
+                "damage": 160,
                 "pierce": false,
                 "hitColor": "98ffa9"
               },

@@ -1,0 +1,18 @@
+{
+  //"type": "Constructor",
+  "requirements": [ "silicon/500","silver/200","crystallon/50" ],
+  "size": 4,
+  "maxBlockSize": 3,
+  "category": "units",
+  "research": "standard-constructor",
+  "researchCostMultiplier": 0.5,
+  "filter": [ "element-ferric","element-silver","element-melonic","element-effective" ],
+  "itemCapacity": 300,
+  "hasPower": true,
+  "consumes": {
+    "power": 2.5,
+    "liquids": [ "water/0.5" ]
+  },
+  "shownPlanets": [ "sitrullus" ],
+  "buildSpeed": 0.8
+}

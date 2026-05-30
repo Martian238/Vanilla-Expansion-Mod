@@ -389,7 +389,7 @@
       "continuous": true,
       "bullet": {
         "type": "ContinuousLaserBulletType",
-        "damage": 5,
+        "damage": 15,
         "pierceArmor": true,
         "length": 1600,
         "drawSize": 1600,
@@ -427,7 +427,7 @@
       "continuous": true,
       "bullet": {
         "type": "ContinuousLaserBulletType",
-        "damage": 5,
+        "damage": 15,
         "pierceArmor": true,
         "length": 1600,
         "drawSize": 1600,
@@ -465,7 +465,7 @@
       "continuous": true,
       "bullet": {
         "type": "ContinuousLaserBulletType",
-        "damage": 5,
+        "damage": 15,
         "pierceArmor": true,
         "length": 1600,
         "drawSize": 1600,
@@ -503,7 +503,7 @@
       "continuous": true,
       "bullet": {
         "type": "ContinuousLaserBulletType",
-        "damage": 5,
+        "damage": 15,
         "pierceArmor": true,
         "length": 1600,
         "drawSize": 1600,
@@ -541,7 +541,7 @@
       "continuous": true,
       "bullet": {
         "type": "ContinuousLaserBulletType",
-        "damage": 5,
+        "damage": 15,
         "pierceArmor": true,
         "length": 1600,
         "drawSize": 1600,
@@ -579,7 +579,7 @@
       "continuous": true,
       "bullet": {
         "type": "ContinuousLaserBulletType",
-        "damage": 5,
+        "damage": 15,
         "pierceArmor": true,
         "length": 1600,
         "drawSize": 1600,

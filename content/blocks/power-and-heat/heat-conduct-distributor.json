@@ -1,5 +1,5 @@
 {
-  "type": "HeatConductor",
+  //"type": "HeatConductor",
   "visualMaxHeat": 50,
   "research": {
     "parent": "heat-conduct-conductor",

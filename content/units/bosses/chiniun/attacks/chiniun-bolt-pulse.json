@@ -73,7 +73,7 @@
         "trailLength": 9,
         "width": 6,
         "height": 20,
-        "damage": 40,
+        "damage": 80,
         "speed": 15,
         "lifetime": 100,
         "collideTerrain": true,

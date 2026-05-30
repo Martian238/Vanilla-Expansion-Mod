@@ -132,6 +132,12 @@ newBlock("multi-furnace",GenericCrafter);
 newBlock("centrifuge-kiln",GenericCrafter);
 newBlock("reflector-thermolyzer",GenericCrafter);
 newBlock("magnetic-separator",GenericCrafter);
+newBlock("catalyzon-workshop",GenericCrafter);
+
+log("11.1");
+newBlock("heat-conduct-conductor",HeatConductor);
+newBlock("heat-conduct-distributor",HeatConductor);
+newBlock("reactor-core",HeatProducer);
 
 log("12");
 newBlock("silicon-oxidator",GenericCrafter);
@@ -316,6 +322,7 @@ newBlock("fusion-reactor",ImpactReactor);
 
 log("23");
 newBlock("spot-solar-pad",SolarGenerator);
+newBlock("blast-engine",ConsumeGenerator);
 
 log("24");
 newBlock("cable",TileableLogicDisplay);
@@ -459,6 +466,11 @@ newBlock("elite-upgrader",Reconstructor);
 newBlock("elite-upgrader-sharded",Reconstructor);
 newBlock("melon-repair-bay",RepairTower);
 newBlock("watermelon-printer",Constructor);
+newBlock("element-printer",Constructor);
+newBlock("element-ferric",GenericCrafter);
+newBlock("element-silver",GenericCrafter);
+newBlock("element-melonic",GenericCrafter);
+newBlock("element-effective",GenericCrafter);
 
 //logic
 log("36");

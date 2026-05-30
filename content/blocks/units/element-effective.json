@@ -1,0 +1,30 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "silicon/100","mect-complex/50" ],
+  "health": 500,
+  "size": 2,
+  "buildCostMultiplier": 8,
+  "category": "units",
+  "research": {
+    "parent": "element-printer"
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "sitrullus" ],
+  "priority": -2,
+  "canOverdrive": false,
+  "drawDisabled": false,
+  "crushDamageMultiplier": 10,
+  "enableDrawStatus": false,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawFade",
+        "scale": 11,
+        "alpha": 0.3,
+        "suffix": "-glow"
+      }
+    ]
+  }
+}

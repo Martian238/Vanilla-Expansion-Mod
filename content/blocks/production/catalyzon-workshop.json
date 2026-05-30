@@ -1,5 +1,5 @@
 {
-  "type": "GenericCrafter",
+  //"type": "GenericCrafter",
   "category": "crafting",
   "requirements": [ "ferrum/200","silicon/400","graphite/100","silver/80" ],
   "armor": 6,
