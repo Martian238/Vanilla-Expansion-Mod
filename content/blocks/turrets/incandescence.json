@@ -1,5 +1,5 @@
 {
-  "type": "PowerTurret",
+  //"type": "PowerTurret",
   "requirements": [ "silver/200","silicon/140","silicide/180","graphite/60" ],
   "category": "turret",
   "shootType": {

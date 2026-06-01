@@ -53,7 +53,7 @@
       "time": 1200,
       "requirements": [ "silicon/30","lead/20" ]
     },
-    {
+    /*{
       "unit": "nova",
       "time": 1500,
       "requirements": [ "silicon/30","ferrum/35" ]
@@ -62,7 +62,7 @@
       "unit": "stardust",
       "time": 3000,
       "requirements": [ "silicon/50","lead/10","silver/15" ]
-    },
+    },*/
   ],
   "consumes": {
     "power": 1.6

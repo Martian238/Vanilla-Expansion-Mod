@@ -17,8 +17,8 @@
     "parent": "blast-furnace",
     "objectives": [ 
       {
-        "type": "OnSector",
-        "preset": "mirror-swamp"
+        "type": "SectorComplete",
+        "preset": "negotiation"
       }
     ]
   },

@@ -1,25 +1,31 @@
 {
   "type": "payload",
+  "databaseTag": "12lacuna-unit",
   "flying": true,
   "lowAltitude": false,
-  "hitSize": 22,
-  "rotateSpeed": 5,
-  "speed": 5,
-  "drag": 0.04,
-  "accel": 0.04,
+  "hitSize": 12,
+  "rotateSpeed": 10,
+  "speed": 7,
+  "drag": 0.05,
+  "accel": 0.05,
   "outlineColor": "505040",
   "engineSize": 0,
-  "health": 3000,
-  "armor": 18,
+  "health": 400,
+  "armor": 9,
+  "targetFlags": [ "generator" ],
   "strafePenalty": 1,
-  "itemCapacity": 90,
-  "payloadCapacity": 576,
+  "itemCapacity": 10,
+  "payloadCapacity": 256,
   "immunities": [ "blown","plasma-status","dusty","frozen","melting","fusing","corroded","plasma-status-orange" ],
-  "buildSpeed": 3,
-  "buildBeamOffset": 1.25,
+  "lightColor": "00ffce",
+  "alwaysShootWhenMoving": true,
+  "buildSpeed": 1.5,
+  "buildBeamOffset": 3,
   "engineOffset": 0,
-  "wobble": false,
   "envDisabled": 0,
+  "wobble": false,
+  
+
   "isEnemy": false,
   "drawMinimap": false,
   "hidden": true,
@@ -27,18 +33,24 @@
   //"playerControllable": false,
   "controlSelectGlobal": false,
   "allowChangeCommands": false,
-  "shownPlanets": [ "maress","thavina" ],
+  "deathSound": "none",
+  "deathShake": 0,
+  "deathExplosionEffect": "none",
+  "createWreck": false,
+  "createScorch": false
+  
+  
   "abilities": [
     {
       "type": "MoveEffectAbility",
       "interval": 5,
-      "minVelocity": 0.5,
+      "minVelocity": 0.7,
       "effect": {
         "type": "WaveEffect",
         "strokeFrom": 1,
         "strokeTo": 0,
-        "sizeFrom": 12.5,
-        "sizeTo": 12.5,
+        "sizeFrom": 8.5,
+        "sizeTo": 8.5,
         "colorFrom": "80ffe000",
         "colorTo": "00ffce",
         "interp": "linear",
@@ -65,61 +77,14 @@
     "colorFrom": "ffffff",
     "colorTo": "00ffce"
   },
-  "deathSound": "none",
-  "deathShake": 0,
-  "deathExplosionEffect": "none",
   "loopSound": "si2TeleporterActive",
-  "loopSoundVolume": 0.07,
-  "parts": [
-    {
-      "type": "ShapePart",
-      "layer": 109,
-      "radius": 3.25,
-      "color": "00ffce",
-      "circle": true
-    },
-    {
-      "type": "ShapePart",
-      "layer": 110,
-      "radius": 2.75,
-      "color": "ffffff",
-      "circle": true
-    },
-    {
-      "type": "EffectSpawnerPart",
-      "effect": {
-        "type": "WaveEffect",
-        "strokeFrom": 1.25,
-        "strokeTo": 0,
-        "sizeFrom": 12.5,
-        "sizeTo": 12.5,
-        "colorFrom": "00ffce00",
-        "colorTo": "00ffce",
-        "interp": "linear",
-        "lifetime": 20,
-        "followParent": true,
-        "sides": 24
-      },
-      "useProgress": true,
-      "progress": "warmup",
-      "x": 0,
-      "y": 0,
-      "height": 2.5,
-      "width": 2.5,
-      "effectChance": 0.5,
-      "effectColor": "00ffce"
-    }
-  ],
-  "lightColor": "00ffce",
-  "alwaysShootWhenMoving": true,
-  "createWreck": false,
-  "createScorch": false,
+  "loopSoundVolume": 0.04,
   "weapons": [
     {
       "x": 0,
       "y": 0,
       "shootY": 0,
-      "shake": 16,
+      "shake": 12,
       "mirror": false,
       "shootSound": [ "si2Teleporter1Echo","si2Teleporter2Echo","si2Teleporter3Echo","si2Teleporter4Echo" ],
       "soundPitchMin": 1,
@@ -135,10 +100,10 @@
         "fragBullet": {
           "type": "LaserBulletType",
           "length": 8000,
-          "width": 20,
+          "width": 13,
           "colors": [ "00ffce80","00ffce","ffffff" ],
           "lifetime": 30,
-          "damage": 10000,
+          "damage": 5000,
           "sideLength": 0,
           "laserEffect": "chainLightning",
           "hitColor": "00ffce"
@@ -154,14 +119,14 @@
           "sound": "stAstroWarp3",
           "minPitch": 1,
           "maxPitch": 1,
-          "minVolume": 0.7,
-          "maxVolume": 0.7,
+          "minVolume": 0.4,
+          "maxVolume": 0.4,
           "effect": {
             "particles": 1,
             "cone": 0,
             "region": "ve-circle-soft",
-            "sizeFrom": 256,
-            "sizeTo": 256,
+            "sizeFrom": 192,
+            "sizeTo": 192,
             "colorFrom": "ffffffcc",
             "colorTo": "ffffff00",
             "lifetime": 10,
@@ -187,56 +152,6 @@
               "lifetime": 15,
               "sides": 48
             },
-  {
-    "type": "RadialEffect",
-    "rotationSpacing": 0,
-    "rotationOffset": 90,
-    "amount": 1,
-    "lengthOffset": 11,
-    "effectRotationOffset": -90,
-    "effect": {
-      "type": "ParticleEffect",
-      "colorFrom": "00ffce",
-      "colorTo": "00ffce",
-      "length": 320,
-      "interp": "circleOut",
-      "sizeInterp": "circleIn",
-      "lightColor": "00ffce",
-      "line": true,
-      "strokeFrom": 1,
-      "strokeTo": 0,
-      "lenFrom": 20,
-      "lenTo": 5,
-      "particles": 2,
-      "lifetime": 60,
-      "cone": 0
-    }
-  },
-  {
-    "type": "RadialEffect",
-    "rotationSpacing": 0,
-    "rotationOffset": 90,
-    "amount": 1,
-    "lengthOffset": 9,
-    "effectRotationOffset": -90,
-    "effect": {
-      "type": "ParticleEffect",
-      "colorFrom": "00ffce",
-      "colorTo": "00ffce",
-      "length": 400,
-      "interp": "circleOut",
-      "sizeInterp": "circleIn",
-      "lightColor": "00ffce",
-      "line": true,
-      "strokeFrom": 1,
-      "strokeTo": 0,
-      "lenFrom": 20,
-      "lenTo": 5,
-      "particles": 3,
-      "lifetime": 65,
-      "cone": 0
-    }
-  },
   {
     "type": "RadialEffect",
     "rotationSpacing": 0,
@@ -437,56 +352,6 @@
       "cone": 0
     }
   },
-  {
-    "type": "RadialEffect",
-    "rotationSpacing": 0,
-    "rotationOffset": 90,
-    "amount": 1,
-    "lengthOffset": -9,
-    "effectRotationOffset": -90,
-    "effect": {
-      "type": "ParticleEffect",
-      "colorFrom": "00ffce",
-      "colorTo": "00ffce",
-      "length": 400,
-      "interp": "circleOut",
-      "sizeInterp": "circleIn",
-      "lightColor": "00ffce",
-      "line": true,
-      "strokeFrom": 1,
-      "strokeTo": 0,
-      "lenFrom": 20,
-      "lenTo": 5,
-      "particles": 3,
-      "lifetime": 65,
-      "cone": 0
-    }
-  },
-  {
-    "type": "RadialEffect",
-    "rotationSpacing": 0,
-    "rotationOffset": 90,
-    "amount": 1,
-    "lengthOffset": -11,
-    "effectRotationOffset": -90,
-    "effect": {
-      "type": "ParticleEffect",
-      "colorFrom": "00ffce",
-      "colorTo": "00ffce",
-      "length": 320,
-      "interp": "circleOut",
-      "sizeInterp": "circleIn",
-      "lightColor": "00ffce",
-      "line": true,
-      "strokeFrom": 1,
-      "strokeTo": 0,
-      "lenFrom": 20,
-      "lenTo": 5,
-      "particles": 2,
-      "lifetime": 60,
-      "cone": 0
-    }
-  }
           ]
         },
         "maxRange": 80
@@ -504,67 +369,6 @@
         "smokeEffect": "none",
         "hitEffect": "none",
         "despawnEffect": "none"
-      }
-    },
-    {
-      "name": "surge-weapon"
-      "x": 12,
-      "y": -2,
-      "rotate": false,
-      "recoil": 1,
-      "reload": 50,
-      "mirror": true,
-      "ejectEffect": "none",
-      "shootSound": "lbp3SearchlightEdited",
-      "controllable": false,
-      "soundPitchMax": 0.95,
-      "soundPitchMin": 1.05,
-      "shake": 3,
-      "layerOffset": -2,
-      "shootY": 1,
-      "shoot": {
-        "type": "ShootBarrel"
-        "shots": 2,
-        "shotDelay": 12,
-        "barrels": [ 0,0,0,0,0,-30 ]
-      },
-      "recoilTime": 20,
-      "cooldownTime": 60,
-      "heatColor": "ffffffee",
-      "minWarmup": 2,
-      "parts": [
-        {
-          "type": "RegionPart",
-          "suffix": "-blade",
-          "under": true,
-          "moveRot": -45,
-          "moveY": -0.5,
-          "progress": "warmup",
-          "moves": [
-            {
-              "progress": "reload",
-              "rot": -15
-            }
-          ]
-        }
-      ],
-      "shootWarmupSpeed": 0.25,
-      "bullet": {
-        "spawnUnit": "surge-missile",
-        "shootEffect": {
-          "type": "MultiEffect",
-          "effects": [
-            {
-              "type": "RadialEffect",
-              "effect": "shootBigSmoke",
-              "amount": 1,
-              "lengthOffset": 2,
-              "rotationOffset": 180
-            },
-            "shootTitan"
-          ]
-        },
-        "smokeEffect": "none"
       }
     },
     {
@@ -594,7 +398,7 @@
       "parts": [
         {
           "type": "RegionPart",
-          "suffix": "surge-ring",
+          "suffix": "sparkle-ring",
           "progress": "reload",
           "moveRot": 90,
           "rotation": -90,
@@ -604,7 +408,7 @@
         },
         {
           "type": "RegionPart",
-          "suffix": "surge-ring",
+          "suffix": "sparkle-ring",
           "progress": "reload",
           "rotation": 0,
           "moveRot": 90,
@@ -646,8 +450,8 @@
           "type": "WaveEffect",
           "strokeFrom": 1,
           "strokeTo": 0,
-          "sizeFrom": 12.5,
-          "sizeTo": 12.5,
+          "sizeFrom": 8.5,
+          "sizeTo": 8.5,
           "colorFrom": "00ffce00",
           "colorTo": "00ffce",
           "interp": "linear",

@@ -16,7 +16,7 @@
   "warmupSpeed": 0.05,
   "dumpTime": 1,
   "research": {
-    "parent": "blast-furnace",
+    "parent": "catalyzon-workshop",
     "objectives": [ 
       {
         "type": "OnSector",

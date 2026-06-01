@@ -133,6 +133,7 @@ newBlock("centrifuge-kiln",GenericCrafter);
 newBlock("reflector-thermolyzer",GenericCrafter);
 newBlock("magnetic-separator",GenericCrafter);
 newBlock("catalyzon-workshop",GenericCrafter);
+newBlock("thermoplastic-compressor",HeatCrafter);
 
 log("11.1");
 newBlock("heat-conduct-conductor",HeatConductor);
@@ -403,6 +404,7 @@ newBlock("pantype",ItemTurret);
 newBlock("meteor",ItemTurret);
 newBlock("vector",PowerTurret);
 newBlock("guarden",PowerTurret);
+newBlock("incandescence",PowerTurret);
 newBlock("melonic-array-pillar",PowerTurret);
 
 //units

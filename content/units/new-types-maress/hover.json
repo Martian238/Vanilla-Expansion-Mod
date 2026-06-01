@@ -57,6 +57,7 @@
         "statusDuration": 240,
         "splashDamage": 50,
         "splashDamageRadius": 80,
+        "scaledSplashDamage": false,
         "hitShake": 4,
         "despawnShake": 4,
         "scaleLife": true,

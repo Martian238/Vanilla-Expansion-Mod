@@ -1,0 +1,46 @@
+{
+  "type": "MultiCraft.MultiCrafter",
+  "requirements": [ "aluminium/400","silicon/500","silver/200" ]
+  "category": "effect",
+  "hasItems": true,
+  "itemCapacity": 200,
+  "conductivePower": false,
+  "hasPower": false,
+  "recipe": [
+    {
+      "inputItems": [ "aluminium/100","tantalum/100","silver/20" ],
+      "craftTime": 300,
+      "outputItems": [ "astro-plate/100" ]
+    },
+    {
+      "inputItems": [ "silver/100","tantalum/40","silicon/80" ],
+      "craftTime": 600,
+      "outputItems": [ "phecteel/10" ]
+    }
+  ],
+  "dumpTime": 1,
+  "squareSprite": false,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawRegion",
+        "suffix": "-idle",
+        "layer": 99.99
+      }
+    ]
+  },
+  "size": 3,
+  "armor": 0,
+  "ambientSound": "none",
+  "ambientSoundVolume": 0.08,
+  "updateEffect": "none",
+  "craftEffect": "none",
+  "research": {
+    "parent": "cargo-anchor-industry",
+    "objectives": [ 
+      "phecteel"
+    ]
+  }
+}
