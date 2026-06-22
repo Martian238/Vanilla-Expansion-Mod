@@ -10,7 +10,7 @@
     "objectives": [ "hammer" ],
     "requirements": [  ]
   },
-  "targetAir": false,
+  "targetAir": true,
   "itemCapacity": 50,
   "targetFlags": [
     "factory","generator","storage"

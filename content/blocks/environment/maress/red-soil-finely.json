@@ -11,5 +11,6 @@
   "speedMultiplier": 0.9,
   "status": "dusty",
   "statusDuration": 600,
-  "mapColor": "a1603a"
+  "mapColor": "a1603a",
+  "blendGroup": "red-soil-floor"
 }

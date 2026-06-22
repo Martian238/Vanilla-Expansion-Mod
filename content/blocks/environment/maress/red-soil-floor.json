@@ -9,4 +9,5 @@
   "itemDrop": "red-soil",
   "playerUnmineable": true,
   "mapColor": "985834"
+  "blendGroup": "red-soil-floor"
 }

@@ -8,12 +8,11 @@
       {
         "type": "SectorComplete",
         "preset": "negotiation"
-      },
-      "chiniun-shockwave"
+      }
     ]
   },
   "overrideLaunchDefaults": false,
-  "captureWave": 50,
+  "captureWave": 40,
   "addStartingItems": false,
   "isLastSector": false,
   "allowLaunchSchematics": true,

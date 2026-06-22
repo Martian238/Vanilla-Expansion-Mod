@@ -1,0 +1,89 @@
+{
+  "type": "payload",
+  "databaseTag": "01core-unit",
+  "isEnemy": true,
+  "lowAltitude": true,
+  "fogRadius": 0,
+  "flying": true,
+  "drag": 0.035,
+  "speed": 4.3,
+  "rotateSpeed": 9,
+  "accel": 0.095,
+  "health": 620,
+  "armor": 5,
+  "engineOffset": 9,
+  "engineSize": 3.75,
+  "hitSize": 16,
+  "itemCapacity": 110,
+  "faceTarget": true,
+  "mineTier": 3,
+  "mineSpeed": 11,
+  "mineWalls": true,
+  "buildSpeed": 2.1,
+  "mineRange": 110,
+  "drawBuildBeam": true,
+  "mineBeamOffset": 5.75,
+  "buildBeamOffset": 3.5,
+  "buildRange": 320,
+  "payloadCapacity": 400,
+  "lightColor": "f25555",
+  "pickupUnits": true,
+  "targetable": false,
+  "immunities": [ "frozen","blown" ],
+  "hidden": true,
+  "outlines": false,
+  "drawBody": true,
+  "createWreck": true,
+  "createScorch": true,
+  "drawMinimap": true,
+  "engineColor": "f25555",
+  "targetPriority": 1,
+  "bounded": false,
+  "abilities": [
+    {
+      "type": "ShieldArcAbility",
+      "radius": 20,
+      "regen": 0.4,
+      "max": 380,
+      "cooldown": 60,
+      "angle": 120,
+      "angleOffset": 0,
+      "whenShooting": false,
+      "y": 16,
+      "width": 9,
+      "pushUnits": false
+    }
+  ],
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-weapon",
+      "clampProgress": false,
+      "xScl": 1,
+      "yScl": 1,
+      "under": false,
+      "layerOffset": -0.001,
+      "outline": false
+    }
+  ],
+  "weapons": [
+    { 
+      "mirror": false,
+      "x": 0,
+      "y": 0,
+      "shootCone": 361,
+      "shootWarmupSpeed": 0.5,
+      "minWarmup": 2,
+      "bullet": { "maxRange": 3200 }
+    },
+    {
+      "type": "BuildWeapon",
+      "rotate": false,
+      "top": false,
+      "x": 6,
+      "y": 6,
+      "shootY": 0,
+      "shootX": 0
+    }
+  ]
+}

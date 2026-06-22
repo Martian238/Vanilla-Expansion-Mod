@@ -22,7 +22,14 @@
   "loopSound": "lbp3FlyingMachine",
   "loopSoundVolume": 0.15,
   "research": {
-    "parent": "shimmer"
+    "parent": "shimmer",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "lower-pass"
+      },
+      "junior-reconstruct-pad"
+    ]
   },
   "shownPlanets": [ "maress","thavina" ],
   "weapons": [

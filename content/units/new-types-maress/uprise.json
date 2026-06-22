@@ -14,7 +14,13 @@
   "engineOffset": 5.5,
   "lightColor": "8ca9e8",
   "research": {
-    "parent": "shimmer"
+    "parent": "shimmer",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "lower-pass"
+      }
+    ]
   },
   "parts": [
     {

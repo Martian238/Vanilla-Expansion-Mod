@@ -1,0 +1,539 @@
+{
+  //"type": "PowerTurret",
+  "requirements": [ "tantalum/400","ferrum/300","silicon/500","graphite/400" ],
+  "category": "turret",
+  "outlineColor": "2d2f39",
+  "size": 4,
+  "shootType": {
+    "shootEffect": [
+      {
+        "type": "ParticleEffect",
+        "sizeFrom": 4,
+        "sizeTo": 0,
+        "lifetime": 12,
+        "particles": 1,
+        "length": 0,
+        "colorFrom": "aad6c0",
+        "colorTo": "67f0ab"
+      },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "aad6c0",
+        "colorTo": "67f0ab",
+        "sizeFrom": 0,
+        "sizeTo": 16,
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "lifetime": 12
+      },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "aad6c0",
+        "colorTo": "67f0ab",
+        "sizeFrom": 0,
+        "sizeTo": 32,
+        "strokeFrom": 1,
+        "strokeTo": 0,
+        "lifetime": 12
+      },
+      {
+        "particles": 1,
+        "cone": 0,
+        "region": "ve-circle-soft",
+        "sizeFrom": 32,
+        "sizeTo": 32,
+        "colorFrom": "ffffff88",
+        "colorTo": "aad6c000",
+        "lifetime": 10,
+        "interp": "linear",
+        "length": 0,
+        "baseLength": 0,
+        "lightColor": "aad6c0",
+        "layer": 120
+      },
+      { 
+        "type": "SoundEffect",
+        "maxVolume": 0.7,
+        "minVolume": 0.7,
+        "maxPitch": 1,
+        "minPitch": 1,
+        "effect": "none",
+        "sound": [ "lbp3Zap1","lbp3Zap2","lbp3Zap3" ]
+      }
+    ],
+    "smokeEffect": {
+      "type": "ParticleEffect",
+      "sizeFrom": 2.5,
+      "sizeTo": 0,
+      "sizeInterp": "pow2In",
+      "interp": "pow2Out",
+      "lifetime": 40,
+      "particles": 10,
+      "length": 40,
+      "cone": 15,
+      "layer": 100,
+      "colorFrom": "aad6c080",
+      "colorTo": "67f0ab80"
+    },
+    "sprite": "circle-bullet",
+    "width": 10,
+    "height": 14,
+    "speed": 3,
+    "lifetime": 70,
+    "accel": 0.05,
+    "homingPower": 0.03,
+    "homingRadius": 320,
+    "trailWidth": 5,
+    "trailEffect": {
+      "type": "ParticleEffect",
+      "sizeFrom": 2.5,
+      "sizeTo": 0,
+      "sizeInterp": "pow2In",
+      "interp": "linear",
+      "lifetime": 40,
+      "particles": 5,
+      "baseLength": 5,
+      "length": 5,
+      "layer": 100,
+      "colorFrom": "aad6c080",
+      "colorTo": "67f0ab80"
+    },
+    "trailInterval": 3,
+    "trailLength": 16,
+    "hittable": false,
+    "hitSize": 8,
+    "frontColor": "ffffff",
+    "backColor": "aad6c0",
+    "trailColor": "67f0ab",
+    "despawnHit": true,
+    "homingDelay": 10,
+    "despawnShake": 6,
+    "hitShake": 6,
+    "despawnEffect": "none",
+    "hitEffect": {
+        "type": "SoundEffect",
+        "maxVolume": 1,
+        "minVolume": 1,
+        "maxPitch": 1,
+        "minPitch": 1,
+        "effect": [
+          {
+            "particles": 1,
+            "cone": 0,
+            "region": "ve-circle-soft",
+            "sizeFrom": 128,
+            "sizeTo": 128,
+            "colorFrom": "ffffff88",
+            "colorTo": "aad6c000",
+            "lifetime": 12,
+            "interp": "linear",
+            "length": 0,
+            "baseLength": 0,
+            "lightColor": "aad6c0",
+            "layer": 120
+          },
+          {
+            "type": "WaveEffect",
+            "lifetime": 12,
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "colorFrom": "aad6c0",
+            "colorTo": "67f0ab",
+            "sizeFrom": 0,
+            "sizeTo": 40
+          },
+          {
+            "type": "ParticleEffect",//scorch
+            "clip": 1600,
+            "region": "ve-circle-soft",
+            "particles": 3,
+            "length": 0,
+            "baseLength": 32,
+            "sizeFrom": 60,
+            "sizeTo": 60,
+            "colorFrom": "67f0ab20",
+            "colorTo": "67f0ab00",
+            "interp": "circleIn",
+            "lifetime": 600,
+            "layer": 10
+          },
+          {
+            "type": "ExplosionEffect",
+            "lifetime": 50,
+            "waveStroke": 5,
+            "waveLife": 12,
+            "waveColor": "aad6c0",
+            "sparkColor": "67f0ab",
+            "smokeColor": "67f0ab",
+            "waveRad": 48,
+            "smokeSize": 4,
+            "smokes": 7,
+            "smokeSizeBase": 0,
+            "sparks": 10,
+            "sparkRad": 48,
+            "sparkLen": 6,
+            "sparkStroke": 2
+          }
+        ],
+        "sound": "jsabBossPunch1"
+    },
+    "splashDamage": 200,
+    "splashDamageRadius": 48,
+    "status": "corroded",
+    "statusDuration": 600,
+    "shrinkY": 0,
+    "fragRandomSpread": 0,
+    "fragOffsetMax": 0,
+    "fragOffsetMin": 0,
+    "damage": 90,
+    "fragBullet": {
+      "speed": 0,
+      "lifetime": 600,
+      "collidesAir": false,
+      "hittable": false,
+      "absorbable": false,
+      "reflectable": false,
+      "collides": false,
+      "bulletInterval": 10,
+      "hitEffect": "none",
+      "despawnEffect": "none",
+      "damage": 0,
+      "width": 0,
+      "height": 0,
+      "intervalBullet": {
+        "instantDisappear": true,
+        "splashDamage": 15,
+        "buildingDamageMultiplier": 0.5,
+        "splashDamagePierce": true,
+        "splashDamageRadius": 40,
+        "pierceArmor": true,
+        "status": "corroded",
+        "statusDuration": 60,
+        "hittable": false,
+        "reflectable": false,
+        "collides": false,
+        "collidesAir": false,
+        "absorbable": false,
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ParticleEffect",
+          "sizeFrom": 16,
+          "sizeTo": 20,
+          "baseLength": 40,
+          "length": 0,
+          "interp": "slope",
+          "colorFrom": "67f0ab00",
+          "colorTo": "67f0ab05",
+          "particles": 1,
+          "lifetime": 60,
+          "layer": 99.99
+        }
+      }
+    }
+  },
+  "recoil": 4,
+  "predictTarget": false,
+  "shootSound": [ "roMechaBossSmallExplosion1","roMechaBossSmallExplosion2","roMechaBossSmallExplosion3" ],
+  "soundPitchMin": 0.8,
+  "soundPitchMax": 0.8,
+  "shootSoundVolume": 1,
+  "cooldownTime": 60,
+  "shootX": 0,
+  "shootY": -5.75,
+  "reload": 60,
+  "range": 340,
+  "trackingRange": 380,
+  "health": 7000,
+  "recoilTime": 60,
+  "armor": 8,
+  "ammoUseEffect": "none",
+  "rotateSpeed": 5,
+  "predictTarget": false,
+  "shootCone": 60,
+  "shake": 4,
+  "research": {
+    "parent": "incandescence",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "metallic-glacier"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.2,
+  "liquidCapacity": 120,
+  "consumes": {
+    "liquids": {
+      "liquids": [ "chlorine/0.25" ],
+    },
+    "power": 2.5
+  },
+  "heatRequirement": 50,
+  "maxHeatEfficiency": 2,
+  "minWarmup": 0.95,
+  "shootWarmupSpeed": 0.1,
+  "warmupMaintainTime": 60,
+  "recoils": 2,
+  "shoot": {
+    "type": "ShootBarrel",
+    "barrels": [ 12,20,15,-12,20,-15 ]
+  },
+  "drawer": {
+    "type": "DrawTurret",
+    "basePrefix": "tantalum-heat-",
+    "parts": [
+      {
+        "type": "ShapePart",
+        "sides": 3,
+        "hollow": true,
+        "stroke": 0,
+        "radius": 5,
+        "progress": "warmup"
+        "strokeTo": 2.5,
+        "rotation": 90,
+        "y": -8,
+        "color": "67f0ab",
+        "layer": 110
+      },
+      {
+        "type": "ShapePart",
+        "sides": 3,
+        "hollow": true,
+        "stroke": 0,
+        "radius": 11,
+        "rotation": 90,
+        "progress": "warmup"
+        "strokeTo": 0.75,
+        "y": -8,
+        "color": "67f0ab",
+        "layer": 110
+      },
+      {
+        "type": "HaloPart",
+        "progress": "warmup",
+        "color": "67f0ab",
+        "layer": 110,
+        "shapes": 3,
+        "haloRotation": 60,
+        "haloRadius": 12,
+        "triLength": 0,
+        "triLengthTo": 15,
+        "radius": 3.5,
+        "y": -8,
+        "tri": true
+      },
+      {
+        "type": "HaloPart",
+        "progress": "warmup",
+        "color": "67f0ab",
+        "layer": 110,
+        "shapes": 3,
+        "haloRotation": 60,
+        "haloRadius": 12,
+        "triLength": 0,
+        "triLengthTo": 2.4,
+        "radius": 3.5,
+        "y": -8,
+        "tri": true,
+        "shapeRotation": 180
+      },
+      {
+        "type": "HaloPart",
+        "progress": "warmup",
+        "color": "67f0ab",
+        "layer": 110,
+        "shapes": 4,
+        "haloRotation": 0,
+        "haloRadius": 14,
+        "triLength": 0,
+        "triLengthTo": 1,
+        "radius": 5,
+        "y": -8,
+        "tri": true,
+        "haloRotateSpeed": 1
+      },
+      {
+        "type": "HaloPart",
+        "progress": "warmup",
+        "color": "67f0ab",
+        "layer": 110,
+        "shapes": 4,
+        "haloRotation": 0,
+        "haloRadius": 14,
+        "triLength": 0,
+        "triLengthTo": 1,
+        "radius": 5,
+        "y": -8,
+        "tri": true,
+        "shapeRotation": 180,
+        "haloRotateSpeed": 1
+      },
+      {
+        "type": "HaloPart",
+        "progress": "warmup",
+        "color": "67f0ab",
+        "layer": 110,
+        "shapes": 4,
+        "haloRotation": 0,
+        "haloRadius": 14,
+        "triLength": 0,
+        "triLengthTo": 1,
+        "radius": 5,
+        "y": -8,
+        "tri": true,
+        "haloRotateSpeed": -1
+      },
+      {
+        "type": "HaloPart",
+        "progress": "warmup",
+        "color": "67f0ab",
+        "layer": 110,
+        "shapes": 4,
+        "haloRotation": 0,
+        "haloRadius": 14,
+        "triLength": 0,
+        "triLengthTo": 1,
+        "radius": 5,
+        "y": -8,
+        "tri": true,
+        "shapeRotation": 180,
+        "haloRotateSpeed": -1
+      },
+      {
+        "type": "RegionPart",
+        "suffix": "-arm-r",
+        "moveRot": 0,
+        "moveX": 2.9,
+        "moveY": -8,
+        "progress": "recoil",
+        "mirror": false,
+        "under": false,
+        "recoilIndex": 0,
+        "heatColor": "00000000",
+        "moves": [
+          {
+            "progress": "warmup",
+            "rot": 15,
+            "x": 6,
+            "y": 6
+          }
+        ],
+        "children": [
+          {
+            "type": "RegionPart",
+            "suffix": "-piston1",
+            "x": 9,
+            "y": 6.75,
+            "under": true,
+            "moveRot": -25,
+            "progress": "recoil",
+            "recoilIndex": 0,
+            "moves": [
+              {
+                "progress": "warmup",
+                "rot": 30
+              }
+            ]
+          },
+          {
+            "type": "RegionPart",
+            "suffix": "-piston2",
+            "x": 10.5,
+            "y": -7,
+            "under": true,
+            "moveRot": -30,
+            "progress": "recoil",
+            "recoilIndex": 0,
+            "moves": [
+              {
+                "progress": "warmup",
+                "rot": 12
+              }
+            ]
+          },
+          {
+            "type": "RegionPart",
+            "under": false,
+            "blending": "additive",
+            "suffix": "-arm-r-heat",
+            "color": "ab340000",
+            "colorTo": "ab3400",
+            "outline": false,
+            "progress": "recoil",
+            "recoilIndex": 0
+          }
+        ]
+      },
+      {
+        "type": "RegionPart",
+        "suffix": "-arm-l",
+        "xScl": -1,
+        "moveRot": 0,
+        "moveX": -2.9,
+        "moveY": -8,
+        "progress": "recoil",
+        "mirror": false,
+        "under": false,
+        "recoilIndex": 1,
+        "heatColor": "00000000",
+        "moves": [
+          {
+            "progress": "warmup",
+            "rot": -15,
+            "x": -6,
+            "y": 6
+          }
+        ],
+        "children": [
+          {
+            "type": "RegionPart",
+            "suffix": "-piston1",
+            "xScl": 1,
+            "x": -9,
+            "y": 6.75,
+            "under": true,
+            "moveRot": 25,
+            "progress": "recoil",
+            "recoilIndex": 1,
+            "moves": [
+              {
+                "progress": "warmup",
+                "rot": -30
+              }
+            ]
+          },
+          {
+            "type": "RegionPart",
+            "suffix": "-piston2",
+            "xScl": 1,
+            "x": -10.5,
+            "y": -7,
+            "under": true,
+            "moveRot": 30,
+            "progress": "recoil",
+            "recoilIndex": 1,
+            "moves": [
+              {
+                "progress": "warmup",
+                "rot": -12
+              }
+            ]
+          },
+          {
+            "type": "RegionPart",
+            "under": false,
+            "blending": "additive",
+            "suffix": "-arm-l-heat",
+            "color": "ab340000",
+            "colorTo": "ab3400",
+            "outline": false,
+            "progress": "recoil",
+            "recoilIndex": 1
+          }
+        ]
+      }
+    ]
+  },
+  "shownPlanets": [ "maress","thavina" ]
+}

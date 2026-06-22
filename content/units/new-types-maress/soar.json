@@ -14,7 +14,14 @@
   "engineOffset": 8,
   "lightColor": "8ca9e8",
   "research": {
-    "parent": "uprise"
+    "parent": "uprise",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "lower-pass"
+      },
+      "junior-reconstruct-pad"
+    ]
   },
   "shownPlanets": [ "maress","thavina" ],
   "weapons": [

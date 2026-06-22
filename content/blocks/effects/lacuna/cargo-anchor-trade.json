@@ -30,6 +30,7 @@
     }
   ],
   "squareSprite": false,
+  "canOverdrive": false,
   "dumpTime": 1,
   "drawer": {
     "type": "DrawMulti",

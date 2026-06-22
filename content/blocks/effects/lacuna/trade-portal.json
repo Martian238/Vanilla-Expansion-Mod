@@ -23,6 +23,7 @@
   "canPickup": false,
   "replaceable": false,
   "targetable": false,
+  "canOverdrive": false,
   "destructible": false,
   "dumpTime": 1,
   "drawer": {

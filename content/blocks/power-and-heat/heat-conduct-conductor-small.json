@@ -1,0 +1,35 @@
+{
+  //"type": "HeatConductor",
+  "visualMaxHeat": 50,
+  "research": {
+    "parent": "heat-conduct-distributor",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "metallic-glacier"
+      }
+    ]
+  },
+  "requirements": [ "silver/10","tantalum/10","graphite/5" ],
+  "size": 1,
+  "armor": 6,
+  "health": 400,
+  "category": "crafting",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      { "type": "DrawHeatOutput" },
+      { 
+        "type": "DrawHeatInput",
+        "suffix": "-input"
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-cover"
+      }
+    ]
+  },
+  "regionRotated1": 1,
+  "shownPlanets": [ "maress","thavina" ]
+}

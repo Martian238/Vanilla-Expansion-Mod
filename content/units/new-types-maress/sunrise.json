@@ -27,7 +27,8 @@
       {
         "type": "OnSector",
         "preset": "slate-guardpost"
-      }
+      },
+      "senior-reconstruct-pad"
     ]
   },
   "shownPlanets": [ "maress","thavina" ],

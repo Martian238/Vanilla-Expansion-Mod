@@ -120,7 +120,7 @@
       }
     ]
   },
-  "shootWarmupSpeed": 0.1,
+  "shootWarmupSpeed": 0.15,
   //"minWarmup": 0.5,
   "reload": 60,
   "recoilTime": 120,
@@ -149,7 +149,7 @@
     "smokeEffect": "none",
     "damage": 0,
     "splashDamage": 0,
-    "splashDamageRadius": 12,
+    "splashDamageRadius": 16,
     "hitSize": 16,
     "pierce": true,
     "pierceCap": -1

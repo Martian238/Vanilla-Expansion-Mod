@@ -129,7 +129,7 @@
     {
       "name": "square-weapon",
       "x": 7.5,
-      "y": 6,
+      "y": 7,
       "reload": 18,
       "recoil": 2,
       "rotate": true,

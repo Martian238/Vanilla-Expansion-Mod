@@ -11,17 +11,17 @@
   "shownPlanets": [ "maress","thavina" ]
   "recipe": [
     {
-      "inputLiquids": [ "water/0.13333333" ],
+      "inputLiquids": [ "water/0.0666666667" ],
       "craftTime": 180,
-      "inputHeat": 5,
-      "outputPower": 4,
+      "inputHeat": 10,
+      "outputPower": 1.75,
       "maxEfficiency": 4
     },
     {
-      "inputLiquids": [ "cryofluid/0.066666667" ],
+      "inputLiquids": [ "cryofluid/0.033333333" ],
       "craftTime": 180,
-      "inputHeat": 5,
-      "outputPower": 6.6666666667,
+      "inputHeat": 10,
+      "outputPower": 2.25,
       "maxEfficiency": 6
     }
   ],

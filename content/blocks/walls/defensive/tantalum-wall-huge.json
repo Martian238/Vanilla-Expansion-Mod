@@ -1,0 +1,12 @@
+{
+  //"type": "Wall",
+  "requirements": [ "tantalum/36","aluminium/18" ],
+  "category": "defense",
+  "research": "tantalum-wall-large",
+  "health": 7650,
+  "armor": 12,
+  "size": 3,
+  "researchCostMultiplier": 0.3,
+  "crushDamageMultiplier": 1,
+  "shownPlanets": [ "maress","thavina" ]
+}

@@ -23,6 +23,8 @@
   "flying": true,
   "lowAltitude": false,
   "hidden": true,
+  "bounded": true,
+  "targetPriority": 2,
   "wreckHealthMultiplier": 0,
   "targetFlags": [
     "reactor","battery","storage","core"
@@ -105,6 +107,7 @@
       "targetInterval": 30,
       "minWarmup": 0.5,
       "shootWarmupSpeed": 0.05,
+      "autoTarget": true,
       "bullet": {
         "speed": 3.4,
         "damage": 32,

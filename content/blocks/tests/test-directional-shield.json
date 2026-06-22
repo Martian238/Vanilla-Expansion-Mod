@@ -1,5 +1,5 @@
 {
-  "type": "DirectionalForceProjector",
+  //"type": "DirectionalForceProjector",
   "shieldHealth": 1000,
   "consumes": {
     "power": 1,
@@ -8,5 +8,5 @@
   "alwaysUnlocked": true,
   "buildVisibility": "sandboxOnly",
   "category": "effect",
-  "size": 2
+  //"size": 2
 }

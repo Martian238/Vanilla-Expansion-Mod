@@ -24,5 +24,7 @@
   "polyRadius": 5,
   "polyStroke": 1,
   "acceptsItems": false,
+  "solid": false,
+  "underBullets": true,
   "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
 }

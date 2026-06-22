@@ -1,0 +1,10 @@
+{
+  //"type": "Wall",
+  "requirements": [ "tantalum/4","aluminium/2","silicide/6" ],
+  "category": "defense",
+  "research": "tantalum-wall",
+  "health": 1200,
+  "armor": 24,
+  "crushDamageMultiplier": 0,
+  "shownPlanets": [ "maress","thavina" ]
+}

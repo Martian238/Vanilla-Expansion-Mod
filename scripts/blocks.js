@@ -137,6 +137,7 @@ newBlock("thermoplastic-compressor",HeatCrafter);
 
 log("11.1");
 newBlock("heat-conduct-conductor",HeatConductor);
+newBlock("heat-conduct-conductor-small",HeatConductor);
 newBlock("heat-conduct-distributor",HeatConductor);
 newBlock("reactor-core",HeatProducer);
 
@@ -198,6 +199,12 @@ newBlock("ferrum-wall-huge",Wall);
 newBlock("silicide-ferrum-wall",Wall);
 newBlock("silicide-ferrum-wall-large",Wall);
 newBlock("silicide-ferrum-wall-huge",Wall);
+newBlock("tantalum-wall",Wall);
+newBlock("tantalum-wall-large",Wall);
+newBlock("tantalum-wall-huge",Wall);
+newBlock("silicide-tantalum-wall",Wall);
+newBlock("silicide-tantalum-wall-large",Wall);
+newBlock("silicide-tantalum-wall-huge",Wall);
 newBlock("crystallon-wall",PowerTurret);
 newBlock("crystallon-wall-large",PowerTurret);
 
@@ -207,6 +214,7 @@ newBlock("sweeper",ConsumeGenerator);
 newBlock("overdriver",OverdriveProjector);
 newBlock("mend-dome",MendProjector);
 newBlock("team-projector-sharded",GenericCrafter);
+newBlock("team-projector-alpha",GenericCrafter);
 newBlock("team-projector-crux",GenericCrafter);
 newBlock("team-projector-omega",GenericCrafter);
 newBlock("team-projector-zenith",GenericCrafter);
@@ -407,6 +415,7 @@ newBlock("vector",PowerTurret);
 newBlock("guarden",PowerTurret);
 newBlock("incandescence",PowerTurret);
 newBlock("melonic-array-pillar",PowerTurret);
+newBlock("stellar",PowerTurret)
 
 //units
 log("32");
@@ -459,6 +468,10 @@ newBlock("super-assembler",UnitAssembler);
 newBlock("ultra-assembler",UnitAssembler);
 newBlock("boss-assembler",UnitAssembler);
 
+log("34.1");
+newBlock("junior-reconstruct-pad",Reconstructor);
+newBlock("senior-reconstruct-pad",Reconstructor);
+
 log("35");
 newBlock("general-payload-conveyor",PayloadConveyor);
 newBlock("small-unit-constructor",UnitFactory);
@@ -480,7 +493,8 @@ log("36");
 newBlock("isomorphic-message",MessageBlock);
 newBlock("isomorphic-switch",SwitchBlock);
 newBlock("isomorphic-processor",LogicBlock);
-newBlock("isomorphic-memory",MemoryBlock);
+newBlock("isomorphic-memory-cell",MemoryBlock);
+newBlock("isomorphic-memory-bank",MemoryBlock);
 newBlock("quantum-processor",LogicBlock);
 newBlock("quantum-memory-cell",MemoryBlock);
 

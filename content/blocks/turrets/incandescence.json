@@ -199,7 +199,7 @@
   "size": 3,
   "cooldownTime": 60,
   "range": 340,
-  "trackingRange": 40,
+  "trackingRange": 380,
   "health": 2200,
   "armor": 4,
   "ammoUseEffect": "none",

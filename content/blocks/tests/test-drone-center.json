@@ -1,9 +1,9 @@
 {
-  "type": "DroneCenter",
+  //"type": "DroneCenter",
   "droneType": "test-effect-drone",
   "alwaysUnlocked": true,
   "buildVisibility": "sandboxOnly",
-  "size": 3,
+  //"size": 3,
   "status": "coordinate",
   "statusDuration": 1,
   "category": "units",

@@ -21,6 +21,7 @@
   ],
   "dumpTime": 1,
   "squareSprite": false,
+  "canOverdrive": false,
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
