@@ -1,7 +1,7 @@
 {
   "planet": "maress",
   "sector": 26,
-  "difficulty": 5,
+  "difficulty": 4,
   "research": {
     "parent": "negotiation",
     "objectives": [

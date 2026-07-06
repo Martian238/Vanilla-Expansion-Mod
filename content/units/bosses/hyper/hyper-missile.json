@@ -137,8 +137,8 @@
         }
         }
       }
-    },
-    {
+    }
+    /*{
       "type": "PointDefenseWeapon",
       "name": "point-defense-mount"
       "x": 0,
@@ -156,6 +156,6 @@
         "hitEffect": "pointHit",
         "shootEffect": "sparkShoot"
       }
-    }
+    }*/
   ]
 }

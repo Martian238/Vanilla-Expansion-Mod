@@ -333,6 +333,7 @@ newBlock("fusion-reactor",ImpactReactor);
 log("23");
 newBlock("spot-solar-pad",SolarGenerator);
 newBlock("blast-engine",ConsumeGenerator);
+newBlock("thermal-reactor",VariableReactor);
 
 log("24");
 newBlock("cable",TileableLogicDisplay);

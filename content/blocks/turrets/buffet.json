@@ -61,6 +61,7 @@
       "smokeEffect": "shootBigSmoke",
       "lightning": 2,
       "lightningLength": 8,
+      "lightningDamage": 20,
       "hitShake": 1,
       "despawnShake": 1,
       "status": "shocked",

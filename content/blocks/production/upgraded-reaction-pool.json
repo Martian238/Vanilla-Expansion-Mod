@@ -8,7 +8,7 @@
   "hasPower": true,
   "hasLiquids": true,
   "liquidCapacity": 600,
-  "itemCapacity": 50,
+  "itemCapacity": 100,
   "hasItems": true,
   "rotate": true,
   "rotateDraw": false,

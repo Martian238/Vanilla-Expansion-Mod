@@ -36,6 +36,8 @@
   "fallEngineEffect": "smokeCloud",
   "itemCapacity": 0,
   "fogRadius": 0,
+  "drawSoftShadow": false,
+  "useUnitCap": false,
   "weapons": [
     {
       "alwaysShooting": true,

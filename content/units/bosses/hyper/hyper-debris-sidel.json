@@ -26,9 +26,11 @@
   "envDisabled": 0,
   "lightColor": "98ffa9",
   "fallEngineEffect": "smokeCloud",
-  "shadowElevation": 3.5,
+  "shadowElevation": 9999,
   "itemCapacity": 0,
   "fogRadius": 0,
+  "drawSoftShadow": false,
+  "useUnitCap": false,
   "weapons": [
     {
       "alwaysShooting": true,

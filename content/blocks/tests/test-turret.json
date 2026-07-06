@@ -130,6 +130,13 @@
         "damage": 100,
         "trailLength": 5
       }
+    },
+    "watermelon-alcohol": {
+      "followAimSpeed": 10,
+      "speed": 3,
+      "lifetime": 180,
+      "width": 12,
+      "height": 12
     }
   },
   "recoil": 1,

@@ -103,11 +103,11 @@
       "shake": 6,
       "bullet": {
         "spawnBullets": [
-        {
-        "spawnUnit": "thorium-rocketeer-missile-accel"
-        }
+          {
+            "spawnUnit": "thorium-rocketeer-missile-accel"
+          }
         ],
-        "maxRange": 840,
+        "rangeOverride": 840,
         "instantDisappear": true,
         "shootEffect": "launchPod",
         "smokeEffect": "smokeCloud",
@@ -117,7 +117,7 @@
         "hittable": false,
         "hitEffect": "none",
         "despawnEffect": "none",
-        "speed": 999//20
+        "speed": 99999
       },
       "parts": [
         {

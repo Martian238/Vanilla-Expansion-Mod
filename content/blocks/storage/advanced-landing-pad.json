@@ -23,6 +23,7 @@
   "shownPlanets": [ "cyclant" ],
   "arrivalDuration": 180,
   "cooldownTime": 120,
+  "dumpTime": 1,
   "consumeLiquidAmount": 0,
   "coolingEffectChance": 0.2,
   "coolingEffect": {

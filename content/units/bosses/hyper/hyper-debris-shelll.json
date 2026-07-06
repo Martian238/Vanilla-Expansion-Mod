@@ -30,6 +30,8 @@
   "itemCapacity": 0,
   "fogRadius": 0,
   "drawBody": false,
+  "drawSoftShadow": false,
+  "useUnitCap": false,
   "weapons": [
     {
       "alwaysShooting": true,

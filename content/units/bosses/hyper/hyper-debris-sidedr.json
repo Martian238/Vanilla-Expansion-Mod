@@ -16,19 +16,19 @@
   "hitSize": 30,
   "drawCell": false,
   "fallEffect": "blastExplosion",
-  "shadowElevation": 3.5,
+  "shadowElevation": 9999,
   "engineSize": 0,
   "drawShields": false,
   "engines": [
     {
       "x": -4.75,
-      "y": -65.5,
+      "y": -15.5,
       "radius": 22,
       "rotation": -90
     },
     {
       "x": 32,
-      "y": -27,
+      "y": 23,
       "radius": 28,
       "rotation": -45
     }
@@ -41,6 +41,17 @@
   "fallEngineEffect": "smokeCloud",
   "itemCapacity": 0,
   "fogRadius": 0,
+  "parts": [
+    {
+      "type": "RegionPart",
+      "name": "ve-hyper-debris-sidedl",
+      "xScl": -1,
+      "outline": false
+    }
+  ],
+  "drawBody": false,
+  "drawSoftShadow": false,
+  "useUnitCap": false,
   "weapons": [
     {
       "alwaysShooting": true,

@@ -2,7 +2,7 @@
   "shownPlanets": [ "thavina" ],
   "databaseTag": "basic-item",
   "color": "6d5a61",
-  "hardness": 6,
+  "hardness": 7,
   "healthScaling": 2,
   "cost": 1.5,
   "explosiveness": -0.5,

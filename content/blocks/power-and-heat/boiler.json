@@ -11,18 +11,18 @@
   "recipe": [
     {
       "inputItems": [ "coal/1" ],
-      "craftTime": 90,
+      "craftTime": 180,
       "outputHeat": 10
     },
     {
       "inputItems": [ "ve-plant-matter/1" ],
-      "craftTime": 60,
+      "craftTime": 90,
       "outputHeat": 10
     },
     {
       "inputItems": [ "spore-pod/1" ],
       "craftTime": 120,
-      "outputHeat": 10
+      "outputHeat": 15
     }
     {
       "inputItems": [ "ve-reflector-matter/1" ],
@@ -41,14 +41,19 @@
       "outputLiquids": [ "water/0.08333333333" ]
     },
     {
+      "inputItems": [ "sodium/1" ],
+      "craftTime": 300,
+      "outputHeat": 30
+    },
+    {
       "inputItems": [ "pyratite/1" ],
-      "craftTime": 180,
-      "outputHeat": 25
+      "craftTime": 300,
+      "outputHeat": 30
     },
     {
       "inputItems": [ "ve-nitroalkoss/1" ],
       "craftTime": 600,
-      "outputHeat": 30
+      "outputHeat": 40
     }
   ],
   "drawer": {

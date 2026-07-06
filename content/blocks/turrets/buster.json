@@ -592,6 +592,8 @@
       "despawnEffect": "hitBulletColor",
       "lightning": 2,
       "lightningLength": 12,
+      "lightningDamage": 30,
+      "armorMultiplier": 0.5,
       "hitShake": 2,
       "despawnShake": 1,
       "status": "shocked",

@@ -26,9 +26,20 @@
   "drawShields": false,
   "lightColor": "98ffa9",
   "fallEngineEffect": "smokeCloud",
-  "shadowElevation": 3.5,
+  "shadowElevation": 9999,
   "itemCapacity": 0,
   "fogRadius": 0,
+  "parts": [
+    {
+      "type": "RegionPart",
+      "name": "ve-hyper-debris-sidel",
+      "xScl": -1,
+      "outline": false
+    }
+  ],
+  "drawBody": false,
+  "drawSoftShadow": false,
+  "useUnitCap": false,
   "weapons": [
     {
       "alwaysShooting": true,
