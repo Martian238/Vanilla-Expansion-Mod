@@ -1,0 +1,24 @@
+{
+  "planet": "maress",
+  "sector": 203,
+  "difficulty": 10,
+  "research": {
+    "parent": "war-headquarters",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "war-headquarters"
+      },
+      "chiniun-shockwave"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

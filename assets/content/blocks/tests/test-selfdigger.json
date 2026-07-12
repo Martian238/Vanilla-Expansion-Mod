@@ -1,0 +1,15 @@
+{
+  "type": "WallCrafter",
+  "size": 2,
+  "category": "crafting",
+  "buildVisibility": "sandboxOnly",
+  "attribute": "heat",
+  "output": "copper",
+  "drillTime": 120,
+  "itemCapacity": 30,
+  "consumes": {
+  },
+  "attributes": {
+    "heat": 1
+  }
+}

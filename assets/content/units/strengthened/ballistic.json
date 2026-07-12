@@ -1,0 +1,112 @@
+{
+  "type": "mech",
+  "databaseTag": "09cyclant-strengthened-unit",
+  "speed": 0.5,
+  "hitSize": 18,
+  "health": 4400,
+  "armor": 14,
+  "mechFrontSway": 1,
+  "rotateSpeed": 2,
+  "mechStepParticles": true,
+  "stepShake": 0.15,
+  "drownTimeMultiplier": 3,
+  "research": {
+    "parent": "hammer",
+    "objectives": [ "senior-refabricator" ],
+    "requirements": [ "silicon/5500","cobalt/3750","plastanium/2250" ]
+  },
+  "itemCapacity": 80,
+  "lightColor": "ffa665",
+  "immunities": [ "dusty" ],
+  "stepSound": "mechStep",
+  "stepSoundPitch": 1,
+  "stepSoundPitchRange": 0.1,
+  "stepSoundVolume": 0.25,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "abilities": [
+    {
+      "type": "ShieldRegenFieldAbility",
+      "amount": 50,
+      "reload": 180,
+      "max": 600,
+      "range": 40
+    }
+  ],
+  "weapons": [
+    {
+      "name": "ballistic-weapon",
+      "x": 12,
+      "y": 0,
+      "shootX": 0,
+      "shootY": 10,
+      "reload": 27,
+      "cooldownTime": 60,
+      "top": false,
+      "ejectEffect": "casing3",
+      "shootSound": "shootFuse",
+      "shake": 5,
+      "recoil": 4,
+      "baseRotation": 5,
+      "shootCone": 60,
+      "shoot": {
+        "type": "ShootSpread",
+        "shots": 3,
+        "spread": 10,
+        "shotDelay": 0
+      },
+      "bullet": {
+        "type": "ShrapnelBulletType",
+        "length": 96,
+        "recoil": 0.1,
+        "damage": 104,
+        "width": 18,
+        "serrationLenScl": 1,
+        "serrationSpaceOffset": 18,
+        "serrationFadeOffset": 0,
+        "serrations": 6,
+        "serrationWidth": 6,
+        "fromColor": "f9c27a",
+        "toColor": "f9c27a",
+        "shootEffect": "sparkShoot",
+        "smokeEffect": "shootBigSmoke",
+        "knockback": 4,
+        "lightColor": "f9c27a"
+      }
+    },
+    {
+      "name": "ballistic-artillery",
+      "reload": 25,
+      "x": 9,
+      "y": -4,
+      "rotateSpeed": 2,
+      "rotate": true,
+      "shake": 1.5,
+      "shootSound": "shootArtillery",
+      "ejectEffect": "casing2",
+      "shootY": 7,
+      "bullet": {
+        "type": "ArtilleryBulletType",
+        "speed": 4,
+        "damage": 20,
+        "width": 11,
+        "height": 11,
+        "splashDamageRadius": 35,
+        "splashDamage": 64,
+        "lifetime": 60,
+        "hitShake": 2,
+        "despawnShake": 2,
+        "collidesTiles": false,
+        "hitEffect": "flakExplosion",
+        "knockback": 0.8,
+        "status": "blasted",
+        "statusDuration": 60,
+        "keepVelocity": false,
+        "frontColor": "ffa665",
+        "backColor": "d06b53",
+        "lightColor": "ffa665",
+        "hitSound": "explosionArtillery",
+        "despawnSound": "explosionArtillery"
+      }
+    }
+  ]
+}

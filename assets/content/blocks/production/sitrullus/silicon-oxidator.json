@@ -1,0 +1,45 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "ferrum/60" ],
+  "category": "crafting",
+  "craftEffect": "smeltsmoke",
+  "size": 2,
+  "outputItem": "quartz/1",
+  "craftTime": 60,
+  "hasPower": true,
+  "hasItems": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "glowColor": "ab3400",
+        "alpha": 1,
+        "glowIntensity": 0,
+        "suffix": "-heat"
+      },
+      {
+        "type": "DrawGlowRegion",
+        "glowColor": "feb380",
+        "alpha": 0.5,
+        "glowIntensity": 0.3,
+        "glowScale": 3,
+        "suffix": "-glow"
+      }
+    ]
+  }
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.08,
+  "consumes": {
+    "items": {
+      "items": [ "silicon/2" ]
+    },
+    "power": 1.5
+  },
+  "research": {
+    "parent": "filter"
+  },
+  "researchCost": [ "ferrum/10" ],
+  "shownPlanets": [ "sitrullus" ]
+}

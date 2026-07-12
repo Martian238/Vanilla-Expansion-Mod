@@ -1,0 +1,10 @@
+{
+  "color": "e44646",
+  "hardness": 0,
+  "healthScaling": 0,
+  "cost": 0.5,
+  "shownPlanets": [ "sitrullus" ],
+  "research": "melon-dirt",
+  "flammability": 1.25,
+  "databaseTag": "processed-item"
+}

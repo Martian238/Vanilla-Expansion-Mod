@@ -1,0 +1,15 @@
+{
+  //"type": "Wall",
+  "requirements": [ "ferrum/6","silicide/6" ],
+  "category": "defense",
+  "health": 1000,
+  "researchCostMultiplier": 0.5,
+  "crushDamageMultiplier": 0,
+  "armor": 24,
+  "insulated": true,
+  "hasPower": true,
+  "research": {
+    "parent": "ferrum-wall"
+  },
+  "shownPlanets": [ "sitrullus","maress","thavina" ]
+}

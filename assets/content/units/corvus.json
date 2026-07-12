@@ -1,0 +1,49 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","phoon","thavina" ],
+  "deathSound": "si2Explode",
+  "immunities": {"add":[ "dusty" ]},
+  "targetUnderBlocks": false,
+  "databaseTag": "02serpulo-ground-unit",
+
+  "speed": 0.4,
+  "legCount": 6,
+  "legMaxLength": 2,
+  "legContinuousMove": true,
+  "legSplashDamage": 80,
+  "legSplashRange": 12,
+  "rippleScale": 1.25,
+  "legForwardScl": 0.8,
+  /*"stepSound": "carrionMechStep",
+  "stepSoundPitch": 1,
+  "stepSoundPitchRange": 0,
+  "stepSoundVolume": 0.5,*/
+  "range": 456,
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-glow",
+      "outline": false,
+      "under": false,
+      "blending": "additive",
+      "progress": {
+        "type": "charge",
+        "ops": [
+          {
+            "op": "mul",
+            "amount": 4
+          },
+          {
+            "op": "add",
+            "other": {
+              "type": "heat",
+              "op": "mul",
+              "other": "heat"
+            }
+          }
+        ]
+      },
+      "color": "98ffa900",
+      "colorTo": "98ffa9aa"
+    }
+  ]
+}

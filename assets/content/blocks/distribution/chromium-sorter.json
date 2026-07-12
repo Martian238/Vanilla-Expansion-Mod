@@ -1,0 +1,12 @@
+{
+  //"type": "Sorter",
+  "requirements": [ "chromium/4","lead/4" ],
+  "category": "distribution",
+  "health": 120,
+  "buildCostMultiplier": 3,
+  "research": {
+    "parent": "chromium-conveyor"
+  },
+  "crushDamageMultiplier": 0.2,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

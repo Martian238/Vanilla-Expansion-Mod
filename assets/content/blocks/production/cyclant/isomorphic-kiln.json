@@ -1,0 +1,41 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "aluminium/55","graphite/30" ],
+  "category": "crafting",
+  "craftEffect": "smeltsmoke",
+  "size": 2,
+  "outputItem": "metaglass/4",
+  "craftTime": 80,
+  "hasPower": true,
+  "hasItems": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ccbcee"
+        //"lightColor": "ccbcee"
+      }
+    ]
+  }
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.08,
+  "consumes": {
+    "items": {
+      "items": [ "sand/4","lead/3" ]
+    },
+    "power": 0.8
+  },
+  "research": {
+    "parent": "isomorphic-press",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "carbon-relics"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.3,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

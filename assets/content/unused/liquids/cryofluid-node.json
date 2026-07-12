@@ -1,0 +1,16 @@
+{
+  "color": "6ecdec",
+  "temperature": 0.25,
+  "effect": "freezing",
+  "heatCapacity": 0.9,
+  "boilPoint": 0.55,
+  "lightColor": "0097f520",
+  "gasColor": "c1e8f5",
+  "research": {
+    "parent": "titanium-node",
+    "objectives": [ "cryofluid" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

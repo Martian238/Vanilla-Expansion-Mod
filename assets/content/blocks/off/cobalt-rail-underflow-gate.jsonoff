@@ -1,0 +1,9 @@
+{
+  "type": "OverflowDuct",
+  "requirements": [ "cobalt/4","lead/4","graphite/2" ],
+  "speed": 2,
+  "solid": false,
+  "invert": true,
+  "research": "cobalt-rail-overflow-gate",
+  "buildCostMultiplier": 4
+}

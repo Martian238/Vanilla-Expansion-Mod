@@ -1,0 +1,152 @@
+{
+  //"type": "PowerTurret",
+  "underBullets": true,
+  "priority": -2,
+  "hasShadow": false,
+  "size": 1,
+  "solid": false,
+  "targetable": false,
+  "hasPower": true,
+  "hasLiquids": false,
+  "rotate": false,
+  "consumes": {
+    "power": 0.1
+  },
+  "conductivePower": true,
+  "category": "effect",
+  "research": {
+    "parent": "trap-magnetic"
+  },
+  "requirements": [
+    "silver/5","silicon/10","silicide/10","pyratite/10"
+  ],
+  "shownPlanets": [ "maress","thavina" ],
+  "drawer": {
+    "type": "DrawTurret",
+    "parts": [
+      {
+        "type": "RegionPart", "under": false,
+        "suffix": "-ring",
+        "progress": {
+          "type": "recoil",
+          "op": "mul",
+          "other": "warmup"
+        },
+        "color": "ffffff00",
+        "colorTo": "ffffff",
+        "rotation": 0,
+        "outline": false
+      },
+      {
+        "type": "RegionPart", "under": false,
+        "suffix": "-mark",
+        "progress": {
+          "type": "reload",
+          "ops": [
+            {
+              "op": "mul",
+              "amount": 0
+            },
+            {
+              "op": "sin",
+              "scl": 6,
+              "mag": 0.1
+            },
+            {
+              "op": "add",
+              "amount": 0.9
+            },
+            {
+              "op": "mul",
+              "other": "warmup"
+            }
+          ]
+        },
+        "color": "ffffff00",
+        "colorTo": "ffffff",
+        "rotation": 0,
+        "outline": false
+      },
+      {
+        "type": "RegionPart", "under": false,
+        "suffix": "-ring-glow",
+        "progress": {
+          "type": "recoil",
+          "op": "mul",
+          "other": "warmup"
+        },
+        "blending": "additive",
+        "color": "db661c00",
+        "colorTo": "ffb855",
+        "rotation": 0,
+        "outline": false
+      },
+      {
+        "type": "RegionPart", "under": false,
+        "suffix": "-mark-glow",
+        "progress": {
+          "type": "reload",
+          "ops": [
+            {
+              "op": "mul",
+              "amount": 0
+            },
+            {
+              "op": "sin",
+              "scl": 6,
+              "mag": 0.1
+            },
+            {
+              "op": "add",
+              "amount": 0.9
+            },
+            {
+              "op": "mul",
+              "other": "warmup"
+            }
+          ]
+        },
+        "blending": "additive",
+        "color": "db661c00",
+        "colorTo": "ffb855",
+        "rotation": 0,
+        "outline": false
+      }
+    ]
+  },
+  "shootWarmupSpeed": 0.1,
+  "minWarmup": 0.5,
+  "reload": 30,
+  "recoilTime": 30,
+  "recoilPow": 2,
+  "recoil": 0,
+  "ammoUseEffect": "none",
+  "shootSound": "shootFlame",
+  "rotateSpeed": 0,
+  "shootCone": 361,
+  "range": 6,
+  "trackingRange": 24,
+  "targetAir": false,
+  "targetBlocks": false,
+  "shootY": 0,
+  "health": 200,
+  "armor": 8,
+  "shootType": {
+    "instantDisappear": true,
+    "splashDamage": 45,
+    "splashDamageRadius": 8,
+    "status": "burning",
+    "statusDuration": 300,
+    "despawnHit": true,
+    "despawnEffect": "none",
+    "hitEffect": [ "fireHit","fireHit","fireHit"
+      {
+        "type": "RadialEffect",
+        "effect": "hitFlameSmall"
+      } ],
+    "collidesAir": false,
+    "shootEffect": "none",
+    "armorMultiplier": 0.7,
+    "smokeEffect": "none"
+  }
+}

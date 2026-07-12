@@ -1,0 +1,12 @@
+{
+  "type": "Prop",
+  "variants": 4,
+  "requirements": [ "plant-matter/8" ],
+  "buildCostMultiplier": 6,
+  "breakSound": "plantBreak",
+  "instantDeconstruct": false,
+  "hasShadow": false,
+  "buildVisibility": "sandboxOnly",
+  "category": "defense",
+  "alwaysUnlocked": true
+}

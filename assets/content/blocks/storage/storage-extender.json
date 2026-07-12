@@ -1,0 +1,28 @@
+{
+  //"type": "StorageBlock",
+  "requirements": [ "ferrum/300","silicon/300" ],
+  "category": "effect",
+  "research": {
+    "parent": "valve-unload",
+    "objectives": [ 
+      "core-general"
+    ]
+  },
+  "size": 4,
+  "health": 4000,
+  "itemCapacity": 500,
+  "researchCostMultiplier": 0.1,
+  "buildCostMultiplier": 0.5,
+  "armor": 8,
+  "drawTeamOverlay": false,
+  "shownPlanets": [ "sitrullus","maress","thavina" ],
+  "connectedPower": true,
+  "conductivePower": true,
+  "hasPower": true,
+  "consumes": {
+    "powerBuffered": 10000
+  },
+  "outputsPower": true,
+  "consumesPower": true,
+  "enableDrawStatus": false
+}

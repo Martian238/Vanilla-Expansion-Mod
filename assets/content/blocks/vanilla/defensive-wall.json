@@ -1,0 +1,11 @@
+{
+  //"type": "Wall",
+  "requirements": [ "copper/4","titanium/4","thorium/4","silicide/4" ],
+  "category": "defense",
+  //"research": "thorium-wall",
+  "health": 1560,
+  "armor": 16,
+  "buildCostMultiplier": 10,
+  "crushDamageMultiplier": 0.05,
+  "buildVisibility": "sandboxOnly"
+}

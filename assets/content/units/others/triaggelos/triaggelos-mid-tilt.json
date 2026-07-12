@@ -1,0 +1,87 @@
+{
+  "type": "flying",
+  "drawSoftShadow": false,
+  "targetable": false,
+  "lowAltitude": true,
+  "health": 7000,
+  "armor": 20,
+  "flying": true,
+  "drawCell": false,
+  "hittable": false,
+  "wobble": false,
+  "outlineColor": "201b20",
+  "hitSize": 8,
+  "rotateSpeed": 0,
+  "speed": 3,
+  "flyingLayer": 93,
+  "createWreck": false,
+  "engineSize": 0,
+  "lightRadius": 0,
+  "physics": false,
+  "drawBody": false,
+  "faceTarget": false,
+  "hidden": true,
+  "parts": [
+    {
+      "type": "RegionPart",
+      "name": "ve-triaggelos-mid-under",
+      "mirror": false,
+      "under": true
+    }, 
+    {
+      "type": "RegionPart",
+      "suffix": "-o",
+      "mirror": false,
+      "growProgress": "warmup",
+      "progress": "warmup",
+      "under": true,
+      "growY": 1,
+      "outline": false,
+      "color": "ffffff",
+      "colorTo": "ffffff00"
+    },
+    {
+      "type": "RegionPart",
+      "name": "ve-triaggelos-mid-o",
+      "mirror": false,
+      "growProgress": "warmup",
+      "progress": {
+        "type": "warmup",
+        "op": "inv"
+      },
+      "under": true,
+      "growY": 0.5,
+      "yScl": 0.5,
+      "outline": false,
+      "color": "ffffff",
+      "colorTo": "ffffff00"
+    },
+    {
+      "type": "RegionPart",
+      "name": "ve-triaggelos-mid-top",
+      "mirror": false,
+      "under": true
+    },
+    {
+      "type": "ShapePart",
+      "circle": true,
+      "x": 0,
+      "y": 0,
+      "radius": 1,
+      "color": "f25555",
+      "layer": 99.99
+    }
+  ],
+  "weapons": [
+    {
+      "mirror": false,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "shootCone": 361,
+      "minWarmup": 2,
+      "shootWarmupSpeed": 0.2,
+      "bullet": { "rangeOverride": 80 }
+    }
+  ]
+}

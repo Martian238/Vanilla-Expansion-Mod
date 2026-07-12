@@ -1,0 +1,28 @@
+{
+  //"type": "Wall",
+  "requirements": [ "silicide/32","graphite/16" ],
+  "category": "defense",
+  "research": "silicide-wall",
+  "health": 3800,
+  "armor": 8,
+  "conductivePower": true,
+  "hasPower": true,
+  "size": 2,
+  "destroyBulletSameTeam": true,
+  //"insulated": true,
+  "destroyBullet": {
+    "collidesTiles": false,
+    "collides": false,
+    "speed": 0,
+    "splashDamageRadius": 64,
+    "instantDisappear": true,
+    "splashDamage": 116,
+    "hittable": false,
+    "status": "blasted",
+    "statusDuration": 60,
+    "collidesAir": true
+  },
+  "researchCostMultiplier": 0.2,
+  "crushDamageMultiplier": 0.25,
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","thavina" ]
+}

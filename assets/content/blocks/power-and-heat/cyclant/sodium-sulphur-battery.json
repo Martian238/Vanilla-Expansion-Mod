@@ -1,0 +1,36 @@
+{
+  //"type": "Battery",
+  "requirements": [ "sodium/80","pyratite/80","silicide/100","silicon/90","graphite/60" ],
+  "consumes": {
+    "power": {
+      "capacity": 200000,
+      "buffered": true
+    }
+  },
+  "baseExplosiveness": 20,
+  "destroyBullet": {
+    "instantDisappear": true,
+    "splashDamage": 200,
+    "splashDamageRadius": 48,
+    "makeFire": true,
+    "hitShake": 12,
+    "despawnShake": 12,
+    "hitEffect": "shockwave",
+    "despawnEffect": "shockwave"
+  },
+  "category": "power",
+  "health": 2000,
+  "size": 3,
+  "armor": 24,
+  "research": {
+    "parent": "silicide-battery",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.5,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

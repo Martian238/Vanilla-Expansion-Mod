@@ -1,0 +1,13 @@
+{
+  "shownPlanets": {
+    "add": [
+      "cyclant","phoon","thavina",
+      //  "maress"
+    ]
+  },
+  "upgrades": {
+    "add": [
+    [ "alev","corvus" ]
+    ]
+  }
+}

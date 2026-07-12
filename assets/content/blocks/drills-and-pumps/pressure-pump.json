@@ -1,0 +1,27 @@
+{
+  //"type": "Pump",
+  "requirements": [ "chromium/40","lead/30" ],
+  "category": "liquid",
+  "pumpAmount": 0.4,
+  "warmupSpeed": 0.02,
+  "research": {
+    "parent": "isomorphic-pump",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.3,
+  "hasPower": true,
+  "consumes": {
+    "power": 0.5
+  },
+  "armor": 5,
+  "size": 2,
+  "crushDamageMultiplier": 0.2,
+  "liquidCapacity": 150,
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

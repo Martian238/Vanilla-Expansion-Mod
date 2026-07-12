@@ -1,0 +1,10 @@
+{
+  "color": "6aa95e",
+  "flammability": 1.05,
+  "explosiveness": 0,
+  "research": "salt",
+  "cost": 0.1,
+  "hardness": 8,
+  "shownPlanets": [ "cyclant","phoon" ],
+  "databaseTag": "natural-item"
+}

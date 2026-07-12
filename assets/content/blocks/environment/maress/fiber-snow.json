@@ -1,0 +1,13 @@
+{
+  "type": "Floor",
+  "variants": 7,
+  "attributes": {
+    "water": 0.1,
+    "heat": -0.4
+  },
+  "wall": "snow-wall",
+  //"decoration": "snow-boulder",
+  "status": "frozen",
+  "statusDuration": 600,
+  "albedo": 0.4
+}

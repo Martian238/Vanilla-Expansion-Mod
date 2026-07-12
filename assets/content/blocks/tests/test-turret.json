@@ -1,0 +1,172 @@
+{
+  "type": "ItemTurret",
+  "category": "turret",
+  "size": 1,
+  "ammoTypes": {
+    "spore-pod": {
+      "width": 80,
+      "height": 1,
+      "lifetime": 40,
+      "ammoMultiplier": 2,
+      "reloadMultiplier": 0.5,
+      "speed": 3.5,
+      "collidesTeam": true,
+      "healAmount": 5,
+      "damage": 999,
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootSmallSmoke"
+    },
+    "sand": {
+      "width": 3,
+      "height": 3,
+      "lifetime": 20,
+      "ammoMultiplier": 2,
+      "speed": 7,
+      "knockback": 999,
+      "damage": 1,
+      "shootEffect": "shootSmall",
+      "smokeEffect": "shootSmallSmoke",
+      "hitEffect": "blastExplosion"
+    },
+    "surge-alloy": {
+      "type": "LaserBulletType",
+      "length": 140,
+      "ammoMultiplier": 2,
+      "damage": 40,
+      "sideAngle": 60,
+      "sideWidth": 1,
+      "sideLength": 16,
+      "reloadMultiplier": 0.2,
+      "colors": [ "90dbffaa","90dbff","ffffff" ]
+    },
+    "scrap": {
+      "spawnUnit": "test-missile",
+      "instantDisappear": true,
+      "ammoMultiplier": 1,
+      "reloadMultiplier": 0.5
+    },
+    "silicon": {
+      "type": "SapBulletType",
+      "damage": 2,
+      "status": "freezing",
+      "statusDuration": 3600
+    },
+    "cobalt": {
+      "damage": 1,
+      "healAmount": 10,
+      "reloadMultiplier": 0.75,
+      "collidesTeam": true,
+      "speed": 5,
+      "lifetime": 30,
+      "sprite": "missile-large",
+      "backColor": "98ffa9"
+    },
+    /*"capacitor": {
+      "type": "PointBulletType",
+      "speed": 3.6,
+      "fragOnHit": true,
+      "shootEffect": "instBomb",
+      "smokeEffect": "smokeCloud",
+      "trailSpacing": 100,
+      "trailEffect": "none",
+      "collidesAir": false,
+      "collidesGround": false,
+      "collidesTiles": false,
+      "ammoMultiplier": 1,
+      "rangeChange": 220,
+      "damage": 0,
+      "hitEffect": "none",
+      "despawnEffect": "none",
+      "fragBullets": 1,
+      "fragBullet": {
+        "spawnUnit": "sector-lightning"
+      },
+      "reloadMultiplier": 0.1
+    }*/
+    "salt": {
+      "type": "LiquidBulletType",
+      "liquid": "slag",
+      "layer": 100,
+      "makeFire": true,
+      "damage": 0.4,
+      "speed": 3,
+      "lifetime": 1800,
+      "circleShooter": true,
+      "circleShooterRadius": 20,
+      "reloadMultiplier": 6,
+      "rangeChange": -60,
+      "ammoMultiplier": 10,
+      "accel": 0.01
+    },
+    "warp-nucleus": {
+      "ammoMultiplier": 10,
+      "sprite": "circle-bullet",
+      "randomAngleOffset": 180,
+      "speed": 3,
+      "accel": -0.075,
+      "lifetime": 50,
+      "homingPower": 10,
+      "homingDelay": 40,
+      "fragOnHit": false,
+      "fragOnAbsorb": false,
+      "fragBullets": 1,
+      "fragVelocityMin": 1,
+      "fragRandomSpread": 0,
+      "width": 8,
+      "height": 16,
+      "shrinkY": 0.5,
+      "damage": 50,
+      "rangeChange": 100,
+      "homingRange": 480,
+      "despawnEffect": "none",
+      "hitEffect": "none",
+      "fragBullet": {
+        "sprite": "circle-bullet",
+        "width": 8,
+        "height": 32,
+        "speed": 12,
+        "shrinkY": 0,
+        "lifetime": 40,
+        "damage": 100,
+        "trailLength": 5
+      }
+    },
+    "watermelon-alcohol": {
+      "followAimSpeed": 10,
+      "speed": 3,
+      "lifetime": 180,
+      "width": 12,
+      "height": 12
+    },  
+    /*"fusion-fuel": {
+      "reloadMultiplier": 0.1,
+      "despawnEffect": {
+        "type": "NoiseEffect",
+        "lifetime": 180,
+        "tex": "eclipse",
+        "color": "98ffa9"
+      },
+      "speed": 0.5,
+      "lifetime": 120
+    }*/
+  },
+  "recoil": 1,
+  "shootSound": "pewClassicEdited",
+  "shootX": 0,
+  "shootY": 4,
+  "reload": 6,
+  "range": 140,
+  "health": 220,
+  "ammoUseEffect": "casing1",
+  "inaccuracy": 0,
+  "rotateSpeed": 15,
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly",
+  "researchCost": [ "aluminium/200" ],
+  "consumes": {
+    "coolant": {
+      "type": "ConsumeCoolant",
+      "amount": 0.1
+    }
+  }
+}

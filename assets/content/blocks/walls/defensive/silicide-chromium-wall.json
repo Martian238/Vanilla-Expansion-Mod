@@ -1,0 +1,10 @@
+{
+  //"type": "Wall",
+  "requirements": [ "chromium/6","silicide/6" ],
+  "category": "defense",
+  "research": "chromium-wall",
+  "health": 1240,
+  "armor": 16,
+  "crushDamageMultiplier": 0,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ]
+}

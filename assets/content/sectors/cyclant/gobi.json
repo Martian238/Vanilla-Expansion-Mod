@@ -1,0 +1,23 @@
+{
+  "planet": "cyclant",
+  "sector": 222,
+  "difficulty": 4,
+  "research": {
+    "parent": "fort-port",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

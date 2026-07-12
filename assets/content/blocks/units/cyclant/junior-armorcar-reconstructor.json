@@ -1,0 +1,26 @@
+{
+  //"type": "Reconstructor",
+  "category": "units",
+  "size": 3,
+  "requirements": [ "aluminium/230","lead/140","silicon/80" ],
+  "consumes": {
+    "power": 3,
+    "items": [ "silicon/60","graphite/20","silicide/20" ]
+  },
+  "constructTime": 600,
+  "upgrades": [
+    [ "conscript","arrange" ]
+  ],
+  "research": {
+    "parent": "isomorphic-additive-reconstructor",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "intervalley"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+  //"regionSuffix": "-rail"
+}

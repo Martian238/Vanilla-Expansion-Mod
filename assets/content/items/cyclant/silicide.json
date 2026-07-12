@@ -1,0 +1,9 @@
+{
+  "color": "646567",
+  "healthScaling": 1.6,
+  "cost": 1.6,
+  "research": "quartz",
+  "flammability": -1,
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus","thavina" ],
+  "databaseTag": "processed-item"
+}

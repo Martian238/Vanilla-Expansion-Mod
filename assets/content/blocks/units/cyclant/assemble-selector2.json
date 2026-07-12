@@ -1,0 +1,12 @@
+{
+  //"type": "UnitAssemblerModule",
+  "requirements": [ "silicon/200" ],
+  "category": "units",
+  "research": "assemble-selector1",
+  "size": 2,
+  "tier": 2,
+  "acceptsPayload": false,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ]
+}
+
+

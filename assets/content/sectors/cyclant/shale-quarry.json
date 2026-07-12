@@ -1,0 +1,29 @@
+{
+  "planet": "cyclant",
+  "sector": 261,
+  "difficulty": 7,
+  "research": {
+    "parent": "gobi",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "fungus-factory"
+      },
+      {
+        "type": "SectorComplete",
+        "preset": "gobi"
+      },
+      "floor-crusher",
+      "advanced-landing-pad"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 50,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

@@ -1,0 +1,12 @@
+{
+  //"type": "Wall",
+  "requirements": [ "copper/54" ],
+  "size": 3,
+  "health": 2880,
+  "category": "defense",
+  "research": { 
+    "parent": "copper-wall-large",
+    "objectives": [ "copper-wall-large" ]
+  },
+  "shownPlanets": [ "serpulo","thavina" ]
+}

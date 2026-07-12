@@ -1,0 +1,178 @@
+{
+  //"type": "ItemTurret",
+  "requirements": [ "ferrum/500","silicon/150","graphite/80","silicide/100" ],
+  "category": "turret",
+  "size": 4,
+  "outlineColor": "2d2f39",
+  "ammoTypes": {
+    "ferrum": {
+      "ammoMultiplier": 1,
+      "reloadMultiplier": 1,
+      "rangeChange": 0,
+      "spawnUnit": "pantype-missile",
+      "shootEffect": "launchPod",
+      "smokeEffect": "drillSteam",
+      "speed": 99999
+    },
+    "thorium": {
+      "ammoMultiplier": 1,
+      "reloadMultiplier": 0.8,
+      "rangeChange": 0,
+      "spawnUnit": "pantype-missile-thorium",
+      "shootEffect": "launchPod",
+      "smokeEffect": "drillSteam",
+      "speed": 99999
+    },
+    "nitroalkoss": {
+      "ammoMultiplier": 4,
+      "reloadMultiplier": 1.4,
+      "rangeChange": 0,
+      "spawnUnit": "pantype-missile-nitroalkoss",
+      "shootEffect": "launchPod",
+      "smokeEffect": "drillSteam",
+      "speed": 99999
+    },
+    "silicide": {
+      "ammoMultiplier": 1,
+      "reloadMultiplier": 1,
+      "rangeChange": 0,
+      "spawnUnit": "pantype-missile-silicide",
+      "shootEffect": "launchPod",
+      "smokeEffect": "drillSteam",
+      "speed": 99999
+    },
+    "silicon": {
+      "ammoMultiplier": 1,
+      "reloadMultiplier": 1.2,
+      "rangeChange": 400,
+      "spawnUnit": "pantype-missile-silicon",
+      "shootEffect": "launchPod",
+      "smokeEffect": "drillSteam",
+      "speed": 99999
+    },
+    "phase-fabric": {
+      "ammoMultiplier": 2,
+      "reloadMultiplier": 1,
+      "rangeChange": 0,
+      "spawnUnit": "pantype-missile-phase",
+      "shootEffect": "launchPod",
+      "smokeEffect": "drillSteam",
+      "speed": 99999
+    },
+    "surge-alloy": {
+      "ammoMultiplier": 2,
+      "reloadMultiplier": 1,
+      "rangeChange": 0,
+      "spawnUnit": "pantype-missile-surge",
+      "shootEffect": "launchPod",
+      "smokeEffect": "drillSteam",
+      "speed": 99999
+    },
+    "warp-nucleus": {
+      "ammoMultiplier": 4,
+      "reloadMultiplier": 1,
+      "rangeChange": 0,
+      "spawnUnit": "pantype-missile-warp",
+      "shootEffect": "launchPod",
+      "smokeEffect": "drillSteam",
+      "speed": 99999
+    }
+  },
+  "recoil": 0,
+  "ammoPerShot": 60,
+  "targetUnderBlocks": false,
+  "maxAmmo": 200,
+  "shootSound": "lbp3Searchlight",
+  "shootX": 0,
+  "shootY": 0,
+  "reload": 360,
+  "range": 1200,
+  "health": 8000,
+  "armor": 6,
+  "shake": 4,
+  "ammoUseEffect": {
+    "type": "SoundEffect",
+    "sound": "shootScathe",
+    "effect": "none"
+  },
+  "inaccuracy": 0,
+  "rotateSpeed": 3,
+  "recoilTime": 120,
+  "drawer": {
+    "type": "DrawTurret",
+    "basePrefix": "ferrum-",
+    "parts": [
+      {
+        "type": "RegionPart",
+        "suffix": "-missile",
+        "progress": "reload",
+        "mirror": false,
+        "under": true,
+        "colorTo": "ffffff00",
+        "color": "ffffff"
+      }
+      {
+        "type": "RegionPart",
+        "suffix": "-bar",
+        "progress": "warmup",
+        "moveX": 2,
+        "moveY": 0,
+        "mirror": true,
+        "under": false,
+        "moves": [
+          {
+            "progress": "reload",
+            "x": -1
+          }
+        ],
+        "children": [
+          {
+            "type": "RegionPart",
+            "suffix": "-blade",
+            "mirror": true,
+            "moveRot": -30,
+            "moveY": 1,
+            "moveX": 3,
+            "progress": "warmup",
+            "under": true,
+            "moves": [
+              {
+                "progress": "recoil",
+                "rot": -5,
+                "y": -1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "research": {
+    "parent": "ash",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "shootWarmupSpeed": 0.03,
+  "minWarmup": 0.95,
+  "coolantMultiplier": 3,
+  "warmupMaintainTime": 120,
+  "unitSort": "strongest",
+  "predictTarget": false,
+  "consumes": {
+    "coolant": {
+      "type": "ConsumeCoolant",
+      "amount": 0.5
+    }
+  },
+  //"itemCapacity": 30,
+  //"hasItems": true,
+  //"acceptsItems": true,
+  //"separateItemCapacity": true,
+  "crushDamageMultiplier": 0.2,
+  "shownPlanets": [ "maress","sitrullus","thavina" ]
+}

@@ -1,0 +1,168 @@
+{
+  "type": "tether",
+  "databaseTag": "01core-unit",
+  "researchCostMultiplier": 0,
+  "hidden": true,
+  "playerControllable": true,
+  "logicControllable": true,
+  "defaultCommand": "assist",
+  "useUnitCap": true,
+  "isEnemy": false,
+  "lowAltitude": true,
+  "fogRadius": 0,
+  "flying": true,
+  "drag": 0.05,
+  "speed": 3.5,
+  "rotateSpeed": 10,
+  "accel": 0.1,
+  "health": 250,
+  "armor": 1,
+  "engineOffset": 6.5,
+  "engineSize": 3.25,
+  "hitSize": 11,
+  "itemCapacity": 50,
+  "faceTarget": false,
+  "mineTier": 2,
+  "mineBeamOffset": 4.5,
+  "lightColor": "ffd37f",
+  "mineSpeed": 8,
+  "mineWalls": true,
+  "buildSpeed": 0.85,
+  "drawBuildBeam": true,
+  "buildBeamOffset": 5,
+  "buildRange": 240,
+  "payloadCapacity": 0,
+  "pickupUnits": false,
+  "targetFlags": [
+    "drill","factory"
+  ],
+  "mineItems": {
+    "add": [ "aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
+  "immunities": [ "frozen" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "weapons": [
+    {
+      "name": "lambda-weapon",
+      "x": 2,
+      "y": 0,
+      "alternate": false,
+      "reload": 25,
+      "recoil": 2.25,
+      "recoilPow": 2,
+      "recoilTime": 22,
+      "heatColor": "ffffff",
+      "ejectEffect": "none",
+      "shootSound": "shootLaser",
+      "rotate": true,
+      "rotateSpeed": 10,
+      "shootY": 5.5,
+      "shootX": 1.5,
+      "top": false,
+      "parentizeEffects": true,
+      "shoot": {
+        "firstShotDelay": 22
+      },
+      "parts": [
+        {
+          "type": "ShapePart",
+          "progress": {
+            "type": "charge",
+            "op": "curve",
+            "interp": "circleOut"
+          },
+          "radius": 0,
+          "radiusTo": 2,
+          "x": 1.5,
+          "y": 5.5,
+          "color": "ffd37f",
+          "layer": 110,
+          "circle": true
+        }
+      ],
+      "bullet": {
+        "sprite": "circle-bullet",
+        "trailColor": "ffd37f",
+        "trailWidth": 3,
+        "trailLength": 3,
+        "trailEffect": "missileTrail",
+        "shrinkY": 0,
+        "speed": 5,
+        "lifetime": 35,
+        "lightColor": "ffd37f",
+        "damage": 19,
+        "height": 6,
+        "width": 6,
+        "hitEffect": "hitLaserBlast",
+        "despawnEffect": "hitLaserBlast",
+        "hitColor": "ffd37f",
+        /*"chargeEffect": {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "length": 0,
+          "baseLength": 0,
+          "lifetime": 22,
+          "sizeFrom": 0,
+          "sizeTo": 2,
+          "colorFrom": "ffd37f",
+          "colorTo": "ffd37f",
+          "interp": "pow3Out",
+          "followParent": true,
+          "rotWithParent": true
+        },*/
+        "chargeEffect": {
+          "type": "SoundEffect",
+          "minPitch": 1,
+          "maxPitch": 1,
+          "maxVolume": 0.25,
+          "minVolume": 0.25,
+          "sound": "msChargeLittle",
+          "effect": "none"
+        },
+        "shootEffect": {
+          "type": "WaveEffect",
+          "strokeFrom": 3,
+          "strokeTo": 0,
+          "colorTo": "ffd37f",
+          "colorFrom": "ffd37f",
+          "sizeFrom": 1,
+          "sizeTo": 5,
+          "sides": 12,
+          "lifetime": 10,
+          "followParent": true,
+          "rotWithParent": true
+        },
+        "smokeEffect": {
+          "type": "WaveEffect",
+          "strokeFrom": 1,
+          "strokeTo": 1,
+          "colorTo": "ffd37f",
+          "colorFrom": "ffd37f",
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "sides": 12,
+          "lifetime": 10,
+          "followParent": true,
+          "rotWithParent": true
+        },
+        "buildingDamageMultiplier": 0.01,
+        "backColor": "ffd37f",
+        "frontColor": "ffd37f",
+        "healPercent": 5
+      }
+    },
+    {
+      "name": "lambda-shell",
+      "display": false,
+      "mirror": false,
+      "recoil": 0,
+      "x": 0,
+      "y": 0,
+      "rotate": false,
+      "top": false,
+      "minWarmup": 2,
+      "shootSound": "none",
+      "reload": 60
+    }
+  ]
+}

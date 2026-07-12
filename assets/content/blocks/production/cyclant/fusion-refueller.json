@@ -1,0 +1,66 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [
+    "lead/100","silicon/80","thorium/50"
+  ],
+  "category": "crafting"
+  "research": {
+    "parent": "catalyzon-crafter",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "thorium-hacienda"
+      }
+    ]
+  },
+  "size": 2,
+  "craftTime": 120,
+  "group": "liquids",
+  "liquidCapacity": 60,
+  "itemCapacity": 20,
+  "hasItems": true,
+  "hasLiquids": true,
+  "hasPower": true,
+  "consumes": {
+    "items": {
+      "items": [ "catalyzon/1" ]
+    },
+    "liquids": {
+      "liquids": [ "hydrogen/0.3" ]
+    },
+    "power": 1.8
+  },
+  "ambientSound": "loopHum",
+  "ambientSoundVolume": 0.08,
+  "craftEffect": "generatespark",
+  "outputItem": "fusion-fuel/1",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen"
+      },
+      {
+        "type": "DrawArcSmelt",
+        "flameRadiusScl": 2,
+        "flameRad": 0.8,
+        "flameColor": "9eabf7",
+        "midColor": "bf92f9"
+      },
+      { "type": "DrawRegion", "suffix": "" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "alpha": 0.9,
+        "color": "9eabf7",
+        "glowScale": 6
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

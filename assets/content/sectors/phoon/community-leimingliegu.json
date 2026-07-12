@@ -1,0 +1,23 @@
+{
+  "planet": "phoon",
+  "sector": 13,
+  "difficulty": 8,
+  "research": {
+    "parent": "community-huoshankou",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "ruins"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

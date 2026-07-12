@@ -1,0 +1,12 @@
+{
+  "color": "b791eb",
+  "charge": 3,
+  "radioactivity": 0.2,
+  "explosiveness": 0.3,
+  "cost": 1.6,
+  "research": "cobalt",
+  "frames": 23,
+  "frameTime": 7,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ],
+  "databaseTag": "processed-item"
+}

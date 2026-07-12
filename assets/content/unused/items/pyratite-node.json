@@ -1,0 +1,13 @@
+{
+  "color": "ffaa5f",
+  "explosiveness": 0.4,
+  "flammability": 1.4,
+  "buildable": false,
+  "research": {
+    "parent": "coal-node",
+    "objectives": [ "pyratite" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

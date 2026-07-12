@@ -1,0 +1,50 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "chromium/50","graphite/50","silicon/30" ],
+  "category": "crafting",
+  "research": {
+    "parent": "fusion-refueller"
+  },
+  "size": 2,
+  "outputLiquid": "hydrogen/0.6",
+  "craftEffect": "pulverize",
+  "itemCapacity": 10,
+  "hasLiquids": true,
+  "liquidCapacity": 60,
+  "craftTime": 60,
+  "updateEffect": "none",
+  "hasItems": true,
+  "hasPower": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawRegion", 
+        "suffix": "-bottom" },
+      {
+        "type": "DrawRegion",
+        "spinSprite": true,
+        "rotateSpeed": 3,
+        "suffix": "-rotator"
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": ""
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen"
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-top"
+      }
+    ]
+  },
+  "ambientSound": "loopGrind",
+  "ambientSoundVolume": 0.01,
+  "consumes": {
+    "items": [ "fusion-fuel/1" ],
+    "power": 0.2
+  },
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

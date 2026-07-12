@@ -1,0 +1,8 @@
+{
+  "color": "809fff",
+  "hardness": 3,
+  "cost": 0.9,
+  "research": "chromium",
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "databaseTag": "basic-item"
+}

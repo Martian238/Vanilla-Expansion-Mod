@@ -1,0 +1,81 @@
+{
+  "type": "missile",
+  "template": "MissileUnitType",
+  "lifetime": 1,
+  "engineSize": 0,
+  "health": 1,
+  "missileAccelTime": 0,
+  "physics": false,
+  "bounded": false,
+  "drawCell": false,
+  "drawBody": false,
+  "lightRadius": 0,
+  "deathExplosionEffect": "none",
+  "deathShake": 10,
+  "hittable": false,
+  "targetable": false,
+  "deathSound": "none",
+  "hidden": true,
+  "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
+  "weapons": [
+    {
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "alwaysShooting": false,
+      "controllable": false,
+      "shootOnDeath": true,
+      "shootSound": "none",
+      "mirror": false,
+      "shootCone": 361,
+      "bullet": {
+        "shootEffect": {
+    "type": "MultiEffect",
+    "effects": [
+      {
+        "type": "SoundEffect",
+        "maxPitch": 0.9,
+        "minPitch": 1.1,
+        "maxVolume": 1,
+        "minVolume": 1,
+        "sound": [ "lbp3SwampThingShort1","lbp3SwampThingShort2","lbp3SwampThingShort3","lbp3SwampThingShort4","lbp3SwampThingShort5" ],
+        "effect": "none"
+      },
+      {
+        "type": "ParticleEffect",
+        "colorFrom": "7457ce",
+        "colorTo": "7457ce00",
+        "particles": 20,
+        "length": 200,
+        "lifetime": 40,
+        "sizeInterp": "slope",
+        "line": true,
+        "strokeFrom": 3,
+        "strokeTo": 3,
+        "lenFrom": 8,
+        "lenTo": 16
+      },
+      {
+        "type": "ParticleEffect",
+        "colorFrom": "7457ce",
+        "colorTo": "7457ce",
+        "particles": 1,
+        "length": 0,
+        "baseLength": 0
+        "lifetime": 15,
+        "sizeFrom": 7,
+        "sizeTo": 0,
+        "startDelay": 0,
+        "layer": 109
+      }
+    ]
+        },
+          "instantDisappear": true,
+          "killShooter": true,
+          "hitEffect": "none",
+          "despawnEffect": "none",
+          "smokeEffect": "none"
+      }
+    }
+  ]
+}

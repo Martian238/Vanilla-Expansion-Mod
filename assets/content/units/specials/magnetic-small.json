@@ -1,0 +1,174 @@
+{
+  //"type": "flying",
+  "flying": true,
+  "databaseTag": "10special-unit",
+  "lowAltitude": true,
+  "accel": 0.07,
+  "speed": 2.2,
+  "drag": 0.03,
+  "health": 1500,//12000
+  "armor": 9,
+  "rotateSpeed": 4,
+  "researchCostMultiplier": 0.01,
+  "hitSize": 22,
+  "engineSize": 4.5,
+  "engineOffset": 12,
+  "targetFlags": [ "drill","factory" ],
+  "itemCapacity": 50,
+  "itemOffsetY": -4.5,
+  "strafePenalty": 0.5,
+  "immunities": [ "electrified","charging","frozen" ],
+  "lightColor": "ffa665",
+  "research": {
+    "parent": "wide-fortress",
+    "objectives": [ "magnetic" ],
+    "requirements": [ "silicon/2500","fibralt/1000","thorium/1500" ]
+  },
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "weapons": [
+    {
+      "name": "magnetic-small-weapon",
+      "x": 9,
+      "y": -1.5,
+      "shootY": 1.75,
+      "reload": 8,
+      "recoilTime": 20,
+      "ejectEffect": "none",
+      "shootSound": "none",
+      "soundPitchMin": 1.0,
+      "soundPitchMax": 1.0,
+      "recoil": 1,
+      "cooldownTime": 30,
+      "alternate": true,
+      "rotateSpeed": 6,
+      "rotate": true,
+      "shootCone": 90,
+      "inaccuracy": 35,
+      "shadow": 8,
+      "layerOffset": 0.01,
+      "shoot": { 
+        "type": "ShootBarrel",
+        "barrels": [ 1.5,0,0,-1.5,0,0 ]
+        "shots": 2,
+        "shotDelay": 0
+      },
+      "shake": 1,
+      "velocityRnd": 0.05,
+      "bullet": {
+        "keepVelocity": false,
+        "followAimSpeed": 0,
+        "shootEffect": {
+          "type": "SoundEffect",
+          "sound": "shootMalign",
+          "maxPitch": 1.25,
+          "minPitch": 1.1,
+          "maxVolume": 0.4,
+          "minVolume": 0.4,
+          "effect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "WaveEffect",
+              "lifetime": 10,
+              "sizeFrom": 0,
+              "sizeTo": 8,
+              "strokeFrom": 2,
+              "colorFrom": "ffffff",
+              "colorTo": "ffa665",
+              "sides": 24
+            },
+            {
+              "type": "WaveEffect",
+              "lifetime": 8,
+              "sizeFrom": 0,
+              "sizeTo": 12,
+              "strokeFrom": 2,
+              "colorFrom": "ffa665",
+              "colorTo": "ffa665aa",
+              "sides": 24
+            },
+            "shootBig"
+          ],
+          }
+        },
+        "lightColor": "ffa665",
+        "smokeEffect": "shootBigSmoke",
+        "status": "interrupted",
+        "statusDuration": 1200,
+        "width": 6,
+        "maxRange": 208,
+        "height": 6,
+        "shrinkY": -0.25,
+        "speed": 1,
+        "drag": -0.05,
+        "lifetime": 50,
+        "sprite": "missile",
+        "trailEffect": "missileTrail",
+        "trailWidth": 1.2,
+        "trailLength": 17,
+        "trailColor": "ffa665",
+        "backColor": "ffa665",
+        "hitColor": "ffa665",
+        "frontColor": "ffffff",
+        "homingPower": 0.06,
+        "homingRange": 160,
+        "homingDelay": 20,
+        "damage": 20,
+        "hitShake": 1,
+        "hitSound": "shootArc",
+        "hitSoundVolume": 0.2,
+        "fragBullets": 2,
+        "fragBullet": {
+          "type": "LightningBulletType",
+          "lightningLength": 5,
+          "lightningLengthRand": 5,
+          "damage": 13,
+          "status": "shocked",
+          "statusDuration": 10,
+          "lightningColor": "ffa665",
+          "hitColor": "ffa665",
+          "hitColor": "ffa665"
+        },
+        "intervalBullets": 1,
+        "bulletInterval": 20,
+        "intervalBullet": {
+          "type": "LightningBulletType",
+          "lightningLength": 3,
+          "lightningLengthRand": 3,
+          "damage": 10,
+          "status": "shocked",
+          "statusDuration": 10,
+          "lightningColor": "ffa665",
+          "collidesAir": false,
+          "hitColor": "ffa665",
+          "hitColor": "ffa665"
+        },
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "ParticleEffect",
+              "particles": 5,
+              "lifetime": 16,
+              "sizeFrom": 3,
+              "sizeTo": 0,
+              "colorFrom": "ffffff",
+              "colorTo": "ffa665",
+              "length": 24
+            },
+            {
+              "type": "WaveEffect",
+              "lifetime": 7,
+              "sizeFrom": 0,
+              "sizeTo": 24,
+              "strokeFrom": 3,
+              "colorFrom": "ffa665",
+              "colorTo": "ffa665",
+              "sides": 24
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

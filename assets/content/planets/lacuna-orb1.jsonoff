@@ -1,0 +1,71 @@
+{
+  "generator": {},
+  "parent": "maress",
+  "launchCandidates": [ ],
+  "solarSystem": "sol2",
+  "iconColor": "00ffce",
+  "orbitRadius": 1.2,
+  "orbitTime": 60,
+  "rotateTime": 60,
+  /*60*/
+  "hasAtmosphere": false,
+  "updateLighting": false,
+  "lightColor": "00ffce",
+  "landCloudColor": "00ffce",
+  "allowSelfSectorLaunch": false,
+  "drawOrbit": false,
+  "accessible": false,
+  "lightSrcFrom": 0,
+  "lightSrcTo": 0.8,
+  "lightDstFrom": 0.25,
+  "lightDstTo": 0.85,
+  "defaultCore": "core-shard",
+  "sectorSeed": 0,
+  "alwaysUnlocked": false,
+  "startSector": 0,
+  "sectorSize": 1,
+  "tidalLock": true,
+  "radius": 0.005,
+  "bloom": false,
+  "visible": true,
+  "minZoom": 0.001,
+  "maxZoom": 100,
+  "cloudMesh": {
+    "type": "MultiMesh",
+    "meshes": [
+    ]
+  },
+  "mesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      {
+        "type": "SunMesh",
+        "planet": "lacuna-orb1",
+        "speed": 1,
+        "mag": 0,
+        "scl": 0.01,
+        "octaves": 1,
+        "persistence": 0.5,
+        "divisions": 1,
+        "pow": 1.2,
+        "colorScale": 1.1,
+        "colors": [ 
+          "00ffce"
+        ]
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "lacuna-orb1",
+        "seed": 1255,
+        "color1": "bfbba9",
+        "color2": "bfbba9",
+        "divisions": 1,
+        "radius": 0.00405,
+        "octaves": 1,
+        "persistence": 0.5,
+        "scale": 100,
+        "mag": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "flying": true,
+  "hitSize": 8,
+  "physics": false,
+  "wobble": false,
+  "shownPlanets": [ "sitrullus" ],
+  "rotateSpeed": 0,
+  "isEnemy": false,
+  "hittable": false,
+  "speed": 0,
+  "targetable": false,
+  "lowAltitude": true,
+  "lightColor": "98ffa9",
+  "flyingLayer": 91,
+  "strafePenalty": 1,
+  "immunities": [ "sentry-seen","sentry-alert" ],
+  "drawCell": false,
+  "armor": 100000,
+  "drawSoftShadow": false,
+  "engineSize": 0,
+  "createWreck": false,
+  "createScorch": false,
+  "drawShields": false,
+  "bounded": false,
+  "buildBeamOffset": 23,
+  "buildSpeed": 5,
+  "hidden": true,
+  "parts": [
+    {
+      "type": "RegionPart",
+      "name": "ve-chiniun-staff-glow-top",
+      "under": false,
+      "outline": false,
+      "blending": "additive",
+      "color": "98ffa980",
+      "colorTo": "98ffa9",
+      "clampProgress": false,
+      "progress": {
+        "type": "warmup",
+        "op": "sin",
+        "scl": 3,
+        "mag": 0.3,
+        "offset": 0
+      }
+    },
+    {
+      "type": "ShapePart",
+      "layer": 99.99,
+      "sides": 4,
+      "hollow": true,
+      "stroke": 0.75,
+      "rotation": 0,
+      "y": 16,
+      "color": "98ffa9b0",
+      "radius": 5.5,
+      "colorTo": "ffffff",
+      "progress": "warmup"
+    },
+    {
+      "type": "ShapePart",
+      "layer": 99.99,
+      "stroke": 0.5,
+      "sides": 4,
+      "hollow": true,
+      "stroke": 0.5,
+      "rotateSpeed": 1,
+      "y": 16,
+      "color": "98ffa9",
+      "radius": 2.5,
+      "radiusTo": 3,
+      "clampProgress": false,
+      "progress": {
+        "type": "recoil",
+        "op": "sin",
+        "scl": 10,
+        "mag": 1
+      }
+    },
+    {
+      "type": "ShapePart",
+      "layer": 99.99,
+      "circle": true,
+      "y": 16,
+      "color": "98ffa9",
+      "radius": 1
+    },
+    {
+      "type": "ShapePart",
+      "layer": 100,
+      "circle": true,
+      "y": 16,
+      "color": "ffffff",
+      "radius": 0.5
+    },
+    {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 20,
+      "x": 0,
+      "y": 16,
+      "color1": "98ffa9cc",
+      "color2": "ffffff",
+      "followRotation": false,
+      "layer": 99.995,
+      "spinSpeed": 0,
+      "stroke": 1,
+      "useProgress": false
+    },
+    
+    
+    {
+      "type": "RegionPart",
+      "name": "ve-chiniun-staff-glow-mid",
+      "under": false,
+      "outline": false,
+      "blending": "additive",
+      "color": "f25555a0",
+      "colorTo": "f25555",
+      "clampProgress": false,
+      "y": 0,
+      "progress": {
+        "type": "recoil",
+        "op": "sin",
+        "scl": 5,
+        "mag": 0.5,
+        "offset": 70
+      }
+    },
+    {
+      "type": "RegionPart",
+      "name": "ve-chiniun-staff-glow-mid",
+      "under": false,
+      "outline": false,
+      "blending": "additive",
+      "color": "f25555a0",
+      "colorTo": "f25555",
+      "clampProgress": false,
+      "y": -1.5,
+      "progress": {
+        "type": "recoil",
+        "op": "sin",
+        "scl": 5,
+        "mag": 0.5,
+        "offset": 35
+      }
+    },
+    {
+      "type": "RegionPart",
+      "name": "ve-chiniun-staff-glow-mid",
+      "under": false,
+      "outline": false,
+      "blending": "additive",
+      "color": "f25555a0",
+      "colorTo": "f25555",
+      "clampProgress": false,
+      "y": -3,
+      "progress": {
+        "type": "recoil",
+        "op": "sin",
+        "scl": 5,
+        "mag": 0.5,
+        "offset": 0
+      }
+    }
+  ],
+  "weapons": [
+    {
+      "minWarmup": 2,
+      "shootCone": 361,
+      "ignoreRotation": true,
+      "mirror": false,
+      "shootWarmupSpeed": 0.2,
+      "recoil": 0,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "bullet": { "maxRange": 240 }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  //"type": "StorageBlock",
+  "requirements": [ "aluminium/350","chromium/150" ],
+  "category": "effect",
+  "research": {
+    "parent": "shelf",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "size": 3,
+  "itemCapacity": 1000,
+  "researchCostMultiplier": 0.1,
+  "armor": 6,
+  "drawTeamOverlay": false,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

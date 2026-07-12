@@ -1,0 +1,12 @@
+{
+  "type": "StaticTree",
+  "variants": 6,
+  "requirements": [ "plant-matter/40" ],
+  "buildCostMultiplier": 18,
+  "breakable": true,
+  "breakSound": "plantBreak",
+  "instantDeconstruct": false,
+  "buildVisibility": "sandboxOnly",
+  "category": "defense",
+  "alwaysUnlocked": true
+}

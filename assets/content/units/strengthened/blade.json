@@ -1,0 +1,71 @@
+{
+  "type": "mech",
+  "databaseTag": "09cyclant-strengthened-unit",
+  "speed": 0.75,
+  "hitSize": 10,
+  "health": 280,
+  "armor": 2,
+  "research": {
+    "parent": "conscript",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "unit-laboratory"
+      }
+    ],
+    "requirements": [ "silicon/3000","lead/2000" ]
+  },
+  "itemCapacity": 30,
+  "lightColor": "ffa665",
+  "parts": [
+    {
+      "type": "RegionPart",
+      "x": 0,
+      "y": 0,
+      "suffix": "-glow",
+      "color": "ab340000",
+      "colorTo": "ab3400",
+      "outline": false,
+      "blending": "additive",
+      "layerOffset": 0.001,
+      "progress": "warmup"
+    }
+  ],
+  "immunities": [ "dusty" ],
+  "stepSound": "mechStepSmall",
+  "stepSoundPitch": 1,
+  "stepSoundPitchRange": 0.1,
+  "stepSoundVolume": 0.5,
+  "shownPlanets": [ "cyclant","phoon","maress","serpulo","thavina" ],
+  "weapons": [
+    {
+      "name": "blade-weapon",
+      "x": 4,
+      "y": 0,
+      "shootX": 0,
+      "shootY": 6,
+      "reload": 15,
+      "top": false,
+      "ejectEffect": "casing1",
+      "shoot": {
+        "shots": 5,
+        "shotDelay": 3
+      },
+      "shootSound": "shoot",
+      "bullet": {
+        "damage": 13,
+        "width": 8,
+        "height": 10,
+        "lifetime": 50,
+        "speed": 3.5,
+        "homingPower": 0.04,
+        "shootEffect": "shootSmall",
+        "smokeEffect": "shootSmallSmoke",
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitColor": "ffa665",
+        "lightColor": "ffa665"
+      }
+    }
+  ]
+}

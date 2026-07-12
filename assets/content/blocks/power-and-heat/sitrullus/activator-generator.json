@@ -1,0 +1,126 @@
+{
+  //"type": "ConsumeGenerator",
+  "requirements": [ "ferrum/80","silver/80","crystallon/50","silicon/100" ],
+  "category": "power",
+  //"hasLiquids": true,
+  //"liquidCapacity": 40,
+  "itemCapacity": 10,
+  "powerProduction": 22.5,
+  "itemDuration": 360,
+  "ambientSound": "loopHum",
+  "ambientSoundVolume": 0.07,
+  //"outputLiquid": "water/0.13333333333",
+  //"explodeOnFull": true,
+  "size": 2,
+  "destroyBullet": {
+    "instantDisappear": true,
+    "lightning": 3,
+    "lightningLength": 20,
+    "lightningLengthRand": 10,
+    "lightningColor": "f25555",
+    "hitShake": 8,
+    "despawnShake": 8,
+    "hitEffect": "shockwave",
+    "despawnEffect": "shockwave",
+    "lightningDamage": 24
+  },
+  "consumes": {
+    "itemCharged": {
+      "minCharge": 0.75
+    }
+  },
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawRegion",
+        "rotateSpeed": 6,
+        "spinSprite": true,
+        "suffix": "-rotator",
+        "rotation": 0
+      },
+      {
+        "type": "DrawRegion",
+        "rotateSpeed": 6,
+        "spinSprite": true,
+        "suffix": "-rotator",
+        "rotation": 22.5
+      },
+      {
+        "type": "DrawRegion",
+        "rotateSpeed": 6,
+        "spinSprite": true,
+        "suffix": "-rotator",
+        "rotation": 45
+      },
+      {
+        "type": "DrawRegion",
+        "rotateSpeed": 6,
+        "spinSprite": true,
+        "suffix": "-rotator",
+        "rotation": -22.5
+      },
+      {"type":"DrawRegion","suffix":"-top"},
+      {
+        "type": "DrawGlowRegion",
+        "color": "ab3400",
+        "suffix": "-heat",
+        "alpha": 1,
+        "glowScale": 8
+      }
+    ]
+  },
+  "consumeEffect": [
+    {
+    "type": "ParticleEffect",
+    "particles": 4,
+    "line": true,
+    "strokeFrom": 3,
+    "strokeTo": 0,
+    "lenFrom": 10,
+    "lenTo": 0,
+    "length": 20,
+    "baseLength": 0,
+    "lifetime": 10,
+    "colorFrom": "ffffff",
+    "colorTo": "f3e979"
+  },
+  {
+    "type": "SoundEffect",
+    "sound": "roSpark",
+    "minVolume": 0.2,
+    "maxVolume": 0.2,
+    "effect": "none"
+  }
+  ],
+  "generateEffect": {
+    "type": "ParticleEffect",
+    "line": true,
+    "strokeFrom": 0.5,
+    "strokeTo": 0.5,
+    "interp": "pow2Out",
+    "colorFrom": "f3e979",
+    "colorTo": "f3e979",
+    "length": 12,
+    "lifetime": 10,
+    "lenFrom": 3,
+    "lenTo": 0,
+    "particles": 1,
+    "baseLength": 2
+  },
+  "effectChance": 0.5,
+  "generateEffectRange": 0,
+  "research": {
+    "parent": "cycle-turbine-generator"
+  },
+  "researchCostMultiplier": 0.01,
+  "shownPlanets": [ "sitrullus" ],
+  "itemDurationMultipliers": {
+    "surge-alloy": 1.25,
+    "capacitor": 1.5,
+    "warp-nucleus": 2,
+    "phecteel": 4,
+    "mect-complex": 2.5
+  }
+}

@@ -1,0 +1,23 @@
+{
+  //"type": "Battery",
+  "requirements": [ "silicide/40","silicon/20","graphite/20","lead/80" ],
+  "consumes": {
+    "power": {
+      "buffered": true,
+      "capacity": 25000
+    }
+  },
+  "conductivePower": true,
+  "size": 2,
+  "category": "power",
+  "solid": true,
+  "buildCostMultiplier": 4,
+  "crushDamageMultiplier": 0.25,
+  "priority": -2,
+  "health": 4200,
+  "hasPower": true,
+  "armor": 8,
+  "research": "power-battery",
+  "baseExplosiveness": 2,
+  "shownPlanets": [ "cyclant","serpulo","maress","phoon","thavina" ]
+}

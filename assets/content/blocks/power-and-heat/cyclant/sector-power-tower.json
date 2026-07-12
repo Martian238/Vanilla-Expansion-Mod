@@ -1,0 +1,33 @@
+{
+  //"type": "LongPowerNode",
+  "requirements": [ "aluminium/800","quartz/500","graphite/500","plastanium/300","silicon/250","silicide/100" ],
+  "category": "power",
+  "laserRange": 4000,
+  "laserScale": 1.2,
+  "armor": 24,
+  "health": 10000,
+  "maxNodes": 10,
+  "research": {
+    "parent": "isomorphic-node-large",
+    "objectives": [   
+      {
+        "type": "SectorComplete",
+        "preset": "nuclear-powerplant"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.5,
+  "size": 5,
+  "autolink": false,
+  "buildCostMultiplier": 0.5,
+  "underBullets": false,
+  //"laserWidth": 1.6,
+  //"pulseMag": 0.2,
+  "glowMag": 0.8,
+  "glowColor": "fbd367dd",
+  "laserColor2": "fbd367",
+  "laserColor1": "ffffff",
+  "baseExplosiveness": 3,
+  "drawTeamOverlay": false,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ]
+}

@@ -1,0 +1,49 @@
+{
+  //"type": "ConsumeGenerator",
+  "requirements": [ "graphite/40","silicon/20","silicide/30","catalyzon/15" ],
+  "research": {
+    "parent": "solar-pad",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "gobi"
+      }
+    ]
+  },
+  "powerProduction": 6.6,
+  "size": 2,
+  "category": "power",
+  "ambientSound": "loopCircuit",
+  "ambientSoundVolume": 0.1,
+  "consumes": {
+    "itemFlammable": {
+      "type": "ConsumeItemFlammable",
+      "minFlammability": 0.3
+    }
+  },
+  "itemDuration": 150,
+  "generateEffect": "generatespark",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawWarmupRegion"
+        //"suffix": "-top"
+      }
+    ]
+  },
+  "itemDurationMultipliers": {
+    "fusion-fuel": 3.2,
+    "plant-matter": 1.5,
+    "carbon-shale-cobble": 1.8,
+    "nitroalkoss": 8,//1.2
+    "spore-pod": 1.2,
+    "reflector-matter": 8,
+    "sugar": 2.2,//2.2/1.5=1.466666667
+    "melon-dirt": 1.8,
+    "pyratite": 3,
+    "dense-melon-dirt": 1.5
+  },
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

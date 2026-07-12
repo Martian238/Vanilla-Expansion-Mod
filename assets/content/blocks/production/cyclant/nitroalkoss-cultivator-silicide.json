@@ -1,0 +1,63 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "chromium/140","silicon/150","metaglass/40","nitroalkoss/10","silicide/80" ],
+  "category": "production",
+  "health": 4000,
+  "armor": 24,
+  "outputItems": [ "nitroalkoss/35","blast-compound/10" ],
+  "research": {
+    "parent": "nitroalkoss-cultivator",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "isolate-island"
+      }
+    ]
+  },
+  "consumes": {
+    "items": {
+      "items": [ "pyratite/14" ]
+    },
+    "liquids": {
+      "liquids": [ "water/1.2" ]
+    }
+    "power": 1.5
+  },
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "baseExplosiveness": -10,
+  "hasItems": true,
+  "hasLiquids": true,
+  "hasPower": true,
+  "craftEffect": "none",
+  "liquidCapacity": 100,
+  "itemCapacity": 70,
+  "craftTime": 420,
+  "size": 4,
+  "legacyReadWarmup": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water"
+      },
+      { 
+        "type": "DrawCultivator",
+        "plantColorLight": "ff8a67",
+        "plantColor": "e16049",
+        "bottomColor": "ba352b"
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": ""
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.01,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "WobbleProp",
+  "variants": 5,
+  "wmag": 0.3,
+  "wscl": 20,
+  "customShadow": true,
+  "albedo": 1,
+  "requirements": [ "reflector-matter/10" ],
+  "alwaysUnlocked": true,
+  "instantDeconstruct": false,
+  "buildVisibility": "sandboxOnly",
+  "buildCostMultiplier": 20,
+  "placeableLiquid": true,
+  "unitMoveBreakable": true
+}

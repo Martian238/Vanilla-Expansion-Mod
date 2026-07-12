@@ -1,0 +1,668 @@
+{
+  //"type": "ConsumeGenerator",
+  "warmupSpeed": 0.01,
+  "consumes": {
+    "itemExplosive": {
+      "minExplosiveness": 1.2
+    },
+    "liquids": [ "water/0.2" ]
+  },
+  "itemDuration": 80,
+  "itemDurationMultipliers": {
+    "nitroalkoss": 1,
+    "fusion-fuel": 8
+  },
+  "requirements": [ "chromium/80","silicon/50","silicide/60","ferrum/40" ],
+  "shownPlanets": [ "maress","thavina" ],
+  "research": {
+    "parent": "spot-solar-pad",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "mirror-swamp"
+      }
+    ]
+  },
+  "armor": 6,
+  "researchCostMultiplier": 0.1,
+  "generateEffect": "coalSmeltsmoke",
+  "size": 3,
+  "category": "power",
+  "powerProduction": 20,
+  "generateEffect": [
+    {
+      "type": "WrapEffect",
+      "effect": "mine",
+      "color": "feb380"
+    }
+  ],
+  "ambientSound": "loopMachine",
+  "ambientSoundVolume": 0.05,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawDefault"
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-rotator-bottom-unlit",
+        "layer": 31
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-rotator",
+        "rotateSpeed": -15,
+        "spinSprite": true,
+        "layer": 31.1
+      },
+      {
+        "type": "DrawGlowRegion",
+        "color": "feb380",
+        "suffix": "-rotator-glow",
+        "rotateSpeed": -15,
+        "alpha": 0.8,
+        "rotate": true,
+        "layer": 31.2
+      },
+      {
+        "type": "DrawBlockParts",
+        "parts": [
+          {
+            "type": "RegionPart",
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "pow2Out"
+            },
+            "outline": false,
+            "color": "ffffff00",
+            "colorTo": "ffffff",
+            "name": "ve-blast-engine-rotator-bottom",
+            "layer": 31.01
+          },
+          {
+            "type": "EffectSpawnerPart",
+            "effect": [
+    {
+      "type": "SoundEffect",
+      "sound": "explosionCrawler",
+      "maxVolume": 0.2,
+      "minVolume": 0.2,
+      "effect": "flakExplosion"
+    },
+    {
+      "type": "SoundEffect",
+      "sound": [ "lbp3PlungerSwitch1","lbp3PlungerSwitch2","lbp3PlungerSwitch3" ],
+      "minPitch": 1,
+      "maxPitch": 1
+      "maxVolume": 0.2,
+      "minVolume": 0.2,
+      "effect": {
+        "type": "WrapEffect",
+        "effect": "mineBig",
+        "color": "feb380"
+      }
+    }
+            ],
+            "effectChance": 1,
+            "width": 0,
+            "height": 0,
+            "progress": {
+              "type": "time",
+              "ops": [
+                {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                },
+                {
+                  "op": "compress",
+                  "start": 0,
+                  "end": 0.0125
+                },
+                {
+                  "op": "mul",
+                  "amount": 10000
+                },
+                {
+                  "op": "add",
+                  "other": {
+                    "type": "time",
+              "ops": [
+                {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                },
+                {
+                  "op": "compress",
+                  "start": 0.0125,
+                  "end": 0.025
+                },
+                {
+                  "op": "mul",
+                  "amount": -20000
+                }
+                    ]
+                  }
+                },
+                {
+                    "op": "mul",
+                    "other": {
+                      "type": "warmup",
+                      "op": "compress",
+                      "start": 0.95,
+                      "end": 1
+                    }
+                  },
+                  {
+                    "op": "add",
+                    "other": {
+                      "type": "warmup",
+                      "ops": [
+                        { "op": "inv" },
+                        {
+                          "op": "mul",
+                          "amount": -1
+                        }
+                      ]
+                    }
+                  }
+              ]
+            }
+          },
+          {
+            "type": "RegionPart",
+            "progress": {
+              "type": "time",
+              "ops": [
+                {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                },
+                {
+                  "op": "curve",
+                  "interp": "circleOut"
+                },
+                {
+                  "op": "curve",
+                  "interp": "slope"
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow2Out"
+                },
+                {
+                    "op": "mul",
+                    "other": "warmup"
+                }
+              ]
+            },
+            "name": "ve-blast-engine-heat",
+            "blending": "additive",
+            "outline": false,
+            "color": "ab340000",
+            "colorTo": "ff3434"
+          },
+          {
+            "type": "RegionPart",
+            "clampProgress": false,
+            "name": "ve-blast-engine-piston-lu",
+            "outline": false,
+            "rotation": 90,
+            "moves": [
+              {
+                "y": -2.25,
+                "x": -2.25,
+                "progress": {
+                  "type": "time",
+                  "ops": [
+                    {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"//i1
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "slope"//i2
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow2Out"//i3
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"//i4
+                    }
+                  ]
+                }
+              },
+              {
+                "x": -0.5,
+                "y": 0.5,
+                "progress": {
+                  "type": "time",
+                  "ops": [
+                    {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                    },
+                    {
+                      "op": "compress",
+                      "start": 0,
+                      "end": 0.35
+                    },
+{ "op": "inv" },
+                    {
+                      "op": "mul",
+                      "other": {//falserandom
+                        "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.349,
+                        "scl": 1.587,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.376,
+                        "scl": 1.922,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.167,
+                        "scl": 3.511,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.463,
+                        "scl": 2.409,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.137,
+                        "scl": 1.555,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.263,
+                        "scl": 3.329,
+                        "offset": 60
+                      },
+                      {
+                        "op": "mul",
+                        "other": "warmup"
+                      }
+                    ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "RegionPart",
+            "clampProgress": false,
+            "name": "ve-blast-engine-piston-ru",
+            "outline": false,
+            "rotation": 90,
+            "moves": [
+              {
+                "y": 2.25,
+                "x": -2.25,
+                "progress": {
+                  "type": "time",
+                  "ops": [
+                    {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"//i1
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "slope"//i2
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow2Out"//i3
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"//i4
+                    }
+                  ]
+                }
+              },
+              {
+                "x": 0.5,
+                "y": 0.5,
+                "progress": {
+                  "type": "time",
+                  "ops": [
+                    {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                    },
+                    {
+                      "op": "compress",
+                      "start": 0,
+                      "end": 0.35
+                    },
+{ "op": "inv" },
+                    {
+                      "op": "mul",
+                      "other": {//falserandom
+                        "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.349,
+                        "scl": 1.130,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.376,
+                        "scl": 1.807,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.167,
+                        "scl": 3.288,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.463,
+                        "scl": 2.256,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.137,
+                        "scl": 1.068,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.263,
+                        "scl": 3.679,
+                        "offset": 60
+                      },
+                      {
+                        "op": "mul",
+                        "other": "warmup"
+                      }
+                    ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "RegionPart",
+            "clampProgress": false,
+            "name": "ve-blast-engine-piston-rd",
+            "outline": false,
+            "rotation": 90,
+            "moves": [
+              {
+                "y": 2.25,
+                "x": 2.25,
+                "progress": {
+                  "type": "time",
+                  "ops": [
+                    {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"//i1
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "slope"//i2
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow2Out"//i3
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"//i4
+                    }
+                  ]
+                }
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "progress": {
+                  "type": "time",
+                  "ops": [
+                    {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                    },
+                    {
+                      "op": "compress",
+                      "start": 0,
+                      "end": 0.35
+                    },
+{ "op": "inv" },
+                    {
+                      "op": "mul",
+                      "other": {//falserandom
+                        "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.349,
+                        "scl": 1.772,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.376,
+                        "scl": 1.202,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.167,
+                        "scl": 3.502,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.463,
+                        "scl": 2.409,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.137,
+                        "scl": 1.158,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.263,
+                        "scl": 3.420,
+                        "offset": 60
+                      },
+                      {
+                        "op": "mul",
+                        "other": "warmup"
+                      }
+                    ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "RegionPart",
+            "clampProgress": false,
+            "name": "ve-blast-engine-piston-ld",
+            "outline": false,
+            "rotation": 90,
+            "moves": [
+              {
+                "y": -2.25,
+                "x": 2.25,
+                "progress": {
+                  "type": "time",
+                  "ops": [
+                    {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"//i1
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "slope"//i2
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "pow2Out"//i3
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"//i4
+                    }
+                  ]
+                }
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "progress": {
+                  "type": "time",
+                  "ops": [
+                    {
+                      "op": "loop",
+                      "time": 80//reload
+                    },
+{"op": "mul","other": "warmup"
+                    },
+                    {
+                      "op": "compress",
+                      "start": 0,
+                      "end": 0.35
+                    },
+{ "op": "inv" },
+                    {
+                      "op": "mul",
+                      "other": {//falserandom
+                        "type": "time",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.349,
+                        "scl": 1.902,
+                        "offset": 10
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.376,
+                        "scl": 1.603,
+                        "offset": 20
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.167,
+                        "scl": 3.309,
+                        "offset": 30
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.463,
+                        "scl": 2.105,
+                        "offset": 40
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.137,
+                        "scl": 1.886,
+                        "offset": 50
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.263,
+                        "scl": 3.125,
+                        "offset": 60
+                      },
+                      {
+                        "op": "mul",
+                        "other": "warmup"
+                      }
+                    ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

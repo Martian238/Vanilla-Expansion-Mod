@@ -1,0 +1,159 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": false,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": false,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "speed": 0,
+  "health": 999999,
+  "armor": 0,
+  "deathSound": "none",
+  "clipSize": 800,
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "bounded": false,
+  "lightRadius": 0,
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "hidden": true,
+  "loopSound": "none",
+  "loopSoundVolume": 0,
+  "type": "missile",
+  "lifetime": 60,
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "targetAir": false,
+  "targetGround": false,
+  "weapons": [
+    {
+      "alwaysShooting": true,// bullets
+      "recoil": 0,
+      "y": 16,
+      "recoilTime": 30,
+      "recoilPow": 1,
+      "reload": 1,
+      "mirror": false,
+      "alternate": false,
+      "x": 0,
+      "shootCone": 361,
+      "shootY": 7,
+      "shootSound": "rlDarkSentryShoot",
+      "shootSoundVolume": 1,
+      "ignoreRotation": true,
+      "useAttackRange": false,
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "controllable": false,
+      "aiControllable": true,
+      "parentizeEffects": true,
+      "shake": 0,
+      //"shootOnDeath": true,
+      "autoTarget": false,
+      "inaccuracy": 90,
+      "velocityRnd": 0.2,
+      "bullet": {
+        "killShooter": true,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "spawnBullets": [
+          {
+            "lifetime": 10,
+            "frontColor": "00000000",
+            "backColor": "00000000",
+            "speed": 0,
+            "collides": false,
+            "hittable": false,
+            "absorbable": false,
+            "reflectable": false,
+            "hitEffect": "none",
+            "despawnEffect": "none",
+            "parts": [
+              {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 20,
+      "radiusTo": 0,
+      "x": 0,
+      "y": 0,
+      "color1": "ffd37f",
+      "color2": "ffffff",
+      "followRotation": false,
+      "layer": 100.1,
+      "spinSpeed": 0,
+      "stroke": 1,
+      "useProgress": true,
+      "progress": "life"
+    }]
+          }
+        ],
+        "fragBullets": 1,
+        "fragOffsetMax": 0,
+        "fragOffsetMin": 0,
+        "fragBullet": {
+          "type": "MultiBulletType",
+          "bullets": [
+            {
+              "instantDisappear": true,
+              "despawnUnit": "chiniun-obstacle3",
+              "hitEffect": "none",
+              "despawnEffect": "none",
+              "randomAngleOffset": 360
+            },
+            {
+              "instantDisappear": true,
+              "despawnUnit": "chiniun-teleport-yellow",
+              "hitEffect": "none",
+              "despawnEffect": "none"
+            }
+          ]
+        },
+        "type": "PointBulletType",
+      "speed": 0.7,
+      "lifetime": 100,
+      "trailSpacing": 1,
+      "trailEffect": {
+        "type": "MultiEffect",
+        "effects": [
+          {
+            "type": "ParticleEffect",
+            "particles": 1,
+            "length": 10,
+            "interp": "circleOut",
+            "sizeInterp": "circleIn",
+            "colorFrom": "ffd37f",
+            "colorTo": "ffd37f00",
+            "sizeFrom": 1,
+            "sizeTo": 0
+          },
+          {
+            "type": "ParticleEffect",
+            "particles": 1,
+            "length": 0,
+            "interp": "circleOut",
+            "sizeInterp": "circleOut",
+            "colorFrom": "ffffff",
+            "colorTo": "ffd37f",
+            "sizeFrom": 2.5,
+            "sizeTo": 0,
+            "lifetime": 20
+          }
+        ]
+      },
+      "damage": 0,
+      "hitShake": 2,
+      "despawnShake": 2
+      }
+    }
+  ]
+}

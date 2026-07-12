@@ -1,0 +1,23 @@
+{
+  //"type": "Duct",
+  "requirements": [ "titanium/1","silicide/1" ],
+  "category": "distribution",
+  "health": 280,
+  "armor": 16,
+  "speed": 4,
+  "research": {
+    "parent": "armored-router",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "intervalley"
+      }
+    ]
+  },
+  "crushDamageMultiplier": 0.05,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "serpulo","thavina" ],
+  "bridgeReplacement": "silicide-bridge-conveyor",
+  "junctionReplacement": "silicide-junction"
+}

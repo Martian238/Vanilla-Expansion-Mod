@@ -1,0 +1,89 @@
+{
+  //"type": "NuclearReactor",
+  "requirements": [ "lead/150","silicon/120","graphite/80","chromium/100","thorium/75" ],
+  "category": "power",
+  "ambientSound": "loopThoriumReactor",
+  "ambientSoundVolume": 0.08,
+  "powerProduction": 20,//5
+  "heating": 0.015,
+  "size": 2,
+  "armor": 4,
+  "health": 600,
+  "itemDuration": 360,
+  "itemCapacity": 10,
+  "consumes": {
+    "liquid": {
+      "liquid": "water",
+      "amount": 0.05,
+      "update": false
+    },
+    "item": "thorium"
+  },
+  "liquidCapacity": 20,
+  "lightColor": "bf92f9",
+  "flashThreshold": 0.01,
+  "heatOutput": 6,
+  "coolantPower": 0.3,
+  "explodeSound": "explosionArtilleryShock",
+  "ambientCooldownTime": 600,
+  "research": {
+    "parent": "solid-fuel-cell",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "thorium-hacienda"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.2,
+  "explosionShake": 3,
+  "explosionShakeDuration": 12,
+  "explosionRadius": 12,
+  "explosionDamage": 1250,
+  "explodeEffect": {
+    "type": "MultiEffect",
+    "effects": [
+      "launchPod",
+      {
+        "type": "ParticleEffect",
+        "lifetime": 300,
+        "colorFrom": "8a73c6b3",
+        "colorTo": "8a73c6b3",
+        "length": 80,
+        "sizeFrom": 12,
+        "sizeTo": 0,
+        "interp": "pow10Out",
+        "sizeInterp": "circleIn",
+        "particles": 7,
+        "sizeChangeStart": 150
+      },
+      {
+        "type": "ParticleEffect",
+        "lifetime": 300,
+        "colorFrom": "8a73c6b3",
+        "colorTo": "8a73c6b3",
+        "length": 100,
+        "sizeFrom": 8,
+        "sizeTo": 0,
+        "interp": "pow10Out",
+        "sizeInterp": "circleIn",
+        "particles": 9,
+        "sizeChangeStart": 150
+      },
+      {
+        "type": "ParticleEffect",
+        "lifetime": 300,
+        "colorFrom": "8a73c6b3",
+        "colorTo": "8a73c6b3",
+        "length": 120,
+        "sizeFrom": 4,
+        "sizeTo": 0,
+        "interp": "pow10Out",
+        "sizeInterp": "circleIn",
+        "particles": 11,
+        "sizeChangeStart": 150
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

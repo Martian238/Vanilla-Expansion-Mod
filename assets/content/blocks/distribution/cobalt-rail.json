@@ -1,0 +1,26 @@
+{
+  //"type": "Conveyor",
+  "requirements": [ "cobalt/1","graphite/1" ]
+  "health": 35,
+  "category": "distribution",
+  "speed": 0.21,
+  "research": {
+    "parent": "stack-rail",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "shale-quarry"
+      }
+    ]
+  },
+  "ambientSound": "none",
+  "hasShadow": false,
+  "junctionReplacement": "rail-junction",
+  "bridgeReplacement": "rail-bridge",
+  "displayedSpeed": 24,
+  "researchCostMultiplier": 0.8,
+  "drawTeamOverlay": false,
+  "pushUnits": false,
+  "drawCracks": false,
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+}

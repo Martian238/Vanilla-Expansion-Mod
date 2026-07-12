@@ -1,0 +1,101 @@
+{
+  "type": "hover",
+  "databaseTag": "08cyclant-newtype-unit",
+  "hovering": true,
+  "health": 700,
+  "armor": 4,
+  "rotateSpeed": 9,
+  "speed": 2.7,
+  "accel": 0.06,
+  "drag": 0.06,
+  "hitSize": 15,
+  "lowAltitude": true,
+  "flying": false,
+  "itemCapacity": 40,
+  "shadowElevation": 0.1,
+  "useEngineElevation": false,
+  "engineSize": 2.75,
+  "engineOffset": 8,
+  "targetAir": false,
+  "groundLayer": 70,
+  "fogRadius": 90,
+  "canDrown": false,
+  "research": {
+    "parent": "flocculate",
+    "objectives": [ "junior-hovership-reconstructor" ],
+    "requirements": [ "silicon/400","graphite/600" ]
+  },
+  "immunities": [ "blown","dusty" ],
+  "strafePenalty": 1,
+  "targetFlags": [
+    "factory"
+  ],
+  "drownTimeMultiplier": 99999,
+  "researchCostMultiplier": 0.3,
+  "lightColor": "90dbff",
+  "loopSound": "loopHover",
+  "loopSoundVolume": 0.2,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "parts": [
+    {
+      "type": "HoverPart",
+      "x": 7,
+      "y": -5.25,
+      "mirror": true,
+      "radius": 6,
+      "phase": 85,
+      "stroke": 2.25,
+      "minStroke": 0,
+      "layerOffset": -0.003,
+      "color": "90dbff",
+      "sides": 4
+    },
+    {
+      "type": "HoverPart",
+      "x": 5,
+      "y": 2.25,
+      "mirror": true,
+      "radius": 6,
+      "phase": 85,
+      "stroke": 2,
+      "layerOffset": -0.003,
+      "color": "90dbff",
+      "sides": 4
+    },
+    {
+      "type": "RegionPart",
+      "x": 0,
+      "y": 0,
+      "suffix": "-glow",
+      "color": "90dbffaa",
+      "mixColor": "90dbffaa",
+      "outline": false,
+      "blending": "additive",
+      "layerOffset": 0.001
+    }
+  ],
+  "weapons": [
+    {
+      "name": "alleviate-missile",
+      "x": 0,
+      "y": 4.75,
+      "reload": 50,
+      "ejectEffect": "none",
+      "shootSound": "shootMissilePlasmaShort",
+      "layerOffset": -0.002,
+      "recoil": 8,
+      "predictTarget": false,
+      "mirror": false,
+      "shootX": 0,
+      "shootY": 0,
+      "layerOffset": -0.002,
+      "bullet": {
+        "shootEffect": "shootBigColor",
+        "hitColor": "90dbff",
+        "smokeEffect": "shootBigSmoke",
+        "spawnUnit": "alleviate-missile",
+        "speed": 99999
+      }
+    }
+  ]
+}

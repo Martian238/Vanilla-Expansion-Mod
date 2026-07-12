@@ -1,0 +1,49 @@
+{
+  //"type": "GenericCrafter",
+  "category": "crafting",
+  "consumes": {
+    "liquids": {
+      "liquids": [ "melon-water/0.05" ]
+    },
+    "items": {
+      "items": [ "sugar/0" ],
+      "optional": true,
+      "booster": false
+    },
+    "power": 0.3
+  },
+  "outputLiquids": [ "melon-water/0" ],
+  "outputItems": [ "sugar/1" ],
+  "craftTime": 240,
+  "size": 2,
+  "hasItems": true,
+  "hasLiquids": true,
+  "conductivePower": true,
+  "dumpTime": 1,
+  "liquidCapacity": 30,
+  "itemCapacity": 10,
+  "research": "filter",
+  "armor": 6,
+  "requirements": [ "ferrum/45","silver/20","silicon/30" ],
+  "ambientSound": "loopMachine",
+  "ignoreLiquidFullness": true,
+  "ambientSoundVolume": 0.05,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawRegion", "suffix": "-bottom" },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "melon-water"
+      },
+      { "type": "DrawRegion" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "color": "ff5555",
+        "alpha": 0.7,
+        "glowScale": 4
+      }
+    ]
+  }
+}

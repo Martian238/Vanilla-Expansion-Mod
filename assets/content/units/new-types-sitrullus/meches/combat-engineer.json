@@ -1,0 +1,307 @@
+{
+  "type": "hover",
+  "databaseTag": "15sitrullus-mech-unit",
+  "health": 3000,
+  "armor": 6,
+  "hitSize": 32,
+  "speed": 1.4,
+  "accel": 0.03,
+  "drag": 0.015,
+  "groundLayer": 80,
+  "hovering": true,
+  "stepShake": 2,
+  "rotateSpeed": 2,
+  "strafePenalty": 0.8,
+  "buildSpeed": 6.6,//2.6,
+  "mineSpeed": 10,
+  "mineTier": 4,
+  "mineItems": {
+    "add": [ "aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
+  "engineOffset": 20,//10.5
+  "engineSize": 3,
+  "canDrown": false,
+  "canBoost": true,
+  "boostMultiplier": 1,
+  "riseSpeed": 0.02,
+  "useEngineElevation": false,
+  "shadowElevation": 0.3,
+  "buildBeamOffset": -5.7,//3.8
+  "mineBeamOffset": -1.5,//8
+  "itemOffsetY": -4,
+  "lowAltitude": true,
+  "isEnemy": false,
+  "defaultCommand": "assist",
+  "research": "micro-mech-sharded",
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-top",
+      "layerOffset": 0.4
+    }
+  ],
+  "abilities": [
+    {
+      "type": "RepairFieldAbility",
+      "amount": 120,
+      "reload": 180,
+      "range": 80
+    }
+  ],
+  "buildRange": 260,
+  "weapons": [
+    {
+      "xRand": 5,
+      "shootSound": "shootMissilePlasma",
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "mirror": false,
+      "reload": 80,
+      "shootCone": 120,
+      "predictTarget": false,
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 20
+      },
+      "bullet": {
+        "maxRange": 320,
+        "sprite": "missile-large",
+        "followAimSpeed": 4,
+        "width": 10,
+        "height": 10,
+        "trailColor": "98ffa9",
+        "backColor": "98ffa9",
+        "frontColor": "ffffff",
+        "hitColor": "98ffa9",
+        "scaleLife": false,
+        "damage": 40,
+        "trailLength": 7.5,
+        "trailWidth": 1.75,
+        "accel": 0.05,
+        "speed": 2,
+        "lifetime": 80,
+        "hitShake": 2,
+        "despawnShake": 2,
+        "splashDamage": 50,
+        "splashDamageRadius": 32,
+        "collides": true,
+        "hitSound": "explosionAfflict",
+        "despawnSound": "explosionAfflict",
+        "lightning": 3,
+        "lightningColor": "98ffa9",
+        "lightningLength": 10,
+        "lightningDamage": 15,
+        "hittable": false,
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",
+          "waveColor": "98ffa9",
+          "smokeColor": "98ffa980",
+          "sparkColor": "98ffa9",
+          "waveRad": 32,
+          "smokeRad": 32,
+          "smokeSize": 6,
+          "smokes": 8,
+          "sparks": 10,
+          "sparkRad": 32,
+          "lifetime": 40
+        },
+        "fragBullets": 3,
+        "fragRandomSpread": 40,
+        "fragVelocityMin": 0.8,
+        "fragLifeMin": 0.8,
+        "shrinkY": 0,
+        "collidesTeam": true,
+        "healPercent": 10,
+        "healAmount": 50,
+        "fragBullet": {
+          "backColor": "98ffa9",
+          "collidesTeam": true,
+          "healPercent": 3,
+          "healAmount": 20,
+          "frontColor": "ffffff",
+          "trailColor": "98ffa9",
+          "trailLength": 5,
+          "speed": 6,
+          "accel": -0.15,
+          "hittable": false,
+          "lifetime": 30,
+          "collides": false,
+          "splashDamage": 30,
+          "splashDamageRadius": 16,
+          "hitShake": 1,
+          "despawnShake": 1,
+          "lightning": 1,
+          "lightningCone": 0,
+          "lightningLength": 10,
+          "lightningDamage": 15,
+          "lightningColor": "98ffa9",
+          "sprite": "missile",
+          "width": 8,
+          "height": 10,
+          "shrinkY": 0,
+          "despawnHit": true,
+          "despawnEffect": "none",
+          "hitEffect": {
+          "type": "ExplosionEffect",
+            "waveColor": "98ffa9",
+            "smokeColor": "98ffa980",
+            "sparkColor": "98ffa9",
+            "waveRad": 16,
+            "smokeRad": 16,
+            "smokeSize": 4,
+            "smokes": 6,
+            "sparks": 8,
+            "sparkRad": 16,
+            "lifetime": 30
+          }
+        }
+      }
+    },
+    {
+      "name": "heal-weapon-mount",
+      "shootSound": "shootLaser",
+      "reload": 24,
+      "x": 8,
+      "y": -15.5,//-6
+      "rotate": true,
+      "layerOffset": 0.3,
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 4
+      },
+      "rotationLimit": 180,
+      "bullet": {
+        "type": "LaserBoltBulletType",
+        "speed": 5.2,
+        "damage": 12,
+        "lifetime": 35,
+        "healPercent": 5.5,
+        "collidesTeam": true,
+        "backColor": "98ffa9",
+        "frontColor": "ffffff"
+      }
+    },
+    {
+      "name": "heal-weapon-mount",
+      "shootSound": "shootLaser",
+      "reload": 15,
+      "x": 3.75,
+      "y": -4.75,//5
+      "rotate": true,
+      "layerOffset": 0.3,
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 4
+      },
+      "rotationLimit": 240,
+      "bullet": {
+        "type": "LaserBoltBulletType",
+        "speed": 5.2,
+        "damage": 10,
+        "lifetime": 35,
+        "healPercent": 3,
+        "collidesTeam": true,
+        "backColor": "98ffa9",
+        "frontColor": "ffffff"
+      }
+    },
+    {
+      "type": "BuildWeapon",
+      "x": 15.5,
+      "y": 21.75,
+      "shootY": 0,
+      "mirror": true
+    },
+    {
+      "type": "MineWeapon",
+      "x": 13.5,
+      "y": 16.25,
+      "shootY": 0,
+      "mirror": true
+    },
+    {
+      "type": "PointDefenseWeapon",
+      "name": "point-defense-mount-new"
+      "x": 17.5,
+      "y": 4.25,
+      "reload": 4,
+      "targetInterval": 8,
+      "targetSwitchInterval": 8,
+      "heatColor": "ffffffee",
+      "cooldownTime": 10,
+      "shootSound": "shootSegment",
+      "bullet": {
+        "maxRange": 160,
+        "damage": 36,
+        "hitEffect": "pointHit",
+        "shootEffect": "sparkShoot"
+      }
+    },
+    {
+      "type": "RepairBeamWeapon",
+      "name": "repair-beam-weapon",
+      "x": -19,
+      "y": -13.75,
+      "shootY": 6,
+      "beamWidth": 0.9,
+      "repairSpeed": 1.25,
+      "mirror": true,
+      "rotateSpeed": 7,
+      "bullet": {
+        "maxRange": 160
+      },
+      "targetBuildings": true,
+    },
+    {
+      "name": "mega",
+      "controllable": false,
+      "shootOnDeath": true,
+      "reload": 1,
+      "display": false,
+      "useAttackRange": false,
+      "shootCone": 361,
+      "layerOffset": 0.2,
+      "mirror": false,
+      "y": -9.5,
+      "x": 0,
+      "shootY": 0,
+      "shootSound": "carrionMechDeath"
+      "bullet": {
+        "spawnUnit": "mega",
+        "shootEffect": "none",
+        "smokeEffect": "none"
+      }
+    },
+    /*{
+      "name": "zentack-controller",
+      "reload": 15,
+      "recoil": 1,
+      "recoilTime": 30,
+      "alwaysShooting": true,
+      "controllable": false,
+      "layerOffset": 0.1,
+      "display": false,
+      "useAttackRange": false,
+      "minShootVelocity": 0.05,
+      "top": false,
+      "y": 3.5,//13
+      "x": 0,
+      "mirror": false,
+      "shootSound": "none",
+      "bullet": {
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "collides": false,
+        "absorbable": false,
+        "reflectable": false,
+        "hittable": false
+      }
+    }*/
+  ]
+}

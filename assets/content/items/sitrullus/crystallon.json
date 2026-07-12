@@ -1,0 +1,12 @@
+{
+  "color": "ac3535",
+  "cost": 1,
+  "shownPlanets": [ "sitrullus" ],
+  "charge": 0.8,
+  "flammability": 0.1,
+  "healthScaling": 0.6,
+  "research": "dense-melon-dirt",
+  "frames": 12,
+  "frameTime": 4,
+  "databaseTag": "processed-item"
+}

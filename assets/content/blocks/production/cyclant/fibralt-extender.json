@@ -1,0 +1,137 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "lead/80","graphite/75","silicon/40","cobalt/55" ],
+  "category": "crafting",
+  "size": 2,
+  "researchCostMultiplier": 0.5,
+  "hasPower": true,
+  "hasLiquids": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { 
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": "-spin1",
+        "rotateSpeed": 8
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": "-spin2",
+        "rotateSpeed": -8
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow1",
+        "rotateSpeed": 8,
+        "rotate": true,
+        "color": "90dbff",
+        "layer": -1,
+        "alpha": 0.7,
+        "glowIntensity": 0.35,
+        "glowScale": 4
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow2",
+        "rotateSpeed": -8,
+        "rotate": true,
+        "color": "90dbff",
+        "layer": -1,
+        "alpha": 0.7,
+        "glowIntensity": 0.35,
+        "glowScale": 4
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": "-spin3",
+        "rotateSpeed": 5
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow3",
+        "rotateSpeed": 5,
+        "rotate": true,
+        "color": "90dbff",
+        "layer": -1,
+        "alpha": 0.7,
+        "glowIntensity": 0.35,
+        "glowScale": 4
+      },
+      { "type": "DrawDefault" }
+    ]
+  },
+  "craftTime": 150,
+  "outputItem": "fibralt/3",
+  "consumes": {
+    "items": [ "cobalt/3","graphite/5" ],
+    "power": 3.5
+  },
+  "craftEffect": {
+    "type": "SeqEffect",
+    "effects": [
+      {
+        "type": "WaveEffect",
+        "colorFrom": "90dbff",
+        "colorTo": "90dbff",
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sizeFrom": 0,
+        "sizeTo": 20,
+        "lightColor": "90dbff",
+        "lifetime": 5
+      },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "90dbff",
+        "colorTo": "90dbff",
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sizeFrom": 0,
+        "sizeTo": 16,
+        "lightColor": "90dbff",
+        "lifetime": 5
+      },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "90dbff",
+        "colorTo": "90dbff",
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sizeFrom": 0,
+        "sizeTo": 12,
+        "lightColor": "90dbff",
+        "lifetime": 5
+      },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "90dbff",
+        "colorTo": "90dbff",
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sizeFrom": 0,
+        "sizeTo": 8,
+        "lightColor": "90dbff",
+        "lifetime": 5
+      }
+    ]
+  },
+  "updateEffect": "none",
+  "ambientSound": "loopMachine",
+  "ambientSoundVolume": 0.08,
+  "itemCapacity": 20,
+  "research": {
+    "parent": "cracking-compressor",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "shale-quarry"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.01,
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
+}

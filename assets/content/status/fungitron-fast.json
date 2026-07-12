@@ -1,0 +1,9 @@
+{
+  "effect": "none",
+  "color": "7457ce",
+  "speedMultiplier": 2,
+  "damageMultiplier": 2,
+  "permanent": false,
+  "applyEffect": "none",
+  "show": false
+}

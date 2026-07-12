@@ -1,0 +1,281 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": false,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": false,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "speed": 0,
+  "health": 999999,
+  "armor": 0,
+  "deathSound": "none",
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "bounded": false,
+  "lightRadius": 0,
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "hidden": true,
+  "loopSound": "none",
+  "type": "missile",
+  "lifetime": 70,
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "targetAir": false,
+  "targetGround": false,
+  "weapons": [
+    {
+      "alwaysShooting": true,//charge
+      "recoil": 0,
+      "y": 16,
+      "recoilTime": 60,
+      "recoilPow": 1,
+      "reload": 600,
+      "mirror": false,
+      "x": 0,
+      "shootY": 0,
+      "shootSound": "jsabBossLaserCharge",
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "parentizeEffects": true,
+      "bullet": {
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "damage": 0,
+        "collides": false,
+        "shootEffect": [
+          {
+            "type": "WaveEffect",
+            "followParent": true,
+            "rotWithParent": true,
+            "sides": 48,
+            "sizeFrom": 60,
+            "sizeTo": 0,
+            "strokeFrom": 32,
+            "strokeTo": 0,
+            "colorFrom": "ffffff00",
+            "colorTo": "ffffffa0",
+            "interp": "circleIn",
+            "lifetime": 15
+          },
+          {
+            "type": "WaveEffect",
+            "followParent": true,
+            "rotWithParent": true,
+            "sides": 48,
+            "sizeFrom": 120,
+            "sizeTo": 0,
+            "strokeFrom": 36,
+            "strokeTo": 0,
+            "colorFrom": "ffffff00",
+            "colorTo": "ffffffa0",
+            "interp": "circleIn",
+            "lifetime": 30
+          },
+          {
+            "type": "WaveEffect",
+            "followParent": true,
+            "rotWithParent": true,
+            "sides": 48,
+            "sizeFrom": 180,
+            "sizeTo": 0,
+            "strokeFrom": 40,
+            "strokeTo": 0,
+            "colorFrom": "ffffff00",
+            "colorTo": "ffffffa0",
+            "interp": "circleIn",
+            "lifetime": 45
+          }
+        ],
+        "smokeEffect": "none"
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "fungitron-beam",
+          "blending": "additive",
+          "outline": false,
+          "layer": 111,
+          "progress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "sine"
+          },
+          "growProgress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "circleOut"
+          },
+          "color": "ffffff00",
+          "colorTo": "ffffff",
+          "yScl": 0,
+          "rotation": 0,
+          "moveRot": 180,
+          "xScl": 0,
+          "moves": [
+            {
+              "gx": 2,
+              "progress": {
+                "type": "recoil",
+                "op": "curve",
+                "interp": "slope"
+              }
+            }
+          ],
+          "growY": 3
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "fungitron-beam",
+          "blending": "additive",
+          "outline": false,
+          "layer": 111,
+          "progress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "sine"
+          },
+          "growProgress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "circleOut"
+          },
+          "color": "ffffff00",
+          "colorTo": "ffffff",
+          "xScl": 0,
+          "yScl": 0,
+          "rotation": 120,
+          "moveRot": 180,
+          "moves": [
+            {
+              "gx": 2,
+              "progress": {
+                "type": "recoil",
+                "op": "curve",
+                "interp": "slope"
+              }
+            }
+          ],
+          "growY": 3
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "fungitron-beam",
+          "blending": "additive",
+          "outline": false,
+          "layer": 111,
+          "progress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "sine"
+          },
+          "growProgress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "circleOut"
+          },
+          "color": "ffffff00",
+          "colorTo": "ffffff",
+          "xScl": 0,
+          "yScl": 0,
+          "rotation": 240,
+          "moveRot": 180,
+          "moves": [
+            {
+              "gx": 2,
+              "progress": {
+                "type": "recoil",
+                "op": "curve",
+                "interp": "slope"
+              }
+            }
+          ],
+          "growY": 3
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "fungitron-beam",
+          "blending": "additive",
+          "outline": false,
+          "layer": 111,
+          "progress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "sine"
+          },
+          "growProgress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "circleOut"
+          },
+          "color": "ffffff00",
+          "colorTo": "ffffff",
+          "yScl": 6,
+          "rotation": 0,
+          "moveRot": -180,
+          "xScl": 5,
+          "growX": -5
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "fungitron-beam",
+          "blending": "additive",
+          "outline": false,
+          "layer": 111,
+          "progress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "sine"
+          },
+          "growProgress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "circleOut"
+          },
+          "color": "ffffff00",
+          "colorTo": "ffffff",
+          "yScl": 6,
+          "rotation": 120,
+          "moveRot": -180,
+          "xScl": 5,
+          "growX": -5
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "fungitron-beam",
+          "blending": "additive",
+          "outline": false,
+          "layer": 111,
+          "progress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "sine"
+          },
+          "growProgress": {
+            "type": "recoil",
+            "op": "curve",
+            "interp": "circleOut"
+          },
+          "color": "ffffff00",
+          "colorTo": "ffffff",
+          "yScl": 6,
+          "rotation": 240,
+          "moveRot": -180,
+          "xScl": 5,
+          "growX": -5
+        }
+      ]
+    }
+  ]
+}

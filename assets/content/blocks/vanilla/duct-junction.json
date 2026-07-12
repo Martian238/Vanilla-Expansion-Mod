@@ -1,0 +1,8 @@
+{
+  //"type": "DuctJunction",
+  "requirements": [ "beryllium/3" ],
+  "health": 120,
+  "research": "duct-bridge",
+  "researchCost": [ "beryllium/300" ],
+  "speed": 4
+}

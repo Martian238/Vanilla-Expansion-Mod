@@ -1,0 +1,19 @@
+{
+  "type": "Floor",
+  "isLiquid": true,
+  "status": "fusing",
+  "drownTime": 600,
+  "speedMultiplier": 0.3,
+  "variants": 3,
+  "liquidDrop": "lava",
+  "cacheLayer": "water",
+  "attributes": {
+    "heat": 0.9
+  },
+  "emitLight": true,
+  "lightRadius": 35,
+  "lightColor": "df171744",
+  "liquidMultiplier": 0.5,
+  "blendGroup": "basalt",
+  "canShadow": false
+}

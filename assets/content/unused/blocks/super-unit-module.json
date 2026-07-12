@@ -1,0 +1,10 @@
+{
+  "type": "Wall",
+  "requirements": [ "silicon/200","fibralt/170","thorium/140","silicide/10" ],
+  "health": 1800,
+  "size": 2,
+  "buildCostMultiplier": 3,
+  "category": "units",
+  "research": "super-assembler",
+  "researchCostMultiplier": 0.1
+}

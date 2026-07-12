@@ -1,0 +1,21 @@
+{
+  "minDistribute": 0,
+  "type": "MassDriver",
+  "consumes": {
+    "power": 1
+  },
+  "itemCapacity": 1,
+  "bullet": {
+    "bulletInterval": 1,
+    "collides": false,
+    "reflectable": false,
+    "intervalBullet": {
+      "lifetime": 20,
+      "speed": 2
+    }
+  },
+  "size": 3,
+  "buildVisibility": "sandboxOnly",
+  "alwaysUnlocked": true,
+  "range": 480
+}

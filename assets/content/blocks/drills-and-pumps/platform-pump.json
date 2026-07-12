@@ -1,0 +1,38 @@
+{
+  //"type": "Pump",
+  "requirements": [ "chromium/60","lead/20","metaglass/50" ],
+  "category": "liquid",
+  "pumpAmount": 0.25,
+  "warmupSpeed": 0.02,
+  "research": {
+    "parent": "pressure-pump",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.5,
+  "hasPower": true,
+  "health": 335,
+  "consumes": {
+    "power": 0.3,
+    "coolant": {
+      "amount": 0,
+      "optional": true,
+      "booster": false,
+      "maxTemp": 10,
+      "maxFlammability": 10
+    }
+  },
+  "liquidCapacity": 300,
+  "floating": true,
+  "conductivePower": true,
+  "armor": 6,
+  "size": 2,
+  "crushDamageMultiplier": 0.2,
+  "placeableLiquid": true,
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

@@ -1,0 +1,35 @@
+{
+  //"type": "MendProjector",
+  "category": "effect",
+  "reload": 60,
+  "range": 96,
+  "healPercent": 3,
+  "phaseBoost": 7,
+  "phaseRangeBoost": 48,
+  "useTime": 360,
+  "lightRadius": 96,
+  "research": {
+    "parent": "mend-point",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "intervalley"
+      }
+    ]
+  },
+  "consumes": {
+    "power": 1.85,
+    "items": {
+      "items": [ "phase-fabric/1" ],
+      "booster": true,
+      "optional": true
+    }
+  },
+  "size": 2,
+  "requirements": [ "aluminium/50","lead/120","silicon/60","silicide/10" ],
+  "health": 1050,
+  "armor": 12,
+  "researchCostMultiplier": 0.1,
+  "crushDamageMultiplier": 0.05,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

@@ -1,0 +1,195 @@
+{
+  "type": "GenericCrafter",
+  "category": "effect",
+  "size": 2,
+  "health": 1000,
+  //"priority": 10,
+  "consumes": {
+    "power": 0.166666666667,
+    "items": [ "metaglass/1" ]
+  },
+  "outputItem": "metaglass/1",
+  "hasPower": true,
+  "ambientSound": "none",
+  "buildVisibility": "sandboxOnly",
+  "alwaysUnlocked": true,
+  "craftTime": 24,
+  "itemCapacity": 100,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawRegion", "name": "graphite-press" },
+      /*{
+        "type": "DrawGlowRegion",
+        "suffix": "-top",
+        "color": "f25555",
+        "alpha": 0.9,
+        "glowIntensity": 0.5,
+        "glowScale": 10
+      },
+      {
+        "type": "DrawShape",
+        "layer": 100,
+        "radius": 48,
+        "useWarmupRadius": true,
+        "timeScl": 0.5,
+        "color": "f2555544"
+      },
+      {
+        "type": "DrawShape",
+        "layer": 100,
+        "radius": 48,
+        "useWarmupRadius": true,
+        "timeScl": -0.5,
+        "color": "f2555544"
+      },*/
+      {
+        "type": "DrawBlockParts",
+        "parts": [
+          {
+            "type": "RegionPart",
+            "name": "ve-any-projector-pic",
+            "color": "ffffff",
+            //"blending": "additive",
+            "growX": 0.33333, "growY": -0.29771,
+            "rotation": 90,//0.302 -0.338
+            "moveX": 8.035,//10.071
+            //216
+            //54
+            "outline": false,
+            "layer": 110.1,
+            "progress": {
+              "type": "reload",
+              "ops": [
+                {
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                {
+                  "op": "mul",
+                  "amount": "0.3"
+                },
+                {
+                  "op": "add",
+                  "other": {
+                    "type": "reload",
+                    "ops": [
+                {
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                {
+                  "op": "mul",
+                  "amount": "0.3"
+                }    ]
+                  }
+                },
+                {
+                  "op": "add",
+                  "other": {
+                    "type": "reload",
+                    "ops": [
+                {
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3In"
+                },
+                {
+                  "op": "mul",
+                  "amount": "0.4"
+                }    ]
+                  }
+                },
+                {
+                  "op": "mul",
+                  "other": "warmup"
+                }
+              ]
+            },
+            "growProgress": {
+              "type": "reload",
+              "ops": [
+                {
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                {
+                  "op": "mul",
+                  "amount": "0.3"
+                },
+                {
+                  "op": "add",
+                  "other": {
+                    "type": "reload",
+                    "ops": [
+                {
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                {
+                  "op": "mul",
+                  "amount": "0.3"
+                }    ]
+                  }
+                },
+                {
+                  "op": "add",
+                  "other": {
+                    "type": "reload",
+                    "ops": [
+                {
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3In"
+                },
+                {
+                  "op": "mul",
+                  "amount": "0.4"
+                }    ]
+                  }
+                },
+                {
+                  "op": "mul",
+                  "other": "warmup"
+                }
+              ]
+            },
+            "moves": [
+              {
+                "gx": -1
+                "gy": -1,
+                "progress": {
+                  "type": "warmup",
+                  "op": "inv"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffffff00",
+        "flameRadius": 0,
+        "flameRadiusIn": 0,
+        "lightRadius": 64,
+        //"lightColor": "3300ff",
+        "lightAlpha": 0.8
+      }
+    ]
+  }
+}

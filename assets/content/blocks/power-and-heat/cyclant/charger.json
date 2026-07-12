@@ -1,0 +1,53 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "aluminium/200","plastanium/120","graphite/110","silicon/90","surge-alloy/60" ],
+  "category": "power",
+  "hasItems": true,
+  "hasPower": true,
+  "outputItem": "capacitor/1",
+  "size": 3,
+  "consumes": {
+    "power": 200,
+    "items": [ "surge-alloy/3" ]
+  },
+  "craftTime": 60,
+  "research": {
+    "parent": "power-battery",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "ruins"
+      }
+    ]
+  },
+  "itemCapacity": 30,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      { 
+        "type": "DrawGlowRegion",
+        "suffix": "-top",
+        "color": "ffffff",
+        "alpha": 1,
+        "glowIntensity": 0.01
+      },
+      { 
+        "type": "DrawGlowRegion",
+        "suffix": "-glow2",
+        "color": "f3e979",
+        "alpha": 0.7
+        "glowScale": 5
+      },
+      { 
+        "type": "DrawGlowRegion",
+        "suffix": "-glow1",
+        "color": "f3e979",
+        "alpha": 0.9,
+        "glowScale": 3
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.3,
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
+}

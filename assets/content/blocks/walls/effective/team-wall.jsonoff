@@ -1,0 +1,12 @@
+{
+  "type": "Wall",
+  "requirements": [ "chromium/24","silicon/10" ],
+  "category": "defense",
+  "research": "aluminium-wall",
+  "health": 3750,
+  "armor": 3,
+  "size": 2,
+  "teamPassable": true,
+  "researchCostMultiplier": 0.5,
+  "solidifes": false
+}

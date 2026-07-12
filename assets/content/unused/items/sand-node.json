@@ -1,0 +1,12 @@
+{
+  "color": "f7cba4",
+  "lowPriority": true,
+  "buildable": false,
+  "research": {
+    "parent": "coal-node",
+    "objectives": [ "sand" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

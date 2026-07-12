@@ -1,0 +1,147 @@
+{
+  //"type": "PowerTurret",
+  "underBullets": true,
+  "priority": -2,
+  "hasShadow": false,
+  "size": 1,
+  "solid": false,
+  "targetable": false,
+  "hasPower": true,
+  "hasLiquids": false,
+  "rotate": false,
+  "consumes": {
+    "power": 0.6
+  },
+  "conductivePower": true,
+  "category": "effect",
+  "research": {
+    "parent": "trap-blast"
+  },
+  "requirements": [
+    "silver/5","silicon/20","surge-alloy/8"
+  ],
+  "shownPlanets": [ "maress","thavina" ],
+  "drawer": {
+    "type": "DrawTurret",
+    "parts": [
+      {
+        "type": "RegionPart", "under": false,
+        "suffix": "-ring",
+        "progress": {
+          "type": "recoil",
+          "op": "mul",
+          "other": "warmup"
+        },
+        "color": "ffffff00",
+        "colorTo": "ffffff",
+        "rotation": 0,
+        "outline": false
+      },
+      {
+        "type": "RegionPart", "under": false,
+        "suffix": "-mark",
+        "progress": {
+          "type": "reload",
+          "ops": [
+            {
+              "op": "mul",
+              "amount": 0
+            },
+            {
+              "op": "sin",
+              "scl": 6,
+              "mag": 0.1
+            },
+            {
+              "op": "add",
+              "amount": 0.9
+            },
+            {
+              "op": "mul",
+              "other": "warmup"
+            }
+          ]
+        },
+        "color": "ffffff00",
+        "colorTo": "ffffff",
+        "rotation": 0,
+        "outline": false
+      },
+      {
+        "type": "RegionPart", "under": false,
+        "suffix": "-ring-glow",
+        "progress": {
+          "type": "recoil",
+          "op": "mul",
+          "other": "warmup"
+        },
+        "blending": "additive",
+        "color": "f3e97900",
+        "colorTo": "f3e979",
+        "rotation": 0,
+        "outline": false
+      },
+      {
+        "type": "RegionPart", "under": false,
+        "suffix": "-mark-glow",
+        "progress": {
+          "type": "reload",
+          "ops": [
+            {
+              "op": "mul",
+              "amount": 0
+            },
+            {
+              "op": "sin",
+              "scl": 6,
+              "mag": 0.1
+            },
+            {
+              "op": "add",
+              "amount": 0.9
+            },
+            {
+              "op": "mul",
+              "other": "warmup"
+            }
+          ]
+        },
+        "blending": "additive",
+        "color": "f3e97900",
+        "colorTo": "f3e979",
+        "rotation": 0,
+        "outline": false
+      }
+    ]
+  },
+  "shootWarmupSpeed": 0.1,
+  "minWarmup": 0.5,
+  "reload": 60,
+  "recoilTime": 30,
+  "recoilPow": 2,
+  "recoil": 0,
+  "ammoUseEffect": "none",
+  "shootSound": "shootArc",
+  "rotateSpeed": 0,
+  "shootCone": 361,
+  "range": 6,
+  "trackingRange": 24,
+  "targetAir": false,
+  "targetBlocks": false,
+  "shootY": 0,
+  "health": 300,
+  "armor": 8,
+  "shake": 0.5,
+  "shootType": {
+    "type": "LightningBulletType",
+    "randomAngleOffset": 360,
+    "lightningLength": 7,
+    "status": "shocked",
+    "statusDuration": 10,
+    "armorMultiplier": 0.5,
+    "lightningLengthRand": 2,
+    "lightningColor": "f3e979",
+    "damage": 20,
+    "collidesAir": false
+  }
+}

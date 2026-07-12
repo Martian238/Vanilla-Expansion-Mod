@@ -1,0 +1,246 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": false,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": false,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "speed": 0,
+  "health": 999999,
+  "armor": 0,
+  "deathSound": "none",
+  "clipSize": 800,
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "bounded": false,
+  "lightRadius": 0,
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "hidden": true,
+  "loopSound": "none",
+  "loopSoundVolume": 0,
+  "type": "missile",
+  "lifetime": 370,
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "targetAir": false,
+  "targetGround": false,
+  "weapons": [
+    {
+      "alwaysShooting": true,
+      "recoil": 0,
+      "y": 16,
+      "recoilTime": 30,
+      "recoilPow": 1,
+      "reload": 600,
+      "mirror": false,
+      "alternate": false,
+      "x": 0,
+      "shootCone": 361,
+      "shootY": 7,
+      "shootSound": "none",
+      "shootSoundVolume": 1,
+      "ignoreRotation": true,
+      "useAttackRange": false,
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "controllable": false,
+      "aiControllable": true,
+      "parentizeEffects": true,
+      "shake": 0,
+      //"shootOnDeath": true,
+      "autoTarget": false,
+      "inaccuracy": 40,
+      "shoot": {
+        "shots": 45,
+        "shotDelay": 8
+      },
+      "bullet": {
+        "createChance": 0.8,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragOffsetMax": 1,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "fragVelocityMin": 0.8,
+        "fragBullet": {
+        "type": "MultiBulletType",
+        "bullets": [
+        {
+          "speed": 0,
+          "frontColor": "00000000",
+          "backColor": "00000000",
+          "collides": false,
+          "reflectable": false,
+          "hittable": false,
+          "absorbable": false,
+          "instantDisappear": true,
+          "despawnEffect": {
+          "type": "SoundEffect",
+          "sound": [ "lbp3TeleportBallFire1","lbp3TeleportBallFire2","lbp3TeleportBallFire3" ],
+          "maxPitch": 1,
+          "minPitch": 1,
+          "maxVolume": 0.5,
+          "minVolume": 0.5,
+          "effect": {
+            "type": "WaveEffect",
+            "lifetime": 6,
+            "strokeFrom": 6,
+            "strokeTo": 0,
+            "colorFrom": "bf92f9",
+            "colorTo": "bf92f9",
+            "sizeFrom": 4,
+            "sizeTo": 24,
+            "sides": 24
+          }
+          },
+          "hitEffect": "none"
+        },
+        {
+        "speed": 2,
+        "lifetime": 1000,
+        "collideTerrain": true,
+        "frontColor": "00000000",
+        "backColor": "00000000",
+        "lightColor": "bf92f9",
+        "parts": [
+          {
+            "type": "ShapePart",
+            "radius": 0,
+            "radiusTo": 15.6,
+            "color": "bf92f980",
+            "circle": true,
+            "clampProgress": false,
+            "layer": 99.99,
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "mul",
+                  "amount": 80
+                },
+                {
+                  "op": "clamp"
+                },
+                {
+                  "op": "add",
+                  "other": {
+                    "type": "life",
+                    "ops": [
+                {
+                  "op": "mul",
+                  "amount": 60
+                },
+                {
+                  "op": "clamp"
+                },
+                {
+                  "op": "mul",
+                  "amount": 0.3
+                },
+                {
+                  "op": "inv"
+                },
+                {
+                  "op": "add",
+                  "amount": -0.7
+                }
+                    ]
+                  }
+                },
+                {
+                  "op": "mul",
+                  "amount": 0.7692307692
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "radius": 0,
+            "radiusTo": 14.3,
+            "color": "bf92f9aa",
+            "circle": true,
+            "clampProgress": false,
+            "layer": 100,
+            "stroke": 2,
+            "hollow": true,
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "mul",
+                  "amount": 80
+                },
+                {
+                  "op": "clamp"
+                },
+                {
+                  "op": "add",
+                  "other": {
+                    "type": "life",
+                    "ops": [
+                {
+                  "op": "mul",
+                  "amount": 60
+                },
+                {
+                  "op": "clamp"
+                },
+                {
+                  "op": "mul",
+                  "amount": 0.3
+                },
+                {
+                  "op": "inv"
+                },
+                {
+                  "op": "add",
+                  "amount": -0.7
+                }
+                    ]
+                  }
+                },
+                {
+                  "op": "mul",
+                  "amount": 0.7692307692
+                }
+              ]
+            }
+          }
+        ],
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "mineHuge",
+        "despawnEffect": "mineHuge",
+        "hitColor": "bf92f9",
+        "hitSize": 20,
+        "damage": 50,
+        "absorbable": false,
+        "hittable": false,
+        "homingPower": 0.01,
+        "homingRange": 24,
+        "buildingDamageMultiplier": 4,
+        "status": "sapped",
+        "statusDuration": 300
+        }
+        ]}
+      }
+    }
+  ],
+  "parts": [
+  ]   
+}

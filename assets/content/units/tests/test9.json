@@ -1,0 +1,163 @@
+{
+  "type": "flying",
+  "databaseTag": "13other-unit",
+  "researchCostMultiplier": 0,
+  "alwaysUnlocked": true,
+  "isEnemy": true,
+  "lowAltitude": true,
+  "outlineColor": "2d2f39",
+  "flying": true,
+  "drag": 0.04,
+  "speed": 1.8,
+  "rotateSpeed": 4,
+  "accel": 0.04,
+  "health": 400,
+  "armor": 5,
+  "engineOffset": 6.5,
+  "engineSize": 3,
+  "hitSize": 12,
+  "itemCapacity": 50,
+  "faceTarget": true,
+  "flyingLayer": 90,
+  "engineLayer": 122,
+  "weapons": [
+    /*{
+      "name": "test9-weapon",
+      "rotate": true,
+      "top": false,
+      "x": 6,
+      "y": 2,
+      "rotationLimit": 10,
+      "recoil": 4,
+      "rotateSpeed": 2,
+      "reload": 170,
+      "shootSound": "railgun",
+      "ejectEffect": "none",
+      "shootY": 10,
+      "shake": 0,
+      "shoot": {
+        "shots": 150,
+        "shotDelay": 1
+      },
+      "bullet": {
+        "recoil": 0,
+        "hitShake": 0,
+        "shootEffect": {
+          "type": "ParticleEffect",
+          "length": 0,
+          "lifetime": 2,
+          "sizeFrom": 4,
+          "sizeTo": 0,
+          "particles": 1,
+          "baseLength": 0,
+          "sizeInterp": "circleIn",
+          "colorFrom": "90dbff",
+          "colorTo": "90dbff"
+        },
+        "smokeEffect": "none",
+        "type": "RailBulletType",
+        "length": 400,
+        "damage": 2,
+        "pierce": false,
+        "pierceBuilding": false,
+        "pierceCap": -1,
+        "pierceEffect": "none",
+        "pointEffect": { 
+          "type": "ParticleEffect",
+          "length": 0,
+          "lifetime": 2,
+          "sizeFrom": 1.5,
+          "sizeTo": 0,
+          "particles": 1,
+          "baseLength": 0,
+          "sizeInterp": "circleIn",
+          "colorFrom": "90dbff",
+          "colorTo": "90dbff"
+        },
+        "pointEffectSpace": 1,
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+        {
+          "type": "ParticleEffect",
+          "length": 0,
+          "lifetime": 2,
+          "sizeFrom": 4,
+          "sizeTo": 0,
+          "particles": 1,
+          "baseLength": 0,
+          "sizeInterp": "circleIn",
+          "colorFrom": "90dbff",
+          "colorTo": "90dbff"
+        },
+        "hitBulletSmall"
+          ]
+        }
+      }
+    }*/
+    {
+      "name": "test9-weapon",
+      "rotate": true,
+      "top": false,
+      "x": 6,
+      "y": 2,
+      "rotationLimit": 10,
+      "recoil": 4,
+      "rotateSpeed": 2,
+      "reload": 60,
+      "shootSound": "shootOmura",
+      "ejectEffect": "none",
+      "shootY": 10,
+      "shake": 6,
+      "alternate": false,
+      "bullet": {
+        "type": "RailBulletType",
+        "lineEffect": "chainLightning",
+        "length": 600,
+        "pierceEffect": "railHit",
+        "damage": 80000,
+        "despawnEffect": "none",
+        "hitShake": 6,
+        "despawnShake": 4,
+        "hitEffect": "railHit",
+        "hitColor": "ffd37f",
+        "shootEffect": "hitLaserBlast",
+        "smokeEffect": "smokeCloud",
+        "pointEffect": "railTrail",
+        "pointEffectSpace": 30, 
+        "spawnBullets": [
+          {
+            "type": "LaserBulletType",
+            "damage": 0,
+            "collidesGround": false,
+            "collidesTiles": false,
+            "sideAngle": 90,
+            "sideWidth": 1.5,
+            "sideLength": 30,
+            "length": 0,
+            "colors": [ 
+              "ffd37f","ffffff","ffffff"
+            ],
+            "hitColor": "ffd37f",
+            "lifetime": 18
+          },
+          {
+            "type": "LaserBulletType",
+            "damage": 0,
+            "collidesGround": false,
+            "collidesTiles": false,
+            "sideAngle": 135,
+            "sideWidth": 1.5,
+            "sideLength": 15,
+            "length": 0,
+            "colors": [ 
+              "ffd37f","ffffff","ffffff"
+            ],
+            "hitColor": "ffd37f",
+            "lifetime": 18
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "effect": "smoke",
+  "color": "aaaaaa",
+  "damageMultiplier": 0,
+  "permanent": false,
+  "buildSpeedMultiplier": 0.01,
+  "applyEffect": "mineHuge",
+  "show": true
+}

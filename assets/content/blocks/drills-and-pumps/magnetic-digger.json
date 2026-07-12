@@ -1,0 +1,55 @@
+{
+  //"type": "Drill",
+  "category": "production",
+  "requirements": [ "ferrum/120","graphite/70","silicon/40","quartz/40" ],
+  "research": {
+    "parent": "collector"
+  },
+  "researchCostMultiplier": 0.03,
+  "drillTime": 90,
+  "itemCapacity": 30,
+  "size": 3,
+  "tier": 4,
+  "consumes": {
+    "liquid": {
+      "liquid": "water",
+      "amount": 0.15,
+      "booster": true,
+      "optional": true
+    },
+    "power": 2
+  },
+  "hasPower": true,
+  "consumesPower": true,
+  "conductivePower": true,
+  "rotateSpeed": 7,
+  "liquidBoostIntensity": 1.6,
+  "warmupSpeed": 0.0035,
+  "ambientSound": "loopMachineSpin",
+  "ambientSoundVolume": 0.15,
+  "crushDamageMultiplier": 0.2,
+  "hardnessDrillMultiplier": 25,
+  "updateEffect": {
+    "type": "WrapEffect",
+    "effect": "mine",
+    "color": "cc8270"
+  },
+  "drillEffect": "mineHuge",
+  "drillMultipliers": {
+    "ferrum": 1.5,
+    "silver": 1.2,
+    "sand": 0.6,
+    "red-soil": 0.9,
+    "melon-dirt": 0.6,
+    "salt": 0.6,
+    "scrap": 1.2,
+    "coal": 0.6,
+    "tantalum": 1.2,
+    "spore-pod": 0,
+    "pyratite": 0.6
+  },
+  "blockedItems": [ "spore-pod" ],
+  "drawRim": true,
+  "heatColor": "cc8270",
+  "shownPlanets": [ "sitrullus","maress","thavina" ]
+}

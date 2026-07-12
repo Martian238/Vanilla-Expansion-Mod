@@ -1,0 +1,90 @@
+{
+  "type": "flying",
+  "databaseTag": "13other-unit",
+  "researchCostMultiplier": 0,
+  "alwaysUnlocked": true,
+  "isEnemy": true,
+  "lowAltitude": true,
+  "outlineColor": "2d2f39",
+  "flying": true,
+  "drag": 0.04,
+  "speed": 4.5,
+  "rotateMoveFirst": true,
+  "rotateSpeed": 4,
+  "accel": 0.03,
+  "health": 200,
+  "armor": 2,
+  "engineOffset": 6.5,
+  "hitSize": 10,
+  "itemCapacity": 30,
+  "faceTarget": true,
+  "buildSpeed": 0.8,
+  "weapons": [
+    {
+      "name": "test-weapon",
+      "rotate": true,
+      "top": true,
+      "x": 10,
+      "y": -1,
+      "layerOffset": -0.001,
+      "recoil": 2,
+      "reload": 10,
+      "shootSound": "pewClassicEdited",
+      "ejectEffect": "casing1",
+      "shootY": 3.5,
+      "bullet": {
+        "damage": 9,
+        "speed": 6,
+        "width": 7,
+        "height": 9,
+        "lifetime": 30,
+        "recoil": -0.1
+      }
+    },
+    {
+      "reload": 80,
+      "recoil": 0,
+      "ejectEffect": "none",
+      "mirror": false,
+      "shootSound": "si2Teleport",
+      "shootStatus": "drag",
+      "shootStatusDuration": 2,
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "shake": 4,
+      "bullet": {
+        "maxRange": 80,
+        "instantDisappear": true,
+        "recoil": -64,
+        "despawnEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "WaveEffect",
+              "sizeFrom": 14,
+              "sizeTo": 0,
+              "strokeFrom": 18,
+              "strokeTo": 0,
+              "sides": 24,
+              "lifetime": 30
+            },
+            {
+              "type": "RadialEffect",
+              "amount": 1,
+              "lengthOffset": 128,
+              "effect": {
+                "type": "WaveEffect",
+                "sizeFrom": 14,
+                "sizeTo": 0,
+                "strokeFrom": 18,
+                "strokeTo": 0,
+                "sides": 24,
+                "lifetime": 30
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+ // "type": "VariableReactor",
+  "category": "power",
+  "requirements": [ "ferrum/500","silver/200","silicide/150","silicon/300","thorium/100" ],
+  "ambientSound": "loopDifferential",
+  "ambientSoundVolume": 0.2,
+  "unstableSpeed": 0.001,
+  "maxHeat": 300,
+  "flashThreshold": 0.001,
+  "flashAlpha": 0.6,
+  "flashSpeed": 10,
+  "flashColor2": "feb38000",
+  "powerProduction": 600,
+  "explosionDamage": 1000,
+  "explosionSound": "explosionReactor2",
+  "explosionPuddles": 0,
+  "explosionPuddleAmount": 0,
+  "effect": "drillSteam",
+  "effectChance": 0.005,
+  "consumes": {
+    "liquids": {
+      "liquids": [ "cryofluid/0.5" ]
+    }
+  },
+  "hasLiquids": true,
+  "liquidCapacity": 300,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "cryofluid"
+      },
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawHeatInput"
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-cryoglow",
+        "color": "6ecdec",
+        "alpha": 0.6,
+        "glowIntensity": 0.1
+      }
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-ventglow",
+        "color": "feb380",
+        "alpha": 0.8
+      }
+    ]
+  },
+  "size": 4,
+  "armor": 12,
+  "research": {
+    "parent": "heat-steam-generator",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "radioactive-islands"
+      }
+    ]
+  }
+}

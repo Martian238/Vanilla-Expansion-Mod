@@ -1,0 +1,44 @@
+{
+  //"type": "Drill",
+  "category": "production",
+  "requirements": [ "lead/40","graphite/55","chromium/45","silicon/20" ],
+  "research": {
+    "parent": "hydraulic-drill",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.01,
+  "drillTime": 75,
+  "itemCapacity": 40,
+  "size": 3,
+  "tier": 0,
+  "consumes": {
+    "liquid": {
+      "liquid": "water",
+      "amount": 0.075,
+      "booster": true,
+      "optional": true
+    },
+    "power": 1.2
+  },
+  "hasPower": true,
+  "rotateSpeed": 10,
+  "liquidBoostIntensity": 1.53,
+  "blockedItem": "scrap",
+  "warmupSpeed": 0.01,
+  "drillEffect": "breakProp",
+  "updateEffect": "pulverizeSmall",
+  "updateEffectChance": 0.06,
+  "liquidCapacity": 20,
+  "ambientSoundVolume": 0.25,
+  "crushDamageMultiplier": 0.2,
+  "squareSprite": false,
+  "drillMultipliers": {
+    "spore-pod": 0
+  },
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

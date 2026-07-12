@@ -1,0 +1,26 @@
+{
+  "planet": "serpulo",
+  "sector": 218,
+  "difficulty": 4,
+  "research": {
+    "parent": "classic-222",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "frozenForest"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 25,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true,
+  "originalPosition": 223,
+  "showHidden": true,
+  "requireUnlock": false
+}
+
+
+

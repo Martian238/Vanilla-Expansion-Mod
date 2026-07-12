@@ -1,0 +1,73 @@
+{
+  //"type": "AttributeCrafter",
+  "requirements": [ "aluminium/40","silicon/35","metaglass/25" ],
+  "category": "production",
+  "outputItem": "plant-matter/2",
+  "research": {
+    "parent": "isomorphic-kiln",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "consumes": {
+    "items": {
+      "items": [ "salt/1" ]
+    },
+    "liquids": {
+      "liquids": [ "water/0.06666666667" ]
+    }
+    "power": 0.5
+  },
+  "craftEffect": "none",
+  "hasItems": true,
+  "hasLiquids": true,
+  "hasPower": true,
+  "attribute": "plant",
+  "liquidCapacity": 15,
+  "itemCapacity": 10,
+  "craftTime": 300,
+  "size": 2,
+  "legacyReadWarmup": true,
+  "maxBoost": 0.75,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water"
+      },
+      { 
+        "type": "DrawCultivator",
+        "plantColorLight": "6aa95e",
+        "plantColor": "4e904f",
+        "bottomColor": "3f7a50"
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": ""
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-top0"
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffffff00",
+        "flameRadius": 0,
+        "flameRadiusIn": 0,
+        "lightRadius": 16,
+        "lightAlpha": 0.8,
+        "lightSinMag": 0
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.5,
+  "shownPlanets": [ "cyclant","phoon" ]
+}

@@ -1,0 +1,210 @@
+{
+  "type": "hover",
+  "databaseTag": "08cyclant-newtype-unit",
+  "hovering": true,
+  "health": 650,
+  "armor": 4,
+  "rotateSpeed": 7,
+  "speed": 2.5,
+  "accel": 0.06,
+  "drag": 0.06,
+  "hitSize": 16,
+  "lowAltitude": true,
+  "flying": false,
+  "itemCapacity": 40,
+  "shadowElevation": 0.1,
+  "useEngineElevation": false,
+  "engineSize": 2.5,
+  "engineOffset": 7,
+  "targetAir": false,
+  "groundLayer": 70,
+  "fogRadius": 120,
+  "canDrown": false,
+  "research": {
+    "parent": "dust",
+    "objectives": [ "junior-hovership-reconstructor" ],
+    "requirements": [ "silicon/400","graphite/600" ]
+  },
+  "immunities": [ "blown","dusty" ],
+  "strafePenalty": 1,
+  "targetFlags": [
+    "factory"
+  ],
+  "lightColor": "90dbff",
+  "drownTimeMultiplier": 99999,
+  "researchCostMultiplier": 0.3,
+  "loopSound": "loopHover",
+  "loopSoundVolume": 0.2,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "parts": [
+    {
+      "type": "HoverPart",
+      "x": 7.5,
+      "y": -1.75,
+      "mirror": true,
+      "radius": 6,
+      "phase": 85,
+      "stroke": 2.25,
+      "minStroke": 0,
+      "layerOffset": -0.002,
+      "color": "90dbff",
+      "sides": 4
+    },
+    {
+      "type": "HoverPart",
+      "x": 0,
+      "y": 7.5,
+      "mirror": false,
+      "radius": 6,
+      "phase": 85,
+      "stroke": 2,
+      "layerOffset": -0.002,
+      "color": "90dbff",
+      "sides": 4
+    },
+    {
+      "type": "RegionPart",
+      "x": 0,
+      "y": 0,
+      "suffix": "-glow",
+      "color": "90dbffaa",
+      "mixColor": "90dbffaa",
+      "outline": false,
+      "blending": "additive",
+      "layerOffset": 0.001
+    }
+  ],
+  "weapons": [
+    {
+      "name": "mist-weapon",
+      "x": 5.75,
+      "y": -4.75,
+      "reload": 120,
+      "minWarmup": 0.13,
+      "ejectEffect": "none",
+      "shootSound": "shootMerui",
+      "shootStatus": "slow",
+      "shootStatusDuration": 180,
+      "recoil": 2,
+      "top": true,
+      "mirror": true,
+      "shootX": 0.25,
+      "shootY": 3.75,
+      "parts": [
+      ],
+      "layerOffset": 0.002,
+      "bullet": {
+        "width": 10,
+        "type": "ArtilleryBulletType",
+        "keepVelocity": false,
+        "height": 10,
+        "damage": 5,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 10,
+        "speed": 2,
+        "hittable": false,
+        "lifetime": 100,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "lightColor": "90dbff",
+        "collides": true,
+        "collidesAir": false,
+        "reflectable": false,
+        "shootEffect": "shootBigColor",
+        "hitColor": "90dbff",
+        "smokeEffect": "shootBigSmoke"
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "smeltsmoke",
+        "hitSound": "none"
+        "hitEffect": "smeltsmoke",
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "collideTerrain": true,
+        "despawnSound": "none",
+        "sprite": "circle-bullet",
+        "fragBullet": {
+          "width": 10,
+          "height": 10,
+          "hitSize": 14,
+          "hittable": false,
+          "layer": 25,
+          "damage": 42,
+          "speed": 0,
+          "lifetime": 7200,
+          "collidesAir": false,
+          "collides": true,
+          "collideTerrain": true,
+          "frontColor": "90dbff",
+          "backColor": "78abd1",
+          "reflectable": false,
+          "hitColor": "90dbff",
+          "type": "BasicBulletType",
+          "splashDamage": 55,
+          "hitShake": 3,
+          "lightColor": "000000",
+          "lightRadius": 0,
+          "splashDamageRadius": 32,
+          "despawnEffect": "smeltsmoke",
+          "despawnSound": "bangClassic",
+          "status": "blown",
+          "statusDuration": 900,
+          "hitSize": 16,
+          "hitSound": "bang",
+          "hitEffect": {
+            "type": "MultiEffect",
+            "effects": [
+              "massiveExplosion",
+              {
+                "type": "SeqEffect",
+                "effects": [
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 32,
+                    "sides": 24,
+                    "strokeFrom": 4,
+                    "lifetime": 5
+                  },
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 29,
+                    "sides": 24,
+                    "strokeFrom": 6,
+                    "lifetime": 5
+                  },
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 26,
+                    "sides": 24,
+                    "strokeFrom": 6,
+                    "lifetime": 5
+                  },
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 23,
+                    "sides": 24,
+                    "strokeFrom": 6,
+                    "lifetime": 5
+                  }
+                ]
+              }
+            ]
+          },
+          "knockback": 3,
+          "sprite": "circle-bullet",
+          "shrinkY": 0
+        }
+      }
+    }
+  ]
+}

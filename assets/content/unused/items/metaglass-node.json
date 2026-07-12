@@ -1,0 +1,11 @@
+{
+  "color": "ebeef5",
+  "cost": 1.5,
+  "research": {
+    "parent": "lead-node",
+    "objectives": [ "metaglass" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

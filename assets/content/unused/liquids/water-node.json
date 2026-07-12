@@ -1,0 +1,14 @@
+{
+  "color": "596ab8",
+  "heatCapacity": 0.4,
+  "effect": "wet",
+  "boilPoint": 0.5,
+  "gasColor": "D4D4D4",
+  "research": {
+    "parent": "metaglass-node",
+    "objectives": [ "water" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

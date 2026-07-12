@@ -1,0 +1,75 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus","thavina" ],
+  "immunities": {"add":[ "dusty" ]},
+  "databaseTag": "02serpulo-ground-unit",
+  "weapons": [
+    {
+      "shootOnDeath": true,
+      "reload": 24,
+      "shootCone": 180,
+      "ejectEffect": "none",
+      "shootSound": "explosionCrawler",
+      "x": 0,
+      "shootY": 0,
+      "mirror": false,
+      "bullet": {
+        "collidesTiles": false,
+        "collides": false,
+        "hitSound": "explosionCrawler",
+        "rangeOverride": 30,
+        "hitEffect": "pulverize",
+        "speed": 0,
+        "splashDamageRadius": 55,
+        "instantDisappear": true,
+        "splashDamage": 90,
+        "killShooter": true,
+        "hittable": false,
+        "collidesAir": true,
+        "shootEffect": "blastExplosion",
+        "smokeEffect": {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 64,
+          "sizeTo": 64,
+          "colorFrom": "ffffff88",
+          "colorTo": "ffa66500",
+          "lifetime": 10,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "ffa665",
+          "layer": 120
+        }
+      },
+      "minWarmup": 0.5,
+      "shootWarmupSpeed": 0.05,
+      "parts": [
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "hollow": true,
+          "radius": 55,
+          "color": "bf92f9",
+          "colorTo": "bf92f9",
+          "stroke": 0,
+          "strokeTo": 1,
+          "radiusTo": 55,
+          "progress": "warmup",
+          "layer": 0.01
+        },
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "hollow": false,
+          "radius": 0,
+          "color": "bf92f988",
+          "colorTo": "bf92f988"
+          "radiusTo": 110,
+          "progress": "warmup",
+          "layer": 0.01
+        }
+      ]
+    }
+  ]
+}

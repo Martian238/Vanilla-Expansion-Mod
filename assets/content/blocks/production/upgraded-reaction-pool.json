@@ -1,0 +1,856 @@
+{
+  "type": "MultiCraft.MultiCrafter",
+  "requirements": [ "chromium/200","ferrum/100","catalyzon/50","silicon/150","silicide/100","graphite/50" ],
+  "category": "crafting",
+  "craftEffect": "none",
+  "size": 4,
+  "armor": 16,
+  "hasPower": true,
+  "hasLiquids": true,
+  "liquidCapacity": 600,
+  "itemCapacity": 100,
+  "hasItems": true,
+  "rotate": true,
+  "rotateDraw": false,
+  "drawArrow": true,
+  "warmupSpeed": 0.05,
+  "dumpTime": 1,
+  "research": {
+    "parent": "catalyzon-workshop",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "mirror-swamp"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.2,
+  "shownPlanets": [ "maress","thavina" ]
+  /*"changeRecipeEffect": {
+    "type": "SoundEffect",
+    "effect": {
+      "type": "WrapEffect",
+      "effect": "rotateBlock",
+      "color": "ffd37f",
+      "rotation": 4
+    },
+    "sound": "si2HackingComplete"
+    "minPitch": 1,
+    "maxPitch": 1
+  },*/
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { 
+        "type": "DrawRegion"
+        "suffix": "-rotator",
+        "rotateSpeed": -2.5
+      },
+      { 
+        "type": "DrawRegion"
+        "suffix": "-shadow1" 
+      },
+      { 
+        "type": "DrawRegion"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "chlorine",
+        "padLeft": 9,
+        "padRight": 20.75,
+        "padding": 11.5
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen",
+        "padLeft": 20.75,
+        "padRight": 9,
+        "padding": 11.5
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "slag",
+        "padLeft": 11.75,
+        "padRight": 17.75,
+        "padding": 11.5
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "lava",
+        "padLeft": 11.75,
+        "padRight": 17.75,
+        "padding": 11.5
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "cryofluid",
+        "padLeft": 17.75,
+        "padRight": 11.75,
+        "padding": 11.5
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water",
+        "padLeft": 14.75,
+        "padRight": 14.75,
+        "padding": 11.5,
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-shell",
+        "layer": 32
+      },
+      {
+        "type": "DrawBlockParts",
+        "parts": [
+          /*{
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "98ffa9",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }
+          },
+          {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555480",
+            "colorTo": "98ffa940",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }
+          },*/
+          {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-piston-r",
+            "outline": false,
+            "layer": 32.1,
+            "rotation": 90,
+            "moveY": -1,
+            "clampProgress": false,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "curve",
+                  "interp": "sine"
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "loop",
+                        "time": 480
+                      },
+                      {
+                        "op": "compress",
+                        "start": 0,
+                        "end": 0.08333
+                      },
+                      {
+                        "op": "curve",
+                        "interp": "circleOut"
+                      },
+                      {
+                        "op": "mul",
+                        "amount": 5.25
+                      },
+                      {
+                        "op": "add",
+                        "other": {
+                        "type": "time",
+                    "ops": [
+                      {
+                        "op": "loop",
+                        "time": 480
+                      },
+                      {
+                        "op": "compress",
+                        "start": 0.25,
+                        "end": 0.33333
+                      },
+                      {
+                        "op": "curve",
+                        "interp": "circleOut"
+                      },
+                      {
+                        "op": "mul",
+                        "amount": -5.25
+                      },
+                      {
+                        "op": "add",
+                        "other": {
+                        "type": "time",
+                    "ops": [
+                      {
+                        "op": "loop",
+                        "time": 480
+                      },
+                      {
+                        "op": "compress",
+                        "start": 0.5,
+                        "end": 0.58333
+                      },
+                      {
+                        "op": "curve",
+                        "interp": "circleOut"
+                      },
+                      {
+                        "op": "mul",
+                        "amount": 2.25
+                      },
+                      {
+                        "op": "add",
+                        "other": {
+                        "type": "time",
+                    "ops": [
+                      {
+                        "op": "loop",
+                        "time": 480
+                      },
+                      {
+                        "op": "compress",
+                        "start": 0.75,
+                        "end": 0.83333
+                      },
+                      {
+                        "op": "curve",
+                        "interp": "circleOut"
+                      },
+                      {
+                        "op": "mul",
+                        "amount": -2.25
+                      }
+                    ]
+                        }
+                      }
+                    ]
+                        }
+                      }
+                    ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-piston-l",
+            "outline": false,
+            "layer": 32.1,
+            "rotation": 90,
+            "moveY": 1,
+            "clampProgress": false,
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "curve",
+                  "interp": "sine"
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "time",
+                    "ops": [
+                      {
+                        "op": "loop",
+                        "time": 480
+                      },
+                      {
+                        "op": "compress",
+                        "start": 0,
+                        "end": 0.08333
+                      },
+                      {
+                        "op": "curve",
+                        "interp": "circleOut"
+                      },
+                      {
+                        "op": "mul",
+                        "amount": 5.25
+                      },
+                      {
+                        "op": "add",
+                        "other": {
+                        "type": "time",
+                    "ops": [
+                      {
+                        "op": "loop",
+                        "time": 480
+                      },
+                      {
+                        "op": "compress",
+                        "start": 0.25,
+                        "end": 0.33333
+                      },
+                      {
+                        "op": "curve",
+                        "interp": "circleOut"
+                      },
+                      {
+                        "op": "mul",
+                        "amount": -5.25
+                      },
+                      {
+                        "op": "add",
+                        "other": {
+                        "type": "time",
+                    "ops": [
+                      {
+                        "op": "loop",
+                        "time": 480
+                      },
+                      {
+                        "op": "compress",
+                        "start": 0.5,
+                        "end": 0.58333
+                      },
+                      {
+                        "op": "curve",
+                        "interp": "circleOut"
+                      },
+                      {
+                        "op": "mul",
+                        "amount": 2.25
+                      },
+                      {
+                        "op": "add",
+                        "other": {
+                        "type": "time",
+                    "ops": [
+                      {
+                        "op": "loop",
+                        "time": 480
+                      },
+                      {
+                        "op": "compress",
+                        "start": 0.75,
+                        "end": 0.83333
+                      },
+                      {
+                        "op": "curve",
+                        "interp": "circleOut"
+                      },
+                      {
+                        "op": "mul",
+                        "amount": -2.25
+                      }
+                    ]
+                        }
+                      }
+                    ]
+                        }
+                      }
+                    ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "ambientSound": "si2Steamvent",
+  "ambientSoundVolume": 0.1,
+  "shownPlanets": [ "maress","thavina" ],
+  "recipe": [
+    {
+      "inputLiquids": [ "water/1.5" ],
+      "inputItems": [ "ve-salt/18" ],
+      "inputPower": 3,
+      "outputLiquids": [ "hydrogen/0.9","ve-chlorine/0.9" ],
+      "craftTime": 60,
+      "visual": {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "98ffa9",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "98ffa980",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+      }
+    },
+    {
+      "inputLiquids": [ "water/1.5" ],
+      "inputPower": 3,
+      "outputLiquids": [ "hydrogen/0.9" ],
+      "craftTime": 60,
+      "visual": {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "98ffa9",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "98ffa980",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+      }
+    },
+    {
+      "inputLiquids": [ "water/0.33333333" ],
+      "inputItems": [ "ve-quartz/9" ],
+      "inputPower": 5.5,
+      "outputLiquids": [ "water/0.33333333" ],
+      "outputItems": [ "silicon/18" ],
+      "craftTime": 90,
+      "visual": {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "ffd37f",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "ffd37f80",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+      }
+    },
+    {
+      "inputLiquids": [ "ve-lava/0.26666667","water/0.5" ],
+      "inputPower": 2,
+      "outputLiquids": [ "water/0.5" ],
+      "outputItems": [ "sand/8" ],
+      "outputHeat": 30,
+      "craftTime": 60,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "ffa665",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "ffa66580",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+          },
+          {
+            "type": "DrawHeatOutput"
+          }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [ "ve-lava/0.5333333","cryofluid/0.5" ],
+      "inputPower": 2.5,
+      "outputLiquids": [ "cryofluid/0.5" ],
+      "outputItems": [ "sand/8" ],
+      "outputHeat": 60,
+      "craftTime": 30,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "ffa665",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "ffa66580",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+          },
+          {
+            "type": "DrawHeatOutput"
+          }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [ "ve-lava/0.26666667","water/0.33333333" ],
+      "inputPower": 2,
+      "outputItems": [ "sand/8" ],
+      "outputLiquids": [ "hydrogen/0.2" ],
+      "outputHeat": 20,
+      "craftTime": 60,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "ffa665",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "ffa66580",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+          },
+          {
+            "type": "DrawHeatOutput"
+          }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [ "water/1" ],
+      "inputItems": [ "ve-silver/4" ],
+      "inputPower": 3,
+      "outputLiquids": [ "cryofluid/1" ],
+      "craftTime": 120,
+      "visual": {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "90dbff",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "90dbff80",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+      }
+    },
+    {
+      "inputLiquids": [ "water/1.5" ],
+      "inputItems": [ "titanium/10","graphite/1" ],
+      "inputPower": 4,
+      "outputLiquids": [ "cryofluid/1.5" ],
+      "craftTime": 180,
+      "visual": {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "90dbff",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "90dbff80",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+      }
+    },
+    {
+      "inputLiquids": [ "water/0.3333333333" ],
+      "inputItems": [ "ve-red-soil/15" ],
+      "inputPower": 8,
+      "outputLiquids": [ "water/0.3333333333" ],
+      "outputItems": [ "ve-ferrum/12","silicon/9" ],
+      "craftTime": 90,
+      "visual": {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "ffd37f",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "ffd37f80",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+      }
+    },
+    {
+      "inputLiquids": [ "slag/0.5","water/0.5" ],
+      "inputPower": 2
+      "outputLiquids": [ "water/0.5" ],
+      "outputItems": [ "scrap/30" ],
+      "outputHeat": 50,
+      "craftTime": 120,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "ffa665",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "ffa66580",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+          },
+          {
+            "type": "DrawHeatOutput"
+          }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [ "slag/1","cryofluid/0.5" ],
+      "inputPower": 2.5
+      "outputLiquids": [ "cryofluid/0.5" ],
+      "outputItems": [ "scrap/30" ],
+      "outputHeat": 100,
+      "craftTime": 60,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights",
+            "color": "f25555",
+            "colorTo": "ffa665",
+            "outline": false,
+            "layer": 31.9,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }},
+            {
+            "type": "RegionPart",
+            "name": "ve-upgraded-reaction-pool-lights-glow",
+            "color": "f2555560",
+            "colorTo": "ffa66580",
+            "outline": false,
+            "blending": "additive",
+            "layer": 31.91,
+            "rotation": 90,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            }}
+            ]
+          },
+          {
+            "type": "DrawHeatOutput"
+          }
+        ]
+      }
+    },
+  ],
+  "conductivePower": false
+}

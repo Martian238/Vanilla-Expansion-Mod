@@ -1,0 +1,28 @@
+{
+  //"type": "CoreBlock",
+  "requirements": [ "aluminium/2000","lead/3000","silicon/2000","silicide/500" ],
+  "health": 6000,
+  "size": 4,
+  "armor": 4,
+  "unitType": "lambda",
+  "itemCapacity": 9000,
+  "unitCapModifier": 16,
+  "thrusterLength": 8.5,
+  "category": "effect",
+  "research": {
+    "parent": "isomorphic-core-shard"
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "intervalley"
+      }
+    ]
+  },
+  "researchCost": [ "aluminium/8000","lead/8000","silicon/8000","silicide/1000" ],
+  "requiresCoreZone": false,
+  "crushDamageMultiplier": 0.05,
+  "rebuildable": false,
+  "drawTeamOverlay": false,
+  "flammabilityScale": 0,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

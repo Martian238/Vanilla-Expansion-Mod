@@ -1,0 +1,15 @@
+{
+  //"type": "PayloadConveyor",
+  "requirements": [ "copper/500","silicon/300","titanium/200" ],
+  "category": "units",
+  "size": 9,
+  "research": {
+    "parent": "payload-conveyor"
+  },
+  "canOverdrive": false,
+  "payloadLimit": 9,
+  "moveTime": 120,
+  "moveForce": 603,
+  "placeableLiquid": true,
+  "shownPlanets": [ "serpulo","thavina" ]
+}

@@ -1,0 +1,15 @@
+{
+  //"type": "Sorter",
+  "requirements": [ "copper/6","lead/2","silicide/3" ],
+  "category": "distribution",
+  "health": 370,
+  "armor": 16,
+  "buildCostMultiplier": 3,
+  "research": {
+    "parent": "silicide-router"
+  },
+  "crushDamageMultiplier": 0.05,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "serpulo","thavina" ]
+}

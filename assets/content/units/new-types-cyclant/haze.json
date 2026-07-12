@@ -1,0 +1,1453 @@
+{
+  "type": "hover",
+  "databaseTag": "08cyclant-newtype-unit",
+  "hovering": true,
+  "health": 1100,
+  "armor": 6,
+  "rotateSpeed": 4,
+  "speed": 2,
+  "accel": 0.05,
+  "drag": 0.05,
+  "hitSize": 20,
+  "lowAltitude": true,
+  "flying": false,
+  "itemCapacity": 80,
+  "shadowElevation": 0.15,
+  "useEngineElevation": false,
+  "engineSize": 0,
+  "engineOffset": 12,
+  "faceTarget": false,
+  "groundLayer": 70,
+  "fogRadius": 160,
+  "canDrown": false,
+  "lightColor": "90dbff",
+  "research": {
+    "parent": "mist",
+    "objectives": [ "senior-hovership-reconstructor" ],
+    "requirements": [ "silicon/1500","titanium/800","graphite/700" ]
+  },
+  "targetFlags": [
+    "turret"
+  ],
+  "immunities": [ "blown","dusty" ],
+  "strafePenalty": 1,
+  "researchCostMultiplier": 0.5,
+  "drownTimeMultiplier": 99999,
+  "loopSound": "loopHover",
+  "loopSoundVolume": 0.35,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "engines": [
+    {
+      "x": 5,
+      "y": -9.25,
+      "rotation": -45,
+      "radius": 2.5
+    },
+    {
+      "x": -5,
+      "y": -9.25,
+      "rotation": -135,
+      "radius": 2.5
+    }
+  ],
+  "parts": [
+    {
+      "type": "HoverPart",
+      "x": 11,
+      "y": 0,
+      "mirror": true,
+      "radius": 8,
+      "phase": 80,
+      "stroke": 2.5,
+      "minStroke": 0,
+      "layerOffset": -0.001,
+      "color": "90dbff",
+      "sides": 6
+    },
+    {
+      "type": "RegionPart",
+      "x": 0,
+      "y": 0,
+      "suffix": "-glow",
+      "color": "90dbffaa",
+      "mixColor": "90dbffaa",
+      "outline": false,
+      "blending": "additive",
+      "layerOffset": 0.001
+    }
+  ],
+  "weapons": [
+    {
+      "name": "dust-weapon",
+      "x": 7,
+      "y": 6.75,
+      "mirror": true,
+      "top": true,
+      "reload": 40,
+      "recoilTime": 20,
+      "rotate": true,
+      "rotateSpeed": 9,
+      "inaccuracy": 2,
+      "useAttackRange": false,
+      "recoil": 3.5,
+      "minWarmup": 0.95,
+      "layerOffset": 0.002,
+      "shoot": {
+        "type": "shootSpread",
+        "shots": 3,
+        "shotDelay": 5,
+        "spread": 0
+      },
+      "ejectEffect": "casing1",
+      "shootSound": "shootSalvo",
+      "bullet": {
+        "width": 5,
+        "height": 15,
+        "speed": 7,
+        "damage": 12,
+        "hitColor": "90dbff",
+        "hitEffect": "hitBulletColor",
+        "despawnEffect": "hitBulletColor",
+        "lifetime": 45,
+        "frontColor": "ffffff",
+        "lightColor": "90dbff",
+        "backColor": "90dbff",
+        "shootEffect": "shootSmallColor",
+        "hitColor": "90dbff",
+        "smokeEffect": "colorSpark"
+      }
+    },
+    {
+      "name": "haze-weapon",
+      "x": 7.75,
+      "y": -3.5,
+      "reload": 70,
+      "ejectEffect": "casing4",
+      "shootSound": "shootArtillery",
+      "recoil": 5,
+      "shake": 3,
+      "recoilPow": 3,
+      "top": true,
+      "mirror": true,
+      "alternate": false,
+      "rotate": true,
+      "rotateSpeed": 4,
+      "shadow": 8,
+      "layerOffset": 0.002,
+      "bullet": {
+        "width": 6,
+        "shrinkX": -1,
+        "maxRange": 432,
+        "type": "BasicBulletType",
+        "height": 12,
+        "lightColor": "90dbff",
+        "damage": 5,
+        "splashDamage": 10,
+        "splashDamageRadius": 12,
+        "shieldDamageMultiplier": 2.5,
+        "shrinkY": 0,
+        "hitSize": 11,
+        "speed": 5,
+        "drag": 0.04,
+        "lifetime": 24,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "shootEffect": "shootBigColor",
+        "hitColor": "90dbff",
+        "smokeEffect": "shootBigSmoke",
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "status": "blown",
+        "statusDuration": 900,
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 12,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 2,
+            "fragBullet": {
+        "width": 11,
+        "type": "BasicBulletType",
+        "height": 11,
+        "damage": 5,
+        "splashDamage": 13,
+        "splashDamageRadius": 16,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 10,
+        "speed": 2.5,
+        "lifetime": 22,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "shieldDamageMultiplier": 2.5,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 16,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 2,
+            "fragBullet": {
+        "width": 10,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 10,
+        "damage": 5,
+        "splashDamage": 16,
+        "splashDamageRadius": 20,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 9,
+        "speed": 2.5,
+        "lifetime": 20,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "shieldDamageMultiplier": 2.5,
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 20,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 2,
+            "fragBullet": {
+        "width": 9,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 9,
+        "damage": 5,
+        "splashDamage": 19,
+        "splashDamageRadius": 24,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 9,
+        "speed": 2.5,
+        "lifetime": 18,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "shieldDamageMultiplier": 2.5,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 24,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 2,
+            "fragBullet": {
+        "width": 8,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 8,
+        "damage": 5,
+        "splashDamage": 22,
+        "splashDamageRadius": 28,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 8,
+        "speed": 2.5,
+        "lifetime": 16,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "shieldDamageMultiplier": 2.5,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 28,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 2,
+            "fragBullet": {
+        "width": 7,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 7,
+        "damage": 5,
+        "splashDamage": 24,
+        "splashDamageRadius": 26,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 7,
+        "speed": 2.5,
+        "lifetime": 14,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "shieldDamageMultiplier": 2.5,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 26,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 6,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 6,
+        "damage": 5,
+        "splashDamage": 25,
+        "splashDamageRadius": 24,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 7,
+        "speed": 2.5,
+        "lifetime": 12,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "shieldDamageMultiplier": 2.5,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 24,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 5,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 5,
+        "damage": 5,
+        "splashDamage": 24,
+        "splashDamageRadius": 22,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 6,
+        "shieldDamageMultiplier": 2.5,
+        "speed": 2.5,
+        "lifetime": 10,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 22,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 4,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 4,
+        "damage": 5,
+        "splashDamage": 22,
+        "splashDamageRadius": 20,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 5,
+        "speed": 2.5,
+        "shieldDamageMultiplier": 2.5,
+        "lifetime": 8,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 20,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 3,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 3,
+        "damage": 5,
+        "splashDamage": 19,
+        "splashDamageRadius": 18,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 4,
+        "speed": 2.5,
+        "shieldDamageMultiplier": 2.5,
+        "lifetime": 6,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 18,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 2,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 2,
+        "damage": 5,
+        "splashDamage": 15,
+        "splashDamageRadius": 16,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 4,
+        "speed": 2.5,
+        "shieldDamageMultiplier": 2.5,
+        "lifetime": 4,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 16,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 1,
+        "type": "BasicBulletType",
+        "lightColor": "90dbfd",
+        "height": 1,
+        "damage": 5,
+        "splashDamage": 35,
+        "splashDamageRadius": 40,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 4,
+        "speed": 2.5,
+        "shieldDamageMultiplier": 2.5,
+        "lifetime": 2,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "blastExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "blastExplosion",
+            {
+                "type": "SeqEffect",
+                "effects": [
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 40,
+                    "sides": 6,
+                    "strokeFrom": 4,
+                    "lifetime": 5
+                  },
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 40,
+                    "sides": 6,
+                    "strokeFrom": 4,
+                    "lifetime": 5
+                  },
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 40,
+                    "sides": 6,
+                    "strokeFrom": 4,
+                    "lifetime": 5
+                  }
+                ]
+              }
+           ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 3,
+        "knockback": 1
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+      }
+    },
+    {
+      "name": "haze-weapon",
+      "x": 0,
+      "y": 9.25,
+      "reload": 140,
+      "ejectEffect": "casing4",
+      "shootSound": "shootArtillery",
+      "recoil": 5,
+      "shake": 3,
+      "recoilPow": 3,
+      "top": true,
+      "mirror": false,
+      "alternate": false,
+      "rotate": true,
+      "rotateSpeed": 4,
+      "shadow": 8,
+      "layerOffset": 0.002,
+      "bullet": {
+        "width": 6,
+        "shrinkX": -1,
+        "maxRange": 432,
+        "type": "BasicBulletType",
+        "height": 12,
+        "damage": 5,
+        "splashDamage": 10,
+        "splashDamageRadius": 12,
+        "shrinkY": 0,
+        "hitSize": 11,
+        "shieldDamageMultiplier": 2.5,
+        "speed": 5,
+        "drag": 0.04,
+        "lifetime": 24,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "shootEffect": "shootBigColor",
+        "hitColor": "90dbff",
+        "smokeEffect": "shootBigSmoke",
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "status": "blown",
+        "statusDuration": 900,
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 12,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 2,
+            "fragBullet": {
+        "width": 11,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 11,
+        "damage": 5,
+        "splashDamage": 13,
+        "splashDamageRadius": 16,
+        "shieldDamageMultiplier": 2.5,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 10,
+        "speed": 2.5,
+        "lifetime": 22,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 16,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 2,
+            "fragBullet": {
+        "width": 10,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "shieldDamageMultiplier": 2.5,
+        "height": 10,
+        "damage": 5,
+        "splashDamage": 16,
+        "splashDamageRadius": 20,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 9,
+        "speed": 2.5,
+        "lifetime": 20,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 20,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 2,
+            "fragBullet": {
+        "width": 9,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 9,
+        "damage": 5,
+        "splashDamage": 19,
+        "shieldDamageMultiplier": 2.5,
+        "splashDamageRadius": 24,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 9,
+        "speed": 2.5,
+        "lifetime": 18,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 24,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 2,
+            "fragBullet": {
+        "width": 8,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 8,
+        "damage": 5,
+        "splashDamage": 22,
+        "splashDamageRadius": 28,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 8,
+        "speed": 2.5,
+        "lifetime": 16,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "shieldDamageMultiplier": 2.5,
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 28,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 2,
+            "fragBullet": {
+        "width": 7,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 7,
+        "damage": 5,
+        "splashDamage": 24,
+        "splashDamageRadius": 26,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 7,
+        "speed": 2.5,
+        "lifetime": 14,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "shieldDamageMultiplier": 2.5,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 26,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 6,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 6,
+        "damage": 5,
+        "splashDamage": 25,
+        "splashDamageRadius": 24,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 7,
+        "speed": 2.5,
+        "lifetime": 12,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "shieldDamageMultiplier": 2.5,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 24,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 5,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 5,
+        "damage": 5,
+        "splashDamage": 24,
+        "splashDamageRadius": 22,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 6,
+        "speed": 2.5,
+        "lifetime": 10,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "shieldDamageMultiplier": 2.5,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 22,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "trailChance": 0.1,
+        "trailColor": "90dbff",
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 4,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 4,
+        "damage": 5,
+        "splashDamage": 22,
+        "splashDamageRadius": 20,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 5,
+        "speed": 2.5,
+        "lifetime": 8,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "shieldDamageMultiplier": 2.5,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 20,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 3,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 3,
+        "damage": 5,
+        "splashDamage": 19,
+        "splashDamageRadius": 18,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 4,
+        "speed": 2.5,
+        "lifetime": 6,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "shieldDamageMultiplier": 2.5,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 18,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 2,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 2,
+        "damage": 5,
+        "splashDamage": 15,
+        "splashDamageRadius": 16,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 4,
+        "speed": 2.5,
+        "lifetime": 4,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "shieldDamageMultiplier": 2.5,
+        "fragVelocityMin": 1,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "flakExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "flakExplosion",
+            {
+              "type": "SeqEffect",
+              "effects": [
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "90dbff",
+                  "colorTo": "90dbff",
+                  "sizeTo": 16,
+                  "sides": 6,
+                  "strokeFrom": 4,
+                  "lifetime": 10
+                },
+              ]
+            }
+          ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 1,
+            "fragBullet": {
+        "width": 1,
+        "type": "BasicBulletType",
+        "lightColor": "90dbff",
+        "height": 1,
+        "damage": 5,
+        "splashDamage": 35,
+        "splashDamageRadius": 40,
+        "shrinkY": 0,
+        "shrinkX": 0,
+        "hitSize": 4,
+        "speed": 2.5,
+        "shieldDamageMultiplier": 2.5,
+        "lifetime": 2,
+        "collidesAir": true,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "despawnEffect": "blastExplosion",
+        "hitSound": "bangClassic"
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "blastExplosion",
+            {
+                "type": "SeqEffect",
+                "effects": [
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 40,
+                    "sides": 6,
+                    "strokeFrom": 4,
+                    "lifetime": 5
+                  },
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 40,
+                    "sides": 6,
+                    "strokeFrom": 4,
+                    "lifetime": 5
+                  },
+                  {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 40,
+                    "sides": 6,
+                    "strokeFrom": 4,
+                    "lifetime": 5
+                  }
+                ]
+              }
+           ]
+        },
+        "status": "blown",
+        "statusDuration": 900,
+        "despawnSound": "bangClassic",
+        "sprite": "circle-bullet",
+"fragOffsetMin": 2,
+"fragOffsetMax": 2,
+"delayFrags": true, "fragOnHit": false,//TODO
+        "despawnShake": 3,
+        "knockback": 1
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+        }
+      }
+    }
+  ]
+}

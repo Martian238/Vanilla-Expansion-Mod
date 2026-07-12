@@ -1,0 +1,30 @@
+{
+  //"type": "GenericCrafter",
+  "category": "crafting",
+  "requirements": [ "aluminium/10","graphite/40","lead/20" ],
+  "consumes": {
+    "power": 1,
+    "items": [ "scrap/3" ]
+  },
+  "outputLiquid": "slag/0.3",
+  "craftTime": 20,
+  "itemCapacity": 15,
+  "hasPower": true,
+  "hasLiquids": true,
+  "hasItems": true,
+  "liquidCapacity": 20,
+  "research": {
+    "parent": "decomposer"
+  },
+  "ambientSound": "loopCircuit",
+  "ambientSoundVolume": 0.1,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {"type":"DrawRegion","suffix":"-bottom"},
+      {  "type": "DrawRegion", "suffix": ""  }
+    ]
+  },
+  "researchCostMultiplier": 0.3,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

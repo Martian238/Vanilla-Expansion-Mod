@@ -1,0 +1,11 @@
+{
+  //"type": "DirectionalUnloader",
+  "requirements": [ "graphite/10","silicon/10","thorium/10","plastanium/10" ],
+  "health": 190,
+  "speed": 4,
+  "regionRotated1": 1,
+  "solid": false,
+  "research": "armored-router",
+  "allowCoreUnload": true,
+  "shownPlanets": [ "serpulo","thavina" ]
+}

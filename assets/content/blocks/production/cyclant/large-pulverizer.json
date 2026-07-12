@@ -1,0 +1,41 @@
+{
+  //"type": "GenericCrafter",
+  "category": "crafting",
+  "outputItem": "sand/3",
+  "requirements": [ "aluminium/50","graphite/20","chromium/30" ],
+  "craftTime": 20,
+  "updateEffect": "pulverize",
+  "craftEffect": "pulverizeMedium",
+  "itemCapacity": 30,
+  "hasItems": true,
+  "hasPower": true,
+  "size": 2,
+  "armor": 6,
+  "crushDamageMultiplier": 0.2,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-rotator1",
+        "spinSprite": true,
+        "rotateSpeed": 9
+      },
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawRegion",
+        "suffix": "-rotator2",
+        "spinSprite": true,
+        "rotateSpeed": -1.5
+      }
+    ]
+  },
+  "consumes": {
+    "items": [ "scrap/4" ],
+    "power": 1
+  },
+  "ambientSound": "loopGrind",
+  "ambientSoundVolume": 0.1,
+  "research": "isomorphic-pulverizer",
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

@@ -1,0 +1,49 @@
+{
+  //"type": "Drill",
+  "category": "production",
+  "requirements": [ "silicon/300","lead/150","graphite/120","cobalt/90","warp-nucleus/40" ],
+  "research": {
+    "parent": "hydraulic-drill",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "warp-tech-base"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.005,
+  "drillTime": 60,
+  "hardnessDrillMultiplier": 0,
+  "itemCapacity": 100,
+  "heatColor": "b791eb"
+  "size": 5,
+  "tier": 7,
+  "consumes": {
+    "liquid": {
+      "liquid": "cryofluid",
+      "amount": 0.2,
+      "booster": true,
+      "optional": true
+    },
+    "power": 6.5
+  },
+  "hasPower": true,
+  "dumpTime": 1,
+  "rotateSpeed": -9,
+  "liquidBoostIntensity": 2,
+  "warmupSpeed": 0.002,
+  "updateEffect": {
+    "type": "WrapEffect",
+    "color": "b791eb",
+    "effect": "mineHuge"
+  },
+  "updateEffectChance": 0.04,
+  "drillEffect": "mine",
+  "drillEffectChance": 0.01,
+  "liquidCapacity": 60,
+  "ambientSoundVolume": 0.015,
+  "ambientSound": "lbp3PlasmaProjectile",
+  "drillEffect": "mineHuge",
+  "drawRim": true,
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+}

@@ -1,0 +1,96 @@
+{
+  //"type": "Separator",
+  "requirements": [ "lead/120","chromium/80","graphite/150","silicide/100","phase-fabric/60" ],
+  "category": "crafting",
+  "results": [
+    "titanium/12",
+    "cobalt/15",
+    "thorium/5",
+    "chromium/8"
+  ],
+  "hasPower": true,
+  "craftTime": 6,
+  "hasItems": true,
+  "hasLiquids": true,
+  "size": 4,
+  "consumes": {
+    "power": 4,
+    "liquids": [ "slag/0.5" ]
+  },
+  "researchCostMultiplier": 0.01,
+  "ambientSound": "loopMachineSpin",
+  "ambientSoundVolume": 0.12,
+  "lightLiquid": "slag",
+  "itemCapacity": 40,
+  "liquidCapacity": 300,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {"type":"DrawRegion","suffix":"-bottom"},
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "slag"
+      },
+      {
+        "type": "DrawGlowRegion",
+        "layer": -1,
+        "color": "feb380",
+        "alpha": 0.8,
+        "glowIntensity": 0.35,
+        "glowScale": 3,
+        "suffix": "-heat"
+      },
+      {
+        "type": "DrawRegion",
+        "rotateSpeed": 4,
+        "suffix": "-rotator2"
+      },
+      {
+        "type": "DrawGlowRegion",
+        "layer": -1,
+        "color": "feb380",
+        "alpha": 0.8,
+        "glowIntensity": 0.35,
+        "glowScale": 3,
+        "suffix": "-heat-edge2",
+        "rotateSpeed": 4
+      },
+      {
+        "type": "DrawRegion",
+        "rotateSpeed": -5,
+        "suffix": "-rotator1"
+      },
+      {
+        "type": "DrawGlowRegion",
+        "layer": -1,
+        "color": "feb380",
+        "alpha": 0.8,
+        "glowIntensity": 0.35,
+        "glowScale": 3,
+        "suffix": "-heat-edge1",
+        "rotateSpeed": -5
+      },
+      { "type": "DrawRegion", "suffix": "-shadow" },
+      {
+        "type": "DrawGlowRegion",
+        "layer": -1,
+        "color": "feb380",
+        "alpha": 0.3,
+        "glowIntensity": 0.1,
+        "suffix": "-heat",
+        "glowScale": 3
+      },
+      { "type": "DrawRegion", "suffix": ""  }
+    ]
+  },
+  "research": {
+    "parent": "extractor",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "ruins"
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","phoon" ]
+}

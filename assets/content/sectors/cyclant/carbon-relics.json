@@ -1,0 +1,26 @@
+{
+  "planet": "cyclant",
+  "sector": 35,
+  "difficulty": 3,
+  "research": {
+    "parent": "barrier-hill",
+    "objectives": [ 
+      "isomorphic-core-shard",
+      "frag",
+      "large-combustion-generator",
+      {
+        "type": "SectorComplete",
+        "preset": "barrier-hill"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 20,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

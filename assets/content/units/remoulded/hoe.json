@@ -1,0 +1,64 @@
+{
+  "type": "mech",
+  "databaseTag": "09cyclant-strengthened-unit",
+  "speed": 0.5,
+  "hitSize": 14,
+  "health": 1400,
+  "armor": 6,
+  "research": {
+    "parent": "lance",
+    "objectives": [ "hammer" ],
+    "requirements": [  ]
+  },
+  "targetAir": true,
+  "itemCapacity": 50,
+  "targetFlags": [
+    "factory","generator","storage"
+  ],
+  "lightColor": "ffa665",
+  "immunities": [ "dusty" ],
+  "stepSound": "mechStepSmall",
+  "stepSoundPitch": 0.9,
+  "stepSoundPitchRange": 0.1,
+  "stepSoundVolume": 0.5,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "weapons": [
+    {
+      "name": "hoe-weapon",
+      "x": 8.25,
+      "y": 0,
+      "shootX": 0,
+      "shootY": 7.25,
+      "reload": 28,
+      "top": false,
+      "mirror": true,
+      "ejectEffect": "casing2",
+      "shoot": {
+        "shots": 5,
+        "shotDelay": 2
+      },
+      "recoil": 2,
+      "inaccuracy": 1,
+      "shootSound": "shootCyclone",
+      "velocityRnd": 0.2,
+      "bullet": {
+        "width": 6,
+        "height": 14,
+        "lifetime": 45,
+        "hitSize": 14,
+        "lightColor": "ffa665",
+        "speed": 4.7,
+        "damage": 15,
+        "shootEffect": "shootBig",
+        "smokeEffect": "shootBigSmoke",
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitColor": "ffa665",
+        "hitEffect": "hitBulletColor",
+        "despawnEffect": "hitBulletColor",
+        "pierceArmor": true,
+        "spin": 15
+      }
+    }
+  ]
+}

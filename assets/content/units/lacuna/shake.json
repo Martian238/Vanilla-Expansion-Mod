@@ -1,0 +1,258 @@
+{
+  "type": "tank",
+  "databaseTag": "12lacuna-unit",
+  "hitSize": 16,
+  "speed": -1.8,
+  "treadPullOffset": 10,
+  "treadFrames": 10,
+  "rotateSpeed": -4,
+  "health": 1300,
+  "armor": 14,
+  "itemCapacity": 50,
+  "omniMovement": true,
+  "squareShape": true,
+  "rotateMoveFirst": false,
+  "strafePenalty": 1,
+  "hovering": false,
+  "outlineColor": "505040",
+  "deathSound": "trMartianCrash",
+  "drag": 0.07,
+  "accel": 0.05,
+  "envDisabled": 0,
+  "floorMultiplier": -0.5,
+  "canDrown": false,
+  "faceTarget": false,
+  "shownPlanets": [ "maress","thavina" ],
+  "treadRects": [
+    {
+      "type": "Rect",
+      "x": -36,
+      "y": -13,
+      "width": 1,
+      "height": 41
+    },
+    {
+      "type": "Rect",
+      "x": -35,
+      "y": -12,
+      "width": 1,
+      "height": 41
+    },
+    {
+      "type": "Rect",
+      "x": -34,
+      "y": -11,
+      "width": 1,
+      "height": 41
+    },
+    {
+      "type": "Rect",
+      "x": -33,
+      "y": -10,
+      "width": 1,
+      "height": 41
+    },
+    {
+      "type": "Rect",
+      "x": -32,
+      "y": -9,
+      "width": 1,
+      "height": 41
+    },
+    {
+      "type": "Rect",
+      "x": -31,
+      "y": -8,
+      "width": 1,
+      "height": 41
+    },
+    {
+      "type": "Rect",
+      "x": -30,
+      "y": -7,
+      "width": 1,
+      "height": 41
+    },
+    {
+      "type": "Rect",
+      "x": -29,
+      "y": -6,
+      "width": 1,
+      "height": 41
+    },
+    {
+      "type": "Rect",
+      "x": -28,
+      "y": -5,
+      "width": 2,
+      "height": 41
+    }
+  ],
+  "research": {
+    "parent": "vibrate"
+  },
+  "emitWalkSound": false,
+  "immunities": [ "plasma-status","dusty","wet","muddy","tarred","fusing","frozen","sodiumified","melting","corroded","plasma-status-orange" ],
+  "lightColor": "00ffce",
+  "tankMoveSound": "tankMoveSmall",
+  "tankMoveVolume": 0.7,
+  "weapons": [
+    {
+      "name": "shake-turret",
+      "recoil": 1,
+      "mirror": false,
+      "reload": 60,
+      "recoilTime": 20,
+      "x": 0,
+      "y": 2,
+      "layerOffset": 0.001,
+      "shootY": 8,
+      "recoil": 1.5,
+      "rotate": true,
+      "rotateSpeed": 6,
+      "baseRotation": 180,
+      "shootSound": "shootCleroi",
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "cooldownTime": 80,
+      "shake": 2,
+      "shoot": {
+        "type": "ShootMulti",
+        "source": {
+          "type": "ShootBarrel",
+          "barrels": [ 2.75,0,0,-2.75,0,0 ],
+          "shots": 2,
+          "shotDelay": 0
+        },
+        "dest": [
+      {
+        "type": "ShootHelix",
+        "mag": 1,
+        "scl": 3
+      }
+        ]
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "-glow",
+          "outline": false,
+          "blending": "additive",
+          "color": "00ffce88",
+          "colorTo": "00ffce88",
+          "under": false,
+          "mirror": false
+        }
+      ],
+      "bullet": {
+        "backColor": "00ffce",
+        "frontColor": "ffffff",
+        "sprite": "circle-bullet",
+        "shootEffect": "shootSmallColor",
+        "smokeEffect": "shootSmallSmoke",
+        "hitColor": "00ffce",
+        "width": 6,
+        "height": 6,
+        "shrinkY": 0,
+        "speed": 5,
+        "scaleLife": true,
+        "lifetime": 40,
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "lifetime": 3,
+          "sizeFrom": 2.5,
+          "sizeTo": 0,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce",
+          "length": 0,
+          "baseLength": 4,
+          "interp": "circleIn",
+          "region": "ve-square-effect"
+        },
+        "trailChance": 1,
+        "hitSound": "explosionCleroi",
+        "hitSoundVolume": 0.3,
+        "hitShake": 1,
+        "trailColor": "00ffce",
+        "trailLength": 5,
+        "hitEffect": "flakExplosion",
+        "despawnEffect": "flakExplosion",
+        "fragBullets": 2,
+        "fragLifeMin": 0.8,
+        "makeFire": true,
+        "status": "plasma-status",
+        "statusDuration": 450,
+        "damage": 40,
+        "fragBullet": {
+          "createChance": 0.8,
+          "backColor": "00ffce",
+          "frontColor": "ffffff",
+          "sprite": "circle-bullet",
+          "hitColor": "00ffce",
+          "width": 6,
+          "height": 6,
+          "shrinkY": 0,
+          "speed": 5,
+          "drag": 0.05,
+          "collides": false,
+          "hitEffect": "hitLaserBlast",
+          "despawnEffect": "hitLaserBlast",
+          //"despawnSound": [ "lbp3PlasmDestroy1","lbp3PlasmDestroy2","lbp3PlasmDestroy3" ],
+          "bulletInterval": 10,
+          "absorbable": false,
+          "damage": 26,
+          "reflectable": false,
+          "trailEffect": {
+            "type": "ParticleEffect",
+            "particles": 1,
+            "lifetime": 3,
+            "sizeFrom": 2,
+            "sizeTo": 0,
+            "colorFrom": "00ffce",
+            "colorTo": "00ffce",
+            "length": 0,
+            "baseLength": 4,
+            "interp": "circleIn",
+            "region": "ve-square-effect"
+          },
+          "trailChance": 0.2,
+          "lifetime": 300,
+          "intervalBullet": {
+            "frontColor": "ffffff00",
+            "backColor": "ffffff00",
+            "pierce": true,
+            "pierceCap": 2,
+            "pierceBuilding": true,
+            "trailEffect": {
+              "type": "ParticleEffect",
+              "particles": 1,
+              "lifetime": 3,
+              "sizeFrom": 1.5,
+              "sizeTo": 0,
+              "colorFrom": "00ffce",
+              "colorTo": "00ffce",
+              "length": 0,
+              "baseLength": 4,
+              "interp": "circleIn",
+              "region": "ve-square-effect"
+            },
+            "trailChance": 0.2,
+            "hitColor": "00ffce",
+            "hitEffect": "hitLaserBlast",
+            "despawnEffect": "none",
+            "hitSize": 8,
+            "speed": 2,
+            "lifetime": 20,
+            "makeFire": true,
+            "damage": 14,
+            "status": "plasma-status",
+            "statusDuration": 330,
+            "hittable": false,
+            "reflectable": false
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "aluminium/45","lead/30" ],
+  "category": "crafting",
+  "craftEffect": "smeltsmoke",
+  "size": 2,
+  "outputItem": "silicon/2",
+  "craftTime": 40,
+  "hasPower": true,
+  "hasItems": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffef99"
+      }
+    ]
+  }
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.09,
+  "consumes": {
+    "items": {
+      "items": [ "quartz/2","coal/2" ]
+    },
+    "power": 0.8
+  },
+  "research": {
+    "parent": "quartz-separator"
+  },
+  "researchCostMultiplier": 0.05,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

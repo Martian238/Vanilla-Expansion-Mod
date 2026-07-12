@@ -1,0 +1,24 @@
+{
+  "planet": "maress",
+  "sector": 202,
+  "difficulty": 9,
+  "research": {
+    "parent": "industrial-hub",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "industrial-hub"
+      },
+      "chiniun-shockwave"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

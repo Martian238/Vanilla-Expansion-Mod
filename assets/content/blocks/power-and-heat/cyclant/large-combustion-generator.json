@@ -1,0 +1,48 @@
+{
+  //"type": "ConsumeGenerator",
+  "requirements": [ "aluminium/60","lead/45" ],
+  "category": "power",
+  "powerProduction": 3.25,
+  "itemDuration": 60,
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.06,
+  "size": 2,
+  "consumes": {
+    "itemFlammable": { "minFlammability": 1 },
+    "itemExplode": { "minExplosiveness": 0.7 }
+  },
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      { 
+        "type": "DrawFade",
+        "suffix": "-heat"
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffc59a",
+        "flameRadius": 1.3,
+        "flameRadiusIn": 1
+      }
+    ]
+  },
+  "generateEffect": "smeltsmoke",
+  "research": {
+    "parent": "core-nucleus-root",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "barrier-hill"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.01,
+  "itemDurationMultipliers": {
+    "plant-matter": 0.75,
+    "nitroalkoss": 1.25,
+    "reflector-matter": 0.75,
+    "pyratite": 2
+  },
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

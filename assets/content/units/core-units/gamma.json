@@ -1,0 +1,78 @@
+{
+  "armor": 1,
+  "databaseTag": "01core-unit",
+  "outlines": true,
+  "mineWalls": true,
+  "generateIcons": false,
+  "targetFlags": [
+    "generator","reactor"
+  ],
+  "shownPlanets": [ "serpulo","cyclant","phoon","sitrullus","thavina" ],
+  "immunities": [ "frozen" ],
+  "engineLayer": 89.99,
+  "parts": {
+    "add": [
+      {
+        "type": "RegionPart",
+        "name": "ve-gamma-top",
+        "under": false,
+        "outline": false,
+        "layerOffset": 0.01
+      }
+    ]
+  },
+  "weapons": [
+    {
+      "name": "small-power-weapon",
+      "x": 2.25,
+      "y": 2.5,
+      "top": false,
+      "rotate": false,
+      "shootX": 0,
+      "shootY": 4,
+      "reload": 15,
+      "ejectEffect": "casing1",
+      "shootSound": "shootGamma",
+      "shoot": {
+        "type": "shootSpread",
+        "shots": 2,
+        "spread": 2,
+        "shotDelay": 3
+      },
+      "inaccuracy": 2,
+      "bullet": {
+        "speed": 3.5,
+        "damage": 11,
+        "width": 6.5,
+        "height": 15,
+        "lifetime": 70,
+        "shootEffect": "shootSmall",
+        "smokeEffect": "shootSmallSmoke",
+        "buildingDamageMultiplier": 0.01,
+        "homingPower": 0.04,
+        "fragBullets": 2,
+        "trailColor": "ffd37f",
+        "trailLength": 4,
+        "hitEffect": "hitScepterSecondary",
+        "despawnEffect": "hitScepterSecondary",
+        "trailEffect": "bulletSparkSmokeTrailSmall",
+        "trailChance": 0.04,
+        "shrinkY": 0,
+        "trailSpread": 12,
+        "fragBullet": {
+          "type": "LightningBulletType",
+          "lightningLength": 5,
+          "damage": 5,
+          "status": "shocked",
+          "statusDuration": 10,
+          "speed": 0.0001,
+          "buildingDamageMultiplier": 0,
+          "collidesTiles": false,
+          "lightningColor": "ffd37f",
+          "hitColor": "ffd37f"
+        },
+        "hitSound": "shockBullet"
+      }
+    }
+  ]
+}

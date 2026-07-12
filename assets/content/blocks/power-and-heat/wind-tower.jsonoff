@@ -1,0 +1,68 @@
+{
+  "type": "ThermalGenerator",
+  "requirements": [ "aluminium/100","chromium/30","graphite/20" ],
+  "category": "power",
+  /*"research": {
+    "parent": "solar-pad"
+  },*/
+  "powerProduction": 0.75,
+  "generateEffect": "none",
+  "effectChance": 0,
+  "size": 3,
+  "floating": false,
+  "ambientSound": "loopMachineSpin",
+  "ambientSoundVolume": 0.01,
+  "attribute": "steam",
+  "minEfficiency": -1,
+  "buildVisibility": "editorOnly",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawRegion",
+        "suffix": "-leaves",
+        "rotateSpeed": -5,
+        "spinSprite": true,
+        "rotation": 0
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-leaves",
+        "rotateSpeed": -5,
+        "spinSprite": true,
+        "rotation": -15
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-leaves",
+        "rotateSpeed": -5,
+        "spinSprite": true,
+        "rotation": -30
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-leaves",
+        "rotateSpeed": -5,
+        "spinSprite": true,
+        "rotation": -45
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-leaves",
+        "rotateSpeed": -5,
+        "spinSprite": true,
+        "rotation": -60
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-leaves",
+        "rotateSpeed": -5,
+        "spinSprite": true,
+        "rotation": -75
+      },
+      {"type":"DrawRegion","suffix":"-cap"}
+    ]
+  },
+  "researchCostMultiplier": 0.3
+}

@@ -1,0 +1,23 @@
+{
+  "planet": "phoon",
+  "sector": 30,
+  "difficulty": 8,
+  "research": {
+    "parent": "hardcore-carbon-relics",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "intervalley"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 25,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": false,
+  "allowLaunchLoadout": false
+}
+
+
+

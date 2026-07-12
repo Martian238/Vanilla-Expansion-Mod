@@ -1,0 +1,23 @@
+{
+  "planet": "phoon",
+  "sector": 20,
+  "difficulty": 1,
+  "research": {
+    "parent": "tutorial-blocking-wall",
+    "objectives": [
+      "assemble-selector1",
+      "assemble-selector2",
+      "assemble-selector3",
+      "firelock","magnetic","galaxy","stereo"
+    ]
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 0,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": false,
+  "allowLaunchLoadout": false
+}
+
+
+

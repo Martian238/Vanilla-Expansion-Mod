@@ -1,0 +1,60 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
+  "drag": 0.05,
+  "mineWalls": true,
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
+  "boostMultiplier": 3,
+  "boostWhenMining": true,
+  "immunities": {"add":[ "dusty","frozen" ]},
+  "databaseTag": "02serpulo-ground-unit",
+  "weapons": [
+    {
+      "name": "beam-weapon",
+      "top": false,
+      "shake": 2,
+      "shootY": 0,
+      "x": 6.5,
+      "recoil": 4,
+      "shootSound": "shootLancer",
+      "reload": 45,
+      "cooldownTime": 30,
+      "bullet": {
+        "type": "LaserBulletType",
+        "damage": 45,
+        //"recoil": 1,
+        "sideAngle": 45,
+        "sideWidth": 1,
+        "sideLength": 70,
+        "healPercent": 10,
+        "collidesTeam": true,
+        "length": 156,
+        "colors": [ "98ffa966","98ffa9","ffffff" ]
+      }
+    },
+    {
+      "display": false,
+      "reload": 1,
+      "shootStatus": "walking",
+      "shootStatusDuration": 2,
+      "controllable": false,
+      "alwaysShooting": true,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "mirror": false,
+      "noAttack": true,
+      "bullet": {
+        "instantDisappear": true,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "despawnEffect": "none",
+        "hitEffect": "none",
+        "collides": false,
+        "hittable": false,
+        "absorbable": false
+      }
+    }
+  ],
+  "engineLayer": 114.99
+}

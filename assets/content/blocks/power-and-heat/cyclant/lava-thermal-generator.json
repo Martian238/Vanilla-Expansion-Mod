@@ -1,0 +1,50 @@
+{
+  //"type": "ConsumeGenerator",
+  "requirements": [ "aluminium/200","graphite/100","silicide/50","metaglass/80","silicon/60" ],
+  "category": "power",
+  "powerProduction": 27.5,//10.5
+  "generateEffect": "fuelburn",
+  "generateEffectRange": 10,
+  "itemDuration": 120,
+  "consumeEffect": "redgeneratespark",
+  "effectChance": 0.1,
+  "size": 3,
+  "floating": false,
+  "ambientSound": "loopDifferential",
+  "ambientSoundVolume": 0.15,
+  "research": {
+    "parent": "large-turbine-generator",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "intervalley"
+      },
+      {
+        "type": "SectorComplete",
+        "preset": "wetland-miningfield"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "armor": 6,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      { "type": "DrawFade" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "alpha": 0.9,
+        "glowIntensity": 0.2
+        "color": "ffa665",
+      }
+    ]
+  },
+  "consumes": {
+    "liquids": [ "lava/0.166666667","water/0.4" ]//0.67
+  },
+  "hasLiquids": true,
+  "liquidCapacity": 60,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ]
+}

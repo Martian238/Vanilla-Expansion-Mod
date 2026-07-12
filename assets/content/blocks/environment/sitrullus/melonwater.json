@@ -1,0 +1,21 @@
+{
+  "type": "Floor",
+  "speedMultiplier": 0.6,
+  "variants": 0,
+  "liquidDrop": "melon-water",
+  "liquidMultiplier": 1,
+  "isLiquid": true,
+  "status": "wet",
+  "statusDuration": 120,
+  "cacheLayer": "water",
+  "albedo": 0.9,
+  "supportsOverlay": true,
+  "mapColor": "cc3434",
+  "hasColor": true,
+  "useColor": false,
+  "drownTime": 0,
+  "attributes": {
+    "spore": 3
+  },
+  //"damageTaken": -0.5
+}

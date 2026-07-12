@@ -1,0 +1,31 @@
+{
+  //"type": "Wall",
+  "requirements": [ "plastanium/12","metaglass/8","phase-fabric/12","surge-alloy/12","silicide/16","graphite/16" ],
+  "category": "defense",
+  "research": "effective-wall",
+  "buildVisibility": "sandboxOnly",
+  "health": 4040,
+  "armor": 8,
+  "buildCostMultiplier": 10,
+  "insulated": true,
+  "absorbLasers": true,
+  "schematicPriority": 10,
+  "chanceDeflect": 10,
+  "flashHit": true,
+  "lightningChance": 0.05,
+  "conductivePower": true,
+  "size": 2,
+  "destroyBulletSameTeam": true,
+  "destroyBullet": {
+    "collidesTiles": false,
+    "collides": false,
+    "speed": 0,
+    "splashDamageRadius": 45,
+    "instantDisappear": true,
+    "splashDamage": 76,
+    "hittable": false,
+    "status": "blasted",
+    "statusDuration": 60,
+    "collidesAir": true
+  }
+}

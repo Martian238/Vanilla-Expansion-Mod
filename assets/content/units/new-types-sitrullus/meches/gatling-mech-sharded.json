@@ -1,0 +1,5172 @@
+{
+  "type": "legs",
+  "databaseTag": "15sitrullus-mech-unit",
+  "health": 14000,
+  "armor": 8,
+  "hitSize": 40,
+  "speed": 0.3,
+  "groundLayer": 80,
+  "stepShake": 2,
+  "rotateSpeed": 1,
+  "drownTimeMultiplier": 0.1,
+  "stepSound": "carrionMechStep",
+  "stepSoundVolume": 1.5,
+  "stepSoundPitch": 1,
+  "stepSoundPitchRange": 0,
+  "legCount": 4,
+  "legLength": 14,
+  "legBaseOffset": 14,
+  "legMoveSpace": 1.5,
+  "legForwardScl": 0.58,
+  "hovering": true,
+  "shadowElevation": 0.3,
+  "legMaxLength": 2,
+  "legContinuousMove": true,
+  "rippleScale": 2,
+  "legSplashDamage": 40,
+  "legSplashRange": 8,
+  "research": "micro-mech-sharded",
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-top",
+      "layerOffset": 0.4
+    },
+    {
+      "type": "ShapePart",
+      "x": 15,
+      "y": -9.25,
+      "radius": 1,
+      "circle": true,
+      "color": "ffa665",
+      "colorTo": "ffa66500",
+      "layer": 99.99,
+      "progress": {
+        "type": "warmup",
+        "ops": [
+          {
+            "op": "mul",
+            "amount": 0
+          },
+          {
+            "op": "sin",
+            "scl": 3.5,
+            "mag": 0.4,
+            "offset": 0
+          }
+        ]
+      }
+    },
+    {
+      "type": "ShapePart",
+      "x": -15,
+      "y": -9.25,
+      "radius": 1,
+      "circle": true,
+      "color": "ffa665",
+      "colorTo": "ffa66500",
+      "layer": 99.99,
+      "progress": {
+        "type": "warmup",
+        "ops": [
+          {
+            "op": "mul",
+            "amount": 0
+          },
+          {
+            "op": "sin",
+            "scl": 3.5,
+            "mag": 0.4,
+            "offset": 0
+          }
+        ]
+      }
+    }
+  ],
+  "weapons": [
+    {
+      "parts": [
+        {
+          "type": "RegionPart",//front, right->front
+"suffix": "-tube", "heatProgress": "heat", "heatProgress": { "type": "heat", "ops": [{ "op": "mul", "other": "heat" },{ "op": "mul", "other": "heat" },{ "op": "mul", "other": "heat" } ] },
+          "progress": {
+            "type": "reload",
+            "ops": [
+              { "op": "mul", "amount": 0 },
+              {
+                "op": "add",
+                "other":  {
+    "type": "time",
+    "ops": [
+      { "op": "mul", "amount": 0 },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.05 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.15 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.2 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.25 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.3 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.35 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.4 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.45 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.5 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.55 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.6 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.65 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.7 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.75 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.8 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.85 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.9 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.95 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "op": "mod", "amount": 1 },
+      { "op": "inv" }
+    ]
+  }
+              },
+              {
+                    "op": "mul",
+                    "other":  {
+    "type": "time",
+    "ops": [
+      { "op": "mul", "amount": 0 },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.05 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.15 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.2 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.25 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.3 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.35 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.4 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.45 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.5 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.55 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.6 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.65 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.7 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.75 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.8 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.85 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.9 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.95 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "op": "mod", "amount": 1 },
+      { "op": "inv" }
+    ]
+  }
+              },
+              { 
+                "op": "mul",
+                "amount": -0.5
+              },
+              {
+                "op": "add",
+                "other":  {
+    "type": "time",
+    "ops": [
+      { "op": "mul", "amount": 0 },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.05 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.15 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.2 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.25 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.3 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.35 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.4 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.45 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.5 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.55 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.6 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.65 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.7 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.75 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.8 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.85 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.9 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.95 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "op": "mod", "amount": 1 },
+      { "op": "inv" }
+    ]
+  }
+              },
+              {
+                "op": "mul",
+                "amount": 2
+              }
+            ]
+          },
+          "x": 0,
+          "y": 0,
+          "color": "ffffff",
+          "colorTo": "dddddd",
+          "moveX": 2,
+          "moveY": 0
+          "under": true,
+          "layerOffset": -0.0005,
+          "mirror": false
+        },
+        {
+          "type": "RegionPart",//left, front->left
+"suffix": "-tube", "heatProgress": "heat", "heatProgress": { "type": "heat", "ops": [{ "op": "mul", "other": "heat" },{ "op": "mul", "other": "heat" },{ "op": "mul", "other": "heat" } ] },
+          "progress": {
+            "type": "reload",
+            "ops": [
+              { "op": "mul", "amount": 0 },
+              {
+                "op": "add",
+                "other":  {
+    "type": "time",
+    "ops": [
+      { "op": "mul", "amount": 0 },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.05 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.15 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.2 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.25 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.3 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.35 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.4 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.45 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.5 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.55 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.6 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.65 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.7 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.75 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.8 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.85 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.9 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.95 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "op": "mod", "amount": 1 },
+      { "op": "inv" }
+    ]
+  }
+              },
+              {
+                "op": "mul",
+                "other":  {
+    "type": "time",
+    "ops": [
+      { "op": "mul", "amount": 0 },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.05 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.15 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.2 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.25 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.3 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.35 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.4 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.45 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.5 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.55 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.6 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.65 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.7 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.75 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.8 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.85 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.9 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.95 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "op": "mod", "amount": 1 },
+      { "op": "inv" }
+    ]
+  }
+              }
+            ]
+          },
+          "x": -2,
+          "y": 0,
+          "color": "dddddd",
+          "colorTo": "ffffff",
+          "moveX": 2,
+          "moveY": 0
+          "under": true,
+          "layerOffset": -0.001,
+          "mirror": false
+        },
+        {
+          "type": "RegionPart",//right, back->right
+"suffix": "-tube", "heatProgress": "heat", "heatProgress": { "type": "heat", "ops": [{ "op": "mul", "other": "heat" },{ "op": "mul", "other": "heat" },{ "op": "mul", "other": "heat" } ] },
+          "progress": {
+            "type": "reload",
+            "ops": [
+              { "op": "mul", "amount": 0 },
+              {
+                "op": "add",
+                "other":  {
+    "type": "time",
+    "ops": [
+      { "op": "mul", "amount": 0 },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.05 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.15 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.2 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.25 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.3 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.35 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.4 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.45 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.5 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.55 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.6 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.65 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.7 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.75 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.8 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.85 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.9 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.95 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "op": "mod", "amount": 1 },
+      { "op": "inv" }
+    ]
+  }
+              },
+              {
+                "op": "mul",
+                "other":  {
+    "type": "time",
+    "ops": [
+      { "op": "mul", "amount": 0 },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.05 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.15 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.2 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.25 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.3 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.35 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.4 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.45 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.5 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.55 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.6 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.65 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.7 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.75 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.8 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.85 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.9 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.95 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "op": "mod", "amount": 1 },
+      { "op": "inv" }
+    ]
+  }
+              }
+            ]
+          },
+          "x": 2,
+          "y": 0,
+          "color": "dddddd",
+          "colorTo": "bbbbbb",
+          "moveX": -2,
+          "moveY": 0
+          "under": true,
+          "layerOffset": -0.0015,
+          "mirror": false
+        },
+        {
+          "type": "RegionPart",//back, left->back
+"suffix": "-tube", "heatProgress": "heat", "heatProgress": { "type": "heat", "ops": [{ "op": "mul", "other": "heat" },{ "op": "mul", "other": "heat" },{ "op": "mul", "other": "heat" } ] },
+          "progress": {
+            "type": "reload",
+            "ops": [
+              { "op": "mul", "amount": 0 },
+              {
+                "op": "add",
+                "other":  {
+    "type": "time",
+    "ops": [
+      { "op": "mul", "amount": 0 },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.05 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.15 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.2 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.25 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.3 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.35 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.4 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.45 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.5 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.55 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.6 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.65 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.7 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.75 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.8 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.85 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.9 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.95 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "op": "mod", "amount": 1 },
+      { "op": "inv" }
+    ]
+  }
+              },
+              {
+                    "op": "mul",
+                    "other":  {
+    "type": "time",
+    "ops": [
+      { "op": "mul", "amount": 0 },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.05 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.15 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.2 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.25 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.3 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.35 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.4 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.45 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.5 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.55 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.6 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.65 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.7 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.75 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.8 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.85 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.9 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.95 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "op": "mod", "amount": 1 },
+      { "op": "inv" }
+    ]
+  }
+              },
+              { 
+                "op": "mul",
+                "amount": -0.5
+              },
+              {
+                "op": "add",
+                "other":  {
+    "type": "time",
+    "ops": [
+      { "op": "mul", "amount": 0 },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.05 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.15 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.2 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.25 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.3 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.35 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.4 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.45 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.5 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.55 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.6 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.65 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.7 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.75 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.8 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.85 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.9 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -0.95 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "op": "add",//speed adding
+        "other": {
+          "type": "time",
+          "ops": [
+            { "op": "loop", "time": 40 },//added speed
+            {
+              "op": "mul",//whether to add
+              "other": {
+                "type": "recoil",
+                "ops": [
+                  { "op": "add", "other": "heat" },
+                  { "op": "clamp" },//when to add
+                  { "op": "add", "amount": -1 },
+                  { "op": "mul", "amount": 100000 },
+                  { "op": "clamp" }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      { "op": "mod", "amount": 1 },
+      { "op": "inv" }
+    ]
+  }
+              },
+              {
+                "op": "mul",
+                "amount": 2
+              }
+            ]
+          },
+          "x": 0,
+          "y": 0,
+          "color": "bbbbbb",
+          "colorTo": "dddddd",
+          "moveX": -2,
+          "moveY": 0
+          "under": true,
+          "layerOffset": -0.002,
+          "mirror": false
+        }
+      ],
+      "name": "zenith-gatling",//gatling gun
+      "rotate": true,
+      "rotateSpeed": 2,
+      "cooldownTime": 240,
+      "top": true,
+      "x": 22,
+      "y": -8,
+      "layerOffset": 0.4,
+      "shadow": 25,
+      "recoil": 0,
+      "recoilTime": 60,
+      "linearWarmup": true,
+      "warmupSpeed": 0.015,
+      "minWarmup": 0.9,
+      "shootSound": "none",
+      "ejectEffect": "casing1",
+      "shootY": 22.5,
+      "shootX": 0.125,
+      "parentizeEffects": false,
+      "reload": 540,
+      "shake": 2,
+      "shoot": {
+        "type": "ShootMulti",
+        "firstShotDelay": 1,
+        "source": {
+          "firstShotDelay": 10
+          "shots": 16,
+          "shotDelay": 25
+        },
+        "dest": [
+          {
+            "shots": 24,
+            "shotDelay": 4
+          }
+        ]
+      },
+      "mirror": false,
+      "inaccuracy": 8,
+      "shootCone": 30,
+      "bullet": {
+        "pierceArmor": true,
+        "chargeEffect": {
+          "type": "SoundEffect",
+          "sound": "none",
+          //"sound": "carrionGatling",
+          "maxPitch": 1,
+          "minPitch": 1,
+          "maxVolume": 0.7,
+          "minVolume": 0.7,
+          "effect": "hitBulletBig"
+        },
+        "damage": 50,
+        "speed": 16,
+        "rangeOverride": 320,
+        "width": 3.5,
+        "height": 16,
+        "shrinkY": 0,
+        "lifetime": 21,
+        "hitShake": 2,
+        "despawnShake": 1,
+        "frontColor": "ffffff",
+        "backColor": "ffa665",//d06b53
+        "hitColor": "ffa665",
+        "impact": true,
+        "knockback": 0.8,
+        "splashDamage": 3,
+        "splashDamageRadius": 12,
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [ "hitBulletBig","hitBulletColor" ]
+        },
+        "despawnEffect": "none",
+        "despawnHit": true,
+        "shootEffect": "shootSmallColor",
+        "smokeEffect": {
+          "type": "MultiEffect",
+          "effects": [
+        {
+          "type": "ParticleEffect",
+          "layer": 89.5,
+          "colorFrom": "ffffff33",
+          "colorTo": "ffffff00",
+          "length": 16,
+          "lifetime": 60,
+          "sizeFrom": 2,
+          "sizeInterp": "circleOut",
+          "sizeTo": 8,
+          "particles": 1
+        },
+        {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 64,
+          "sizeTo": 32,
+          "colorFrom": "ffffff33",
+          "colorTo": "ffa66500",
+          "lifetime": 5,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "ffa665",
+          "layer": 110.1
+        }
+          ]
+        },
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "layer": 89.5,
+          "colorFrom": "ffffff00",
+          "colorTo": "ffffff11",
+          "length": 0,
+          "lifetime": 60,
+          "sizeFrom": 1,
+          "interp": "slope",
+          "sizeInterp": "circleOut",
+          "sizeTo": 16,
+          "particles": 1
+        },
+        "trailChance": 0.1
+      }
+    },
+    {
+      //gatling sound
+      "rotate": true,
+      "rotateSpeed": 2,
+      "top": true,
+      "x": 22,
+      "y": -8,
+      "recoil": 0,
+      "linearWarmup": true,
+      "warmupSpeed": 0.015,
+      "minWarmup": 0.9,
+      "shootSound": "carrionGatling",
+      "shootSoundVolume": 0.7,
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "shootY": 22.5,
+      "shootX": 0.125,
+      "parentizeEffects": false,
+      "reload": 20,//20
+      "shake": 0,
+      "shoot": {
+        "firstShotDelay": 1
+      },
+      "mirror": false,
+      "shootCone": 30,
+      "continuous": true,
+      "display": false,
+      "bullet": {
+        "type": "ContinuousBulletType",
+        "length": 0,
+        "lifetime": 520,
+        "fadeTime": 0,
+        "damage": 0,
+        "maxRange": 320,
+        "collides": false,
+        "incendAmount": 0,
+        "colors": [ "00000000","00000000","00000000","00000000" ],
+        "hitEffect": "none",
+        "despawnEffect": "drillSteam"
+      }
+    },
+    {
+      "mirror": false,//gatling rotating target effect
+      "rotate": true,
+      "rotateSpeed": 90,
+      "top": true,
+      "x": 22,
+      "y": -8,
+      "layerOffset": -0.001,
+      "recoil": 0,
+      "warmupSpeed": 0.05,
+      "shootSound": "none",
+      "shootY": 0,
+      "parentizeEffects": false,
+      "reload": 1,
+      "predictTarget": false,
+      "shootCone": 361,
+      "display": false,
+      "parts": [
+    {
+      "type": "ShapePart",
+      "circle": true,
+      "radius": 0,
+      "x": 0,
+      "y": 0,
+      "color": "ffffff",
+      "layer": 110,
+      "progress": "warmup",
+      "radiusTo": 1
+    },
+    {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 0,
+      "radiusTo": 20,
+      "x": 0,
+      "y": 0,
+      "color1": "ffffffcc",
+      "color2": "ffffff",
+      "followRotation": false,
+      "layer": 109.9,
+      "spinSpeed": 0,
+      "stroke": 1,
+      "progress": "warmup",
+    },
+    {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 0,
+      "radiusTo": 5,
+      "rotation": 90,
+      "x": 0,
+      "y": 0,
+      "color1": "ffffffcc",
+      "color2": "ffffff",
+      "followRotation": false,
+      "layer": 109.9,
+      "spinSpeed": 0,
+      "stroke": 1,
+      "progress": "warmup"
+      }
+      ],
+      "bullet": {
+        "type": "PointBulletType",
+        "speed": 16,
+        "damage": 0,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "trailEffect": "none",
+        "lifetime": 25,
+        "fragBullets": 1,
+        "fragRandomSpread": 0
+        "fragOffsetMax": 0,
+        "fragOffsetMin": 0,
+        "collides": false,
+        "reflectable": false,
+        "absorbable": false,
+        "fragBullet": {
+          "lifetime": 2,
+          "ignoreSpawnAngle": true,
+          "speed": 0,
+          "collides": false,
+          "hittable": false,
+          "reflectable": false,
+          "absorbable": false,
+          "width": 1,
+          "height": 1,
+          "damage": 0,
+          "frontColor": "00000000",
+          "backColor": "00000000",
+          "parts": [
+            {
+              "type": "RegionPart",
+              "name": "ve-gatling-target",
+              "color": "ff000030",
+              "outline": false,
+              "y": -2,
+              "layer": 110,
+              "moves": [
+                {
+                  "progress": {
+                    "type": "time",
+                    "op": "loop",
+                    "time": 120
+                  },
+                  "rot": 360
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "name": "ve-gatling-target",
+              "color": "0000ff30",
+              "outline": false,
+              "y": 2,
+              "layer": 110,
+              "moves": [
+                {
+                  "progress": {
+                    "type": "time",
+                    "op": "loop",
+                    "time": 120
+                  },
+                  "rot": 360
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "name": "ve-gatling-target",
+              "color": "ffffff80",
+              "outline": false,
+              "layer": 110,
+              "moves": [
+                {
+                  "progress": {
+                    "type": "time",
+                    "op": "loop",
+                    "time": 120
+                  },
+                  "rot": 360
+                }
+              ]
+            }
+          ],
+          "hitEffect": "none",
+          "despawnEffect": "none"
+        }
+      }
+    },
+    {
+      "mirror": false,//gatling target beams
+      "rotate": true,
+      "rotateSpeed": 90,
+      "top": true,
+      "x": 22,
+      "y": -8,
+      "layerOffset": -0.001,
+      "recoil": 2,
+      "warmupSpeed": 0.05,
+      "shootSound": "none",
+      "shootY": 0,
+      "parentizeEffects": false,
+      "reload": 1,
+      "predictTarget": false,
+      "display": false,
+      "shoot": {
+        "shots": 4,
+        "shotDelay": 0
+      },
+      "inaccuracy": 6,
+      "shootCone": 361,
+      "bullet": {
+        "type": "PointBulletType",
+        "speed": 16,
+        "velocityScaleRandMin": 0.9,
+        "velocityScaleRandMax": 1.1,
+        "damage": 0,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "sizeFrom": 0.5,
+          "sizeTo": 0.5,
+          "colorFrom": "ffffff80",
+          "colorTo": "ffffff00",
+          "lifetime": 2,
+          "length": 0,
+          "baseLength": 0
+        },
+        "trailSpacing": 1,
+        "lifetime": 25,
+        "collides": false,
+        "reflectable": false,
+        "absorbable": false
+      }
+    },
+    {
+      "name": "zenith-normal",
+      "controllable": false,
+      "shootOnDeath": true,
+      "reload": 1,
+      "display": false,
+      "useAttackRange": false,
+      "shootCone": 361,
+      "layerOffset": 0.2,
+      "mirror": false,
+      "y": 0,
+      "x": 0,
+      "shootY": 0,
+      "shootSound": "carrionMechDeath"
+      "bullet": {
+        "spawnUnit": "zenith",
+        "shootEffect": "none",
+        "smokeEffect": "none"
+      }
+    },
+    {
+      "name": "zentack-controller",
+      "reload": 15,
+      "recoil": 1,
+      "recoilTime": 30,
+      "alwaysShooting": true,
+      "controllable": false,
+      "layerOffset": 0.1,
+      "display": false,
+      "useAttackRange": false,
+      "minShootVelocity": 0.05,
+      "top": false,
+      "y": 13,
+      "x": 0,
+      "mirror": false,
+      "shootSound": "none",
+      "bullet": {
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "collides": false,
+        "absorbable": false,
+        "reflectable": false,
+        "hittable": false
+      }
+    },
+    {
+      "name": "zenith-missiles",
+      "reload": 40,
+      "x": 7,
+      "rotate": true,
+      "shoot": { "shots": 2 },
+      "inaccuracy": 5,
+      "velocityRnd": 0.2,
+      "layerOffset": 0.3,
+      "shootSound": "shootMissileLong",
+      "useAttackRange": false,
+      "rotationLimit": 120,
+      "bullet": {
+        "type": "MissileBulletType",
+        "speed": 3,
+        "damage": 14,
+        "width": 8,
+        "height": 8,
+        "shrinkY": 0,
+        "drag": -0.003,
+        "homingRange": 60,
+        "keepVelocity": false,
+        "splashDamageRadius": 25,
+        "splashDamage": 15,
+        "lifetime": 50,
+        "trailColor": "d06b53",
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "weaveScale": 6,
+        "weaveMag": 1
+      }
+    },
+    {
+      "name": "zenith-missiles-flipped",
+      "reload": 80,
+      "x": -22,
+      "y": -8,
+      "mirror": false,
+      "rotate": true,
+      "shoot": { "shots": 2 },
+      "inaccuracy": 5,
+      "velocityRnd": 0.2,
+      "shootSound": "shootMissileLong",
+      "bullet": {
+        "type": "MissileBulletType",
+        "speed": 3,
+        "damage": 14,
+        "width": 8,
+        "height": 8,
+        "shrinkY": 0,
+        "drag": -0.003,
+        "homingRange": 60,
+        "keepVelocity": false,
+        "splashDamageRadius": 25,
+        "splashDamage": 15,
+        "lifetime": 50,
+        "trailColor": "d06b53",
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "weaveScale": 6,
+        "weaveMag": 1
+      }
+    }
+  ]
+}

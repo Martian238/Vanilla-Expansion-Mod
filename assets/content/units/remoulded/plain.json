@@ -1,0 +1,367 @@
+{
+  "type": "payload",
+  "databaseTag": "09cyclant-strengthened-unit",
+  "research": {
+    "parent": "string",
+    "objectives": [ "square" ],
+    "requirements": [  ]
+  },
+  "isEnemy": true,
+  "lowAltitude": true,
+  "flying": true,
+  "drag": 0.04,
+  "speed": 2.5,
+  "rotateSpeed": 5,
+  "accel": 0.08,
+  "health": 3200,
+  "armor": 11,
+  "engineOffset": 11,
+  "engineSize": 3.5,
+  "lightColor": "98ffa9",
+  "mineBeamOffset": 16.5,
+  "engines": [
+    {
+      "x": 12,
+      "y": 0,
+      "rotation": -45,
+      "radius": 3
+    },
+    {
+      "x": -12,
+      "y": 0,
+      "rotation": -135,
+      "radius": 3
+    }
+  ],
+  "hitSize": 24,
+  "itemCapacity": 90,
+  "mineTier": 3,
+  "mineSpeed": 8,
+  "mineWalls": true,
+  "buildSpeed": 3.25,
+  "buildBeamOffset": 13.5,
+  "buildRange": 270,
+  "payloadCapacity": 576,
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
+  "immunities": [ "electrified","frozen" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "itemOffsetY": -0.5,
+  "abilities": [
+    {
+      "type": "ShieldArcAbility",
+      "radius": 48,
+      "regen": 0.5,
+      "max": 3200,
+      "cooldown": 300,
+      "angle": 180,
+      "angleOffset": 0,
+      "whenShooting": true,
+      "width": 12
+    }
+  ],
+  "drawMineBeam": false,
+  "weapons": [
+    {
+      "type": "MineWeapon",
+      "x": 7.25,
+      "y": 11.25,
+      "shootY": 0,
+      "shootX": 0
+    },
+    {
+      "name": "plain-weapon",
+      "x": 0,
+      "y": -0.25,
+      "reload": 70,
+      "recoil": 4,
+      "rotate": true,
+      "rotateSpeed": 3,
+      "top": true,
+      "shootX": 0,
+      "shootY": 9,
+      "shake": 5,
+      "shootSound": "railgunClassic",
+      "soundPitchMax": 1.35,
+      "soundPitchMin": 1.25,
+      "heatColor": "ffffffee",
+      "cooldownTime": 45,
+      "recoilTime": 30,
+      "shadow": 16,
+      "mirror": false,
+      "bullet": {
+        "recoil": 1,
+        "spawnBullets": [
+          {
+            "type": "LaserBulletType",
+            "damage": 30,
+            "collidesGround": false,
+            "collidesTiles": false,
+            "sideAngle": 90,
+            "sideWidth": 1,
+            "sideLength": 25,
+            "length": 25,
+            "colors": [ 
+              "98ffa966","98ffa9","ffffff"
+            ],
+            "hitColor": "98ffa9"
+          }
+        ],
+        "speed": 10,
+        "lifetime": 24,
+        "scaleLife": true,
+        "backColor": "98ffa9",
+        "frontColor": "ffffff"
+        "lightColor": "98ffa9",
+        "trailColor": "98ffa9",
+        "trailLength": 30,
+        "height": 18,
+        "width": 9,
+        "damage": 106,
+        "collidesTeam": false,
+        "shootEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "WaveEffect",
+              "lifetime": 10,
+              "strokeFrom": 3,
+              "strokeTo": 1,
+              "sizeFrom": 0,
+              "sizeTo": 30,
+              "interp": "circleOut",
+              "colorFrom": "98ffa9",
+              "colorTo": "98ffa900"
+            },
+            {
+              "type": "ParticleEffect",
+              "particles": 10,
+              "length": 10,
+              "baseLength": 0,
+              "lifetime": 60,
+              "sizeFrom": 3,
+              "sizeTo": 1,
+              "cone": 10,
+              "colorFrom": "98ffa9",
+              "colorTo": "98ffa900",
+              "interp": "circleOut"
+            },
+            "shootHeal",
+            {
+              "type": "RadialEffect"
+              "effect": "shootHeal",
+              "amount": 2,
+              "rotationOffset": 0,
+              "rotationSpacing": 180,
+              "clip": 300,
+              "rotWithParent": true
+            }
+          ]
+        },
+        "smokeEffect": "shootBigSmoke",
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "WaveEffect",
+              "lifetime": 10,
+              "strokeFrom": 2,
+              "strokeTo": 0,
+              "sizeFrom": 0,
+              "sizeTo": 24,
+              "interp": "circleOut",
+              "colorFrom": "98ffa9",
+              "colorTo": "98ffa955"
+            },
+            {
+              "type": "ParticleEffect",
+              "particles": 10,
+              "length": 16,
+              "baseLength": 0,
+              "lifetime": 60,
+              "sizeFrom": 3,
+              "sizeTo": 2,
+              "colorFrom": "ffffff",
+              "colorTo": "98ffa900",
+              "interp": "circleOut"
+            }
+          ]
+        },
+        "hitColor": "98ffa9",
+        "despawnEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "ParticleEffect",
+              "particles": 15,
+              "length": 48,
+              "baseLength": 0,
+              "lifetime": 90,
+              "sizeFrom": 3,
+              "sizeTo": 2,
+              "colorFrom": "98ffa9",
+              "colorTo": "98ffa900",
+              "interp": "circleOut"
+            },
+                {
+                  "type": "WaveEffect",
+                  "lightColor": "98ffa9",
+                  "colorFrom": "ffffff",
+                  "colorTo": "98ffa9",
+                  "sizeTo": 48,
+                  "strokeFrom": 2,
+                  "strokeTo": 1,
+                  "lifetime": 7
+                },
+          {
+            "type": "WaveEffect",
+            "lightColor": "98ffa9",
+            "startDelay": 7,
+            "colorFrom": "98ffa9",
+            "colorTo": "98ffa900",
+            "sizeFrom": 48,
+            "sizeTo": 48,
+            "strokeFrom": 1,
+            "strokeTo": 1,
+            "lifetime": 60,
+            "interp": "circleIn"
+          },
+          {
+            "type": "WaveEffect",
+            "lightColor": "98ffa9",
+            "startDelay": 7,
+            "colorFrom": "98ffa9",
+            "colorTo": "98ffa900",
+            "sizeFrom": 48,
+            "sizeTo": 43,
+            "strokeFrom": 1,
+            "strokeTo": 0,
+            "lifetime": 30,
+            "interp": "circleOut"
+          },
+          {
+            "type": "WaveEffect",
+            "lightColor": "98ffa9",
+            "startDelay": 7,
+            "colorFrom": "98ffa9",
+            "colorTo": "98ffa900",
+            "sizeFrom": 48,
+            "sizeTo": 53,
+            "strokeFrom": 1,
+            "strokeTo": 0,
+            "lifetime": 30,
+            "interp": "circleOut"
+          }
+          ]
+        },
+        "splashDamage": 55,
+        "splashDamageRadius": 8,
+        "sprite": "missile",
+        "shrinkY": 0,
+        "trailWidth": 1,
+        "trailEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            "missileTrail",
+            {
+              "type": "RadialEffect"
+              "effect": "shootHeal",
+              "amount": 2,
+              "rotationOffset": 0,
+              "rotationSpacing": 180,
+              "clip": 75,
+              "rotWithParent": true
+            }
+          ]
+        },
+        "trailInterval": 1,
+        "status": "electrified",
+        "statusDuration": 600,
+        "fragBullets": 1,
+        "fragOnHit": false,
+        "fragOnAbsorb": false,
+        "hitSize": 7,
+        /*"collidesTiles": false,
+        "collidesGround": false,*/
+        "collides": false,
+        "hitSound": "explosionAfflict",
+        "despawnSound": "shootLancer",
+        "fragBullet": {
+          "speed": 0,
+          "lifetime": 7,
+          "collides": false,
+          "hittable": false,
+          "absorbable": false,
+          "width": 0,
+          "height": 0,
+          "damage": 0,
+          "despawnEffect": "none",
+          "lightColor": "98ffa9",
+          "lightRadius": 48,
+          "hitEffect": "none",
+          "fragBullets": 1,
+          "fragBullet": {
+            "type": "EmpBulletType",
+            "hittable": false,
+            "radius": 48,
+            "timeIncrease": 1.5,
+            "timeDuration": 900,
+            "powerDamageScl": 2,
+            "powerSclDecrease": 0.2,
+            "instantDisappear": true,
+            "damage": 0,
+            "lightColor": "98ffa9",
+            "splashDamage": 15,
+            "collidesAir": false,
+            "splashDamageRadius": 48,
+            "status": "electrified",
+            "statusDuration": 180,
+            "hitEffect": "none",
+            "despawnEffect": "none",
+            "despawnShake": 4,
+            "healAmount": 300,
+            "healPercent": 15
+          }
+        }
+      }
+    },
+    {
+      "name": "heal-weapon-mount",
+      "x": 12.25,
+      "y": -7.75,
+      "top": true,
+      "rotate": true,
+      "reload": 30,
+      "ejectEffect": "none",
+      "recoil": 2,
+      "shootSound": "shootMissilePlasmaShort",
+      "velocityRnd": 0.3,
+      "inaccuracy": 12,
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 5
+      },
+      "bullet": {
+        "type": "MissileBulletType",
+        "speed": 4,
+        "damage": 12,
+        "homingPower": 0.08,
+        "weaveMag": 4,
+        "weaveScale": 4,
+        "lifetime": 50,
+        "shootEffect": "shootHeal",
+        "smokeEffect": "hitLaser",
+        "despawnEffect": "hitLaser",
+        "hitEffect": "hitLaser",
+        "frontColor": "ffffff",
+        "hitSound": "none",
+        "healAmount": 40,
+        "healPercent": 3,
+        "collidesTeam": true,
+        "backColor": "98ffa9",
+        "trailColor": "98ffa9"
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "effect": {
+    "type": "ParticleEffect",
+    "particles": 1,
+    "lifetime": 90,
+    "sizeFrom": 2,
+    "sizeTo": 1,
+    "colorFrom": "bf92f9",
+    "colorTo": "bf92f900",
+    "length": -1,
+    "baseLength": 6,
+    "interp": "circleIn",
+  },
+  "color": "bf92f9",
+  "permanent": false,
+  "buildSpeedMultiplier": 0.5,
+  "reloadMultiplier": 0.6,
+  "damageMultiplier": 0.9,
+  "applyEffect": "none",
+  "show": true,
+  "effectChance": 0.01
+}

@@ -1,0 +1,97 @@
+{
+  "type": "tank",
+  "databaseTag": "08cyclant-newtype-unit",
+  "hitSize": 12,
+  "speed": 1.3,
+  "treadPullOffset": 3,
+  "treadFrames": 18,
+  "rotateSpeed": 3,
+  "health": 670,
+  "armor": 6,
+  "itemCapacity": 30,
+  "omniMovement": false,
+  "squareShape": true,
+  "rotateMoveFirst": true,
+  "drag": 0.07,
+  "accel": 0.1,
+  "envDisabled": 0,
+  "treadRects": [
+    {
+      "type": "Rect",
+      "x": -23,
+      "y": -26,
+      "width": 12,
+      "height": 53
+    }
+  ],
+  "research": {
+    "parent": "ground-fabricator",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "intervalley"
+      } 
+    ],
+    "requirements": [ "silicon/900","lead/450","silicide/300" ]
+  },
+  "envDisabled": 0,
+  "emitWalkSound": false,
+  "immunities": [ "melting","burning","combusting","corroded","fusing" ],
+  "researchCostMultiplier": 0.01,
+  "lightColor": "feb380",
+  "tankMoveSound": "lbp3TankTreads",
+  "tankMoveVolume": 0.1,
+  "floorMultiplier": 0.95,
+  "shownPlanets": [ "cyclant","phoon","maress","serpulo","thavina" ],
+  "weapons": [
+    {
+      "name": "conscript-turret",
+      "recoil": 1,
+      "mirror": false,
+      "reload": 55,
+      "recoilTime": 35,
+      "x": 0,
+      "y": 0,
+      "layerOffset": 0.001,
+      "shootY": 6.5,
+      "rotate": true,
+      "rotateSpeed": 3,
+      "shootSound": "shootDuo",
+      "bullet": {
+        "speed": 3.3,
+        "damage": 27,
+        "drag": 0.008,
+        "sprite": "missile-large",
+        "smokeEffect": "shootBigSmoke",
+        "shootEffect": "shootBigColor",
+        "width": 6,
+        "height": 9,
+        "lifetime": 55,
+        "hitSize": 5,
+        "hitColor": "feb380",
+        "backColor": "feb380",
+        "trailColor": "feb380",
+        "frontColor": "ffffff",
+        "trailChance": 0.3,
+        "despawnEffect": "blastExplosion",
+        "hitEffect": "blastExplosion",
+        "splashDamage": 41,
+        "splashDamageRadius": 20,
+        "status": "blasted",
+        "statusDuration": 60,
+        "hitSound": "explosionArtillery",
+        "despawnSound": "explosionArtillery"
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "-tube",
+          "moveY": -1.25,
+          "progress": "reload",
+          "under": true,
+          "mirror": false
+        }
+      ]
+    }
+  ]
+}

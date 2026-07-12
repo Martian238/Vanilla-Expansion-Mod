@@ -1,0 +1,33 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus","thavina" ],
+  "drag": 0.05,
+  "boostMultiplier": 3,
+  "immunities": {"add":[ "dusty","frozen" ]},
+  "databaseTag": "02serpulo-ground-unit",
+  "weapons": {
+    "add": [
+    {
+      "display": false,
+      "reload": 1,
+      "shootStatus": "walking",
+      "shootStatusDuration": 2,
+      "controllable": false,
+      "alwaysShooting": true,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "mirror": false,
+      "noAttack": true,
+      "bullet": {
+        "instantDisappear": true,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "despawnEffect": "none",
+        "hitEffect": "none",
+        "collides": false,
+        "hittable": false,
+        "absorbable": false
+      }
+    } ]
+  },
+  "engineLayer": 114.99
+}

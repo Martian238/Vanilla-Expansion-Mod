@@ -1,0 +1,5006 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": false,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": false,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "speed": 0,
+  "health": 999999,
+  "armor": 0,
+  "deathSound": "none",
+  "clipSize": 800,
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "bounded": false,
+  "lightRadius": 0,
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "hidden": true,
+  "loopSound": "none",
+  "loopSoundVolume": 0,
+  "type": "missile",
+  "lifetime": 300,
+  "targetAir": false,
+  "targetGround": false,
+  /*
+  300
+  60+40(100)+160(260)+40(300)+20(320)
+  85->253
+  320-85=235
+  */
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "weapons": [
+    {
+      "alwaysShooting": true,//beam
+      "recoil": 0,
+      "y": 16,
+      "recoilTime": 210,
+      "recoilPow": 1,
+      "reload": 3600,
+      "mirror": false,
+      "alternate": false,
+      "x": 0,
+      "shootCone": 361,
+      "shootY": 7,
+      "shootSound": "drKnightDrawpower",
+      "shootSoundVolume": 1,
+      "ignoreRotation": true,
+      "useAttackRange": false,
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "controllable": false,
+      "aiControllable": true,
+      "parentizeEffects": true,
+      "shake": 0,
+      "inaccuracy": 12,//inc
+      /*"shoot": {
+        "firstShotDelay": 45
+      },*/
+      "bullet": {
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none"
+      }
+    },
+    {
+      "alwaysShooting": true,//sound
+      "recoil": 0,
+      "y": 16,
+      "recoilTime": 210,
+      "recoilPow": 1,
+      "reload": 3600,
+      "mirror": false,
+      "alternate": false,
+      "x": 0,
+      "shootCone": 361,
+      "shootY": 7,
+      "shootSound": "chiniunBombRelease",
+      "shootSoundVolume": 0.65,
+      "ignoreRotation": true,
+      "useAttackRange": false,
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "controllable": false,
+      "aiControllable": true,
+      "parentizeEffects": true,
+      "shake": 0,
+      "inaccuracy": 12,//inc
+      "shoot": {
+        "firstShotDelay": 60
+      },
+      "bullet": {
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none"
+      }
+    },
+    {
+      "alwaysShooting": true,//beam
+      "recoil": 0,
+      "y": 16,
+      "recoilTime": 210,
+      "recoilPow": 1,
+      "reload": 3600,
+      "mirror": false,
+      "alternate": false,
+      "x": 0,
+      "shootCone": 361,
+      "shootY": 87,
+      "shootSound": "drKnightStarExplodeClose",
+      "shootSoundVolume": 1.5,
+      "ignoreRotation": true,
+      "useAttackRange": false,
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "controllable": false,
+      "aiControllable": true,
+      "parentizeEffects": true,
+      "shake": 0,
+      "inaccuracy": 12,//inc
+      "shoot": {
+        "firstShotDelay": 260
+      },
+      "bullet": {
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none"
+      }
+    }
+    
+    
+    
+    {
+      "alwaysShooting": true,//bomb1
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 85 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 236,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.01,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6222,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6222,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6222,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6222,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb2
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 92 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 230,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.01125,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6129,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6129,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6129,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6129,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb3
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 99 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 224,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.0125,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6052,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6052,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6052,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.6052,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb4
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 106 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 218,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.01375,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5973,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5973,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5973,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5973,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb5
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 113 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 212,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.015,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5890,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5890,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5890,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5890,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb6
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 120 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 206,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.01625,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5804,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5804,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5804,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5804,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb7
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 127 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 200,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.0175,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5714,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5714,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5714,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5714,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb8
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 134 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 194,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.01875,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5620,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5620,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5620,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5620,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb9
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 141 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 188,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.02,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5522,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5522,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5522,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5522,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb10
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 148 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 182,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.02125,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5419,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5419,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5419,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5419,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb11
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 155 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 176,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.0225,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5312,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5312,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5312,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5312,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb12
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 162 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 170,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.02375,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5200,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5200,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5200,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5200,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb13
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 169 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 164,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.025,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5081,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5081,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5081,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.5081,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb14
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 176 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 158,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.02625,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4957,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4957,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4957,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4957,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb15
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 183 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 152,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.0275,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4827,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4827,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4827,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4827,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb16
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 190 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 146,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.02875,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4690,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4690,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4690,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4690,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb17
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 197 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 140,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.03,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4545,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4545,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4545,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4545,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb18
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 204 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 134,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.03125,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4392,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4392,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4392,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4392,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb18
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 211 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 128,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.0325,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4230,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4230,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4230,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4230,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb19
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 218 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 122,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.03375,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4059,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4059,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4059,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.4059,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb20
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 225 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 116,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.035,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3877,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3877,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3877,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3877,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb21
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 232 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 110,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.03625,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3684,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3684,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3684,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3684,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb22
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 239 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 104,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.0375,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3478,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3478,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3478,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3478,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb23
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 246 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 98,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.03875,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3258,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3258,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3258,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3258,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+    {
+      "alwaysShooting": true,//bomb24
+      "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
+      "inaccuracy": 12,//inc
+      "shoot":{ "firstShotDelay": 253 },//delay
+      "velocityRnd": 0.4,
+      "bullet": {
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "lifetime": 92,//=320-delay+number
+        "splashDamage": 50,//damage
+        "splashDamageRadius": 32,//damageradius
+        "speed": 7,//speed
+"collides": false,//collideplayer
+        "drag": 0.04,//drag
+        "frontColor": "ffffff",
+        "backColor": "bf92f9",
+        "buildingDamageMultiplier": 2,
+        "shrinkInterp": "circleIn",
+        "width": 0.5,
+        "height": 10,
+        "shrinkY": -0.2,
+        "shrinkX": -23,
+        "sprite": "circle-bullet",
+        "mixColorTo": "f25555"
+        "trailColor": "bf92f9",
+        "trailInterval": 4,
+        "parts": [
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "hollow": true,
+            "stroke": 1.5,//shellstroke
+            "radius": 5,//shellradius
+            "color": "f2555500",
+            "layer": 100,
+            "colorTo": "f25555",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3023,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "sides": 6,//shellsides
+            "radius": 4,//shellradius
+            "color": "f2555500",
+            "layer": 99.99,
+            "colorTo": "f2555580",
+            "radiusTo": 8,//shellradius2
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3023,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "ShapePart",
+            "circle": true,
+            "hollow": true,
+            "radius": 32,//damageradius
+            "color": "f2555500",
+            "layer": 99,
+            "colorTo": "f2555580",
+            "progress": {
+              "type": "life",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3023,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          },
+          {
+            "type": "FlarePart",
+            "sides": 6,//flaresides
+            "radius": 0,
+            "radiusTo": 40,//flareradius
+            "rotation": 0,//flarerot
+            "x": 0,
+            "y": 0,
+            "color1": "f25555",
+            "color2": "ffffff",
+            "followRotation": true,
+            "layer": 99.99,
+            "spinSpeed": 0,
+            "stroke": 1.5,//flarestroke
+            //"useProgress": true,
+            "progress": {
+              "type": "life",//flareprogress
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.3023,//(lifetime-120)/lifetime
+                  "end": 1
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow3Out"
+                }
+              ]
+            }
+          }
+        ],
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": {
+          "type": "ExplosionEffect",//explodeeffect
+          "lifetime": 40,
+          "smokes": 10,
+          "smokeRad": 32,
+          "smokeColor": "f25555a0",
+          "smokeSize": 6,
+          "sparks": 10,
+          "sparkRad": 32,
+          "sparkColor": "f25555",
+          "sparkLen": 8,
+          "sparkStroke": 2,
+          "waveColor": "f25555",
+          "waveRad": 32,
+          "waveStroke": 3
+        },
+        "hitShake": 4,
+        "despawnShake": 2,
+        "hitSoundVolume": 1.5,
+"hitSound": "drFireworkExplosion",
+        "despawnSound": "drFireworkExplosion",
+/*frag*/
+"fragBullets": 6,//fragamount
+"fragAngle": 30,//fragangle
+"fragRandomSpread": 0,
+"fragSpread": 60,//fragspread
+"fragVelocityMin": 1,
+"fragOffsetMax": 1,
+"fragOnHit": false,
+"fragOnDespawn": true,
+"fragBullet": {
+  "sprite": "missile-large",
+  "width": 8,//fragsize
+  "height": 8,//fragsize
+  "frontColor": "ffffff",
+  "backColor": "bf92f9",
+  "shrinkY": 0,
+  "speed": 0.2,//fragspeed
+  "accel": 0.05,//fragaccel
+  "drag": 0.0125,//fragdrag
+  "damage": 50,//fragdamage
+  "hitEffect": "hitLaserBlast",
+  "despawnEffect": "hitLaserBlast",
+  "lifetime": 120,//fraglife
+  "hitColor": "bf92f9",
+  "status": "sapped",
+  "statusDuration": 180,
+  "trailColor": "bf92f9",
+  "trailWidth": 0.5,//fragtrailwidth
+  "trailEffect": "missileTrailShort",
+  "trailInterval": 6,
+  "hitSize": 2
+}
+      }
+    },
+  ],
+  
+  
+      "parts": [
+        {
+          "type": "EffectSpawnerPart",
+          "width": 0,
+          "height": 0,
+          "y": 23,
+          "effectRandRot": 0,
+          "effectChance": 0.4,
+          "progress": {
+                "type": "life",
+                "ops": [
+                  {
+                    "op": "mul",
+                    "amount": 7.5
+                  },
+                  {
+                    "op": "add",
+                    "amount": -1.5
+                  },
+                  {
+                    "op": "clamp"
+                  },
+                  {
+                    "op": "curve",
+                    "interp": "pow3Out"
+                  },
+                  {
+                    "op": "add",
+                    "other": {
+                      "type": "life",
+                      "ops": [
+                        {
+                          "op": "mul",
+                          "amount": 7.5
+                        },
+                        {
+                          "op": "add",
+                          "amount": -6.5
+                        },
+                        {
+                          "op": "clamp"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3Out"
+                        },
+                        {
+                          "op": "mul",
+                          "amount": -1
+                        }
+                      ]
+                    }
+                  }
+                ]
+          },
+          "effect": {
+            "type": "ParticleEffect",
+            "line": true,
+            "lenFrom": 10,
+            "lenTo": 20,
+            "strokeFrom": 1.5,
+            "strokeTo": 1.5,
+            "colorFrom": "bf92f9a0",
+            "colorTo": "bf92f900",
+            "layer": 99.1,
+            "lifetime": 80,
+            "length": 384,
+            "baseLength": 0,
+            "randLength": 0,
+            "cone": 14,
+            "particles": 1
+          }
+        },
+        {
+          "type": "RegionPart",//life300
+          "name": "ve-bullet-cone",
+          "outline": false,
+          "blending": "additive",
+          "layer": 99,
+          "color": "ffffff",
+          "colorTo": "bf92f980",
+          "xScl": 0.02,
+          "yScl": 0,
+          "y": 23,
+          "progress": {
+            "type": "life",
+            "ops": [
+              {
+                "op": "mul",
+                "amount": 7.5
+              },
+              {
+                "op": "add",
+                "amount": -1.5
+              },
+              {
+                "op": "clamp"
+              }
+            ]
+          },
+          "moves": [
+            {
+              "y": 128,
+              "gy": -2,
+              "progress": {
+            "type": "life",
+            "ops": [
+              {
+                "op": "mul",
+                "amount": 5
+              },
+              {
+                "op": "add",
+                "amount": 0
+              },
+              {
+                "op": "clamp"
+              },
+              {
+                "op": "curve",
+                "interp": "circleOut"
+              }
+            ]
+          }
+            },
+            {
+              "gx": 0.98,
+              "progress": {
+                "type": "life",
+                "ops": [
+                  {
+                    "op": "mul",
+                    "amount": 7.5
+                  },
+                  {
+                    "op": "add",
+                    "amount": -1.5
+                  },
+                  {
+                    "op": "clamp"
+                  },
+                  {
+                    "op": "curve",
+                    "interp": "pow3Out"
+                  },
+                  {
+                    "op": "add",
+                    "other": {
+                      "type": "life",
+                      "ops": [
+                        {
+                          "op": "mul",
+                          "amount": 7.5
+                        },
+                        {
+                          "op": "add",
+                          "amount": -6.5
+                        },
+                        {
+                          "op": "clamp"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3Out"
+                        },
+                        {
+                          "op": "mul",
+                          "amount": -1
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+}

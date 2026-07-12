@@ -1,0 +1,9 @@
+{
+  //"type": "DuctBridge",
+  "requirements": [ "metaglass/10","thorium/10","plastanium/10" ],
+  "health": 220,
+  "speed": 4,
+  "range": 6,
+  "research": "armored-router",
+  "shownPlanets": [ "serpulo","thavina" ]
+}

@@ -1,0 +1,18 @@
+{
+  "planet": "sitrullus",
+  "sector": 2,
+  "difficulty": 10,
+  "research": {
+    "parent": "boss-zentack"
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 0,
+  "addStartingItems": true,
+  "isLastSector": true,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": false,
+  "alwaysUnlocked": true
+}
+
+
+

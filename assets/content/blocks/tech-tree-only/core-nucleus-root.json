@@ -1,0 +1,20 @@
+{
+  //"type": "CoreBlock",
+  "requirements": [ "copper/8000","lead/8000","thorium/4000","silicon/5000" ],
+  "buildVisibility": "editorOnly",
+  "health": 6000,
+  "category": "effect",
+  "size": 5,
+  "armor": 3,
+  "unitType": "gamma",
+  "itemCapacity": 13000,
+  "unitCapModifier": 24,
+  "thrusterLength": 10,
+  "research": {
+    "root": true,
+    //"name": "赛克兰特",
+    "planet": "ve-cyclant"
+  },
+  "alwaysUnlocked": true,
+  "researchCostMultiplier": 0
+}

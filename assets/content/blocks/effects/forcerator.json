@@ -1,0 +1,40 @@
+{
+  //"type": "ForceProjector",
+  "category": "effect",
+  "radius": 200,
+  "phaseShieldBoost": 2000,
+  "phaseRadiusBoost": 200,
+  "phaseUseTime": 600,
+  "shieldHealth": 4000,
+  "sides": 8,
+  "shieldRotation": 22.5,
+  "phaseUseTime": 130,
+  "cooldownNormal": 2,
+  "cooldownBrokenBase": 0.5,
+  "cooldownLiquid": 3.5,
+  "coolantConsumption": 0.2666666667,
+  "liquidCapacity": 30,
+  "itemCapacity": 0,
+  "research": {
+    "parent": "overdrive-point",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "nuclear-powerplant"
+      }
+    ]
+  },
+  "consumes": {
+    "power": 4.5
+  },
+  "itemCapacity": 20,
+  "size": 3,
+  "researchCostMultiplier": 0.3,
+  "requirements": [ "cobalt/230","chromium/120","silicon/200","phase-fabric/60" ],
+  "health": 3000,
+  "armor": 6,
+  "ambientSoundVolume": 0.24,
+  "ambientSound": "shield",
+  "hitSoundVolume": 0.2,
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+}

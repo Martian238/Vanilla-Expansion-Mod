@@ -1,0 +1,325 @@
+{
+  "speed": 0.8,
+  "databaseTag": "10special-unit",
+  "accel": 0.04,
+  "drag": 0.04,
+  "rotateSpeed": 1.9,
+  "flying": true,
+  "lowAltitude": true,
+  "health": 7200,
+  "armor": 9,
+  "engineOffset": 21,
+  "engineSize": 5.3,
+  //"engineLayer": 100,
+  "hitSize": 46,
+  "deathSound": "si2Explode",
+  "targetFlags": [ "reactor","core" ],
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-light",
+      "layer": 105,
+      "outline": false
+    }
+    /*{
+      "type": "RegionPart",
+      "suffix": "-shell",
+      "layer": 101,
+      "rotation": 90
+    }*/
+  ],
+  "lowAltitude": true,
+  "lightColor": "ffffff",
+  "researchCostMultiplier": 0.03,
+  "research": {
+    "parent": "alev",
+    "requirements": [ "silicon/1700","titanium/1500","plastanium/1300" ]
+  },
+  "immunities": [ "electrified","disarmed","pog","overclock","dusty","frozen","overdrive" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "weapons": [
+    {
+      "name": "firelock-bullet",
+      "rotate": true,
+      "rotateSpeed": 6,
+      "x": 10,
+      "y": 2,
+      "shake": 1,
+      "shootY": 8,
+      "layerOffset": 25,//18
+      "ejectEffect": "casing1",
+      "reload": 12,
+      "shootSound": "shootCyclone",
+      "top": true,
+      "shoot": { "shots": 2, "shotDelay": 6 },
+      "inaccuracy": 2,
+      "bullet": {
+        "frontColor": "ffa665",
+        "backColor": "d06b53",
+        "lightColor": "ffa665",
+        "damage": 44,
+        "speed": 7,
+        "lifetime": 30,
+        "width": 10,
+        "height": 16,
+        "spin": -12,
+        "pierceArmor": true,
+        "shootEffect": "shootBigColor",
+        "hitColor": "ffa665",
+        "knockback": 1,
+        "layer": 109
+      }
+    },
+    {
+      "name": "magnetic-missile",
+      "x": 17,
+      "y": -8,
+      "rotate": true,
+      "useAttackRange": false,
+      "top": true,
+      "reload": 15,
+      "shootSound": "shootMissile",
+      "ejectEffect": "casing1",
+      "shadow": 6,
+      "shootY": 3.5,
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 4,
+      },
+      "layerOffset": 25,
+      "bullet": {
+        "type": "MissileBulletType",
+        "speed": 3.5,
+        "damage": 18,
+        "keepVelocity": true,
+        "width": 8,
+        "height": 8,
+        "shrinkY": 0,
+        "homingPower": 0.03,
+        "homingRange": 48,
+        "splashDamage": 32,
+        "splashDamageRadius": 40,
+        "lifetime": 77,
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "status": "blasted",
+        "statusDuration": 60,
+        "lightColor": "ffa665",
+        "layer": 109
+      }
+    },
+    {
+      "name": "magnetic-missile",
+      "x": 17,
+      "y": 8,
+      "rotate": true,
+      "useAttackRange": false,
+      "top": true,
+      "reload": 20,
+      "shootSound": "shootMissile",
+      "ejectEffect": "casing1",
+      "shadow": 6,
+      "shootY": 3.5,
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 4,
+      },
+      "layerOffset": 25,
+      "bullet": {
+        "type": "MissileBulletType",
+        "speed": 3.5,
+        "damage": 18,
+        "keepVelocity": true,
+        "width": 8,
+        "height": 8,
+        "shrinkY": 0,
+        "homingPower": 0.03,
+        "homingRange": 48,
+        "splashDamage": 32,
+        "splashDamageRadius": 40,
+        "lifetime": 77,
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitEffect": "blastExplosion",
+        "despawnEffect": "blastExplosion",
+        "status": "blasted",
+        "statusDuration": 60,
+        "lightColor": "ffa665",
+        "layer": 109
+      }
+    },
+
+
+
+    {
+      "alwaysShooting": true,
+      "controllable": false,
+      "display": false,
+      "mirror": false,
+      "shootSound": "none",
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "reload": 360,
+      "recoil": 0,
+      "parentizeEffects": true,
+      "parts": [
+        {
+          "type": "RegionPart",
+          "layer": 102,
+          "rotation": 90,
+          "name": "ve-antumbright-shell",
+"outline": false,
+          "color": "ff6060",
+          "colorTo": "60ff60",
+          "xScl": 0,
+          "yScl": 0,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              { "op": "inv" },
+              {
+                "op": "compress",
+                "start": 0,
+                "end": 0.333333333
+              }
+            ]
+          },
+          "moves": [
+            {
+              "gx": 1,
+              "gy": 1,
+              "progress": {
+                "type": "reload",
+                "ops": [
+                  { "op": "inv" },
+                  {
+                    "op": "compress",
+                    "start": 0,
+                    "end": 0.333333333
+                  },
+                  {
+                    "op": "curve",
+                    "interp": "slope"
+                  },
+                  {
+                    "op": "mul",
+                    "amount": 1000000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "RegionPart",
+          "layer": 102,
+          "rotation": 90,
+          "name": "ve-antumbright-shell",
+"outline": false,
+          "color": "60ff60",
+          "colorTo": "6060ff",
+          "xScl": 0,
+          "yScl": 0,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              { "op": "inv" },
+              {
+                "op": "compress",
+                "start": 0.333333333,
+                "end": 0.666666667
+              }
+            ]
+          },
+          "moves": [
+            {
+              "gx": 1,
+              "gy": 1,
+              "progress": {
+                "type": "reload",
+                "ops": [
+                  { "op": "inv" },
+                  {
+                    "op": "compress",
+                    "start": 0.333333333,
+                    "end": 0.666666667
+                  },
+                  {
+                    "op": "curve",
+                    "interp": "slope"
+                  },
+                  {
+                    "op": "mul",
+                    "amount": 1000000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "RegionPart",
+          "layer": 102,
+          "rotation": 90,
+          "name": "ve-antumbright-shell",
+"outline": false,
+          "color": "6060ff",
+          "colorTo": "ff6060",
+          "xScl": 0,
+          "yScl": 0,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              { "op": "inv" },
+              {
+                "op": "compress",
+                "start": 0.666666667,
+                "end": 1
+              }
+            ]
+          },
+          "moves": [
+            {
+              "gx": 1,
+              "gy": 1,
+              "progress": {
+                "type": "reload",
+                "ops": [
+                  { "op": "inv" },
+                  {
+                    "op": "compress",
+                    "start": 0.666666667,
+                    "end": 1
+                  },
+                  {
+                    "op": "curve",
+                    "interp": "slope"
+                  },
+                  {
+                    "op": "mul",
+                    "amount": 1000000
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "bullet": {
+        "instantDisappear": true,
+        "despawnEffect": "none",
+        "hitEffect": "none",
+        "damage": 0,
+        "absorbable": false,
+        "smokeEffect": "none",
+        "shootEffect": "none",
+        "reflectable": false,
+        "hittable": false,
+        "collides": false
+      }
+    }
+  ]
+}

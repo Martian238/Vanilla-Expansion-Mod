@@ -1,0 +1,22 @@
+{
+  //"type": "ArmoredConveyor",
+  "requirements": [ "aluminium/1","ferrum/1" ]
+  "health": 120,
+  "armor": 6,
+  "category": "distribution",
+  "speed": 0.12,
+  "researchCost": [ "aluminium/50","ferrum/50" ],
+  "research": {
+    "parent": "core-singularity-root"
+  },
+  "ambientSound": "none",
+  "hasShadow": false,
+  "junctionReplacement": "valve-cross",
+  "bridgeReplacement": "ferric-bridge",
+  "displayedSpeed": 15,
+  "drawTeamOverlay": false,
+  "pushUnits": false,
+  "crushDamageMultiplier": 0.2,
+  "drawCracks": false,
+  "shownPlanets": [ "maress","thavina" ]
+}

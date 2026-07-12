@@ -1,0 +1,21 @@
+{
+  "planet": "phoon",
+  "sector": 19,
+  "difficulty": 1,
+  "research": {
+    "parent": "tutorial-floor-crusher",
+    "objectives": [
+      "blocking-wall",
+      "blocking-wall-silicide"
+    ]
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 5,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": false,
+  "allowLaunchLoadout": false
+}
+
+
+

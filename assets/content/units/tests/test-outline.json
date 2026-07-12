@@ -1,0 +1,20 @@
+{
+  "outlineRadius": 5,
+  "databaseTag": "13other-unit",
+  "flying": true,
+  "speed": 2,
+  "wobble": false,
+  "hitSize": 24,
+  "drawSoftShadow": false,
+  "health": 400,
+  "alwaysUnlocked": true,
+  "parts": [
+    {
+      "name": "ve-test-outline",
+      "mixColor": "98ffa9"
+      "x": 40,
+      "blending": "normal",
+      "layer": 122
+    }
+  ]
+}

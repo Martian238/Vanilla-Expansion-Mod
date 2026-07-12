@@ -1,0 +1,75 @@
+{
+  "type": "flying",
+  "databaseTag": "13other-unit",
+  "researchCostMultiplier": 0,
+  "alwaysUnlocked": true,
+  "isEnemy": true,
+  "lowAltitude": true,
+  "outlineColor": "2d2f39",
+  "flying": true,
+  "drag": 0.04,
+  "speed": 2.75,
+  "rotateSpeed": 9,
+  "accel": 0.05,
+  "health": 90,
+  "armor": 0,
+  "engineOffset": 6.5,
+  "hitSize": 9,
+  "itemCapacity": 30,
+  "faceTarget": true,
+  "targetFlags": [ "extinguisher" ],
+  "immunities": [ "pog","shielded","wet" ],
+  "abilities": [
+    {
+      "type": "ArmorPlateAbility",
+      "warmup": 1,
+      "healthMultiplier": 0.005
+    },
+    {
+      "type": "StatusFieldAbility",
+      "range": 16,
+      "reload": 120,
+      "duration": 3600,
+      "effect": "pog"
+    },
+    {
+      "type": "ShieldArcAbility",
+      "radius": 16,
+      "regen": 0.1,
+      "max": 90,
+      "cooldown": 15,
+      "angle": 60,
+      "whenShooting": false,
+      "width": 2
+    }
+  ],
+  "weapons": [
+    {
+      "name": "test-weapon",
+      "rotate": false,
+      "top": true,
+      "x": 3,
+      "y": 2,
+      "layerOffset": -0.001,
+      "recoil": 1,
+      "reload": 1,
+      "shootSound": "pewClassicEdited",
+      "ejectEffect": "none",
+      "shootY": 3.5,
+      "inaccuracy": 60,
+      "velocityRnd": 1,
+      "bullet": {
+        "type": "LiquidBulletType",
+        "liquid": "slag",
+        "layer": 100,
+        "makeFire": true,
+        "damage": 0.4,
+        "speed": 3,
+        "accel": 0.05,
+        "lifetime": 1800,
+        "circleShooter": true,
+        "rangeOverride": 200
+      }
+    }
+  ]
+}

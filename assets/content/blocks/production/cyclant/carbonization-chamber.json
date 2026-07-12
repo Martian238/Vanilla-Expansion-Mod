@@ -1,0 +1,156 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [
+    "silicide/150","graphite/100","silicon/200","cobalt/70","lead/80"
+  ],
+  "category": "crafting"
+  "research": {
+    "parent": "chain-transferer",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "shale-quarry"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.3,
+  "hasPower": true,
+  "hasItems": true,
+  "hasLiquids": true,
+  "size": 3,
+  "craftTime": 120,
+  "liquidCapacity": 40,
+  "itemCapacity": 30,
+  "consumes": {
+    "items": {
+      "items": [ "plastanium/8","cobalt/10" ]
+    },
+    "power": 3.5
+  },
+  "craftEffect": {
+    "type": "SeqEffect",
+    "effects": [
+      {
+        "type": "WaveEffect",
+        "colorFrom": "90dbff",
+        "colorTo": "90dbff",
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sizeFrom": 0,
+        "sizeTo": 30,
+        "lightColor": "90dbff",
+        "lifetime": 5
+      },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "90dbff",
+        "colorTo": "90dbff",
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sizeFrom": 0,
+        "sizeTo": 24,
+        "lightColor": "90dbff",
+        "lifetime": 5
+      },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "90dbff",
+        "colorTo": "90dbff",
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sizeFrom": 0,
+        "sizeTo": 18,
+        "lightColor": "90dbff",
+        "lifetime": 5
+      },
+      {
+        "type": "WaveEffect",
+        "colorFrom": "90dbff",
+        "colorTo": "90dbff",
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sizeFrom": 0,
+        "sizeTo": 12,
+        "lightColor": "90dbff",
+        "lifetime": 5
+      }
+    ]
+  },
+  "ambientSound": "loopMachine",
+  "ambientSoundVolume": 0.2,
+  "updateEffect": "coalSmeltsmoke",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { 
+        "type": "DrawRegion", 
+        "suffix": "-bottom1"
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": "-spin",
+        "rotateSpeed": -8
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "rotateSpeed": -8,
+        "rotate": true,
+        "color": "90dbff",
+        "layer": -1,
+        "alpha": 0.7,
+        "glowIntensity": 0.35,
+        "glowScale": 4
+      },
+      /*{ 
+        "type": "DrawRegion",
+        "suffix": "-spin",
+        "rotateSpeed": -6,
+        "rotation": 45
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow1",
+        "rotateSpeed": -6,
+        "rotation": 45,
+        "rotate": true,
+        "color": "90dbff",
+        "layer": -1,
+        "alpha": 0.7,
+        "glowIntensity": 0.35,
+        "glowScale": 4
+      },*/
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom2"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen",
+        "padding": 9.75
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-top",
+        "alpha": 0.3,
+        "color": "ffa665",
+        "glowIntensity": 0,
+        "layer": -1
+      }
+      { 
+        "type": "DrawRegion",
+        "suffix": ""
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-heat",
+        "alpha": 0.9,
+        "color": "ffa665",
+        "glowScale": 3
+      }
+    ]
+  },
+  "outputItems": [ "titanium/10","fibralt/10" ],
+  "outputLiquids": [ "hydrogen/0.354166666667" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+}

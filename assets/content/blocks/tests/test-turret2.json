@@ -1,0 +1,20 @@
+{
+  "type": "TractorBeamTurret",
+  "category": "turret",
+  "size": 2,
+  "force": 0,
+  "laserColor": "00ffce",
+  "laserWidth": 0.5,
+  "damage": 0.5,
+  "status": "captured",
+  "statusDuration": 30,
+  "targetGround": true,
+  "range": 240,
+  "health": 400,
+  "rotateSpeed": 3,
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly",
+  "consumes": {
+    "power": 5
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "Radar",
+  "category": "effect",
+  "requirements": [ "metaglass/12","sodium/5","lead/8" ],
+  "consumes": { "power": 0.3 },
+  "fogRadius": 10,
+  "buildCostMultiplier": 7,
+  "rotateSpeed": 0,
+  "discoveryTime": 30,
+  "research": {
+    "parent": "mend-point"
+  },
+  "emitLight": true,
+  "lightRadius": 80,
+  "lightColor": "ffd37f",
+  "hidden": true
+}

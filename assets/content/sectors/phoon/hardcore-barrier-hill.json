@@ -1,0 +1,27 @@
+{
+  "planet": "phoon",
+  "sector": 1,
+  "difficulty": 5,
+  "research": {
+    "parent": "phoon",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "barrier-hill"
+      },
+      {
+        "type": "SectorComplete",
+        "preset": "intervalley"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 25,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": false,
+  "allowLaunchLoadout": false
+}
+
+
+

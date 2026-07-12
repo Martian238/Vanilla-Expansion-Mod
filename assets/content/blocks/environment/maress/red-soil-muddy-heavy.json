@@ -1,0 +1,16 @@
+{
+  "type": "Floor",
+  "variants": 5,
+  "attributes": {
+    "water": 1
+  },
+  "wall": "red-soil-wet-wall",
+  //"decoration": "red-soil-boulder",
+  //"itemDrop": "red-soil",
+  //"playerUnmineable": true,
+  "status": "muddy",
+  "statusDuration": 60,
+  "speedMultiplier": 0.85,
+  "albedo": 0.2,
+  "mapColor": "312a28"
+}

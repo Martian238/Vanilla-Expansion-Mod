@@ -1,0 +1,25 @@
+{
+  "type": "Pump",
+  "buildVisibility": "sandboxOnly",
+  "category": "liquid",
+  "pumpAmount": 0.25,
+  "warmupSpeed": 0.02,
+  "liquidCapacity": 500,
+  "researchCostMultiplier": 0.5,
+  "hasPower": true,
+  "consumes": {
+    "power": 0.3,
+    "liquidFlammable": {
+      "minFlammability": 0,
+      "optional": true,
+      "booster": false
+    }
+  },
+  "floating": true,
+  "conductivePower": true,
+  "armor": 6,
+  "size": 2,
+  "crushDamageMultiplier": 0.2,
+  "placeableLiquid": true,
+  "squareSprite": false
+}

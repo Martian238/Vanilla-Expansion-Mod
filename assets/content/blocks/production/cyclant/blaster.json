@@ -1,0 +1,29 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "lead/80","chromium/50","graphite/20" ],
+  "category": "crafting",
+  "hasItems": true,
+  "hasPower": true,
+  "outputItem": "blast-compound/3",
+  "size": 3,
+  "consumes": {
+    "power": 0.7,
+    "items": [ "pyratite/3","spore-pod/3" ]
+  },
+  "craftTime": 75,
+  "research": {
+    "parent": "pyratiter",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fungus-factory"
+      },
+      "cultivate-tank"
+    ]
+  },
+  "itemCapacity": 20,
+  "researchCostMultiplier": 0.1,
+  "ambientSound": "loopMachine",
+  "ambientSoundVolume": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

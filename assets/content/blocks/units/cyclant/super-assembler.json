@@ -1,0 +1,61 @@
+{
+  //"type": "UnitAssembler",
+  "requirements": [ "lead/1500","silicon/900","cobalt/800","thorium/750","phase-fabric/300" ],
+  "category": "units",
+  "researchCostMultiplier": 0.03,
+  "research": {
+    "parent": "senior-refabricator",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "nuclear-powerplant"
+      }
+    ]
+  }
+  "size": 5,
+  "droneType": "assembly-drone-ve",
+  "plans": [
+    {
+      "unit": "firelock",
+      "time": 3000,
+      "requirements": [ 
+        "ve-ballistic/1",
+        "ve-super-assemble-pack/5"
+      ]
+    },
+    {
+      "unit": "magnetic",
+      "time": 2700,
+      "requirements": [ 
+        "ve-solar/1",
+        "ve-super-assemble-pack/5"
+      ]
+    },
+    {
+      "unit": "galaxy",
+      "time": 3600,
+      "requirements": [
+        "ve-nebula/1",
+        "ve-super-assemble-pack/5"
+      ]
+    },
+    {
+      "unit": "stereo",
+      "time": 3900,
+      "requirements": [ 
+        "ve-square/1",
+        "ve-super-assemble-pack/5"
+      ]
+    }
+  ],
+  "areaSize": 13,
+  "consumes": {
+    "power": 10,
+    "liquids": [ "chlorine/0.3" ]
+  },
+  "itemCapacity": 2400,
+  //"regionSuffix": "-rail",
+  "hasItems": true,
+  "createSound": [ "si2EntranceOpen","si2EntranceClose" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
+}

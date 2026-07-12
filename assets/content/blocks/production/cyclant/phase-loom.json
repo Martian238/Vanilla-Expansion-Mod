@@ -1,0 +1,93 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [
+    "silicon/200","lead/185","thorium/100","fibralt/80"
+  ],
+  "category": "crafting"
+  "research": {
+    "parent": "fibralt-extender",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "thorium-hacienda"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.05,
+  "size": 3,
+  "craftTime": 180,
+  "hasItems": true,
+  "hasLiquids": false,
+  "hasPower": true,
+  "itemCapacity": 90,
+  "consumes": {
+    "items": {
+      "items": [ "thorium/24","quartz/30" ]
+    },
+    "power": 8.333333334
+  },
+  "craftEffect": "smeltsmoke",
+  "ambientSound": "loopTech",
+  "ambientSoundVolume": 0.07,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { 
+        "type": "DrawRegion",
+        "suffix": "-bottom" 
+      },
+      {
+        "type": "DrawPistons",
+        "sinMag": 4,
+        "sinScl": 5,
+        "sides": 4,
+        "angleOffset": 45,
+        "sideOffset": 1.57,
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": "-weave",
+        "rotateSpeed": 1.0,
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-weave-glow",
+        "rotateSpeed": 1.0,
+        "rotate": true,
+        "color": "ffd59e",
+        "layer": -1,
+        "alpha": 0.7,
+        "glowIntensity": 0.35,
+        "glowScale": 4
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-weave",
+        "rotateSpeed": -0.9
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-weave-glow",
+        "rotateSpeed": -0.9,
+        "rotate": true,
+        "color": "ffd59e",
+        "layer": -1,
+        "alpha": 0.7,
+        "glowIntensity": 0.35,
+        "glowScale": 4
+      },
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "color": "ffd59e",
+        "layer": -1,
+        "alpha": 0.7,
+        "glowIntensity": 0.35,
+        "glowScale": 4
+      }
+    ]
+  },
+  "outputItem": "phase-fabric/9",
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+}

@@ -1,0 +1,28 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "aluminium/40","lead/30" ],
+  "category": "crafting",
+  "craftEffect": "smeltsmoke",
+  "size": 2,
+  "outputItem": "graphite/2",
+  "craftTime": 120,
+  "ambientSound": "loopMachine",
+  "ambientSoundVolume": 0.04,
+  "hasItems": true,
+  "consumes": {
+    "items": {
+      "items": [ "coal/4" ]
+    }
+  },
+  "research": {
+    "parent": "isomorphic-drill",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "barrier-hill"
+      }
+    ]
+  },
+  "researchCost": [ "aluminium/80","lead/60" ],
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

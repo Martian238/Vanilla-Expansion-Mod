@@ -1,0 +1,36 @@
+{
+  "bloom": true,
+  "accessible": false,
+  "alwaysUnlocked": true,
+  "radius": 1.2,
+  "mesh": {
+    "type": "SunMesh",
+    "planet": "sol4b",
+    "divisions": 4,
+    "octaves": 5,
+    "persistence": 0.5,
+    "scl": 7,
+    "pow": 1.5,
+    "mag": 2,
+    "colorScale": 0.9,
+    "colors": [ 
+      "ffffff",
+      "ffeeee",
+      "eedddd",
+      "ddcccc",
+      "ccbbbb",
+      "bbaaaa"
+    ]
+  },
+  "iconColor": "ffeeee",
+  "lightColor": "ffeeee",
+  "rotateTime": 80,
+  "solarSystem": "sol4b",
+  "visible": true,
+  "alwaysUnlocked": false,
+  "parent": "sol2",
+  "orbitRadius": 12000,
+  "drawOrbit": false,
+  "orbitTime": 120000,
+  "children": [ "thavina" ]
+}

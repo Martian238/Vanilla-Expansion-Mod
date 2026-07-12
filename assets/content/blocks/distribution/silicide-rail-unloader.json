@@ -1,0 +1,18 @@
+{
+  //"type": "DirectionalUnloader",
+  "requirements": [ "graphite/10","silicon/10","silicide/5" ],
+  "health": 400,
+  "armor": 24,
+  "speed": 1.5,
+  "regionRotated1": 1,
+  "solid": false,
+  "research": "silicide-rail-router",
+  "allowCoreUnload": true,
+  "buildCostMultiplier": 3,
+  "researchCostMultiplier": 0.1,
+  "crushDamageMultiplier": 0.05,
+  "squareSprite": false,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina","sitrullus","serpulo" ]
+}

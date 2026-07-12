@@ -1,0 +1,27 @@
+{
+  //"type": "Reconstructor",
+  "category": "units",
+  "size": 5,
+  "requirements": [ "lead/500","silicon/360","chromium/170" ],
+  "consumes": {
+    "power": 5,
+    "items": [ "silicon/180","titanium/120","silicide/40" ]
+  },
+  "constructTime": 1800,
+  "upgrades": [
+    [ "arrange","charge" ],
+    [ "egnarra","charge" ]
+  ],
+  "research": {
+    "parent": "junior-armorcar-reconstructor",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
+  //"regionSuffix": "-rail"
+}

@@ -1,0 +1,20 @@
+{
+  "planet": "phoon",
+  "sector": 12,
+  "difficulty": 10,
+  "research": {
+    "parent": "community-lieguqianshao",
+    "objectives": [
+      "core-quark"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 82,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

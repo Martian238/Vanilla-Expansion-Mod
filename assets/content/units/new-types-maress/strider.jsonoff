@@ -1,0 +1,81 @@
+{
+  "type": "mech",
+  "speed": 1.2,
+  "health": 500,
+  "armor": 6,
+  "stepSound": "walkerStepTiny",
+  "stepSoundVolume": 0.2,
+  "mechSideSway": 0.25,
+  "hitSize": 12,
+  "lightColor": "ffb471",
+  "databaseTag": "11maress-newtype-unit",
+  "immunities": [ "melting","burning","combusting","corroded","fusing" ],
+  "envDisabled": 0,
+  "research": {
+    "parent": "shimmer",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "lower-pass"
+      }
+    ]
+  },
+  "shownPlanets": [ "maress","thavina" ],
+  "drownTimeMultiplier": 2.5,
+  "weapons": [
+    {
+      "name": "strider-",
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "shootY": 4,
+      "reload": 5,
+      "shootSound": "shootFlamePlasma",
+      "shootSoundVolume": 0.5,
+      "cooldownTime": 30,
+      "recoil": 0,
+      "recoilTime": 30,
+      "shoot": {
+        "type": "ShootBarrel",
+        "barrels": [ 2.5,0,0,-2.5,0,0 ],
+        "shots": 2,
+        "shotDelay": 0
+      },
+      "bullet": {
+        "shootEffect": {
+            "type": "ParticleEffect",
+            "baseLength": 2,
+            "length": 120,
+            "particles": 20,
+            "layer": 100,
+            "colorFrom": "ffb471ff",
+            "colorTo": "eea36000",
+            "interp": "circleOut",
+            "sizeFrom": 2.5,
+            "sizeTo": 1,
+            "cone": 2,
+            "lifetime": 60,
+            "followParent": false,
+            "rotWithParent": false
+        },
+        "smokeEffect": "none",
+        "speed": 8,
+        "lifetime": 12,
+        "hittable": false,
+        "reflectable": false,
+        "frontColor": "00000000",
+        "backColor": "00000000",
+        "knockback": 4,
+        "status": "burning",
+        "statusDuration": 180,
+        "impact": true,
+        "hitEffect": "mine",
+        "hitColor": "ffb471",
+        "despawnEffect": "none",
+        "damage": 10,
+        "armorMultiplier": 0.5,
+        "hitSize": 8
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  //"type": "CoreBlock",
+  "requirements": [ "ferrum/3000","silver/1000","silicon/1000" ],
+  "health": 8000,
+  "size": 4,
+  "armor": 8,
+  "unitType": "iota",
+  "itemCapacity": 10000,
+  "unitCapModifier": 16,
+  "thrusterLength": 8.5,
+  "category": "effect",
+  "research": {
+    "parent": "core-nucleus-root-sitrullus"
+  },
+  "researchCost": [ "ferrum/1000","silver/1000","silicon/1000" ],
+  "requiresCoreZone": false,
+  "crushDamageMultiplier": 0.2,
+  "rebuildable": true,
+  "drawTeamOverlay": false,
+  "shownPlanets": [ "sitrullus","maress","thavina" ],
+  "connectedPower": true,
+  "conductivePower": true,
+  "hasPower": true,
+  "consumes": {
+    "powerBuffered": 100000
+  },
+  "outputsPower": true,
+  "consumesPower": true,
+  "enableDrawStatus": false
+}

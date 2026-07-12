@@ -1,0 +1,23 @@
+{
+  //"type": "LiquidRouter",
+  "requirements": [ "metaglass/10","chromium/30","silicide/30" ],
+  "category": "liquid",
+  "liquidCapacity": 800,
+  "research": {
+    "parent": "can",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "size": 2,
+  "solid": true,
+  "armor": 24,
+  "health": 2000,
+  "crushDamageMultiplier": 0.05,
+  "flammabilityScale": 0,
+  "explosivenessScale": 0.25,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

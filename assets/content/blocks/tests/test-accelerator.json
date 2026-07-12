@@ -1,0 +1,9 @@
+{
+  "type": "Accelerator",
+  "size": 5,
+  "launchBlock": "core-holder",
+  "category": "effect",
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly",
+  "launchCandidates": [ "cyclant","serpulo","phoon" ]
+}

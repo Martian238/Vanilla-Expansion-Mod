@@ -1,0 +1,16 @@
+{
+  //"type": "Router",
+  "requirements": [ "copper/6","silicide/3" ],
+  "category": "distribution",
+  "health": 370,
+  "armor": 16,
+  "speed": 4,
+  "buildCostMultiplier": 4,
+  "research": {
+    "parent": "silicide-junction"
+  },
+  "crushDamageMultiplier": 0.05,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "serpulo","thavina" ]
+}

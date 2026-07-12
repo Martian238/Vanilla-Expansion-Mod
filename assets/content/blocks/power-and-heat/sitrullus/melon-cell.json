@@ -1,0 +1,49 @@
+{
+  //"type": "NuclearReactor",
+  "requirements": [ "silver/10","melon-dirt/10" ],
+  "category": "power",
+  "ambientSound": "none",
+  "ambientSoundVolume": 0,
+  "powerProduction": 0.066666666667,
+  "heating": 0.0000277777777,
+  "size": 1,
+  "baseExplosiveness": 0,
+  "health": 40,
+  "itemDuration": 1200,
+  "itemCapacity": 10,
+  "consumes": {
+    "liquid": {
+      "liquid": "melon-water",
+      "amount": 0.01666666666667,
+      "update": false,
+      "optional": true
+    },
+    "item": "ferrum"
+  },
+  "liquidCapacity": 1,
+  "squareSprite": false,
+  "fuelItem": "ferrum",
+  "coolantPower": 0.016666666667,
+  "lightColor": "000000",
+  "lightRadius": 0,
+  "emitLight": false,
+  "flashThreshold": 1,
+  "heatOutput": 0,
+  "explodeSound": "none",
+  "hotColor": "ffffff00",
+  "smokeThreshold": 1,
+  "ambientCooldownTime": 2147483247,
+  "research": {
+    "parent": "cable"
+  },
+  "researchCostMultiplier": 0,
+  "explosionShake": 0,
+  "explosionShakeDuration": 0,
+  "explosionRadius": 0,
+  "explosionDamage": 0,
+  "explodeEffect": "none",
+  "destroyEffect": "none",
+  "destroySound": "none",
+  "shownPlanets": [ "sitrullus" ],
+  "createRubble": false
+}

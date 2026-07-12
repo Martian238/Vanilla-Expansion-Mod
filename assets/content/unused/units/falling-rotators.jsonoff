@@ -1,0 +1,84 @@
+{
+  "type": "flying",
+  "health": 1,
+  "drag": 0.01,
+  "speed": 0,
+  "accel": 0,
+  "isEnemy": false,
+  "groundLayer": 95.1,
+  "flying": true,
+  "engineSize": 0,
+  "targetable": false,
+  "drawMinimap": false,
+  "drawCell": false,
+  "rotateSpeed": 0,
+  "fogRadius": 0,
+  "faceTarget": false,
+  "buildVisibility": "sandboxOnly",
+  "alwaysUnlocked": true,
+  "abilities": [
+    {
+      "type": "RegenAbility",
+      "amount": -0.1
+    }
+  ],
+  "outlines": false,
+  "hitSize": 28,
+  "itemCapacity": 0,
+  "weapons": [
+    {
+      "controllable": false,
+      "shootOnDeath": true,
+      "mirror": false,
+      "x": 0,
+      "y": 0,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "shootY": 0,
+      "shake": 5,
+      "bullet": {
+        "collides": false,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "splashDamage": 600,
+        "splashDamageRadius": 32,
+        "speed": 0,
+        "instantDisappear": true,
+        "damage": 0,
+        "hittable": false,
+        "buildingDamageMultiplier": 0.5
+      }
+    }
+  ],
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-rotator",
+      "rotation": 0,
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "layerOffset": -0.1
+    },
+    {
+      "type": "RegionPart",
+      "suffix": "-rotator",
+      "rotation": 120,
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "layerOffset": -0.1
+    },
+    {
+      "type": "RegionPart",
+      "suffix": "-rotator",
+      "rotation": -120,
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "layerOffset": -0.1
+    }
+  ]
+}

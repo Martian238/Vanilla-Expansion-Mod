@@ -1,0 +1,11 @@
+{
+  "color": "ffa665",
+  "opposites": [ "wet","freezing" ],
+  "affinities": [ "tarred","corroded","sodiumified" ],
+  "transitionDamage": 240,
+  "show": true,
+  "effect": "burning",
+  "applyEffect": "none",
+  "damage": 2.5,
+  "effectChance": 1
+}

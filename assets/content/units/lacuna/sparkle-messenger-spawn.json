@@ -1,0 +1,289 @@
+{
+  "type": "missile",
+  "template": "MissileUnitType",
+  "lifetime": 90,
+  "flying": true,
+  "isEnemy": false,
+  "hittable": false,
+  "drawBody": false,
+  "drawCell": false,
+  "drawSoftShadow": false,
+  "physics": false,
+  "wobble": false,
+  "targetable": false,
+  "health": 400,
+  "armor": 9,
+  "rotateSpeed": 0,
+  "speed": 0,
+  "drag": 1,
+  "accel": 1,
+  "engineSize": 0,
+  "immunities": [ "blown" ],
+  "hidden": true,
+  "alwaysUnlocked": true,
+  "deathShake": 12,
+  "drawShields": false,
+  "deathSound":  [ "si2Teleporter1Echo","si2Teleporter2Echo","si2Teleporter3Echo","si2Teleporter4Echo" ],
+  "deathSoundVolume": 2,
+  "lightColor": "00000000",
+  "loopSound": "none",
+  "envDisabled": 0,
+  "lightRadius": 0,
+  "parts": [
+    {
+      "type": "EffectSpawnerPart",
+      "effect": {
+        "type": "WaveEffect",
+        "strokeFrom": 1,
+        "strokeTo": 0,
+        "sizeFrom": 8.5,
+        "sizeTo": 8.5,
+        "colorFrom": "80ffe000",
+        "colorTo": "00ffce",
+        "interp": "linear",
+        "lifetime": 10,
+        "followParent": true,
+        "sides": 24
+      },
+      "progress": "life",
+      "width": 2,
+      "height": 2,
+      "effectChance": 0.4
+    },
+    {
+      "type": "ShapePart",
+      "circle": true,
+      "radius": 0,
+      "x": 0,
+      "y": 0,
+      "color": "00ffce",
+      "colorTo": "ffffff",
+      "layer": 110,
+      "progress": {
+        "type": "life",
+        "op": "sin",
+        "scl": 0.5,
+        "mag": 0.2,
+        "offset": 0
+      },
+      "radiusTo": 1.25
+    },
+    {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 0,
+      "radiusTo": 23,
+      "x": 0,
+      "y": 0,
+      "color1": "00ffcecc",
+      "color2": "ffffff",
+      "followRotation": false,
+      "layer": 109.9,
+      "spinSpeed": 0,
+      "stroke": 1,
+      "progress": {
+        "type": "life",
+        "op": "sin",
+        "scl": 0.5,
+        "mag": 0.5,
+        "offset": 1
+      }
+    },
+    {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 0,
+      "radiusTo": 5.5,
+      "rotation": 90,
+      "x": 0,
+      "y": 0,
+      "color1": "00ffcecc",
+      "color2": "ffffff",
+      "followRotation": false,
+      "layer": 109.9,
+      "spinSpeed": 0,
+      "stroke": 1,
+      "progress": {
+        "type": "life",
+        "op": "sin",
+        "scl": 0.5,
+        "mag": 0.4,
+        "offset": 2
+      }
+    },
+    /*{
+      "type": "RegionPart",
+      "name": "ve-surge-officer-full",
+      "progress": {
+        "type": "life",
+        "op": "sin",
+        "scl": 0.5,
+        "mag": 0.4,
+        "offset": 2
+      },
+      "outline": false,
+      "color": "ffffff00",
+      "colorTo": "00ffcef0",
+      "layer": 122
+    },
+    {
+      "type": "RegionPart",
+      "name": "ve-surge-officer-full",
+      "progress": {
+        "type": "life",
+        "ops": [{"op":"sin",
+        "scl": 0.5,
+        "mag": 0.1,
+        "offset": 2},{"op":"inv"}
+        ]
+      },
+      "outline": false,
+      "colorTo": "ff000000",
+      "color": "00ffcef0",
+      "layer": 122,
+      "moveX": -15
+    },
+    {
+      "type": "RegionPart",
+      "name": "ve-surge-officer-full",
+      "progress": {
+        "type": "life",
+        "ops": [{"op":"sin",
+        "scl": 0.5,
+        "mag": 0.1,
+        "offset": 2},{"op":"inv"}
+        ]
+      },
+      "outline": false,
+      "colorTo": "0000ff00",
+      "color": "00ffcef0",
+      "layer": 122,
+      "moveX": 15
+    }*/
+  ],
+  /*"abilities": [
+    {
+      "type": "SpawnDeathAbility",
+      "unit": "magnetic",
+      "spread": 0,
+      "faceOutwards": false
+    }
+  ],*/
+  "weapons": [
+    {
+      "mirror": true,
+      "controllable": false,
+      "shootOnDeath": true,
+      "baseRotation": 180,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "shootSound": "none",
+      "autoTarget": false,
+      "reload": 1,
+      "shootCone": 361,
+      "alternate": false,
+      "rotate": true,
+      "rotateSpeed": 0,
+      "bullet": {
+          "type": "LaserBulletType",
+          "length": 8000,
+          "width": 13,
+          "colors": [ "00ffce80","00ffce","ffffff" ],
+          "lifetime": 30,
+          "damage": 5000,
+          "sideLength": 0,
+          "laserEffect": "chainLightning",
+          "hitColor": "00ffce"
+        "shootEffect": "none",
+        "smokeEffect": "none"
+      }
+    },
+    {
+      "mirror": false,
+      "controllable": false,
+      "shootOnDeath": true,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "shootSound": "none",
+      "autoTarget": false,
+      "reload": 1,
+      "shootCone": 361,
+      "bullet": {
+        "despawnUnit": "sparkle-messenger",
+        "despawnUnitRadius": 0,
+        "instantDisappear": true,
+        "speed": 0,
+        "shootEffect": {
+          "type": "SoundEffect",
+          "effect": {
+            "type": "MultiEffect",
+            "effects": [
+      { "type": "RadialEffect",
+        "amount": 1, "rotationOffset": -90,
+        "effect": {
+        "type": "ParticleEffect",
+        "particles": 1,
+        "randLength": false,
+        "length": 0,
+        "interp": "circleOut",
+        "colorFrom": "ffffff",
+        "colorTo": "ffffff00",
+        "sizeFrom": 16,
+        "sizeTo": 16,
+        "layer": 120,
+        //"lightOpacity": 10,
+        "lightColor": "00ffce",
+        "region": "ve-sparkle-messenger-full",
+        "offset": 0,
+        "cone": 0,
+        "lifetime": 20 }
+      },
+            {
+              "type": "WaveEffect",
+              "strokeFrom": 1.25,
+              "strokeTo": 3.5,
+              "sizeFrom": 8.5,
+              "sizeTo": 50,
+              "colorFrom": "00ffce",
+              "colorTo": "00ffce00",
+              "interp": "linear",
+              "lifetime": 15,
+              "sides": 48
+            }
+            ]
+          },
+          "minPitch": 1.2,
+          "maxPitch": 1.2,
+          "minVolume": 0.1,
+          "maxVolume": 0.1,
+          "sound": "stAstroWarp1"
+        },
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "smokeEffect": "none",
+      }
+    }
+  ],
+  "deathExplosionEffect": {
+    "type": "MultiEffect",
+    "effects": [
+      {
+        "particles": 1,
+        "cone": 0,
+        "region": "ve-circle-soft",
+        "sizeFrom": 256,
+        "sizeTo": 256,
+        "colorFrom": "ffffff60",
+        "colorTo": "ffffff00",
+        "lifetime": 15,
+        "interp": "linear",
+        "length": 0,
+        "baseLength": 0,
+        "lightScl": 0,
+        "layer": 120
+      }
+    ]
+  }
+}

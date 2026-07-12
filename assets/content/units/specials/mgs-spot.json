@@ -1,0 +1,113 @@
+{
+  "flying": true,
+  "wobble": false,
+  "hidden": true,
+  "drawMinimap": false,
+  "drawBody": false,
+  "drawSoftShadow": false,
+  "drawCell": false,
+  "targetable": false,
+  "hittable": false,
+  "deathSound": "none",
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "rotateSpeed": 0,
+  "speed": 0,
+  "physics": false,
+  "hitSize": 11,
+  "createWreck": false,
+  "createScorch": false,
+  "lightRadius": 0,
+  "fogRadius": 0,
+  "engineSize": 0,
+  "outlines": false,
+  "isEnemy": false,
+  "trailLength": 0,
+  "weapons": [
+    {
+      "alwaysShooting": true,
+      "recoil": 0,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "mirror": false,
+      "reload": 70,
+      "shootSound": "mgsvSpot",
+      "soundPitchMin": 1,
+      "soundPitchMax": 1,
+      "shoot": {
+        "firstShotDelay": 1
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "name": "ve-mgs-spot-effect",
+          "progress": {
+            "type": "reload",
+            "ops": [
+              {
+                "op": "slope"
+              },
+              {
+                "op": "mul",
+                "amount": 7
+              },
+              { "op": "inv" }
+            ]
+          },
+          "growProgress": {
+            "type": "reload",
+            "ops": [
+              {
+                "op": "slope"
+              },
+              {
+                "op": "mul",
+                "amount": 7
+              },
+              { "op": "inv" }
+            ]
+          },
+          "under": false,
+          "growY": -1,
+          "growX": 1,
+          "yScl": 1,
+          "xScl": 1,
+          "layer": 110,
+          "moveY": -10,
+          "outline": false
+        }
+      ],
+      "bullet": {
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none"
+      }
+    },
+    {
+      "alwaysShooting": true,
+      "recoil": 0,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "mirror": false,
+      "reload": 70,
+      "shootSound": "none",
+      "shoot": {
+        "firstShotDelay": 70
+      },
+      "bullet": {
+        "killShooter": true,
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        //"despawnUnit": "mgs-spot-mid",
+        "despawnUnitRadius": 0
+      }
+    }
+  ]
+}

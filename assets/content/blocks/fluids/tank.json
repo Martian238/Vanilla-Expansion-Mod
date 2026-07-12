@@ -1,0 +1,11 @@
+{
+  //"type": "LiquidRouter",
+  "requirements": [ "metaglass/20","chromium/50" ],
+  "category": "liquid",
+  "liquidCapacity": 2200,
+  "research": "can",
+  "size": 3,
+  "solid": true,
+  "armor": 6,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

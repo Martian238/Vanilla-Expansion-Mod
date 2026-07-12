@@ -1,0 +1,45 @@
+{
+  //"type": "LandingPad",
+  "category": "effect",
+  "research": {
+    "parent": "ve-advanced-launch-pad",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "gobi"
+      }
+    ]
+  },
+  "requirements": [ "aluminium/80","silicon/80","graphite/200" ],
+  "itemCapacity": 150,
+  "size": 3,
+  "hasPower": true,
+  "consumes": {
+    "power": 3
+  },
+  "liquidCapacity": 0,
+  "hasLiquids": false,
+  "buildVisibility": "shown"
+  "arrivalDuration": 180,
+  "cooldownTime": 120,
+  "dumpTime": 1,
+  "consumeLiquidAmount": 0,
+  "coolingEffectChance": 0.2,
+  "coolingEffect": {
+                    "type": "WaveEffect",
+                    "lightColor": "90dbff",
+                    "colorTo": "90dbff",
+                    "sizeTo": 28,
+                    "strokeFrom": 6,
+                    "lifetime": 7
+                  },
+  "landEffect": {
+    "type": "SoundEffect",
+    "effect": "podLandShockwave",
+    "sound": "none"
+  },
+  "squareSprite": false,
+  "landSound": "padLandAdvanced",
+  "landSoundVolume": 0.5,
+  "shownPlanets": [ "cyclant","maress","phoon" ]
+}

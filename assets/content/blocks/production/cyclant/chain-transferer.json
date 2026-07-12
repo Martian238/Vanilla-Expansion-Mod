@@ -1,0 +1,68 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [
+    "cobalt/100","thorium/90","silicon/130","lead/85","catalyzon/20"
+  ],
+  "category": "crafting"
+  "research": {
+    "parent": "fibralt-extender",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "shale-quarry"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.3,
+  "hasPower": true,
+  "hasItems": true,
+  "hasLiquids": true,
+  "size": 3,
+  "craftTime": 60,
+  "liquidCapacity": 60,
+  "itemCapacity": 20,
+  "consumes": {
+    "items": {
+      "items": [ "titanium/5","fibralt/5" ]
+    },
+    "liquids": {
+      "liquids": [ "hydrogen/0.354166666667" ]
+    }
+    "power": 2.6
+  },
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "craftEffect": "formsmoke",
+  "ambientSound": "loopMachine",
+  "ambientSoundVolume": 0.2,
+  "updateEffect": "plasticburn",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { 
+        "type": "DrawRegion", 
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen"
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": ""
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow-fibralt",
+        "color": "90dbff",
+        "alpha": 0.8
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow-plastanium",
+        "color": "cbd97f",
+        "alpha": 0.8
+      }
+    ]
+  },
+  "outputItems": [ "plastanium/4","cobalt/5" ]
+}

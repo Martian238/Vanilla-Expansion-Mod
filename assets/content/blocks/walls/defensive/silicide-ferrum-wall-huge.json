@@ -1,0 +1,16 @@
+{
+  //"type": "Wall",
+  "requirements": [ "ferrum/54","silicide/54" ],
+  "category": "defense",
+  "health": 9000,
+  "researchCostMultiplier": 0.5,
+  "crushDamageMultiplier": 0,
+  "armor": 24,
+  "insulated": true,
+  "hasPower": true,
+  "size": 3,
+  "research": {
+    "parent": "silicide-ferrum-wall-large"
+  },
+  "shownPlanets": [ "sitrullus","maress","thavina" ]
+}

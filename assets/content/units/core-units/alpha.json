@@ -1,0 +1,18 @@
+{
+  "targetFlags": [
+    "drill","factory"
+  ],
+  "databaseTag": "01core-unit",
+  "immunities": [ "frozen" ],
+  /*"abilities": [
+    {
+      "type": "EnergyFieldAbility",
+      "range": 80,
+      "reload": 1,
+      "damage": 999,
+      "color": "ffd37f"
+    }
+  ]*/
+  "shownPlanets": [ "serpulo","thavina" ],
+  "engineLayer": 89.99
+}

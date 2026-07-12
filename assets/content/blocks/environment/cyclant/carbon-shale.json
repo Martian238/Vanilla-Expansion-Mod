@@ -1,0 +1,13 @@
+{
+  "type": "Floor",
+  "variants": 3,
+  "attributes": {
+    "oil": 2,
+    "plant": 1
+  },
+  "itemDrop": "carbon-shale-cobble",
+  "playerUnmineable": true,
+  "wall": "carbon-shale-wall",
+  "decoration": "carbon-shale-boulder",
+  "mapColor": "282b34"
+}

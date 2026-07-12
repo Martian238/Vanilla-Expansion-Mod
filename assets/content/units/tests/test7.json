@@ -1,0 +1,65 @@
+{
+  "type": "flying",
+  "databaseTag": "13other-unit",
+  "researchCostMultiplier": 0,
+  "alwaysUnlocked": true,
+  "isEnemy": true,
+  "lowAltitude": true,
+  "outlineColor": "2d2f39",
+  "flying": true,
+  "drag": 0.99,
+  "speed": 100,
+  "targetable": false,
+  "targetAir": true,
+  "targetGround": true,
+  "rotateSpeed": 360,
+  "accel": 1,
+  "health": 1,
+  "armor": -10000,
+  "engineOffset": 6.5,
+  "hitSize": 9,
+  "itemCapacity": 0,
+  "immunities": [ "pog","exhausted" ],
+  "abilities": [
+    {
+      "type": "StatusFieldAbility",
+      "range": 8,
+      "reload": 120,
+      "duration": 7200,
+      "effect": "coordinate"
+    }
+  ],
+  "weapons": [
+    {
+      "name": "test-weapon",
+      "rotate": true,
+      "rotateSpeed": 360,
+      "shootCone": 361,
+      "top": true,
+      "x": 1.5,
+      "y": 2,
+      "layerOffset": -0.001,
+      "recoil": 2,
+      "reload": 1,
+      "shootSound": "pewClassicEdited",
+      "ejectEffect": "none",
+      "shootY": 3.5,
+      "bullet": {
+        "type": "PointBulletType"
+        "damage": 2147483247,
+        "pierceArmor": true,
+        "lifetime": 6400,
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "length": 0,
+          "lifetime": 2,
+          "sizeFrom": 1,
+          "sizeTo": 0
+        },
+        "despawnEffect": "shockwave",
+        "hitEffect": "shockwave"
+        "shootEffect": "instShoot"
+      }
+    }
+  ]
+}

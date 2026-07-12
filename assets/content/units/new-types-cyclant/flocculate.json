@@ -1,0 +1,108 @@
+{
+  "type": "hover",
+  "databaseTag": "08cyclant-newtype-unit",
+  "hovering": true,
+  "health": 130,
+  "rotateSpeed": 6,
+  "speed": 2.75,
+  "accel": 0.07,
+  "drag": 0.06,
+  "hitSize": 10,
+  "lowAltitude": true,
+  "flying": false,
+  "itemCapacity": 0,
+  "shadowElevation": 0.1,
+  "useEngineElevation": false,
+  "engineSize": 2,
+  "engineOffset": 6.5,
+  "groundLayer": 70,
+  "fogRadius": 80,
+  "canDrown": false,
+  "range": 315,
+  "maxRange": 315,
+  "lightColor": "90dbff",
+  "research": {
+    "parent": "dust",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "volcanic-top"
+      }
+    ],
+    "requirements": [ "silicon/300","graphite/200" ]
+  },
+  "drownTimeMultiplier": 99999,
+  "immunities": [ "blown","dusty","disarmed" ],
+  "strafePenalty": 1,
+  "researchCostMultiplier": 0.03,
+  "loopSound": "loopHover",
+  "loopSoundVolume": 0.15,
+  "shownPlanets": [ "cyclant","phoon","maress","serpulo","thavina" ],
+  "parts": [
+    {
+      "type": "HoverPart",
+      "x": 5,
+      "y": -4,
+      "mirror": true,
+      "radius": 5,
+      "phase": 90,
+      "stroke": 2,
+      "minStroke": 0,
+      "layerOffset": -0.001,
+      "color": "90dbff",
+      "sides": 4
+    }
+  ],
+  "abilities": [
+    {
+      "type": "RepairFieldAbility",
+      "amount": 18,
+      "reload": 45,
+      "range": 40
+    },
+    {
+      "type": "ForceFieldAbility",
+      "radius": 40,
+      "regen": 1.65,
+      "max": 240,
+      "cooldown": 180,
+      "sides": 6
+    }
+  ],
+  "weapons": [
+    {
+      "minWarmup": 2,
+      "x": 4.75,
+      "y": -2.5,
+      "mirror": true,
+      "recoilTime": 20,
+      "top": true,
+      "reload": 45,
+      "inaccuracy": 2,
+      "recoil": 3.5,
+      "display": false,
+      "shoot": {
+        "type": "shootSpread",
+        "shots": 3,
+        "shotDelay": 5,
+        "spread": 0
+      },
+      "ejectEffect": "casing1",
+      "bullet": {
+        "width": 5,
+        "height": 15,
+        "speed": 7,
+        "damage": 12,
+        "hitColor": "90dbff",
+        "hitEffect": "hitBulletColor",
+        "lightColor": "90dbff",
+        "despawnEffect": "hitBulletColor",
+        "lifetime": 45,
+        "frontColor": "ffffff",
+        "backColor": "90dbff",
+        "shootEffect": "shootSmallColor",
+        "smokeEffect": "colorSpark"
+      }
+    }
+  ]
+}

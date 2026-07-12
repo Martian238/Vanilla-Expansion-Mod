@@ -1,0 +1,309 @@
+{
+  //"type": "PowerTurret",
+  "requirements": [ "silver/200","silicon/140","silicide/180","graphite/60" ],
+  "category": "turret",
+  "shootType": {
+    "shootEffect": [
+      "shootTitan",
+      "shockwave"
+    ],
+    "smokeEffect": "shootSmokeTitan",
+    "hitEffect": "feb380",
+    "damage": 40,
+    "sprite": "circle-bullet",
+    "frontColor": "ffffff",
+    "backColor": "feb380",
+    "trailColor": "feb380",
+    "trailWidth": 4,
+    "trailLength": 7,
+    "trailEffect": {
+      "type": "ParticleEffect",
+      "colorFrom": "feb380",
+      "colorTo": "feb38080",
+      "layer": 99.99,
+      "sizeFrom": 4,
+      "sizeTo": 0,
+      "sizeInterp": "pow2Out",
+      "lifetime": 120,
+      "particles": 1,
+      "length": 1,
+      "baseLength": 0
+    },
+    "trailInterval": 1,
+    "trailSpread": 4,
+    "width": 12,
+    "height": 12,
+    "shrinkY": 0,
+    "speed": 4,
+    "lifetime": 80,
+    "homingPower": 0.08,
+    "homingRange": 160,
+    "status": "melting",
+    "statusDuration": 240,
+    "weaveMag": 2,
+    "weaveScale": 10,
+    "parts": [
+      {
+        "type": "RegionPart",
+        "name": "ve-mgs-spot",
+        "moveRot": 360,
+        "outline": false,
+        "progress": {
+          "type": "time",
+          "op": "loop",
+          "time": 75
+        },
+        "children": [
+          {
+            "type": "ShapePart",
+            "x": 10,
+            "radius": 4,
+            "color": "feb380",
+            "circle": true
+          },
+          {
+            "type": "EffectSpawnerPart",
+            "x": 14,
+            "effectChance": 0.5,
+            "effect": {
+              "type": "ParticleEffect",
+              "colorFrom": "feb38080",
+              "colorTo": "feb38080",
+              "layer": 99.99,
+              "sizeFrom": 4,
+              "sizeTo": 0,
+              "sizeInterp": "pow2Out",
+              "lifetime": 90,
+              "particles": 1,
+              "length": 1,
+              "baseLength": 1
+            },
+            "progress": {
+              "type": "time"
+            }
+          },
+          {
+            "type": "ShapePart",
+            "x": -10,
+            "radius": 4,
+            "color": "feb380",
+            "circle": true
+          },
+          {
+            "type": "EffectSpawnerPart",
+            "x": -14,
+            "effectChance": 0.5,
+            "effect": {
+              "type": "ParticleEffect",
+              "colorFrom": "feb38080",
+              "colorTo": "feb38080",
+              "layer": 99.99,
+              "sizeFrom": 4,
+              "sizeTo": 0,
+              "sizeInterp": "pow2Out",
+              "lifetime": 90,
+              "particles": 1,
+              "length": 1,
+              "baseLength": 1
+            },
+            "progress": {
+              "type": "time"
+            }
+          }
+        ]
+      }
+    ],
+    "hitShake": 4,
+    "despawnShake": 4,
+    "despawnHit": true,
+    "despawnEffect": "none",
+    "hitEffect": {
+          "type": "ExplosionEffect",
+          "lifetime": 50,
+          "waveStroke": 5,
+          "waveLife": 12,
+          "waveColor": "feb380",
+          "sparkColor": "feb380",
+          "smokeColor": "feb380",
+          "waveRad": 40,
+          "smokeSize": 4,
+          "smokes": 7,
+          "smokeSizeBase": 0,
+          "sparks": 10,
+          "sparkRad": 40,
+          "sparkLen": 6,
+          "sparkStroke": 2
+    },
+    "splashDamage": 104,
+    "armorMultiplier": 0.5,
+    "splashDamageRadius": 40,
+    "knockback": 2,
+    "fragBullets": 2,
+    "fragRandomSpread": 0,
+    "fragAngle": 0,
+    "fragSpread": 180,
+    "fragOffsetMin": 10,
+    "fragOffsetMax": 10,
+    "hitSize": 12,
+    "makeFire": true,
+    "fragVelocityMin": 1,
+    "hitSound": "explosionArtillery",
+    "despawnSound": "explosionArtillery",
+    "fragBullet": {
+      "sprite": "circle-bullet",
+      "width": 8,
+      "height": 8,
+      "frontColor": "feb380",
+      "backColor": "feb380",
+      "speed": 4,
+      "lifetime": 40,
+      "homingPower": 0.2,
+      "homingRange": 160,
+      "trailEffect": {
+        "type": "ParticleEffect",
+        "colorFrom": "feb38080",
+        "colorTo": "feb38080",
+        "layer": 99.99,
+        "sizeFrom": 4,
+        "sizeTo": 0,
+        "sizeInterp": "pow2Out",
+        "lifetime": 60,
+        "particles": 1,
+        "length": 1,
+        "baseLength": 1
+      },
+      "trailChance": 0.5,
+      "pierce": true,
+      "pierceCap": 4,
+      "hitEffect": "hitLaserBlast",
+      "hitColor": "feb380",
+      "damage": 10,
+      "armorMultiplier": -0.5,
+      "splashDamage": 10,
+      "splashDamageRadius": 12,
+      "hitShake": 1,
+      "despawnShake": 1,
+      "status": "burning",
+      "statusDuration": 240,
+      "shrinkY": 0,
+      "despawnEffect": [ "hitLaserBlast","shockwave" ]
+    }
+  },
+  "recoil": 4,
+  "shake": 3,
+  "shootSound": "shootAfflict",
+  "shootSoundVolume": 1,
+  "shootX": 0,
+  "shootY": 2,
+  "reload": 90,
+  "size": 3,
+  "cooldownTime": 60,
+  "range": 340,
+  "trackingRange": 380,
+  "health": 2200,
+  "armor": 4,
+  "ammoUseEffect": "none",
+  "rotateSpeed": 4,
+  "research": {
+    "parent": "burst",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "icy-boundary"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  //"coolantMultiplier": 2,
+  "consumes": {
+    /*"coolant": {
+      "type": "ConsumeCoolant",
+      "amount": 0.5
+    },*/
+    "power": 3.333333333
+  },
+  "shownPlanets": [ "maress","thavina" ],
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+   {
+    "type": "DrawTurret",
+    "basePrefix": "silver-heat-",
+    "parts": [
+      {
+        "type": "RegionPart",
+        "color": "feb38000",
+        "colorTo": "feb380a0",
+        "suffix": "-glow",
+        "outline": false,
+        "blending": "additive",
+        "progress": {
+          "type": "warmup",
+          "op": "blend",
+          "amount": 0.5,
+          "other": "recoil"
+        }
+      },
+      {
+        "type": "RegionPart",
+        "suffix": "-tail",
+        "under": true,
+        "layerOffset": -0.001,
+        "heatColor": "feb38000",
+        "progress": {
+          "type": "warmup",
+          "op": "blend",
+          "amount": 0.5,
+          "other": "recoil"
+        },
+        "moveRot": -15,
+        "mirror": true,
+        "children": [
+          {
+        "type": "RegionPart",
+        "color": "feb38000",
+        "colorTo": "feb380a0",
+        "suffix": "-tail-heat",
+        "outline": false,
+        "under": false,
+        "blending": "additive",
+        "progress": {
+          "type": "warmup",
+          "op": "blend",
+          "amount": 0.5,
+          "other": "recoil"
+        }
+          },
+          {
+            "type": "RegionPart",
+            "suffix": "-blade",
+            "under": true,
+            "layerOffset": -0.002,
+            "mirror": true,
+            "heatProgress": {
+              "type": "warmup",
+              "op": "blend",
+              "amount": 0.5,
+              "other": "recoil"
+            },
+            "heatColor": "feb380a0",
+            "moveRot": -20,
+            "progress": {
+              "type": "recoil",
+              "op": "curve",
+              "interp": "pow2In"
+            }
+          }
+        ]
+      }
+    ]
+  },
+      {
+        "type": "DrawHeatInput",
+        "suffix": "-input"
+      }
+    ]
+  },
+  "heatRequirement": 25,
+  "maxHeatEfficiency": 3
+}

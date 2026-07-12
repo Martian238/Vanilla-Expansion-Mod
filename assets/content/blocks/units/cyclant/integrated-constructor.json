@@ -1,0 +1,280 @@
+{
+  //"type": "UnitFactory",
+  "category": "units",
+  "requirements": [ "aluminium/500","lead/900","silicon/800","cobalt/650","phase-fabric/200" ],
+  "size": 5,
+  "research": {
+    "parent": "senior-refabricator",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "thorium-hacienda"
+      }
+    ]
+  },
+  "selectionColumns": 6,
+  "selectionRows": 9,
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "researchCostMultiplier": 0.3,
+  "plans": [
+    {
+      "unit": "dagger",
+      "time": 900,
+      "requirements": [ "silicon/10","lead/10" ]
+    },
+    {
+      "unit": "mace",
+      "time": 1500,
+      "requirements": [ "silicon/50","lead/10","graphite/40" ]
+    },
+    {
+      "unit": "fortress",
+      "time": 2700,
+      "requirements": [ "silicon/180","lead/10","graphite/40","titanium/80","metaglass/40" ]
+    },
+    {
+      "unit": "flare",
+      "time": 900,
+      "requirements": [ "silicon/15" ]
+    },
+    {
+      "unit": "horizon",
+      "time": 1500,
+      "requirements": [ "silicon/55","graphite/40" ]
+    },
+    {
+      "unit": "zenith",
+      "time": 2700,
+      "requirements": [ "silicon/185","graphite/40","titanium/80","metaglass/40" ]
+    },
+    {
+      "unit": "risso",
+      "time": 2700,
+      "requirements": [ "silicon/20","metaglass/35" ]
+    },
+    {
+      "unit": "minke",
+      "time": 3300,
+      "requirements": [ "silicon/60","metaglass/35","graphite/40" ]
+    },
+    {
+      "unit": "bryde",
+      "time": 4500,
+      "requirements": [ "silicon/190","metaglass/75","graphite/40","titanium/80" ]
+    },
+    {
+      "unit": "nova",
+      "time": 2400,
+      "requirements": [ "silicon/30","lead/20","titanium/20" ]
+    },
+    {
+      "unit": "pulsar",
+      "time": 3000,
+      "requirements": [ "silicon/70","lead/20","titanium/20","graphite/40" ]
+    },
+    {
+      "unit": "quasar",
+      "time": 4200,
+      "requirements": [ "silicon/200","lead/20","titanium/100","graphite/40","metaglass/40" ]
+    },
+    {
+      "unit": "mono",
+      "time": 2100,
+      "requirements": [ "silicon/30","lead/15" ]
+    },
+    {
+      "unit": "poly",
+      "time": 2700,
+      "requirements": [ "silicon/70","lead/15","graphite/40" ]
+    },
+    {
+      "unit": "mega",
+      "time": 3900,
+      "requirements": [ "silicon/200","lead/15","graphite/40","titanium/80","metaglass/40" ]
+    },
+    {
+      "unit": "retusa",
+      "time": 3000,
+      "requirements": [ "silicon/15","metaglass/25","titanium/20" ]
+    },
+    {
+      "unit": "oxynoe",
+      "time": 3600,
+      "requirements": [ "silicon/55","metaglass/25","titanium/20","graphite/40" ]
+    },
+    {
+      "unit": "cyerce",
+      "time": 4800,
+      "requirements": [ "silicon/185","metaglass/65","titanium/100","graphite/40" ]
+    },
+    {
+      "unit": "crawler",
+      "time": 600,
+      "requirements": [ "silicon/8","coal/10" ]
+    },
+    {
+      "unit": "atrax",
+      "time": 1200,
+      "requirements": [ "silicon/48","coal/10","graphite/40" ]
+    },
+    {
+      "unit": "spiroct",
+      "time": 2400,
+      "requirements": [ "silicon/178","coal/10","graphite/40","titanium/80","metaglass/40" ]
+    },
+    {
+      "unit": "conscript",
+      "time": 2400,
+      "requirements": [ "silicon/30","lead/15","silicide/20" ]
+    },
+    {
+      "unit": "arrange",
+      "time": 3000,
+      "requirements": [ "silicon/90","lead/15","silicide/40","graphite/20" ]
+    },
+    {
+      "unit": "charge",
+      "time": 4200,
+      "requirements": [ "silicon/270","lead/15","silicide/80","graphite/20","titanium/120" ]
+    },
+    {
+      "unit": "dust",
+      "time": 1200,
+      "requirements": [ "silicon/20","graphite/20" ]
+    },
+    {
+      "unit": "mist",
+      "time": 1800,
+      "requirements": [ "silicon/60","graphite/80" ]
+    },
+    {
+      "unit": "haze",
+      "time": 3000,
+      "requirements": [ "silicon/210","graphite/150","titanium/80" ]
+    },
+    {
+      "unit": "flocculate",
+      "time": 1500,
+      "requirements": [ "silicon/30","graphite/20" ]
+    },
+    {
+      "unit": "alleviate",
+      "time": 2100,
+      "requirements": [ "silicon/70","graphite/80" ]
+    },
+    /*{
+      "unit": "test",
+      "time": 3300,
+      "requirements": [ "silicon/220","graphite/150","titanium/80" ]
+    },*/
+    {
+      "unit": "smarb",
+      "time": 1200,
+      "requirements": [ "silicon/20","chromium/10" ]
+    },
+    {
+      "unit": "mider",
+      "time": 1800,
+      "requirements": [ "silicon/60","chromium/30","graphite/20" ]
+    },
+    {
+      "unit": "velocite",
+      "time": 3000,
+      "requirements": [ "silicon/220","chromium/90","graphite/100" ]
+    },
+    {
+      "unit": "blade",
+      "time": 1200,
+      "requirements": [ "silicon/30","lead/20" ]
+    },
+    {
+      "unit": "hammer",
+      "time": 2700,
+      "requirements": [ "silicon/120","lead/20","graphite/70","metaglass/40" ]
+    },
+    {
+      "unit": "ballistic",
+      "time": 5400,
+      "requirements": [ "silicon/340","lead/20","graphite/70","metaglass/40","cobalt/150","plastanium/90" ]
+    },
+    {
+      "unit": "aurora",
+      "time": 1080,
+      "requirements": [ "silicon/25","lead/10" ]
+    },
+    {
+      "unit": "plasma",
+      "time": 2580,
+      "requirements": [ "silicon/115","lead/10","graphite/70","metaglass/40" ]
+    },
+    {
+      "unit": "solar",
+      "time": 5280,
+      "requirements": [ "silicon/335","lead/10","graphite/70","metaglass/40","cobalt/150","plastanium/90" ]
+    },
+    {
+      "unit": "stardust",
+      "time": 3000,
+      "requirements": [ "silicon/50","lead/10","cobalt/20" ]
+    },
+    {
+      "unit": "vortex",
+      "time": 4500,
+      "requirements": [ "silicon/140","lead/10","cobalt/20","graphite/70","metaglass/40" ]
+    },
+    {
+      "unit": "nebula",
+      "time": 7200,
+      "requirements": [ "silicon/360","lead/10","cobalt/170","graphite/70","metaglass/40","plastanium/90" ]
+    },
+    {
+      "unit": "point",
+      "time": 2700,
+      "requirements": [ "silicon/45","quartz/20" ]
+    },
+    {
+      "unit": "line",
+      "time": 4200,
+      "requirements": [ "silicon/135","quartz/20","graphite/70","metaglass/40" ]
+    },
+    {
+      "unit": "square",
+      "time": 7200,
+      "requirements": [ "silicon/355","quartz/20","graphite/70","metaglass/40","cobalt/150","plastanium/90" ]
+    },
+    {
+      "unit": "lance",
+      "time": 1200,
+      "requirements": [ "silicon/30","lead/20" ]
+    },
+    {
+      "unit": "hoe",
+      "time": 2700,
+      "requirements": [ "silicon/120","lead/20","graphite/70","metaglass/40" ]
+    },
+    {
+      "unit": "prominence",
+      "time": 2580,
+      "requirements": [ "silicon/115","lead/10","graphite/70","metaglass/40" ]
+    },
+    {
+      "unit": "astrologe",
+      "time": 4500,
+      "requirements": [ "silicon/140","lead/10","cobalt/20","graphite/70","metaglass/40" ]
+    },
+    {
+      "unit": "string",
+      "time": 4200,
+      "requirements": [ "silicon/135","quartz/20","graphite/70","metaglass/40" ]
+    },
+    {
+      "unit": "plain",
+      "time": 7200,
+      "requirements": [ "silicon/355","quartz/20","graphite/70","metaglass/40","cobalt/150","plastanium/90" ]
+    }
+  ],
+  "consumes": {
+    "power": 5.5,
+    "liquids": [ "hydrogen/0.05" ]
+  }
+}

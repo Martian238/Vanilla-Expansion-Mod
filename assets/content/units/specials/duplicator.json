@@ -1,0 +1,172 @@
+{
+  //"type": "flying",
+  "accel": 0.1,
+  "databaseTag": "10special-unit",
+  "drag": 0.04,
+  "speed": 2.5,
+  "rotateSpeed": 7,
+  "hitSize": 20,
+  "health": 900,
+  "armor": 4,
+  "createWreck": false,
+  "createScorch": false,
+  "lightColor": "e470e9",
+  "deathExplosionEffect": {
+    "type": "MultiEffect",
+    "effects": [
+      "flakExplosion",
+      {
+          "type": "ParticleEffect",
+          "colorFrom": "e470e9aa",
+          "colorTo": "e470e955",
+          "lifetime": 90,
+          "baseLength": 2,
+          "length": 40,
+          "interp": "circleOut",
+          "sizeFrom": 5,
+          "sizeTo": 0,
+          "particles": 18,
+          "sizeInterp": "circleIn"
+        }
+    ]
+  },
+  "deathSound": "cannon",
+  "research": {
+    "parent": "magnetic-small",
+    "requirements": [ "silicon/1500","graphite/500","warp-nucleus/100" ],
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "warp-tech-base"
+      }
+    ]
+  },
+  "engineSize": 4.5,
+  "engineOffset": 10,
+  "flying": true,
+  "lowAltitude": true,
+  "immunities": [ "frozen" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "abilities": [
+    {
+      "type": "SpawnDeathAbility",
+      "amount": 4,
+      "spread": 0,
+      "faceOutwards": true,
+      "unit": "duplicator-small"
+    }
+  ],
+  "engines": [
+    {
+      "x": 8,
+      "y": -5.5,
+      "rotation": -45,
+      "radius": 3
+    },
+    {
+      "x": -8,
+      "y": -5.5,
+      "rotation": -135,
+      "radius": 3
+    }
+  ],
+  "itemCapacity": 30,
+  "weapons": [
+    {
+      "name": "duplicator-weapon",
+      "x": 8.25,
+      "y": -3.75,
+      "rotate": true,
+      "rotateSpeed": 7,
+      "top": true,
+      "reload": 20,
+      "shootSound": "shootMissilePlasmaShort",
+      "ejectEffect": "none",
+      "shadow": 5,
+      "shootY": 2.75,
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 5
+      },
+      "bullet": {
+        "type": "MissileBulletType",
+        "shootEffect": "shootSmallColor",
+        "hitColor": "e47019",
+        "speed": 4,
+        "damage": 15,
+        "keepVelocity": true,
+        "width": 8,
+        "height": 8,
+        "shrinkY": 0,
+        "weaveScale": 5,
+        "weaveMag": 2,
+        "trailColor": "e470e9",
+        "lightColor": "e470e9",
+        "splashDamage": 33,
+        "splashDamageRadius": 28,
+        "lifetime": 40,
+        "backColor": "e470e9",
+        "frontColor": "ffffff",
+        "hitEffect": {
+          "type": "ExplosionEffect",
+          "waveColor": "e470e9",
+          "smokeColor": "e470e955",
+          "sparkColor": "e470e9",
+          "sparks": 6,
+          "smokeRad": 28,
+          "waveRad": 20,
+          "smokes": 6
+        },
+        "despawnEffect": {
+          "type": "ExplosionEffect",
+          "waveColor": "e470e9",
+          "smokeColor": "e470e955",
+          "sparkColor": "e470e9",
+          "sparks": 6,
+          "smokeRad": 28,
+          "waveRad": 20,
+          "smokes": 6
+        },
+        "hitSound": "explosion",
+        "despawnSound": "explosion"
+      }
+    }
+    /*{
+      "mirror": false,
+      "display": false,
+      "shootOnDeath": true,
+      "controllable": false,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "shoot": {
+        "shots": 4,
+        "shotDelay": 0
+      },
+      "inaccuracy": 360,
+      "bullet": {
+        "shootOnDeath": true,
+        "despawnUnit": "duplicator-small",
+        "shootEffect": {
+          "type": "ParticleEffect",
+          "colorFrom": "e470e9aa",
+          "colorTo": "e470e955",
+          "lifetime": 90,
+          "baseLength": 2,
+          "length": 40,
+          "interp": "circleOut",
+          "sizeFrom": 5,
+          "sizeTo": 0,
+          "particles": 18,
+          "sizeInterp": "circleIn"
+        },
+        "smokeEffect": "none",
+        "instantDisappear": true,
+        "damage": 0,
+        "collides": false,
+        "absorbable": false,
+        "despawnEffect": "none",
+        "hitEffect": "none"
+      }
+    }*/
+  ]
+}

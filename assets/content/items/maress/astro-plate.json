@@ -1,0 +1,9 @@
+{
+  "color": "bfbba9",
+  "healthScaling": 2,
+  "cost": 1,
+  "flammability": -0.5,
+  "shownPlanets": [ "maress","thavina" ],
+  "research": "tantalum",
+  "databaseTag": "processed-item"
+}

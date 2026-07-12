@@ -1,0 +1,36 @@
+{
+  "type": "flying",
+  "health": 60,
+  "targetable": false,
+  "hittable": false,
+  "drawBody": false,
+  "drawCell": false,
+  "flying": true,
+  "hitSize": 1,
+  "isEnemy": false,
+  "drawMinimap": false,
+  "itemCapacity": 0,
+  "engineSize": 0,
+  "abilities": [
+    {
+      "type": "RegenAbility",
+      "amount": -1
+    }
+  ],
+  "deathSound": "none",
+  "createWreck": false,
+  "createScorch": false,
+  "deathExplosionEffect": "none",
+  "lightRadius": 0,
+  "drawSoftShadow": false,
+  "buildSpeed": 0.01,
+  "mineSpeed": 0.01,
+  "wobble": false,
+  "physics": false,
+  "useUnitCap": false,
+  "drawShields": false,
+  "fallEngineEffect": "none",
+  "fallEffect": "none",
+  "hidden": true,
+  "deathShake": 0
+}

@@ -1,0 +1,59 @@
+{
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
+  "itemCapacity": 200,
+  "databaseTag": "04serpulo-naval-unit",
+  "weapons": [
+    {
+      "name": "blade-weapon-mount",
+      "reload": 10,
+      "x": 4.5,
+      "y": 3,
+      "shootX": -0.25,
+      "shootY": 3.75,
+      "rotate": true,
+      "rotateSpeed": 5,
+      "inaccuracy": 8,
+      "ejectEffect": "casing1",
+      "shootSound": "shootDuo",
+      "bullet": {
+        "type": "flakBulletType",
+        "speed": 4.2,
+        "damage": 3,
+        "lifetime": 60,
+        "ammoMultiplier": 4,
+        "shootEffect": "shootSmall",
+        "width": 6,
+        "height": 8,
+        "hitEffect": "flakExplosion",
+        "splashDamage": 40.5,
+        "splashDamageRadius": 15
+      }
+    },
+    {
+      "name": "artillery-mount-new",
+      "reload": 30,
+      "x": 5,
+      "y": -5.5,
+      "rotate": true,
+      "inaccuracy": 2,
+      "rotateSpeed": 2,
+      "shake": 1.5,
+      "ejectEffect": "casing2",
+      "shootSound": "shootArtillerySmall",
+      "bullet": {
+        "type": "ArtilleryBulletType",
+        "speed": 3,
+        "damage": 20,
+        "sprite": "shell",
+        "hitEffect": "flakExplosion",
+        "knockback": 0.8,
+        "lifetime": 80,
+        "width": 11,
+        "height": 11,
+        "collidesTiles": false,
+        "splashDamageRadius": 22.5,
+        "splashDamage": 40
+      }
+    }
+  ]
+}

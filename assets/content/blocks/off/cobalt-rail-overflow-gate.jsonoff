@@ -1,0 +1,8 @@
+{
+  "type": "OverflowDuct",
+  "requirements": [ "cobalt/4","lead/4","graphite/2" ],
+  "speed": 2,
+  "solid": false,
+  "research": "cobalt-rail-router",
+  "buildCostMultiplier": 4
+}

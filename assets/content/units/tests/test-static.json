@@ -1,0 +1,22 @@
+{
+  "type": "mech",
+  "speed": 0,
+  "drag": 10000,
+  "accel": 0,
+  "rotateSpeed": 5,
+  "baseRotateSpeed": 5,
+  "hitSize": 24,
+  "drawSoftShadow": false,
+  "weapons": [
+    {
+      "reload": 20,
+      "bullet": {
+        "speed": 3,
+        "damage": 1,
+        "armorMultiplier": -1000
+      }
+    }
+  ],
+  "databaseTag": "13other-unit",
+  "alwaysUnlocked": true
+}

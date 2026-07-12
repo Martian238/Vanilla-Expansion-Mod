@@ -1,0 +1,122 @@
+{
+  "type": "legs",
+  "databaseTag": "01core-unit",
+  "hovering": true,
+  "allowLegStep": true,
+  "health": 200,
+  "speed": 3,
+  "drag": 0.07,
+  "accel": 0.07,
+  "legCount": 4,
+  "legLength": 10,
+  "legSpeed": 0.15,
+  "legForwardScl": 0.85,
+  "legContinuousMove": false,
+  "legMoveSpace": 2.5,
+  "legBaseOffset": 1,
+  "legExtension": -3,
+  "lockLegBase": false,
+  "rotateSpeed": 7,
+  "buildSpeed": 1.1,
+  "mineSpeed": 9,
+  "mineTier": 2,
+  "hitSize": 12,
+  "lightColor": "ffd37f",
+  "immunities": [ "dusty" ],
+  "buildBeamOffset": 4.5,
+  "mineBeamOffset": 6,
+  "mineWalls": true,
+  "groundLayer": 75,
+  "stepShake": 0,
+  "stepSound": "walkerStepSmall",
+  "stepSoundPitch": 1,
+  "stepSoundPitchRange": 0.1,
+  "stepSoundVolume": 0.15,
+  "shownPlanets": [ "maress","thavina" ]
+  "abilities": [
+    {
+      "type": "RepairFieldAbility",
+      /*"healEffect": {
+        "type": "WaveEffect",
+        "colorFrom": "ffd37f",
+        "colorTo": "ffd37f",
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sizeFrom": 0,
+        "sizeTo": 7,
+        "interp": "circleOut",
+        "lifetime": 11
+      },
+      "activeEffect": {
+        "type": "WaveEffect",
+        "colorFrom": "ffd37f",
+        "colorTo": "ffd37f",
+        "strokeFrom": 2,
+        "strokeTo": 0,
+        "sizeFrom": 0,
+        "sizeTo": 64,
+        "interp": "circleOut",
+        "lifetime": 22
+      },*/
+      "amount": 50,
+      "reload": 120,
+      "range": 64
+    }
+  ],
+  "weapons": [
+    {
+      "name": "zeta-weapon",
+      "rotate": true,
+      "rotateSpeed": 9,
+      "reload": 9,
+      "x": 6.5,
+      "y": 1.5,
+      "shootY": 1.5,
+      "shootSound": "shootLaser",
+      "bullet": {
+        "type": "LaserBoltBulletType",
+        "backColor": "ffd37f",
+        "frontColor": "ffffff",
+        "speed": 5.2,
+        "damage": 9,
+        "healAmount": 15,
+        "healPercent": 1.5,
+        "collidesTeam": true,
+        "healColor": "ffd37f",
+        "smokeEffect": "none",
+        "hitColor": "ffd37f",
+        "hitEffect": "hitLaserBlast",
+        "buildingDamageMultiplier": 0.01,
+        "despawnHit": true,
+        "despawnEffect": "none"
+      }
+    },
+    {
+      "name": "zeta-weapon",
+      "rotate": true,
+      "rotateSpeed": 9,
+      "reload": 13,
+      "x": 3.5,
+      "y": -4.75,
+      "shootY": 1.5,
+      "shootSound": "shootLaser",
+      "bullet": {
+        "type": "LaserBoltBulletType",
+        "backColor": "ffd37f",
+        "frontColor": "ffffff",
+        "speed": 5.2,
+        "damage": 11,
+        "healAmount": 25,
+        "healPercent": 3,
+        "collidesTeam": true,
+        "healColor": "ffd37f",
+        "smokeEffect": "none",
+        "hitColor": "ffd37f",
+        "hitEffect": "hitLaserBlast",
+        "buildingDamageMultiplier": 0.01,
+        "despawnHit": true,
+        "despawnEffect": "none"
+      }
+    }
+  ]
+}

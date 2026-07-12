@@ -1,0 +1,132 @@
+{
+  //"type": "flying",
+  "research": {
+    "parent": "astrologe",
+    "objectives": [ "line" ],
+    "requirements": [  ]
+  },
+  "databaseTag": "09cyclant-strengthened-unit",
+  "isEnemy": false,
+  "lowAltitude": true,
+  "flying": true,
+  "drag": 0.05,
+  "speed": 2.9,
+  "rotateSpeed": 9,
+  "accel": 0.1,
+  "health": 830,
+  "armor": 3,
+  "engineOffset": 8.5,
+  "engineSize": 3.5,
+  "hitSize": 16,
+  "itemCapacity": 30,
+  "mineTier": 2,
+  "mineSpeed": 4,
+  "mineWalls": true,
+  "buildSpeed": 1.5,
+  "buildBeamOffset": 5,
+  "mineBeamOffset": 6.75,
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
+  "targetFlags": [
+    "core"
+  ],
+  "immunities": [ "frozen" ],
+  "faceTarget": false,
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "weapons": [
+    /*{
+      "type": "PointDefenseWeapon",
+      "name": "vortex-point-defense"
+      "x": 6,
+      "y": -4.25,
+      "reload": 12,
+      "targetInterval": 12,
+      "targetSwitchInterval": 15,
+      "recoil": 0.5,
+      "heatColor": "ffffffee",
+      "cooldownTime": 10,
+      "shootSound": "lasershoot",
+      "bullet": {
+        "maxRange": 52,
+        "damage": 36,
+        "hitEffect": "pointHit",
+        "shootEffect": "sparkShoot",
+        "shootSound": "lasershoot"
+      }
+    },*/
+    {
+      "name": "string-weapon",
+      "x": 0,
+      "y": -4.5,
+      "mirror": false,
+      "reload": 40,
+      "shootSound": "shootMissilePlasmaShort",
+      "shadow": 5,
+      "velocityRnd": 0.1,
+      "rotate": true,
+      "rotateSpeed": 7,
+      "recoil": 1,
+      "inaccuracy": 20,
+      "heatColor": "ffffffff",
+      "cooldownTime": 20,
+      "shootY": 1,
+      "shoot": {
+        "shots": 2,
+        "shotDelay": 0
+      },
+      "ejectEffect": "none",
+      "bullet": {
+        "type": "MissileBulletType",
+        "hitSound": "explosion",
+        "despawnSound": "explosion",
+        "sprite": "missile-large",
+        "width": 7,
+        "height": 7,
+        "speed": 4,
+        "damage": 18,
+        "homingPower": 0.08,
+        "homingDelay": 15,
+        "sticky": true,
+        "stickyExtraLifetime": 240,
+        "weaveMag": 1,
+        "weaveScale": 4,
+        "lifetime": 50,
+        "splashDamageRadius": 24,
+        "trailInterval": 5,
+        "shrinkY": 0,
+        "splashDamage": 27,
+        "shootEffect": "shootHeal",
+        "smokeEffect": "shootSmallSmoke"
+        "despawnEffect": {
+          "type": "ExplosionEffect",
+          "waveColor": "98ffa9",
+          "smokeColor": "98ffa966",
+          "sparkColor": "98ffa9",
+          "sparks": 8,
+          "smokeRad": 24,
+          "waveRad": 18,
+          "smokes": 6
+        },
+        "hitEffect": {
+          "type": "ExplosionEffect",
+          "waveColor": "98ffa9",
+          "smokeColor": "98ffa966",
+          "sparkColor": "98ffa9",
+          "sparks": 8,
+          "smokeRad": 24,
+          "waveRad": 18,
+          "smokes": 6
+        },
+        "frontColor": "ffffff",
+        "hitSound": "explode",
+        "despawnSound": "explode",
+        "healAmount": 200,
+        "collidesTeam": true,
+        "healPercent": 5,
+        "backColor": "98ffa9",
+        "trailColor": "98ffa966"
+      }
+    }
+  ]
+}

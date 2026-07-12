@@ -1,0 +1,17 @@
+{
+  //"type": "Junction",
+  "requirements": [ "copper/4","silicide/2" ],
+  "category": "distribution",
+  "health": 280,
+  "armor": 16,
+  "capacity": 8,
+  "speed": 6,
+  "buildCostMultiplier": 6,
+  "research": {
+    "parent": "silicide-duct"
+  },
+  "crushDamageMultiplier": 0.05,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "serpulo","thavina" ]
+}

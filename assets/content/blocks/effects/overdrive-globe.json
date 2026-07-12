@@ -1,0 +1,36 @@
+{
+  //"type": "OverdriveProjector",
+  "category": "effect",
+  "reload": 60,
+  "range": 1600,
+  "speedBoost": 1.5,
+  "speedBoostPhase": 0.5,
+  "phaseRangeBoost": 0,
+  "useTime": 90,
+  "lightRadius": 160,
+  "research": {
+    "parent": "overdrivator",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "warp-tech-base"
+      }
+    ]
+  },
+  "consumes": {
+    "power": 10,
+    "items": {
+      "items": [ "phase-fabric/1" ],
+      "booster": true,
+      "optional": true
+    }
+  },
+  "size": 4,
+  "researchCostMultiplier": 0.01,
+  "ambientSound": "si2LightswitchActive",
+  "ambientSoundVolume": 0.3,
+  "requirements": [ "thorium/400","lead/200","silicon/300","fibralt/250","warp-nucleus/100" ],
+  "health": 2000,
+  "armor": 6,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ]
+}

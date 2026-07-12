@@ -1,0 +1,70 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "aluminium/50","lead/30","ferrum/20","silicon/40","reflector-matter/10" ],
+  "category": "production",
+  "outputItem": "reflector-matter/5",
+  "research": {
+    "parent": "blast-furnace"
+  },
+  "consumes": {
+    "items": [ "red-soil/2" ]
+    "liquids": {
+      "liquids": [ "water/0.0333333333" ]
+    }
+    "power": 0.7
+  },
+  "craftEffect": "none",
+  "shownPlanets": [ "maress" ],
+  "hasItems": true,
+  "hasLiquids": true,
+  "hasPower": true,
+  //"attribute": "plant",
+  "liquidCapacity": 10,
+  "itemCapacity": 15,
+  "craftTime": 480,
+  "size": 2,
+  "armor": 4,
+  "legacyReadWarmup": true,
+  //"maxBoost": 0.75,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water"
+      },
+      { 
+        "type": "DrawCultivator",
+        "plantColorLight": "a58570",
+        "plantColor": "a58570",
+        "bottomColor": "a58570"
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": ""
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffffff00",
+        "flameRadius": 0,
+        "flameRadiusIn": 0,
+        "lightRadius": 24,
+        //"lightColor": "3300ff",
+        "lightAlpha": 0.8
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "alpha": 0.5,
+        "color": "ffa665",
+        "glowScale": 10,
+        "glowIntensity": 0.1
+      }
+    ]
+  },
+  "researchCost": [ "reflector-matter/1" ]
+}

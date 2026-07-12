@@ -1,0 +1,14 @@
+{
+  //"type": "Battery",
+  "requirements": [ "aluminium/6","lead/25" ],
+  "consumes": {
+    "powerBuffered": 5000
+  },
+  "baseExplosiveness": 1,
+  "category": "power",
+  "research": {
+    "parent": "advanced-node"
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

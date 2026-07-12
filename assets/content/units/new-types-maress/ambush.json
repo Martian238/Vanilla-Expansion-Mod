@@ -1,0 +1,488 @@
+{
+  "health": 7500,
+  "databaseTag": "11maress-newtype-unit",
+  "armor": 14,
+  "accel": 0.08,
+  "speed": 1.8,
+  "drag": 0.03,
+  "lowAltitude": true,
+  "hitSize": 32,
+  "rotateSpeed": 3,
+  "flying": true,
+  "immunities": [ "freezing","frozen" ],
+  "engineSize": 5,
+  "engineOffset": 20,
+  "lightColor": "8ca9e8",
+  "research": {
+    "parent": "hover",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "surface-cracks"
+      }
+    ]
+  },
+  "range": 280,
+  "shownPlanets": [ "maress","thavina" ],
+  "weapons": [
+    {
+      "x": 0,
+      "y": -4,
+      "reload": 150,
+      "shoot": {
+        "shots": 8,
+        "shotDelay": 2
+      },
+      "shootSound": "shootQuad",
+      "shootCone": 361,
+      "mirror": false,
+      "shootY": 0,
+      "inaccuracy": 360,
+      "recoil": 0,
+      "recoilTime": 15,
+      "cooldownTime": 5,
+      "extraVelocity": 0,
+      "parts": [
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "radius": 0,
+          "radiusTo": 4,
+          "color": "8ca9e8",
+          "layer": 99.99,
+          "progress": {
+            "type": "warmup",
+            "ops": [
+              {
+                "op": "add",
+                "other": {
+                  "type": "reload",
+                  "op": "mul",
+                  "amount": -0.5
+                }
+              },
+              {
+                "op": "add",
+                "other": {
+                  "type": "heat",
+                  "op": "mul",
+                  "amount": 0.3
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "radius": 0,
+          "radiusTo": 2,
+          "color": "ffffff",
+          "layer": 102,
+          "progress": {
+            "type": "warmup",
+            "ops": [
+              {
+                "op": "add",
+                "other": {
+                  "type": "reload",
+                  "op": "mul",
+                  "amount": -0.5
+                }
+              },
+              {
+                "op": "add",
+                "other": {
+                  "type": "heat",
+                  "op": "mul",
+                  "amount": 0.3
+                }
+              }
+            ]
+          }
+        },
+    {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 0,
+      "radiusTo": 50,
+      "x": 0,
+      "y": 0,
+      "color1": "8ca9e8cc",
+      "color2": "ffffff",
+      "followRotation": false,
+      "layer": 101,
+      "spinSpeed": 0,
+      "stroke": 2,
+      "progress": "heat"
+    },
+    {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 0,
+      "radiusTo": 15,
+      "rotation": 90,
+      "x": 0,
+      "y": 0,
+      "color1": "8ca9e8cc",
+      "color2": "ffffff",
+      "followRotation": false,
+      "layer": 101,
+      "spinSpeed": 0,
+      "stroke": 2,
+      "progress": "heat"
+    }
+      ],
+      "minWarmup": 0.9,
+      "shootWarmupSpeed": 0.2,
+      "predictTarget": false,
+      "ignoreRotation": true,
+      "bullet": {
+        "sprite": "circle-bullet",
+        "rangeOverride": 285,
+        "width": 1,
+        "height": 8,
+        "shrinkX": -9,
+        "shrinkY": -0.25,
+        "frontColor": "ffffff",
+        "speed": 20,
+        "drag": 0.04,
+        "accel": 0.01,
+        "backColor": "8ca9e8",
+        "hittable": false,
+        "absorbable": true,
+        "shieldDamageMultiplier": 1.5,
+        "collides": false,
+        "followAimSpeed": 10,
+        "lifetime": 90,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragOffsetMin": 0,
+        "fragOffsetMax": 0,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "shootBigSmoke",
+        "damage": 50,
+        "fragVelocityMin": 1,
+        "trailColor": "8ca9e8",
+        "trailLength": 5,
+        "fragBullet": {
+          "sprite": "circle-bullet",
+          "width": 10,
+          "height": 17,
+          "shrinkY": 0,
+          "speed": 13,
+          "lifetime": 17,
+          "frontColor": "ffffff",
+          "backColor": "8ca9e8",
+          "damage": 50,
+          "hitSound": "shootLancer",
+          "despawnSound": "shootLancer",
+          "trailInterval": 1,
+          "trailColor": "8ca9e8",
+          "fragBullets": 1,
+          "hitShake": 3,
+          "despawnShake": 3,
+          "hitEffect": "hitLaserBlast",
+          "despawnEffect": "hitLaserBlast",
+          "hitColor": "8ca9e8",
+          "fragRandomSpread": 0,
+          "fragOffsetMin": 0,
+          "fragOffsetMax": 0,
+          "hittable": false,
+          "fragBullet": {
+            "type": "LaserBulletType",
+            "damage": 70,
+            "armorMultiplier": 0.5,
+            "pierceCap": 5,
+            "hitColor": "8ca9e8",
+            "laserEffect": "none",
+            "colors": [ "8ca9e866","8ca9e8","ffffff" ],
+            "sideAngle": 170,
+            "length": 80,
+            "lifetime": 20
+          }
+        }
+      }
+    },
+    {
+      "name": "ambush-weapon",
+      "x": 12.5,
+      "y": -6.25,
+      "shootY": 4.5,
+      "shootX": 0,
+      "shootSound": "lasershootClassic",
+      "shootSoundVolume": 0.5,
+      "soundPitchMax": 1.1,
+      "soundPitchMin": 1.1,
+      "recoil": 0,
+      "reload": 1,
+      "rotate": true,
+      "rotateSpeed": 5,
+      "top": true,
+      "shake": 0.5,
+      "heatColor": "8ca9e8bb",
+      "cooldownTime": 30,
+      "alternate": false,
+      "minWarmup": 0.9,
+      "shootWarmupSpeed": 0.25,
+      "shootCone": 60,
+      "recoilTime": 5,
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "-glow",
+          "progress": "warmup",
+          "outline": false,
+          "under": false,
+          "color": "8ca9e800",
+          "colorTo": "8ca9e8",
+          "blending": "additive"
+        },
+        {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 0,
+      "radiusTo": 30,
+      "x": 0,
+      "y": 4.5,
+      "color1": "8ca9e8cc",
+      "color2": "ffffff",
+      "followRotation": false,
+      "layer": 110,
+      "spinSpeed": 0,
+      "stroke": 1.5,
+      "progress": {
+        "type": "recoil"
+      }
+    }
+      ],
+      "bullet": {
+        "hitShake": 1,
+        "shootEffect": {
+          "type": "MultiEffect",
+          "effects": [
+        {
+          "type": "ParticleEffect",
+          "length": 0,
+          "lifetime": 4,
+          "sizeFrom": 3,
+          "sizeTo": 0,
+          "particles": 1,
+          "baseLength": 0,
+          "sizeInterp": "circleIn",
+          "colorFrom": "8ca9e8",
+          "colorTo": "8ca9e8"
+        }
+          ]
+        },
+        "smokeEffect": "shootSmallSmoke",
+        "despawnEffect": "shootSmallSmoke",
+        "type": "RailBulletType",
+        "length": 240,
+        "speed": 999,
+        "damage": 1,
+        "armorMultiplier": -1.5,
+        "pierce": false,
+        "pierceCap": 0,
+        "pierceBuilding": false,
+        "pierceEffect": "none",
+        "pointEffect": { 
+          "type": "ParticleEffect",
+          "length": 0.5,
+          "lifetime": 3,
+          "sizeFrom": 1.5,
+          "sizeTo": 0,
+          "particles": 1,
+          "baseLength": 0,
+          "sizeInterp": "circleIn",
+          "colorFrom": "8ca9e8",
+          "colorTo": "8ca9e8"
+        },
+        "pointEffectSpace": 1,
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+        {
+          "type": "ParticleEffect",
+          "length": 0,
+          "lifetime": 4,
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "particles": 1,
+          "baseLength": 0,
+          "sizeInterp": "circleIn",
+          "colorFrom": "8ca9e8",
+          "colorTo": "8ca9e8"
+        },
+        "hitLancer"
+          ]
+        }
+      }
+    },
+    {
+      "mirror": false,//gatling rotating target effect
+      "rotate": true,
+      "rotateSpeed": 90,
+      "top": true,
+      "x": 0,
+      "y": -4,
+      "layerOffset": -0.001,
+      "recoil": 0,
+      "shootWarmupSpeed": 0.05,
+      "shootSound": "none",
+      "shootY": 0,
+      "parentizeEffects": false,
+      "reload": 1,
+      "predictTarget": false,
+      "shootCone": 361,
+      "display": false,
+      "useAttackRange": false,
+      "parts": [
+      ],
+      "bullet": {
+        "type": "PointBulletType",
+        "speed": 16,
+        "damage": 0,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "trailEffect": "none",
+        "lifetime": 17.8125,
+        "rangeOverride": 285,
+        "fragBullets": 1,
+        "fragRandomSpread": 0
+        "fragOffsetMax": 0,
+        "fragOffsetMin": 0,
+        "collides": false,
+        "reflectable": false,
+        "absorbable": false,
+        "fragBullet": {
+          "lifetime": 2,
+          "ignoreSpawnAngle": true,
+          "speed": 0,
+          "collides": false,
+          "hittable": false,
+          "reflectable": false,
+          "absorbable": false,
+          "width": 1,
+          "height": 1,
+          "damage": 0,
+          "frontColor": "00000000",
+          "backColor": "00000000",
+          "parts": [
+            {
+              "type": "RegionPart",
+              "name": "ve-gatling-target",
+              "color": "ffa66540",
+              "outline": false,
+              "y": -2,
+              "layer": 110,
+              "moves": [
+                {
+                  "progress": {
+                    "type": "time",
+                    "op": "loop",
+                    "time": 120
+                  },
+                  "rot": 360
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "name": "ve-gatling-target",
+              "color": "8ca9e840",
+              "outline": false,
+              "y": 2,
+              "layer": 110,
+              "moves": [
+                {
+                  "progress": {
+                    "type": "time",
+                    "op": "loop",
+                    "time": 120
+                  },
+                  "rot": 360
+                }
+              ]
+            },
+            {
+              "type": "RegionPart",
+              "name": "ve-gatling-target",
+              "color": "ffffff80",
+              "outline": false,
+              "layer": 110,
+              "moves": [
+                {
+                  "progress": {
+                    "type": "time",
+                    "op": "loop",
+                    "time": 120
+                  },
+                  "rot": 360
+                }
+              ]
+            }
+          ],
+          "hitEffect": "none",
+          "despawnEffect": "none"
+        }
+      }
+    },
+    {
+      "mirror": false,//gatling target beams
+      "rotate": true,
+      "rotateSpeed": 90,
+      "top": true,
+      "x": 0,
+      "y": -4,
+      "layerOffset": -0.001,
+      "recoil": 2,
+      "shootWarmupSpeed": 0.05,
+      "shootSound": "none",
+      "shootY": 0,
+      "parentizeEffects": false,
+      "reload": 1,
+      "predictTarget": false,
+      "useAttackRange": false,
+      "display": false,
+      "shoot": {
+        "shots": 4,
+        "shotDelay": 0
+      },
+      "inaccuracy": 4,
+      "shootCone": 361,
+      "bullet": {
+        "type": "PointBulletType",
+        "speed": 16,
+        "velocityScaleRandMin": 0.9,
+        "velocityScaleRandMax": 1.1,
+        "damage": 0,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "sizeFrom": 0.5,
+          "sizeTo": 0.5,
+          "colorFrom": "ffffff80",
+          "colorTo": "ffffff00",
+          "lifetime": 2,
+          "length": 0,
+          "baseLength": 0
+        },
+        "trailSpacing": 1,
+        "lifetime": 17.8125,
+        "rangeOverride": 285,
+        "collides": false,
+        "reflectable": false,
+        "absorbable": false
+      }
+    }
+  ]
+}

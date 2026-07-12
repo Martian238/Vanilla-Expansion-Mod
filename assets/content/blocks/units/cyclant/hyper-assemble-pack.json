@@ -1,0 +1,19 @@
+{
+  //"type": "Wall",
+  "requirements": [ "silicon/500","fibralt/300","surge-alloy/200","warp-nucleus/10","silicide/75" ],
+  "health": 3600,
+  "size": 2,
+  "buildCostMultiplier": 0.1,
+  "category": "units",
+  "research": {
+    "parent": "ultra-assemble-pack",
+    "objectives": [ "boss-assembler",
+      {
+        "type": "SectorComplete",
+        "preset": "retreat-zone"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "shownPlanets": [ "cyclant","phoon" ]
+}

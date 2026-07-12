@@ -1,0 +1,10 @@
+{
+  "color": "ba754e",
+  "hardness": 0,
+  "healthScaling": 0,
+  "cost": 0.1,
+  "shownPlanets": [ "maress" ],
+  "lowPriority": true,
+  "research": "core-singularity-root",
+  "databaseTag": "natural-item"
+}

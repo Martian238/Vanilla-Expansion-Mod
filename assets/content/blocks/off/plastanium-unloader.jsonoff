@@ -1,0 +1,14 @@
+{
+  "type": "Unloader",
+  "category": "effect",
+  "requirements": [
+    "graphite/20","silicon/40","plastanium/25"
+  ],
+  "size": 1,
+  "speed": 1.5,
+  "group": "transportation",
+  "research": {
+    "objectives": [ "unloader" ]
+  },
+  "hidden": true
+}

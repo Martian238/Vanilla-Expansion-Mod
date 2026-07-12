@@ -1,0 +1,43 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "aluminium/20","graphite/10" ],
+  "category": "crafting",
+  "research": {
+    "parent": "isomorphic-press",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "barrier-hill"
+      }
+    ]
+  },
+  "size": 1,
+  "outputItem": "quartz/1",
+  "craftEffect": "pulverize",
+  "craftTime": 40,
+  "updateEffect": "pulverizeSmall",
+  "hasItems": true,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawRegion",
+        "spinSprite": true,
+        "rotateSpeed": 3,
+        "suffix": "-rotator"
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-top"
+      }
+    ]
+  },
+  "ambientSound": "loopGrind",
+  "ambientSoundVolume": 0.03,
+  "consumes": {
+    "items": [ "sand/2" ]
+  },
+  "researchCost": [ "aluminium/400","graphite/100" ],
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

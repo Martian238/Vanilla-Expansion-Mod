@@ -1,0 +1,58 @@
+{
+  //"type": "UnitFactory",
+  "category": "units",
+  "requirements": [ "lead/140","silicon/210","thorium/80" ],
+  "size": 3,
+  "research": {
+    "parent": "naval-fabricator",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "shale-quarry"
+      }
+    ]
+  },
+  "plans": [
+    {
+      "unit": "thorium-blaster",
+      "time": 3000,
+      "requirements": [ "silicon/40","lead/40","thorium/180" ]
+    },
+    {
+      "unit": "thorium-bomber",
+      "time": 3000,
+      "requirements": [ "silicon/40","graphite/50","thorium/140" ]
+    },
+    {
+      "unit": "fly-laser-drill",
+      "time": 600,
+      "requirements": [ "graphite/30","silicon/50","titanium/30" ]
+    },
+    {
+      "unit": "wide-fortress",
+      "time": 4200,
+      "requirements": [ "silicon/240","graphite/80","titanium/160","metaglass/80" ]
+    },
+    {
+      "unit": "duplicator",
+      "time": 4800,
+      "requirements": [ "silicon/150","graphite/50","warp-nucleus/10" ]
+    },
+    {
+      "unit": "magnetic-small",
+      "time": 2700,
+      "requirements": [ "silicon/250","fibralt/100","thorium/150" ]
+    }
+    /*{
+      "unit": "egnarra",
+      "time": 2100,
+      "requirements": [ "silicon/130","lead/15","silicide/40","graphite/80" ]
+    }*/
+  ],
+  "consumes": {
+    "power": 3.25
+  },
+  "createSound": "unitCreate",
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","thavina" ]
+  //"regionSuffix": "-rail"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "Floor",
+  "variants": 3,
+  "attributes": {
+    "heat": 0.75,
+    "water": -0.75
+  },
+  "blendGroup": "basalt",
+  "emitLight": true,
+  "lightRadius": 35,
+  "lightColor": "df171766"
+}

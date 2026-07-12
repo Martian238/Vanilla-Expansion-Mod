@@ -1,0 +1,24 @@
+{
+  "planet": "maress",
+  "sector": 94,
+  "difficulty": 8,
+  "research": {
+    "parent": "radioactive-islands",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "radioactive-islands"
+      },
+      "chiniun-shockwave"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

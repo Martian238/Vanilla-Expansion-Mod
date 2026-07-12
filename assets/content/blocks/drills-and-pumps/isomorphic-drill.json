@@ -1,0 +1,31 @@
+{
+  //"type": "Drill",
+  "category": "production",
+  "requirements": [ "aluminium/15" ],
+  "researchCost": [ "aluminium/30" ],
+  "research": {
+    "parent": "core-nucleus-root",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "barrier-hill"
+      }
+    ]
+  },
+  "drillTime": 600,
+  "itemCapacity": 10,
+  "size": 2,
+  "tier": 2,
+  "consumes": {
+    "liquid": {
+      "liquid": "water",
+      "amount": 0.025,
+      "booster": true,
+      "optional": true
+    }
+  },
+  "drillMultipliers": {
+    "spore-pod": 0
+  },
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

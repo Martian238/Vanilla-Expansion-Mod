@@ -1,0 +1,97 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "cobalt/300","silicon/550","thorium/250","phase-fabric/300","graphite/150","quartz/100" ],
+  "category": "crafting",
+  "size": 4,
+  "researchCostMultiplier": 0.1,
+  "hasPower": true,
+  "hasLiquids": true,
+  "itemCapacity": 30,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { 
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-beam",
+        "rotateSpeed": -1,
+        "rotate": true,
+        "color": "bf92f9",
+        "layer": -1,
+        "alpha": 1,
+        "glowIntensity": 0.5,
+        "glowScale": 3
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-beam",
+        "rotateSpeed": 0.5,
+        "rotate": true,
+        "color": "bf92f9",
+        "layer": -1,
+        "alpha": 1,
+        "glowIntensity": 0.5,
+        "glowScale": 3
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-beam",
+        "rotateSpeed": 2,
+        "rotate": true,
+        "color": "bf92f9",
+        "layer": -1,
+        "alpha": 1,
+        "glowIntensity": 0.5,
+        "glowScale": 3
+      },
+      {
+        "type": "DrawArcSmelt",
+        "flameRadiusScl": 3,
+        "flameRad": 0.8,
+        "flameColor": "bf92f9",
+        "midColor": "ffffff",
+        "alpha": 1,
+        "particleStroke": 0.8,
+        "particleLen": 5,
+        "particleLife": 75
+      },
+      { "type": "DrawDefault" }
+    ]
+  },
+  "craftTime": 600,
+  "outputItem": "warp-nucleus/4",
+  "consumes": {
+    "items": [ "phase-fabric/10","quartz/4" ],
+    "power": 22
+  },
+  "craftEffect": "none",
+  "updateEffect": {
+    "type": "ParticleEffect",
+    "particles": 4,
+    "line": true,
+    "strokeFrom": 3,
+    "strokeTo": 0,
+    "lenFrom": 10,
+    "lenTo": 0,
+    "length": 25,
+    "baseLength": 0,
+    "lifetime": 10,
+    "colorFrom": "ffffff",
+    "colorTo": "bf92f9"
+  },
+  "ambientSound": "lbp3PlasmaProjectile",
+  "ambientSoundVolume": 0.08,
+  "research": {
+    "parent": "phase-loom",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "warp-tech-base"
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
+}

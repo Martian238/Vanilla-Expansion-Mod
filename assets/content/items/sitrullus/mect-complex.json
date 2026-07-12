@@ -1,0 +1,11 @@
+{
+  "color": "ffa665",
+  "cost": 1.2,
+  "shownPlanets": [ "sitrullus" ],
+  "charge": 1.3,
+  "explosiveness": 0.3,
+  "research": "crystallon",
+  "frames": 11,
+  "frameTime": 5,
+  "databaseTag": "processed-item"
+}

@@ -1,0 +1,38 @@
+{
+  //"type": "Reconstructor",
+  "category": "units",
+  "requirements": [
+    "aluminium/100","ferrum/200","silicon/350","silver/250"
+  ],
+  "size": 3,
+  "upgrades": [
+    [ "daybreak","sunrise" ],
+    [ "soar","hover" ]
+  ],
+  "consumes": {
+    "power": 4,
+    "items": {
+      "items": [ "silicon/180","plastanium/60" ],
+    },
+    "liquids": {
+      "liquids": [ "water/0.4" ]
+    }
+  },
+  "constructTime": 2400,
+  "researchCostMultiplier": 0.3,
+  "hasLiquids": true,
+  "solid": false,
+  "underBullets": true,
+  "liquidCapacity": 80,
+  "research": {
+    "parent": "junior-reconstruct-pad",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "slate-guardpost"
+      }
+    ]
+  },
+  "createSound": "unitCreateBig",
+  "shownPlanets": [ "maress","thavina" ]
+}

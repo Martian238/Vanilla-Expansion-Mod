@@ -1,0 +1,74 @@
+{
+  //"type": "GenericCrafter",
+  "category": "effect",
+  "requirements": [ "silicon/50","quartz/50" ],
+  "size": 2,
+  "health": 1000,
+  "priority": 10,
+  "consumes": {
+    "power": 0.166666666667
+  },
+  "hasPower": true,
+  "ambientSound": "none",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawRegion", "suffix": "" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-top",
+        "color": "ffd37f",
+        "alpha": 0.9,
+        "glowIntensity": 0.5,
+        "glowScale": 10
+      },
+      {
+        "type": "DrawShape",
+        "layer": 100,
+        "radius": 48,
+        "useWarmupRadius": true,
+        "timeScl": 0.5,
+        "color": "ffd37f44"
+      },
+      {
+        "type": "DrawShape",
+        "layer": 100,
+        "radius": 48,
+        "useWarmupRadius": true,
+        "timeScl": -0.5,
+        "color": "ffd37f44"
+      }
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "color": "ffd37f99",
+        "layer": 110,
+        "alpha": 1,
+        "glowIntensity": 0.35,
+        "glowScale": 10
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffd37f00",
+        "flameRadius": 0,
+        "flameRadiusIn": 0,
+        "lightRadius": 64,
+        //"lightColor": "3300ff",
+        "lightAlpha": 0.8
+      }
+    ]
+  },
+  "buildVisibility": "shown",
+  "research": {
+    "parent": "mend-point",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "wetland-miningfield"
+      }
+    ]
+  },
+  "buildCostMultiplier": 20,
+  "shownPlanets": [ "cyclant","maress","sitrullus","phoon",
+ "serpulo","thavina" ]
+}

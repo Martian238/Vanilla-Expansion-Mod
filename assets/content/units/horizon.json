@@ -1,0 +1,37 @@
+{
+  "alwaysShootWhenMoving": false,
+  "immunities": {"add":[ "frozen" ]},
+  "engineLayer": 114.99,
+  "databaseTag": "03serpulo-air-unit",
+  "weapons": [
+    {
+      "minShootVelocity": 0.75,
+      "x": 3,
+      "shootY": 0,
+      "reload": 12,
+      "shootCone": 180,
+      "ejectEffect": "none",
+      "inaccuracy": 15,
+      "ignoreRotation": true,
+      "shootSound": "pewClassicEdited",
+      "bullet": {
+        "type": "BombBulletType",
+        "splashDamage": 25,
+        "splashDamageRadius": 27,
+        "width": 10,
+        "height": 14,
+        "hitEffect": "flakExplosion",
+        "hitColor": "ffa665",
+        "shootEffect": "none",
+        "status": "blasted",
+        "statusDuration": 60,
+        "smokeEffect": "none",
+        "lifetime": 30,
+        "drag": 0.05,
+        "hitSound": "explosion",
+        "despawnSound": "explosion"
+      }
+    }
+  ],
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus","thavina" ]
+}

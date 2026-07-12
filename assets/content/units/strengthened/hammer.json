@@ -1,0 +1,121 @@
+{
+  "type": "mech",
+  "databaseTag": "09cyclant-strengthened-unit",
+  "speed": 0.5,
+  "hitSize": 14,
+  "health": 1400,
+  "armor": 6,
+  "research": {
+    "parent": "blade",
+    "objectives": [ "junior-refabricator" ],
+    "requirements": [ "silicon/4500","graphite/3500","metaglass/2000" ]
+  },
+  "immunities": [ "burning","melting","tarred","dusty","frozen" ],
+  "targetAir": false,
+  "itemCapacity": 50,
+  "targetFlags": [
+    "factory","generator","storage"
+  ],
+  "lightColor": "ffa665",
+  "stepSound": "mechStepSmall",
+  "stepSoundPitch": 0.9,
+  "stepSoundPitchRange": 0.1,
+  "stepSoundVolume": 0.5,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "weapons": [
+    {
+      "name": "slag-thrower",
+      "x": 9.25,
+      "y": 0,
+      "shootX": 0,
+      "shootY": 8.75,
+      "reload": 12,
+      "top": false,
+      "mirror": false,
+      "ejectEffect": "none",
+      "shoot": {
+        "shots": 3,
+        "shotDelay": 1,
+        "firstShotDelay": 6
+      },
+      "inaccuracy": 2,
+      "shootSound": "shootAtrax",
+      "bullet": {
+        "type": "LiquidBulletType",
+        "liquid": "slag",
+        "damage": 12,
+        "lifetime": 45,
+        "speed": 3.6,
+        "collidesAir": false,
+        "hittable": true,
+        "status": "melting",
+        "statusDuration": 300,
+        "shootEffect": "shootLiquid",
+        "hitColor": "ffa665",
+        "lightColor": "ffa665"
+      }
+    },
+    {
+      "name": "oil-thrower",
+      "x": -9.25,
+      "y": 0,
+      "shootX": 0,
+      "shootY": 8.75,
+      "reload": 12,
+      "top": false,
+      "mirror": false,
+      "ejectEffect": "none",
+      "shootSound": "shootAtrax",
+      "shoot": {
+        "shots": 3,
+        "shotDelay": 1
+      },
+      "inaccuracy": 3,
+      "bullet": {
+        "type": "LiquidBulletType",
+        "liquid": "oil",
+        "damage": 2,
+        "lifetime": 45,
+        "speed": 3.6,
+        "collidesAir": false,
+        "hittable": false,
+        "status": "tarred",
+        "statusDuration": 300,
+        "shootEffect": "shootLiquid",
+        "hitColor": "000000",
+        "layer": 98
+      }
+    },
+    {
+      "name": "blade-weapon-mount",
+      "x": 5.25,
+      "y": -2.75,
+      "shootX": -0.25,
+      "shootY": 3.75,
+      "reload": 15,
+      "top": true,
+      "rotate": true,
+      "rotateSpeed": 7,
+      "ejectEffect": "casing1",
+      "shoot": {
+        "shots": 5,
+        "shotDelay": 3
+      },
+      "shootSound": "shoot",
+      "bullet": {
+        "damage": 13,
+        "width": 8,
+        "height": 10,
+        "lifetime": 50,
+        "speed": 3.5,
+        "homingPower": 0.04,
+        "shootEffect": "shootSmall",
+        "smokeEffect": "shootSmallSmoke",
+        "backColor": "d06b53",
+        "frontColor": "ffa665",
+        "hitColor": "ffa665",
+        "lightColor": "ffa665"
+      }
+    }
+  ]
+}

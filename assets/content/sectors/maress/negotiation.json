@@ -1,0 +1,24 @@
+{
+  "planet": "maress",
+  "sector": 43,
+  "difficulty": 3,
+  "research": {
+    "parent": "core-singularity-root",
+    "objectives": [
+      "core-singularity",
+      {
+        "type": "SectorComplete",
+        "preset": "retreat-zone"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 30,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": false,
+  "allowLaunchLoadout": false
+}
+
+
+

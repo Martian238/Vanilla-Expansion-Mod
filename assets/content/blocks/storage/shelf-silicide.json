@@ -1,0 +1,24 @@
+{
+  //"type": "StorageBlock",
+  "requirements": [ "aluminium/90","silicide/30" ],
+  "category": "effect",
+  "research": {
+    "parent": "shelf",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "intervalley"
+      }
+    ]
+  },
+  "size": 2,
+  "itemCapacity": 200,
+  "researchCostMultiplier": 0.1,
+  "armor": 24,
+  "health": 3000,
+  "crushDamageMultiplier": 0.05,
+  "drawTeamOverlay": false,
+  "flammabilityScale": 0,
+  "explosivenessScale": 0.5,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

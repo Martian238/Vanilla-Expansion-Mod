@@ -1,0 +1,14 @@
+{
+  "color": "272727",
+  "hardness": 2,
+  "explosiveness": 0.2,
+  "flammability": 1,
+  "buildable": false,
+  "research": {
+    "parent": "aluminium",
+    "objectives": [ "coal" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

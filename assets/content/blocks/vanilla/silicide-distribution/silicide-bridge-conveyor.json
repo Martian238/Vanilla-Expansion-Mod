@@ -1,0 +1,21 @@
+{
+  //"type": "BufferedItemBridge",
+  "requirements": [ "copper/6","lead/6","silicide/6" ],
+  "category": "distribution",
+  "health": 370,
+  "armor": 16,
+  "range": 4,
+  "bufferCapacity": 30,
+  "speed": 40,
+  "fadeIn": false,
+  "moveArrows": false,
+  "arrowSpacing": 6,
+  "buildCostMultiplier": 3,
+  "research": {
+    "parent": "silicide-router"
+  },
+  "crushDamageMultiplier": 0.05,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "serpulo","thavina" ]
+}

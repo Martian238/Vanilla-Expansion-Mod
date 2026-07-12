@@ -1,0 +1,14 @@
+{
+  //"type": "Junction",
+  "requirements": [ "aluminium/2" ],
+  "category": "distribution",
+  "capacity": 5,
+  "speed": 10,
+  "buildCostMultiplier": 6,
+  "research": {
+    "parent": "rail"
+  },
+  "researchCostMultiplier": 0.1,
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

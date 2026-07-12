@@ -1,0 +1,95 @@
+{
+  "type": "naval",
+  "canBoost": true,
+  "boostMultiplier": 0.5,
+  "riseSpeed": 0.04,
+  "drag": 0.05,
+  "speed": 2.1,
+  "rotateSpeed": 7,
+  "accel": 0.1,
+  "health": 170,
+  "armor": 1,
+  "engineOffset": 6.5,
+  "engineSize": 3,
+  "hitSize": 9,
+  "itemCapacity": 20,
+  "faceTarget": false,
+  "buildSpeed": 0.5,
+  "rotateToBuild": false,
+  "buildBeamOffset": 0,
+  "research": {
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "trailLength": 15,
+  "waveTrailX": 4,
+  "waveTrailY": -4,
+  "trailScl": 1.4,
+  "weapons": [
+    {
+      "name": "volador-weapon",
+      "top": true,
+      "x": 4,
+      "y": 2.5,
+      "recoil": 2,
+      "reload": 17,
+      "rotate": true,
+      "shootSound": "lasershoot",
+      "ejectEffect": "none",
+      "shootY": 3,
+      "bullet": {
+        "type": "LaserBoltBulletType",
+        "speed": 5.2,
+        "damage": 13,
+        "lifetime": 25,
+        "healPercent": 2,
+        "shootEffect": "sparkShoot",
+        "shootColor": "7c7dff",
+        "smokeEffect": "none",
+        "height": 12,
+        "collidesTeam": true,
+        "backColor": "7c7dff",
+        "frontColor": "ffffff",
+        "hitEffect": "hitBulletColor",
+        "despawnEffect": "hitBulletColor",
+        "hitColor": "7c7dff",
+        "despawnColor": "7c7dff"
+      }
+    },
+    {
+      "name": "volador-weapon",
+      "top": true,
+      "x": 2.75,
+      "y": -3,
+      "recoil": 2,
+      "reload": 23,
+      "rotate": true,
+      "shootSound": "lasershoot",
+      "ejectEffect": "none",
+      "shootY": 3,
+      "bullet": {
+        "type": "LaserBoltBulletType",
+        "speed": 5.2,
+        "damage": 13,
+        "lifetime": 35,
+        "healPercent": 2,
+        "height": 12,
+        "shootEffect": "sparkShoot",
+        "shootColor": "7c7dff",
+        "smokeEffect": "none",
+        "collidesTeam": true,
+        "backColor": "7c7dff",
+        "frontColor": "ffffff",
+        "breakable": false,
+        "hitEffect": "hitBulletColor",
+        "despawnEffect": "hitBulletColor",
+        "hitColor": "7c7dff",
+        "despawnColor": "7c7dff"
+      }
+    }
+  ]
+}

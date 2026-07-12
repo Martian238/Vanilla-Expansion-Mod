@@ -1,0 +1,94 @@
+{
+  //"type": "ItemTurret",
+  "requirements": [ "aluminium/35","graphite/25" ],
+  "category": "turret",
+  "size": 1,
+  "ammoTypes": {
+    "coal": {
+      "hitSize": 7,
+      "lifetime": 18,
+      "ammoMultiplier": 3,
+      "frontColor": "ffffff00",
+      "backColor": "ffffff00",
+      "speed": 3.25,
+      "damage": 17,
+      "collidesAir": false,
+      "pierce": true,
+      "keepVelocity": false,
+      "hittable": false,
+      "status": "burning",
+      "statusDuration": 240,
+      "shootEffect": "shootSmallFlame",
+      "smokeEffect": "none",
+      "hitEffect": "hitFlameSmall",
+      "despawnEffect": "none"
+    },
+    "pyratite": {
+      "hitSize": 7,
+      "lifetime": 18,
+      "ammoMultiplier": 6,
+      "frontColor": "ffffff00",
+      "backColor": "ffffff00",
+      "speed": 4,
+      "damage": 60,
+      "collidesAir": false,
+      "pierce": true,
+      "keepVelocity": false,
+      "hittable": false,
+      "status": "burning",
+      "statusDuration": 600,
+      "shootEffect": "shootPyraFlame",
+      "smokeEffect": "none",
+      "hitEffect": "hitFlameSmall",
+      "despawnEffect": "none"
+    },
+    "nitroalkoss": {
+      "hitSize": 12,
+      "lifetime": 24,
+      "ammoMultiplier": 12,
+      "frontColor": "ffffff00",
+      "backColor": "ffffff00",
+      "speed": 4,
+      "damage": 107,
+      "collidesAir": false,
+      "pierce": true,
+      "keepVelocity": false,
+      "hittable": false,
+      "status": "combusting",
+      "statusDuration": 900,
+      "pierceArmor": true,
+      "shootEffect": {
+        "type": "MultiEffect",
+        "effects": [
+          "shootPyraFlame",
+          "shootSmallFlame"
+        ]
+      },
+      "smokeEffect": "none",
+      "hitEffect": "hitFlameSmall",
+      "despawnEffect": "none"
+    }
+  },
+  "recoil": 0,
+  "shootSound": "shootFlame",
+  "targetAir": false,
+  "shootX": 0,
+  "shootY": 2,
+  "reload": 5,
+  "range": 60,
+  "health": 400,
+  "ammoUseEffect": "none",
+  "rotateSpeed": 10,
+  "research": {
+    "parent": "rise"
+  },
+  "researchCostMultiplier": 0.35,
+  "coolantMultiplier": 1.5,
+  "consumes": {
+    "coolant": {
+      "type": "ConsumeCoolant",
+      "amount": 0.1
+    }
+  },
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

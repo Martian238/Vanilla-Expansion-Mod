@@ -1,0 +1,10 @@
+{
+  "type": "Floor",
+  "variants": 6,
+  "attributes": {
+    "water": 0,
+    "heat": 0.2
+  },
+  "wall": "frostone-wall",
+  "blendGroup": "frostone"
+}

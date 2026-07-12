@@ -1,0 +1,9 @@
+{
+  "color": "e2f2d7",
+  "lowPriority": true,
+  "cost": 0.5,
+  "explosiveness": 0.1,
+  "research": "aluminium",
+  "shownPlanets": [ "serpulo","cyclant","maress","phoon","thavina" ],
+  "databaseTag": "natural-item"
+}

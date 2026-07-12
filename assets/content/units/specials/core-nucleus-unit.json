@@ -1,0 +1,44 @@
+{
+  "type": "flying",
+  "databaseTag": "13other-unit",
+  "flying": true,
+  "fogRadius": 0,
+  "health": 6000,
+  "armor": 3,
+  "itemCapacity": 13000,
+  "accel": 0.08,
+  "speed": 1.9,
+  "drag": 0.03,
+  "outlineRadius": 0,
+  "hitSize": 40,
+  "rotateSpeed": 2,
+  "lowAltitude": true,
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-body",
+      "rotation": 45,
+      "mirror": false
+    }
+  ],
+  "engineSize": 0,
+  "engines": [
+    {
+      "x": 21,
+      "y": -21,
+      "rotation": -45,
+      "radius": 10
+    },
+    {
+      "x": -21,
+      "y": -21,
+      "rotation": -135,
+      "radius": 10
+    }
+  ],
+  "buildBeamOffset": 0,
+  "itemOffsetY": 0,
+  "buildSpeed": 1,
+  "mineSpeed": 8,
+  "mineTier": 2
+}

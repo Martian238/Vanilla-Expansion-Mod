@@ -1,0 +1,12 @@
+{
+  //"type": "Wall",
+  "requirements": [ "titanium/54" ],
+  "size": 3,
+  "health": 3960,
+  "category": "defense",
+  "research": {
+    "parent": "titanium-wall-large",
+    "objectives": [ "titanium-wall-large" ]
+  },
+  "shownPlanets": [ "serpulo","cyclant","phoon","thavina" ]
+}

@@ -1,0 +1,14 @@
+{
+  //"type": "PayloadConveyor",
+  "requirements": [ "aluminium/5","graphite/5","silicon/5" ],
+  "category": "units",
+  "size": 1,
+  "research": {
+    "parent": "payload-rail-large"
+  },
+  "canOverdrive": true,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ],
+  "payloadLimit": 1.5,
+  "moveForce": 67,
+  "moveTime": 30
+}

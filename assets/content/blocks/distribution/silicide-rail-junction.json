@@ -1,0 +1,19 @@
+{
+  //"type": "Junction",
+  "requirements": [ "aluminium/2","silicide/1" ],
+  "category": "distribution",
+  "health": 280,
+  "armor": 24,
+  "capacity": 10,
+  "speed": 10,
+  "buildCostMultiplier": 6,
+  "research": {
+    "parent": "silicide-rail"
+  },
+  "researchCostMultiplier": 0.1,
+  "crushDamageMultiplier": 0.05,
+  "squareSprite": false,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

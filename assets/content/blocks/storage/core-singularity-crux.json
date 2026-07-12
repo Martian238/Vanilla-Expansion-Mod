@@ -1,0 +1,20 @@
+{
+  "type": "CoreBlock",
+  "category": "effect",
+  "requirements": [ "aluminium/10000","lead/10000","silicon/9000","thorium/7000","silicide/4000","phase-fabric/2000" ],
+  "buildVisibility": "editorOnly",
+  "researchCostMultiplier": 0.1,
+  "isFirstTier": false,
+  "unitType": "omega",
+  "health": 22000,
+  "armor": 16,
+  "itemCapacity": 24000,
+  "size": 7,
+  "unitCapModifier": 40,
+  "thrusterLength": 14,
+  "requiresCoreZone": false,
+  "crushDamageMultiplier": 0.05,
+  "drawTeamOverlay": false,
+  "forceTeam": "crux",
+  "shownPlanets": []
+}

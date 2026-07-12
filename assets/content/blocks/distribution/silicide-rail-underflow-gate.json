@@ -1,0 +1,17 @@
+{
+  //"type": "OverflowDuct",
+  "requirements": [ "aluminium/4","lead/2","silicide/3" ],
+  "speed": 1.5,
+  "health": 340,
+  "armor": 24,
+  "solid": false,
+  "invert": true,
+  "research": "silicide-rail-overflow-gate",
+  "buildCostMultiplier": 4,
+  "researchCostMultiplier": 0.1,
+  "crushDamageMultiplier": 0.05,
+  "squareSprite": false,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

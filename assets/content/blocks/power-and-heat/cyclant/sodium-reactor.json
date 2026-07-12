@@ -1,0 +1,68 @@
+{
+  //"type": "ConsumeGenerator",
+  "requirements": [
+    "aluminium/30","chromium/20","silicon/20"
+  ],
+  "category": "power",
+  "research": {
+    "parent": "large-turbine-generator",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      },
+      "melting-electrolyzer"
+    ]
+  },
+  "researchCostMultiplier": 0.05,
+  "size": 2,
+  "group": "liquids",
+  "liquidCapacity": 60,
+  "hasItems": true,
+  "hasLiquids": true,
+  "itemCapacity": 10,
+  "consumes": {
+    "items": {
+      "items": [ "sodium/1" ]
+    },
+    "liquids": {
+      "liquids": [ "water/0.25" ]
+    }
+  },
+  "ambientSound": "loopSpray",
+  "ambientSoundVolume": 0.05,
+  "outputLiquid": "hydrogen/0.15",
+  "explodeOnFull": true,
+  "powerProduction": 0.5,
+  "consumeEffect": "plasticburn",
+  "itemDuration": 40,
+  "baseLightRadius": 0,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water",
+        "padding": 2
+      },
+      {
+        "type": "DrawBubbles",
+        "color": "7693e3",
+        "sides": 8,
+        "recurrence": 3,
+        "spread": 4,
+        "amount": 15
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen"
+      },
+      { "type": "DrawRegion", "suffix": "" }
+    ]
+  },
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

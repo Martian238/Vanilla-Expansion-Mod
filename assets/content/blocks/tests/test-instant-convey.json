@@ -1,0 +1,34 @@
+{
+  "type": "MassDriver",
+  "buildVisibility": "sandboxOnly",
+  "alwaysUnlocked": true,
+  "size": 1,
+  "itemCapacity": 100,
+  "reload": 60,
+  "rotateSpeed": 360,
+  "minDistribute": 10,
+  "smokeEffect": "none",
+  "shootEffect": "shockwave",
+  "receiveEffect": "shockwave",
+  "knockback": 0,
+  "shake": 0,
+  "bulletSpeed": 800,
+  "shootSound": "none",
+  "consumes": {
+    "power": 1
+  },
+  "range": 960,
+  "translation": 0,
+  "bullet": {
+    //"type": "MassDriverBolt",
+    "speed": 800,
+    "height": 0,
+    "width": 0,
+    "despawnEffect": "none",
+    "hitEffect": "none",
+    "collides": false,
+    "hittable": false,
+    "absorbable": false,
+    "reflectable": false
+  }
+}

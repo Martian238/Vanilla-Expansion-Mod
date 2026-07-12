@@ -1,0 +1,408 @@
+{
+  "health": 2000,
+  "databaseTag": "14sitrullus-zenith-unit",
+  "speed": 1,
+  "accel": 0.035,
+  "drag": 0.012,
+  "rotateSpeed": 1.5,
+  "flying": true,
+  "hitSize": 24,
+  "lowAltitude": true,
+  "armor": 7,
+  "engineOffset": 12,
+  "immunities": [ "frozen" ],
+  "shownPlanets": [ "sitrullus" ],
+  "range": 416,
+  "outlineColor": "16161b"
+  "alwaysShootWhenMoving": true,
+  "research": "zenith-elite-sharded",
+  "weapons": [
+    {
+      "x": 16.5,
+      "y": 0,
+      "top": false,
+      "layerOffset": -0.01,
+      "linearWarmup": true,
+      "minWarmup": 0,
+      "shootY": 0,
+      "reload": 120,
+      "shootSound": "shootMissileLarge",
+      "shootWarmupSpeed": 0.01,
+      "mirror": true,
+      "alternate": false,
+      "recoil": 0,
+      "shoot": {
+        "type": "ShootBarrel",
+        "barrels": [ 0,0,0,5.25,0,0,0,0,0,5.25,0,0 ],
+        "shots": 4,
+        "shotDelay": 10
+      },
+      "bullet": {
+        "rangeOverride": 416,
+        "spawnUnit": "zenith-rocketeer-elite-missile",
+        "shootEffect": {
+          "type": "MultiEffect",
+          "effects": [ 
+            { 
+              "type": "RadialEffect",
+              "effect": "shootSmallFlame",
+              "rotationOffset": 180,
+              "lengthOffset": 11,
+              "amount": 1
+            },
+            { 
+              "type": "RadialEffect",
+              "effect": "shootTitan",
+              "rotationOffset": 0,
+              "lengthOffset": 8.5,
+              "amount": 1
+            }
+          ]
+        },
+        "smokeEffect": "none",
+        "speed": 99999,
+        "recoil": -0.05
+      }
+    },
+    {
+      "name": "zenith-missiles-elite",
+      "reload": 40,
+      "x": 7.25,
+      "y": -1.75,
+      "rotate": true,
+      "shootY": 3.25,
+      "shoot": { 
+        "type": "ShootBarrel",
+        "shots": 3,
+        "shotDelay": 5,
+        "barrels": [
+          -0.75,0,0,0.75,0,0
+        ]
+      },
+      "inaccuracy": 3,
+      "ejectEffect": "none",
+      "shootSound": [ "lbp3LaserFire1","lbp3LaserFire2","lbp3LaserFire3","lbp3LaserFire4" ],
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "shake": 2,
+      "cooldownTime": 40,
+      "useAttackRange": false,
+      "parts": [
+        {
+          "type": "RegionPart",
+          "outline": false,
+          "color": "ffffff00",
+          "colorTo": "ffffff",
+          //"blending": "additive",
+          "under": false,
+          "suffix": "-light",
+          "progress": "warmup"
+        },
+        {
+          "type": "RegionPart",
+          "outline": false,
+          "color": "ffa66500",
+          "colorTo": "ffa665",
+          "blending": "additive",
+          "under": false,
+          "suffix": "-glow",
+          "progress": "recoil"
+        }
+      ],
+      "minWarmup": 0.9,
+      "recoilTime": 20,
+      "bullet": {
+        "sprite": "circle-bullet",
+        "height": 7,
+        "width": 7,
+        "speed": 2.5,
+        "lifetime": 80,
+        "frontColor": "ffffff",
+        "backColor": "ffa665",
+        "status": "plasma-status-orange",
+        "statusDuration": 180,
+        "hittable": false,
+        "shrinkY": 0,
+        "shootEffect": "shootBigColor",
+        "hitColor": "ffa665",
+        "smokeEffect": {
+          "type": "SoundEffect",
+          "sound": "lbp3PlasmEmit",
+          "maxPitch": 1.1,
+          "minPitch": 0.95,
+          "maxVolume": 0,//0.15
+          "minVolume": 0,//0.15
+          "effect": "none"
+        },
+        "damage": 50,
+        "hitShake": 2,
+        "despawnShake": 2,
+        "hitEffect": {
+          "type": "MultiEffect",
+          "effects": [
+            {
+              "type": "WrapEffect",
+              "color": "ffa665",
+              "effect": "hitBulletColor"
+            },
+            {
+              "type": "WrapEffect",
+              "color": "ffa665",
+              "effect": "hitLaserBlast"
+            },
+            {
+              "type": "SoundEffect",
+              "sound": [ "shockBullet" ],
+              "maxPitch": 1.1,
+              "minPitch": 0.95,
+              "maxVolume": 0.7,
+              "minVolume": 0.7,
+              "effect": "none"
+            },
+            {
+            "type": "WaveEffect",
+            "lifetime": 6,
+            "sizeFrom": 0,
+            "sizeTo": 24,
+            "colorFrom": "ffa665",
+            "colorTo": "ffa665",
+            "strokeFrom": 1,
+            "strokeTo": 0,
+            "sides": 24
+            }
+          ]
+        },
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "trailEffect": {
+          "type": "ParticleEffect",
+          "particles": 1,
+          "lifetime": 3,
+          "sizeFrom": 2,
+          "sizeTo": 0,
+          "colorFrom": "ffa665",
+          "colorTo": "ffa665",
+          "length": 0,
+          "baseLength": 6,
+          "interp": "circleIn",
+          "region": "ve-square-effect"
+        },
+        "trailChance": 0.6,
+        "splashDamage": 40,
+        "splashDamageRadius": 24,
+        "lightning": 3,
+        "lightningColor": "ffa665",
+        "lightningLength": 7,
+        "lightningLengthRand": 2,
+        "lightningDamage": 12
+      }
+    },
+    {
+      "name": "zenith-watermelo"
+      "x": 0,
+      "y": 0,
+      "shootY": 12,
+      "rotate": false,
+      "mirror": false,
+      "top": false,
+      "recoil": 0,
+      "reload": 100,
+      "recoilTime": 12,
+      "shoot": {
+        "shots": 6,
+        "shotDelay": 12
+      },
+      "minWarmup": 0.97,
+      "shootWarmupSpeed": 0.2,
+      "shootSound": [ "mcEat1","mcEat2","mcEat3" ],
+      "shootSoundVolume": 0.6,
+      "soundPitchMax": 1.1,
+      "shootStatus": "watermelon",
+      "shootStatusDuration": 72,
+      "shootCone": 361,
+      "parentizeEffects": true,
+      "autoTarget": true,
+      "useAttackRange": false,
+      "bullet": {
+        "maxRange": 256,
+        "shootEffect": {
+          "type": "ParticleEffect",
+          "lifetime": 60,
+          "colorFrom": "ff5555",
+          "colorTo": "cc3434",
+          "layer": 90.5,
+          "sizeFrom": 3,
+          "sizeTo": 0,
+          "interp": "circleOut",
+          "followParent": false,
+          "length": 8,
+          "baseLength": 2,
+          "particles": 5
+        },
+        "smokeEffect": {
+          "type": "ParticleEffect",
+          "lifetime": 13,
+          "colorFrom": "ffffff",
+          "region": "ve-watermelon-effect",
+          "colorTo": "ffffff",
+          "layer": 89,
+          "sizeFrom": 18,
+          "sizeTo": 18,
+          "followParent": true,
+          "rotWithParent": true,
+          "length": 2,
+          "interp": "pow3Out",
+          "cone": 0,
+          "baseLength": 0,
+          "particles": 1,
+          "randLength": false
+        },
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "collides": false,
+        "hittable": false,
+        "instantDisappear": true,
+        "damage": 0,
+        "absorbable": false
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "n",
+          "color": "ffffff00",
+          "colorTo": "ffffff",
+          "outline": false,
+          "progress": "warmup",
+          "rotation": -70,
+          "moveRot": 50,
+          "moveY": -1,
+          "layer": 88.5
+        }
+      ]
+    },
+    {
+      "controllable": false,
+      "autoTarget": false,
+      "shootOnDeath": true,
+      "mirror": false,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "reload": 60,
+      "shootSound": "none",
+      "display": false,
+      "shootCone": 361,
+      "noAttack": true,
+      "useAttackRange": false,
+      "bullet": {
+        "maxRange": 64,
+        "instantDisappear": true,
+        "fragBullets": 3,
+        "fragLifeMin": 0.6,
+        "fragBullet": {
+        "createChance": 0.75,
+        "frontColor": "ffffff",
+        "backColor": "ffffff00",
+        "shrinkY": 0,
+        "sprite": "ve-zenith-watermelon-drop",
+        "hittable": false,
+        "absorbable": false,
+        "reflectable": false,
+        "width": 16,
+        "height": 16,
+        "spin": 10,
+        "speed": 3,
+        "accel": -0.04,
+        "lifetime": 300,
+        "despawnHit": false,
+        "layer": 90,
+        "fragOnDespawn": false,
+"setDefaults": false,
+        "fragBullets": 1,
+        "fragOffsetMax": 0,
+        "fragOffsetMin": 0,
+        "fragBullet": {
+          "shrinkY": 0,
+          "hittable": false,
+          "absorbable": false,
+          "reflectable": false,
+          "sprite": "ve-zenith-watermelon-drop",
+          "width": 16,
+          "height": 16,
+          "lifetime": 180,
+          "sticky": true,
+          "damage": 0,
+          "speed": 0,
+          "hitSize": 16,
+          "layer": 90,
+          "trailEffect": {
+            "type": "ParticleEffect",
+            "lifetime": 60,
+            "colorFrom": "ff5555",
+            "colorTo": "cc3434",
+            "layer": 90.5,
+            "sizeFrom": 3,
+            "sizeTo": 0,
+            "interp": "circleOut",
+            "followParent": false,
+            "length": 8,
+            "baseLength": 2,
+            "particles": 5
+          },
+          "trailInterval": 36,
+          "despawnEffect": "none",
+          "hitEffect": "none"
+        },
+        "fragOnHit": true,
+        "hitEffect": {
+          "type": "SoundEffect",
+          "sound": [ "mcEat1","mcEat2","mcEat3" ],
+          "effect": {
+            "type": "ParticleEffect",
+            "lifetime": 60,
+            "colorFrom": "ff5555",
+            "colorTo": "cc3434",
+            "layer": 90.5,
+            "sizeFrom": 3,
+            "sizeTo": 0,
+            "interp": "circleOut",
+            "followParent": false,
+            "length": 8,
+            "baseLength": 2,
+            "particles": 5
+          }
+        },
+        "despawnEffect": {
+          "type": "ParticleEffect",
+          "lifetime": 60,
+          "colorFrom": "ff5555",
+          "colorTo": "cc3434",
+          "layer": 90.5,
+          "sizeFrom": 3,
+          "sizeTo": 0,
+          "interp": "circleOut",
+          "followParent": false,
+          "length": 8,
+          "baseLength": 2,
+          "particles": 5
+        },
+        "damage": 0,
+        "status": "watermelon",
+        "statusDuration": 180,
+        "hittable": false,
+        "absorbable": false,
+        "hitSize": 8,
+        "collidesTiles": false,
+        },
+        "despawnEffect": "none",
+        "hitEffect": "none",
+        "damage": 0,
+        "hittable": false,
+        "absorbable": false,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "killShooter": true
+      }
+    }
+  ]
+}

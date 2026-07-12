@@ -1,0 +1,40 @@
+{
+  //"type": "HeatConductor",
+  "visualMaxHeat": 50,
+  "research": {
+    "parent": "heat-conduct-conductor",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "icy-boundary"
+      }
+    ]
+  },
+  "splitHeat": true,
+  "requirements": [ "silver/20","graphite/30" ],
+  "size": 2,
+  "category": "crafting",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      { "type": "DrawHeatOutput" },
+      {
+        "type": "DrawHeatOutput",
+        "drawGlow": false,
+        "rotOffset": 1
+      },
+      {
+        "type": "DrawHeatOutput",
+        "drawGlow": false,
+        "rotOffset": -1
+      },
+      { 
+        "type": "DrawHeatInput",
+        "suffix": "-input"
+      }
+    ]
+  },
+  "regionRotated1": 1,
+  "shownPlanets": [ "maress","thavina" ]
+}

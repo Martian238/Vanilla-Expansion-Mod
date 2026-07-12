@@ -1,0 +1,58 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [
+    "titanium/115","lead/200","silicon/95","chromium/80","catalyzon/30"
+  ],
+  "category": "crafting"
+  "research": {
+    "parent": "salt-electrolyzer",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.01,
+  "hasPower": true,
+  "hasItems": true,
+  "hasLiquids": true,
+  "size": 3,
+  "craftTime": 120,
+  "group": "liquids",
+  "liquidCapacity": 120,
+  "itemCapacity": 50,
+  "consumes": {
+    "items": {
+      "items": [ "titanium/20" ]
+    },
+    "liquids": {
+      "liquids": [ "oil/0.6666666666667","chlorine/0.075" ]
+    }
+    "power": 3.75
+  },
+  "craftEffect": "formsmoke",
+  "ambientSound": "loopMachine",
+  "ambientSoundVolume": 0.2,
+  "updateEffect": "plasticburn",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { 
+        "type": "DrawRegion", 
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "oil"
+      },
+      { 
+        "type": "DrawRegion",
+        "suffix": ""
+      },
+      { "type": "DrawFade" }
+    ]
+  },
+  "outputItem": "plastanium/16",
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
+}

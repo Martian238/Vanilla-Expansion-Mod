@@ -1,0 +1,27 @@
+{
+  //"type": "AutoDoor",
+  "requirements": [ "chromium/70","silicide/50","silicon/25" ],
+  "category": "defense",
+  "research": "automatic-gate",
+  "health": 12000,
+  "armor": 16,
+  "size": 3,
+  "researchCostMultiplier": 0.3,
+  "crushDamageMultiplier": 0.25,
+  "doorSound": "none",
+  "openfx": {
+    "type": "SoundEffect",
+    "sound": "si2DoorOpen",
+    "minPitch": 1,
+    "maxPitch": 1,
+    "effect": "dooropenlarge"
+  },
+  "closefx": {
+    "type": "SoundEffect",
+    "sound": "si2DoorClose",
+    "minPitch": 1,
+    "maxPitch": 1,
+    "effect": "doorcloselarge"
+  },
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ]
+}

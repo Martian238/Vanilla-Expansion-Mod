@@ -1,0 +1,11 @@
+{
+  "color": "ffffff",
+  "hardness": 0,
+  "healthScaling": 0,
+  "cost": 0.2,
+  "shownPlanets": [ "sitrullus" ],
+  "lowPriority": true,
+  "research": "melon-dirt",
+  "flammability": 0.6,
+  "databaseTag": "processed-item"
+}

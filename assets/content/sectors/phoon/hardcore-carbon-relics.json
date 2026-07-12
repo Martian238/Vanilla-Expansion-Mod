@@ -1,0 +1,27 @@
+{
+  "planet": "phoon",
+  "sector": 31,
+  "difficulty": 5,
+  "research": {
+    "parent": "hardcore-barrier-hill",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "intervalley"
+      },
+      {
+        "type": "SectorComplete",
+        "preset": "carbon-relics"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 20,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": false,
+  "allowLaunchLoadout": false
+}
+
+
+

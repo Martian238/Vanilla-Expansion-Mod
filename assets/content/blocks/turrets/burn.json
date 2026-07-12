@@ -1,0 +1,160 @@
+{
+  //"type": "ContinuousLiquidTurret",
+  "requirements": [ "chromium/150","silicon/80","metaglass/50","silicide/70" ],
+  "category": "turret",
+  "size": 3,
+  "outlineColor": "2d2f39",
+  "shootWarmupSpeed": 0.3,
+  "cooldownTime": 90,
+  "ammoTypes": {
+    "hydrogen": {
+      "type": "ContinuousFlameBulletType",
+      "damage": 35,
+      "length": 210,
+      "pierceBuilding": false,
+      "pierceArmor": false,
+      "rangeChange": 80,
+      "knockback": 1,
+      "pierceCap": 2,
+      "status": "burning",
+      "statusDuration": 240,
+      "buildingDamageMultiplier": 0.3,
+      "flareColor": "9eabf7",
+      "lightColor": "9eabf7",
+      "hitColor": "9eabf7",
+      "colors": [ "9eabf777","9eabf7aa","ffffff" ],
+      "despawnEffect": "vapor",
+      "hitColor": "9eabf7",
+      "flareLength": 25,
+      "flareWidth": 4,
+      "armorMultiplier": 0.75
+    },
+    "chlorine": {
+      "type": "ContinuousFlameBulletType",
+      "damage": 43,
+      "length": 130,
+      "knockback": 0.2,
+      "pierceCap": 4,
+      "status": "corroded",
+      "statusDuration": 360,
+      "buildingDamageMultiplier": 0.8,
+      "flareColor": "e6f66c",
+      "lightColor": "e6f66c",
+      "hitColor": "e6f66c",
+      "colors": [ "e6f66c77","e6f66caa","ffffff" ],
+      "despawnEffect": "vapor",
+      "hitColor": "e6f66c",
+      "armorMultiplier": 0.5
+    },
+    "oil": {
+      "type": "ContinuousFlameBulletType",
+      "damage": 38,
+      "length": 100,
+      "rangeChange": -30,
+      "pierceArmor": false,
+      "pierceBuilding": false,
+      "knockback": 2,
+      "pierceCap": 2,
+      "status": "burning",
+      "ammoMultiplier": 3,
+      "statusDuration": 480,
+      "buildingDamageMultiplier": 0.6,
+      "flareColor": "ffd37f",
+      "width": 4.5,
+      "flareLength": 10,
+      "flareWidth": 3,
+      "lightColor": "f8ad42",
+      "hitColor": "f8e096",
+      "colors": [ "f8e09677","f8ad42aa","ffd37f" ],
+      "despawnEffect": "fireHit",
+      "makeFire": true,
+      "bulletInterval": 1,
+      "intervalRandomSpread": 0,
+      "intervalBullet": {
+        "instantDisappear": true,
+        "hittable": false,
+        "absorbable": false,
+        "collides": false,
+        "hitEffect": "none",
+        "despawnShake": 0.5,
+        "despawnEffect": {
+          "type": "ParticleEffect",
+          "particles": 7,
+          "colorFrom": "2d2f39ee",
+          "colorTo": "dddddd00",
+          "lifetime": 25,
+          "cone": 3,
+          "length": 110,
+          "baseLength": 0,
+          "interp": "circleOut",
+          "sizeFrom": 7,
+          "sizeTo": 4,
+          "lightOpacity": 0.1,
+          "layer": 99.999
+        }
+      }
+    }
+  },
+  "drawer": {
+    "type": "DrawTurret",
+    "basePrefix": "chromium-",
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-bottom",
+      "mirror": false,
+      "moveX": 0,
+      "moveY": 0,
+      "under": true
+    },
+    {
+      "type": "RegionPart",
+      "suffix": "-up",
+      "mirror": true,
+      "progress": "warmup",
+      "moveX": 1.75,
+      "moveY": -1.75,
+      "under": true
+    },
+    {
+      "type": "RegionPart",
+      "suffix": "-down",
+      "mirror": true,
+      "progress": "warmup",
+      "moveX": -1.5,
+      "moveY": 1.5,
+      "under": true
+    }
+  ]
+  },
+  "recoil": 1,
+  "shootSound": "none",
+  "loopSound": "loopMissileTrail",
+  "loopSoundVolume": 0.8,
+  "inaccuracy": 0,
+  "shootCone": 90,
+  "targetInterval": 5,
+  "targetUnderBlocks": false,
+  "liquidCapacity": 60,
+  "liquidConsumed": 0.15,
+  "shootX": 0,
+  "shootY": 11,
+  "range": 130,
+  "health": 4200,
+  "armor": 6,
+  "rotateSpeed": 10,
+  "research": {
+    "parent": "spurt",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "crushDamageMultiplier": 0.2,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

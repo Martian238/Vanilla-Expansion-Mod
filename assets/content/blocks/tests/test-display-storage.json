@@ -1,0 +1,17 @@
+{
+  "type": "GenericCrafter",
+  "size": 2,
+  "hasItems": true,
+  "itemCapacity": 200,
+  "consumes": {
+    "itemFlammable": {
+      "minFlammability": 0
+    }
+  },
+  "outputItems": [ "copper/1","lead/1","titanium/1","thorium/1","scrap/1","metaglass/1","coal/1","sand/1","surge-alloy/1","phase-fabric/1","plastanium/1","graphite/1","silicon/1","pyratite/1","blast-compound/1","spore-pod/1" ],
+  "craftTime": 2147483247,
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly",
+  "category": "effect",
+  "health": 200
+}

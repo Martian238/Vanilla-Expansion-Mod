@@ -1,0 +1,63 @@
+{
+  //"type": "Accelerator",
+  "launchCandidates": [ "cyclant","phoon","serpulo","maress" ],
+  "launchBlock": "core-singularity",
+  "category": "effect",
+  "powerBufferRequirement": 1600000,
+  "chargeDuration": 220,
+  "buildDuration": 1200,
+  "chargeRings": 6,
+  "ringRadBase": 128,
+  "ringColor": "f25555",
+  "lightningColor": "f25555",
+  "launchLightning": 60,
+  "lightningLengthMax": 40,
+  "lightningLaunchChance": 0.9,
+  "lightningDamage": 120,
+  "itemCapacity": 40000,
+  "lightColor": "f25555",
+  "lightRadius": 150,
+  "ringArrowRad": 5,
+  "ringStroke": 5,
+  "chargeZoomTo": 3,
+  "consumes": { "power": 30 },
+  "health": 20000,
+  "armor": 4,
+  "requirements": [ "aluminium/20000","silicon/16000","surge-alloy/12000","phase-fabric/5000","warp-nucleus/1000" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "buildCostMultiplier": 0.5,
+  "hasPower": true,
+  "size": 11,
+  "destroyBullet": {
+    "instantDisappear": true,
+    "lightning": 18,
+    "lightningColor": "f3e979",
+    "lightningLength": 50,
+    "lightningLengthRand": 15,
+    "lightningDamage": 300,
+    "lifetime": 10,
+    "speed": 0,
+    "hittable": false,
+    "collides": false,
+    "fragBullets": 12,
+    "fragBullet": {
+      "type": "LightningBulletType",
+      "lifetime": 15,
+      "lightningColor": "f3e979",
+      "lightningLength": 30,
+      "damage": 300,
+      "lightningLengthRand": 20
+    }
+  },
+  "research": {
+    "parent": "isomorphic-accelerator-small",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "retreat-zone"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.01,
+  "squareSprite": false
+}

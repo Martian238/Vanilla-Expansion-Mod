@@ -1,0 +1,17 @@
+{
+  //"type": "Unloader",
+  "category": "distribution",
+  "requirements": [
+    "ferrum/15","silicon/15"
+  ],
+  "size": 1,
+  "health": 400,
+  "armor": 6,
+  "speed": 2,
+  "group": "transportation",
+  "research": {
+    "parent": "valve-distribute"
+  },
+  "crushDamageMultiplier": 0.2,
+  "shownPlanets": [ "sitrullus","maress","thavina" ]
+}

@@ -1,0 +1,47 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [ "aluminium/100","lead/65","catalyzon/20" ],
+  "category": "crafting",
+  "hasItems": true,
+  "hasPower": true,
+  "outputItem": "pyratite/6",
+  "size": 3,
+  "consumes": {
+    "power": 0.4,
+    "items": [ "coal/3","lead/6","sand/8" ]
+  },
+  "craftTime": 150,
+  "research": {
+    "parent": "isomorphic-kiln",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "wetland-miningfield"
+      }
+    ]
+  },
+  "itemCapacity": 30,
+  "ambientSound": "loopMachine",
+  "ambientSoundVolume": 0.1,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+  /*"drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      { 
+        "type": "DrawGlowRegion",
+        "suffix": "-top",
+        "color": "ff9b59",
+        "alpha": 0.4,
+        "layer": 30.3
+      },
+      {
+        "type": "DrawRegion",
+        "spinSprite": true,
+        "rotateSpeed": -1,
+        "suffix": "-rotator",
+        "layer": 30.31
+      }
+    ]
+  }*/
+}

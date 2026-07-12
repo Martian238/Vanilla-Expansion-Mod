@@ -1,0 +1,22 @@
+{
+  "type": "crawl",
+  "drawBody": false,
+  "drawCell": false,
+  "segmentUnits": 2,
+  "segments": 2,
+  "segmentUnit": "testG-head",
+  "segmentEndUnit": "testG-tail",
+  "segmentLayerOrder": false,
+  "segmentMag": 0,
+  "speed": 4,
+  "accel": 0.1,
+  "drag": 0.07,
+  "health": 550,
+  "armor": 20,
+  "rotateSpeed": 3,
+  "segmentMaxRot": 60,
+  "crushDamage": 99999,
+  "alwaysUnlocked": true,
+  "buildSpeed": 1,
+  "mineSpeed": 1
+}

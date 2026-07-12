@@ -1,0 +1,188 @@
+{
+  //"type": "GenericCrafter",
+  "type": "MultiCraft.MultiCrafter",
+  "requirements": [
+    "ferrum/200","silicide/250","graphite/100","silicon/100"
+  ],
+  "category": "crafting",
+  "research": {
+    "parent": "multi-furnace",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "negotiation"
+      }
+    ]
+  },
+  "size": 4,
+  "craftTime": 90,
+  "itemCapacity": 50,
+  "hasItems": true,
+  "hasPower": true,
+  "hasLiquids": true,
+  "hasHeat": true,
+  "liquidCapacity": 60,
+  "dumpTime": 1,
+  /*"consumes": {
+    "items": {
+      "items": [ "red-soil/15" ]
+    },
+    "liquids": [ "hydrogen/0.2" ]
+    "power": 5.5
+  },*/
+  "recipe": [
+    {
+      "inputItems": [ "ve-red-soil/15" ],
+      "inputLiquids": [ "hydrogen/0.2" ],
+      "inputPower": 7.5,
+      "outputItems": [ "ve-ferrum/12","silicon/9" ],
+      "outputLiquids": [ "water/0.3333333333" ],
+      "craftTime": 90,
+      "visual": {
+        "type": "DrawFlame",
+        "flameColor": "d1efff",
+        "flameRadius": 5,
+        "flameRadiusIn": 3,
+        "lightRadius": 45
+      }
+    },
+    {
+      "inputItems": [ "ve-red-soil/15" ],
+      "inputLiquids": [ "hydrogen/0.2" ],
+      "inputHeat": 20,
+      "maxEfficiency": 4,
+      "inputPower": 1.5,
+      "outputItems": [ "ve-ferrum/12","silicon/9" ],
+      "outputLiquids": [ "water/0.3333333333" ],
+      "craftTime": 90,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawRegion",
+            "suffix": "-heatmode"
+          },
+          {
+            "type": "DrawHeatInput"
+          },
+          {
+            "type": "DrawFlame",
+            "flameColor": "d1efff",
+            "flameRadius": 5,
+            "flameRadiusIn": 3,
+            "lightRadius": 45
+          }
+        ]
+      }
+    },
+    {
+      "inputItems": [ "ve-ferric-shale-cobble/5","coal/6" ],
+      "inputPower": 9,
+      "outputItems": [ "ve-ferrum/8","pyratite/4","sand/5" ],
+      "craftTime": 120,
+      "visual": {
+        "type": "DrawFlame",
+        "flameRadius": 5,
+        "flameRadiusIn": 3,
+        "lightRadius": 45
+      }
+    },
+    {
+      "inputItems": [ "ve-ferric-shale-cobble/5","coal/6" ],
+      "inputHeat": 20,
+      "inputPower": 2,
+      "maxEfficiency": 2,
+      "outputItems": [ "ve-ferrum/8","pyratite/4","sand/5" ],
+      "craftTime": 120,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawRegion",
+            "suffix": "-heatmode"
+          },
+          {
+            "type": "DrawHeatInput"
+          },
+          {
+            "type": "DrawFlame",
+            "flameRadius": 5,
+            "flameRadiusIn": 3,
+            "lightRadius": 45
+          }
+        ]
+      }
+    },
+    {
+      "inputItems": [ "ve-ferric-shale-cobble/5" ],
+      "inputLiquids": [ "hydrogen/0.2" ],
+      "inputHeat": 20,
+      "inputPower": 2,
+      "maxEfficiency": 4,
+      "outputItems": [ "ve-ferrum/12","ve-quartz/6" ],
+      "outputLiquids": [ "water/0.333333333333" ],
+      "craftTime": 120,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawRegion",
+            "suffix": "-heatmode"
+          },
+          {
+            "type": "DrawHeatInput"
+          },
+          {
+            "type": "DrawFlame",
+            "flameColor": "d1efff",
+            "flameRadius": 5,
+            "flameRadiusIn": 3,
+            "lightRadius": 45
+          }
+        ]
+      }
+    }
+  ],
+  "shownPlanets": [ "maress" ],
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.14,
+  "craftEffect": "drillSteam",
+  //"outputItems": [ "ferrum/12","silicon/9" ],
+  //"outputLiquid": "water/0.333333333333",
+  "warmupSpeed": 0.005,
+  "baseExplosiveness": 5,
+  "updateEffect": {
+      "type": "WrapEffect"
+      "effect": "mine",
+      "color": "d1efff"
+  },
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen"
+      },
+      { "type": "DrawRegion", "suffix": "" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow2",
+        "alpha": 0.7,
+        "color": "d1efff",
+        "glowScale": 3,
+        "glowIntensity": 0.1
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow1",
+        "alpha": 0.9,
+        "color": "ffa665",
+        "glowScale": 5
+      }
+    ]
+  }
+}

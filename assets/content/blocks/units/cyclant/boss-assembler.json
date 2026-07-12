@@ -1,0 +1,46 @@
+{
+  //"type": "UnitAssembler",
+  "requirements": [ "lead/3000","silicon/3000","cobalt/2000","thorium/2000","surge-alloy/2000","phase-fabric/1000","warp-nucleus/500" ],
+  "category": "units",
+  "researchCostMultiplier": 0.1,
+  "buildCostMultiplier": 0.25,
+  "research": {
+    "parent": "special-assembler",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "warp-tech-base"
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "size": 7,
+  "droneType": "assembly-drone-hyper",
+  "droneConstructTime": 600,
+  "plans": [
+    {
+      "unit": "thorium-eradicator",
+      "time": 12000,
+      "requirements": [ "ve-thorium-blaster/64","ve-thorium-bomber/64" ]
+    },
+    {
+      "unit": "huge-dagger",
+      "time": 15000,
+      "requirements": [ "dagger/256" ]
+    },
+    {
+      "unit": "hyper",
+      "time": 18000,
+      "requirements": [ 
+        "ve-meta/1",
+        "ve-hyper-assemble-pack/10"
+      ]
+    }
+  ],
+  "areaSize": 31,
+  "consumes": {
+    "power": 20,
+    "liquids": [ "chlorine/0.7" ]
+  },
+  "createSound": [ "si2EntranceOpen","si2EntranceClose" ]
+}

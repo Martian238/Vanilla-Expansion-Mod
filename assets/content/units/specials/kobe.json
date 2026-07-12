@@ -1,0 +1,140 @@
+{
+  "type": "flying",
+  "databaseTag": "13other-unit",
+  "flying": true,
+  "lowAltitude": true,
+  "health": 1421,
+  "armor": 4,
+  "accel": 0.1,
+  "speed": 4.2,
+  "drag": 0.03,
+  "strafePenalty": 0.2,
+  "rotateSpeed": 6,
+  "crashDamageMultiplier": 24,
+  "hitSize": 16,
+  "engineSize": 0,
+  "engineOffset": 0,
+  "loopSound": "roHelico",
+  "loopSoundVolume": 0.04,
+  "itemCapacity": 60,
+  "outlineColor": "2d2f39",
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-cap",
+      "layer": 110.14,
+      "mirror": false
+    }
+  ],
+  "weapons": [
+    /*{
+      "name": "kobe-wing",
+      "alwaysShooting": true,
+      "controllable": false,
+      "rotate": false,
+      "layerOffset": 0.001,
+      "reload": 50,
+      "x": 0,
+      "y": 0,
+      "mirror": false,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "recoil": 0,
+      "bullet": {
+        "damage": 0,
+        "speed": 0,
+        "lifetime": 1,
+        "instantDisappear": true,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "despawnEffect": "none",
+        "hitEffect": "none"
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "-upper",
+          "progress": "reload",
+          "moveRot": 1080,
+          "layerOffset": 0.002,
+          "mirror": false
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "-lower",
+          "progress": "reload",
+          "moveRot": -720,
+          "layerOffset": 0.001,
+          "mirror": false
+        }
+      ]
+    }*/
+    {
+      "x": 0,
+      "y": 0,
+      "reload": 20,
+      "alwaysShooting": true,
+      "display": false,
+      "top": false,
+      "shootSound": "none",
+      "recoil": 0,
+      "alternate": false,
+      "bullet": {
+        "instantDisappear": true,
+        "collides": false,
+        "damage": 0,
+        "absorbable": false,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none"
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "daybreak-rotator1",
+          "color": "ffffff60",
+          "colorTo": "ffffff60",
+          "under": false,
+          "layer": 110.1,
+          "outline": false
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "daybreak-rotator3",
+          "color": "ffffff60",
+          "colorTo": "ffffff60",
+          "progress": "reload",
+          "moveRot": 180,
+          "under": false,
+          "layer": 110.11,
+          "outline": false
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "daybreak-rotator1",
+          "color": "ffffff00",
+          "colorTo": "ffffff80",
+          "progress": "reload",
+          "growX": -1,
+          "growY": -1,
+          "under": false,
+          "growProgress": "reload",
+          "layer": 110.12,
+          "outline": false
+        },
+        {
+          "type": "RegionPart",
+          "suffix": "daybreak-rotator2",
+          "color": "ffffff60",
+          "colorTo": "ffffff60",
+          "progress": "reload",
+          "moveRot": -720,
+          "under": false,
+          "layer": 110.13,
+          "outline": false
+        }
+      ]
+    }
+  ]
+}

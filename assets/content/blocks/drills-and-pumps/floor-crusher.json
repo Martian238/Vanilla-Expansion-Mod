@@ -1,0 +1,69 @@
+{
+  //"type": "BurstDrill",
+  "category": "production",
+  "requirements": [ "chromium/90","graphite/60","silicide/70","silicon/50" ],
+  "drillTime": 150,//240
+  "size": 3,
+  "tier": 7,
+  "drillEffect": {
+    "type": "MultiEffect",
+    "effects": [
+      "massiveExplosion","drillSteam",
+      "breakProp",
+      "breakProp","breakProp","breakProp",
+      {
+        "type": "SoundEffect",
+        "sound": [ "lbp3PlungerSwitch1","lbp3PlungerSwitch2","lbp3PlungerSwitch3" ],
+        "maxVolume": 0.06,
+        "minVolume": 0.06,
+        "maxPitch": 1,
+        "minPitch": 1,
+        "effect": "none"
+      }
+    ]
+  },
+  "shake": 3,
+  "arrows": 1,
+  "armor": 5,
+  "invertedTime": 120,
+  "arrowColor": "ff6b41",
+  "glowColor": "ff6b41",
+  "baseArrowColor": "2d2f39",
+  "itemCapacity": 30,
+  "blockedItems": [ "scrap","copper","lead","aluminium","titanium","thorium","catalyzon","beryllium","tungsten",
+  "silver","ferrum","cobalt","tantalum"
+  ],
+  "researchCostMultiplier": 0.1,
+  "consumes": {
+    "power": 1.5,
+    "liquids": [ "water/0.1" ]
+  },
+  "research": "powder-digger",
+  "drillMultipliers": {
+    "copper": 0,
+    "lead": 0,
+    "aluminium": 0,
+    "titanium": 0,
+    "thorium": 0,
+    "chromium": 1,
+    "catalyzon": 0,
+    "beryllium": 0,
+    "tungsten": 1,
+    "sand": 2,
+    "salt": 2,
+    "carbon-shale-cobble": 3,
+    "shale-cobble": 3,
+    "pyratite": 4,
+    "ferrum": 1,
+    "silver": 0,
+    "tantalum": 1,
+    "melon-dirt": 4,
+    "spore-pod": 6,
+    "ferric-shale-cobble": 3,
+    "red-soil": 2
+  },
+  "crushDamageMultiplier": 0.2,
+  "liquidBoostIntensity": 1,
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

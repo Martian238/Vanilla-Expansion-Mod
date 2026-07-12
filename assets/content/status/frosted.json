@@ -1,0 +1,19 @@
+{
+  "color": "d1efff",
+  "opposites": [ "burning","melting","combusting" ],
+  "affinities": [ "blasted" ],
+  "transitionDamage": 40,
+  "reloadMultiplier": 0.5,
+  "speedMultiplier": 0.5,
+  "show": true,
+  "effect": "freezing",
+  "applyEffect": {
+    "type": "SoundEffect",
+    "sound": "pvzFrozen",
+    "maxPitch": 1,
+    "minPitch": 1,
+    "maxVolume": 1,
+    "minVolume": 1,
+    "effect": "none"
+  }
+}

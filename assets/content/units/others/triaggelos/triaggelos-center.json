@@ -1,0 +1,72 @@
+{
+  "type": "flying",
+  "drawSoftShadow": true,
+  "targetable": false,
+  "lowAltitude": true,
+  "health": 7000,
+  "armor": 20,
+  "flying": true,
+  "drawCell": false,
+  "hittable": false,
+  "wobble": false,
+  "outlineColor": "201b20",
+  "hitSize": 8,
+  "rotateSpeed": 9,
+  "speed": 3,
+  "flyingLayer": 94,
+  "createWreck": false,
+  "engineSize": 0,
+  "lightRadius": 0,
+  "physics": false,
+  "faceTarget": false,
+  "hidden": true,
+  "parts": [
+    {
+      "type": "ShapePart",
+      "sides": 4,
+      "x": 0,
+      "y": 0,
+      "radius": 3,
+      "color": "ffffff",
+      "layer": 100
+    },
+    {
+      "type": "ShapePart",
+      "circle": true,
+      "hollow": true,
+      "stroke": 0.75,
+      "x": 0,
+      "y": 0,
+      "radius": 9,
+      "color": "ffffff",
+      "layer": 100
+    },
+    {
+      "type": "FlarePart",
+      "sides": 2,
+      "radius": 20,
+      "radiusTo": 20,
+      "x": 0,
+      "y": 0,
+      "color1": "ffffffcc",
+      "color2": "ffffff",
+      "followRotation": false,
+      "layer": 101,
+      "spinSpeed": 0,
+      "stroke": 0.75,
+      "progress": "warmup",
+    }
+  ],
+  "weapons": [
+    {
+      "mirror": false,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "shootCone": 361,
+      "minWarmup": 2,
+      "shootWarmupSpeed": 0.2,
+      "bullet": { "rangeOverride": 80 }
+    }
+  ]
+}

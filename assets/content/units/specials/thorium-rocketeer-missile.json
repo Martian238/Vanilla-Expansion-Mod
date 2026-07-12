@@ -1,0 +1,150 @@
+{
+  "type": "missile",
+  "databaseTag": "10special-unit",
+  "template": "MissileUnitType",
+  "allowedInPayloads": false,
+  "logicControllable": false,
+  "lifetime": 180,
+  "engineOffset": 8.75,
+  "engineSize": 2.5,
+  "envDisabled": 0,
+  "engineColor": "bf92f9",
+  "speed": 5.7,
+  "armor": 5,
+  "rotateSpeed": 0,
+  "maxRange": 6,
+  "health": 400,
+  "lowAltitude": true,
+  "missileAccelTime": 60,
+  "hidden": true,
+  "outlineColor": "2d2f39",
+  "physics": false,
+  "deathSound": "none",
+  "loopSound": "loopMissileTrail",
+  "engineLayer": 100,
+  "trailColor": "bf92f9",
+  "lightColor": "bf92f9",
+  "loopSoundVolume": 0.5,
+  "envDisabled": 0,
+  "deathExplosionEffect": "none",
+  "immunities": [ "freezing","sapped" ],
+  "targetPriority": 10,
+  "trailLength": 30,
+  "drawCell": true,
+  "parts": [
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "hollow": true,
+          "radius": 80,
+          "color": "bf92f9",
+          "colorTo": "f25555",
+          "stroke": 0,
+          "strokeTo": 1,
+          "radiusTo": 80,
+          "progress": "life",
+          "layer": 0.01
+        },
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "hollow": false,
+          "radius": 0,
+          "color": "bf92f988",
+          "colorTo": "f2555588"
+          "radiusTo": 80,
+          "progress": "life",
+          "layer": 0.01
+        },
+        {
+          "type": "RegionPart",
+          "x": 0,
+          "y": 0,
+          "suffix": "-center",
+          "progress": "life",
+          "color": "87ceeb",
+          "colorTo": "2d2f39",
+          "mixColor": "ffffff",
+          "mixColorTo": "00000000"
+        },
+        {
+          "type": "RegionPart",
+          "x": 0,
+          "y": 0,
+          "suffix": "-red",
+          "progress": "life",
+          "color": "ffffff00",
+          "colorTo": "ffffffff",
+          "mixColor": "f2555500"
+          "mixColorTo": "ffffffff"
+        },
+        {
+          "type": "RegionPart",
+          "x": 0,
+          "y": 0,
+          "suffix": "-glow",
+          "progress": "life",
+          "color": "bf92f900",
+          "colorTo": "f25555ee",
+          "mixColor": "bf92f900",
+          "mixColorTo": "f25555ee",
+          "outline": false,
+          "blending": "additive"
+        }
+  ],
+  "weapons": [
+    {
+      "reload": 1,
+      "shootOnDeath": true,
+      "mirror": false,
+      "shootCone": 360,
+      "shootSound": "explosionReactor",
+      "ejectEffect": "none",
+      "shake": 13,
+      "bullet": {
+        "collidesTiles": false,
+        "collides": false,
+        "hitEffect": "none",
+        "smokeEffect": {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 128,
+          "sizeTo": 128,
+          "colorFrom": "ffffff",
+          "colorTo": "bf92f900",
+          "lifetime": 20,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "bf92f9",
+          "layer": 120
+        },
+        "rangeOverride": 30,
+        "shootEffect": "reactorExplosion",
+        "speed": 0,
+        "splashDamageRadius": 80,
+        "instantDisappear": true,
+        "splashDamage": 3000,
+        "killShooter": true,
+        "hittable": false,
+        "status": "blasted",
+        "statusDuration": 60,
+        "hitShake": 13,
+        "despawnShake": 13,
+        "collidesAir": true,
+        "scaledSplashDamage": true
+      }
+    }
+  ],
+  "abilities": [
+    {
+      "type": "MoveEffectAbility",
+      "effect": "missileTrailSmoke",
+      "rotation": 180,
+      "y": -8.75,
+      "color": "989aa444",
+      "interval": 8
+    }
+  ]
+}

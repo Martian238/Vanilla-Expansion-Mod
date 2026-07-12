@@ -1,0 +1,18 @@
+{
+  //"type": "SwitchBlock",
+  "category": "logic",
+  "requirements": [ "aluminium/5","graphite/10" ],
+  "size": 1,
+  "research": {
+    "parent": "isomorphic-processor",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "carbon-relics"
+      }
+    ]
+  },
+  "health": 120,
+  "underBullets": true,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

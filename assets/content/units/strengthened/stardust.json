@@ -1,0 +1,121 @@
+{
+  "type": "mech",
+  "databaseTag": "09cyclant-strengthened-unit",
+  "speed": 0.75,
+  "hitSize": 10,
+  "health": 260,
+  "canBoost": true,
+  "lowAltitude": true,
+  "boostMultiplier": 3,
+  "buildSpeed": 0.8,
+  "engineSize": 3,
+  "armor": 1,
+  "boostWhenMining": true,
+  "research": {
+    "parent": "blade",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "unit-laboratory"
+      }
+    ],
+    "requirements": [ "silicon/5000","lead/1000","cobalt/2000" ]
+  },
+  "itemCapacity": 30,
+  "mineBeamOffset": 3.75,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "abilities": [
+    {
+      "type": "RepairFieldAbility",
+      "amount": 30,
+      "reload": 180,
+      "range": 72
+    }
+  ],
+  "mineTier": 1,
+  "mineSpeed": 3,
+  "mineItems": {
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+  },
+  "drag": 0.05,
+  "lightColor": "98ffa9",
+  "immunities": [ "dusty","frozen" ],
+  "stepSound": "mechStepSmall",
+  "stepSoundPitch": 1,
+  "stepSoundPitchRange": 0.1,
+  "stepSoundVolume": 0.5,
+  "weapons": [
+    {
+      "type": "RepairBeamWeapon",
+      "repairSpeed": 0.7,
+      "beamWidth": 0.5,
+      "mirror": false,
+      "x": 0,
+      "y": 3,
+      "shootY": 0,
+      "targetUnits": true,
+      "targetBuildings": true,
+      "fractionRepairSpeed": 0.5,
+      "rotate": false,
+      "bullet": { "maxRange": 72 }
+    },
+    {
+      "name": "stardust-weapon",
+      "x": 4,
+      "y": 0,
+      "shootY": 6,
+      "recoil": 2,
+      "top": false,
+      "rotate": false,
+      "shootSound": "shootLaser",
+      "initialShootSound": "lasershootClassic"
+      "ejectEffect": "none",
+      "reload": 30,
+      "alternate": false,
+      "heatColor": "ffffffee",
+      "cooldownTime": 20,
+      "shoot": {
+        "type": "ShootSpread",
+        "shots": 3,
+        "spread": 5,
+        "shotDelay": 0
+      },
+      "bullet": {
+        "type": "LaserBoltBulletType",
+        "shootEffect": "shootHeal"
+        "lightColor": "98ffa9",
+        "speed": 5.2,
+        "damage": 16,
+        "lifetime": 30,
+        "healAmount": 20,
+        "healPercent": 3,
+        "collidesTeam": true,
+        "backColor": "98ffa9",
+        "frontColor": "ffffff",
+        "hittable": false
+      }
+    },
+    {
+      "display": false,
+      "reload": 1,
+      "shootStatus": "walking",
+      "shootStatusDuration": 2,
+      "controllable": false,
+      "alwaysShooting": true,
+      "shootSound": "none",
+      "ejectEffect": "none",
+      "mirror": false,
+      "noAttack": true,
+      "bullet": {
+        "instantDisappear": true,
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "despawnEffect": "none",
+        "hitEffect": "none",
+        "collides": false,
+        "hittable": false,
+        "absorbable": false
+      }
+    }
+  ]
+}

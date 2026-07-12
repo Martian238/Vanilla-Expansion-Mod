@@ -1,0 +1,14 @@
+{
+  //"type": "PayloadConveyor",
+  "requirements": [ "ferrum/10","silicon/10" ],
+  "category": "units",
+  "size": 2,
+  "research": {
+    "parent": "small-unit-constructor-sharded"
+  },
+  "canOverdrive": true,
+  "shownPlanets": [ "maress","sitrullus","thavina" ],
+  "payloadLimit": 2.5,
+  "moveForce": 133,
+  "moveTime": 45
+}

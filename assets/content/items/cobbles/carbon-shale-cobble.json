@@ -1,0 +1,10 @@
+{
+  "color": "3c4448",
+  "lowPriority": true,
+  "cost": 0.7,
+  "flammability": 0.5,
+  "hardness": 7,
+  "research": "aluminium",
+  "shownPlanets": [ "cyclant","phoon" ],
+  "databaseTag": "natural-item"
+}

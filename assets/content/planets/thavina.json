@@ -1,0 +1,155 @@
+{
+  "generator": {
+  },
+  "parent": "sol4b",
+  "launchCandidates": [ "thavina" ],
+  "solarSystem": "sol4b",
+  "iconColor": "ff3a73",
+  /*"orbitRadius": 16,
+  "orbitTime": 124,//120,21333  k(thavina)＝52k(phoon)
+  "rotateTime": 124,*/
+  /*60*/
+  "orbitRadius": 90,
+  "orbitTime": 12000,
+  "rotateTime": 600,
+  "hasAtmosphere": true,
+  "updateLighting": true,
+  "atmosphereRadIn": 0.02,
+  "atmosphereRadOut": 0.1,
+  "atmosphereColor": "c46164",
+  "lightColor": "ff3a7344",
+  "landCloudColor": "a3838400",
+  "defaultAttributes": {
+    "spores": -1,
+    "light": -0.5
+  },
+  "rules": {
+    "coreDestroyClear": true,
+    "worldProcessorPlayerLink": true,
+    "unitPayloadsExplode": true,
+    "hideSpawns": true,
+    "logicUnitDeconstruct": true,
+    "randomWaveAI": true,
+    "planet": "thavina"
+  },
+  "drawOrbit": true,
+  "accessible": true,
+  "alwaysUnlocked": false,
+  "launchMusic": "game4",
+  "lightSrcFrom": 0.4,
+  "lightSrcTo": 0.8,
+  "lightDstFrom": 0.4,
+  "lightDstTo": 0.8,
+  "research": {
+    "parent": "reunion"
+  },
+  "defaultCore": "core-shard",
+  //"icon": "donate",
+  "sectorSeed": 0,
+  "startSector": 0,
+  "sectorSize": 2,
+  "clearSectorOnLose": true,
+  "allowSectorInvasion": false,
+  "allowLaunchToNumbered": false,
+  "enemyCoreSpawnReplace": true,
+  "allowLaunchSchematics": true,
+  //"allowWaveSimulation": true,
+  "allowLaunchLoadout": true,
+  "launchCapacityMultiplier": 0.5,
+  "tidalLock": true,
+  "prebuildBase": true,
+  "radius": 0.85,
+  "bloom": true,
+  "visible": true,
+  "minZoom": 0.1,
+  "maxZoom": 10,
+  "cloudMesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      /*{
+        "type": "HexSkyMesh",
+        "planet": "maress",
+        "seed": 78,
+        "speed": 1,
+        "radius": 0.12,
+        "divisions": 5,
+        "color": "b6a49933",
+        "octaves": 2,
+        "persistence": 0.4,
+        "scl": 0.5,
+        "thresh": 0.45
+      }*/
+    ]
+  },
+  "mesh": {
+    "type": "MultiMesh",
+    "meshes": [
+      {
+        "type": "NoiseMesh",
+        "planet": "thavina",
+        "seed": 995,
+        "color1": "d1efff00",
+        "color2": "16161b00",
+        "divisions": 5,
+        "radius": 0.784,//0.725
+        "octaves": 6,
+        "persistence": 0.5,
+        "scale": 0.1,
+        "mag": 0.5
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "thavina",
+        "seed": 995,
+        "color1": "1b161b00",
+        "color2": "392f2d00",
+        "divisions": 5,
+        "radius": 0.77,//0.01
+        "octaves": 6,
+        "persistence": 0.5,
+        "scale": 2,
+        "mag": 1
+      },
+      {
+        "type": "NoiseMesh",
+        "planet": "thavina",
+        "seed": 325,
+        "color1": "1b161b00",
+        "color2": "2d2f3900",
+        "divisions": 5,
+        "radius": 0.7,//0.01
+        "octaves": 6,
+        "persistence": 0.5,
+        "scale": 10,
+        "mag": 2
+      },
+      {
+        "type": "SunMesh",
+        "planet": "thavina",
+        "speed": 996,
+        "mag": 1.5,
+        "scl": 0.01,
+        "octaves": 6,
+        "persistence": 0.5,
+        "divisions": 2,
+        "pow": 1.2,
+        "colorScale": 1.1,
+        "colors": [ 
+          "ff3a73",
+          "c71f50"
+          //"df1717"
+        ],
+        //"divisions": 5,
+        //"octaves": 5,
+        "persistence": 0.3,
+        "scl": 1.5,
+        "pow": 1.2,
+        "mag": 1,
+        "colorScale": 1.1
+      }
+    ]
+  },
+  /*"hiddenItems": [
+  ],*/
+  //"defaultEnv":
+}

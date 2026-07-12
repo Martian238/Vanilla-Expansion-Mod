@@ -1,0 +1,12 @@
+{
+  //"type": "LiquidRouter",
+  "requirements": [ "aluminium/8","graphite/4" ],
+  "category": "liquid",
+  "health": 40,
+  "liquidCapacity": 80,
+  "research": "fluid-junction",
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ],
+  "liquidPadding": 2,
+  "solid": false
+}

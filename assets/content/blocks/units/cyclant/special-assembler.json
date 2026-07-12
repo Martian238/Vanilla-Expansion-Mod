@@ -1,0 +1,51 @@
+{
+  //"type": "UnitAssembler",
+  "requirements": [ "lead/600","cobalt/350","silicon/500","chromium/100" ],
+  "category": "units",
+  "research": {
+    "parent": "special-fabricator",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "thorium-hacienda"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "size": 5,
+  "droneType": "assembly-drone-ve",
+  "plans": [
+    {
+      "unit": "thorium-rocketeer",
+      "time": 1800,
+      "requirements": [ "bryde/1","ve-thorium-blaster/1","ve-thorium-bomber/1" ]
+    },
+    {
+      "unit": "alev",
+      "time": 1200,
+      "requirements": [ "vela/1" ]
+    },
+    {
+      "unit": "antumbright",
+      "time": 2100,
+      "requirements": [ 
+        "antumbra/1","illuminator/12","ve-buffet/1"
+      ]
+    },
+    {
+      "unit": "toxorpion",
+      "time": 3600,
+      "requirements": [ 
+        "toxopid/1","atrax/2"
+      ]
+    }
+  ],
+  "areaSize": 11,
+  "consumes": {
+    "power": 5,
+    "liquids": [ "chlorine/0.15" ]
+  },
+  "createSound": [ "si2EntranceOpen","si2EntranceClose" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
+  //"regionSuffix": "-rail"
+}

@@ -1,0 +1,10 @@
+{
+  "color": "676593",
+  "lowPriority": true,
+  "cost": 0.8,
+  "flammability": 0.05,
+  "hardness": 7,
+  "research": "carbon-shale-cobble",
+  "shownPlanets": [ "cyclant","phoon" ],
+  "databaseTag": "natural-item"
+}

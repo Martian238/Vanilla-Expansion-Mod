@@ -1,0 +1,24 @@
+{
+  "planet": "cyclant",
+  "sector": 53,
+  "difficulty": 4,
+  "research": {
+    "parent": "unit-laboratory",
+    "objectives": [ 
+      {
+        "type": "SectorComplete",
+        "preset": "unit-laboratory"
+      },
+      "aurora"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

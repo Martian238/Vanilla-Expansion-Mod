@@ -1,0 +1,53 @@
+{
+  //"type": "GenericCrafter",
+  "category": "effect",
+  "requirements": [ "silicon/10","quartz/10" ],
+  "consumes": { "power": 0.0266666666667 },
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "color": "ffd37f",
+        "alpha": 1,
+        "glowIntensity": 1.5,
+        "glowScale": 8
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow-lights",
+        "color": "ffd37f",
+        "alpha": 1,
+        "glowIntensity": 0,
+        "glowScale": 8,
+        "rotateSpeed": 10
+      },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-lights",
+        "color": "ffd37f",
+        "alpha": 1,
+        "layer": 115.1,
+        "glowIntensity": 0,
+        "glowScale": 8,
+        "rotateSpeed": 10
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffd37f00",
+        "flameRadius": 0,
+        "flameRadiusIn": 0,
+        "lightRadius": 96,
+        "lightAlpha": 0.5,
+        "lightSinMag": 96,
+        "lightSinScl": 8
+      }
+    ]
+  },
+  "warmupSpeed": 0.15,
+  //"lightColor": "ffd37f",
+  "research": "lamp",
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus","thavina" ]
+}

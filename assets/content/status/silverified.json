@@ -1,0 +1,8 @@
+{
+  "color": "f5e1eb",
+  "show": true,
+  "affinities": [ "shocked" ],
+  "opposites": [ "melting","fusing" ],
+  "transitionDamage": 5,
+  "effect": "none"
+}

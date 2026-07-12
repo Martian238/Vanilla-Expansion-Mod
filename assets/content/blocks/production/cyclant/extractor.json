@@ -1,0 +1,52 @@
+{
+  //"type": "Separator",
+  "requirements": [ "aluminium/40","lead/35","chromium/25","graphite/10" ],
+  "category": "crafting",
+  "results": [
+    "aluminium/4",
+    "lead/4",
+    "graphite/3",
+    "titanium/3",
+    "chromium/2"
+    "quartz/4"
+  ],
+  "hasPower": true,
+  "craftTime": 25,
+  "hasItems": true,
+  "hasLiquids": true,
+  "size": 2,
+  "consumes": {
+    "power": 0.9,
+    "liquids": [ "slag/0.1" ]
+  },
+  "researchCostMultiplier": 0.01,
+  "ambientSound": "loopMachineSpin",
+  "ambientSoundVolume": 0.1,
+  "lightLiquid": "slag",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {"type":"DrawRegion","suffix":"-bottom"},
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "slag"
+      },
+      {
+        "type": "DrawRegion",
+        "rotateSpeed": 2,
+        "suffix": "-rotator"
+      },
+      {  "type": "DrawRegion", "suffix": ""  }
+    ]
+  },
+  "research": {
+    "parent": "eddy-melter",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "gobi"
+      }
+    ]
+  },
+  "shownPlanets": [ "cyclant","phoon" ]
+}

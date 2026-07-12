@@ -1,0 +1,27 @@
+{
+  //"type": "ItemBridge",
+  "requirements": [ "aluminium/8","lead/8","silicide/5" ],
+  "category": "distribution",
+  "health": 400,
+  "armor": 24,
+  "range": 4,
+  "transportTime": 1,
+  "itemCapacity": 30,
+  "fadeIn": false,
+  "moveArrows": false,
+  "arrowSpacing": 2,
+  "buildCostMultiplier": 3,
+  "research": {
+    "parent": "silicide-rail-router"
+  },
+  "bridgeWidth": 8,
+  "arrowPeriod": 1.6,
+  "arrowTimeScl": 3,
+  "researchCostMultiplier": 0.1,
+  "hasPower": false,
+  "crushDamageMultiplier": 0.05,
+  "squareSprite": false,
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
+}

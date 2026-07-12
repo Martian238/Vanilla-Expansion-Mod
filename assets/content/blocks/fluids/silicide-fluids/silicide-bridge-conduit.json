@@ -1,0 +1,20 @@
+{
+  //"type": "LiquidBridge",
+  "requirements": [ "metaglass/6","graphite/4","titanium/6","silicide/6" ],
+  "category": "liquid",
+  "health": 370,
+  "armor": 16,
+  "range": 4,
+  "arrowSpacing": 6,
+  "fadeIn": false,
+  "hasPower": false,
+  "moveArrows": false,
+  "arrowSpacing": 6,
+  "buildCostMultiplier": 3,
+  "research": "silicide-fluid-router",
+  "crushDamageMultiplier": 0.05,
+  "liquidCapacity": 70,
+  "flammabilityScale": 0,
+  "explosivenessScale": 0.25,
+  "shownPlanets": [ "serpulo","cyclant","phoon","thavina" ]
+}

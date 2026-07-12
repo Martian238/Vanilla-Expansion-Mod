@@ -1,0 +1,8 @@
+{
+  "mineSpeed": 11,
+  "mineTier": 3,
+  "shownPlanets": {"add":[ "serpulo","cyclant","phoon","maress","thavina" ]},
+  "immunities": [ "frozen","burning" ],
+  "databaseTag": "04serpulo-naval-unit",
+  "itemCapacity": 200
+}

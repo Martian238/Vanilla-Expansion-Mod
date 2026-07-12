@@ -1,0 +1,30 @@
+{
+  "type": "LiquidBridge",
+  "requirements": [ "ferrum/10","silver/10","silicon/10","graphite/10" ],
+  "category": "distribution",
+  "health": 400,
+  "armor": 6,
+  "range": 5,
+  "transportTime": 1.5,
+  "itemCapacity": 10,
+  "canOverdrive": true,
+  "hasItems": true,
+  "liquidCapacity": 120,
+  "fadeIn": false,
+  "hasPower": false,
+  "consumesPower": false,
+  "moveArrows": false,
+  "arrowSpacing": 8,
+  "buildCostMultiplier": 3,
+  "research": {
+    "parent": "ferric-bridge",
+    "objectives": [ "silver-bridge" ]
+  },
+  "bridgeWidth": 8,
+  "arrowPeriod": 1.6,
+  "arrowOffset": 4,
+  "arrowTimeScl": 2,
+  "hasPower": false,
+  "squareSprite": false,
+  "shownPlanets": [ "sitrullus","maress" ]
+}

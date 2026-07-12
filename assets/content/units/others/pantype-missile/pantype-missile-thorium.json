@@ -1,0 +1,112 @@
+{
+  "type": "missile",
+  "template": "MissileUnitType",
+  "allowedInPayloads": true,
+  "logicControllable": true,
+  "lifetime": 240,
+  "engineOffset": 12,
+  "engineSize": 3,
+  "speed": 7,
+  "hitSize": 6,
+  "armor": 8,
+  "rotateSpeed": 0.5,
+  "maxRange": 4,
+  "health": 500,
+  "lowAltitude": true,
+  "missileAccelTime": 90,
+  "hidden": true,
+  "alwaysUnlocked": true,
+  "outlineColor": "2d2f39",
+  "engineLayer": 100,
+  //"engineColor": "",
+  "trailLength": 15,
+  //"trailColor": "",
+  "fogRadius": 40,
+  "deathExplosionEffect": "massiveExplosion",
+  "lightColor": "bf92f9",
+  "drawCell": true,
+  "deathSound": "none",
+  "immunities": [ "blown","burning","disarmed","sapped","electrified" ],
+  "abilities": [
+    {
+      "type": "MoveEffectAbility",
+      "effect": "missileTrailSmoke",
+      "rotation": 180,
+      "y": -11,
+      "color": "bf92f950",
+      "interval": 5
+    }
+  ],
+  "parts": [
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "hollow": true,
+          "radius": 80,
+          "color": "bf92f9",
+          "colorTo": "f25555",
+          "stroke": 0,
+          "strokeTo": 1,
+          "radiusTo": 80,
+          "progress": "life",
+          "layer": 0.01
+        },
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "hollow": false,
+          "radius": 0,
+          "color": "bf92f988",
+          "colorTo": "f2555588"
+          "radiusTo": 80,
+          "progress": "life",
+          "layer": 0.01
+        }
+  ],
+  "targetUnderBlocks": false,
+  "weapons": [
+    {
+      "reload": 1,
+      "shootOnDeath": true,
+      "mirror": false,
+      "shootCone": 360,
+      "shootSound": "explosionReactor",
+      "ejectEffect": "none",
+      "shake": 13,
+      "bullet": {
+        "collidesTiles": false,
+        "collides": false,
+        "hitEffect": "none",
+        "smokeEffect": {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 128,
+          "sizeTo": 128,
+          "colorFrom": "ffffff",
+          "colorTo": "bf92f900",
+          "lifetime": 20,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "bf92f9",
+          "layer": 120
+        },
+        "rangeOverride": 30,
+        "shootEffect": "reactorExplosion",
+        "speed": 0,
+        "splashDamageRadius": 80,
+        "instantDisappear": true,
+        "splashDamage": 3000,
+        "killShooter": true,
+        "hittable": false,
+        "status": "blasted",
+        "statusDuration": 60,
+        "hitShake": 13,
+        "despawnShake": 13,
+        "collidesAir": true,
+        "scaledSplashDamage": true
+      }
+    }
+  ]
+}

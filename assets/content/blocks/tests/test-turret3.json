@@ -1,0 +1,29 @@
+{
+  "type": "PayloadAmmoTurret",
+  "category": "turret",
+  "size": 4,
+  "ammoTypes": {
+    "ve-thorium-blaster": {
+      "spawnUnit": "thorium-rocketeer-missile"
+    }
+  },
+  "recoil": 4,
+  "shootSound": "pewClassicEdited",
+  "shootX": 0,
+  "shootY": 4,
+  "reload": 60,
+  "range": 140,
+  "health": 5000,
+  "ammoUseEffect": "none",
+  "inaccuracy": 0,
+  "rotateSpeed": 5,
+  "alwaysUnlocked": true,
+  "buildVisibility": "sandboxOnly",
+  "consumes": {
+    "coolant": {
+      "type": "ConsumeCoolant",
+      "amount": 1
+    }
+  },
+  "ammoKeys": [ "ve-thorium-blaster" ]
+}

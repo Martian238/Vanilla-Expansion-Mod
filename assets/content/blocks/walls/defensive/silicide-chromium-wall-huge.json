@@ -1,0 +1,11 @@
+{
+  //"type": "Wall",
+  "requirements": [ "chromium/54","silicide/54" ],
+  "category": "defense",
+  "research": "silicide-chromium-wall-large",
+  "health": 11160,
+  "armor": 16,
+  "size": 3,
+  "crushDamageMultiplier": 0,
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ]
+}

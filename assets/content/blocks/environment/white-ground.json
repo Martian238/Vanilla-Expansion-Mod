@@ -1,0 +1,6 @@
+{
+  "type": "Floor",
+  "variants": 1,
+  "canShadow": false,
+  "allowCorePlacement": true
+}

@@ -1,0 +1,18 @@
+{
+  //"type": "LiquidBridge",
+  "requirements": [ "silver/10","graphite/6" ],
+  "category": "liquid",
+  "range": 4,
+  "health": 40,
+  "fadeIn": false,
+  "hasPower": false,
+  "moveArrows": false,
+  "buildCostMultiplier": 3,
+  "research": "valve-fluid-distribute",
+  "arrowSpacing": 8,
+  "bridgeWidth": 8,
+  "arrowPeriod": 1.6,
+  "arrowTimeScl": 2,
+  "arrowOffset": 4,
+  "shownPlanets": [ "sitrullus" ]
+}

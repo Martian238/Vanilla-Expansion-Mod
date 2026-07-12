@@ -1,0 +1,25 @@
+{
+  "planet": "cyclant",
+  "sector": 227,
+  "difficulty": 6,
+  "research": {
+    "parent": "unit-laboratory",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "unit-laboratory"
+      },
+      "blade"
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 60,
+  "attackAfterWaves": true,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

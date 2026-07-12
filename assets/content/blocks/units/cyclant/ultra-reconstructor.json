@@ -1,0 +1,30 @@
+{
+  //"type": "Reconstructor",
+  "category": "units",
+  "size": 9,
+  "requirements": [ "lead/1500","silicon/1200","thorium/500","cobalt/1000" ],
+  "consumes": {
+    "power": 10,
+    "items": [ "silicon/800","fibralt/550","thorium/400" ],
+    "liquid": "hydrogen/0.45"
+  },
+  "liquidCapacity": 180,
+  "constructTime": 7200,
+  "upgrades": [
+    [ "capture","triumph" ],
+    [ "hurricane","meteorology" ],
+    [ "slidoid","hovopid" ]
+  ],
+  "research": {
+    "parent": "super-reconstructor",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "thorium-hacienda"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.3,
+  "createSound": "unitCreateBig",
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
+}

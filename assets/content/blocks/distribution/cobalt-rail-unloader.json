@@ -1,0 +1,15 @@
+{
+  //"type": "Unloader",
+  "category": "distribution",
+  "requirements": [
+    "graphite/10","silicon/15","cobalt/10"
+  ],
+  "size": 1,
+  "speed": 2.5,
+  "group": "transportation",
+  "research": {
+    "parent": "cobalt-rail-underflow-gate"
+  },
+  "squareSprite": false,
+  "shownPlanets": [ "cyclant","phoon","thavina" ],
+}

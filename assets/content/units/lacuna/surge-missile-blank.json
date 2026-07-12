@@ -1,0 +1,68 @@
+{
+  "type": "missile",
+  "template": "MissileUnitType",
+  "allowedInPayloads": true,
+  "logicControllable": true,
+  "lifetime": 50,
+  "engineSize": 1.8,
+  "speed": 7,//3.5
+  "armor": 18,
+  "rotateSpeed": 6,
+  "maxRange": 6,
+  "health": 200,
+  "lowAltitude": true,
+  "missileAccelTime": 0,
+  "hidden": true,
+  "alwaysUnlocked": true,
+  "outlineColor": "505040",
+  "engineLayer": 100,
+  "engineOffset": 5,
+  "engineColor": "00ffce",
+  "trailLength": 10,
+  "trailColor": "00ffce",
+  "fogRadius": 5,
+  "deathExplosionEffect": "none",
+  "lightColor": "00ffce",
+  "drawCell": false,
+  "envDisabled": 0,
+  "deathSound": "explosionAfflict",
+  "crushDamageMultiplier": 0,
+  "weapons": [
+    {
+      "reload": 1,
+      "shootOnDeath": true,
+      "mirror": false,
+      "shootCone": 360,
+      "shootSound": "explosionArtilleryShock",
+      "x": 0,
+      "y": 1,
+      "shootX": 0,
+      "shootY": 0,
+      "bullet": {
+        "type": "ExplosionBulletType",
+        "shootEffect": {
+          "type": "ExplosionEffect",
+          "waveColor": "00ffce",
+          "waveStroke": 1,
+          "smokeColor": "00ffce88",
+          "sparkColor": "00ffce",
+          "sparks": 4,
+          "sparkLen": 6,
+          "smokeRad": 40,
+          "lifetime": 30,
+          "waveRad": 44,
+          "smokes": 3
+        },
+        "smokeEffect": "none",
+        "lifetime": 12,
+        "lightColor": "00ffce",
+        "lightRadius": 48,
+        "splashDamage": 0,
+        "splashDamageRadius": 0,
+        "damage": 0,
+        "hitShake": 1,
+        "despawnShake": 1
+      }
+    }
+  ]
+}

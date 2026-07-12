@@ -1,0 +1,16 @@
+{
+  //"type": "ConsumeGenerator",
+  "explodeOnFull": true,
+  "outputLiquid": "sandbox-blast-liquid/100",
+  "category": "effect",
+  "liquidCapacity": 1000,
+  "rebuildable": true,
+  "buildVisibility": "sandboxOnly",
+  "alwaysUnlocked": true,
+  "powerProduction": 0,
+  "size": 1,
+  "health": 1,
+  "targetable": false,
+  "underBullets": true,
+  "destroySound": "none"
+}

@@ -1,0 +1,12 @@
+{
+  "color": "8da1e3",
+  "hardness": 3,
+  "cost": 1,
+  "research": {
+    "parent": "slag-node",
+    "objectives": [ "titanium" ]
+  },
+  "alwaysUnlocked": true,
+  "buildVisibility": "editorOnly",
+  "hidden": true
+}

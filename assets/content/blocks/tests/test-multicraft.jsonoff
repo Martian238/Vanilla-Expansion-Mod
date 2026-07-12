@@ -1,0 +1,98 @@
+{
+  "type": "multicraft.MultiCrafter",
+  "category": "crafting",
+  "buildVisibility": "sandboxOnly",
+  "size": 3,
+  "recipes": [
+    {
+      "input": {
+        "items": [ "copper/1" ],
+        "power": 1
+      },
+      "output": {
+        "items": [ "lead/1" ]
+      },
+      "craftTime": 60
+    },
+    {
+      "input": {
+        "items": [ "titanium/2" ],
+        "fluids": [ "water/0.1" ],
+        "power": 1
+      },
+      "output": {
+        "items": [ "thorium/1" ]
+      },
+      "craftTime": 120
+    },
+    {
+      "input": {
+        "payloads": [ "copper-wall/1" ],
+        "power": 2
+      },
+      "output": {
+        "items": [ "copper/6" ]
+      },
+      "craftTime": 360
+    },
+    {
+      "input": {
+        "fluids": [ "cryofluid/0.1","slag/0.1" ]
+      },
+      "output": {
+        "power": 10
+      },
+      "craftTime": 60
+    },
+    {
+      "input": {
+        "items": [ "thorium/2" ],
+        "power": 0.1
+      },
+      "output": {
+        "items": [ "fissile-matter/1" ],
+        "heat": 10
+      },
+      "craftTime": 300
+    },
+    {
+      "input": {
+        "power": 0.05,
+        "heat": 2
+      },
+      "output": {
+        "heat": 2
+      },
+      "craftTime": 60
+    }
+  ],
+  "rotate": true,
+  "drawArrow": true,
+  "hasItems": true,
+  "hasLiquids": true,
+  "hasPower": true,
+  "drawer": {
+    "type": "multicraft.DrawRecipe",
+    "drawers": [
+      {
+        "type": "DrawFlame"
+      },
+      {
+        "type": "DrawArcSmelt"
+      },
+      {
+        "type": "DrawWeave"
+      },
+      {
+        "type": "DrawCrucibleFlame"
+      },
+      {
+        "type": "DrawFade"
+      },
+      {
+        "type": "DrawFlames"
+      }
+    ]
+  },
+  "menu": "transform"
+}

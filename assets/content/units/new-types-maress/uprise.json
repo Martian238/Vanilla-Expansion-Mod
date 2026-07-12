@@ -1,0 +1,77 @@
+{
+  "health": 160,
+  "databaseTag": "11maress-newtype-unit",
+  "armor": 1,
+  "accel": 0.1,
+  "speed": 3,
+  "drag": 0.05,
+  "lowAltitude": true,
+  "hitSize": 8,
+  "rotateSpeed": 9,
+  "flying": true,
+  "immunities": [ "freezing","frozen" ],
+  "engineSize": 3,
+  "engineOffset": 5.5,
+  "lightColor": "8ca9e8",
+  "research": {
+    "parent": "shimmer",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "lower-pass"
+      }
+    ]
+  },
+  "parts": [
+    {
+      "type": "RegionPart",
+      "suffix": "-shell",
+      "progress": "warmup",
+      "moveRot": -45,
+      "moveX": 2.25,
+      "moveY": 0.5,
+      "under": false,
+      "mirror": true
+    },
+    {
+      "type": "RegionPart",
+      "suffix": "-top",
+      "under": false,
+      "outline": false
+    }
+  ],
+  "shownPlanets": [ "maress","thavina" ],
+  "weapons": [
+    {
+      "name": "uprise-weapon",
+      "cooldownTime": 90,
+      "x": 0,
+      "y": 0,
+      "shootY": 2,
+      "shootX": 4,
+      "shootSound": "shootLancer",
+      "soundPitchMax": 1.2,
+      "soundPitchMin": 1.1,
+      "shake": 1,
+      "recoil": 0,
+      "reload": 40,
+      "minWarmup": 0.8,
+      "top": false,
+      "shootWarmupSpeed": 0.2,
+      "bullet": {
+        "type": "LaserBulletType",
+        "shootEffect": "colorSpark",
+        "hitColor": "8ca9e8",
+        "smokeEffect": "none",
+        "length": 168,
+        "damage": 56,
+        "status": "shocked",
+        "statusDuration": 10,
+        "colors": [ "8ca9e880","8ca9e8","ffffff" ],
+        "lifetime": 10,
+        "sideLength": 0,
+        "width": 10
+      }
+    }
+  ]
+}

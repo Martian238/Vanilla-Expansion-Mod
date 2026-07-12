@@ -1,0 +1,10 @@
+{
+  //"type": "LiquidRouter",
+  "requirements": [ "silver/6" ],
+  "category": "liquid",
+  "health": 40,
+  "liquidCapacity": 100,
+  "research": "valve-fluid-cross",
+  "squareSprite": false,
+  "shownPlanets": [ "sitrullus" ]
+}
