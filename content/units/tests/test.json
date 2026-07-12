@@ -402,6 +402,7 @@
       "mirror": false,
       "shootSound": "none",
       "ejectEffect": "none",
+      "useAttackRange": false,
       "bullet": {
         "damage": 0,
         "speed": 0,
@@ -704,7 +705,7 @@
       "parts": [
         {
           "type": "RegionPart",
-          "suffix": "test-beam",
+          "suffix": "test-lbeam",
           "outline": false,
           "layer": 100,
           "yScl": 310,  //10->110  +100
@@ -777,6 +778,7 @@
             "instantDisappear": true,
             "splashDamage": 40,
             "splashDamageRadius": 16,
+            "pierceArmor": true,
             "hitEffect": [
               "hitLaserBlast",
               {
@@ -803,7 +805,7 @@
             "shootEffect": "none",
             "smokeEffect": "none",
             "chargeEffect": "shockwave",
-            "maxRange": 240,
+            "rangeOverride": 240,
             "incendSpread": 0,
             "incendAmount": 1,
             "incendChance": 0.05

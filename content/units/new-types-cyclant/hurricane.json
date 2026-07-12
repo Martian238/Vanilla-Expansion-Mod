@@ -8,7 +8,7 @@
   "speed": 1.5,
   "accel": 0.04,
   "drag": 0.04,
-  "hitSize": 45,
+  "hitSize": 40,
   "lowAltitude": true,
   "flying": false,
   "itemCapacity": 160,

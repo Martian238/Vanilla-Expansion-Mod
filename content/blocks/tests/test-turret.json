@@ -137,7 +137,18 @@
       "lifetime": 180,
       "width": 12,
       "height": 12
-    }
+    },  
+    /*"fusion-fuel": {
+      "reloadMultiplier": 0.1,
+      "despawnEffect": {
+        "type": "NoiseEffect",
+        "lifetime": 180,
+        "tex": "eclipse",
+        "color": "98ffa9"
+      },
+      "speed": 0.5,
+      "lifetime": 120
+    }*/
   },
   "recoil": 1,
   "shootSound": "pewClassicEdited",

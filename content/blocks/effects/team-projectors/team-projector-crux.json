@@ -9,7 +9,6 @@
     "power": 0.166666666667
   },
   "hasPower": true,
-  "alwaysUnlocked": true,
   "ambientSound": "none",
   "drawer": {
     "type": "DrawMulti",
@@ -60,5 +59,6 @@
     ]
   },
   "buildCostMultiplier": 20,
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus","thavina" ]
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus","thavina" ],
+  "buildVisibility": "sandboxOnly"
 }

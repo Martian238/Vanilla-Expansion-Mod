@@ -76,7 +76,7 @@
     ]
   },
   "lightLiquid": "cryofluid",
-  "ambientSound": "loopMachinSpin",
+  "ambientSound": "loopMachineSpin",
   "ambientSoundVolume": 0.05,
   "consumes": {
     "items": {

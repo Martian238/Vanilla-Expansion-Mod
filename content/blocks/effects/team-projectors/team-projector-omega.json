@@ -231,5 +231,6 @@
     ]
   },
   "buildCostMultiplier": 20,
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus","thavina" ]
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus","thavina" ],
+  "buildVisibility": "sandboxOnly"
 }

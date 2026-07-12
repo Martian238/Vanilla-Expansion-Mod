@@ -54,7 +54,14 @@
       "ejectEffect": "casing1",
       "shootY": 3.5,
       "bullet": {
-        "spawnUnit": "test-missile"
+        "type": "MultiBulletType",
+        "bullets": [
+          { "spawnUnit": "test-missile" },
+          {
+            "spawnUnit": "test-missile-large",
+            "createChance": 0.1
+          }
+        ]
       }
     }
   ]

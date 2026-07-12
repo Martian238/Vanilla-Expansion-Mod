@@ -19,8 +19,7 @@
   },
   "liquidCapacity": 0,
   "hasLiquids": false,
-  "buildVisibility": "shown",
-  "shownPlanets": [ "cyclant" ],
+  "buildVisibility": "shown"
   "arrivalDuration": 180,
   "cooldownTime": 120,
   "dumpTime": 1,

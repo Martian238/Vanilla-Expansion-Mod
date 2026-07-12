@@ -10,5 +10,7 @@
   "crushDamageMultiplier": 0.05,
   "flammabilityScale": 0,
   "explosivenessScale": 1.5,
-  "shownPlanets": [ "serpulo","thavina" ]
+  "shownPlanets": [ "serpulo","thavina" ],
+  "bridgeReplacement": "silicide-bridge-conveyor",
+  "junctionReplacement": "silicide-junction"
 }

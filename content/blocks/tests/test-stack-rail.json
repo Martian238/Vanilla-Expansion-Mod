@@ -1,0 +1,16 @@
+{
+  "type": "StackConveyor",
+  "category": "distribution",
+  "speed": 0.25,
+  "health": 80,
+  "underBullets": true,
+  "itemCapacity": 1,
+  "drawTeamOverlay": false,
+  "ambientSound": "none",
+  "flammabilityScale": 0,
+  "explosivenessScale": 1.5,
+  "buildVisibility": "sandboxOnly",
+  "alwaysUnlocked": true,
+  "dumpTime": 1,
+  "recharge": 1
+}

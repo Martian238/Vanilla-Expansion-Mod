@@ -27,7 +27,7 @@
     "coreDestroyClear": true,
     "worldProcessorPlayerLink": true,
     "unitPayloadsExplode": true,
-    "showSpawns": false,
+    "hideSpawns": true,
     "logicUnitDeconstruct": true,
     "randomWaveAI": true,
     "planet": "thavina"

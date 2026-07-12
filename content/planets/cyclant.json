@@ -24,7 +24,7 @@
     "coreDestroyClear": true,
     "worldProcessorPlayerLink": true,
     "unitPayloadsExplode": true,
-    "showSpawns": true,
+    "hideSpawns": false,
     "logicUnitDeconstruct": true,
     "randomWaveAI": false,
     "planet": "cyclant"

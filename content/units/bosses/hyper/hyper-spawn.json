@@ -816,6 +816,171 @@
           "effect": "none"
         }
       }
+    },
+    
+    {
+      "alwaysShooting": true,//darkness&shake1
+      "recoil": 0,
+      "y": 0,
+      "recoilTime": 30,
+      "recoilPow": 1,
+      "reload": 840,//420
+      "mirror": false,
+      "x": 0,
+      "shootY": 0,
+      "shootSound": "none",
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "parentizeEffects": true,
+      "shake": 3,
+      "shoot": {
+        "shots": 30,
+        "shotDelay": 2,
+        "firstShotDelay": 120
+      },
+      "bullet": {
+        "instantDisappear": true,
+        "shootEffect": {
+          "type": "WaveEffect",
+          "sizeFrom": 0,
+          "sizeTo": 4000,
+          "strokeFrom": 800,
+          "strokeTo": 800,
+          "colorFrom": "ffffff00",
+          "colorTo": "ffffff10",
+          "lifetime": 180,
+          "interp": "pow2Out",
+          "layer": 120,
+          "lightColor": "000000",
+          "clip": 3200
+        },
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none"
+      }
+    },
+    {
+      "alwaysShooting": true,//darkness&shake2
+      "recoil": 0,
+      "y": 0,
+      "recoilTime": 30,
+      "recoilPow": 1,
+      "reload": 840,//420
+      "mirror": false,
+      "x": 0,
+      "shootY": 0,
+      "shootSound": "none",
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "parentizeEffects": true,
+      "shake": 3,
+      "shoot": {
+        "shots": 30,
+        "shotDelay": 2,
+        "firstShotDelay": 180
+      },
+      "bullet": {
+        "instantDisappear": true,
+        "shootEffect": {
+          "type": "WaveEffect",
+          "sizeFrom": 0,
+          "sizeTo": 4000,
+          "strokeFrom": 800,
+          "strokeTo": 800,
+          "colorFrom": "ffffff00",
+          "colorTo": "ffffff25",
+          "lifetime": 180,
+          "interp": "pow2Out",
+          "layer": 120,
+          "lightColor": "000000",
+          "clip": 3200
+        },
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none"
+      }
+    },
+    {
+      "alwaysShooting": true,//darkness&shake3
+      "recoil": 0,
+      "y": 0,
+      "recoilTime": 30,
+      "recoilPow": 1,
+      "reload": 840,//420
+      "mirror": false,
+      "x": 0,
+      "shootY": 0,
+      "shootSound": "none",
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "parentizeEffects": true,
+      "shake": 3,
+      "shoot": {
+        "shots": 30,
+        "shotDelay": 2,
+        "firstShotDelay": 240
+      },
+      "bullet": {
+        "instantDisappear": true,
+        "shootEffect": {
+          "type": "WaveEffect",
+          "sizeFrom": 0,
+          "sizeTo": 4000,
+          "strokeFrom": 800,
+          "strokeTo": 800,
+          "colorFrom": "ffffff00",
+          "colorTo": "ffffff50",
+          "lifetime": 180,
+          "interp": "pow2Out",
+          "layer": 120,
+          "lightColor": "000000",
+          "clip": 3200
+        },
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none"
+      }
+    },
+    {
+      "alwaysShooting": true,//darkness&shake4
+      "recoil": 0,
+      "y": 0,
+      "recoilTime": 30,
+      "recoilPow": 1,
+      "reload": 840,//420
+      "mirror": false,
+      "x": 0,
+      "shootY": 0,
+      "shootSound": "none",
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "parentizeEffects": true,
+      "shake": 3,
+      "shoot": {
+        "shots": 30,
+        "shotDelay": 2,
+        "firstShotDelay": 300
+      },
+      "bullet": {
+        "instantDisappear": true,
+        "shootEffect": {
+          "type": "WaveEffect",
+          "sizeFrom": 0,
+          "sizeTo": 4000,
+          "strokeFrom": 800,
+          "strokeTo": 800,
+          "colorFrom": "ffffff00",
+          "colorTo": "ffffff65",
+          "lifetime": 180,
+          "interp": "pow2Out",
+          "layer": 120,
+          "lightColor": "000000",
+          "clip": 3200
+        },
+        "smokeEffect": "none",
+        "hitEffect": "none",
+        "despawnEffect": "none"
+      }
     }
   ]
 }
