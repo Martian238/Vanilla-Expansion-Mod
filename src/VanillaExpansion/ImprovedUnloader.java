@@ -1,4 +1,4 @@
-package MultiCraft;
+package VanillaExpansion;
 
 import mindustry.world.blocks.storage.Unloader;
 

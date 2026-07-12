@@ -1,4 +1,4 @@
-package MultiCraft;
+package VanillaExpansion;
 
 import arc.func.Prov;
 import arc.graphics.g2d.TextureRegion;

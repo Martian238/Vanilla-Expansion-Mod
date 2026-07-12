@@ -1,4 +1,4 @@
-package MultiCraft;
+package VanillaExpansion;
 
 
 import arc.Events;
@@ -10,7 +10,7 @@ import static mindustry.Vars.state;
 import static mindustry.Vars.ui;
 
 
-public class MultiCrafterMod extends Mod {
+public class VanillaExpansionMod extends Mod {
     public static MultiCrafterPayloadFragment payloadFragment;
     @Override
     public void init() {

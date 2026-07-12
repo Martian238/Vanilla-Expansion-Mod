@@ -1,4 +1,4 @@
-package MultiCraft;
+package VanillaExpansion;
 
 import MultiCraft.OmniBridge;
 import mindustry.gen.Building;
