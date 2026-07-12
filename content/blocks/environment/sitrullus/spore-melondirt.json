@@ -1,8 +1,0 @@
-{
-  "type": "Floor",
-  "variants": 8,
-  "attributes": {
-    "spore": 1.5,
-    "steam": -9.99
-  }
-}

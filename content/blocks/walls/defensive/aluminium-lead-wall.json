@@ -1,9 +1,0 @@
-{
-  //"type": "Wall",
-  "requirements": [ "aluminium/6","lead/6" ],
-  "category": "defense",
-  "research": "aluminium-wall",
-  "health": 480,
-  "researchCostMultiplier": 0.2,
-  "shownPlanets": [ "cyclant","phoon","maress","thavina" ]
-}

@@ -1,6 +1,0 @@
-{
-  "shownPlanets": [ "serpulo","cyclant","phoon","thavina" ],
-  "deathSound": "si2Explode",
-  "databaseTag": "02serpulo-ground-unit",
-  "immunities": {"add":[ "dusty" ]}
-}

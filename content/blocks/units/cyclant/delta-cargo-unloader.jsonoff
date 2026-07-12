@@ -1,8 +1,0 @@
-{
-  "type": "UnitCargoUnloadPoint",
-  "category": "distribution",
-  "research": "delta-cargo-loader",
-  "requirements": [ "aluminium/40","silicon/20" ],
-  "size": 2,
-  "itemCapacity": 180
-}

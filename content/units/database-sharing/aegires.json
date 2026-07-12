@@ -1,9 +1,0 @@
-{
-  "immunities": {"add":[ 
-    "interrupted","electrified","frozen"
-  ]},
-  "shownPlanets": [ "serpulo","cyclant","phoon","thavina" ],
-  "deathSound": "rlElectricBlockerBreak",
-  "databaseTag": "04serpulo-naval-unit",
-  "itemCapacity": 680
-}

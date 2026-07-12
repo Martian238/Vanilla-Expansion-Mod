@@ -1,8 +1,0 @@
-{
-  "color": "f5e1eb",
-  "hardness": 1,
-  "cost": 0.5,
-  "shownPlanets": [ "maress","sitrullus","thavina" ],
-  "research": "ferrum",
-  "databaseTag": "basic-item"
-}

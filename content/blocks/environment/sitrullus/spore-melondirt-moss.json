@@ -1,9 +1,0 @@
-{
-  "type": "Floor",
-  "variants": 8,
-  "itemDrop": "spore-pod",
-  "attributes": {
-    "spore": 2.5,
-    "steam": -9.99
-  }
-}

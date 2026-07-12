@@ -1,7 +1,0 @@
-{
-  "type": "OreBlock",
-  "itemDrop": "thorium",
-  "variants": 5,
-  "oreDefault": false,
-  "useColor": true
-}

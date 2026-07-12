@@ -1,8 +1,0 @@
-{
-  "color": "f0d7d7",
-  "cost": 1.1,
-  "research": "aluminium",
-  "hardness": 3,
-  "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus","thavina" ],
-  "databaseTag": "basic-item"
-}

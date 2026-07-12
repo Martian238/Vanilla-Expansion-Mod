@@ -1,7 +1,0 @@
-{
-  "type": "OreBlock",
-  "itemDrop": "aluminium",
-  "variants": 3,
-  "oreDefault": false,
-  "useColor": true
-}

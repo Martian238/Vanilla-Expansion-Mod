@@ -1,9 +1,0 @@
-{
-  "type": "Floor",
-  "variants": 3,
-  "wall": "semigrass-wall",
-  "attributes": {
-    "plant": 0.5
-  },
-  "mapColor": "a3ae7a"
-}

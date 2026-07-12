@@ -1,9 +1,0 @@
-{
-  "color": "ff6b41",
-  "hardness": 6,
-  "healthScaling": 1.1,
-  "cost": 1.3,
-  "research": "aluminium",
-  "shownPlanets": [ "cyclant","maress","phoon","thavina" ],
-  "databaseTag": "basic-item"
-}

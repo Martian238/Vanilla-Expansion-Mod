@@ -1,9 +1,0 @@
-{
-  "type": "Floor",
-  "variants": 5,
-  "itemDrop": "sand",
-  "playerUnmineable": true,
-  "attributes": {
-    "water": -0.1
-  }
-}

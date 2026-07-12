@@ -1,9 +1,0 @@
-{
-  "shownPlanets": [ "thavina" ],
-  "databaseTag": "basic-item",
-  "color": "98b9d5",
-  "hardness": 3,
-  "healthScaling": 0.8,
-  "cost": 1.1,
-  "charge": 0.4
-}

@@ -1,7 +1,0 @@
-{
-  "type": "OreBlock",
-  "itemDrop": "silver",
-  "variants": 5,
-  "oreDefault": false,
-  "useColor": true
-}

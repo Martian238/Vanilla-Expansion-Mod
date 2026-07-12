@@ -1,9 +1,0 @@
-{
-  "type": "Floor",
-  "variants": 11,
-  "attributes": {
-    "water": 1.5,
-    "spore": 1,
-    "steam": 0.5
-  }
-}
