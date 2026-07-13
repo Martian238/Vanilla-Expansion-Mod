@@ -1,5 +1,5 @@
 {
-  //"type": "VanillaExpansion.MultiCrafter",
+  "type": "VanillaExpansion.MultiCrafter",
   "requirements": [ "aluminium/30","graphite/50","ferrum/40","silicon/50" ],
   "category": "power",
   "hasHeat": true,

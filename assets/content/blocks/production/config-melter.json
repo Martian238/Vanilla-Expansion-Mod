@@ -1,5 +1,5 @@
 {
-  //"type": "VanillaExpansion.MultiCrafter",
+  "type": "VanillaExpansion.MultiCrafter",
   "requirements": [
     "ferrum/30","graphite/50","lead/20"
   ],

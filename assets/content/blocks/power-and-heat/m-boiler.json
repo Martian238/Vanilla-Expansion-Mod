@@ -1,5 +1,5 @@
 {
-  //"type": "VanillaExpansion.MultiCrafter",
+  "type": "VanillaExpansion.MultiCrafter",
   "requirements": [ "aluminium/30","graphite/25","ferrum/25" ],
   "category": "crafting",
   "hasItems": true,

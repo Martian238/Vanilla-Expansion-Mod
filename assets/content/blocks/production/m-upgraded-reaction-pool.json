@@ -1,5 +1,5 @@
 {
-  //"type": "VanillaExpansion.MultiCrafter",
+  "type": "VanillaExpansion.MultiCrafter",
   "requirements": [ "chromium/200","ferrum/100","catalyzon/50","silicon/150","silicide/100","graphite/50" ],
   "category": "crafting",
   "craftEffect": "none",
