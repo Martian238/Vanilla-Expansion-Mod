@@ -1,5 +1,5 @@
 {
-  "type": "VanillaExpansion.MultiCrafter",
+  //"type": "VanillaExpansion.MultiCrafter",
   "requirements": [ "chromium/20","silicon/20" ],
   "shownPlanets": [ "cyclant","maress","thavina" ],
   "category": "liquid",
