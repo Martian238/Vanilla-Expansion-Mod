@@ -57,7 +57,7 @@
   "size": 4,
   "armor": 12,
   "research": {
-    "parent": "heat-steam-generator",
+    "parent": "heat-turbine-generator",
     "objectives": [ 
       {
         "type": "OnSector",

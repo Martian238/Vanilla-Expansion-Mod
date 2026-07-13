@@ -1,5 +1,5 @@
 {
-  "type": "MultiCraft.MultiCrafter",
+  "type": "VanillaExpansion.MultiCrafter",
   "requirements": [ "aluminium/400","silicon/500","silver/200" ]
   "category": "effect",
   "hasItems": true,
@@ -9,19 +9,29 @@
   "shownPlanets": [ "maress" ],
   "recipe": [
     {
-      "inputItems": [ "aluminium/100","tantalum/100","silver/20" ],
-      "craftTime": 300,
-      "outputItems": [ "astro-plate/100" ]
+      "inputItems": [ "silver/10" ],
+      "craftTime": 120,
+      "outputItems": [ "graphite/10","silicon/10" ]
     },
     {
-      "inputItems": [ "silver/100","tantalum/40","silicon/80" ],
-      "craftTime": 600,
-      "outputItems": [ "phecteel/10" ]
+      "inputItems": [ "silver/1" ],
+      "craftTime": 120,
+      "outputItems": [ "reflector-matter/100" ]
+    },
+    {
+      "inputItems": [ "silver/10" ],
+      "craftTime": 120,
+      "outputItems": [ "ferrum/30" ]
+    },
+    {
+      "inputItems": [ "silver/2" ],
+      "craftTime": 120,
+      "outputItems": [ "scrap/40" ]
     }
   ],
-  "dumpTime": 1,
   "squareSprite": false,
   "canOverdrive": false,
+  "dumpTime": 1,
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
@@ -40,9 +50,12 @@
   "updateEffect": "none",
   "craftEffect": "none",
   "research": {
-    "parent": "cargo-anchor-industry",
+    "parent": "core-singularity-root",
     "objectives": [ 
-      "phecteel"
+      {
+        "type": "OnSector",
+        "preset": "icy-boundary"
+      }
     ]
   }
 }

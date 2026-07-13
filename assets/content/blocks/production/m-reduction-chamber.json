@@ -1,6 +1,6 @@
 {
   //"type": "GenericCrafter",
-  "type": "MultiCraft.MultiCrafter",
+  //"type": "VanillaExpansion.MultiCrafter",
   "requirements": [
     "ferrum/200","silicide/250","graphite/100","silicon/100"
   ],

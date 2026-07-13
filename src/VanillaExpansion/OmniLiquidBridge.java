@@ -1,6 +1,6 @@
 package VanillaExpansion;
 
-import MultiCraft.OmniBridge;
+import VanillaExpansion.OmniBridge;
 import mindustry.gen.Building;
 import mindustry.world.meta.BlockGroup;
 import mindustry.world.meta.Env;

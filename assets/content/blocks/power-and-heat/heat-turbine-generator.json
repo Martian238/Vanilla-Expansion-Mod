@@ -1,6 +1,6 @@
 {
-  "type": "MultiCraft.MultiCrafter",
-  "requirements": [ "aluminium/30","graphite/50","ferrum/40","silicon/50" ]
+  //"type": "VanillaExpansion.MultiCrafter",
+  "requirements": [ "aluminium/30","graphite/50","ferrum/40","silicon/50" ],
   "category": "power",
   "hasHeat": true,
   "conductivePower": true,
@@ -8,7 +8,7 @@
   "hasPower": true,
   "liquidCapacity": 60,
   "outputsPower": true,
-  "shownPlanets": [ "maress","thavina" ]
+  "shownPlanets": [ "maress","thavina" ],
   "recipe": [
     {
       "inputLiquids": [ "water/0.0666666667" ],

@@ -1,5 +1,5 @@
 {
-  "type": "MultiCraft.MultiCrafter",
+  "type": "VanillaExpansion.MultiCrafter",
   "requirements": [ "aluminium/400","silicon/500","silver/200" ]
   "category": "effect",
   "hasItems": true,

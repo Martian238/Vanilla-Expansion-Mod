@@ -52,7 +52,7 @@ import mindustry.world.draw.DrawBlock;
 import mindustry.world.meta.*;
 import mindustry.mod.Mods.*;
 
-import static MultiCraft.MultiCrafter.MultiCrafterBuild.allPayloadTypes;
+import static VanillaExpansion.MultiCrafter.MultiCrafterBuild.allPayloadTypes;
 import static mindustry.Vars.*;
 
 

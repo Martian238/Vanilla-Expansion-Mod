@@ -2,7 +2,7 @@
   //"type": "HeatConductor",
   "visualMaxHeat": 50,
   "research": {
-    "parent": "boiler",
+    "parent": "m-boiler",
     "objectives": [ 
       {
         "type": "OnSector",

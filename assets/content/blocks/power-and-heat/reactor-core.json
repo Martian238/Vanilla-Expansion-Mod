@@ -35,7 +35,7 @@
   "updateEffectChance": 0.02,
   "shownPlanets": [ "maress","thavina" ],
   "research": {
-    "parent": "boiler",
+    "parent": "m-boiler",
     "objectives": [ 
       {
         "type": "OnSector",

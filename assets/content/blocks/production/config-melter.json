@@ -1,11 +1,11 @@
 {
-  "type": "MultiCraft.MultiCrafter",
+  //"type": "VanillaExpansion.MultiCrafter",
   "requirements": [
     "ferrum/30","graphite/50","lead/20"
   ],
   "category": "crafting",
   "research": {
-    "parent": "upgraded-reaction-pool",
+    "parent": "m-upgraded-reaction-pool",
     "objectives": [ 
       {
         "type": "SectorComplete",

@@ -1,0 +1,13 @@
+{
+  "alwaysUnlocked": false,
+  "research": {
+    "parent": "cargo-anchor-recipe-7",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "icy-boundary"
+      },
+      "phecteel"
+    ]
+  }
+}

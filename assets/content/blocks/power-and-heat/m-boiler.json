@@ -1,13 +1,13 @@
 {
-  "type": "MultiCraft.MultiCrafter",
-  "requirements": [ "aluminium/30","graphite/25","ferrum/25" ]
+  //"type": "VanillaExpansion.MultiCrafter",
+  "requirements": [ "aluminium/30","graphite/25","ferrum/25" ],
   "category": "crafting",
   "hasItems": true,
   "itemCapacity": 10,
   "conductivePower": false,
   "hasLiquids": true,
   "liquidCapacity": 30,
-  "shownPlanets": [ "maress","thavina" ]
+  "shownPlanets": [ "maress","thavina" ],
   "recipe": [
     {
       "inputItems": [ "coal/1" ],

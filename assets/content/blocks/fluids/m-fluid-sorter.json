@@ -1,5 +1,5 @@
 {
-  "type": "MultiCraft.MultiCrafter",
+  "type": "VanillaExpansion.MultiCrafter",
   "requirements": [ "chromium/20","silicon/20" ],
   "shownPlanets": [ "cyclant","maress","thavina" ],
   "category": "liquid",
@@ -101,7 +101,7 @@
   "research": {
     "parent": "core-singularity-root",
     "objectives": [ 
-      "upgraded-reaction-pool"
+      "m-upgraded-reaction-pool"
     ]
   },
   "ambientSound": "none",

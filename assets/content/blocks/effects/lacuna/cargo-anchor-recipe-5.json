@@ -1,0 +1,13 @@
+{
+  "alwaysUnlocked": false,
+  "research": {
+    "parent": "cargo-anchor",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "icy-boundary"
+      },
+      "reduction-chamber"
+    ]
+  }
+}

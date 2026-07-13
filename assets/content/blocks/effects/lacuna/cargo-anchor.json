@@ -1,0 +1,119 @@
+{
+  "type": "VanillaExpansion.MultiCrafter",
+  "requirements": [ "aluminium/400","silicon/500","silver/200" ]
+  "category": "effect",
+  "hasItems": true,
+  "itemCapacity": 200,
+  "conductivePower": false,
+  "hasPower": false,
+  "shownPlanets": [ "maress" ],
+  "recipe": [
+    //trade 1-4
+    {
+      "inputItems": [ "silver/10" ],
+      "craftTime": 120,
+      "outputItems": [ "graphite/10","silicon/10" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-trade-idle",
+        "layer": 99.99
+      }
+    },
+    {
+      "inputItems": [ "silver/1" ],
+      "craftTime": 120,
+      "outputItems": [ "reflector-matter/100" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-trade-idle",
+        "layer": 99.99
+      }
+    },
+    {
+      "inputItems": [ "silver/10" ],
+      "craftTime": 120,
+      "outputItems": [ "ferrum/30" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-trade-idle",
+        "layer": 99.99
+      }
+    },
+    {
+      "inputItems": [ "silver/2" ],
+      "craftTime": 120,
+      "outputItems": [ "scrap/40" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-trade-idle",
+        "layer": 99.99
+      }
+    },
+    //industry 5-6
+    {
+      "inputItems": [ "silver/20","red-soil/100" ],
+      "craftTime": 240,
+      "outputItems": [ "ferrum/80","quartz/30" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-industry-idle",
+        "layer": 99.99
+      }
+    },
+    {
+      "inputItems": [ "silver/20","red-soil/100" ],
+      "craftTime": 240,
+      "outputItems": [ "ferrum/80","silicon/60" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-industry-idle",
+        "layer": 99.99
+      }
+    }
+    //protocol 7-8
+    {
+      "inputItems": [ "aluminium/100","tantalum/100","silver/20" ],
+      "craftTime": 300,
+      "outputItems": [ "astro-plate/100" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-protocol-idle",
+        "layer": 99.99
+      }
+    },
+    {
+      "inputItems": [ "silver/100","tantalum/40","silicon/80" ],
+      "craftTime": 600,
+      "outputItems": [ "phecteel/10" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-protocol-idle",
+        "layer": 99.99
+      }
+    }
+  ],
+  "squareSprite": false,
+  "canOverdrive": false,
+  "dumpTime": 1,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" }
+    ]
+  },
+  "size": 3,
+  "armor": 0,
+  "ambientSound": "none",
+  "ambientSoundVolume": 0.08,
+  "updateEffect": "none",
+  "craftEffect": "none",
+  "research": {
+    "parent": "core-singularity-root",
+    "objectives": [ 
+      {
+        "type": "OnSector",
+        "preset": "icy-boundary"
+      }
+    ]
+  }
+}
