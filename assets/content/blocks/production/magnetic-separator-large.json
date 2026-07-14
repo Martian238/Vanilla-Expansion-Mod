@@ -1,0 +1,77 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [
+    "ferrum/150","graphite/50","silicon/80","fibralt/30"
+  ],
+  "researchCostMultiplier": 0.2,
+  "category": "crafting",
+  "research": {
+    "parent": "magnetic-separator",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "misty-valley"
+      }
+    ]
+  },
+  "size": 3,
+  "armor": 4,
+  "craftTime": 60,
+  "itemCapacity": 90,
+  "hasItems": true,
+  "hasPower": true,
+  "hasLiquids": true,
+  "liquidCapacity": 90,
+  "consumes": {
+    "items": {
+      "items": [ "red-soil/30" ]
+    },
+    "liquid": "water/0.35",
+    "power": 1.5
+  },
+  "ambientSound": "loopCircuit",
+  "ambientSoundVolume": 0.08,
+  "craftEffect": "pulverizeMedium",
+  "outputItems": [ "quartz/9" ],
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawRegion", "suffix": "-bottom" },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water"
+      },
+      {
+        "type": "DrawBubbles",
+        "color": "7693e3",
+        "sides": 8,
+        "recurrence": 3,
+        "spread": 8,
+        "amount": 15
+      },
+      { "type": "DrawRegion", "suffix": "-bottom2" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "alpha": 0.9,
+        "color": "ffb6a5",
+        "glowScale": 5
+      },
+      {
+        "type": "DrawRegion",
+        "spinSprite": true,
+        "suffix": "-rotator",
+        "rotateSpeed": -9
+      },
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-glow",
+        "alpha": 0.3,
+        "color": "ffb6a5",
+        "glowScale": 5,
+        "glowIntensity": 0.1
+      }
+    ]
+  }
+}

@@ -132,6 +132,7 @@ newBlock("multi-furnace",GenericCrafter);
 newBlock("centrifuge-kiln",GenericCrafter);
 newBlock("reflector-thermolyzer",GenericCrafter);
 newBlock("magnetic-separator",GenericCrafter);
+newBlock("magnetic-separator-large",GenericCrafter);
 newBlock("catalyzon-workshop",GenericCrafter);
 newBlock("thermoplastic-compressor",HeatCrafter);
 

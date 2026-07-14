@@ -26,7 +26,7 @@
   "liquidBoostIntensity": 1.6,
   "warmupSpeed": 0.0035,
   "ambientSound": "loopMachineSpin",
-  "ambientSoundVolume": 0.15,
+  "ambientSoundVolume": 0.1,
   "crushDamageMultiplier": 0.2,
   "hardnessDrillMultiplier": 25,
   "updateEffect": {

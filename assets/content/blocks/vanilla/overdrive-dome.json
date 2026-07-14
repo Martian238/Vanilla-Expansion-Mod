@@ -5,7 +5,7 @@
       //  "maress"
     ]
   },
-  "speedBoost": 2.5,
+  /*"speedBoost": 2.5,
   "speedBoostPhase": 0,
   "consumes": {
     "items": {
@@ -14,5 +14,5 @@
     "power": 10
   },
   "useTime": 300,
-  "hasBoost": false
+  "hasBoost": false*/
 }

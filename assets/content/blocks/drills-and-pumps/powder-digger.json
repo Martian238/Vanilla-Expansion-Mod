@@ -34,7 +34,7 @@
   "updateEffect": "pulverizeSmall",
   "updateEffectChance": 0.06,
   "liquidCapacity": 20,
-  "ambientSoundVolume": 0.25,
+  "ambientSoundVolume": 0.08,
   "crushDamageMultiplier": 0.2,
   "squareSprite": false,
   "drillMultipliers": {

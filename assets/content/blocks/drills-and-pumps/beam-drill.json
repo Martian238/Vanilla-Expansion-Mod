@@ -30,7 +30,7 @@
   "liquidBoostIntensity": 1.8,
   "warmupSpeed": 0.01,
   "ambientSound": "loopMineBeam",
-  "ambientSoundVolume": 0.2,
+  "ambientSoundVolume": 0.15,
   "updateEffect": {
     "type": "ParticleEffect",
     "particles": 4,

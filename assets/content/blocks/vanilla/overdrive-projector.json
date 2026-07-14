@@ -1,6 +1,6 @@
 {
   "shownPlanets": { "add": [ "thavina" ] },
-  "speedBoost": 1.5,
+  /*"speedBoost": 1.5,
   "speedBoostPhase": 0.75,
   "consumes": {
     "item": {
@@ -10,5 +10,5 @@
     },
     "power": 3.5
   },
-  "useTime": 400
+  "useTime": 400*/
 }
