@@ -1,6 +1,6 @@
 {
   "shownPlanets": [ "serpulo","cyclant","phoon","thavina" ],
-  "deathSound": "si2Explode",
+  //"deathSound": "si2Explode",
   "immunities": {"add":[ "frozen" ]},
   "databaseTag": "03serpulo-air-unit"
 }

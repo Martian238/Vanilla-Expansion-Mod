@@ -18,6 +18,8 @@
   "engineSize": 0,
   "lightRadius": 0,
   "bounded": false,
-  "drawShields": true
+  "drawShields": true,
   "hidden": true,
+  "deathSound": "lbp3VicBossDestroy",
+  "deathSoundVolume": 1.5
 }

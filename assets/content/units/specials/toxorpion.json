@@ -37,7 +37,7 @@
     "objectives": [ "toxopid" ],
     "requirements": [ "silicon/5000","plastanium/3000","phase-fabric/1750" ]
   },
-  "deathSound": "si2ExplodeLoud",
+  //"deathSound": "si2ExplodeLoud",
   "targetFlags": [
     "repair"
   ],

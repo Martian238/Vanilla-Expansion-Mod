@@ -2,6 +2,8 @@
   "shownPlanets": [ "serpulo","cyclant","maress","phoon","sitrullus","thavina" ],
   "immunities": {"add":[ "dusty" ]},
   "databaseTag": "02serpulo-ground-unit",
+  "moveSound": "drCartoonPitterpatter",
+  "moveSoundVolume": 0.01,
   "weapons": [
     {
       "shootOnDeath": true,

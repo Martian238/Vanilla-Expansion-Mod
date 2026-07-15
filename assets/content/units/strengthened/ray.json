@@ -17,7 +17,7 @@
     "requirements": [ "silicon/20000","fibralt/9000","surge-alloy/7500","phase-fabric/5000","silicide/2000" ]
   },
   "itemCapacity": 250,
-  "deathSound": "si2ExplodeLoud",
+  //"deathSound": "si2ExplodeLoud",
   "lightColor": "ffa665",
   "shadowElevation": 0.2,
   "immunities": [ "dusty" ],

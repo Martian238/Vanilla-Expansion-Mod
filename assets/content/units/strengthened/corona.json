@@ -20,7 +20,7 @@
   "engineOffset": 40.5,
   "targetFlags": [ "generator","turret" ],
   "itemCapacity": 500,
-  "deathSound": "si2ExplodeLoud",
+  //"deathSound": "si2ExplodeLoud",
   "immunities": [ "burning","melting","freezing","frozen" ],
   "lightColor": "ffa665",
   "shownPlanets": [ "cyclant","phoon","maress","thavina" ],

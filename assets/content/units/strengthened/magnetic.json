@@ -21,7 +21,7 @@
   "targetFlags": [ "drill","factory" ],
   "itemCapacity": 200,
   "itemOffsetY": -9,
-  "deathSound": "si2Explode",
+  //"deathSound": "si2Explode",
   "strafePenalty": 0.7,
   "immunities": [ "electrified","charging","frozen" ],
   /*"abilities": [

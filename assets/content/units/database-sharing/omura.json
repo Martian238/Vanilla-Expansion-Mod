@@ -1,6 +1,6 @@
 {
   "shownPlanets": [ "serpulo","cyclant","phoon","thavina" ],
-  "deathSound": "si2ExplodeLoud",
+  //"deathSound": "si2ExplodeLoud",
   "targetUnderBlocks": false,
   "databaseTag": "04serpulo-naval-unit",
   "itemCapacity": 920

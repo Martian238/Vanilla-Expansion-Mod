@@ -1,0 +1,54 @@
+{
+  "type": "missile",
+  "template": "MissileUnitType",
+  "lifetime": 1,
+  "engineSize": 0,
+  "health": 1,
+  "missileAccelTime": 0,
+  "physics": false,
+  "bounded": false,
+  "drawCell": false,
+  "drawBody": false,
+  "lightRadius": 0,
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "hittable": false,
+  "targetable": false,
+  "deathSound": "none",
+  "hidden": true,
+  "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
+  "isEnemy": false,
+  "trailLength": 0,
+  "weapons": [
+    {
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "alwaysShooting": false,
+      "controllable": false,
+      "shootOnDeath": true,
+      "shootSound": "none",
+      "mirror": false,
+      "shootCone": 361,
+      "bullet": {
+        "shootEffect": {
+        "type": "SoundEffect",
+        "maxPitch": 1,
+        "minPitch": 1,
+        "maxVolume": 1,
+        "minVolume": 1,
+        "sound": [ "lbp3AirplaneDive1","lbp3AirplaneDive2" ],
+        "effect": "none"
+        },
+          "instantDisappear": true,
+          "killShooter": true,
+          "hitEffect": "none",
+          "despawnEffect": "none",
+          "smokeEffect": "none",
+          "hittable": false,
+          "absorbable": false,
+          "reflectable": false
+      }
+    }
+  ]
+}

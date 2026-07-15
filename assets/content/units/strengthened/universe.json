@@ -19,7 +19,7 @@
   "itemCapacity": 400,
   "canBoost": true,
   "boostMultiplier": 3.2,
-  "deathSound": "si2ExplodeLoud",
+  //"deathSound": "si2ExplodeLoud",
   "lightColor": "98ffa9",
   "lowAltitude": true,
   "engineSize": 10,

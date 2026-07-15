@@ -12,7 +12,7 @@
   "engineSize": 5.3,
   //"engineLayer": 100,
   "hitSize": 46,
-  "deathSound": "si2Explode",
+  //"deathSound": "si2Explode",
   "targetFlags": [ "reactor","core" ],
   "parts": [
     {

@@ -19,7 +19,7 @@
   "engineSize": 6.5,
   "researchCostMultiplier": 0.01,
   "immunities": [ "electrified","interrupted","frozen" ],
-  "deathSound": "si2Explode",
+  //"deathSound": "si2Explode",
   "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
   "engines": [
     {

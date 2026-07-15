@@ -48,7 +48,10 @@
       "y": 0,
       "shootOnDeath": true,
       "shootSound": "lbp3PowerDown",
-      "shake": 16,
+      "shootSoundVolume": 1.25,
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "shake": 32,
       "controllable": false,
       "shootCone": 361,
       "mirror": false,
@@ -58,11 +61,11 @@
           "particles": 1,
           "cone": 0,
           "region": "ve-circle-soft",
-          "sizeFrom": 128,
-          "sizeTo": 128,
+          "sizeFrom": 256,
+          "sizeTo": 256,
           "colorFrom": "ffffff88",
           "colorTo": "ffa66500",
-          "lifetime": 70,
+          "lifetime": 80,
           "interp": "linear",
           "length": 0,
           "baseLength": 0,
@@ -73,9 +76,9 @@
           "particles": 1,
           "cone": 0,
           "region": "ve-circle-soft",
-          "sizeFrom": 48,
+          "sizeFrom": 96,
           "sizeTo": 32,
-          "colorFrom": "ffffff88",
+          "colorFrom": "ffffff",
           "colorTo": "ffa66500",
           "lifetime": 15,
           "interp": "linear",
@@ -85,9 +88,22 @@
           "layer": 120
         },
         "instantDisappear": true,
+        "despawnHit": true,
         "hitEffect": "none",
-        "despawnSound": [ "lbp3NewtonBotExplode1","lbp3NewtonBotExplode2","lbp3NewtonBotExplode3","lbp3NewtonBotExplode4" ],
-        "despawnEffect": "none"
+        "despawnEffect": {
+          "type": "SoundEffect",
+          "maxPitch": 1,
+          "minPitch": 1,
+          "maxVolume": 1.75,
+          "minVolume": 1.75,
+          "effect": "none",
+          "sound": [
+            "lbp3NewtonBotExplode1",
+            "lbp3NewtonBotExplode2",
+            "lbp3NewtonBotExplode3",
+            "lbp3NewtonBotExplode4"
+          ]
+        }
       }
     }
   ]

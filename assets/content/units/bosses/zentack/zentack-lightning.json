@@ -25,6 +25,7 @@
   "targetGround": true,
   "targetAir": true,
   "hidden": true,
+  "clipSize": 800,
   "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
   "weapons": [
     {
@@ -58,7 +59,8 @@
           "length": 0,
           "baseLength": 0,
           "lightColor": "ffffff",
-          "layer": 120
+          "layer": 120,
+          "clip": 800
         }
       }
     }

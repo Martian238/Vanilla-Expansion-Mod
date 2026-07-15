@@ -17,7 +17,7 @@
     "requirements": [ "silicon/8000","fibralt/5000","thorium/3500","silicide/500" ]
   },
   "itemCapacity": 100,
-  "deathSound": "si2Explode",
+  //"deathSound": "si2Explode",
   "lightColor": "ffa665",
   "shadowElevation": 0.1,
   "immunities": [ "dusty","electrified" ],
