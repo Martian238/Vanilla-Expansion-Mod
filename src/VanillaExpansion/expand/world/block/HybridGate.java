@@ -1,4 +1,4 @@
-package VanillaExpansion.expand.world.block.multicrafter;
+package VanillaExpansion;
 
 import arc.Core;
 import arc.graphics.g2d.Draw;

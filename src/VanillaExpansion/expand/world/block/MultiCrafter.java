@@ -1,4 +1,4 @@
-package VanillaExpansion.expand.world.block.multicrafter;
+package VanillaExpansion;
 
 import arc.Core;
 import arc.Events;
@@ -52,7 +52,7 @@ import mindustry.world.draw.DrawBlock;
 import mindustry.world.meta.*;
 import mindustry.mod.Mods.*;
 
-import static VanillaExpansion.expand.world.block.multicrafter.MultiCrafter.MultiCrafterBuild.allPayloadTypes;
+import static VanillaExpansion.MultiCrafter.MultiCrafterBuild.allPayloadTypes;
 import static mindustry.Vars.*;
 
 

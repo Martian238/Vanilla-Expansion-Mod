@@ -1,6 +1,6 @@
-package VanillaExpansion.expand.world.block.multicrafter;
+package VanillaExpansion;
 
-import VanillaExpansion.expand.world.block.multicrafter.MultiCrafter;
+import VanillaExpansion.MultiCrafter;
 import arc.struct.Seq;
 import mindustry.world.Block;
 

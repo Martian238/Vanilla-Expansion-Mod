@@ -1,4 +1,4 @@
-package VanillaExpansion.expand.world.block.multicrafter;
+package VanillaExpansion;
 
 import mindustry.world.blocks.storage.Unloader;
 

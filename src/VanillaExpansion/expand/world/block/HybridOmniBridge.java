@@ -1,4 +1,4 @@
-package VanillaExpansion.expand.world.block.multicrafter;
+package VanillaExpansion;
 
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Lines;
