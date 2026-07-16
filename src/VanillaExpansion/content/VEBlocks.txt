@@ -1,0 +1,585 @@
+package VanillaExpansion.content;
+
+import VanillaExpansion.expand.world.block.distribution.AdaptItemBridge;
+import VanillaExpansion.expand.world.block.distribution.Junction;
+import VanillaExpansion.expand.world.block.distribution.MechanicalArm;
+import VanillaExpansion.expand.world.block.distribution.SideOutputConveyor;
+import VanillaExpansion.expand.world.block.liquid.AdaptLiquidBridge;
+import VanillaExpansion.expand.world.block.liquid.Pipe;
+import VanillaExpansion.expand.world.block.optics.LaserEmitter;
+import VanillaExpansion.expand.world.block.optics.LaserMirror;
+import VanillaExpansion.expand.world.block.optics.LaserReceiver;
+import VanillaExpansion.expand.world.block.power.*;
+import VanillaExpansion.expand.world.block.production.RockCoreDrill;
+import VanillaExpansion.expand.world.block.production.RotatableCrafter;
+import arc.struct.*;
+import arc.graphics.Color;
+import mindustry.content.*;
+import mindustry.entities.bullet.BasicBulletType;
+import mindustry.gen.Sounds;
+import mindustry.type.*;
+import mindustry.world.*;
+import mindustry.world.blocks.defense.turrets.ItemTurret;
+import mindustry.world.blocks.environment.*;
+import mindustry.world.consumers.ConsumeCoolant;
+import mindustry.world.consumers.ConsumeLiquid;
+import mindustry.world.meta.BuildVisibility;
+import VanillaExpansion.expand.world.block.*;
+
+public class VEBlocks {
+    public static Block oreIron, oreUranium, oreManganese, oreQuartz;
+
+    public static final Seq<Block> proximaOres = new Seq<>();
+
+    // 比邻星核心方块
+    public static Block proximaCore;
+
+    public static Block largeHeatPipe;
+
+    // RBMK反应堆方块
+    public static Block rbmkBase;
+    public static Block rbmkRod;
+    public static Block rbmkRodModerated;
+    public static Block rbmkControl;
+    public static Block rbmkControlModerated;
+    public static Block rbmkCooler;
+    public static Block rbmkReflector;
+    public static Block rbmkModerator;
+    public static Block rbmkAbsorber;
+    public static Block rbmkBlank;
+    public static Block rbmkBoiler;
+    public static Block rbmkHeater;
+    public static Block rbmkConsole;
+
+    // 末日防空炮台
+    public static Block endAntiAirTurret;
+
+    // RBMK推送器
+    public static Block rbmkPusher;
+
+    // 大型蒸汽轮机
+    public static Block largeSteamTurbine;
+
+    // DFC 系统
+    // DFCBase 保留作为基础类
+    public static Block dfcLaserEmitter;
+    public static Block dfcCore;
+    public static Block dfcStabilizer;
+    public static Block dfcInjector;
+    public static Block dfcEnergyEmitter;
+    public static Block dfcEnergyReceiver;
+    public static Block dfcExchanger;
+    public static Block dfcCreativeEmitter;
+
+    // 机械臂
+    public static Block mechanicalArm;
+
+    // 高速侧输出传送带
+    public static Block fastSideOutputConveyor;
+
+    // Junction
+    public static Block proximaJunction;
+
+    // 分类物品桥
+    public static Block adaptItemBridge;
+
+    // 分类流体桥
+    public static Block adaptLiquidBridge;
+
+    // 管道
+    public static Block pipe;
+
+    // 16方向测试方块
+    public static Block sixteenDirectionTestBlock;
+
+    // 可旋转测试方块
+    public static Block rotatableTestBlock;
+
+    // 激光发射器与接收器
+    public static Block laserEmitter;
+    public static Block laserReceiver;
+    public static Block laserMirror;
+
+    // 可旋转制造机
+    public static Block graphiteFactory;
+
+    // 铁路系统
+    public static Block trainTrack;
+    public static Block trainStation;
+    public static Block trainFactory;
+
+    // 岩芯钻机
+    public static Block rockCoreDrill;
+
+    // 电线杆
+    public static Block powerPole;
+
+    // 炮台在这里
+    public static Block drizzle;
+
+
+    public static void load(){
+        oreIron = new OreBlock(VEItems.iron){{
+            variants = 3;
+        }};
+
+        oreUranium = new OreBlock(VEItems.uranium){{
+            variants = 3;
+        }};
+
+        oreManganese = new OreBlock(VEItems.manganese){{
+            variants = 3;
+        }};
+
+        oreQuartz = new OreBlock(VEItems.quartz){{
+            variants = 3;
+        }};
+
+        proximaOres.addAll(oreIron, oreUranium, oreManganese, oreQuartz);
+
+        // RBMK基础方块
+        rbmkBase = new RBMKBase("rbmk-base"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 100,
+                Items.lead, 100,
+                Items.graphite, 50
+            ));
+        }};
+
+        // RBMK燃料棒
+        rbmkRod = new RBMKRod("rbmk-rod"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 200,
+                Items.lead, 150,
+                Items.titanium, 100,
+                Items.thorium, 25
+            ));
+        }};
+
+        // RBMK慢化燃料棒
+        rbmkRodModerated = new RBMKRod("rbmk-rod-moderated"){{
+            moderated = true;
+            powerProduction = 75f;
+            fuelConsumption = 0.0015f;
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 250,
+                Items.lead, 200,
+                Items.titanium, 150,
+                Items.thorium, 50,
+                Items.graphite, 100
+            ));
+        }};
+
+        // RBMK控制棒
+        rbmkControl = new RBMKControl("rbmk-control"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 150,
+                Items.lead, 100,
+                Items.titanium, 50,
+                Items.graphite, 50
+            ));
+        }};
+
+        // RBMK慢化控制棒
+        rbmkControlModerated = new RBMKControl("rbmk-control-moderated"){{
+            moderated = true;
+            maxControlValue = 1.5f;
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 200,
+                Items.lead, 150,
+                Items.titanium, 100,
+                Items.graphite, 100
+            ));
+        }};
+
+        // RBMK冷却器
+        rbmkCooler = new RBMKCooler("rbmk-cooler"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 100,
+                Items.lead, 80,
+                Items.metaglass, 50
+            ));
+        }};
+
+        // RBMK反射器
+        rbmkReflector = new RBMKReflector("rbmk-reflector"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 100,
+                Items.lead, 150,
+                Items.graphite, 100
+            ));
+        }};
+
+        // RBMK慢化剂
+        rbmkModerator = new RBMKModerator("rbmk-moderator"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 100,
+                Items.lead, 100,
+                Items.graphite, 150
+            ));
+        }};
+
+        // RBMK吸收器
+        rbmkAbsorber = new RBMKAbsorber("rbmk-absorber"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 100,
+                Items.lead, 200,
+                Items.graphite, 50
+            ));
+        }};
+
+        // RBMK空白结构
+        rbmkBlank = new RBMKBlank("rbmk-blank"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 50,
+                Items.lead, 50
+            ));
+        }};
+
+        // RBMK锅炉
+        rbmkBoiler = new RBMKBoiler("rbmk-boiler"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 150,
+                Items.lead, 100,
+                Items.metaglass, 80,
+                Items.graphite, 50
+            ));
+        }};
+
+        // RBMK加热器
+        rbmkHeater = new RBMKHeater("rbmk-heater"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 120,
+                Items.lead, 100,
+                Items.titanium, 80,
+                Items.graphite, 50
+            ));
+        }};
+
+        // RBMK控制台
+        rbmkConsole = new RBMKConsole("rbmk-console"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 1000,
+                Items.lead, 800,
+                Items.silicon, 300,
+                Items.titanium, 500,
+                Items.thorium, 100
+            ));
+        }};
+
+        // RBMK推送器
+        rbmkPusher = new RBMKPusher("rbmk-pusher"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 200,
+                Items.lead, 150,
+                Items.titanium, 100,
+                Items.silicon, 50
+            ));
+        }};
+
+        // 分类物品桥
+        adaptItemBridge = new AdaptItemBridge("adapt-item-bridge"){{
+            requirements(Category.distribution, ItemStack.with(
+                Items.copper, 50,
+                Items.lead, 30,
+                Items.titanium, 20,
+                Items.silicon, 15
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+
+            hasPower = false;
+            range = 6;
+            health = 300;
+
+            placeableLiquid = true;
+        }};
+
+        // 分类流体桥
+        adaptLiquidBridge = new AdaptLiquidBridge("adapt-liquid-bridge"){{
+            requirements(Category.distribution, ItemStack.with(
+                Items.copper, 60,
+                Items.lead, 40,
+                Items.titanium, 25,
+                Items.silicon, 20
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+
+            hasPower = false;
+            range = 6;
+            health = 350;
+        }};
+
+        // 机械臂
+        mechanicalArm = new MechanicalArm("mechanical-arm"){{
+            requirements(Category.logic, ItemStack.with(
+                Items.copper, 100,
+                Items.lead, 75,
+                Items.titanium, 50,
+                Items.silicon, 25
+            ));
+        }};
+
+        // 高速侧输出传送带
+        fastSideOutputConveyor = new SideOutputConveyor("fast-side-output-conveyor"){{
+            speed = 0.15f;
+            displayedSpeed = 20f;
+            requirements(Category.distribution, ItemStack.with(
+                Items.copper, 20,
+                Items.lead, 10,
+                Items.titanium, 5
+            ));
+        }};
+
+        // 万用交叉器
+        proximaJunction = new Junction("proxima-junction"){{
+            requirements(Category.distribution, ItemStack.with(
+                Items.copper, 15,
+                Items.lead, 10
+            ));
+        }};
+
+        // 管道
+        pipe = new Pipe("pipe"){{
+            requirements(Category.liquid, ItemStack.with(
+                Items.copper, 10,
+                Items.lead, 5
+            ));
+            bridgeReplacement = adaptLiquidBridge;
+        }};
+
+        // 16方向测试方块 - 只有生命值属性
+        sixteenDirectionTestBlock = new SixteenDirectionBlock("sixteen-direction-test-block"){{
+            destructible = true;
+            health = 200;
+            solid = true;
+            requirements(Category.effect, ItemStack.with(
+                Items.copper, 50,
+                Items.lead, 30
+            ));
+            buildVisibility = BuildVisibility.shown;
+        }};
+
+        // 可旋转测试方块 - 玩家可手动操作方向
+        rotatableTestBlock = new RotatableTestBlock("rotatable-test-block"){{
+            requirements(Category.effect, ItemStack.with(
+                Items.copper, 50,
+                Items.lead, 30
+            ));
+            buildVisibility = BuildVisibility.shown;
+        }};
+
+        // 激光发射器
+        laserEmitter = new LaserEmitter("laser-emitter"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 200,
+                Items.lead, 150,
+                Items.titanium, 100,
+                Items.silicon, 50
+            ));
+            buildVisibility = BuildVisibility.shown;
+            laserIntensity = 1f; // 可配置的光照强度
+            laserColor = Color.valueOf("ff4444"); // 可配置的激光颜色（红色）
+        }};
+
+        // 激光接收器
+        laserReceiver = new LaserReceiver("laser-receiver"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 150,
+                Items.lead, 100,
+                Items.titanium, 80,
+                Items.silicon, 40
+            ));
+            buildVisibility = BuildVisibility.shown;
+        }};
+
+        // 激光反射镜
+        laserMirror = new LaserMirror("laser-mirror"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 50,
+                Items.lead, 30
+            ));
+            buildVisibility = BuildVisibility.shown;
+        }};
+
+        // 石墨工厂（可旋转制造机）
+        graphiteFactory = new RotatableCrafter("graphite-factory"){{
+            requirements(Category.crafting, ItemStack.with(
+                Items.copper, 100,
+                Items.lead, 50
+            ));
+            buildVisibility = BuildVisibility.shown;
+
+            // 配方：煤炭 → 石墨
+            craftTime = 120f;
+            outputItem = new ItemStack(Items.graphite, 1);
+            consumeItem(Items.coal, 1);
+        }};
+
+        // 岩芯钻机
+        rockCoreDrill = new RockCoreDrill("rock-core-drill"){{
+            requirements(Category.production, ItemStack.with(
+                    Items.copper, 80,
+                    Items.lead, 60,
+                    Items.graphite, 40
+            ));
+            // 基础属性
+            size = 2;
+            tier = 3;
+            drillTime = 1120f;      // 单个钻头挖掘时间
+            warmupSpeed = 0.015f;
+
+            // 定义4个钻孔的偏移坐标（相对于方块中心，单位：像素）
+            // size=2时，方块大小为64x64像素，中心点偏移4像素到四个象限
+            drillCount = 4;
+            drillOffsetX = new float[]{-4f, 4f, -4f, 4f};
+            drillOffsetY = new float[]{-4f, -4f, 4f, 4f};
+
+            // 可选：设置每个钻孔的转速乘数（默认都是1.0f）
+            drillSpeedMultipliers = new float[]{1.0f, 1.0f, 1.0f, 1.0f};
+
+            // 可选：设置显示效果
+            drawMultipleDrills = true;
+            drawMineItem = true;
+
+            // 启用液体强化
+            liquidBoostIntensity = 1.6f;  // 2.56倍速度提升
+
+            // 添加液体消耗（水）
+            consume(new ConsumeLiquid(Liquids.water, 4f / 60f){{
+                optional = true;   // 可选，不是必需的
+                booster = true;    // 标记为强化剂
+            }}); // 6/秒，转换为每帧消耗
+        }};
+
+// 电线杆
+        powerPole = new PowerPole("power-pole"){{
+            requirements(Category.power, ItemStack.with(
+                    Items.copper, 30,
+                    Items.lead, 20
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+
+            laserRange = 48f;        // 连接范围12格
+            maxNodes = Integer.MAX_VALUE;           // 最大连接数
+            lineCount = 4;           // 4个线轴
+            lineSpacing = 12f;       // 间距12像素
+            lineRadius = 8f;         // 点击检测半径
+            areaRange = 25f;  // 区域连接范围25格（正方形）
+
+
+            laserColor1 = Color.valueOf("ffcc66");
+            laserColor2 = Color.valueOf("ffaa44");
+        }};
+// 低伤害密集弹幕炮台
+        drizzle = new ItemTurret("drizzle"){{
+            size = 2;
+            health = 900;
+            armor = 3;
+            requirements(Category.turret, ItemStack.with(
+                    Items.copper, 30,
+                    Items.lead, 20
+            ));
+            // 射击参数 - 高射速密集弹幕
+            reload = 3f;                    // 3帧一发，每秒约20发
+            range = 200f;                    // 射程
+            inaccuracy = 8f;                 // 散布角度，形成弹幕效果
+            recoil = 0.8f;                   // 后坐力
+            recoilTime = 10f;                // 后坐力恢复时间
+            rotateSpeed = 6f;                // 旋转速度
+
+            // 弹药容量
+            maxAmmo = 40;
+            ammoPerShot = 1;
+
+            // 音效
+            shootSound = Sounds.shootSap;
+            shootSoundVolume = 0.5f;
+
+            // 特效
+            shootEffect = Fx.none;
+            smokeEffect = Fx.none;
+
+            // 视觉效果
+            heatColor = Color.valueOf("00000000");
+            outlineColor = Color.valueOf("00000000");
+            shootY = 5f;
+
+            // 始终解锁（调试用，正式可改为false）
+            alwaysUnlocked = true;
+            buildTime = 90f;
+
+            coolant = new ConsumeCoolant(0.1f);
+
+            // 弹药定义
+            ammo(
+                    VEItems.iron, new BasicBulletType(){{
+                        sprite = "proxima-ice-shard";
+                        width = 3f;
+                        height = 3f;
+                        shrinkY = 0f;
+
+                        // 颜色
+                        hitColor = lightColor = frontColor = backColor = trailColor = Color.valueOf("D0D0D0FF");
+
+                        // 弹道效果
+                        trailWidth = 0.8f;
+                        trailLength = 4;
+
+                        // 伤害参数 - 低伤害
+                        damage = 12f;
+                        armorMultiplier = 0.5f;
+
+                        // 飞行参数
+                        speed = 9f;
+                        lifetime = 22f;              // 射程约198
+                        rangeOverride = 200f;
+
+                        // 弹幕效果 - 可穿透
+                        pierce = false;
+
+                        // 特效
+                        shootEffect = Fx.shootSmall;
+                        hitEffect = Fx.hitBulletSmall;
+                        despawnEffect = Fx.hitBulletSmall;
+                        hitSound = Sounds.shieldHit;
+
+                        // 弹药倍率
+                        ammoMultiplier = 5f;         // 每次消耗1个弹药产生5发子弹
+                    }},
+
+                    VEItems.manganese, new BasicBulletType(){{
+                        sprite = "proxima-ice-shard";
+                        width = 3f;
+                        height = 3f;
+                        shrinkY = 0f;
+
+                        hitColor = lightColor = frontColor = backColor = trailColor = Color.valueOf("E35745FF");
+
+                        trailWidth = 0.8f;
+                        trailLength = 5;
+
+                        // 更低的伤害，但更高射速
+                        damage = 8f;
+                        armorMultiplier = 0.3f;
+
+                        speed = 11f;
+                        lifetime = 18f;
+                        rangeOverride = 198f;
+
+                        // 电击特效
+                        statusDuration = 20f;
+
+                        shootEffect = Fx.shootSmallColor;
+                        hitEffect = Fx.hitLaserColor;
+                        despawnEffect = Fx.hitLaserColor;
+                        hitSound = Sounds.door;
+
+                        ammoMultiplier = 8f;
+                    }}
+            );
+        }};
+    }
+}
