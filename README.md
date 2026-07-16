@@ -19,6 +19,10 @@ MultiCraft Lib [here](https://github.com/ls-hdu/multi-crafter-lib).\
 A Java multicrafter library made by Ls.\
 There are also other new Java-typed blocks.\
 \
+ProximaCentauri [here](https://github.com/128OTEML/ProximaCentauri)\
+A Java mod made by 128_OTEML.\
+It had been merged into this one as a Java extension.\
+\
 Original Java architecture [here](https://github.com/Anuken/MindustryKotlinModTemplate).\
 The reorganized Java architecture made by 128_OTEML.\
 Before that, the mod's architecture was a bit buggy.
