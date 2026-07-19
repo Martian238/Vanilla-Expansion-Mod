@@ -4,23 +4,29 @@ import VanillaExpansion.expand.graphics.AsteroidBeltMesh;
 import VanillaExpansion.expand.graphics.ZAxisSkyMesh;
 import VanillaExpansion.expand.maps.ProximaPlanetGenerator;
 import arc.graphics.Color;
+import mindustry.Vars;
 import mindustry.content.Blocks;
-import mindustry.graphics.g3d.HexMesh;
-import mindustry.graphics.g3d.MultiMesh;
+import mindustry.graphics.g3d.*;
 import mindustry.type.Planet;
+import mindustry.world.meta.Attribute;
+import mindustry.world.meta.Env;
+
+import static mindustry.Vars.content;
+import static mindustry.gen.Musics.game4;
+import static mindustry.gen.Musics.game8;
 
 /**
  * 比邻星内容定义类
  */
 public class VEPlanets {
 
-    /** 比邻星星球实例 */
+    /** 星球实例 */
     public static Planet proxima;
 
     /** 加载行星定义 */
     public static void load() {
-        // 创建比邻星星球（离太阳最近的行星）
-        proxima = new Planet("proxima", mindustry.content.Planets.sun, 1f, 3) {{
+        Planet sol2 = content.planet("ve-sol2");
+        proxima = new Planet("proxima", sol2, 1f, 3) {{
             // 设置生成器
             generator = new ProximaPlanetGenerator();
             
@@ -38,7 +44,7 @@ public class VEPlanets {
             );
             
             // 直接设置轨道半径（星球到太阳的距离）
-            orbitRadius = 25f;
+            orbitRadius = 45f;
             
             // 设置轨道偏移角度，使行星正对太阳（角度0表示向右，正对太阳）
             orbitOffset = 0f;
@@ -82,5 +88,7 @@ public class VEPlanets {
             // 设置颜色主题
             landCloudColor = Color.valueOf("87CEEB").a(0.5f);
         }};
+        sol2.children.add(proxima);
+        proxima.solarSystem = sol2;
     }
 }

@@ -48,15 +48,17 @@ public class VanillaExpansionMod extends Mod {
             }
         });
     }
-    //@Override
-    //public void loadContent(){
-        //VanillaExpansion.content.VEStuffTypes.load();
-        //VanillaExpansion.effects.SpecialDeathEffects.load();
-        //VanillaExpansion.expand.special.SpecialContent.load();
-        //VanillaExpansion.content.VEItems.load();
-        //VanillaExpansion.content.VELiquids.load();
-        //VanillaExpansion.content.VEUnitTypes.load();
-        //VanillaExpansion.content.VEBlocks.load();
-        //VanillaExpansion.content.VEPlanets.load();
-    //}
+    @Override
+    public void loadContent(){
+        Time.runTask(10f, () -> {
+          //VanillaExpansion.content.VEStuffTypes.load();
+          //VanillaExpansion.effects.SpecialDeathEffects.load();
+          //VanillaExpansion.expand.special.SpecialContent.load();
+          //VanillaExpansion.content.VEItems.load();
+          //VanillaExpansion.content.VELiquids.load();
+          //VanillaExpansion.content.VEUnitTypes.load();
+          //VanillaExpansion.content.VEBlocks.load();
+          VanillaExpansion.content.VEPlanets.load();
+        });
+    }
 }
