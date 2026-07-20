@@ -6,5 +6,6 @@
   "permanent": false,
   "buildSpeedMultiplier": 0,
   "applyEffect": "none",
-  "show": true
+  "show": true,
+  "generateIcons": false
 }

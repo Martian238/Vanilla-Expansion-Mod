@@ -8,5 +8,6 @@
   "healthMultiplier": 0.75,
   "show": true,
   "effect": "freezing",
-  "applyEffect": "none"
+  "applyEffect": "none",
+  "generateIcons": false
 }

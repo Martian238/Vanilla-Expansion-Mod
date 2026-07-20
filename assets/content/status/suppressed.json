@@ -18,5 +18,6 @@
   "damageMultiplier": 0.9,
   "applyEffect": "none",
   "show": true,
-  "effectChance": 0.01
+  "effectChance": 0.01,
+  "generateIcons": false
 }

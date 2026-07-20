@@ -34,7 +34,7 @@
   },
   "drawOrbit": true,
   "accessible": true,
-  "alwaysUnlocked": false,
+  "alwaysUnlocked": true,
   "launchMusic": "game4",
   "lightSrcFrom": 0.4,
   "lightSrcTo": 0.8,
@@ -67,17 +67,13 @@
     "type": "MultiMesh",
     "meshes": [
       /*{
-        "type": "HexSkyMesh",
-        "planet": "maress",
-        "seed": 78,
-        "speed": 1,
-        "radius": 0.12,
-        "divisions": 5,
-        "color": "b6a49933",
-        "octaves": 2,
-        "persistence": 0.4,
-        "scl": 0.5,
-        "thresh": 0.45
+        "type": "VanillaExpansion.expand.graphics.AsteroidBeltMesh",
+        "planet": "thavina",
+        "innerRadius": 2.5,
+        "outerRadius": 5,
+        "astroCount": 150,
+        "seed": 325,
+        "color": "6d5a61"
       }*/
     ]
   },
@@ -148,8 +144,5 @@
         "colorScale": 1.1
       }
     ]
-  },
-  /*"hiddenItems": [
-  ],*/
-  //"defaultEnv":
+  }
 }

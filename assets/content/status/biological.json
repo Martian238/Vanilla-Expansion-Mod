@@ -5,5 +5,6 @@
   "affinities": [ "silverified","corroded","burning","melting","combusting","fusing","plasma-status","plasma-status-orange","blasted","shocked" ],
   "opposites": [ "electrified","restraints","blown","suppressed","dusty","interrupted" ],
   "transitionDamage": 35,
-  "effect": "none"
+  "effect": "none",
+  "generateIcons": false
 }

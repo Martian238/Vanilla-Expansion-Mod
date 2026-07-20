@@ -7,5 +7,6 @@
   "applyEffect": "none",
   "affinities": [ "wet","freezing","muddy","corroded" ],
   "transitionDamage": 50,
-  "show": true
+  "show": true,
+  "generateIcons": false
 }

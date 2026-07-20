@@ -21,5 +21,6 @@
   "affinities": [ "shocked" ],
   "damageMultiplier": 1.05,
   "transitionDamage": -25,
-  "show": true
+  "show": true,
+  "generateIcons": false
 }

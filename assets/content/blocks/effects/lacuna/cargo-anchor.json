@@ -58,7 +58,13 @@
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-industry-idle",
         "layer": 99.99
-      }
+      },
+      "objectives": [
+        {
+          "type": "SectorComplete",
+          "preset": "icy-boundary"
+        }
+      ]
     },
     {
       "inputItems": [ "silver/20","red-soil/100" ],
@@ -68,7 +74,13 @@
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-industry-idle",
         "layer": 99.99
-      }
+      },
+      "objectives": [
+        {
+          "type": "SectorComplete",
+          "preset": "icy-boundary"
+        }
+      ]
     }
     //protocol 7-8
     {
@@ -79,7 +91,14 @@
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-protocol-idle",
         "layer": 99.99
-      }
+      },
+      "objectives": [
+        "astro-plate",
+        {
+          "type": "SectorComplete",
+          "preset": "icy-boundary"
+        }
+      ]
     },
     {
       "inputItems": [ "silver/100","tantalum/40","silicon/80" ],
@@ -89,7 +108,14 @@
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-protocol-idle",
         "layer": 99.99
-      }
+      },
+      "objectives": [
+        "phecteel",
+        {
+          "type": "SectorComplete",
+          "preset": "icy-boundary"
+        }
+      ]
     }
   ],
   "squareSprite": false,

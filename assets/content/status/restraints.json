@@ -20,5 +20,6 @@
     "randLength": false,
     "interp": "circleOut",
     "particles": 2
-  }
+  },
+  "generateIcons": false
 }

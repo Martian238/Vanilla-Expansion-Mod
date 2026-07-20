@@ -52,6 +52,7 @@ newSector("hardcore-intervalley", Planets.tantros, 0);
 log("phocommunity");
 newSector("community-entrance", Planets.tantros, 0);
 newSector("community-huoshankou", Planets.tantros, 0);
+newSector("community-chiyanheliu", Planets.tantros, 0);
 newSector("community-lieguqianshao", Planets.tantros, 0);
 newSector("community-leimingliegu", Planets.tantros, 0);
 newSector("community-xingyunpendi", Planets.tantros, 0);

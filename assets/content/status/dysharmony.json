@@ -53,5 +53,6 @@
   "parentizeEffect": true,
   "opposites": [ "coordinate" ],
   "affinities": [ "fusing" ],
-  "transitionDamage": 100
+  "transitionDamage": 100,
+  "generateIcons": false
 }

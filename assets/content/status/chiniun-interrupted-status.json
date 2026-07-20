@@ -46,5 +46,6 @@
   "show": true,
   "parentizeEffect": true,
   "affinities": [ "sentry-seen" ],
-  "transitionDamage": 3000
+  "transitionDamage": 3000,
+  "generateIcons": false
 }

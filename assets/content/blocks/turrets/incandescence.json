@@ -149,6 +149,9 @@
     "fragVelocityMin": 1,
     "hitSound": "explosionArtillery",
     "despawnSound": "explosionArtillery",
+    "pierce": true,
+    "pierceBuilding": false,
+    "pierceCap": 2,
     "fragBullet": {
       "sprite": "circle-bullet",
       "width": 8,
@@ -220,7 +223,7 @@
       "type": "ConsumeCoolant",
       "amount": 0.5
     },*/
-    "power": 3.333333333
+    "power": 2.333333333
   },
   "shownPlanets": [ "maress","thavina" ],
   "drawer": {

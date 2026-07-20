@@ -33,5 +33,6 @@
   "effectChance": 0.01,
   "parentizeApplyEffect": true,
   "applyExtend": true,
-  "opposites": [ "interrupted" ]
+  "opposites": [ "interrupted" ],
+  "generateIcons": false
 }

@@ -12,7 +12,8 @@
       "spawnUnit": "pantype-missile",
       "shootEffect": "launchPod",
       "smokeEffect": "drillSteam",
-      "speed": 99999
+      "speed": 99999,
+      "buildingDamageMultiplier": 0.25
     },
     "thorium": {
       "ammoMultiplier": 1,
@@ -21,7 +22,8 @@
       "spawnUnit": "pantype-missile-thorium",
       "shootEffect": "launchPod",
       "smokeEffect": "drillSteam",
-      "speed": 99999
+      "speed": 99999,
+      "buildingDamageMultiplier": 0.1
     },
     "nitroalkoss": {
       "ammoMultiplier": 4,
@@ -30,7 +32,8 @@
       "spawnUnit": "pantype-missile-nitroalkoss",
       "shootEffect": "launchPod",
       "smokeEffect": "drillSteam",
-      "speed": 99999
+      "speed": 99999,
+      "buildingDamageMultiplier": 0.5
     },
     "silicide": {
       "ammoMultiplier": 1,
@@ -39,7 +42,8 @@
       "spawnUnit": "pantype-missile-silicide",
       "shootEffect": "launchPod",
       "smokeEffect": "drillSteam",
-      "speed": 99999
+      "speed": 99999,
+      "buildingDamageMultiplier": 0.25
     },
     "silicon": {
       "ammoMultiplier": 1,
@@ -48,7 +52,8 @@
       "spawnUnit": "pantype-missile-silicon",
       "shootEffect": "launchPod",
       "smokeEffect": "drillSteam",
-      "speed": 99999
+      "speed": 99999,
+      "buildingDamageMultiplier": 0.25
     },
     "phase-fabric": {
       "ammoMultiplier": 2,
@@ -57,7 +62,8 @@
       "spawnUnit": "pantype-missile-phase",
       "shootEffect": "launchPod",
       "smokeEffect": "drillSteam",
-      "speed": 99999
+      "speed": 99999,
+      "buildingDamageMultiplier": 0.25
     },
     "surge-alloy": {
       "ammoMultiplier": 2,
@@ -66,7 +72,8 @@
       "spawnUnit": "pantype-missile-surge",
       "shootEffect": "launchPod",
       "smokeEffect": "drillSteam",
-      "speed": 99999
+      "speed": 99999,
+      "buildingDamageMultiplier": 0.25
     },
     "warp-nucleus": {
       "ammoMultiplier": 4,
@@ -75,7 +82,8 @@
       "spawnUnit": "pantype-missile-warp",
       "shootEffect": "launchPod",
       "smokeEffect": "drillSteam",
-      "speed": 99999
+      "speed": 99999,
+      "buildingDamageMultiplier": 0.25
     }
   },
   "recoil": 0,

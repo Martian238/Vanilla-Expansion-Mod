@@ -25,5 +25,6 @@
   "effectChance": 1,
   "parentizeApplyEffect": true,
   "applyExtend": false,
-  "opposites": [ "suppressed","dysharmony","sentry-seen","chiniun-interrupted-status" ]
+  "opposites": [ "suppressed","dysharmony","sentry-seen","chiniun-interrupted-status" ],
+  "generateIcons": false
 }

@@ -5,5 +5,6 @@
   "permanent": false,
   "buildSpeedMultiplier": 0.01,
   "applyEffect": "mineHuge",
-  "show": true
+  "show": true,
+  "generateIcons": false
 }

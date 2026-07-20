@@ -13,7 +13,7 @@
     "objectives": [
       {
         "type": "OnSector",
-        "preset": "cross-forest"
+        "preset": "warp-tech-base"
       }
     ]
   },

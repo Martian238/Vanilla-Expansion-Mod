@@ -19,5 +19,6 @@
   "opposites": [ "burning","melting","corroded","blown","suppressed","combusting",
   "gatling-accel1","gatling-accel2","gatling-accel3","gatling-accel4","gatling-accel5","gatling-accel6","gatling-accel7","gatling-accel8","gatling-accel9","gatling-accel10","gatling-accel11","gatling-accel12","gatling-accel13","gatling-accel14","gatling-accel15" ],
   "affinities": [ "sodiumified","sentry-seen" ],
-  "transitionDamage": 300
+  "transitionDamage": 300,
+  "generateIcons": false
 }

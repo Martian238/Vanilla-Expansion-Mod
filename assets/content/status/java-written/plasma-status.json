@@ -29,5 +29,6 @@
   "applyExtend": true,
   "opposites": [ "freezing","wet","muddy","frozen" ],
   "affinities": [ "shocked","spore-slowed","tarred","corroded" ],
-  "transitionDamage": 100
+  "transitionDamage": 100,
+  "generateIcons": false
 }

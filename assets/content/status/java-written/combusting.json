@@ -7,5 +7,6 @@
   "effect": "burning",
   "applyEffect": "none",
   "damage": 2.5,
-  "effectChance": 1
+  "effectChance": 1,
+  "generateIcons": false
 }

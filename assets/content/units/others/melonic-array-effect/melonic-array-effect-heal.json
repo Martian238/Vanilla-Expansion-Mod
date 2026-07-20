@@ -15,6 +15,8 @@
   "speed": 0,
   "health": 999999,
   "armor": 0,
+  "immunities": [ "watermelon","blown","burning","disarmed","sapped","electrified",
+    "melting","wet","freezing","frozen","sentry-seen","combusting","fusing","blasted","shocked","killed" ],
   "deathSound": "none",
   "deathExplosionEffect": "none",
   "deathShake": 0,

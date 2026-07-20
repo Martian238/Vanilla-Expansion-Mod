@@ -19,7 +19,8 @@
   "allowLaunchLoadout": true,
   "originalPosition": 223,
   "showHidden": true,
-  "requireUnlock": false
+  "requireUnlock": false,
+  "generateIcons": false
 }
 
 

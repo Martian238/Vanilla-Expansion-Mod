@@ -15,5 +15,6 @@
     "maxVolume": 1,
     "minVolume": 1,
     "effect": "none"
-  }
+  },
+  "generateIcons": false
 }

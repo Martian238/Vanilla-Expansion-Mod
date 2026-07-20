@@ -24,7 +24,8 @@
   "addStartingItems": false,
   "isLastSector": false,
   "allowLaunchSchematics": true,
-  "allowLaunchLoadout": true
+  "allowLaunchLoadout": true,
+  "generateIcons": false
 }
 
 

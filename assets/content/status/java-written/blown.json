@@ -7,5 +7,6 @@
   "show": true,
   "effect": "none",
   "applyEffect": "none",
-  "healthMultiplier": 0.9
+  "healthMultiplier": 0.9,
+  "generateIcons": false
 }

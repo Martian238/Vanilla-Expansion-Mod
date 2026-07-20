@@ -10,7 +10,7 @@
   "targetHealing": true,
   "shootType": {
   /*
-  1 shockwave 0.1
+  1 shockwave 0.15
   2 electric balls 0.2
   3 repair units 0.1
   4 repair buildings 0.2
@@ -24,13 +24,13 @@
     "speed": 999,
     "bullets": [
       {//shockwave
-        "createChance": 0.1,
+        "createChance": 0.15,
         "speed": 0,
         "hittable": false,
         "absorbable": false,
         "collides": false,
         "reflectable": false,
-        "lifetime": 20,
+        "lifetime": 30,
         "parts": [
           {
             "type": "ShapePart",
@@ -68,12 +68,25 @@
         "fragSpread": 1,
         "fragOffsetMax": 0,
         "fragOffsetMin": 0,
-        "despawnShake": 8,
-        "hitShake": 8,
-        "hitSound": "jsabBossPunch",
-        "despawnSound": "jsabBossPunch",
+        "despawnShake": 10,
+        "hitShake": 10,
+        "hitSound": "shootBeamPlasma",
+        "despawnSound": "shootBeamPlasma",
         "despawnHit": true,
         "despawnEffect": "none",
+        "spawnBullets": [
+          {
+            "instantDisappear": true,
+            "damage": 0,
+            "hitEffect": "none",
+            "despawnEffect": "none",
+            "collides": false,
+            "hittable": false,
+            "absorbable": false,
+            "despawnSound": "chargeVelaFast",
+            "hitSoundPitchRange": 0
+          }
+        ],
         "hitEffect": [
           {
             "type": "WaveEffect",
@@ -91,9 +104,9 @@
           "lifetime": 200,
           "hitSize": 20,
           "collideTerrain": true,
-          "knockback": 1,
+          "knockback": 2,
           "impact": true,
-          "damage": 15,
+          "damage": 40,
           "armorMultiplier": 0.5,
           "trailInterval": 1,
           "trailEffect": [
@@ -180,6 +193,8 @@
         "despawnHit": true,
         "hitEffect": "none",
         "despawnEffect": "none",
+          "despawnSound": [ "roTurretShoot1","roTurretShoot2" ],
+          "hitSoundVolume": 0.3,
         "parts": [
           {
         "type": "EffectSpawnerPart",
@@ -225,15 +240,20 @@
         "shrinkY": -0.1,
         "shrinkX": -0.1,
         "hitSize": 18,
-        "splashDamage": 100,
+        "splashDamage": 150,
         "splashDamageRadius": 32,
-        "damage": 100,
+        "damage": 200,
         "despawnSound": "explosionArtilleryShock",
         "hitSound": "explosionArtilleryShock",
         "hitShake": 3,
         "despawnShake": 2,
         "despawnHit": true,
         "despawnEffect": "none",
+          "lightning": 3,
+          "lightningDamage": 30,
+          "lightningLength": 10,
+          "lightningLengthRand": 2,
+          "lightningColor": "ff5555",
         "hitEffect": {
           "type": "ExplosionEffect",
           "waveColor": "ff5555",
@@ -248,10 +268,10 @@
         },
         "intervalBullet": {
           "type": "LightningBulletType",
-          "lightningLength": 4,
+          "lightningLength": 6,
           "lightningLengthRand": 2,
           "lightningColor": "ff5555",
-          "damage": 12,
+          "damage": 30,
           "hitColor": "ff5555",
           "createChance": 0.5
         },
@@ -268,6 +288,7 @@
         "instantDisappear": true,
         "despawnHit": true,
         "despawnEffect": "none",
+        "despawnSound": "healWave",
         "hitEffect": [
           {
             "type": "WaveEffect",
@@ -313,6 +334,7 @@
         "instantDisappear": true,
         "despawnHit": true,
         "despawnEffect": "none",
+        "despawnSound": "healWave",
         "hitEffect": [
         ],
         "despawnEffect": "none",
@@ -332,7 +354,8 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
-        "despawnUnit": "melonic-array-effect-heal"
+        "despawnUnit": "melonic-array-effect-heal",
+        "despawnSound": "healWave"
       },
       {//apply watermelon
         "createChance": 0.1,
@@ -345,7 +368,8 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
-        "despawnUnit": "melonic-array-effect-watermelon"
+        "despawnUnit": "melonic-array-effect-watermelon",
+        "despawnSound": "shieldWave"
       },
       {//apply shielded
         "createChance": 0.1,
@@ -358,7 +382,8 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
-        "despawnUnit": "melonic-array-effect-shielded"
+        "despawnUnit": "melonic-array-effect-shielded",
+        "despawnSound": "shieldWave"
       },
       {//apply accel
         "type": "MultiBulletType",
@@ -374,6 +399,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel1"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -385,6 +411,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel2"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -396,6 +423,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel3"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -407,6 +435,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel4"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -418,6 +447,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel5"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -429,6 +459,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel6"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -440,6 +471,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel7"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -451,6 +483,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel8"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -462,6 +495,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel9"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -473,6 +507,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel10"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -495,6 +530,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel12"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -506,6 +542,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
+
         "despawnUnit": "melonic-array-effect-accel13"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
@@ -517,7 +554,7 @@
         "despawnHit": true,
         "despawnEffect": "none",
         "hitEffect": "none",
-        "despawnUnit": "melonic-array-effect-accel14"},
+       "despawnUnit": "melonic-array-effect-accel14"},
         {"createChance": 0.1,//accelchance
         "speed": 0,
         "hittable": false,

@@ -9,5 +9,6 @@
   "permanent": false,
   "buildSpeedMultiplier": 3,
   "applyEffect": "blastExplosion",
-  "show": true
+  "show": true,
+  "generateIcons": false
 }

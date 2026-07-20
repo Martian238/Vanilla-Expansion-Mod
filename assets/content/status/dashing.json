@@ -4,5 +4,6 @@
   "speedMultiplier": 8,
   "show": false,
   "effect": "none",
-  "applyEffect": "none"
+  "applyEffect": "none",
+  "generateIcons": false
 }

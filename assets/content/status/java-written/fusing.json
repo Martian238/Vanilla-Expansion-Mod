@@ -9,5 +9,6 @@
   "speedMultiplier": 0.5,
   "dragMultiplier": 1.5,
   "effectChance": 0.5,
-  "opposites": [ "dysharmony" ]
+  "opposites": [ "dysharmony" ],
+  "generateIcons": false
 }

@@ -102,7 +102,7 @@
         "hitColor": "f4ba6e",
         "splashDamage": 400,
         "splashDamageRadius": 80,
-        "buildingDamageMultiplier": 0.5,
+        "buildingDamageMultiplier": 0.25,
         "damage": 400,
         "fragLifeMin": 0.1,
         "fragBullets": 7,

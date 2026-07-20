@@ -16,5 +16,6 @@
     "interp": "circleOut",
     "lifetime": 60
   },
-  "parentizeApplyEffect": true
+  "parentizeApplyEffect": true,
+  "generateIcons": false
 }

@@ -23,5 +23,6 @@
     "effect": "hitLaserBlast"
   },
   "effectChance": 0.5,
-  "parentizeEffect": true
+  "parentizeEffect": true,
+  "generateIcons": false
 }

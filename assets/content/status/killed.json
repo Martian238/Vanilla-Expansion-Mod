@@ -5,5 +5,6 @@
   "applyEffect": "none",
   "damage": 2147483247,
   "healthMultiplier": 0.000001,
-  "effectChance": 0
+  "effectChance": 0,
+  "generateIcons": false
 }

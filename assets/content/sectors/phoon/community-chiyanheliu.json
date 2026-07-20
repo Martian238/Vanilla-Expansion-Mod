@@ -1,13 +1,13 @@
 {
-  "planet": "cyclant",
-  "sector": 222,
-  "difficulty": 4,
+  "planet": "phoon",
+  "sector": 25,
+  "difficulty": 8,
   "research": {
-    "parent": "fort-port",
-    "objectives": [ 
+    "parent": "community-huoshankou",
+    "objectives": [
       {
         "type": "SectorComplete",
-        "preset": "fort-port"
+        "preset": "shale-quarry"
       }
     ]
   },
@@ -16,8 +16,7 @@
   "addStartingItems": false,
   "isLastSector": false,
   "allowLaunchSchematics": true,
-  "allowLaunchLoadout": true,
-  "generateIcons": false
+  "allowLaunchLoadout": true
 }
 
 

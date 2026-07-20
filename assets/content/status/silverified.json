@@ -4,5 +4,6 @@
   "affinities": [ "shocked" ],
   "opposites": [ "melting","fusing" ],
   "transitionDamage": 5,
-  "effect": "none"
+  "effect": "none",
+  "generateIcons": false
 }

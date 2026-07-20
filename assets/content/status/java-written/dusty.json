@@ -19,5 +19,6 @@
     "particles": 1
   },
   "applyEffect": "none",
-  "parentizeEffect": true
+  "parentizeEffect": true,
+  "generateIcons": false
 }

@@ -17,7 +17,8 @@
   "isLastSector": false,
   "allowLaunchSchematics": true,
   "allowLaunchLoadout": true,
-  "originalPosition": 225
+  "originalPosition": 225,
+  "generateIcons": false
 }
 
 

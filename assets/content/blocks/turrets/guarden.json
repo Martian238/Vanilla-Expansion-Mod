@@ -158,7 +158,7 @@
       "type": "ConsumeCoolant",
       "amount": 0.4
     },
-    "power": 3.5
+    "power": 5.5
   },
   "shownPlanets": [ "maress","sitrullus","thavina" ],
   "drawer": {

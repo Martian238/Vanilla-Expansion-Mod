@@ -18,7 +18,8 @@
   "allowLaunchSchematics": true,
   "allowLaunchLoadout": true,
   "showHidden": true,
-  "requireUnlock": false
+  "requireUnlock": false,
+  "generateIcons": false
 }
 
 

@@ -11,7 +11,8 @@
   "isLastSector": true,
   "allowLaunchSchematics": true,
   "allowLaunchLoadout": false,
-  "alwaysUnlocked": true
+  "alwaysUnlocked": true,
+  "generateIcons": false
 }
 
 
