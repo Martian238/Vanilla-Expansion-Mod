@@ -195,6 +195,38 @@
       "cooldownTime": 20,
       "heatColor": "ffffffee",
       "recoilTime": 6,
+      "parts": [
+        {
+          "type": "ShapePart",
+          "radius": 5.2,
+          "stroke": 2.5,
+          "color": "98ffa9",
+          "layer": 110,
+          "circle": true,
+          "hollow": true
+        },
+        {
+          "type": "ShapePart",
+          "radius": 1.5,
+          "color": "98ffa9",
+          "layer": 110,
+          "circle": true
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "98ffa9",
+          "layer": 110,
+          "shapes": 4,
+          "haloRotation": 0,
+          "haloRadius": 7.5,
+          "triLength": 3,
+          "triLengthTo": 3,
+          "radius": 5.6,
+          "tri": true,
+          "haloRotateSpeed": 0.5
+        }
+      ],
       "bullet": {
         //"type": "LaserBoltBulletType",
         "speed": 16,

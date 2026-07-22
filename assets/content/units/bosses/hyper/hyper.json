@@ -82,7 +82,6 @@
     }
   ],
   //radius384->576->800
-  "clipSize": 880,
   "parts": [
     {
       "type": "ShapePart",
@@ -163,7 +162,7 @@
             "lifetime": 10,
             "followParent": true,
             "lightOpacity": 0,
-            "clip": 880
+            "clip": 3000
           },
           {
             "type": "WaveEffect",
@@ -176,7 +175,7 @@
             "sides": 48,
             "lifetime": 10,
             "followParent": true,
-            "clip": 880
+            "clip": 3000
           }
         ]
       },
@@ -228,7 +227,7 @@
             "lifetime": 120,
             "followParent": true,
             "interp": "circleOut",
-            "clip": 880
+            "clip": 3000
           },
           {
             "type": "WaveEffect",
@@ -242,7 +241,7 @@
             "lifetime": 60,
             "followParent": true,
             "interp": "circleOut",
-            "clip": 880
+            "clip": 3000
           },
           {
             "type": "WaveEffect",
@@ -256,7 +255,7 @@
             "lifetime": 60,
             "followParent": true,
             "interp": "circleOut",
-            "clip": 880
+            "clip": 3000
           },
           {
             "type": "WaveEffect",
@@ -269,7 +268,7 @@
             "sides": 48,
             "lifetime": 120,
             "followParent": true,
-            "clip": 880
+            "clip": 3000
           },
           {
             "type": "WaveEffect",
@@ -282,7 +281,7 @@
             "sides": 48,
             "lifetime": 30,
             "followParent": true,
-            "clip": 880
+            "clip": 3000
           },
           {
             "type": "WaveEffect",
@@ -296,7 +295,7 @@
             "lifetime": 120,
             "followParent": true,
             "interp": "circleIn",
-            "clip": 880
+            "clip": 3000
           },
           {
             "type": "ParticleEffect",
@@ -310,7 +309,7 @@
             "baseLength": 7,
             "layer": 110,
             "interp": "circleOut",
-            "clip": 880
+            "clip": 3000
           },
           {
             "type": "ParticleEffect",
@@ -326,7 +325,7 @@
             "sizeInterp": "linear",
             "interp": "linear",
             "followParent": true,
-            "clip": 880
+            "clip": 3000
           },
           {
             "type": "WaveEffect",
@@ -339,7 +338,7 @@
             "sides": 48,
             "lifetime": 10,
             "followParent": true,
-            "clip": 880
+            "clip": 3000
           }
         ]
       },
@@ -349,11 +348,11 @@
     {
       "type": "ShieldArcAbility",
       "cooldown": 120,
-      "regen": 10,
-      "max": 80000,//20000
+      "regen": 50,
+      "max": 150000,//20000
       "angle": 135,
       "radius": 170,
-      "width": 20,
+      "width": 25,
       "whenShooting": true,
       "chanceDeflect": 1,
       "breakSound": "shieldBreak"
@@ -836,6 +835,38 @@
       "cooldownTime": 20,
       "heatColor": "ffffffee",
       "recoilTime": 6,
+      "parts": [
+        {
+          "type": "ShapePart",
+          "radius": 5.2,
+          "stroke": 2.5,
+          "color": "98ffa9",
+          "layer": 110,
+          "circle": true,
+          "hollow": true
+        },
+        {
+          "type": "ShapePart",
+          "radius": 1.5,
+          "color": "98ffa9",
+          "layer": 110,
+          "circle": true
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "98ffa9",
+          "layer": 110,
+          "shapes": 4,
+          "haloRotation": 0,
+          "haloRadius": 7.5,
+          "triLength": 3,
+          "triLengthTo": 3,
+          "radius": 5.6,
+          "tri": true,
+          "haloRotateSpeed": 0.5
+        }
+      ],
       "bullet": {
         //"type": "LaserBoltBulletType",
         "speed": 16,
@@ -943,6 +974,38 @@
       "cooldownTime": 20,
       "heatColor": "ffffffee",
       "recoilTime": 6,
+      "parts": [
+        {
+          "type": "ShapePart",
+          "radius": 5.2,
+          "stroke": 2.5,
+          "color": "98ffa9",
+          "layer": 110,
+          "circle": true,
+          "hollow": true
+        },
+        {
+          "type": "ShapePart",
+          "radius": 1.5,
+          "color": "98ffa9",
+          "layer": 110,
+          "circle": true
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "98ffa9",
+          "layer": 110,
+          "shapes": 4,
+          "haloRotation": 0,
+          "haloRadius": 7.5,
+          "triLength": 3,
+          "triLengthTo": 3,
+          "radius": 5.6,
+          "tri": true,
+          "haloRotateSpeed": 0.5
+        }
+      ],
       "bullet": {
         //"type": "LaserBoltBulletType",
         "speed": 16,
@@ -1050,6 +1113,38 @@
       "cooldownTime": 20,
       "heatColor": "ffffffee",
       "recoilTime": 6,
+      "parts": [
+        {
+          "type": "ShapePart",
+          "radius": 5.2,
+          "stroke": 2.5,
+          "color": "98ffa9",
+          "layer": 110,
+          "circle": true,
+          "hollow": true
+        },
+        {
+          "type": "ShapePart",
+          "radius": 1.5,
+          "color": "98ffa9",
+          "layer": 110,
+          "circle": true
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "98ffa9",
+          "layer": 110,
+          "shapes": 4,
+          "haloRotation": 0,
+          "haloRadius": 7.5,
+          "triLength": 3,
+          "triLengthTo": 3,
+          "radius": 5.6,
+          "tri": true,
+          "haloRotateSpeed": 0.5
+        }
+      ],
       "bullet": {
         //"type": "LaserBoltBulletType",
         "speed": 16,

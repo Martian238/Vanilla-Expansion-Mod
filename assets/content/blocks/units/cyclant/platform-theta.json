@@ -12,7 +12,8 @@
     "parent": "isomorphic-core-shard",
     "objectives": [
       "isomorphic-core-shard",
-      "ground-factory"
+      "ground-factory",
+      "salt-electrolyzer"
     ]
   },
   "itemCapacity": 1,
