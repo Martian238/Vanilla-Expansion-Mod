@@ -33,7 +33,7 @@
     "planet": "thavina"
   },
   "drawOrbit": true,
-  "accessible": true,
+  "accessible": false,
   "alwaysUnlocked": true,
   "launchMusic": "game4",
   "lightSrcFrom": 0.4,
@@ -56,7 +56,7 @@
   //"allowWaveSimulation": true,
   "allowLaunchLoadout": true,
   "launchCapacityMultiplier": 0.5,
-  "tidalLock": true,
+  "tidalLock": false,
   "prebuildBase": true,
   "radius": 0.85,
   "bloom": true,

@@ -25,10 +25,14 @@ public class VEPlanets {
 
     /** 加载行星定义 */
     public static void load() {
-        Planet sol2 = content.planet("ve-sol2");
+        Planet sol2 = content.planet("ve-sol4b");
         proxima = new Planet("proxima", sol2, 1f, 3) {{
             // 设置生成器
             generator = new ProximaPlanetGenerator();
+
+            // I GOT ANNOYED
+            visible = true;
+            accessible = false;
             
             // 设置网格加载器（六边形网格）
             meshLoader = () -> new HexMesh(this, 6);
