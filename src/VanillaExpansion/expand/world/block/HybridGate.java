@@ -1,4 +1,4 @@
-package VanillaExpansion;
+package VanillaExpansion.expand.world.block;
 
 import arc.Core;
 import arc.graphics.g2d.Draw;
