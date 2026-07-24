@@ -14,7 +14,7 @@ import mindustry.type.Planet;
  * 小行星带网格类 - 确保Z轴旋转
  */
 public class AsteroidBeltMesh implements GenericMesh {
-    private static Mat3D beltTransform = new Mat3D();
+    private static final Mat3D beltTransform = new Mat3D();
     private MultiMesh mesh;
     private Planet planet;
     public float rotateSpeed = 1.0f;
@@ -42,7 +42,11 @@ public class AsteroidBeltMesh implements GenericMesh {
         // 使用Z轴旋转
         beltTransform.rotate(Vec3.Z, Time.globalTime * rotateSpeed / 40f);
 
-        // 设置变换矩阵
+        // 设置着色器参数（CloudShader.apply() 内部需要 planet）
+        Shaders.clouds.planet = planet;
+        Shaders.clouds.lightDir.set(planet.solarSystem.position).sub(planet.position).rotate(Vec3.Y, planet.getRotation()).nor();
+        Shaders.clouds.ambientColor.set(planet.solarSystem.lightColor);
+        Shaders.clouds.alpha = params.planet == planet ? 1f - params.uiAlpha : 1f;
         Shaders.clouds.setUniformMatrix4("u_trans", beltTransform.val);
         Shaders.clouds.apply();
         
@@ -66,7 +70,7 @@ public class AsteroidBeltMesh implements GenericMesh {
         float beltHeight = 0.12f;
         int seedBase = seed;
 
-        // WarHammer 参数
+        // 参数
         float persistence = 0.58f;
         float noiseScale = 0.42f;
         float noiseMag = 18f;

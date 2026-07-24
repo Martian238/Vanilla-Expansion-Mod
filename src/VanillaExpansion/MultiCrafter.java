@@ -1,4 +1,4 @@
-package VanillaExpansion.expand.world.block;
+package VanillaExpansion;
 
 import arc.Core;
 import arc.Events;
@@ -52,7 +52,7 @@ import mindustry.world.draw.DrawBlock;
 import mindustry.world.meta.*;
 import mindustry.mod.Mods.*;
 
-import static VanillaExpansion.expand.world.block.MultiCrafter.MultiCrafterBuild.allPayloadTypes;
+import static VanillaExpansion.MultiCrafter.MultiCrafterBuild.allPayloadTypes;
 import static mindustry.Vars.*;
 
 
@@ -1518,10 +1518,7 @@ public class MultiCrafter extends HeatCrafter {
 
         public void dumpOutputs() {
             for (Item item : outputItemsSet) {
-                if (item == null) continue;
-                while (items.has(item)) {
-                    dump(item);
-                }
+                while (items.has(item) && dump(item)) {}
                 if (!items.has(item)) outputItemsSet.remove(item);
             }
 
