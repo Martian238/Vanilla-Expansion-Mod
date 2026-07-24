@@ -25,8 +25,8 @@ public class VEPlanets {
 
     /** 加载行星定义 */
     public static void load() {
-        Planet sol2 = content.planet("ve-sol4b");
-        proxima = new Planet("proxima", sol2, 1f, 3) {{
+        Planet sol4b = content.planet("ve-sol4b");
+        proxima = new Planet("proxima", sol4b, 1f, 3) {{
             // 设置生成器
             generator = new ProximaPlanetGenerator();
 
@@ -92,7 +92,7 @@ public class VEPlanets {
             // 设置颜色主题
             landCloudColor = Color.valueOf("87CEEB").a(0.5f);
         }};
-        sol2.children.add(proxima);
-        proxima.solarSystem = sol2;
+        sol4b.children.add(proxima);
+        proxima.solarSystem = sol4b;
     }
 }
