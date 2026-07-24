@@ -1,4 +1,4 @@
-package VanillaExpansion;
+package VanillaExpansion.expand.world.block;
 
 import arc.func.Prov;
 import arc.graphics.g2d.TextureRegion;
