@@ -1,7 +1,7 @@
 package VanillaExpansion;
 
 
-import VanillaExpansion.expand.world.block.MultiCrafterPayloadFragment;
+import VanillaExpansion.MultiCrafterPayloadFragment;
 import arc.Core;
 import arc.Events;
 import arc.scene.ui.layout.Table;

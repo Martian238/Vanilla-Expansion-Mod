@@ -1,6 +1,6 @@
-package VanillaExpansion.expand.world.block;
+package VanillaExpansion;
 
-import content.blocks.distributions.OmniBridge;
+import VanillaExpansion.OmniBridge;
 import mindustry.gen.Building;
 import mindustry.world.meta.BlockGroup;
 import mindustry.world.meta.Env;
@@ -13,9 +13,9 @@ public class OmniLiquidBridge extends OmniBridge {
         hasItems = false;
         hasLiquids = true;
         outputsLiquid = true;
+        canOverdrive = false;
         group = BlockGroup.liquids;
         envEnabled = Env.any;
-
         buildType = OmniLiquidBridgeBuild::new;
 
     }
@@ -27,11 +27,6 @@ public class OmniLiquidBridge extends OmniBridge {
     }
 
     public class OmniLiquidBridgeBuild extends OmniBridgeBuild {
-
-        @Override
-        public void updateTile() {
-
-        }
 
 
         @Override

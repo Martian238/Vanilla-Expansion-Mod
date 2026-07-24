@@ -1,4 +1,4 @@
-package VanillaExpansion.expand.world.block;
+package VanillaExpansion;
 
 import mindustry.gen.Building;
 import mindustry.type.Liquid;

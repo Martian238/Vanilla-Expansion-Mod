@@ -1,4 +1,4 @@
-package VanillaExpansion.expand.world.block;
+package VanillaExpansion;
 
 import arc.func.Boolf;
 import arc.graphics.g2d.Draw;
@@ -36,7 +36,8 @@ public class OmniBridge extends ItemBridge {
 
 
     public TextureRegion topRegion;
-    protected static int currentFindX, currentFindY;
+    protected static int currentFindX;
+    protected static int currentFindY;
     protected static BuildPlan currentPlan;
     protected static final Boolf<BuildPlan> planFinder = other ->
             other.block == currentPlan.block && currentPlan != other && currentFindX == other.x && currentFindY == other.y;
@@ -132,8 +133,6 @@ public class OmniBridge extends ItemBridge {
 
     public class OmniBridgeBuild extends ItemBridgeBuild {
         protected float warmup = 0f;
-
-
 
 
         @Override
@@ -260,19 +259,27 @@ public class OmniBridge extends ItemBridge {
                 link = (Integer) value;
             }
         }
-
-
-
-
-
-
         @Override
+        public void updateTile() {
+
+            boolean active = items.total() > 0 || (link != -1 && world.tile(link) != null);
+            warmup = Mathf.lerpDelta(warmup, active ? 1f : 0f, 0.1f);
+
+            super.updateTile();
+        }
+
+
+
+
+
+
+
         public void checkIncoming(){
             int idx = 0;
             while(idx < incoming.size){
                 int i = incoming.items[idx];
                 Tile other = world.tile(i);
-                if(other == null || !(other.build instanceof OmniBridgeBuild b)
+                if(other == null || other.build == null || !(other.build instanceof OmniBridgeBuild b)
                         || b.link != tile.pos() || !positionsValid(tile.x, tile.y, other.x, other.y)){
                     incoming.removeIndex(idx);
                     idx--;
@@ -314,18 +321,22 @@ public class OmniBridge extends ItemBridge {
 
         @Override
         public void drawSelect(){
-            if(linkValid(tile, world.tile(link))){
-                drawInput(world.tile(link));
+            Tile target = world.tile(link);
+            if(target != null && linkValid(tile, target)){
+                drawInput(target, true);
             }
-
-            incoming.each(pos -> drawInput(world.tile(pos)));
+            checkIncoming();
+            incoming.each(pos -> {
+                Tile other = world.tile(pos);
+                if(other != null) drawInput(other, false);
+            });
 
             Draw.reset();
         }
 
-        private void drawInput(Tile other){
+        private void drawInput(Tile other, boolean isOutput){
             if(!linkValid(tile, other, false)) return;
-            boolean linked = other.pos() == link;
+            boolean linked = isOutput;
 
             Tmp.v2.trns(tile.angleTo(other), 2f);
             float tx = tile.drawx(), ty = tile.drawy();
@@ -337,7 +348,6 @@ public class OmniBridge extends ItemBridge {
             Tile otherLink = linked ? other : tile;
             int rel = (linked ? tile : other).absoluteRelativeTo(otherLink.x, otherLink.y);
 
-            //draw "background"
             Draw.color(Pal.gray);
             Lines.stroke(2.5f);
             Lines.square(ox, oy, 2f, 45f);
@@ -346,7 +356,6 @@ public class OmniBridge extends ItemBridge {
 
             float color = (linked ? Pal.place : Pal.accent).toFloatBits();
 
-            //draw foreground colors
             Draw.color(color);
             Lines.stroke(1f);
             Lines.line(tx + Tmp.v2.x, ty + Tmp.v2.y, ox - Tmp.v2.x, oy - Tmp.v2.y);
@@ -354,7 +363,7 @@ public class OmniBridge extends ItemBridge {
             Lines.square(ox, oy, 2f, 45f);
             Draw.mixcol(color);
             Draw.color();
-            float angle = linked ? Angles.angle(tx, ty, ox, oy) : Angles.angle(ox, oy, tx, ty);
+            float angle = Angles.angle(tx, ty, ox, oy);
             Draw.rect(arrowRegion, x, y, angle);
             Draw.mixcol();
         }
