@@ -22,6 +22,7 @@ import static mindustry.Vars.*;
 public class LiquidSorter extends LiquidBlock {
     public boolean invert = false;
     public TextureRegion cross;
+    public TextureRegion bottom;
 
     public LiquidSorter(String name) {
         super(name);
@@ -29,7 +30,7 @@ public class LiquidSorter extends LiquidBlock {
         destructible = true;
         underBullets = true;
         instantTransfer = true;
-        group = BlockGroup.transportation;
+        group = BlockGroup.liquids;
         configurable = true;
         unloadable = false;
         saveConfig = true;
@@ -50,6 +51,7 @@ public class LiquidSorter extends LiquidBlock {
     public void load() {
         super.load();
         cross = Core.atlas.find(name + "-cross", "cross-full");
+        bottom = Core.atlas.find(name + "-bottom", "source-bottom");
     }
 
     @Override
@@ -76,13 +78,13 @@ public class LiquidSorter extends LiquidBlock {
 
     @Override
     public TextureRegion[] icons(){
-        return new TextureRegion[]{region};
+        return new TextureRegion[]{
+                Core.atlas.find("source-bottom"),
+                region
+        };
     }
 
-    private boolean shouldForward(Liquid liquid, Liquid sortLiquid) {
-        if (sortLiquid == null) return !invert;
-        return (liquid == sortLiquid) != invert;
-    }
+
 
     public class LiquidSorterBuild extends LiquidBuild {
         public @Nullable Liquid sortLiquid;
@@ -95,15 +97,29 @@ public class LiquidSorter extends LiquidBlock {
         }
 
         @Override
-        public void draw() {
-            if (sortLiquid == null) {
+        public void draw(){
+
+
+            Draw.rect(bottom, x, y);
+
+            if(sortLiquid == null){
                 Draw.rect(cross, x, y);
-            } else {
-                Draw.color(sortLiquid.color);
-                Fill.circle(x, y, tilesize / 2f - 0.5f);
-                Draw.color();
+            }else{
+                LiquidBlock.drawTiledFrames(size, x, y, 0f, sortLiquid, 1f);
             }
-            Draw.rect(region, x, y);
+
+            Draw.rect(block.region, x, y);
+        }
+
+        @Override
+        public void drawSelect(){
+            super.drawSelect();
+            drawItemSelection(sortLiquid);
+        }
+
+        private boolean shouldForward(Liquid liquid, Liquid sortLiquid) {
+            if (sortLiquid == null) return !invert == enabled;
+            return ((liquid == sortLiquid) != invert) == enabled;
         }
 
         private int[] getOutputDirs(Liquid liquid, int inputDir) {
@@ -120,7 +136,7 @@ public class LiquidSorter extends LiquidBlock {
 
         @Override
         public boolean acceptLiquid(Building source, Liquid liquid) {
-            if (!enabled) return false;
+
             int dir = source.relativeTo(tile.x, tile.y);
             if (dir == -1) return false;
 
@@ -161,10 +177,7 @@ public class LiquidSorter extends LiquidBlock {
             }
         }
 
-        @Override
-        public Building getLiquidDestination(Building source, Liquid liquid) {
-            return this;
-        }
+
 
         @Override
         public void updateTile() {

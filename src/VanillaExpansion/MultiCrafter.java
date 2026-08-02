@@ -589,7 +589,7 @@ public class MultiCrafter extends HeatCrafter {
                     t.row();
                     t.add("[lightgray]" + Core.bundle.get("stat.productiontime") + ":[] " + Strings.autoFixed(rec.craftTime / 60f, 3) + " " + Core.bundle.get("unit.seconds")).padTop(4);
                     if (rec.inputHeat > 0)
-                        t.add("  [lightgray]最大效率:[] " + Strings.autoFixed(rec.maxEfficiency * 100f, 0) + "%");
+                        t.add("[lightgray] "+ Core.bundle.get("stat.maxefficiency") + ": []" +Strings.autoFixed(rec.maxEfficiency * 100f, 0) + "%");
                     if (rec.attribute != null) {
                         t.row();
                         Table affTable = new Table();
@@ -1519,8 +1519,8 @@ public class MultiCrafter extends HeatCrafter {
         public void dumpOutputs() {
             for (Item item : outputItemsSet) {
                 if(item != null) {
-                    while (items.has(item)) {
-                         dump(item);
+                    while (items.has(item) && dump(item)) {
+
                     }
                     if (!items.has(item)) outputItemsSet.remove(item);
                 }
