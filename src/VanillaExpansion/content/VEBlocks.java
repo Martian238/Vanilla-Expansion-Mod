@@ -1,5 +1,6 @@
 package VanillaExpansion.content;
 
+import VanillaExpansion.expand.world.block.defense.DrawerTractorBeamTurret;
 import VanillaExpansion.expand.world.block.distribution.AdaptItemBridge;
 import VanillaExpansion.expand.world.block.distribution.Junction;
 import VanillaExpansion.expand.world.block.distribution.MechanicalArm;
@@ -13,12 +14,14 @@ import VanillaExpansion.expand.world.block.optics.LaserEmitter;
 import VanillaExpansion.expand.world.block.optics.LaserMirror;
 import VanillaExpansion.expand.world.block.optics.LaserReceiver;
 import VanillaExpansion.expand.world.block.power.*;
+import VanillaExpansion.expand.world.block.production.CoolantDrill;
 import VanillaExpansion.expand.world.block.production.RockCoreDrill;
 import VanillaExpansion.expand.world.block.production.RotatableCrafter;
 import arc.struct.*;
 import arc.graphics.Color;
 import mindustry.content.*;
 import mindustry.entities.bullet.BasicBulletType;
+import mindustry.entities.part.RegionPart;
 import mindustry.gen.Sounds;
 import mindustry.type.*;
 import mindustry.world.*;
@@ -29,6 +32,7 @@ import mindustry.world.blocks.distribution.Sorter;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.consumers.ConsumeCoolant;
 import mindustry.world.consumers.ConsumeLiquid;
+import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.BlockGroup;
 import mindustry.world.meta.BuildVisibility;
 import VanillaExpansion.expand.world.block.*;
@@ -60,6 +64,9 @@ public class VEBlocks {
     public static Block powerPole;
     //钻头
     public static Block rockCoreDrill;
+
+    //测试玩意
+    public static Block testCoolantDrill;
 
 
 
@@ -262,6 +269,21 @@ public class VEBlocks {
                 optional = true;   // 可选，不是必需的
                 booster = true;    // 标记为强化剂
             }}); // 6/秒，转换为每帧消耗
+        }};
+
+        //测试
+        testCoolantDrill = new CoolantDrill("test-coolant-drill"){{
+            size = 4;
+            buildVisibility = BuildVisibility.sandboxOnly;
+            alwaysUnlocked = true;
+            drillTime = 280f;
+            tier = 5;
+            itemCapacity = 100;
+            liquidCapacity = 200f;
+            consumePower(3f);
+            consumeCoolant(0.1f).boost();
+            liquidBoostIntensity = 1.8f;
+            rotateSpeed = 6f;
         }};
     }
 }

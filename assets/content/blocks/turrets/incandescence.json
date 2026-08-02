@@ -8,8 +8,9 @@
       "shockwave"
     ],
     "smokeEffect": "shootSmokeTitan",
-    "hitEffect": "feb380",
+    "hitColor": "feb380",
     "damage": 40,
+    "shieldDamageMultiplier": 5,
     "sprite": "circle-bullet",
     "frontColor": "ffffff",
     "backColor": "feb380",
