@@ -2,6 +2,7 @@ package VanillaExpansion.content;
 
 import VanillaExpansion.MultiCrafter;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
+import arc.struct.EnumSet;
 import mindustry.world.blocks.campaign.*;
 import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.heat.*;
@@ -15,6 +16,7 @@ import mindustry.world.blocks.units.*;
 import mindustry.world.blocks.logic.*;
 import mindustry.world.blocks.storage.*;
 import mindustry.world.blocks.sandbox.*;
+import mindustry.world.meta.BlockFlag;
 
 public class VEJSBlocks {
     public static void load() {
@@ -236,7 +238,9 @@ public class VEJSBlocks {
         new ConsumeGenerator("sweeper");
         new OverdriveProjector("overdriver");
         new MendProjector("mend-dome");
-        new GenericCrafter("team-projector-sharded");
+        new GenericCrafter("team-projector-sharded"){{
+            flags = EnumSet.of(BlockFlag.core,BlockFlag.storage,BlockFlag.generator,BlockFlag.turret,BlockFlag.factory,BlockFlag.repair,BlockFlag.battery,BlockFlag.reactor,BlockFlag.drill,BlockFlag.shield);
+        }};
         new GenericCrafter("team-projector-alpha");
         new GenericCrafter("team-projector-crux");
         new GenericCrafter("team-projector-omega");
@@ -428,7 +432,7 @@ public class VEJSBlocks {
         new ItemTurret("stab");
         new LiquidTurret("sans");
 
-        // group 31 铁炮银炮钽炮
+        // group 31 铁炮银炮
         new ItemTurret("double");
         new ItemTurret("burst");
         new ItemTurret("ash");
@@ -438,7 +442,11 @@ public class VEJSBlocks {
         new PowerTurret("guarden");
         new PowerTurret("incandescence");
         new PowerTurret("melonic-array-pillar");
+
+        //group 31.1 钽炮布炮
         new PowerTurret("stellar");
+        new TractorBeamTurret("disintegrate");
+        new ItemTurret("asylum");
 
         // group 32 原版单位载荷
         new Reconstructor("light-refabricator");

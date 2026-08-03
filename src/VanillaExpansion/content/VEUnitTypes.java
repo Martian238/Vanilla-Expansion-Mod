@@ -77,6 +77,7 @@ public class VEUnitTypes {
     public static UnitType ProtectedUnit;
     public static UnitType sprout;
 
+
     public static void load() {
         proximaCoreMech = new UnitType("proxima-core-mech") {{
             // 构造器

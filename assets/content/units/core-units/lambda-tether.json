@@ -96,6 +96,7 @@
         "hitEffect": "hitLaserBlast",
         "despawnEffect": "hitLaserBlast",
         "hitColor": "ffd37f",
+        "healColor": "ffd37f",
         "collidesTeam": true,
         /*"chargeEffect": {
           "type": "ParticleEffect",

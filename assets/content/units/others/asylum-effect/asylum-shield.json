@@ -1,0 +1,88 @@
+{
+  "isEnemy": false,
+  "drawCell": false,
+  "hidden": true,
+  "hittable": false,
+  "physics": false,
+  "flying": true,
+  "createWreck": false,
+  "wobble": false,
+  "createScorch": false,
+  "targetable": false,
+  "useUnitCap": false,
+  "drawSoftShadow": false,
+  "drawMinimap": false,
+  "speed": 0,
+  "health": 999999,
+  "immunities": [ "watermelon","blown","burning","disarmed","sapped","electrified",
+    "melting","wet","freezing","frozen","sentry-seen","combusting","fusing","blasted","shocked","killed" ],
+  "armor": 0,
+  "deathSound": "none",
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "rotateSpeed": 0,
+  "bounded": false,
+  "lightRadius": 0,
+  "engineSize": 0,
+  "drawBody": false,
+  "shadowElevation": 999,
+  "loopSound": "none",
+  "type": "missile",
+  "lifetime": 600,
+  "template": "MissileUnitType",
+  "logicControllable": true,
+  "range": 0,
+  "trailLength": 0,
+  "targetAir": false,
+  "targetGround": false,
+  "weapons": [
+    {
+      "soundPitchMax": 1,
+      "soundPitchMin": 1,
+      "shootSound": "stShield",
+      "alwaysShooting": true,
+      "controllable": false,
+      "useAttackRange": false,
+      "display": false,
+      "reload": 6000000,
+      "mirror": false,
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "bullet": {
+        "instantDisappear": true,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "hittable": false,
+        "absorbable": false,
+        "reflectable": false,
+        "collides": false
+      }
+    }
+  ],
+  "abilities": [
+    {
+      "type": "ForceFieldAbility",
+      "radius": 60,
+      "regen": 0,
+      "max": 2000,
+      "cooldown": 6000,
+      "sides": 6
+    }
+  ],
+  "parts": [
+    {
+      "type": "ShapePart",
+      "radius": 60,
+      "sides": 6,
+      "layer": 45,
+      "progress": "life",
+      "color": "ffd37f44",
+      "colorTo": "ffd37f44",
+      "radiusTo": 0,
+      "rotation": 30
+    }
+  ]
+}

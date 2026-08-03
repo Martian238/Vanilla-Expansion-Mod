@@ -117,6 +117,7 @@
         "backColor": "ffd37f",
         "frontColor": "ffd37f",
         "healAmount": 5,
+        "healColor": "ffd37f",
         "collidesTeam": true
       }
     }

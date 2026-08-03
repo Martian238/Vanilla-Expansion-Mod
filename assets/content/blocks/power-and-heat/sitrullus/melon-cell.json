@@ -10,7 +10,7 @@
   "baseExplosiveness": 0,
   "health": 40,
   "itemDuration": 1200,
-  "itemCapacity": 10,
+  "itemCapacity": 3,
   "consumes": {
     "liquid": {
       "liquid": "melon-water",

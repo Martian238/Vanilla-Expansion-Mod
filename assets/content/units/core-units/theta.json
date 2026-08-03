@@ -108,6 +108,7 @@
         "buildingDamageMultiplier": 0.01,
         "backColor": "ffd37f",
         "frontColor": "ffd37f",
+        "healColor": "ffd37f",
         "collidesTeam": true,
         "healAmount": 5
       }

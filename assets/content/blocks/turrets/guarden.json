@@ -81,7 +81,7 @@
       },
       "hitShake": 4,
       "despawnShake": 4,
-      "healPercent": 5
+      "healPercent": 1
     }
   } ],
     "homingPower": 0.4,
@@ -121,7 +121,7 @@
       "status": "electrified",
       "statusDuration": 120,
       "damage": 0,
-      "healPercent": 5
+      "healPercent": 1
     },
     "collidesTeam": true
   },

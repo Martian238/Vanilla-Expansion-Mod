@@ -1,0 +1,27 @@
+{
+  "requirements": [ "phase-fabric/20","silicon/150","graphite/60" ],
+  "category": "turret",
+  "hasPower": true,
+  "size": 3,
+  "force": 48,
+  "scaledForce": 18,
+  "range": 380,
+  "damage": 1,
+  "health": 2000,
+  "armor": 3,
+  "rotateSpeed": 12,
+  "consumes": {
+    "power": 4
+  },
+  "shootY": 5.25,
+  "laserColor": "ffd37f",
+  "research": {
+    "parent": "burst",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "slate-guardpost"
+      }
+    ]
+  }
+}

@@ -1,16 +1,7 @@
 {
   "type": "payload",
   "databaseTag": "10special-unit",
-  "research": {
-    "parent": "huge-dagger",
-    "objectives": [ 
-      {
-        "type": "SectorComplete",
-        "preset": "retreat-zone"
-      }
-    ],
-    "requirements": [ "silicon/200000","fibralt/40000","surge-alloy/20000","warp-nucleus/1000","silicide/10000" ]
-  },
+  "hidden": true,
   "isEnemy": true,
   "flying": true,
   "drag": 0.025,
@@ -28,7 +19,7 @@
   "mineTier": 7,
   "mineBeamOffset": 0,
   "clipSize": 3200,
-  "crashDamageMultiplier": 100,
+  "crashDamageMultiplier": 0,
   "wreckHealthMultiplier": 2147483247,
   "fallEffect": "blastExplosion",
   "deathExplosionEffect": {
@@ -55,8 +46,6 @@
     "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
   },
   "lightColor": "98ffa9",
-  "bounded": false,
-  "range": 960,
   "engines": [
     {
       "x": 95.25,
@@ -128,20 +117,19 @@
   "payloadCapacity": 102400,
   "deathSound": "rlElectricBlockerBreakLoud",
   "researchCostMultiplier": 0.01,
-  "faceTarget": true,
+  "faceTarget": false,
   "rotateToBuilding": false,
   "loopSound": "loopMalign",
   "loopSoundVolume": 1.5,
   "targetFlags": [
     "storage"
   ],
-  "circleTarget": false,
+  "circleTarget": true,
   "lowAltitude": false,
   /*"loopSound": "rlDarkSentryLoop",
   "loopSoundVolume": 0.25,*/
   "immunities": [ "burning","melting","electrified","interrupted","coordinate","corroded","freezing","disarmed","blown","frozen","killed" ],
   "fogRadius": 800,
-  "shownPlanets": [ "cyclant","phoon" ],
   "abilities": [
     {
       "type": "ShieldRegenFieldAbility",
@@ -170,7 +158,6 @@
             "type": "WaveEffect",
             "sizeFrom": 46,
             "sizeTo": 46,
-            "layer": 109.9,
             "colorFrom": "ffffff",
             "colorTo": "98ffa900",
             "strokeFrom": 2,
@@ -207,7 +194,7 @@
     },
     {
       "type": "RegenAbility",
-      "amount": 20
+      "amount": 10
     },
     {
       "type": "StatusFieldAbility",
@@ -334,7 +321,6 @@
             "type": "WaveEffect",
             "sizeFrom": 46,
             "sizeTo": 46,
-            "layer": 109.9,
             "colorFrom": "98ffa9",
             "colorTo": "98ffa900",
             "strokeFrom": 2,
@@ -353,7 +339,7 @@
       "type": "ShieldArcAbility",
       "cooldown": 120,
       "regen": 50,
-      "max": 300000,//20000
+      "max": 40000,//20000
       "angle": 135,
       "radius": 170,
       "width": 25,
@@ -364,54 +350,6 @@
   ],
   "drawMineBeam": false,
   "weapons": [
-    {
-      "type": "VanillaExpansion.expand.units.AttackOnlyStrongerWeapon",
-      "leastHealth": 90000,
-      "display": false,
-      "useAttackRange": false,
-      "controllable": false,
-      "autoTarget": true,
-      "reload": 1,
-      "shootSound": "none",
-      "parts": [
-        {
-          "type": "ShapePart",
-          "radius": 46,
-          "radiusTo": 46,
-          "stroke": 2,
-          "strokeTo": 3,
-          "color": "98ffa900",
-          "colorTo": "f25555",
-          "circle": true,
-          "hollow": true,
-          "layer": 110,
-          "progress": "warmup"
-        }
-      ],
-      "bullet": {
-        "instantDisappear": true,
-        "recoil": 0.07,
-        "damage": 0,
-        "hittable": false,
-        "collides": false,
-        "absorbable": false,
-        "reflectable": false,
-        "rangeOverride": 880,
-        "speed": 99999,
-        "shootEffect": "none",
-        "smokeEffect": "none",
-        "hitEffect": "none",
-        "despawnEffect": "none"
-      },
-      "recoil": 0,
-      "mirror": false,
-      "rotate": true,
-      "x": 0,
-      "rotateSpeed": 90
-    },
-
-
-
     {
       "type": "BuildWeapon",
       "rotate": false,
@@ -455,24 +393,23 @@
           "colorTo": "98ffa9",
           "circle": true,
           "hollow": true,
-          "layer": 109.9,
+          "layer": 110,
           "progress": "warmup"
         }
       ],
       "shootWarmupSpeed": 0.015,
+      //"shootStatus": "fast",
+      //"shootStatusDuration": 410,
       "reload": 120,
       "rotate": false,
       "recoil": 0,
       "shootCone": 361,
       "ejectEffect": "none",
       "continuous": true,
-      "controllable": false,
-      "autoTarget": true,
       "shootSound": "si2OverchargedLaserLoop",
       "chargeSound": "lbp3PowerUp",
       "parentizeEffects": true,
       "initialShootSound": "shootBeamPlasma",
-      "useAttackRange": false,
       "bullet": {
         "spawnBullets": [ {
           "despawnSound": "none",
@@ -620,6 +557,7 @@
         },
         //"width": 20,
         //"divisions": 24,
+        "lightColor": "98ffa9",
         "bulletInterval": 1,
         "intervalBullets": 1,
         "intervalBullet": {
@@ -702,7 +640,6 @@
       "shootY": 0,
       "rotate": true,
       "shootSound": "shootMalign",
-      "useAttackRange": false,
       "ejectEffect": "none",
       "rotateSpeed": 10,
       "targetSwitchInterval": 1,
@@ -767,7 +704,7 @@
         "lifetime": 120,
         "damage": 800,
         "splashDamage": 1000,
-        "armorMultiplier": -1000,
+        "armorMultiplier": -10,
         "splashDamageRadius": 80,
         "scaleLife": true,
         "collides": false,
@@ -935,7 +872,7 @@
         "hittable": false,
         "reflectable": false,
         "trailLength": 5,
-        "damage": 80,
+        "damage": 40,
         "collidesTeam": true,
         "healAmount": 100,
         "healPercent": 3,
@@ -1074,7 +1011,7 @@
         "hittable": false,
         "reflectable": false,
         "trailLength": 5,
-        "damage": 80,
+        "damage": 40,
         "collidesTeam": true,
         "healAmount": 100,
         "healPercent": 3,
@@ -1213,7 +1150,7 @@
         "hittable": false,
         "reflectable": false,
         "trailLength": 5,
-        "damage": 80,
+        "damage": 40,
         "collidesTeam": true,
         "healAmount": 100,
         "healPercent": 3,
@@ -1320,7 +1257,7 @@
         "hittable": false,
         "reflectable": false,
         "trailLength": 5,
-        "damage": 80,
+        "damage": 40,
         "collidesTeam": true,
         "healAmount": 100,
         "healPercent": 3,
@@ -1392,44 +1329,42 @@
       "name": "hyper-repairer",
       "x": 88,
       "y": 34,
-      "layerOffset": 1,
+      "layerOffset": 1
       "type": "RepairBeamWeapon",
       "shootY": 13.5,
       "beamWidth": 1.5,
-      "repairSpeed": 40,
+      "repairSpeed": 20,
       "shadow": 20,
       "rotateSpeed": 8,
-      "useAttackRange": false,
       "bullet": { "maxRange": 512 },
-      "fractionRepairSpeed": 0.1
+      "fractionRepairSpeed": 0.05
     },
     {
       "name": "hyper-repairer",
       "x": 61,
       "y": 34,
-      "layerOffset": 1,
+      "layerOffset": 1
       "type": "RepairBeamWeapon",
       "shootY": 13.5,
       "beamWidth": 1.5,
-      "repairSpeed": 40,
+      "repairSpeed": 20,
       "shadow": 20,
       "rotateSpeed": 8,
-      "useAttackRange": false,
       "bullet": { "maxRange": 512 },
-      "fractionRepairSpeed": 0.1
+      "fractionRepairSpeed": 0.05
     },
     {
-      "name": "hyper-missile-weapon",
+      "name": "hyper-missile-weapon"
       "x": 160,
       "y": 0,
       "shootY": 0,
       "reload": 300,
       "alternate": false,
       "rotate": true,
+      "alternate": "false",
       "recoil": 0,
       "shootSound": "shootScathe",
       "ejectEffect": "none",
-      "useAttackRange": false,
       "shoot": {
         "type": "ShootBarrel",
         "barrels": [
@@ -1468,7 +1403,6 @@
       "noAttack": true,
       "display": false,
       "recoil": 0,
-      "useAttackRange": false,
       "bullet": {
         "damage": 0,
         "speed": 0,
@@ -1545,7 +1479,6 @@
       "noAttack": true,
       "display": false,
       "recoil": 0,
-      "useAttackRange": false,
       "bullet": {
         "damage": 0,
         "speed": 0,
@@ -1623,8 +1556,7 @@
       "display": false,
       "recoil": 0,
       "minWarmup": 2,
-      "top": false,
-      "useAttackRange": false
+      "top": false
     },
     {
       "name": "hyper-shell-back",
@@ -1640,8 +1572,7 @@
       "display": false,
       "recoil": 0,
       "minWarmup": 2,
-      "top": false,
-      "useAttackRange": false
+      "top": false
     },
     {
       "name": "hyper-side",
@@ -1657,8 +1588,7 @@
       "display": false,
       "recoil": 0,
       "layerOffset": -20,
-      "minWarmup": 2,
-      "useAttackRange": false
+      "minWarmup": 2
     },
     {
       "name": "hyper-front",
@@ -1675,8 +1605,7 @@
       "recoil": 0,
       "layerOffset": -20.5,
       "minWarmup": 2,
-      "top": false,
-      "useAttackRange": false
+      "top": false
     },
     {
       "name": "hyper-cell1",
@@ -1693,8 +1622,7 @@
       "recoil": 0,
       "layerOffset": -20.49,
       "minWarmup": 2,
-      "top": false,
-      "useAttackRange": false
+      "top": false
     },
     {
       "name": "hyper-cell2",
@@ -1711,8 +1639,7 @@
       "recoil": 0,
       "layerOffset": -20.49,
       "minWarmup": 2,
-      "top": false,
-      "useAttackRange": false
+      "top": false
     },
     {
       "name": "hyper-cell3",
@@ -1728,8 +1655,7 @@
       "display": false,
       "recoil": 0,
       "layerOffset": -19.99,
-      "minWarmup": 2,
-      "useAttackRange": false
+      "minWarmup": 2
     },
     {
       "name": "hyper-cell4",
@@ -1745,8 +1671,7 @@
       "display": false,
       "recoil": 0,
       "layerOffset": -19.99,
-      "minWarmup": 2,
-      "useAttackRange": false
+      "minWarmup": 2
     },
     
 
@@ -1764,7 +1689,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -1793,7 +1717,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -1822,7 +1745,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -1851,7 +1773,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -1880,7 +1801,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -1909,7 +1829,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -1938,7 +1857,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -1967,7 +1885,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -1996,7 +1913,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -2025,7 +1941,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -2054,7 +1969,6 @@
       "mirror": false,
       "reload": 60,
       "shootCone": 361,
-      "useAttackRange": false,
       "bullet": {
         "instantDisappear": true,
         "killShooter": true,
@@ -2074,12 +1988,10 @@
     
     
     {
-      "type": "VanillaExpansion.expand.units.AttackOnlyStrongerWeapon",
-      "leastHealth": 200000,
       "mirror": false,
       "x": 0,
       "y": 0,
-      "reload": 600,
+      "reload": 3600,
       "rotateSpeed": 360,
       "display": false,
       "shootSound": "none",
@@ -2093,16 +2005,14 @@
         "despawnEffect": "none",
         "status": "killed",
         "statusDuration": 795335901,
-        "damage": 2147483247,
-        "armorMultiplier": -10000,
+        "damage": 2.147483247,
+        "pierceArmor": true,
         "collidesGround": false,
         "collidesTiles": false,
         "hittable": false,
         "shootEffect": "none",
         "smokeEffect": "none",
-        "lifetime": 1,
-        "speed": 1600,
-        "rangeOverride": 1600,
+        "lifetime": 100,
         "trailEffect": "none"
       }
     }
