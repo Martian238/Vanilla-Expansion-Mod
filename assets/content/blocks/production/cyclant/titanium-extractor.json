@@ -32,10 +32,7 @@
   "research": {
     "parent": "salt-electrolyzer",
     "objectives": [
-      {
-        "type": "OnSector",
-        "preset": "gobi"
-      }
+      "floor-crusher"
     ]
   },
   "researchCostMultiplier": 0.1,

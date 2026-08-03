@@ -284,6 +284,10 @@ public class VEBlocks {
             consumeCoolant(0.1f).boost();
             liquidBoostIntensity = 1.8f;
             rotateSpeed = 6f;
+            Seq<Liquid> liquidSeq = new Seq<>();
+            liquidSeq.add(Liquids.water);
+            liquidSeq.add(Liquids.cryofluid);
+            coolants = liquidSeq.toArray(Liquid.class);
         }};
     }
 }
