@@ -401,7 +401,7 @@
   "weapons": [
     {
       "type": "VanillaExpansion.expand.units.AttackOnlyStrongerWeapon",
-      "leastHealth": 90000,
+      "leastHealth": 50000,
       "exceptHealth": 190000,
       "display": false,
       "useAttackRange": false,
@@ -2350,6 +2350,97 @@
         ],
         "trailSpacing": 1
       }
+    },
+
+
+
+    {
+      "type": "VanillaExpansion.expand.units.AttackOnlyStrongerWeapon",
+      "leastHealth": 200000,
+      "exceptHealth": 1000000,
+      "name": "zenith-watermelo",
+      "x": 0,
+      "y": 0,
+      "shootY": 96,
+      "rotate": false,
+      "mirror": false,
+      "top": false,
+      "recoil": 0,
+      "reload": 100,
+      "recoilTime": 12,
+      "shoot": {
+        "shots": 6,
+        "shotDelay": 12
+      },
+      "minWarmup": 0.97,
+      "shootWarmupSpeed": 0.2,
+      "shootSound": [ "mcEat1","mcEat2","mcEat3" ],
+      "shootSoundVolume": 1,
+      "soundPitchMax": 1.1,
+      "shootStatus": "watermelon-hyper",
+      "shootStatusDuration": 72,
+      "shootCone": 361,
+      "parentizeEffects": true,
+      "autoTarget": true,
+      "controllable": false,
+      "bullet": {
+        "rangeOverride": 1440,
+        "shootEffect": {
+          "type": "ParticleEffect",
+          "lifetime": 60,
+          "colorFrom": "ff5555",
+          "colorTo": "cc3434",
+          "layer": 90.5,
+          "sizeFrom": 24,
+          "sizeTo": 0,
+          "interp": "circleOut",
+          "followParent": false,
+          "length": 64,
+          "baseLength": 16,
+          "particles": 5
+        },
+        "smokeEffect": {
+          "type": "ParticleEffect",
+          "lifetime": 13,
+          "colorFrom": "ffffff",
+          "region": "ve-watermelon-effect",
+          "colorTo": "ffffff",
+          "layer": 89,
+          "sizeFrom": 144,
+          "sizeTo": 144,
+          "followParent": true,
+          "rotWithParent": true,
+          "length": 16,
+          "interp": "pow3Out",
+          "cone": 0,
+          "baseLength": 0,
+          "particles": 1,
+          "randLength": false
+        },
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "collides": false,
+        "hittable": false,
+        "instantDisappear": true,
+        "damage": 0,
+        "absorbable": false
+      },
+      "parts": [
+        {
+          "type": "RegionPart",
+          "suffix": "n",
+          "xScl": 8,
+          "yScl": 8,
+          "color": "ffffff00",
+          "colorTo": "ffffff",
+          "outline": false,
+          "progress": "warmup",
+          "rotation": -70,
+          "moveRot": 50,
+          "moveY": -8,
+          "layer": 88.5
+        }
+      ]
     }
   ],
   "createWreck": false

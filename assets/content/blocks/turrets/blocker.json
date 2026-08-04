@@ -1,0 +1,85 @@
+{
+  "requirements": [ "phase-fabric/120","silicon/400","silver/200" ],
+  "category": "turret",
+  "hasPower": true,
+  "size": 4,
+  "range": 320,
+  "warmupMaintainTime": 600,
+  "shieldMax": 4000,
+  "shieldRadius": 80,
+  "shieldRegen": 1,
+  "shieldCooldown": 300,
+  "shieldAngle": 120,
+  "shieldY": 0,
+  "shieldWidth": 12,
+  "missileUnitMultiplier": 0.1,
+  "damage": 1,
+  "health": 4000,
+  "armor": 4,
+  "rotateSpeed": 8,
+  "consumes": {
+    "power": 8
+  },
+  "reload": 60,
+  "recoil": 0,
+  "unitSort": "strongest",
+  "shootSound": "none",
+  "targetUnderBlocks": false,
+  "shootType": {
+    "instantDisappear": true,
+    "shootEffect": "none",
+    "smokeEffect": "none",
+    "hitEffect": "none",
+    "despawnEffect": "none"
+  },
+  "shootY": 0,
+  "laserColor": "ffd37f",
+  "research": {
+    "parent": "asylum",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "slate-guardpost"
+      }
+    ]
+  },
+  "drawer": {
+    "type": "DrawTurret",
+    "prefix": "phase-",
+    "parts": [
+      {
+        "type": "RegionPart",
+        "mirror": true,
+        "progress": "warmup",
+        "moveX": 1.5,
+        "moveY": 1.5,
+        "suffix": "-arm",
+        "under": false
+      },
+      {
+        "type": "RegionPart",
+        "mirror": true,
+        "progress": "warmup",
+        "moveRot": 30,
+        "moveY": -2,
+        "suffix": "-side2",
+        "under": false
+      },
+      {
+        "type": "RegionPart",
+        "mirror": true,
+        "progress": "warmup",
+        "moveRot": 15,
+        "moveY": -1,
+        "suffix": "-side1",
+        "under": false
+      },
+      {
+        "type": "RegionPart",
+        "mirror": false,
+        "suffix": "",
+        "under": false
+      }
+    ]
+  }
+}

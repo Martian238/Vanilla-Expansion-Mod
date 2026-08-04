@@ -17,8 +17,11 @@ import static mindustry.Vars.*;
 import mindustry.entities.abilities.StatusFieldAbility;
 import mindustry.ui.Styles;
 
+import java.util.Objects;
+
 public class YourTooSlowHurryUpStatusFieldAbility extends StatusFieldAbility {
     public float targetHealth = 1000000f;
+    public String targetName = "new-horizon-nucleoid";
     public float speedTo = 11.25f / 1.312f;//1.5f
     public float accelTo = 0.06f;
     public float dragTo = 1f;//0.025f
@@ -60,14 +63,15 @@ public class YourTooSlowHurryUpStatusFieldAbility extends StatusFieldAbility {
             Units.nearby(unit.team, unit.x, unit.y, range, other -> {
                 other.apply(effect, duration);
                 applyEffect.at(other, parentizeEffects);
-                if(other.maxHealth == targetHealth){
+                if( Objects.equals(other.type.name, targetName)){
                     other.apply(speedEffect, duration);
+                    if(other.health <= regenHealth){
+                        other.apply(regenEffect, regenDuration);
+                    }
                 }
-                if(other.health <= regenHealth){
-                    other.apply(regenEffect, regenDuration);
-                }
-            });
 
+            });
+//other.maxHealth == targetHealth &&
 
             float x = unit.x + Angles.trnsx(unit.rotation, effectY, effectX), y = unit.y + Angles.trnsy(unit.rotation, effectY, effectX);
             activeEffect.at(x, y, effectSizeParam ? range : unit.rotation, color, parentizeEffects ? unit : null);

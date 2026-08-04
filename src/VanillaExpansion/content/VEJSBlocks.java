@@ -1,6 +1,7 @@
 package VanillaExpansion.content;
 
 import VanillaExpansion.MultiCrafter;
+import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import arc.struct.EnumSet;
 import mindustry.world.blocks.campaign.*;
@@ -447,6 +448,7 @@ public class VEJSBlocks {
         new PowerTurret("stellar");
         new TractorBeamTurret("disintegrate");
         new ItemTurret("asylum");
+        new ShieldArcPowerTurret("blocker");
 
         // group 32 原版单位载荷
         new Reconstructor("light-refabricator");

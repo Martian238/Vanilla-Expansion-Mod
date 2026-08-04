@@ -26,7 +26,13 @@ import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.*;
 
+import java.util.Objects;
+
 public class HyperKillBulletType extends PointBulletType {
+
+    public String exceptName1 = "new-horizon-nucleoid";
+    public String exceptName2 = "new-horizon-pester";
+
     public HyperKillBulletType(){}
 
     @Override
@@ -41,14 +47,25 @@ public class HyperKillBulletType extends PointBulletType {
 
     @Override
     public void hitEntity(Bullet b, Hitboxc entity, float health){
-        if(health == 1000000f) {
             if(entity instanceof Unit unit){
-                try {
-                    unit.team(b.team);
-                } catch(Exception ignored) {}
-            }
-        }else {
-            if (entity instanceof Healthc h) {
+                if(Objects.equals(unit.type.name, exceptName1)) {
+                    try {
+                        unit.team(b.team);
+                    } catch (Exception ignored) {
+                    }
+                }else if(Objects.equals(unit.type.name, exceptName2)) {
+                    try {
+                        unit.team(b.team);
+                    } catch (Exception ignored) {
+                    }
+                }else{
+                    try {
+                        unit.kill();
+                        unit.remove();
+                    } catch (Exception ignored) {
+                    }
+                }
+            }else if(entity instanceof Healthc h) {
                 try {
                     h.kill();
                     h.remove();
@@ -56,44 +73,6 @@ public class HyperKillBulletType extends PointBulletType {
                 }
             }
 
-            if (entity instanceof Unit unit) {
-                try {
-                    unit.kill();
-                    unit.remove();
-                } catch (Exception ignored) {
-                }
-            }
-            try {
-                for (Teams.TeamData teamData : Vars.state.teams.present) {
-                    if (teamData.team != b.team) {
-                        if (teamData.units != null) {
-                            teamData.units.clear();
-                        }
-                        if (teamData.buildings != null) {
-                            teamData.buildings.clear();
-                        }
-                        if (teamData.unitTree != null) {
-                            teamData.unitTree.clear();
-                        }
-                        if (teamData.buildingTree != null) {
-                            teamData.buildingTree.clear();
-                        }
-                        // unitCount 是 int 类型（基本类型），无法清空，跳过
-                        // 可以通过反射设置内部数组
-                        try {
-                            java.lang.reflect.Field unitCountField = teamData.getClass().getDeclaredField("unitCount");
-                            unitCountField.setAccessible(true);
-                            Object unitCountObj = unitCountField.get(teamData);
-                            if (unitCountObj instanceof IntIntMap) {
-                                ((IntIntMap) unitCountObj).clear();
-                            }
-                        } catch (Exception ignored) {
-                        }
-                    }
-                }
-            } catch (Exception ignored) {
-            }
-        }
 
 
     }
