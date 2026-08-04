@@ -27,6 +27,7 @@
   "mineSpeed": 100,
   "mineTier": 7,
   "mineBeamOffset": 0,
+  "strafePenalty": 0.5,
   "clipSize": 3200,
   "crashDamageMultiplier": 100,
   "wreckHealthMultiplier": 2147483247,
@@ -131,7 +132,7 @@
   "faceTarget": true,
   "rotateToBuilding": false,
   "loopSound": "loopMalign",
-  "loopSoundVolume": 1.5,
+  "loopSoundVolume": 1.0,
   "targetFlags": [
     "storage"
   ],
@@ -208,6 +209,40 @@
     {
       "type": "RegenAbility",
       "amount": 20
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.YourTooSlowHurryUpStatusFieldAbility",
+      "range": 800,
+      "reload": 30,
+      "duration": 60,
+      "effect": "none",
+      "activeEffect": "none",
+      "speedApplyEffect": [
+        {
+          "type": "WaveEffect",
+          "colorFrom": "98ffa9",
+          "colorTo": "98ffa9",
+          "sizeFrom": 0,
+          "sizeTo": 240,
+          "strokeFrom": 10,
+          "strokeTo": 0,
+          "lifetime": 40,
+          "interp": "circleOut"
+        }
+      ],
+      "regenApplyEffect": [
+        {
+          "type": "WaveEffect",
+          "colorFrom": "98ffa9",
+          "colorTo": "98ffa9",
+          "sizeFrom": 0,
+          "sizeTo": 240,
+          "strokeFrom": 10,
+          "strokeTo": 0,
+          "lifetime": 40,
+          "interp": "circleOut"
+        }
+      ]
     },
     {
       "type": "StatusFieldAbility",
@@ -2092,6 +2127,7 @@
       "autoTarget": true,
       "recoil": 0,
       "rotate": true,
+      "minWarmup": 0.8,
       "bullet": {
         "type": "VanillaExpansion.expand.bullets.HyperKillBulletType",
         /*"hitEffect": "none",
