@@ -1,559 +1,420 @@
 package VanillaExpansion.expand.world.block.power;
 
-import VanillaExpansion.content.VELiquids;
-import arc.*;
-import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.math.geom.*;
 import arc.struct.*;
 import arc.util.*;
 import arc.util.io.*;
-import mindustry.content.*;
-import mindustry.entities.*;
-import mindustry.gen.*;
+import VanillaExpansion.Utils;
+import VanillaExpansion.content.*;
+import VanillaExpansion.entities.*;
+import VanillaExpansion.expand.graphics.LensShockwaveFX;
+import VanillaExpansion.expand.world.block.SixteenDirectionBlock;
+import mindustry.content.Fx;
+import mindustry.entities.Effect;
+import mindustry.entities.Puddles;
+import mindustry.game.Team;
+import mindustry.gen.Building;
+import mindustry.gen.Sounds;
 import mindustry.graphics.*;
-import mindustry.type.*;
-import mindustry.ui.*;
-import mindustry.world.*;
-import mindustry.world.blocks.*;
-import mindustry.world.blocks.power.*;
-import mindustry.world.meta.*;
-import arc.struct.*;
-import arc.util.*;
-import mindustry.content.*;
-import mindustry.gen.*;
-import mindustry.logic.*;
-import mindustry.type.*;
-import mindustry.world.*;
-import mindustry.world.blocks.storage.CoreBlock.*;
-import mindustry.world.meta.*;
-import mindustry.world.blocks.liquid.*;
+import mindustry.ui.Bar;
+import mindustry.world.Block;
+import mindustry.world.Tile;
 
 import static mindustry.Vars.*;
-import mindustry.world.blocks.storage.CoreBlock.CoreBuild;
-import mindustry.logic.LAccess;
-import mindustry.world.Edges;
-import mindustry.world.modules.ItemModule;
 
-/**
- * RBMK反应堆基础方块
- * 参考HBM's Nuclear Tech中的RBMK结构
- */
-public class RBMKBase extends PowerGenerator{
-    public TextureRegion liquidRegion;
-    public TextureRegion topRegion;
-    public TextureRegion bottomRegion;
-    
-    public TextureRegion debrisRegion1;
-    public TextureRegion debrisRegion2;
-    public TextureRegion debrisRegion3;
-    
-    public RBMKBase(String name){
+
+public class RBMKBase extends Block {
+
+    public static final Effect meltDebris = new Effect(120f, e -> {
+        float fin = e.fin();
+        Draw.z(Layer.effect);
+        float px = e.x + Angles.trnsx(e.rotation, 70f * fin);
+        float py = e.y + Angles.trnsy(e.rotation, 70f * fin);
+        Draw.color(Pal.darkMetal, Pal.lightishGray, fin);
+        Fill.square(px, py, 4f * (1f - fin * 0.6f), e.rotation + fin * 720f);
+    });
+
+    public static final Effect metalSpray = new Effect(45f, 400f, e -> {
+        Draw.z(Layer.effect);
+        Rand r = Utils.rand;
+        r.setSeed(e.id);
+        // 金属碎屑
+        for(int i = 0; i < 16; i++){
+            float fin = Mathf.curve(e.fin(), r.random(0f, 0.4f), 1f);
+            float ang = r.random(360f);
+            float len = r.random(8f, 40f) * Interp.pow2Out.apply(fin);
+            Tmp.v1.trns(ang, len).add(e.x, e.y);
+            Draw.color(Pal.darkMetal, Pal.lightishGray, fin);
+            Fill.square(Tmp.v1.x, Tmp.v1.y, r.random(1.5f, 3.5f) * (1f - fin), r.random(360f));
+        }
+        // 火星
+        for(int i = 0; i < 12; i++){
+            float fin = Mathf.curve(e.fin(), r.random(0f, 0.2f), 1f);
+            float ang = r.random(360f);
+            float len = r.random(12f, 55f) * Interp.pow3Out.apply(fin);
+            Tmp.v1.trns(ang, len).add(e.x, e.y);
+            Draw.color(Pal.lightOrange, Pal.lighterOrange, fin);
+            Fill.circle(Tmp.v1.x, Tmp.v1.y, r.random(1f, 2.5f) * (1f - fin));
+        }
+    });
+
+    public enum ColumnType {
+        BLANK(0), FUEL(10), FUEL_SIM(90), CONTROL(20), CONTROL_AUTO(30), BOILER(40),
+        MODERATOR(50), ABSORBER(60), REFLECTOR(70), OUTGASSER(80), BREEDER(100),
+        STORAGE(110), COOLER(120), HEATEX(130), BURNER(140);
+
+        public final int offset;
+
+        ColumnType(int offset) {
+            this.offset = offset;
+        }
+    }
+
+    public enum RBMKType {
+        ROD, MODERATOR, CONTROL_ROD, REFLECTOR, ABSORBER, OUTGASSER, OTHER
+    }
+
+    public enum ScreenValue {
+        NONE, COL_TEMP, ROD_EXTRACTION, FUEL_DEPLETION, FUEL_POISON, FUEL_TEMP
+    }
+
+    public enum DebrisType {
+        LID, ROD, ELEMENT, GRAPHITE, BLANK, FUEL
+    }
+
+    protected ColumnType consoleType = ColumnType.BLANK;
+
+    public RBMKBase(String name) {
         super(name);
         size = 2;
         update = true;
-        itemCapacity = 1; // 物品容量
-        hasItems = true;
-        hasLiquids = true; // 启用液体存储
-        liquidCapacity = 100f; // 液体容量
-        solid = true;
         sync = true;
+        solid = true;
         destructible = true;
-        separateItemCapacity = true;
-        group = BlockGroup.transportation;
-        flags = EnumSet.of(BlockFlag.storage);
-        allowResupply = true;
-        envEnabled = Env.any;
-        outputsLiquid = true; // 允许输出液体
+        buildType = RBMKBaseBuild::new;
     }
 
     @Override
-    public void setBars(){
+    public void setBars() {
         super.setBars();
-        // 添加物品容量进度条
-        addBar("capacity", (RBMKBaseBuild entity) -> new Bar(
-            () -> "Capacity: " + (entity.items == null ? 0 : entity.items.total()) + "/" + itemCapacity,
-            () -> Pal.items,
-            () -> entity.items == null ? 0f : (float)entity.items.total() / itemCapacity
-        ));
-        // 添加热量进度条
         addBar("heat", (RBMKBaseBuild entity) -> new Bar(
-            () -> "Heat: " + (int)entity.heat + "°C",
+            () -> "Heat: " + (int) entity.heat + "°C",
             () -> Pal.lightOrange,
-            () -> entity.heat / entity.maxHeat
-        ));
-        // 添加中子通量进度条
-        addBar("neutronFlux", (RBMKBaseBuild entity) -> new Bar(
-            () -> "Neutron Flux: " + Strings.fixed(entity.neutronFlux, 2),
-            () -> Pal.accent,
-            () -> Mathf.clamp(entity.neutronFlux / entity.maxNeutronFlux, 0f, 1f)
-        ));
-        // 添加慢中子通量进度条
-        addBar("neutronFluxSlow", (RBMKBaseBuild entity) -> new Bar(
-            () -> "Slow Neutron Flux: " + Strings.fixed(entity.neutronFluxSlow, 2),
-            () -> Pal.lightishOrange,
-            () -> Mathf.clamp(entity.neutronFluxSlow / entity.maxNeutronFlux, 0f, 1f)
-        ));
-        // 添加快中子通量进度条
-        addBar("neutronFluxFast", (RBMKBaseBuild entity) -> new Bar(
-            () -> "Fast Neutron Flux: " + Strings.fixed(entity.neutronFluxFast, 2),
-            () -> Pal.lightOrange,
-            () -> Mathf.clamp(entity.neutronFluxFast / entity.maxNeutronFlux, 0f, 1f)
-        ));
-        // 添加液体进度条
-        addBar("liquid", (RBMKBaseBuild entity) -> new Bar(
-            () -> entity.liquids != null && entity.liquids.current() != null ? 
-                entity.liquids.current().localizedName + " " + Strings.fixed(entity.liquids.currentAmount(), 1) + "/" + liquidCapacity : 
-                "No Liquid",
-            () -> entity.liquids != null && entity.liquids.current() != null ? entity.liquids.current().barColor() : Pal.gray,
-            () -> entity.liquids != null ? entity.liquids.currentAmount() / liquidCapacity : 0f
+            () -> entity.heat / entity.maxHeat()
         ));
     }
 
-    @Override
-    public void load(){
-        super.load();
-        liquidRegion = Core.atlas.find(name + "-liquid");
-        topRegion = Core.atlas.find(name + "-top");
-        bottomRegion = Core.atlas.find(name + "-bottom");
-        
-        debrisRegion1 = Core.atlas.find(name + "-debris-1");
-        debrisRegion2 = Core.atlas.find(name + "-debris-2");
-        debrisRegion3 = Core.atlas.find(name + "-debris-3");
-    }
+    public class RBMKBaseBuild extends Building {
+        public float heat = 25f;                 // 柱体热
+        public int reasimWater, reasimSteam;     // ReaSim 模式水/汽
+        public static final int maxWater = 16000;
+        public static final int maxSteam = 16000;
+        public int craneIndicator;
 
-    @Override
-    public TextureRegion[] icons(){
-        return new TextureRegion[]{topRegion};
-    }
+        public boolean hasLid;
+        public int lidType;                      // 0 无盖 1 混凝土盖 2 铅玻璃盖
 
-    public static void drawTiledFrames(int size, float x, float y, float padding, Liquid liquid, float alpha){
-        drawTiledFrames(size, x, y, padding, padding, padding, padding, liquid, alpha);
-    }
+        protected boolean melting = false;
 
-    public static void drawTiledFrames(int size, float x, float y, float padLeft, float padRight, float padTop, float padBottom, Liquid liquid, float alpha){
-        TextureRegion region = renderer.fluidFrames[liquid.gas ? 1 : 0][liquid.getAnimationFrame()];
-        TextureRegion toDraw = Tmp.tr1;
-
-        float leftBounds = size/2f * tilesize - padRight;
-        float bottomBounds = size/2f * tilesize - padTop;
-        Color color = Tmp.c1.set(liquid.color).a(1f);
-
-        for(int sx = 0; sx < size; sx++){
-            for(int sy = 0; sy < size; sy++){
-                float relx = sx - (size-1)/2f, rely = sy - (size-1)/2f;
-
-                toDraw.set(region);
-
-                //truncate region if at border
-                float rightBorder = relx*tilesize + padLeft, topBorder = rely*tilesize + padBottom;
-                float squishX = rightBorder + tilesize/2f - leftBounds, squishY = topBorder + tilesize/2f - bottomBounds;
-                float ox = 0f, oy = 0f;
-
-                if(squishX >= 8 || squishY >= 8) continue;
-
-                //cut out the parts that don't fit inside the padding
-                if(squishX > 0){
-                    toDraw.setWidth(toDraw.width - squishX * 4f);
-                    ox = -squishX/2f;
-                }
-
-                if(squishY > 0){
-                    toDraw.setY(toDraw.getY() + squishY * 4f);
-                    oy = -squishY/2f;
-                }
-
-                Drawf.liquid(toDraw, x + rightBorder + ox, y + topBorder + oy, alpha, color);
-            }
-        }
-    }
-
-    public static void incinerateEffect(Building self, Building source){
-        if(Mathf.chance(0.3)){
-            Tile edge = Edges.getFacingEdge(source, self);
-            Tile edge2 = Edges.getFacingEdge(self, source);
-            if(edge != null && edge2 != null && self.wasVisible){
-                Fx.coreBurn.at((edge.worldx() + edge2.worldx())/2f, (edge.worldy() + edge2.worldy())/2f);
-            }
-        }
-    }
-    /**
-     * RBMK建筑基础类
-     */
-
-    public class RBMKBaseBuild extends PowerGenerator.GeneratorBuild{
-        public @Nullable Building linkedCore;
-        public float heat = 25f;
-        public float maxHeat = 1000f;
-        public boolean hasLid = false;
-        public int lidType = 0; // 0: none, 1: standard, 2: glass
-        public float neutronFlux = 0f; // 中子通量
-        public float neutronFluxSlow = 0f; // 慢中子通量
-        public float neutronFluxFast = 0f; // 快中子通量
-        public float maxNeutronFlux = 10000f; // 中子通量最大值
-        public float coolingEfficiency = 0f; // 冷却效率
-        public float heatConductivity = 0.2f; // 热传导率
-
-        @Override
-        public boolean acceptItem(Building source, Item item){
-            return linkedCore != null ? linkedCore.acceptItem(source, item) : (items != null && items.get(item) < getMaximumAccepted(item));
+        public float maxHeat() {
+            return 1500f;
         }
 
-        @Override
-        public boolean canUnload(){
-            return linkedCore == null ? super.canUnload() : linkedCore.canUnload();
+        public float passiveCooling(int neighbors) {
+            float min = RBMKDials.passiveCoolingInner; // 0.1
+            float max = RBMKDials.passiveCooling;      // 2.5
+            return min + (max - min) * ((4 - Mathf.clamp(neighbors, 0, 4)) / 4f);
         }
 
-        @Override
-        public void handleItem(Building source, Item item){
-            if(linkedCore != null){
-                if(linkedCore.items != null && linkedCore.items.get(item) >= ((CoreBuild)linkedCore).storageCapacity){
-                    incinerateEffect(this, source);
-                }
-                ((CoreBuild)linkedCore).noEffect = true;
-                linkedCore.handleItem(source, item);
-            }else if(items != null){
-                super.handleItem(source, item);
-            }
+        protected void coolPassively(int neighbors) {
+            heat -= passiveCooling(neighbors);
+            if (heat < 20) heat = 20f;
         }
 
-        @Override
-        public void itemTaken(Item item){
-            if(linkedCore != null){
-                linkedCore.itemTaken(item);
-            }
+        /** ReaSim 锅炉模式：所有部件都可产汽 */
+        public void boilWater() {
+            if (heat < 100f) return;
+
+            float heatConsumption = RBMKDials.boilerHeatConsumption;
+            float availableHeat = (heat - 100f) / heatConsumption;
+            float availableWater = reasimWater;
+            float availableSpace = maxSteam - reasimSteam;
+
+            int processedWater = (int) Math.floor(
+                Math.min(availableHeat, Math.min(availableWater, availableSpace))
+                * Mathf.clamp(RBMKDials.reasimBoilerSpeed, 0f, 1f));
+
+            if (processedWater <= 0) return;
+
+            reasimWater -= processedWater;
+            reasimSteam += processedWater;
+            heat -= processedWater * heatConsumption;
         }
 
-        @Override
-        public int removeStack(Item item, int amount){
-            if(items == null) return 0;
-            
-            int result = super.removeStack(item, amount);
+        /** 以相对公平的方式向邻柱移动热量 */
+        public void moveHeat() {
+            boolean reasim = RBMKDials.reasimBoilers;
 
-            if(linkedCore != null && team == state.rules.defaultTeam && state.isCampaign()){
-                state.rules.sector.info.handleCoreItem(item, -result);
-            }
+            Seq<RBMKBaseBuild> rec = new Seq<>();
+            rec.add(this);
+            float heatTot = heat;
+            int waterTot = reasimWater, steamTot = reasimSteam;
 
-            return result;
-        }
-
-        @Override
-        public int getMaximumAccepted(Item item){
-            return linkedCore != null ? linkedCore.getMaximumAccepted(item) : itemCapacity;
-        }
-
-        @Override
-        public int explosionItemCap(){
-            //when linked to a core, containers/vaults are made significantly less explosive.
-            return linkedCore != null ? Math.min(itemCapacity/60, 6) : itemCapacity;
-        }
-
-        @Override
-        public void drawSelect(){
-            if(linkedCore != null){
-                linkedCore.drawSelect();
-            }
-        }
-
-        @Override
-        public double sense(LAccess sensor){
-            if(sensor == LAccess.itemCapacity && linkedCore != null) return linkedCore.sense(sensor);
-            return super.sense(sensor);
-        }
-
-        @Override
-        public void overwrote(Seq<Building> previous){
-            // 确保 items 已初始化
-            if(items == null){
-                items = new ItemModule();
-            }
-
-            // only add prev items when core is not linked
-            if(linkedCore == null){
-                for(Building other : previous){
-                    if(other != null && other.items != null && other.items != items){
-                        // 检查链接
-                        if(other instanceof RBMKBaseBuild b && b.linkedCore != null){
-                            continue;
-                        }
-                        items.add(other.items);
+            for (Building nb : new Building[]{front(), right(), back(), left()}) {
+                if (nb instanceof RBMKBaseBuild b) {
+                    rec.add(b);
+                    heatTot += b.heat;
+                    if (reasim) {
+                        waterTot += b.reasimWater;
+                        steamTot += b.reasimSteam;
                     }
                 }
+            }
 
-                items.each((i, a) -> items.set(i, Math.min(a, itemCapacity)));
+            int members = rec.size;
+            float stepSize = RBMKDials.columnHeatFlow; // 0.2
+
+            if (members > 1) {
+                float targetHeat = heatTot / members;
+
+                for (RBMKBaseBuild b : rec) {
+                    float delta = targetHeat - b.heat;
+                    b.heat += delta * stepSize;
+                    if (reasim) {
+                        b.reasimWater = waterTot / members;
+                        b.reasimSteam = steamTot / members;
+                    }
+                }
+                // 把取整损失补给自身
+                if (reasim) {
+                    reasimWater += waterTot % members;
+                    reasimSteam += steamTot % members;
+                }
+            }
+
+            coolPassively(members - 1);
+        }
+
+        /**
+         * 游戏 tick 结算一次，等效 20tps。用全局 tick 计数保证所有柱体同相。
+         */
+        protected boolean shouldSimulate() {
+            return (int) Math.round(state.tick) % RBMKDials.simTickEvery == 0;
+        }
+
+        @Override
+        public void updateTile() {
+            if (!net.client()) {
+                if (!shouldSimulate()) return;
+                if (craneIndicator > 0) craneIndicator--;
+                moveHeat();
+                if (RBMKDials.reasimBoilers) boilWater();
             }
         }
 
-        @Override
-        public boolean canPickup(){
-            return linkedCore == null;
+        // ---------- 熔毁 ----------
+        public void meltdown() {
+            if (net.client() || melting) return;
+            melting = true;
+
+            ObjectSet<RBMKBaseBuild> cols = new ObjectSet<>();
+            getFF(this, cols);
+
+            int minX = tileX(), maxX = tileX(), minY = tileY(), maxY = tileY();
+            for (RBMKBaseBuild b : cols) {
+                if (b.tileX() < minX) minX = b.tileX();
+                if (b.tileX() > maxX) maxX = b.tileX();
+                if (b.tileY() < minY) minY = b.tileY();
+                if (b.tileY() > maxY) maxY = b.tileY();
+            }
+
+            for (RBMKBaseBuild b : cols) {
+                int distFromMinX = b.tileX() - minX;
+                int distFromMaxX = maxX - b.tileX();
+                int distFromMinY = b.tileY() - minY;
+                int distFromMaxY = maxY - b.tileY();
+                int minDist = Math.min(distFromMinX, Math.min(distFromMaxX, Math.min(distFromMinY, distFromMaxY)));
+                b.onMelt(minDist + 1);
+                // 每个熔毁结构都在自身位置生成熔融堆芯液体、剧烈火焰与 60% 概率的 16 向残骸方块
+                b.spawnCorium();
+            }
+
+            // 超压事件钩子
+            if (RBMKDials.enableOverpressure) onOverpressure(cols);
+
+            // 蘑菇云
+            float avgX = (minX + maxX) / 2f + 0.5f;
+            float avgY = (minY + maxY) / 2f + 0.5f;
+            int smallDim = Math.min(maxX - minX, maxY - minY);
+            Fx.bigShockwave.at(avgX * tilesize, avgY * tilesize, smallDim);
+            Sounds.explosion.at(avgX * tilesize, avgY * tilesize, 50f, 1f);
+
+            // GL 透镜冲击波：以熔毁区域中心为主爆（本地全屏折射）
+            if(LensShockwaveFX.inst != null){
+                LensShockwaveFX.inst.spawnShock(avgX * tilesize, avgY * tilesize, Math.max(smallDim, 2) * tilesize * 0.7f, 55f, 42f);
+            }
+
+            melting = false;
         }
 
-        @Override
-        public boolean allowDeposit(){
-            return linkedCore != null || super.allowDeposit();
-        }
+        /** 本柱熔毁：在自身位置生成熔融堆芯液体、剧烈火焰与 60% 概率的 16 向残骸方块 */
+        public void spawnCorium() {
+            if (net.client()) return;
 
-        @Override
-        public void updateTile(){
-            // 储存流体
-            dumpLiquid(liquids.current());
-            // 热量传导
-            conductHeat();
-            // 中子通量传导
-            conductNeutronFlux();
-            // 基础热量散失
-            heat = Mathf.clamp(heat - 0.64f * delta(), 25f, maxHeat);
-            // 限制中子通量最大值
-            neutronFlux = Mathf.clamp(neutronFlux, 0f, maxNeutronFlux);
-            neutronFluxSlow = Mathf.clamp(neutronFluxSlow, 0f, maxNeutronFlux);
-            neutronFluxFast = Mathf.clamp(neutronFluxFast, 0f, maxNeutronFlux);
-        }
-        
-        /**
-         * 热量传导
-         * 向相邻的RBMK方块传导热量
-         */
-        public void conductHeat(){
-            for(Building other : proximity){
-                if(other instanceof RBMKBaseBuild){
-                    RBMKBaseBuild rbmk = (RBMKBaseBuild) other;
-                    // 计算热量差
-                    float heatDiff = heat - rbmk.heat;
-                    // 传导热量，考虑热传导率
-                    float heatTransfer = heatDiff * heatConductivity * delta();
-                    // 限制传导量，避免震荡
-                    heatTransfer = Mathf.clamp(heatTransfer, -Math.abs(heatDiff) * 0.5f, Math.abs(heatDiff) * 0.5f);
-                    // 传导热量
-                    heat -= heatTransfer;
-                    rbmk.heat += heatTransfer;
+            int tx = tileX(), ty = tileY();
+
+            // 熔融堆芯以水洼形式在本结构周围扩散
+            int radius = 2;
+            for (int dx = -radius; dx <= radius; dx++) {
+                for (int dy = -radius; dy <= radius; dy++) {
+                    if (Mathf.dst2(dx, dy) > radius * radius) continue;
+                    Tile tile = world.tile(tx + dx, ty + dy);
+                    if (tile == null || !tile.block().isAir()) continue;
+                    Puddles.deposit(tile, VELiquids.moltenCore, Mathf.random(25f, 45f));
+                }
+            }
+
+            // 剧烈火焰 + 蘑菇烟
+            Fx.explosion.at(x, y, 4f);
+            Fx.fire.at(x, y, 4f);
+            Fx.fireballsmoke.at(x, y);
+            Fx.blastsmoke.at(x, y);
+
+            // GL 透镜冲击波（本柱小范围折射）+ 小范围金属粒子喷射
+            if(LensShockwaveFX.inst != null){
+                LensShockwaveFX.inst.spawnShock(x, y, Mathf.random(20f, 28f), Mathf.random(30f, 40f), Mathf.random(16f, 24f));
+            }
+            metalSpray.at(x, y, Mathf.random(360f));
+
+            // 60% 概率留下 16 向随机朝向的残骸方块
+            if (Mathf.chance(0.6f)) {
+                Tile center = world.tile(tx, ty);
+                if (center != null && center.block().isAir()) {
+                    int rot = Mathf.random(15);
+                    center.setBlock(VEBlocks.rbmkWreckage, Team.derelict, rot / 4);
+                    if (center.build instanceof SixteenDirectionBlock.SixteenDirectionBuild sd) {
+                        sd.configured(null, rot);
+                    }
                 }
             }
         }
-        
-        /**
-         * 中子通量传导
-         * 向相邻的RBMK方块传导中子通量
-         */
-        public void conductNeutronFlux(){
-            for(Building other : proximity){
-                if(other instanceof RBMKBaseBuild){
-                    RBMKBaseBuild rbmk = (RBMKBaseBuild) other;
-                    // 传导中子通量
-                    float fluxTransfer = neutronFlux * 0.1f * delta();
-                    neutronFlux -= fluxTransfer;
-                    rbmk.neutronFlux += fluxTransfer;
-                    
-                    // 传导慢中子通量
-                    float slowFluxTransfer = neutronFluxSlow * 0.1f * delta();
-                    neutronFluxSlow -= slowFluxTransfer;
-                    rbmk.neutronFluxSlow += slowFluxTransfer;
-                    
-                    // 传导快中子通量
-                    float fastFluxTransfer = neutronFluxFast * 0.1f * delta();
-                    neutronFluxFast -= fastFluxTransfer;
-                    rbmk.neutronFluxFast += fastFluxTransfer;
-                }
+
+        /** 洪泛搜索（四方向） */
+        private void getFF(RBMKBaseBuild b, ObjectSet<RBMKBaseBuild> cols) {
+            if (cols.contains(b)) return;
+            cols.add(b);
+            for (Building nb : new Building[]{b.front(), b.right(), b.back(), b.left()}) {
+                if (nb instanceof RBMKBaseBuild rbmk) getFF(rbmk, cols);
             }
         }
+
+        /** 熔毁时的超压事件（默认空实现，供管道/流体子类覆写） */
+        protected void onOverpressure(ObjectSet<RBMKBaseBuild> cols) {}
+
+        /** 每柱熔毁回调：默认标准烧毁 + 有盖则飞盖 */
+        public void onMelt(int reduce) {
+            standardMelt(reduce);
+            if (hasLid) spawnDebris(DebrisType.LID);
+        }
+
+        /** 标准熔毁：按深度烧毁本柱并散落碎片 */
+        protected void standardMelt(int reduce) {
+            int h = (int) RBMKDials.columnHeight;
+            reduce = Mathf.clamp(reduce, 1, h);
+            if (Mathf.chance(0.33f)) reduce++;
+            spawnDebris(DebrisType.BLANK);
+            kill();
+        }
+
+        /** 散落碎片（服务器端）：生成带物理与贴图的飞溅碎片（对应 HBM spawnDebris + EntityRBMKDebris，渲染复用 Fragmentation） */
+        public void spawnDebris(DebrisType type) {
+            if (net.client()) return;
+            int count = switch (type) {
+                case FUEL -> 1 + Mathf.random((int) RBMKDials.columnHeight); // HBM: 1 + rand(columnHeight)
+                case GRAPHITE, ROD -> 2 + Mathf.random(1);                    // HBM: 2 + rand(2)
+                default -> 1;
+            };
+            for (int i = 0; i < count; i++) {
+                RBMKDebrisEntity.create(x + Mathf.range(8f), y + Mathf.range(8f), type, block.region);
+            }
+            // 一次性视觉爆裂（配合物理碎片）
+            meltDebris.at(x, y, Mathf.random(360f));
+        }
+
+        /** 过热点火钩子（熔毁禁用时的替代） */
+        public void onOverheat() {
+            // 默认无动作，子类可覆写
+        }
+
+        // ---------- 控制台 API ----------
+
+        /** 是否被慢化（对应方块级 moderated 标志） */
+        public boolean isModerated() {
+            return false;
+        }
+
+        /** 接收来自邻近柱的一条中子流（默认忽略，燃料柱/吸收器/放气器覆写） */
+        public void receiveFlux(double flux, double ratio) {}
+
+        public RBMKType getRBMKType() {
+            return RBMKType.OTHER;
+        }
+
+        public ColumnType getConsoleType() {
+            return consoleType;
+        }
+
+        /** 返回给控制台显示的自定义数据（富集/氙毒/棒位等），子类覆写 */
+        public ObjectMap<String, Object> getConsoleData() {
+            return null;
+        }
+
+        /**
+         * 返回给控制台统计的"本柱此刻的中子出通量"，用于通量曲线（fluxBuffer）。
+         * 默认 0，燃料柱覆写为上一结算周期的出通量。
+         */
+        public double consoleFlux() {
+            return 0;
+        }
+
+        /**
+         * 控制台屏显指标取值。返回已按显示单位归一化的数值（COL_TEMP/FUEL_TEMP 为 °C，
+         * ROD_EXTRACTION/FUEL_DEPLETION/FUEL_POISON 为 %），本柱不适用该指标时返回 NaN，
+         * 控制台据此跳过该列，保证平局统计不受空白/无关柱污染。
+         */
+        public double consoleValue(ScreenValue screen) {
+            switch (screen) {
+                case COL_TEMP:
+                    return heat;
+                default:
+                    return Double.NaN;
+            }
+        }
+
+        // ---------- 序列化 ----------
 
         @Override
-        public void draw(){
-            float rotation = rotate ? rotdeg() : 0;
-            Draw.rect(bottomRegion, x, y, rotation);
-
-            if(liquids != null && liquids.currentAmount() > 0.001f){
-                drawTiledFrames(size, x, y, 2f, liquids.current(), liquids.currentAmount() / liquidCapacity);
-            }
-
-            Draw.rect(topRegion, x, y, rotation);
-            
-            // 根据热量显示颜色
-            if(heat > 100f){
-                Draw.z(Layer.blockAdditive);
-                Draw.blend(Blending.additive);
-                float intensity = Mathf.clamp((heat - 100f) / (maxHeat - 100f), 0f, 1f);
-                Draw.color(Pal.lightOrange, intensity * 0.5f);
-                Fill.square(x, y, size * tilesize / 2f - 2f);
-                Draw.blend();
-                Draw.color();
-            }
-        }
-
-        @Override
-        public void onDestroyed(){
-            super.onDestroyed();
-            
-            // 创建四向飞溅的爆炸碎片效果
-            createExplosionDebris();
-        }
-        
-        /**
-         * 创建爆炸碎片效果
-         * 多向飞溅的碎片，使用贴图
-         */
-        public void createExplosionDebris(){
-            // 创建1个碎片
-            for(int i = 0; i < 1; i++){
-                // 随机角度
-                float angle = Mathf.random(360f);
-                float velocity = 1.5f + Mathf.random(4f);
-                
-                // 计算碎片飞行方向
-                Vec2 velocityVec = Tmp.v1.trns(angle, velocity);
-                
-                // 创建碎片贴图类型
-                int debrisType = Mathf.random(3); // 0-3 四种碎片类型
-                
-                // 使用Effect创建碎片飞溅效果
-                Fx.dynamicExplosion.at(x, y, size, Pal.gray, velocityVec);
-                
-                // 创建自定义碎片效果
-                createDebrisEffect(x, y, velocityVec, debrisType);
-            }
-            
-            // 中心爆炸效果
-            Fx.explosion.at(x, y, size);
-            
-            // 在爆炸位置着火
-            Fx.fire.at(x, y, size);
-            
-            // 生成岩浆效果
-            Effect magmaEffect = new Effect(240f, e -> {
-                Draw.color(Color.orange, Color.red, e.fin());
-                Draw.alpha(0.8f * (1f - e.fin()));
-                Draw.rect(Core.atlas.find("circle"), e.x, e.y, size * tilesize * 2f * (1f + e.fin()));
-            });
-            magmaEffect.at(x, y);
-            
-            // 根据热量添加额外的爆炸效果
-            if(heat > 500f){
-                Fx.fireballsmoke.at(x, y);
-                Fx.blastsmoke.at(x, y);
-            }
-        }
-        
-        /**
-         * 创建单个碎片效果
-         * @param startX 起始X坐标
-         * @param startY 起始Y坐标
-         * @param velocity 速度向量
-         * @param type 碎片类型 (0-3)
-         */
-        public void createDebrisEffect(float startX, float startY, Vec2 velocity, int type){
-            // 随机选择周围16格内的目标位置
-            float targetX = startX + Mathf.range(16f) * tilesize;
-            float targetY = startY + Mathf.range(16f) * tilesize;
-            
-            // 计算飞行时间（基于距离）
-            float distance = Mathf.dst(startX, startY, targetX, targetY);
-            float flyTime = Mathf.clamp(distance / (tilesize * 72f), 0.5f, 2f); // 飞行时间0.5-2秒
-            
-            // 总时间：飞行时间 + 32秒停留
-            float totalTime = flyTime + 32f;
-            
-            // 生成随机停止角度（只生成一次）
-            float stopRotation = Mathf.random(360f);
-            
-            // 随机选择碎片贴图（只选择一次）
-            TextureRegion[] debrisRegions = {debrisRegion1, debrisRegion2, debrisRegion3};
-            TextureRegion region = debrisRegions[(int)(Math.abs(Mathf.random()) % debrisRegions.length)];
-            
-            // 如果贴图不存在，使用白色方块作为fallback
-            if(region == null || region == Core.atlas.find("error")){
-                region = Core.atlas.find("white");
-            }
-            
-            // 使用final变量在lambda中引用
-            final TextureRegion finalRegion = region;
-            final float finalTargetX = targetX;
-            final float finalTargetY = targetY;
-            final float finalStartX = startX;
-            final float finalStartY = startY;
-            final float finalFlyTime = flyTime;
-            final float finalStopRotation = stopRotation;
-            final int finalType = type;
-            
-            // 创建碎片渲染效果
-            Effect debrisEffect = new Effect(totalTime * 60f, e -> {
-                // 碎片颜色根据类型变化
-                Color debrisColor = finalType == 0 ? Pal.darkMetal : finalType == 1 ? Pal.gray : finalType == 2 ? Color.darkGray : Color.lightGray;
-                Draw.color(debrisColor);
-                
-                // 碎片大小
-                float debrisSize = (2f + (finalType % 2)) * 8f;
-                
-                // 计算碎片位置（直线飞行）
-                float time = e.time / 60f; // 转换为秒
-                float px, py;
-                float rotation;
-                
-                if(time < finalFlyTime){
-                    // 飞行阶段：从起点飞向目标
-                    float progress = time / finalFlyTime;
-                    px = finalStartX + (finalTargetX - finalStartX) * progress;
-                    py = finalStartY + (finalTargetY - finalStartY) * progress;
-                    rotation = e.fin() * 360f * (finalType + 1) * 2f; // 飞行时快速旋转
-                }else{
-                    // 停留阶段：停在目标位置，使用固定的随机角度
-                    px = finalTargetX;
-                    py = finalTargetY;
-                    rotation = finalStopRotation; // 使用预先生成的随机角度
-                }
-                
-                // 绘制碎片（使用贴图）
-                Draw.z(Layer.effect);
-                
-                // 绘制碎片贴图
-                Draw.rect(finalRegion, px, py, debrisSize, debrisSize, rotation);
-                
-                Draw.color();
-            });
-            
-            debrisEffect.at(startX, startY);
-        }
-
-        @Override
-        public void write(Writes write){
+        public void write(Writes write) {
             super.write(write);
             write.f(heat);
-            write.f(maxHeat);
+            write.i(reasimWater);
+            write.i(reasimSteam);
+            write.i(craneIndicator);
             write.bool(hasLid);
-            write.i(lidType);
-            write.f(neutronFlux);
-            write.f(neutronFluxSlow);
-            write.f(neutronFluxFast);
-            write.f(maxNeutronFlux);
-            write.f(coolingEfficiency);
-            write.f(heatConductivity);
+            write.b(lidType);
         }
-        
+
         @Override
-        public void read(Reads read, byte revision){
+        public void read(Reads read, byte revision) {
             super.read(read, revision);
             heat = read.f();
-            maxHeat = read.f();
+            reasimWater = read.i();
+            reasimSteam = read.i();
+            craneIndicator = read.i();
             hasLid = read.bool();
-            lidType = read.i();
-            neutronFlux = read.f();
-            neutronFluxSlow = read.f();
-            neutronFluxFast = read.f();
-            maxNeutronFlux = read.f();
-            coolingEfficiency = read.f();
-            heatConductivity = read.f();
+            lidType = read.b();
         }
-
-        @Override
-        public boolean acceptLiquid(Building source, Liquid liquid){
-            return (liquids.current() == liquid || liquids.currentAmount() < 0.2f);
-        }
-    }
-
-    @Override
-    public void setStats() {
-        super.setStats();
-        stats.add(Stat.itemCapacity, itemCapacity);
-        stats.add(Stat.liquidCapacity, liquidCapacity);
     }
 }

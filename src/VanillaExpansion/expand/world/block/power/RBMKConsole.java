@@ -1,803 +1,886 @@
 package VanillaExpansion.expand.world.block.power;
 
-import VanillaExpansion.expand.world.block.power.RBMKRod.RBMKRodBuild;
+import arc.graphics.Color;
+import arc.graphics.g2d.Draw;
+import arc.graphics.g2d.Fill;
+import arc.graphics.g2d.Lines;
+import arc.math.Mathf;
+import arc.math.geom.Point2;
+import arc.scene.Element;
+import arc.scene.event.Touchable;
+import arc.scene.ui.Button;
+import arc.scene.ui.Image;
+import arc.scene.ui.Label;
+import arc.scene.ui.ScrollPane;
+import arc.scene.ui.TextButton;
+import arc.scene.ui.TextField;
+import arc.scene.ui.layout.Table;
+import arc.util.Time;
+import arc.util.Tmp;
+import arc.util.io.Reads;
+import arc.util.io.Writes;
+import mindustry.Vars;
+import mindustry.content.Liquids;
+import mindustry.gen.Building;
+import mindustry.gen.Tex;
+import mindustry.graphics.Pal;
+import mindustry.ui.Bar;
+import mindustry.ui.Fonts;
+import mindustry.ui.Styles;
+import mindustry.world.Block;
 
-import arc.*;
-import arc.graphics.*;
-import arc.graphics.g2d.*;
-import arc.math.*;
-import arc.scene.ui.*;
-import arc.scene.ui.layout.*;
-import arc.struct.*;
-import arc.util.*;
-import arc.util.io.*;
-import mindustry.graphics.*;
-import mindustry.content.*;
-import mindustry.entities.*;
-import mindustry.gen.*;
-import mindustry.graphics.*;
-import mindustry.type.*;
-import mindustry.ui.*;
-import mindustry.ui.dialogs.*;
-import mindustry.world.*;
-import mindustry.world.blocks.*;
-import mindustry.world.blocks.power.*;
-import mindustry.world.meta.*;
+public class RBMKConsole extends Block {
+    public static final int GRID = 16;
+    public static final int CELLS = 256;
+    public static final int STEP = 2;
+    public static final int ACT_TOGGLE_BASE = 1000;
+    public static final int ACT_SELECT_ALL = 2000;
+    public static final int ACT_SELECT_CLEAR = 2001;
+    public static final int ACT_SELECT_ALL_RODS = 2002;
+    public static final int ACT_GROUP_BASE = 3000;
+    public static final int ACT_LEVEL_BASE = 4000;
+    public static final int ACT_TIER_BASE = 5000;
+    public static final int ACT_AZ5 = 6000;
+    private static final String[] GROUP_NAMES = new String[]{"Red", "Yellow", "Green", "Blue", "Purple"};
+    private static final Color[] GROUP_COLORS = new Color[]{Color.red, Color.yellow, Color.green, Color.blue, Color.purple};
 
-import static mindustry.Vars.*;
-
-/**
- * RBMK控制台
- * 监控和控制整个反应堆
- */
-public class RBMKConsole extends RBMKBase{
-    public float scanRange = 20f;
-    
-    // 中子通量显示缓冲区大小
-    public static final int fluxDisplayBuffer = 60;
-    
-    public RBMKConsole(String name){
+    public RBMKConsole(String name) {
         super(name);
-        size = 12;
-        hasItems = false;
-        configurable = true;
-        solid = true;
-        update = true;
-        requirements(Category.power, ItemStack.with(
-            Items.copper, 1000,
-            Items.lead, 800,
-            Items.silicon, 300,
-            Items.titanium, 500,
-            Items.thorium, 100
-        ));
+        this.size = 6;
+        this.update = true;
+        this.sync = true;
+        this.solid = true;
+        this.destructible = true;
+        this.configurable = true;
+        this.config(Integer.class, (tile, value) -> ((RBMKConsoleBuild)tile).handleCode((int)value));
+        this.config(Point2.class, (tile, p) -> ((RBMKConsoleBuild)tile).setCenter(p.x, p.y));
+        this.buildType = () -> new RBMKConsoleBuild();
     }
-    
-    @Override
-    public void setStats(){
-        super.setStats();
-        stats.add(Stat.abilities, "Monitors and controls reactor");
-        stats.add(Stat.range, scanRange / tilesize, StatUnit.blocks);
-    }
-    
-    @Override
-    public void setBars(){
+
+    public void setBars() {
         super.setBars();
-        addBar("neutronFlux", (RBMKConsoleBuild entity) -> new Bar(
-            () -> "Neutron Flux: " + (int)entity.neutronFlux,
-            () -> Pal.accent,
-            () -> Mathf.clamp(entity.neutronFlux / 6000f, 0f, 1f)
-        ));
-        addBar("reactorStatus", (RBMKConsoleBuild entity) -> new Bar(
-            () -> "Status: " + entity.getStatusText(),
-            () -> entity.getStatusColor(),
-            () -> entity.getStatusProgress()
-        ));
+        this.addBar("flux", e -> new Bar(() -> "Neutron Flux: " + (int)((RBMKConsoleBuild)e).fluxOut(), () -> Pal.reactorPurple, () -> Mathf.clamp((float)(((RBMKConsoleBuild)e).fluxOut() / 6000.0f))));
+        this.addBar("status", e -> new Bar(() -> "Status: " + ((RBMKConsoleBuild)e).statusText(), () -> ((RBMKConsoleBuild)e).statusColor(), () -> Mathf.clamp((float)(((RBMKConsoleBuild)e).avgColumnHeat() / 1000.0f))));
     }
-    
-    public class RBMKConsoleBuild extends RBMKBaseBuild{
-        public float neutronFlux = 0f;
-        public Seq<Building> reactorComponents = new Seq<>();
-        public int totalRods = 0;
-        public int activeRods = 0;
-        public float averageHeat = 25f;
-        public float maxHeat = 25f;
-        public int controlRodCount = 0;
-        public float totalPower = 0f;
-        
-        // 中子通量历史记录缓冲区
-        public float[] fluxBuffer = new float[fluxDisplayBuffer];
-        public int fluxBufferIndex = 0;
-        
-        // 结构俯视图数据
-        public Seq<RBMKColumn> columns = new Seq<>();
-        public static final int gridSize = 15; // 15x15网格
-        
-        // 原点坐标
-        public int originX = -1;
-        public int originY = -1;
-        public int originZ = -1;
-        
-        @Override
-        public void updateTile(){
-            super.updateTile();
-            
-            // 扫描周围的反应堆组件
-            scanReactorComponents();
-            
-            // 计算中子通量
-            calculateNeutronFlux();
-            
-            // 更新中子通量缓冲区
-            updateFluxBuffer();
+
+    public static Color typeColor(int type, float heat, float maxHeat) {
+        if (type < 0 || type >= RBMKBase.ColumnType.values().length) {
+            return Pal.darkMetal;
         }
-        
-        public void updateFluxBuffer(){
-            // 移动缓冲区
-            for(int i = 0; i < fluxBuffer.length - 1; i++){
-                fluxBuffer[i] = fluxBuffer[i + 1];
+        RBMKBase.ColumnType t = RBMKBase.ColumnType.values()[type];
+        switch (t) {
+            case FUEL:
+            case FUEL_SIM:
+            case BREEDER:
+            case STORAGE:
+            case BURNER: {
+                return Color.yellow;
             }
-            fluxBuffer[fluxBuffer.length - 1] = neutronFlux;
-        }
-        
-        public void scanReactorComponents(){
-            reactorComponents.clear();
-            totalRods = 0;
-            activeRods = 0;
-            controlRodCount = 0;
-            float totalHeat = 0;
-            int heatCount = 0;
-            maxHeat = 25f;
-            totalPower = 0f;
-            
-            // 初始化结构俯视图数据
-            columns.clear();
-            for(int i = 0; i < gridSize * gridSize; i++){
-                columns.add((RBMKColumn)null);
+            case CONTROL:
+            case CONTROL_AUTO: {
+                return Color.green;
             }
-            
-            // 扫描周围的方块
-            float scanRange = 200f;
-            for(int dx = - (int)scanRange; dx <= (int)scanRange; dx++){
-                for(int dy = - (int)scanRange; dy <= (int)scanRange; dy++){
-                    Building build = world.build(tile.x + dx, tile.y + dy);
-                    if(build != null && build != this){
-                        // 检查是否是RBMK组件
-                        if(build.block instanceof RBMKBase){
-                            // 黑名单：排除RBMKConsole和RBMKPusher
-                            if(build.block instanceof RBMKConsole || build.block instanceof RBMKPusher){
-                                continue;
-                            }
-                            reactorComponents.add(build);
-                            
-                            // 添加到结构俯视图
-                            if(originX != -1 && originY != -1 && originZ != -1){
-                                // 使用原点坐标，2坐标为一刻度
-                                int gridX = (int)((build.x - originX) / (tilesize * 2)) + gridSize / 2;
-                                int gridY = (int)((build.y - originY) / (tilesize * 2)) + gridSize / 2;
-                                if(gridX >= 0 && gridX < gridSize && gridY >= 0 && gridY < gridSize){
-                                    int index = gridY * gridSize + gridX;
-                                    columns.set(index, new RBMKColumn(build));
-                                }
-                            } else {
-                                // 使用控制台坐标，2坐标为一刻度
-                                int gridX = (int)((build.x - x) / (tilesize * 2)) + gridSize / 2;
-                                int gridY = (int)((build.y - y) / (tilesize * 2)) + gridSize / 2;
-                                if(gridX >= 0 && gridX < gridSize && gridY >= 0 && gridY < gridSize){
-                                    int index = gridY * gridSize + gridX;
-                                    columns.set(index, new RBMKColumn(build));
-                                }
-                            }
-                            
-                            // 统计燃料棒
-                            if(build.block instanceof RBMKRod){
-                                totalRods++;
-                                RBMKRodBuild rodBuild = (RBMKRodBuild)build;
-                                if(rodBuild.heat > 50f){
-                                    activeRods++;
-                                }
-                                // 计算总功率
-                                if(build.power != null){
-                                    totalPower += build.power.graph.getLastPowerProduced();
-                                }
-                            }
-                            
-                            // 统计控制棒
-                            if(build.block instanceof RBMKControl){
-                                controlRodCount++;
-                            }
-                            
-                            // 计算平均温度和最大温度
-                            RBMKBaseBuild baseBuild = (RBMKBaseBuild)build;
-                            totalHeat += baseBuild.heat;
-                            maxHeat = Math.max(maxHeat, baseBuild.heat);
-                            heatCount++;
-                        }
-                    }
-                }
+            case BOILER: {
+                return Color.sky;
             }
-            
-            // 计算平均温度
-            if(heatCount > 0){
-                averageHeat = totalHeat / heatCount;
-            } else {
-                // 没有找到任何反应堆组件，重置为默认温度
-                averageHeat = 25f;
-                maxHeat = 25f;
+            case MODERATOR: {
+                return Color.blue;
+            }
+            case ABSORBER:
+            case OUTGASSER: {
+                return Color.gray;
+            }
+            case REFLECTOR: {
+                return Color.purple;
+            }
+            case COOLER: {
+                return Color.cyan;
+            }
+            case HEATEX: {
+                return Color.gold;
             }
         }
-        
-        @Override
-        public boolean onConfigureBuildTapped(Building other) {
-            if (this == other) {
-                return false;
-            }
-            
-            // 选择原点
-            if (other != null) {
-                originX = (int)other.x;
-                originY = (int)other.y;
-                originZ = 0; // 简化为0，因为Tile没有z属性
-                Core.app.post(() -> {
-                    Dialog dialog = new Dialog("Origin Set");
-                    dialog.add("Origin set to: (" + other.x + ", " + other.y + ", " + 0 + ")");
-                    dialog.button("OK", dialog::hide);
-                    dialog.show();
-                });
-                return false;
-            }
-            
-            return true;
+        return Pal.darkMetal;
+    }
+
+    private static int parseInt(String text, int def) {
+        try {
+            return Integer.parseInt(text.trim());
+        } catch (NumberFormatException e) {
+            return def;
         }
-        
-        @Override
-        public void drawConfigure(){
-            super.drawConfigure();
-            
-            // 绘制原点标记
-            if(originX != -1 && originY != -1){
-                Draw.z(Layer.blockOver);
-                Draw.color(Color.green);
-                Lines.stroke(3f);
-                Lines.square(originX, originY, 16f);
-                Draw.color();
+    }
+
+    private static int clampInt(int value, int max) {
+        return Mathf.clamp((int)value, (int)0, (int)max);
+    }
+
+    public class RBMKConsoleBuild extends Building {
+        public int targetX;
+        public int targetY;
+        public boolean linked;
+        public boolean centerMode;
+        public boolean[][] sel = new boolean[16][16];
+        public Column[] view = new Column[256];
+        public float[] fluxBuf = new float[60];
+        private int fluxStep;
+        public boolean azArmed;
+        public float azDeathTime;
+        private float lastUIScan;
+        private float lastTipScan;
+        private final Table tooltip = new Table().background(Styles.black6);
+        private int hoverCell = -1;
+
+        public RBMKConsoleBuild() {
+            for (int i = 0; i < this.view.length; ++i) {
+                this.view[i] = new Column();
             }
         }
-        
-        public void calculateNeutronFlux(){            // 计算所有结构的中子通量平均值
-            float totalFlux = 0f;
-            int count = 0;
-            
-            for(Building build : reactorComponents){                if(build instanceof RBMKBaseBuild baseBuild){                    totalFlux += baseBuild.neutronFlux;
-                    count++;
-                }
+
+        public float fluxOut() {
+            float m = 0.0f;
+            for (float f : this.fluxBuf) {
+                if (!(f > m)) continue;
+                m = f;
             }
-            
-            if(count > 0){                neutronFlux = totalFlux / count;
-            } else {
-                neutronFlux = 0f;
-            }
-            
-            neutronFlux = Mathf.clamp(neutronFlux, 0f, 10000f);
+            return m;
         }
-        
-        public String getStatusText(){            if(averageHeat < 100f) return "Cold";
-            if(averageHeat < 500f) return "Stable";
-            if(averageHeat < 800f) return "Hot";
+
+        public float avgColumnHeat() {
+            float sum = 0.0f;
+            int n = 0;
+            for (Column c : this.view) {
+                if (c.type == -1) continue;
+                sum += c.heat;
+                ++n;
+            }
+            return n == 0 ? 25.0f : sum / (float)n;
+        }
+
+        public String statusText() {
+            float avg = this.avgColumnHeat();
+            if (avg < 100.0f) {
+                return "Cold";
+            }
+            if (avg < 500.0f) {
+                return "Stable";
+            }
+            if (avg < 800.0f) {
+                return "Hot";
+            }
             return "Critical";
         }
-        
-        public Color getStatusColor(){            if(averageHeat < 100f) return Color.blue;
-            if(averageHeat < 500f) return Color.green;
-            if(averageHeat < 800f) return Color.yellow;
+
+        public Color statusColor() {
+            float avg = this.avgColumnHeat();
+            if (avg < 100.0f) {
+                return Color.blue;
+            }
+            if (avg < 500.0f) {
+                return Color.green;
+            }
+            if (avg < 800.0f) {
+                return Color.yellow;
+            }
             return Color.red;
         }
-        
-        public float getStatusProgress(){            return Mathf.clamp(averageHeat / 1000f, 0f, 1f);
-        }
-        
-        @Override
-        public void draw(){
-            super.draw();
 
-            // 绘制结构预览
-            drawStructurePreview();
+        public void onProximityAdded() {
+            super.onProximityAdded();
+            this.rescan();
         }
-        
-        public void drawNeutronFlux(){
-            Draw.z(Layer.blockOver);
-            
-            // 绘制中子通量图表 - 使用历史缓冲区
-            float chartWidth = size * tilesize - 32f;
-            float chartHeight = 64f;
-            float chartY = y + size * tilesize / 2f - chartHeight / 2f - 16f;
-            float chartX = x;
-            
-            // 绘制中子通量历史曲线
-            if(fluxBuffer.length > 0){
-                Draw.color(Color.yellow);
-                Lines.stroke(2f);
-                Lines.beginLine();
-                
-                for(int i = 0; i < fluxBuffer.length; i++){
-                    float t = i / (float)(fluxBuffer.length - 1);
-                    float xPos = chartX - chartWidth / 2f + chartWidth * t;
-                    float fluxValue = fluxBuffer[i];
-                    float yPos = chartY - chartHeight / 2f + (chartHeight * Mathf.clamp(fluxValue / 10000f, 0f, 1f));
-                    Lines.linePoint(xPos, yPos);
+
+        public void updateTile() {
+            if (Vars.state.tick % 10.0 == 0.0) {
+                this.rescan();
+            }
+            if (this.azArmed && Time.time >= this.azDeathTime) {
+                this.azArmed = false;
+            }
+        }
+
+        void setCenter(int x, int y) {
+            this.targetX = x;
+            this.targetY = y;
+            this.linked = true;
+            this.centerMode = false;
+            this.rescan();
+        }
+
+        private Point2 indexToWorld(int index) {
+            int x = index % 16 - 8;
+            int y = index / 16 - 8;
+            return new Point2(this.targetX + x * 2, this.targetY + y * 2);
+        }
+
+        protected void rescan() {
+            if (!this.linked) {
+                for (int i = 0; i < 256; ++i) {
+                    this.view[i].type = (byte)-1;
+                    this.view[i].heat = 0.0f;
+                    this.view[i].maxHeat = 0.0f;
                 }
-                
-                Lines.endLine();
+                return;
             }
-            
-            Draw.color();
+            float fluxTotal = 0.0f;
+            for (int index = 0; index < 256; ++index) {
+                Point2 p = this.indexToWorld(index);
+                Column c = this.view[index];
+                Building b = Vars.world.build(p.x, p.y);
+                if (b instanceof RBMKBase.RBMKBaseBuild) {
+                    RBMKBase.RBMKBaseBuild rb = (RBMKBase.RBMKBaseBuild)b;
+                    c.type = (byte)rb.getConsoleType().ordinal();
+                    c.heat = rb.heat;
+                    c.maxHeat = rb.maxHeat();
+                    c.moderated = rb.isModerated();
+                    c.level = -1.0f;
+                    c.color = -1;
+                    c.enrichment = -1.0f;
+                    c.xenon = -1.0f;
+                    c.coreHeat = -1.0f;
+                    c.hullHeat = -1.0f;
+                    c.water = -1.0f;
+                    c.steam = -1.0f;
+                    c.steamTier = -1;
+                    if (rb instanceof RBMKControl.RBMKControlBuild) {
+                        RBMKControl.RBMKControlBuild ct = (RBMKControl.RBMKControlBuild)rb;
+                        c.level = (float)ct.level;
+                        c.color = ct.color;
+                    }
+                    if (rb instanceof RBMKRod.RBMKRodBuild) {
+                        RBMKRod.RBMKRodBuild rd = (RBMKRod.RBMKRodBuild)rb;
+                        if (rd.fuelState != null && rd.fuelItem != null) {
+                            c.enrichment = (float)rd.fuelState.getEnrichment(rd.fuelItem);
+                            c.xenon = (float)rd.fuelState.getPoisonLevel();
+                            c.coreHeat = (float)rd.fuelState.coreHeat;
+                            c.hullHeat = (float)rd.fuelState.hullHeat;
+                        }
+                    }
+                    if (rb instanceof RBMKBoiler.RBMKBoilerBuild) {
+                        RBMKBoiler.RBMKBoilerBuild bl = (RBMKBoiler.RBMKBoilerBuild)rb;
+                        c.water = bl.liquids.get(Liquids.water);
+                        c.steam = bl.liquids.get(bl.currentSteam());
+                        c.steamTier = bl.steamTier + 1;
+                    }
+                    fluxTotal = (float)((double)fluxTotal + rb.consoleFlux());
+                } else {
+                    c.type = (byte)-1;
+                    c.heat = 0.0f;
+                    c.maxHeat = 0.0f;
+                }
+                if (!this.sel[index / 16][index % 16] || b instanceof RBMKBase.RBMKBaseBuild) continue;
+                this.sel[index / 16][index % 16] = false;
+            }
+            this.fluxStep = (this.fluxStep + 1) % 64;
+            if (this.fluxStep == 0) {
+                for (int k = 0; k < this.fluxBuf.length - 1; ++k) {
+                    this.fluxBuf[k] = this.fluxBuf[k + 1];
+                }
+                this.fluxBuf[this.fluxBuf.length - 1] = fluxTotal;
+            }
         }
-        
-        public void drawStructurePreview(){
-            Draw.z(Layer.blockOver);
-            
-            // 绘制结构俯视图背景（缩小1倍，居中显示）
-            float previewSize = 60f;
-            float previewX = x + size * tilesize / 2f - previewSize / 2f - 18f;
-            float previewY = y + size * tilesize / 2f - previewSize / 2f - 18f;
-            
-            Draw.color(Color.darkGray);
-            Fill.rect(previewX, previewY, previewSize, previewSize);
-            
-            // 绘制网格线（变细2倍）
-            Draw.color(Color.gray);
-            Lines.stroke(0.5f);
-            float cellSize = previewSize / gridSize;
-            for(int i = 0; i <= gridSize; i++){
-                float linePos = previewY - previewSize / 2f + cellSize * i;
-                Lines.line(previewX - previewSize / 2f, linePos, previewX + previewSize / 2f, linePos);
-                linePos = previewX - previewSize / 2f + cellSize * i;
-                Lines.line(linePos, previewY - previewSize / 2f, linePos, previewY + previewSize / 2f);
+
+        private RBMKBase.RBMKBaseBuild rbmkAt(int i, int j) {
+            Point2 p = this.indexToWorld(i * 16 + j);
+            Building b = Vars.world.build(p.x, p.y);
+            return b instanceof RBMKBase.RBMKBaseBuild ? (RBMKBase.RBMKBaseBuild)b : null;
+        }
+
+        public boolean onConfigureBuildTapped(Building other) {
+            if (this.centerMode && other != null) {
+                this.configure(new Point2(other.tileX(), other.tileY()));
+                return false;
             }
-            Lines.stroke(1f); // 恢复默认线条粗细
-            
-            // 绘制反应堆组件
-            for(int i = 0; i < columns.size; i++){
-                RBMKColumn col = columns.get(i);
-                if(col != null){
-                    int gridX = i % gridSize;
-                    int gridY = i / gridSize;
-                    
-                    float cellX = previewX - previewSize / 2f + cellSize * gridX + cellSize / 2f;
-                    float cellY = previewY - previewSize / 2f + cellSize * gridY + cellSize / 2f;
-                    
-                    // 根据组件类型设置颜色
-                    Color colColor = col.getColor();
-                    Draw.color(colColor);
-                    Fill.rect(cellX, cellY, cellSize - 2, cellSize - 2);
-                    
-                    // 如果是控制棒，显示控制棒位置
-                    if(col.build.block instanceof RBMKControl){
-                        RBMKControl.RBMKControlBuild control = (RBMKControl.RBMKControlBuild)col.build;
-                        
-                        // 计算控制棒插入高度（从底部开始）
-                        float rodHeight = cellSize * (1f - control.controlValue);
-                        float rodY = cellY - (cellSize - 4) / 2f;
-                        
-                        // 绘制控制棒（深色条形显示插入深度）- 置于结构预览图上方
-                        Draw.z(Layer.blockAdditive);
-                        Draw.color(Color.black);
-                        Fill.rect(cellX, rodY + rodHeight / 2f, cellSize - 4, rodHeight);
-                        Draw.z(Layer.blockOver); // 恢复到原始图层
-                        Draw.color();
+            return super.onConfigureBuildTapped(other);
+        }
+
+        public void handleCode(int code) {
+            if (code >= 1000 && code < 1256) {
+                int idx = code - 1000;
+                this.sel[idx / 16][idx % 16] = !this.sel[idx / 16][idx % 16];
+                return;
+            }
+            if (code >= 3000 && code < 3005) {
+                int col = code - 3000;
+                boolean anySel = false;
+                for (int i = 0; i < 16; ++i) {
+                    for (int j = 0; j < 16; ++j) {
+                        RBMKBase.RBMKBaseBuild rb = this.rbmkAt(i, j);
+                        if (!this.sel[i][j] || !(rb instanceof RBMKControl.RBMKControlBuild)) continue;
+                        RBMKControl.RBMKControlBuild ct = (RBMKControl.RBMKControlBuild)rb;
+                        if (ct.getConsoleType() != RBMKBase.ColumnType.CONTROL) continue;
+                        anySel = true;
+                        break;
                     }
                 }
+                if (anySel) {
+                    for (int i = 0; i < 16; ++i) {
+                        for (int j = 0; j < 16; ++j) {
+                            RBMKBase.RBMKBaseBuild rb = this.rbmkAt(i, j);
+                            if (!this.sel[i][j] || !(rb instanceof RBMKControl.RBMKControlBuild)) continue;
+                            RBMKControl.RBMKControlBuild ct = (RBMKControl.RBMKControlBuild)rb;
+                            if (ct.getConsoleType() != RBMKBase.ColumnType.CONTROL) continue;
+                            ct.setPacked(RBMKControl.RBMKControlBuild.pack((int)col, (int)((int)(ct.targetLevel * 100.0))));
+                        }
+                    }
+                } else {
+                    for (int i = 0; i < 16; ++i) {
+                        for (int j = 0; j < 16; ++j) {
+                            Column c = this.view[i * 16 + j];
+                            this.sel[i][j] = c.type == RBMKBase.ColumnType.CONTROL.ordinal() && c.color == col;
+                        }
+                    }
+                }
+                return;
             }
-            
-            // 绘制控制台位置标记（缩小1倍）
-            Draw.color(Color.white);
-            float centerX = previewX;
-            float centerY = previewY;
-            Lines.stroke(1f);
-            Lines.line(centerX - 2, centerY, centerX + 2, centerY);
-            Lines.line(centerX, centerY - 2, centerX, centerY + 2);
-            
-            Draw.color();
+            if (code >= 4000 && code < 4101) {
+                double lvl = (double)(code - 4000) / 100.0;
+                for (int i = 0; i < 16; ++i) {
+                    for (int j = 0; j < 16; ++j) {
+                        RBMKBase.RBMKBaseBuild rb = this.rbmkAt(i, j);
+                        if (!this.sel[i][j] || !(rb instanceof RBMKControl.RBMKControlBuild)) continue;
+                        RBMKControl.RBMKControlBuild ct = (RBMKControl.RBMKControlBuild)rb;
+                        ct.setTarget(lvl);
+                    }
+                }
+                return;
+            }
+            if (code >= 5000 && code < 5005) {
+                int tier = code - 5000;
+                if (tier < 1 || tier > 4) {
+                    return;
+                }
+                for (int i = 0; i < 16; ++i) {
+                    for (int j = 0; j < 16; ++j) {
+                        RBMKBase.RBMKBaseBuild rb = this.rbmkAt(i, j);
+                        if (!this.sel[i][j] || !(rb instanceof RBMKBoiler.RBMKBoilerBuild)) continue;
+                        RBMKBoiler.RBMKBoilerBuild bl = (RBMKBoiler.RBMKBoilerBuild)rb;
+                        bl.setSteamTier(tier - 1);
+                    }
+                }
+                return;
+            }
+            switch (code) {
+                case 2000:
+                case 2002: {
+                    int ctrl = RBMKBase.ColumnType.CONTROL.ordinal();
+                    for (int i = 0; i < 16; ++i) {
+                        for (int j = 0; j < 16; ++j) {
+                            this.sel[i][j] = this.view[i * 16 + j].type == ctrl;
+                        }
+                    }
+                    break;
+                }
+                case 2001: {
+                    for (int i = 0; i < 16; ++i) {
+                        for (int j = 0; j < 16; ++j) {
+                            this.sel[i][j] = false;
+                        }
+                    }
+                    break;
+                }
+                case 6000: {
+                    for (int i = 0; i < 16; ++i) {
+                        for (int j = 0; j < 16; ++j) {
+                            RBMKBase.RBMKBaseBuild rb = this.rbmkAt(i, j);
+                            if (!(rb instanceof RBMKControl.RBMKControlBuild)) continue;
+                            RBMKControl.RBMKControlBuild ct = (RBMKControl.RBMKControlBuild)rb;
+                            ct.setTarget(0.0);
+                        }
+                    }
+                    break;
+                }
+            }
         }
-        
-        
-        @Override
-        public void buildConfiguration(Table table){
-            // 添加动画覆盖层
-            Table animOverlay = new Table();
-            animOverlay.background(Styles.black6);
-            animOverlay.center();
-            
-            // 添加动画标签
-            animOverlay.add("@").color(Color.yellow).pad(40).row();
-            animOverlay.label(() -> "RBMK OS").color(Color.green).pad(50).row();
-            
-            table.add(animOverlay).grow().minHeight(400);
-            
-            // 0.75秒后移除动画效果并显示正常UI
-            Time.run(45f, () -> {
-                animOverlay.remove();
-                showNormalUI(table);
-            });
-        }
-        
-        public void showNormalUI(Table table) {
-            Table cont = new Table().top();
-            cont.left().defaults().left().growX();
-            
+
+        public void buildConfiguration(Table table) {
+            Table cont = new Table().top().left();
+            cont.defaults().left();
+
+            // 顶部横排：标题 | 中心设置
             cont.table(Styles.grayPanel, info -> {
                 info.left().defaults().left();
-                info.add("[accent]RBMK Control Console[]").row();
-                info.image().color(Pal.accent).growX().height(2).row();
-            }).growX().left().pad(10);
+                info.add("[accent]RBMK Console[]").row();
+                info.image().color(Pal.accent).growX().height(2.0f).pad(2.0f).row();
+            }).pad(10.0f);
+            cont.add().width(12.0f);
+            cont.table(Styles.grayPanel, center -> {
+                center.left().defaults().left();
+                Label cLabel = new Label(() -> this.linked ? "[green]Center: [" + this.targetX + ", " + this.targetY + "[]" : "[red]Not connected[]");
+                center.add(cLabel).row();
+                center.add("[gray]Enable 'Set Center' then click any column to link.[]").row();
+                TextButton setCenter = new TextButton(this.centerMode ? "[yellow]Click target...[]" : "Set Center", Styles.flatt);
+                setCenter.clicked(() -> {
+                    this.centerMode = !this.centerMode;
+                    setCenter.setText(this.centerMode ? "[yellow]Click target...[]" : "Set Center");
+                });
+                center.add(setCenter).size(110.0f, 34.0f).padTop(4.0f);
+            }).pad(12.0f);
             cont.row();
-            
-            // 原点设置提示
-            if(originX == -1 || originY == -1 || originZ == -1){
-                cont.table(Styles.grayPanel, originInfo -> {
-                    originInfo.left().defaults().left();
-                    originInfo.add("[red]Origin not set![]").row();
-                    originInfo.add("Click on a block to set it as the origin for the reactor structure view.");
-                }).growX().left().pad(10);
-                cont.row();
-            } else {
-                cont.table(Styles.grayPanel, originInfo -> {
-                    originInfo.left().defaults().left();
-                    originInfo.add("[green]Origin set to:[] " + originX + ", " + originY + ", " + originZ).row();
-                    originInfo.add("Click on another block to change the origin.");
-                }).growX().left().pad(10);
-                cont.row();
-            }
-            
-            // 结构俯视图
+
+            // 中部横排：结构图 | 控制面板组
             cont.table(Styles.grayPanel, structure -> {
                 structure.left().defaults().left();
-                structure.add("[accent]Reactor Structure:[]").row();
-                
-                // 绘制结构俯视图
-                structure.table(preview -> {
-                    preview.left().defaults().left();
-                    
-                    // 创建结构预览画布
-                    Table gridTable = new Table();
-                    float cellSize = 16f;
-                    
-                    for(int y = gridSize - 1; y >= 0; y--){ 
-                        Table row = new Table();
-                        for(int x = 0; x < gridSize; x++){
-                            int index = y * gridSize + x;
-                            RBMKColumn col = columns.get(index);
-                            
-                            Table cellContainer = new Table();
-                            
-                            if(col != null){
-                                // 左侧温度状态条 (2像素宽)
-                                Table barContainer = new Table();
-                                barContainer.background(Tex.whiteui);
-                                barContainer.setColor(Color.darkGray);
-                                
-                                if(col.build instanceof RBMKBaseBuild){
-                                    float maxTemperature = 1000f;
-                                    
-                                    barContainer.update(() -> {
-                                        barContainer.clearChildren();
-                                        float currentTemp = ((RBMKBaseBuild)col.build).heat;
-                                        float barHeight = cellSize * Mathf.clamp(currentTemp / maxTemperature, 0f, 1f);
-                                        
-                                        // 绘制温度状态条（底部对齐）
-                                        Table bar = new Table();
-                                        bar.background(Tex.whiteui);
-                                        bar.setColor(Color.red);
-                                        barContainer.add(bar).size(2, (int)barHeight).pad(0).bottom().expand();
-                                    });
-                                }
-                                cellContainer.add(barContainer).size(2, (int)cellSize).padRight(0);
-                                
-                                // 右侧结构预览图 (12像素宽，加上2像素温度条和2像素间隙，总宽度16像素，形成正方形)
-                                Table previewContainer = new Table();
-                                previewContainer.background(Tex.whiteui);
-                                previewContainer.setColor(Color.darkGray);
-                                
-                                // 绘制组件方块
-                                Color colColor = col.getColor();
-                                Table cell = new Table();
-                                cell.background(Tex.whiteui);
-                                cell.setColor(colColor);
-                                
-                                // 如果是控制棒，显示控制棒位置
-                                if(col.build.block instanceof RBMKControl){
-                                    RBMKControl.RBMKControlBuild control = (RBMKControl.RBMKControlBuild)col.build;
-                                    cell.update(() -> {
-                                        float alpha = control.controlValue;
-                                        cell.setColor(Tmp.c1.set(colColor).lerp(Color.black, 1f - alpha));
-                                    });
-                                }
-                                // 结构预览图为12x12像素，加上1像素内边距，预览容器为14x16像素
-                                // 总宽度：2(温度条) + 2(间隙) + 12(组件) = 16像素，与高度相同
-                                previewContainer.add(cell).size(12, 12).pad(1);
-                                
-                                cellContainer.add(previewContainer).size(14, 16);
-                            } else {
-                                Table cell = new Table();
-                                cell.background(Tex.whiteui);
-                                cell.setColor(Color.darkGray);
-                                cellContainer.add(cell).size((int)cellSize);
-                            }
-                            
-                            row.add(cellContainer).pad(1);
-                        }
-                        gridTable.add(row).row();
+                structure.add("[accent]Reactor Structure:[gray] click to select, hover for info[]").row();
+                structure.add(this.buildBody()).pad(6.0f);
+            }).pad(12.0f);
+            cont.add().width(12.0f);
+            Table controls = new Table().top().left();
+            controls.defaults().left();
+            controls.table(Styles.grayPanel, act -> {
+                act.left().defaults().left();
+                TextButton all = new TextButton("Select All Manual Rods", Styles.flatt);
+                all.clicked(() -> this.configure(2002));
+                act.add(all).size(170.0f, 32.0f).pad(3.0f);
+                TextButton clear = new TextButton("Clear Selection", Styles.flatt);
+                clear.clicked(() -> this.configure(2001));
+                act.add(clear).size(130.0f, 32.0f).pad(3.0f);
+            }).growX().pad(4.0f).row();
+            controls.table(Styles.grayPanel, grp -> {
+                grp.left().defaults().left();
+                grp.add("[accent]Control Rod Grouping:[gray] auto excluded").row();
+                Table row = new Table();
+                for (int g = 0; g < 5; ++g) {
+                    int gg = g;
+                    Button b = new Button(Styles.cleari);
+                    Image im = new Image(Tex.whiteui);
+                    im.setColor(GROUP_COLORS[gg]);
+                    b.add(im).size(34.0f);
+                    b.clicked(() -> this.configure(3000 + gg));
+                    row.add(b).size(34.0f).pad(3.0f);
+                }
+                grp.add(row).pad(4.0f).row();
+                grp.add("[gray]Assign color to selected / select all of a color.[]").left().pad(2.0f);
+            }).growX().pad(4.0f).row();
+            controls.table(Styles.grayPanel, rod -> {
+                rod.left().defaults().left();
+                rod.add("[accent]Control Rod Height:[gray] 0-100").row();
+                Table row = new Table();
+                TextField field = new TextField("50", Styles.defaultField);
+                field.setFilter(TextField.TextFieldFilter.digitsOnly);
+                field.setMaxLength(3);
+                row.add(field).width(80.0f).pad(2.0f);
+                TextButton apply = new TextButton("Apply", Styles.defaultt);
+                apply.clicked(() -> {
+                    int val = RBMKConsole.clampInt(RBMKConsole.parseInt(field.getText(), 0), 100);
+                    this.configure(4000 + val);
+                });
+                row.add(apply).size(70.0f, 32.0f).pad(2.0f);
+                rod.add(row).pad(4.0f);
+                rod.add("[gray]Applies to selected manual rods.[]").left().pad(2.0f);
+            }).growX().pad(4.0f).row();
+            controls.table(Styles.grayPanel, boiler -> {
+                boiler.left().defaults().left();
+                boiler.add("[accent]Boiler Steam Tier:[gray] 1-4 (STEAM/HOT/SUPERHOT/ULTRAHOT)").row();
+                Table row = new Table();
+                TextField tf = new TextField("1", Styles.defaultField);
+                tf.setFilter(TextField.TextFieldFilter.digitsOnly);
+                tf.setMaxLength(1);
+                row.add(tf).width(60.0f).pad(2.0f);
+                TextButton apply = new TextButton("Apply", Styles.defaultt);
+                apply.clicked(() -> {
+                    int v = RBMKConsole.parseInt(tf.getText(), 1);
+                    if (v < 1 || v > 4) {
+                        return;
                     }
-                    
-                    preview.add(gridTable);
-                }).growX().left().pad(10);
-            }).growX().left().pad(10);
+                    this.configure(5000 + v);
+                });
+                row.add(apply).size(70.0f, 32.0f).pad(2.0f);
+                boiler.add(row).pad(4.0f);
+                boiler.add("[gray]Applied to selected boilers.[]").left().pad(2.0f);
+            }).growX().pad(4.0f).row();
+            cont.add(controls).pad(12.0f);
             cont.row();
-            
-            // 中子通量图
+
+            // 底部横排：概览(+紧急) | 通量图
+            cont.table(Styles.grayPanel, overview -> {
+                overview.left().defaults().left();
+                overview.add("[accent]Overview:[]").row();
+                overview.add(this.statusLabel()).growX().pad(2.0f).row();
+                overview.add("[accent]Emergency Controls:[]").padTop(6.0f).row();
+                overview.add(this.buildAZ5()).pad(2.0f);
+            }).pad(12.0f).padTop(-100.0f);
+            cont.add().width(12.0f);
             cont.table(Styles.grayPanel, flux -> {
                 flux.left().defaults().left();
                 flux.add("[accent]Neutron Flux History:[]").row();
-                
-                // 绘制中子通量历史图
-                flux.table(chart -> {
-                    chart.left().defaults().left();
-                    
-                    // 创建中子通量图表
-                    Table chartTable = new Table();
-                    float chartWidth = 300f;
-                    float chartHeight = 100f;
-                    
-                    chartTable.background(Styles.black6);
-                    
-                    // 绘制中子通量曲线
-                    chartTable.update(() -> {
-                        chartTable.clearChildren();
-                        
-                        if(fluxBuffer.length > 0){
-                            Table lineTable = new Table();
-                            lineTable.left().bottom();
-                            
-                            for(int i = 0; i < fluxBuffer.length; i++){
-                                float value = fluxBuffer[i];
-                                float height = chartHeight * Mathf.clamp(value / 6000f, 0f, 1f);
-                                
-                                Table bar = new Table();
-                                bar.background(Tex.whiteui);
-                                bar.setColor(Color.yellow);
-                                
-                                lineTable.add(bar).size((int)(chartWidth / fluxBuffer.length - 1), (int)height).padRight(1);
-                            }
-                            
-                            chartTable.add(lineTable).grow();
-                        }
-                    });
-                    
-                    chart.add(chartTable).width((int)chartWidth).height((int)chartHeight);
-                }).growX().left().pad(10);
-                
-                flux.row();
-                flux.add("Current Flux: ").color(Color.yellow);
-                Label currentFluxLabel = new Label(() -> (int)neutronFlux + "");
-                currentFluxLabel.setColor(Color.yellow);
-                flux.add(currentFluxLabel).row();
-            }).growX().left().pad(10);
+                flux.add(this.buildFluxChart()).height(210.0f).width(520.0f).pad(4.0f).row();
+            }).pad(12.0f);
             cont.row();
-            
-            // 状态概览
-            cont.table(Styles.grayPanel, stats -> {
-                stats.left().defaults().left();
-                stats.add("[accent]Reactor Status:[]").row();
-                
-                stats.add("Components: " ).left();
-                stats.add(new Label(() -> (reactorComponents.size / 4) + "")).row();
-                
-                stats.add("Fuel Rods: " ).left();
-                stats.add(new Label(() -> (activeRods / 4) + "/" + (totalRods / 4))).row();
-                
-                stats.add("Control Rods: " ).left();
-                stats.add(new Label(() -> controlRodCount + "")).row();
-                
-                stats.add("Avg Heat: " ).left();
-                Label avgHeatLabel = new Label(() -> (int)averageHeat + "°C");
-                avgHeatLabel.update(() -> {
-                    if(averageHeat > 800) avgHeatLabel.setColor(Color.red);
-                    else if(averageHeat > 500) avgHeatLabel.setColor(Color.orange);
-                    else avgHeatLabel.setColor(Color.white);
-                });
-                stats.add(avgHeatLabel).row();
-                
-                stats.add("Max Heat: " ).left();
-                Label maxHeatLabel = new Label(() -> (int)maxHeat + "°C");
-                maxHeatLabel.update(() -> {
-                    if(maxHeat > 800) maxHeatLabel.setColor(Color.red);
-                    else if(maxHeat > 500) maxHeatLabel.setColor(Color.orange);
-                    else maxHeatLabel.setColor(Color.white);
-                });
-                stats.add(maxHeatLabel).row();
-                
-                stats.add("Neutron Flux: " ).left();
-                stats.add(new Label(() -> (int)neutronFlux + "")).row();
-                
-                stats.add("Power Output: " ).left();
-                stats.add(new Label(() -> (int)(totalPower * 60) + " MW")).row();
-            }).growX().left().pad(10);
-            cont.row();
-            
-            // 控制棒调节
-            cont.table(Styles.grayPanel, control -> {
-                control.left().defaults().left();
-                control.add("[accent]Control Rods:[]").row();
-                
-                Slider controlRodSlider = new Slider(0, 100, 1, false);
-                controlRodSlider.setValue(100f); // 默认完全抽出
-                
-                // 计算当前平均控制棒位置
-                float currentControlValue = 100f;
-                if(controlRodCount > 0){
-                    int total = 0;
-                    float sum = 0f;
-                    for(Building build : reactorComponents){
-                        if(build instanceof RBMKControl.RBMKControlBuild controlBuild){
-                            sum += controlBuild.targetControlValue * 100f;
-                            total++;
-                        }
-                    }
-                    if(total > 0){
-                        currentControlValue = sum / total;
-                    }
-                }
-                controlRodSlider.setValue(currentControlValue);
-                
-                // 实时更新滑块位置
-                controlRodSlider.update(() -> {
-                    if(controlRodCount > 0){
-                        int total = 0;
-                        float sum = 0f;
-                        for(Building build : reactorComponents){
-                            if(build instanceof RBMKControl.RBMKControlBuild controlBuild){
-                                sum += controlBuild.targetControlValue * 100f;
-                                total++;
-                            }
-                        }
-                        if(total > 0){
-                            float avgValue = sum / total;
-                            if(Math.abs(controlRodSlider.getValue() - avgValue) > 1f){
-                                controlRodSlider.setValue(avgValue);
-                            }
-                        }
-                    }
-                });
-                
-                controlRodSlider.changed(() -> {
-                    float value = controlRodSlider.getValue() / 100f;
-                    for(Building build : reactorComponents){
-                        if(build instanceof RBMKControl.RBMKControlBuild controlBuild){
-                            controlBuild.targetControlValue = value;
-                        }
-                    }
-                });
-                
-                Table sliderTable = new Table();
-                sliderTable.add("Withdrawal: " ).left();
-                sliderTable.add(controlRodSlider).growX();
-                sliderTable.add(new Label(() -> (int)controlRodSlider.getValue() + "%")).width(50);
-                control.add(sliderTable).growX().row();
-            }).growX().left().pad(10);
-            cont.row();
-            
-            // 紧急控制
-            cont.table(Styles.grayPanel, emergency -> {
-                emergency.left().defaults().left();
-                emergency.add("[accent]Emergency Controls:[]").row();
-                
-                Button az5Button = new Button(Styles.defaulti);
-                az5Button.add("AZ-5 EMERGENCY SHUTDOWN");
-                az5Button.clicked(() -> {
-                    // 插入所有控制棒
-                    for(Building build : reactorComponents){
-                        if(build instanceof RBMKControl.RBMKControlBuild control){
-                            // 直接设置到0%，不使用平滑过渡
-                            control.controlValue = 0f;
-                            control.targetControlValue = 0f;
-                        }
-                        if(build instanceof RBMKRodBuild rod){
-                            rod.heat = Mathf.clamp(rod.heat - 100f, 25f, rod.maxHeat);
-                        }
-                    }
-                    
-                    Core.app.post(() -> {
-                        Dialog dialog = new Dialog("AZ-5 ENGAGED");
-                        dialog.add("Emergency shutdown initiated! All control rods inserted.");
-                        dialog.button("OK", dialog::hide);
-                        dialog.show();
-                    });
-                });
-                emergency.add(az5Button).growX().row();
-            }).growX().left().pad(10);
-            cont.row();
-            
             Table main = new Table().background(Styles.black6);
             ScrollPane pane = new ScrollPane(cont, Styles.smallPane);
-            pane.setScrollingDisabled(false, false);
-            pane.setOverscroll(false, false);
-            
-            Table scrollTable = new Table();
-            scrollTable.add(pane).maxWidth(600).maxHeight(600);
-            scrollTable.row();
-            
-            Slider horizontalSlider = new Slider(0, 100, 1, false);
-            horizontalSlider.changed(() -> {
-                float scrollPos = horizontalSlider.getValue() / 100f;
-                pane.setScrollX(scrollPos * (pane.getMaxWidth() - pane.getWidth()));
+            pane.setScrollingDisabled(true, false);
+            pane.setOverscroll(false, true);
+            main.add(pane).maxWidth(1200.0f).maxHeight(730.0f);
+            table.add(main);
+            main.update(() -> {
+                if (Time.time >= this.lastUIScan) {
+                    this.lastUIScan = Time.time + 0.15f;
+                    this.rescan();
+                }
             });
-            scrollTable.add(horizontalSlider).width(600).height(20);
-            
-            main.add(scrollTable);
-            table.top().add(main);
         }
-        
-        @Override
-        public void write(Writes write){
+
+        private Label statusLabel() {
+            Label l = new Label(() -> {
+                float avg = this.avgColumnHeat();
+                int components = 0;
+                int fuel = 0;
+                int ctrl = 0;
+                float xenSum = 0.0f;
+                float depSum = 0.0f;
+                float coreSum = 0.0f;
+                float hullSum = 0.0f;
+                int xenN = 0;
+                int depN = 0;
+                int coreN = 0;
+                int hullN = 0;
+                for (Column c : this.view) {
+                    if (c.type == -1) continue;
+                    ++components;
+                    if (c.type == RBMKBase.ColumnType.FUEL.ordinal() || c.type == RBMKBase.ColumnType.FUEL_SIM.ordinal()) {
+                        ++fuel;
+                    }
+                    if (c.type == RBMKBase.ColumnType.CONTROL.ordinal() || c.type == RBMKBase.ColumnType.CONTROL_AUTO.ordinal()) {
+                        ++ctrl;
+                    }
+                    if (c.xenon >= 0.0f) {
+                        xenSum += c.xenon;
+                        ++xenN;
+                    }
+                    if (c.enrichment >= 0.0f) {
+                        depSum += 100.0f - c.enrichment * 100.0f;
+                        ++depN;
+                    }
+                    if (c.coreHeat >= 0.0f) {
+                        coreSum += c.coreHeat;
+                        ++coreN;
+                    }
+                    if (c.hullHeat >= 0.0f) {
+                        hullSum += c.hullHeat;
+                        ++hullN;
+                    }
+                }
+                return "Status: [accent]" + this.statusText() + "[]  Temp: " + (int)avg + "\u00b0C\nFlux: " + (int)this.fluxOut() + "  Xenon: " + (xenN == 0 ? "--" : (int)(xenSum / (float)xenN * 100.0f) + "%") + "  Depletion: " + (depN == 0 ? "--" : (int)(depSum / (float)depN) + "%") + "\nCore: " + (coreN == 0 ? "--" : (int)(coreSum / (float)coreN) + "\u00b0C") + "  Hull: " + (hullN == 0 ? "--" : (int)(hullSum / (float)hullN) + "\u00b0C") + "\nComponents: " + components + "  Fuel: " + fuel + "  Control: " + ctrl;
+            });
+            return l;
+        }
+
+        private String tipText(int index) {
+            Column c = this.view[index];
+            StringBuilder sb = new StringBuilder();
+            if (c.type == -1) {
+                sb.append("[gray]Empty[]");
+                return sb.toString();
+            }
+            RBMKBase.ColumnType t = RBMKBase.ColumnType.values()[c.type];
+            sb.append("[accent]").append(t.name()).append("[]");
+            sb.append("  [gray]").append((int)c.heat).append("\u00b0C[]\n");
+            sb.append("Heat: ").append((int)c.heat).append(" / ").append((int)c.maxHeat).append("\u00b0C");
+            if (c.moderated) {
+                sb.append("  [cyan]Moderated[]");
+            }
+            if (c.level >= 0.0f) {
+                sb.append("\nLevel: ").append((int)(c.level * 100.0f)).append("%");
+                if (c.color >= 0 && c.color < GROUP_NAMES.length) {
+                    sb.append("  Group: ").append(GROUP_NAMES[c.color]);
+                }
+            }
+            if (c.enrichment >= 0.0f) {
+                sb.append("\nEnrichment: ").append((int)(c.enrichment * 100.0f)).append("%");
+                sb.append("  Xenon: ").append((int)(c.xenon * 100.0f)).append("%");
+                sb.append("\nCore: ").append((int)c.coreHeat).append("\u00b0C");
+                sb.append("  Hull: ").append((int)c.hullHeat).append("\u00b0C");
+            }
+            if (c.water >= 0.0f) {
+                sb.append("\nWater: ").append((int)c.water);
+                sb.append("  Steam: ").append((int)c.steam);
+                sb.append("  Tier: ").append(c.steamTier);
+            }
+            return sb.toString();
+        }
+
+        private void refreshTip(int index, Element cell) {
+            this.hoverCell = index;
+            this.tooltip.clearChildren();
+            this.tooltip.add(new Label(this.tipText(index))).pad(6.0f);
+            this.tooltip.pack();
+            this.tooltip.visible = true;
+            this.tooltip.toFront();
+            this.moveTip(cell);
+        }
+
+        private void showTip(int index, Element cell) {
+            if (this.hoverCell != index) {
+                this.refreshTip(index, cell);
+            }
+        }
+
+        private void moveTip(Element cell) {
+            if (this.hoverCell < 0) {
+                return;
+            }
+            if (cell.getScene() != null && this.tooltip.parent == null) {
+                cell.getScene().root.addChild(this.tooltip);
+            }
+            Tmp.v1.set(cell.x, cell.y);
+            cell.localToStageCoordinates(Tmp.v1);
+            this.tooltip.setPosition(Tmp.v1.x, Tmp.v1.y + cell.getHeight() + 4.0f);
+        }
+
+        private void hideTip() {
+            this.hoverCell = -1;
+            this.tooltip.visible = false;
+        }
+
+        private Table buildBody() {
+            Table t = new Table();
+            for (int i = 15; i >= 0; --i) {
+                for (int j = 0; j < 16; ++j) {
+                    final int fi = i, fj = j;
+                    final int idx = fi * 16 + fj;
+                    Image cell = new Image(Tex.whiteui);
+                    cell.update(() -> {
+                        Column c = this.view[idx];
+                        if (c.type == -1) {
+                            cell.setColor(Color.darkGray);
+                        } else if (this.sel[fi][fj]) {
+                            Tmp.c1.set(RBMKConsole.typeColor(c.type, c.heat, c.maxHeat)).lerp(Color.white, 0.5f);
+                            cell.setColor(Tmp.c1);
+                        } else {
+                            cell.setColor(RBMKConsole.typeColor(c.type, c.heat, c.maxHeat));
+                        }
+                        if (this.hoverCell == idx) {
+                            this.moveTip(cell);
+                            if (Time.time >= this.lastTipScan) {
+                                this.lastTipScan = Time.time + 0.15f;
+                                this.refreshTip(idx, cell);
+                            }
+                        }
+                    });
+                    cell.clicked(() -> this.configure(1000 + idx));
+                    cell.hovered(() -> this.showTip(idx, cell));
+                    cell.exited(this::hideTip);
+                    Element heat = this.heatOverlay(idx);
+                    heat.toFront();
+                    t.stack(new Element[]{cell, heat}).size(16.0f).pad(1.0f);
+                }
+                t.row();
+            }
+            return t;
+        }
+
+        private Element heatOverlay(final int idx) {
+            return new Element() {
+                {
+                    this.touchable(() -> Touchable.disabled);
+                    this.setFillParent(false);
+                }
+
+                public void draw() {
+                    Column c = RBMKConsoleBuild.this.view[idx];
+                    if (c.type == -1 || c.maxHeat <= 0.0f) {
+                        return;
+                    }
+                    float w = this.getWidth();
+                    float h = this.getHeight();
+                    float x0 = this.x;
+                    float y0 = this.y;
+
+                    // 左侧温度竖条：自底部生长，高度按 (heat-20)/maxHeat 归一
+                    float frac = Mathf.clamp((float)((c.heat - 20.0f) / c.maxHeat));
+                    if (frac >= 0.02f) {
+                        float barH = h * frac;
+                        int slices = 8;
+                        float sh = barH / (float)slices;
+                        for (int i = 0; i < slices; ++i) {
+                            float t = 1.0f - (float)i / (float)(slices - 1);
+                            Draw.color((float)(0.9f - 0.25f * t), (float)(0.15f + 0.45f * t), (float)(0.08f + 0.1f * t), (float)(0.55f + 0.45f * (1.0f - t)));
+                            Fill.rect((float)(x0 + 1.5f), (float)(y0 + ((float)i + 0.5f) * sh), 3.0f, sh);
+                        }
+                    }
+
+                    // 组件专用指示条（同 HBM：底部/顶部窄竖条）
+                    RBMKBase.ColumnType type = RBMKBase.ColumnType.values()[c.type];
+                    if (type == RBMKBase.ColumnType.FUEL || type == RBMKBase.ColumnType.FUEL_SIM || type == RBMKBase.ColumnType.BREEDER) {
+                        if (c.coreHeat >= 0.0f) {
+                            float fh = (float)Math.ceil((c.coreHeat - 20.0f) * (h - 4.0f) / c.maxHeat);
+                            fh = Mathf.clamp((float)fh, 0.0f, h - 4.0f);
+                            Draw.color((float)0.9f, (float)0.3f, (float)0.2f);
+                            Fill.rect((float)(x0 + 5.5f), (float)(y0 + 2.0f + fh / 2.0f), 2.0f, fh); // 棒芯热
+                        }
+                        if (c.enrichment >= 0.0f) {
+                            float fe = c.enrichment * (h - 4.0f);
+                            Draw.color((float)0.3f, (float)0.9f, (float)0.3f);
+                            Fill.rect((float)(x0 + 9.5f), (float)(y0 + 2.0f + fe / 2.0f), 2.0f, fe); // 燃料消耗(富集度剩余)
+                        }
+                        if (c.xenon >= 0.0f) {
+                            float fx = c.xenon * (h - 4.0f);
+                            Draw.color((float)0.6f, (float)0.55f, (float)0.8f);
+                            Fill.rect((float)(x0 + 13.5f), (float)(y0 + 2.0f + fx / 2.0f), 2.0f, fx); // 氙毒
+                        }
+                    } else if (type == RBMKBase.ColumnType.CONTROL || type == RBMKBase.ColumnType.CONTROL_AUTO) {
+                        if (c.level >= 0.0f) {
+                            // 控制棒位置：从顶部向下，level=0(全插入)长条，level=1(全抽出)消失
+                            float fr = (1.0f - Mathf.clamp((float)c.level, 0.0f, 1.0f)) * (h - 2.0f);
+                            Draw.color((float)0.95f, (float)0.8f, (float)0.2f);
+                            Fill.rect((float)(x0 + w / 2.0f), (float)(y0 + h - fr / 2.0f), 3.0f, fr); // 位置指示条
+                        }
+                    } else if (type == RBMKBase.ColumnType.BOILER) {
+                        if (c.water >= 0.0f) {
+                            // 存水量：自底部生长，按 feedCapacity 归一
+                            float fw = Mathf.clamp((float)(c.water / 100.0f)) * (h - 4.0f);
+                            Draw.color((float)0.25f, (float)0.55f, (float)0.95f);
+                            Fill.rect((float)(x0 + 5.5f), (float)(y0 + 2.0f + fw / 2.0f), 2.0f, fw); // 水
+                        }
+                        if (c.steam >= 0.0f) {
+                            // 蒸汽量：自底部生长，按 steamCapacity 归一
+                            float fs = Mathf.clamp((float)(c.steam / 10000.0f)) * (h - 4.0f);
+                            Draw.color((float)0.8f, (float)0.85f, (float)0.9f);
+                            Fill.rect((float)(x0 + 9.5f), (float)(y0 + 2.0f + fs / 2.0f), 2.0f, fs); // 蒸汽
+                        }
+                        if (c.steamTier > 0) {
+                            // 蒸汽等级：从顶部向下小标记，1-4 级递增下移
+                            float fy = 1.0f + 2.0f * Mathf.clamp((float)(c.steamTier - 1), 0.0f, 3.0f);
+                            Draw.color((float)0.95f, (float)0.7f, (float)0.25f);
+                            Fill.rect((float)(x0 + 13.5f), (float)(y0 + h - fy - 1.0f), 2.0f, 2.0f); // 等级标记
+                        }
+                    }
+
+                    // 选中红框
+                    if (RBMKConsoleBuild.this.sel[idx / 16][idx % 16]) {
+                        Draw.color(Color.red);
+                        Lines.stroke((float)1.7f);
+                        Lines.rect((float)(x0 + 0.5f), (float)(y0 + 0.5f), w - 1.0f, h - 1.0f);
+                        Draw.reset();
+                    }
+                    Draw.color();
+                }
+            };
+        }
+
+        private Element buildFluxChart() {
+            return new Element() {
+                public void draw() {
+                    float w = this.getWidth();
+                    float h = this.getHeight();
+                    float gx = this.x;
+                    float gy = this.y;
+                    Draw.color((float)0.08f, (float)0.18f, (float)0.08f);
+                    Fill.rect((float)(gx + w / 2.0f), (float)(gy + h / 2.0f), (float)w, (float)h);
+                    Draw.color((float)0.3f, (float)0.6f, (float)0.3f);
+                    Lines.stroke((float)1.0f);
+                    for (int i = 0; i <= 8; ++i) {
+                        Lines.line((float)(gx + w * (float)i / 8.0f), (float)gy, (float)(gx + w * (float)i / 8.0f), (float)(gy + h));
+                    }
+                    for (int j = 0; j <= 4; ++j) {
+                        Lines.line((float)gx, (float)(gy + h * (float)j / 4.0f), (float)(gx + w), (float)(gy + h * (float)j / 4.0f));
+                    }
+                    float max = 1.0f;
+                    float min = Float.MAX_VALUE;
+                    for (float f : RBMKConsoleBuild.this.fluxBuf) {
+                        max = Math.max(max, f);
+                        min = Math.min(min, f);
+                    }
+                    if (min == Float.MAX_VALUE) {
+                        min = 0.0f;
+                    }
+                    Draw.color(Color.lime);
+                    Lines.stroke((float)2.0f);
+                    for (int i = 1; i < RBMKConsoleBuild.this.fluxBuf.length; ++i) {
+                        float x1 = gx + (float)(i - 1) / (float)(RBMKConsoleBuild.this.fluxBuf.length - 1) * w;
+                        float y1 = gy + RBMKConsoleBuild.this.fluxBuf[i - 1] / max * h;
+                        float x2 = gx + (float)i / (float)(RBMKConsoleBuild.this.fluxBuf.length - 1) * w;
+                        float y2 = gy + RBMKConsoleBuild.this.fluxBuf[i] / max * h;
+                        Lines.line((float)x1, (float)y1, (float)x2, (float)y2);
+                    }
+                    Draw.color();
+                    String maxS = "" + (int)max;
+                    String minS = "" + (int)min;
+                    Fonts.outline.setColor(Color.lime);
+                    Fonts.outline.draw((CharSequence)maxS, gx + 2.0f, gy + h - 1.0f, 8);
+                    Fonts.outline.draw((CharSequence)maxS, gx + w - 2.0f, gy + h - 1.0f, 16);
+                    Fonts.outline.draw((CharSequence)minS, gx + 2.0f, gy + 0.0f, 8);
+                    Fonts.outline.draw((CharSequence)minS, gx + w - 2.0f, gy + 0.0f, 16);
+                    Fonts.outline.setColor(Color.white);
+                }
+            };
+        }
+
+        private Table buildAZ5() {
+            Table t = new Table();
+            TextButton az = new TextButton("AZ-5 SCRAM", new TextButton.TextButtonStyle(Styles.flatt));
+            Element border = new Element() {
+                public void draw() {
+                    if (!RBMKConsoleBuild.this.azArmed) {
+                        return;
+                    }
+                    float w = this.getWidth();
+                    float h = this.getHeight();
+                    Draw.color(Color.red, (float)0.9f);
+                    Lines.stroke((float)3.0f);
+                    Lines.rect((float)this.x, (float)this.y, (float)w, (float)h);
+                    Draw.reset();
+                }
+            };
+            border.touchable(() -> Touchable.disabled);
+            border.visible = false;
+            az.update(() -> {
+                border.visible = this.azArmed;
+                if (this.azArmed) {
+                    float left = Math.max(0.0f, (this.azDeathTime - Time.time) / 60.0f);
+                    az.setText("[red]CONFIRM! " + Mathf.ceil((float)left) + "s[]");
+                } else {
+                    az.setText("AZ-5 SCRAM");
+                }
+            });
+            az.clicked(() -> {
+                if (!this.azArmed) {
+                    this.azArmed = true;
+                    this.azDeathTime = Time.time + 300.0f;
+                } else {
+                    this.azArmed = false;
+                    this.configure(6000);
+                }
+            });
+            t.stack(new Element[]{az, border}).size(180.0f, 44.0f);
+            return t;
+        }
+
+        public void write(Writes write) {
             super.write(write);
-            write.f(neutronFlux);
-            write.f(averageHeat);
-            write.f(maxHeat);
-            write.i(controlRodCount);
-            write.f(totalPower);
-            
-            // 写入中子通量缓冲区
-            for(float flux : fluxBuffer){
-                write.f(flux);
+            write.i(this.targetX);
+            write.i(this.targetY);
+            write.bool(this.linked);
+            for (float f : this.fluxBuf) {
+                write.f(f);
             }
-            
-            // 写入原点坐标
-            write.i(originX);
-            write.i(originY);
-            write.i(originZ);
         }
-        
-        @Override
-        public void read(Reads read, byte revision){
+
+        public void read(Reads read, byte revision) {
             super.read(read, revision);
-            neutronFlux = read.f();
-            averageHeat = read.f();
-            maxHeat = read.f();
-            controlRodCount = read.i();
-            totalPower = read.f();
-            
-            // 读取中子通量缓冲区
-            if(revision >= 1){
-                for(int i = 0; i < fluxBuffer.length; i++){
-                    fluxBuffer[i] = read.f();
-                }
-                
-                // 读取原点坐标
-                if(revision >= 2){
-                    originX = read.i();
-                    originY = read.i();
-                    originZ = read.i();
-                }
+            this.targetX = read.i();
+            this.targetY = read.i();
+            this.linked = read.bool();
+            for (int i = 0; i < this.fluxBuf.length; ++i) {
+                this.fluxBuf[i] = read.f();
             }
-        }
-        
-        @Override
-        public byte version(){
-            return 2;
         }
     }
-    
-    // 结构俯视图列数据类
-    public static class RBMKColumn{
-        public Building build;
-        
-        public RBMKColumn(Building build){
-            this.build = build;
-        }
-        
-        public Color getColor(){
-            if(build == null) return Color.clear;
-            
-            if(build.block instanceof RBMKRod){
-                RBMKRodBuild rod = (RBMKRodBuild)build;
-                if(rod.heat > 800) return Color.red;
-                if(rod.heat > 500) return Color.orange;
-                if(rod.heat > 200) return Color.yellow;
-                return Color.scarlet;
-            } else if(build.block instanceof RBMKControl){
-                return Color.green;
-            } else if(build.block instanceof RBMKCooler){
-                return Color.cyan;
-            } else if(build.block instanceof RBMKModerator){
-                return Color.blue;
-            } else if(build.block instanceof RBMKReflector){
-                return Color.purple;
-            } else if(build.block instanceof RBMKAbsorber){
-                return Color.gray;
-            } else if(build.block instanceof RBMKBoiler){
-                return Color.sky;
-            }
-            
-            return Color.white;
-        }
+
+    public static class Column {
+        public byte type = (byte)-1;
+        public float heat;
+        public float maxHeat;
+        public boolean moderated;
+        public float level = -1.0f;
+        public int color = -1;
+        public float enrichment = -1.0f;
+        public float xenon = -1.0f;
+        public float coreHeat = -1.0f;
+        public float hullHeat = -1.0f;
+        public float water = -1.0f;
+        public float steam = -1.0f;
+        public int steamTier = -1;
     }
 }

@@ -64,6 +64,22 @@ public class VEBlocks {
     public static Block powerPole;
     //钻头
     public static Block rockCoreDrill;
+    // RBMK 燃料柱
+    public static Block rbmkRod;
+    // RBMK 控制棒
+    public static Block rbmkControl;
+    // RBMK 慢化控制棒
+    public static Block rbmkControlModerated;
+    // RBMK 自动控制棒
+    public static Block rbmkControlAuto;
+    // RBMK 慢化自动控制棒
+    public static Block rbmkControlAutoModerated;
+    // RBMK 熔毁残骸（16向随机朝向）
+    public static Block rbmkWreckage;
+    // RBMK 锅炉
+    public static Block rbmkBoiler;
+    // RBMK 控制台
+    public static Block rbmkConsole;
 
     //测试玩意
     public static Block testCoolantDrill;
@@ -288,6 +304,94 @@ public class VEBlocks {
             liquidSeq.add(Liquids.water);
             liquidSeq.add(Liquids.cryofluid);
             coolants = liquidSeq.toArray(Liquid.class);
+        }};
+
+        // 注册 RBMK 燃料数据（依赖 VEItems.load() 已执行）
+        RBMKFuelData.initDefaultFuels();
+
+        // RBMK 燃料柱
+        rbmkRod = new RBMKRod("rbmk-rod"){{
+            requirements(Category.power, ItemStack.with(
+                VEItems.iron, 50,
+                VEItems.uranium, 25
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 400;
+        }};
+
+        // RBMK 熔毁残骸（仅在熔毁事件中生成，16向随机朝向）
+        rbmkWreckage = new RBMKWreckage("rbmk-wreckage"){{
+            size = 2;
+        }};
+
+        // RBMK 控制棒
+        rbmkControl = new RBMKControl("rbmk-control"){{
+            requirements(Category.power, ItemStack.with(
+                VEItems.iron, 30,
+                VEItems.uranium, 10
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 360;
+        }};
+
+        // RBMK 慢化控制棒
+        rbmkControlModerated = new RBMKControl("rbmk-control-moderated"){{
+            moderated = true;
+            requirements(Category.power, ItemStack.with(
+                VEItems.iron, 40,
+                VEItems.uranium, 15
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 380;
+        }};
+
+        // RBMK 自动控制棒
+        rbmkControlAuto = new RBMKControlAuto("rbmk-control-auto"){{
+            requirements(Category.power, ItemStack.with(
+                VEItems.iron, 35,
+                VEItems.uranium, 12
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 360;
+        }};
+
+        // RBMK 慢化自动控制棒
+        rbmkControlAutoModerated = new RBMKControlAuto("rbmk-control-auto-moderated"){{
+            moderated = true;
+            requirements(Category.power, ItemStack.with(
+                VEItems.iron, 45,
+                VEItems.uranium, 17
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 380;
+        }};
+
+        // RBMK 锅炉
+        rbmkBoiler = new RBMKBoiler("rbmk-boiler"){{
+            requirements(Category.power, ItemStack.with(
+                VEItems.iron, 60,
+                VEItems.uranium, 10
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 360;
+        }};
+
+        // RBMK 控制台（15×15 扫描 + 批控）
+        rbmkConsole = new RBMKConsole("rbmk-console"){{
+            requirements(Category.logic, ItemStack.with(
+                VEItems.iron, 80,
+                VEItems.uranium, 10,
+                VEItems.manganese, 10
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 500;
         }};
     }
 }

@@ -177,12 +177,32 @@ public class VEBlocks {
         // RBMK慢化控制棒
         rbmkControlModerated = new RBMKControl("rbmk-control-moderated"){{
             moderated = true;
-            maxControlValue = 1.5f;
             requirements(Category.power, ItemStack.with(
                 Items.copper, 200,
                 Items.lead, 150,
                 Items.titanium, 100,
                 Items.graphite, 100
+            ));
+        }};
+
+        // RBMK自动控制棒
+        rbmkControlAuto = new RBMKControlAuto("rbmk-control-auto"){{
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 180,
+                Items.lead, 120,
+                Items.titanium, 60,
+                Items.graphite, 60
+            ));
+        }};
+
+        // RBMK慢化自动控制棒
+        rbmkControlAutoModerated = new RBMKControlAuto("rbmk-control-auto-moderated"){{
+            moderated = true;
+            requirements(Category.power, ItemStack.with(
+                Items.copper, 230,
+                Items.lead, 170,
+                Items.titanium, 110,
+                Items.graphite, 110
             ));
         }};
 
