@@ -1987,7 +1987,7 @@
     
     
     
-    {
+    /*{
       "mirror": false,
       "x": 0,
       "y": 0,
@@ -2015,7 +2015,7 @@
         "lifetime": 100,
         "trailEffect": "none"
       }
-    }
+    }*/
   ],
   "createWreck": false
 }

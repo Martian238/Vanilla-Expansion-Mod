@@ -1,43 +1,34 @@
 package VanillaExpansion.expand.units;
 
-import mindustry.type.UnitType;
+import arc.math.Angles;
+import arc.math.Mathf;
+import arc.math.geom.Vec2;
+import arc.util.Time;
+import arc.util.Tmp;
+import mindustry.Vars;
+import mindustry.audio.SoundLoop;
+import mindustry.entities.Predict;
+import mindustry.entities.Sized;
+import mindustry.entities.Units;
+import mindustry.entities.units.WeaponMount;
+import mindustry.gen.Building;
+import mindustry.gen.Sounds;
+import mindustry.gen.Teamc;
+import mindustry.gen.Unit;
 import mindustry.type.Weapon;
-import arc.*;
-import arc.audio.*;
-import arc.func.*;
-import arc.graphics.*;
-import arc.graphics.g2d.*;
-import arc.math.*;
-import arc.math.geom.*;
-import arc.scene.ui.layout.*;
-import arc.struct.*;
-import arc.util.*;
-import mindustry.*;
-import mindustry.ai.types.*;
-import mindustry.audio.*;
-import mindustry.content.*;
-import mindustry.entities.*;
-import mindustry.entities.bullet.*;
-import mindustry.entities.part.*;
-import mindustry.entities.pattern.*;
-import mindustry.entities.units.*;
-import mindustry.gen.*;
-import mindustry.graphics.*;
-import mindustry.world.meta.*;
 
-import static mindustry.Vars.*;
+import static mindustry.Vars.headless;
 
-public class AttackOnlyStrongerWeapon extends Weapon {
+public class AttackOnlySpecificWeapon extends Weapon {
     // 自定义参数
-    public float leastHealth = 90000f;
-    public float exceptHealth = 1000000f;
+    public float targetHealth = 1000000f;
     public boolean targetBuildings = false; // 新增：是否索敌建筑
 
-    public AttackOnlyStrongerWeapon(String name){
+    public AttackOnlySpecificWeapon(String name){
         super(name);
     }
 
-    public AttackOnlyStrongerWeapon(){
+    public AttackOnlySpecificWeapon(){
         this("");
     }
 
@@ -210,7 +201,7 @@ public class AttackOnlyStrongerWeapon extends Weapon {
                 // 1. 检查目标类型（是否可对空/对地）
                 if(!u.checkTarget(bullet.collidesAir, bullet.collidesGround)) return false;
                 // 2. 检查血量阈值
-                return (u.maxHealth >= leastHealth) && (u.maxHealth != exceptHealth);
+                return (u.maxHealth == targetHealth);
             },
             // 建筑筛选器
             t -> {
@@ -227,10 +218,10 @@ public class AttackOnlyStrongerWeapon extends Weapon {
     // ===== 目标有效性检查 =====
     private boolean isTargetValid(Unit unit, Teamc target){
         if(target instanceof Unit u){
-            return u.isAdded() && u.team != unit.team && (u.maxHealth >= leastHealth) && (u.maxHealth != exceptHealth);
+            return u.isAdded() && u.team != unit.team && (u.maxHealth == targetHealth);
         }
         if(target instanceof Building b){
-            return targetBuildings && b.isAdded() && b.team != unit.team && b.maxHealth >= leastHealth;
+            return targetBuildings && b.isAdded() && b.team != unit.team && b.maxHealth == targetHealth;
         }
         return false;
     }
