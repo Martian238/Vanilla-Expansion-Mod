@@ -76,6 +76,8 @@ public class VEBlocks {
     public static Block rbmkControlAutoModerated;
     // RBMK 熔毁残骸（16向随机朝向）
     public static Block rbmkWreckage;
+    // RBMK 冷却器
+    public static Block rbmkCooler;
     // RBMK 锅炉
     public static Block rbmkBoiler;
     // RBMK 控制台
@@ -376,6 +378,18 @@ public class VEBlocks {
             requirements(Category.power, ItemStack.with(
                 VEItems.iron, 60,
                 VEItems.uranium, 10
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 360;
+        }};
+
+        // RBMK 冷却器（应急散热：消耗冷 PFM，5×5 列范围每 tick 降温 200°C）
+        rbmkCooler = new RBMKCooler("rbmk-cooler"){{
+            requirements(Category.power, ItemStack.with(
+                VEItems.iron, 100,
+                Items.lead, 80,
+                Items.metaglass, 50
             ));
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
