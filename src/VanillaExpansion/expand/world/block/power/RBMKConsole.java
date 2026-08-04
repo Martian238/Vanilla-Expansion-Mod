@@ -8,6 +8,7 @@ import arc.math.Mathf;
 import arc.math.geom.Point2;
 import arc.scene.Element;
 import arc.scene.event.Touchable;
+import arc.scene.ui.Button;
 import arc.scene.ui.Image;
 import arc.scene.ui.Label;
 import arc.scene.ui.ScrollPane;
@@ -73,18 +74,7 @@ public class RBMKConsole extends Block {
             case BREEDER:
             case STORAGE:
             case BURNER: {
-                float f = maxHeat <= 0.0f ? 0.0f : Mathf.clamp((float)(heat / maxHeat));
-                float h = f;
-                if (h > 0.6f) {
-                    return Color.red;
-                }
-                if (h > 0.3f) {
-                    return Color.orange;
-                }
-                if (h > 0.1f) {
-                    return Color.yellow;
-                }
-                return Color.scarlet;
+                return Color.yellow;
             }
             case CONTROL:
             case CONTROL_AUTO: {
@@ -137,6 +127,7 @@ public class RBMKConsole extends Block {
         public boolean azArmed;
         public float azDeathTime;
         private float lastUIScan;
+        private float lastTipScan;
         private final Table tooltip = new Table().background(Styles.black6);
         private int hoverCell = -1;
 
@@ -405,12 +396,14 @@ public class RBMKConsole extends Block {
         public void buildConfiguration(Table table) {
             Table cont = new Table().top().left();
             cont.defaults().left();
+
+            // 顶部横排：标题 | 中心设置
             cont.table(Styles.grayPanel, info -> {
                 info.left().defaults().left();
                 info.add("[accent]RBMK Console[]").row();
                 info.image().color(Pal.accent).growX().height(2.0f).pad(2.0f).row();
-            }).growX().pad(10.0f);
-            cont.row();
+            }).pad(10.0f);
+            cont.add().width(12.0f);
             cont.table(Styles.grayPanel, center -> {
                 center.left().defaults().left();
                 Label cLabel = new Label(() -> this.linked ? "[green]Center: [" + this.targetX + ", " + this.targetY + "[]" : "[red]Not connected[]");
@@ -422,15 +415,19 @@ public class RBMKConsole extends Block {
                     setCenter.setText(this.centerMode ? "[yellow]Click target...[]" : "Set Center");
                 });
                 center.add(setCenter).size(110.0f, 34.0f).padTop(4.0f);
-            }).growX().pad(12.0f);
+            }).pad(12.0f);
             cont.row();
+
+            // 中部横排：结构图 | 控制面板组
             cont.table(Styles.grayPanel, structure -> {
                 structure.left().defaults().left();
                 structure.add("[accent]Reactor Structure:[gray] click to select, hover for info[]").row();
                 structure.add(this.buildBody()).pad(6.0f);
-            }).growX().pad(12.0f);
-            cont.row();
-            cont.table(Styles.grayPanel, act -> {
+            }).pad(12.0f);
+            cont.add().width(12.0f);
+            Table controls = new Table().top().left();
+            controls.defaults().left();
+            controls.table(Styles.grayPanel, act -> {
                 act.left().defaults().left();
                 TextButton all = new TextButton("Select All Manual Rods", Styles.flatt);
                 all.clicked(() -> this.configure(2002));
@@ -438,24 +435,24 @@ public class RBMKConsole extends Block {
                 TextButton clear = new TextButton("Clear Selection", Styles.flatt);
                 clear.clicked(() -> this.configure(2001));
                 act.add(clear).size(130.0f, 32.0f).pad(3.0f);
-            }).growX().pad(12.0f);
-            cont.row();
-            cont.table(Styles.grayPanel, grp -> {
+            }).growX().pad(4.0f).row();
+            controls.table(Styles.grayPanel, grp -> {
                 grp.left().defaults().left();
                 grp.add("[accent]Control Rod Grouping:[gray] auto excluded").row();
                 Table row = new Table();
                 for (int g = 0; g < 5; ++g) {
                     int gg = g;
-                    TextButton b = new TextButton(GROUP_NAMES[g], new TextButton.TextButtonStyle(Styles.flatt));
-                    b.getStyle().fontColor.set(GROUP_COLORS[gg]);
+                    Button b = new Button(Styles.cleari);
+                    Image im = new Image(Tex.whiteui);
+                    im.setColor(GROUP_COLORS[gg]);
+                    b.add(im).size(34.0f);
                     b.clicked(() -> this.configure(3000 + gg));
-                    row.add(b).size(64.0f, 34.0f).pad(3.0f);
+                    row.add(b).size(34.0f).pad(3.0f);
                 }
                 grp.add(row).pad(4.0f).row();
                 grp.add("[gray]Assign color to selected / select all of a color.[]").left().pad(2.0f);
-            }).growX().pad(12.0f);
-            cont.row();
-            cont.table(Styles.grayPanel, rod -> {
+            }).growX().pad(4.0f).row();
+            controls.table(Styles.grayPanel, rod -> {
                 rod.left().defaults().left();
                 rod.add("[accent]Control Rod Height:[gray] 0-100").row();
                 Table row = new Table();
@@ -471,9 +468,8 @@ public class RBMKConsole extends Block {
                 row.add(apply).size(70.0f, 32.0f).pad(2.0f);
                 rod.add(row).pad(4.0f);
                 rod.add("[gray]Applies to selected manual rods.[]").left().pad(2.0f);
-            }).growX().pad(12.0f);
-            cont.row();
-            cont.table(Styles.grayPanel, boiler -> {
+            }).growX().pad(4.0f).row();
+            controls.table(Styles.grayPanel, boiler -> {
                 boiler.left().defaults().left();
                 boiler.add("[accent]Boiler Steam Tier:[gray] 1-4 (STEAM/HOT/SUPERHOT/ULTRAHOT)").row();
                 Table row = new Table();
@@ -492,31 +488,30 @@ public class RBMKConsole extends Block {
                 row.add(apply).size(70.0f, 32.0f).pad(2.0f);
                 boiler.add(row).pad(4.0f);
                 boiler.add("[gray]Applied to selected boilers.[]").left().pad(2.0f);
-            }).growX().pad(12.0f);
+            }).growX().pad(4.0f).row();
+            cont.add(controls).pad(12.0f);
             cont.row();
+
+            // 底部横排：概览(+紧急) | 通量图
             cont.table(Styles.grayPanel, overview -> {
                 overview.left().defaults().left();
                 overview.add("[accent]Overview:[]").row();
                 overview.add(this.statusLabel()).growX().pad(2.0f).row();
-            }).growX().pad(12.0f);
-            cont.row();
+                overview.add("[accent]Emergency Controls:[]").padTop(6.0f).row();
+                overview.add(this.buildAZ5()).pad(2.0f);
+            }).pad(12.0f).padTop(-100.0f);
+            cont.add().width(12.0f);
             cont.table(Styles.grayPanel, flux -> {
                 flux.left().defaults().left();
                 flux.add("[accent]Neutron Flux History:[]").row();
-                flux.add(this.buildFluxChart()).height(140.0f).growX().pad(4.0f).row();
-            }).growX().pad(12.0f);
-            cont.row();
-            cont.table(Styles.grayPanel, emergency -> {
-                emergency.left().defaults().left();
-                emergency.add("[accent]Emergency Controls:[]").row();
-                emergency.add(this.buildAZ5()).pad(4.0f);
-            }).growX().pad(12.0f);
+                flux.add(this.buildFluxChart()).height(210.0f).width(520.0f).pad(4.0f).row();
+            }).pad(12.0f);
             cont.row();
             Table main = new Table().background(Styles.black6);
             ScrollPane pane = new ScrollPane(cont, Styles.smallPane);
             pane.setScrollingDisabled(true, false);
             pane.setOverscroll(false, true);
-            main.add(pane).maxWidth(620.0f).maxHeight(680.0f);
+            main.add(pane).maxWidth(1200.0f).maxHeight(730.0f);
             table.add(main);
             main.update(() -> {
                 if (Time.time >= this.lastUIScan) {
@@ -571,47 +566,54 @@ public class RBMKConsole extends Block {
             return l;
         }
 
-        private void showTip(int index, Element cell) {
-            if (this.hoverCell == index) {
-                return;
-            }
-            this.hoverCell = index;
+        private String tipText(int index) {
             Column c = this.view[index];
             StringBuilder sb = new StringBuilder();
             if (c.type == -1) {
                 sb.append("[gray]Empty[]");
-            } else {
-                RBMKBase.ColumnType t = RBMKBase.ColumnType.values()[c.type];
-                sb.append("[accent]").append(t.name()).append("[]");
-                sb.append("  [gray]").append((int)c.heat).append("\u00b0C[]\n");
-                sb.append("Heat: ").append((int)c.heat).append(" / ").append((int)c.maxHeat).append("\u00b0C");
-                if (c.moderated) {
-                    sb.append("  [cyan]Moderated[]");
-                }
-                if (c.level >= 0.0f) {
-                    sb.append("\nLevel: ").append((int)(c.level * 100.0f)).append("%");
-                    if (c.color >= 0 && c.color < GROUP_NAMES.length) {
-                        sb.append("  Group: ").append(GROUP_NAMES[c.color]);
-                    }
-                }
-                if (c.enrichment >= 0.0f) {
-                    sb.append("\nEnrichment: ").append((int)(c.enrichment * 100.0f)).append("%");
-                    sb.append("  Xenon: ").append((int)(c.xenon * 100.0f)).append("%");
-                    sb.append("\nCore: ").append((int)c.coreHeat).append("\u00b0C");
-                    sb.append("  Hull: ").append((int)c.hullHeat).append("\u00b0C");
-                }
-                if (c.water >= 0.0f) {
-                    sb.append("\nWater: ").append((int)c.water);
-                    sb.append("  Steam: ").append((int)c.steam);
-                    sb.append("  Tier: ").append(c.steamTier);
+                return sb.toString();
+            }
+            RBMKBase.ColumnType t = RBMKBase.ColumnType.values()[c.type];
+            sb.append("[accent]").append(t.name()).append("[]");
+            sb.append("  [gray]").append((int)c.heat).append("\u00b0C[]\n");
+            sb.append("Heat: ").append((int)c.heat).append(" / ").append((int)c.maxHeat).append("\u00b0C");
+            if (c.moderated) {
+                sb.append("  [cyan]Moderated[]");
+            }
+            if (c.level >= 0.0f) {
+                sb.append("\nLevel: ").append((int)(c.level * 100.0f)).append("%");
+                if (c.color >= 0 && c.color < GROUP_NAMES.length) {
+                    sb.append("  Group: ").append(GROUP_NAMES[c.color]);
                 }
             }
+            if (c.enrichment >= 0.0f) {
+                sb.append("\nEnrichment: ").append((int)(c.enrichment * 100.0f)).append("%");
+                sb.append("  Xenon: ").append((int)(c.xenon * 100.0f)).append("%");
+                sb.append("\nCore: ").append((int)c.coreHeat).append("\u00b0C");
+                sb.append("  Hull: ").append((int)c.hullHeat).append("\u00b0C");
+            }
+            if (c.water >= 0.0f) {
+                sb.append("\nWater: ").append((int)c.water);
+                sb.append("  Steam: ").append((int)c.steam);
+                sb.append("  Tier: ").append(c.steamTier);
+            }
+            return sb.toString();
+        }
+
+        private void refreshTip(int index, Element cell) {
+            this.hoverCell = index;
             this.tooltip.clearChildren();
-            this.tooltip.add(new Label(sb.toString())).pad(6.0f);
+            this.tooltip.add(new Label(this.tipText(index))).pad(6.0f);
             this.tooltip.pack();
             this.tooltip.visible = true;
             this.tooltip.toFront();
             this.moveTip(cell);
+        }
+
+        private void showTip(int index, Element cell) {
+            if (this.hoverCell != index) {
+                this.refreshTip(index, cell);
+            }
         }
 
         private void moveTip(Element cell) {
@@ -650,6 +652,10 @@ public class RBMKConsole extends Block {
                         }
                         if (this.hoverCell == idx) {
                             this.moveTip(cell);
+                            if (Time.time >= this.lastTipScan) {
+                                this.lastTipScan = Time.time + 0.15f;
+                                this.refreshTip(idx, cell);
+                            }
                         }
                     });
                     cell.clicked(() -> this.configure(1000 + idx));
@@ -676,20 +682,77 @@ public class RBMKConsole extends Block {
                     if (c.type == -1 || c.maxHeat <= 0.0f) {
                         return;
                     }
-                    float frac = Mathf.clamp((float)((c.heat - 20.0f) / c.maxHeat));
-                    if (frac < 0.02f) {
-                        return;
-                    }
                     float w = this.getWidth();
                     float h = this.getHeight();
-                    float barH = h * frac;
-                    float bottom = this.y;
-                    int slices = 8;
-                    float sh = barH / (float)slices;
-                    for (int i = 0; i < slices; ++i) {
-                        float t = 1.0f - (float)i / (float)(slices - 1);
-                        Draw.color((float)(0.9f - 0.25f * t), (float)(0.15f + 0.45f * t), (float)(0.08f + 0.1f * t), (float)(0.55f + 0.45f * (1.0f - t)));
-                        Fill.rect((float)(this.x + w / 2.0f), (float)(bottom + ((float)i + 0.5f) * sh), (float)w, (float)sh);
+                    float x0 = this.x;
+                    float y0 = this.y;
+
+                    // 左侧温度竖条：自底部生长，高度按 (heat-20)/maxHeat 归一
+                    float frac = Mathf.clamp((float)((c.heat - 20.0f) / c.maxHeat));
+                    if (frac >= 0.02f) {
+                        float barH = h * frac;
+                        int slices = 8;
+                        float sh = barH / (float)slices;
+                        for (int i = 0; i < slices; ++i) {
+                            float t = 1.0f - (float)i / (float)(slices - 1);
+                            Draw.color((float)(0.9f - 0.25f * t), (float)(0.15f + 0.45f * t), (float)(0.08f + 0.1f * t), (float)(0.55f + 0.45f * (1.0f - t)));
+                            Fill.rect((float)(x0 + 1.5f), (float)(y0 + ((float)i + 0.5f) * sh), 3.0f, sh);
+                        }
+                    }
+
+                    // 组件专用指示条（同 HBM：底部/顶部窄竖条）
+                    RBMKBase.ColumnType type = RBMKBase.ColumnType.values()[c.type];
+                    if (type == RBMKBase.ColumnType.FUEL || type == RBMKBase.ColumnType.FUEL_SIM || type == RBMKBase.ColumnType.BREEDER) {
+                        if (c.coreHeat >= 0.0f) {
+                            float fh = (float)Math.ceil((c.coreHeat - 20.0f) * (h - 4.0f) / c.maxHeat);
+                            fh = Mathf.clamp((float)fh, 0.0f, h - 4.0f);
+                            Draw.color((float)0.9f, (float)0.3f, (float)0.2f);
+                            Fill.rect((float)(x0 + 5.5f), (float)(y0 + 2.0f + fh / 2.0f), 2.0f, fh); // 棒芯热
+                        }
+                        if (c.enrichment >= 0.0f) {
+                            float fe = c.enrichment * (h - 4.0f);
+                            Draw.color((float)0.3f, (float)0.9f, (float)0.3f);
+                            Fill.rect((float)(x0 + 9.5f), (float)(y0 + 2.0f + fe / 2.0f), 2.0f, fe); // 燃料消耗(富集度剩余)
+                        }
+                        if (c.xenon >= 0.0f) {
+                            float fx = c.xenon * (h - 4.0f);
+                            Draw.color((float)0.6f, (float)0.55f, (float)0.8f);
+                            Fill.rect((float)(x0 + 13.5f), (float)(y0 + 2.0f + fx / 2.0f), 2.0f, fx); // 氙毒
+                        }
+                    } else if (type == RBMKBase.ColumnType.CONTROL || type == RBMKBase.ColumnType.CONTROL_AUTO) {
+                        if (c.level >= 0.0f) {
+                            // 控制棒位置：从顶部向下，level=0(全插入)长条，level=1(全抽出)消失
+                            float fr = (1.0f - Mathf.clamp((float)c.level, 0.0f, 1.0f)) * (h - 2.0f);
+                            Draw.color((float)0.95f, (float)0.8f, (float)0.2f);
+                            Fill.rect((float)(x0 + w / 2.0f), (float)(y0 + h - fr / 2.0f), 3.0f, fr); // 位置指示条
+                        }
+                    } else if (type == RBMKBase.ColumnType.BOILER) {
+                        if (c.water >= 0.0f) {
+                            // 存水量：自底部生长，按 feedCapacity 归一
+                            float fw = Mathf.clamp((float)(c.water / 100.0f)) * (h - 4.0f);
+                            Draw.color((float)0.25f, (float)0.55f, (float)0.95f);
+                            Fill.rect((float)(x0 + 5.5f), (float)(y0 + 2.0f + fw / 2.0f), 2.0f, fw); // 水
+                        }
+                        if (c.steam >= 0.0f) {
+                            // 蒸汽量：自底部生长，按 steamCapacity 归一
+                            float fs = Mathf.clamp((float)(c.steam / 10000.0f)) * (h - 4.0f);
+                            Draw.color((float)0.8f, (float)0.85f, (float)0.9f);
+                            Fill.rect((float)(x0 + 9.5f), (float)(y0 + 2.0f + fs / 2.0f), 2.0f, fs); // 蒸汽
+                        }
+                        if (c.steamTier > 0) {
+                            // 蒸汽等级：从顶部向下小标记，1-4 级递增下移
+                            float fy = 1.0f + 2.0f * Mathf.clamp((float)(c.steamTier - 1), 0.0f, 3.0f);
+                            Draw.color((float)0.95f, (float)0.7f, (float)0.25f);
+                            Fill.rect((float)(x0 + 13.5f), (float)(y0 + h - fy - 1.0f), 2.0f, 2.0f); // 等级标记
+                        }
+                    }
+
+                    // 选中红框
+                    if (RBMKConsoleBuild.this.sel[idx / 16][idx % 16]) {
+                        Draw.color(Color.red);
+                        Lines.stroke((float)1.7f);
+                        Lines.rect((float)(x0 + 0.5f), (float)(y0 + 0.5f), w - 1.0f, h - 1.0f);
+                        Draw.reset();
                     }
                     Draw.color();
                 }
