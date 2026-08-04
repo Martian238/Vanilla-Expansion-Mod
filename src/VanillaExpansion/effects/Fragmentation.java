@@ -26,16 +26,16 @@ import java.util.*;
 public class Fragmentation{
     float[] xs, ys;
     int width, height;
-    float drawWidth, drawHeight;
-    Seq<IntSeq> islands = new Seq<>();
+    public float drawWidth, drawHeight;
+    public Seq<IntSeq> islands = new Seq<>();
     TextureRegion region = new TextureRegion();
     public Cons<FragmentEntity> onDeath;
     public Effect trailEffect = VEFX.debrisSmoke, explosionEffect = VEFX.fragmentExplosion;
     public Color effectColor = Color.white, drawnColor = Color.white.cpy(), goreColor = Color.white.cpy();
     public Sound explosionSound = Sounds.none;
     public boolean fadeOut = false;
-    float shadowElevation = 0f;
-    float layer = Layer.flyingUnit;
+    public float shadowElevation = 0f;
+    public float layer = Layer.flyingUnit;
 
     static int[] returnArr = new int[3];
     static boolean[] occupied = new boolean[4];
@@ -133,7 +133,9 @@ public class Fragmentation{
                 int[] data = unpack(items[i]);
                 
                 int sss = islands.get(data[2]).size;
-                float chance = Mathf.clamp((sss - minimumWeight) / (totalWeight - minimumWeight));
+                // 单岛（或所有岛大小相同）时避免 0/0 = NaN 导致的死循环：令 chance = 0 使其正常生长
+                float denom = totalWeight - minimumWeight;
+                float chance = denom <= 0f ? 0f : Mathf.clamp((sss - minimumWeight) / denom);
 
                 if(fragType){
                     if(Mathf.chance(0.75f * (1f - chance))){
@@ -222,7 +224,7 @@ public class Fragmentation{
         return frag;
     }
 
-    Vec3 getOffset(IntSeq island){
+    public Vec3 getOffset(IntSeq island){
         float mx = 0f;
         float my = 0f;
         int count = 0;
@@ -330,13 +332,15 @@ public class Fragmentation{
 
     public static class FragmentEntity extends DrawEntity{
         public Fragmentation main;
-        int island;
+        public int island;
         public boolean impact = false;
+        public Cons<FragmentEntity> customUpdate;
 
-        float offsetX = 0f;
-        float offsetY = 0f;
+        public float offsetX = 0f;
+        public float offsetY = 0f;
         public float boundSize = 0f;
         public float area = 0f;
+        public float smokeScale = 1f; // 飞行烟雾大小缩放
 
         public float time = 0, lifetime = 0;
 
@@ -347,7 +351,7 @@ public class Fragmentation{
         FloatSeq goreLines;
         float gx, gy, gr;
 
-        void calculateArea(){
+        public void calculateArea(){
             int size = main.islands.get(island).size;
             area = Mathf.sqrt((((float)size) / ((main.width - 1f) * (main.height - 1f))) * (Math.abs(main.drawWidth) * Math.abs(main.drawHeight))) * 1.5f;
             //area = (size / Math.min((main.width - 1f), (main.height - 1f))) * Math.min(main.drawWidth, main.drawHeight);
@@ -404,9 +408,11 @@ public class Fragmentation{
                 int size = Mathf.clamp((int)((boundSize * boundSize) / 900f), 1, 15);
                 for(int i = 0; i < size; i++){
                     Tmp.v1.rnd(Mathf.random(boundSize / 3f)).add(x, y);
-                    main.trailEffect.at(Tmp.v1.x, Tmp.v1.y, Mathf.random(5f, 9f), main.effectColor);
+                    main.trailEffect.at(Tmp.v1.x, Tmp.v1.y, Mathf.random(5f, 9f) * smokeScale, main.effectColor);
                 }
             }
+
+            if(customUpdate != null) customUpdate.get(this);
 
             if((time += Time.delta) >= lifetime){
                 //if(removed != null) removed.run();

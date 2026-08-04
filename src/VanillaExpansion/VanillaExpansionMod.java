@@ -6,6 +6,7 @@ import mindustry.Vars;
 import mindustry.game.EventType;
 import mindustry.input.DesktopInput;
 import mindustry.mod.Mod;
+import VanillaExpansion.expand.graphics.LensShockwaveFX;
 import VanillaExpansion.expand.input.VEInputHandler;
 
 import static mindustry.Vars.control;
@@ -18,6 +19,8 @@ public class VanillaExpansionMod extends Mod {
     @Override
     public void init() {
         ContentOrderGuard.init();
+
+        LensShockwaveFX.init();
 
         // 替换输入处理器（仅客户端，移动端除外）
         Events.on(EventType.ClientLoadEvent.class, e -> {
@@ -52,7 +55,7 @@ public class VanillaExpansionMod extends Mod {
         //VanillaExpansion.effects.SpecialDeathEffects.load();
         //VanillaExpansion.expand.special.SpecialContent.load();
         VanillaExpansion.content.VEItems.load();
-        ////VanillaExpansion.content.VELiquids.load();
+        VanillaExpansion.content.VELiquids.load();
         //VanillaExpansion.content.VEUnitTypes.load();
         VanillaExpansion.content.VEJSBlocks.load();
         VanillaExpansion.content.VEBlocks.load();
