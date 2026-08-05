@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.world.block.power;
 
+import arc.Core;
 import arc.func.*;
 import arc.math.*;
 import arc.struct.*;
@@ -54,7 +55,7 @@ public class RBMKCooler extends RBMKBase {
     public void setBars() {
         super.setBars();
         addBar("coolant", (RBMKCoolerBuild entity) -> new Bar(
-            () -> "Cryofluid: " + (int) entity.liquids.get(Liquids.cryofluid),
+            () -> Core.bundle.format("rbmk.bar.coolant", (int) entity.liquids.get(Liquids.cryofluid)),
             () -> Pal.water,
             () -> Math.min(1f, entity.liquids.get(Liquids.cryofluid) / tankCapacity)
         ));

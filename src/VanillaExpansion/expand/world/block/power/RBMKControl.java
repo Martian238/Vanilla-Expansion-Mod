@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.world.block.power;
 
+import arc.Core;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.scene.ui.*;
@@ -47,7 +48,7 @@ public class RBMKControl extends RBMKBase {
     public void setBars() {
         super.setBars();
         addBar("level", (RBMKControlBuild entity) -> new Bar(
-            () -> "Level: " + (int) (entity.level * 100) + "%",
+            () -> Core.bundle.format("rbmk.bar.level", (int) (entity.level * 100)),
             () -> Pal.reactorPurple,
             () -> (float) entity.level
         ));
@@ -133,10 +134,10 @@ public class RBMKControl extends RBMKBase {
         public void buildConfiguration(Table table) {
             table.background(Styles.black6);
             table.top().left();
-            table.add("[orange]Control Rod").growX().center().pad(6f).row();
+            table.add(Core.bundle.get("rbmk.ui.control.title")).growX().center().pad(6f).row();
 
             table.label(() ->
-                "Level: [accent]" + (int) (level * 100) + "%[]  [gray]Target: " + (int) (targetLevel * 100) + "%"
+                Core.bundle.format("rbmk.ui.control.level", (int) (level * 100), (int) (targetLevel * 100))
             ).left().pad(4f).row();
 
             Slider slider = new Slider(0f, 100f, 1f, false);
@@ -144,13 +145,13 @@ public class RBMKControl extends RBMKBase {
             slider.moved(value -> configure(pack(color, (int) value)));
             table.add(slider).width(240f).pad(4f).row();
 
-            table.add("[orange]Group").left().pad(4f).row();
+            table.add(Core.bundle.get("rbmk.ui.control.group")).left().pad(4f).row();
             Table buttons = new Table();
             buttons.defaults().size(64f, 44f).pad(3f);
             ButtonGroup<TextButton> group = new ButtonGroup<>();
             group.setMinCheckCount(0);
 
-            TextButton none = new TextButton("None", Styles.flatTogglet);
+            TextButton none = new TextButton(Core.bundle.get("rbmk.ui.control.none"), Styles.flatTogglet);
             none.setChecked(color == -1);
             none.update(() -> none.setChecked(color == -1));
             none.changed(() -> {
@@ -161,7 +162,7 @@ public class RBMKControl extends RBMKBase {
 
             for (int i = 0; i < RBMKColor.values().length; i++) {
                 final int col = i;
-                TextButton btn = new TextButton(RBMKColor.values()[i].name(), Styles.flatTogglet);
+                TextButton btn = new TextButton(Core.bundle.get("rbmk.group." + RBMKColor.values()[i].name().toLowerCase()), Styles.flatTogglet);
                 btn.setChecked(color == col);
                 btn.update(() -> btn.setChecked(color == col));
                 btn.changed(() -> {

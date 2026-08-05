@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.world.block.power;
 
+import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.*;
 import arc.math.*;
@@ -40,7 +41,7 @@ public class RBMKControlAuto extends RBMKControl {
     public void setBars() {
         super.setBars();
         addBar("level", (RBMKControlAutoBuild entity) -> new Bar(
-            () -> "Level: " + (int) (entity.level * 100) + "%",
+            () -> Core.bundle.format("rbmk.bar.level", (int) (entity.level * 100)),
             () -> Pal.reactorPurple,
             () -> (float) entity.level
         ));
@@ -137,26 +138,26 @@ public class RBMKControlAuto extends RBMKControl {
             table.top().left();
 
             // 顶部一行：标题 + 实时状态
-            table.add("[orange]Auto Rod").left().pad(4f);
+            table.add(Core.bundle.get("rbmk.ui.auto.title")).left().pad(4f);
             table.add(new Label(() ->
-                "Level: [accent]" + (int) (level * 100) + "%[]  [gray]Heat: " + (int) heat + "°C"
+                Core.bundle.format("rbmk.ui.auto.level", (int) (level * 100), (int) heat)
             )).right().growX().pad(4f).row();
 
             // 左列：函数 + 参数
             Table left = new Table();
             left.top().left();
 
-            left.add("[orange]Function").left().pad(3f).row();
+            left.add(Core.bundle.get("rbmk.ui.auto.function")).left().pad(3f).row();
             Table funcs = new Table();
             funcs.defaults().size(84f, 34f).pad(3f);
             ButtonGroup<TextButton> fgroup = new ButtonGroup<>();
             fgroup.setMinCheckCount(1);
             fgroup.setMaxCheckCount(1);
 
-            String[] names = {"Linear", "Quadratic", "Inv.Quad"};
+            String[] names = {"rbmk.ui.auto.func.linear", "rbmk.ui.auto.func.quadratic", "rbmk.ui.auto.func.invquad"};
             for (int i = 0; i < RBMKFunction.values().length; i++) {
                 final int fi = i;
-                TextButton btn = new TextButton(names[i], Styles.flatTogglet);
+                TextButton btn = new TextButton(Core.bundle.get(names[i]), Styles.flatTogglet);
                 btn.setChecked(function.ordinal() == fi);
                 btn.update(() -> btn.setChecked(function.ordinal() == fi));
                 btn.changed(() -> {
@@ -181,12 +182,12 @@ public class RBMKControlAuto extends RBMKControl {
             fHeatUpper.setMaxLength(4);
             fHeatLower.setMaxLength(4);
 
-            numRow(left, "Level @ max", fLevelUpper);
-            numRow(left, "Level @ min", fLevelLower);
-            numRow(left, "Max heat", fHeatUpper);
-            numRow(left, "Min heat", fHeatLower);
+            numRow(left, Core.bundle.get("rbmk.ui.auto.levelmax"), fLevelUpper);
+            numRow(left, Core.bundle.get("rbmk.ui.auto.levelmin"), fLevelLower);
+            numRow(left, Core.bundle.get("rbmk.ui.auto.heatmax"), fHeatUpper);
+            numRow(left, Core.bundle.get("rbmk.ui.auto.heatmin"), fHeatLower);
 
-            TextButton save = new TextButton("Save", Styles.defaultt);
+            TextButton save = new TextButton(Core.bundle.get("rbmk.ui.save"), Styles.defaultt);
             save.clicked(() -> configure(pack(function.ordinal(),
                 clampInt(fLevelLower.getText(), 100),
                 clampInt(fLevelUpper.getText(), 100),
@@ -197,7 +198,7 @@ public class RBMKControlAuto extends RBMKControl {
             // 右列：温度→棒位函数图（实时读取输入框预览；紫线=曲线，橙点=当前柱体温度工作点）
             Table right = new Table();
             right.top().left();
-            right.add("[orange]Temperature -> Level").left().pad(3f).row();
+            right.add(Core.bundle.get("rbmk.ui.auto.chart")).left().pad(3f).row();
             right.add(buildChart(fLevelLower, fLevelUpper, fHeatLower, fHeatUpper)).size(230f, 140f).pad(3f, 7f, 3f, 3f).row();
 
             table.add(left);

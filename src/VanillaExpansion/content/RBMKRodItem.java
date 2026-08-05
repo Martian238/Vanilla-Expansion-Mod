@@ -13,6 +13,17 @@ import VanillaExpansion.expand.world.block.power.RBMKDials;
  */
 public class RBMKRodItem extends Item {
 
+    // ---------- 独立统计参数（不再叠进 abilities，仿原版爆炸性/燃烧性/放射性） ----------
+
+    public static final Stat reactivityStat = new Stat("rbmk-reactivity");
+    public static final Stat functionStat = new Stat("rbmk-function");
+    public static final Stat heatStat = new Stat("rbmk-heat");
+    public static final Stat diffusionStat = new Stat("rbmk-diffusion");
+    public static final Stat meltingPointStat = new Stat("rbmk-melting-point");
+    public static final Stat xenonStat = new Stat("rbmk-xenon");
+    public static final Stat neutronStat = new Stat("rbmk-neutron");
+    public static final Stat neutronSourceStat = new Stat("rbmk-neutron-source");
+
     // ---------- 反应性/燃耗参数（对应 HBM ItemRBMKRod） ----------
 
     public String fullName = "";
@@ -307,16 +318,17 @@ public class RBMKRodItem extends Item {
     public void setStats() {
         super.setStats();
 
-        stats.add(Stat.abilities, "[gold]Reactivity: " + reactivity);
-        stats.add(Stat.abilities, "[gold]Function: " + function.title);
-        stats.add(Stat.abilities, "[gold]Heat: " + heat + "°C/outFlux");
-        stats.add(Stat.abilities, "[gold]Diffusion: " + diffusion);
-        stats.add(Stat.abilities, "[gold]Melting Point: " + (int) meltingPoint + "°C");
-        stats.add(Stat.abilities, "[gold]Xenon Gen: x * " + xGen + " / Burn: x² / " + xBurn);
-        stats.add(Stat.abilities, "[blue]Splits With: " + nType.name() + " / Into: " + rType.name());
+        // 原版的爆炸性/燃烧性/放射性由 Item.setStats 展示，这里把 RBMK 燃料参数列为独立统计行。
+        stats.add(reactivityStat, (float) reactivity);
+        stats.add(functionStat, function.title);
+        stats.add(heatStat, "[gold]" + heat + "°C/flux");
+        stats.add(diffusionStat, (float) diffusion);
+        stats.add(meltingPointStat, "[gold]" + (int) meltingPoint + "°C");
+        stats.add(xenonStat, "[gold]gen ×" + xGen + " / burn x²/" + xBurn);
+        stats.add(neutronStat, nType.name() + " → " + rType.name());
 
         if (selfRate > 0 || function == EnumBurnFunc.SIGMOID) {
-            stats.add(Stat.abilities, "[red]Neutron Source" + (selfRate > 0 ? " (+" + selfRate + ")" : ""));
+            stats.add(neutronSourceStat, selfRate > 0 ? "[red](+" + selfRate + ")" : "[red]yes");
         }
     }
 }

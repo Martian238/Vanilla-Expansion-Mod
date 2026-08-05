@@ -1,6 +1,7 @@
 package VanillaExpansion.expand.world.block.power;
 
 import VanillaExpansion.content.VELiquids;
+import arc.Core;
 import arc.math.*;
 import arc.scene.ui.*;
 import arc.scene.ui.layout.*;
@@ -65,12 +66,12 @@ public class RBMKBoiler extends RBMKBase {
     public void setBars() {
         super.setBars();
         addBar("water", (RBMKBoilerBuild entity) -> new Bar(
-            () -> "Water: " + (int) entity.liquids.get(Liquids.water),
+            () -> Core.bundle.format("rbmk.bar.water", (int) entity.liquids.get(Liquids.water)),
             () -> Pal.water,
             () -> Math.min(1f, entity.liquids.get(Liquids.water) / feedCapacity)
         ));
         addBar("steam", (RBMKBoilerBuild entity) -> new Bar(
-            () -> entity.steamTierName() + ": " + (int) entity.liquids.get(entity.currentSteam()),
+            () -> Core.bundle.format("rbmk.bar.steam", entity.steamTierName(), (int) entity.liquids.get(entity.currentSteam())),
             () -> entity.currentSteam().color,
             () -> Math.min(1f, entity.liquids.get(entity.currentSteam()) / steamCapacity)
         ));
@@ -183,12 +184,7 @@ public class RBMKBoiler extends RBMKBase {
 
         /** 档位显示名 */
         public String steamTierName() {
-            return switch (steamTier) {
-                case 1 -> "HOT";
-                case 2 -> "SUPERHOT";
-                case 3 -> "ULTRAHOT";
-                default -> "STEAM";
-            };
+            return Core.bundle.get("rbmk.steam." + steamTier);
         }
 
         /**
@@ -220,17 +216,16 @@ public class RBMKBoiler extends RBMKBase {
         public void buildConfiguration(Table table) {
             table.background(Styles.black6);
             table.top().left();
-            table.add("[orange]Steam Tier").growX().center().pad(6f).row();
+            table.add(Core.bundle.get("rbmk.ui.boiler.title")).growX().center().pad(6f).row();
 
             Table buttons = new Table();
             buttons.center().defaults().size(120f, 48f).pad(4f);
             ButtonGroup<TextButton> group = new ButtonGroup<>();
             group.setMinCheckCount(0);
 
-            String[] names = {"STEAM", "HOT", "SUPERHOT", "ULTRAHOT"};
             for (int i = 0; i < 4; i++) {
                 final int tier = i;
-                TextButton btn = new TextButton(names[i] + "\n[gray]" + (int) getHeatFromSteam(i) + "°C", Styles.flatTogglet);
+                TextButton btn = new TextButton(Core.bundle.format("rbmk.ui.boiler.tier", Core.bundle.get("rbmk.steam." + i), (int) getHeatFromSteam(i)), Styles.flatTogglet);
                 btn.setChecked(steamTier == tier);
                 btn.update(() -> btn.setChecked(steamTier == tier));
                 btn.changed(() -> configure(tier));

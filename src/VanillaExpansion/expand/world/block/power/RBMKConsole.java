@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.world.block.power;
 
+import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Fill;
@@ -60,8 +61,8 @@ public class RBMKConsole extends Block {
 
     public void setBars() {
         super.setBars();
-        this.addBar("flux", e -> new Bar(() -> "Neutron Flux: " + (int)((RBMKConsoleBuild)e).fluxOut(), () -> Pal.reactorPurple, () -> Mathf.clamp((float)(((RBMKConsoleBuild)e).fluxOut() / 6000.0f))));
-        this.addBar("status", e -> new Bar(() -> "Status: " + ((RBMKConsoleBuild)e).statusText(), () -> ((RBMKConsoleBuild)e).statusColor(), () -> Mathf.clamp((float)(((RBMKConsoleBuild)e).avgColumnHeat() / 1000.0f))));
+        this.addBar("flux", e -> new Bar(() -> Core.bundle.format("rbmk.bar.consoleflux", (int)((RBMKConsoleBuild)e).fluxOut()), () -> Pal.reactorPurple, () -> Mathf.clamp((float)(((RBMKConsoleBuild)e).fluxOut() / 6000.0f))));
+        this.addBar("status", e -> new Bar(() -> Core.bundle.format("rbmk.bar.status", ((RBMKConsoleBuild)e).statusText()), () -> ((RBMKConsoleBuild)e).statusColor(), () -> Mathf.clamp((float)(((RBMKConsoleBuild)e).avgColumnHeat() / 1000.0f))));
     }
 
     public static Color typeColor(int type, float heat, float maxHeat) {
@@ -161,15 +162,15 @@ public class RBMKConsole extends Block {
         public String statusText() {
             float avg = this.avgColumnHeat();
             if (avg < 100.0f) {
-                return "Cold";
+                return Core.bundle.get("rbmk.status.cold");
             }
             if (avg < 500.0f) {
-                return "Stable";
+                return Core.bundle.get("rbmk.status.stable");
             }
             if (avg < 800.0f) {
-                return "Hot";
+                return Core.bundle.get("rbmk.status.hot");
             }
-            return "Critical";
+            return Core.bundle.get("rbmk.status.critical");
         }
 
         public Color statusColor() {
@@ -401,19 +402,19 @@ public class RBMKConsole extends Block {
             // 顶部横排：标题 | 中心设置
             cont.table(Styles.grayPanel, info -> {
                 info.left().defaults().left();
-                info.add("[accent]RBMK Console[]").row();
+                info.add(Core.bundle.get("rbmk.ui.console.title")).row();
                 info.image().color(Pal.accent).growX().height(2.0f).pad(2.0f).row();
             }).pad(10.0f);
             cont.add().width(12.0f);
             cont.table(Styles.grayPanel, center -> {
                 center.left().defaults().left();
-                Label cLabel = new Label(() -> this.linked ? "[green]Center: [" + this.targetX + ", " + this.targetY + "[]" : "[red]Not connected[]");
+                Label cLabel = new Label(() -> this.linked ? Core.bundle.format("rbmk.ui.console.center", this.targetX, this.targetY) : Core.bundle.get("rbmk.ui.console.noconnect"));
                 center.add(cLabel).row();
-                center.add("[gray]Enable 'Set Center' then click any column to link.[]").row();
-                TextButton setCenter = new TextButton(this.centerMode ? "[yellow]Click target...[]" : "Set Center", Styles.flatt);
+                center.add(Core.bundle.get("rbmk.ui.console.centerHint")).row();
+                TextButton setCenter = new TextButton(this.centerMode ? Core.bundle.get("rbmk.ui.console.clickTarget") : Core.bundle.get("rbmk.ui.console.setCenter"), Styles.flatt);
                 setCenter.clicked(() -> {
                     this.centerMode = !this.centerMode;
-                    setCenter.setText(this.centerMode ? "[yellow]Click target...[]" : "Set Center");
+                    setCenter.setText(this.centerMode ? Core.bundle.get("rbmk.ui.console.clickTarget") : Core.bundle.get("rbmk.ui.console.setCenter"));
                 });
                 center.add(setCenter).size(110.0f, 34.0f).padTop(4.0f);
             }).pad(12.0f);
@@ -422,7 +423,7 @@ public class RBMKConsole extends Block {
             // 中部横排：结构图 | 控制面板组
             cont.table(Styles.grayPanel, structure -> {
                 structure.left().defaults().left();
-                structure.add("[accent]Reactor Structure:[gray] click to select, hover for info[]").row();
+                structure.add(Core.bundle.get("rbmk.ui.console.structure")).row();
                 structure.add(this.buildBody()).pad(6.0f);
             }).pad(12.0f);
             cont.add().width(12.0f);
@@ -430,16 +431,16 @@ public class RBMKConsole extends Block {
             controls.defaults().left();
             controls.table(Styles.grayPanel, act -> {
                 act.left().defaults().left();
-                TextButton all = new TextButton("Select All Manual Rods", Styles.flatt);
+                TextButton all = new TextButton(Core.bundle.get("rbmk.ui.console.selectAll"), Styles.flatt);
                 all.clicked(() -> this.configure(2002));
                 act.add(all).size(170.0f, 32.0f).pad(3.0f);
-                TextButton clear = new TextButton("Clear Selection", Styles.flatt);
+                TextButton clear = new TextButton(Core.bundle.get("rbmk.ui.console.clearSel"), Styles.flatt);
                 clear.clicked(() -> this.configure(2001));
                 act.add(clear).size(130.0f, 32.0f).pad(3.0f);
             }).growX().pad(4.0f).row();
             controls.table(Styles.grayPanel, grp -> {
                 grp.left().defaults().left();
-                grp.add("[accent]Control Rod Grouping:[gray] auto excluded").row();
+                grp.add(Core.bundle.get("rbmk.ui.console.grouping")).row();
                 Table row = new Table();
                 for (int g = 0; g < 5; ++g) {
                     int gg = g;
@@ -451,34 +452,34 @@ public class RBMKConsole extends Block {
                     row.add(b).size(34.0f).pad(3.0f);
                 }
                 grp.add(row).pad(4.0f).row();
-                grp.add("[gray]Assign color to selected / select all of a color.[]").left().pad(2.0f);
+                grp.add(Core.bundle.get("rbmk.ui.console.groupingHint")).left().pad(2.0f);
             }).growX().pad(4.0f).row();
             controls.table(Styles.grayPanel, rod -> {
                 rod.left().defaults().left();
-                rod.add("[accent]Control Rod Height:[gray] 0-100").row();
+                rod.add(Core.bundle.get("rbmk.ui.console.height")).row();
                 Table row = new Table();
                 TextField field = new TextField("50", Styles.defaultField);
                 field.setFilter(TextField.TextFieldFilter.digitsOnly);
                 field.setMaxLength(3);
                 row.add(field).width(80.0f).pad(2.0f);
-                TextButton apply = new TextButton("Apply", Styles.defaultt);
+                TextButton apply = new TextButton(Core.bundle.get("rbmk.ui.apply"), Styles.defaultt);
                 apply.clicked(() -> {
                     int val = RBMKConsole.clampInt(RBMKConsole.parseInt(field.getText(), 0), 100);
                     this.configure(4000 + val);
                 });
                 row.add(apply).size(70.0f, 32.0f).pad(2.0f);
                 rod.add(row).pad(4.0f);
-                rod.add("[gray]Applies to selected manual rods.[]").left().pad(2.0f);
+                rod.add(Core.bundle.get("rbmk.ui.console.heightHint")).left().pad(2.0f);
             }).growX().pad(4.0f).row();
             controls.table(Styles.grayPanel, boiler -> {
                 boiler.left().defaults().left();
-                boiler.add("[accent]Boiler Steam Tier:[gray] 1-4 (STEAM/HOT/SUPERHOT/ULTRAHOT)").row();
+                boiler.add(Core.bundle.get("rbmk.ui.console.boiler")).row();
                 Table row = new Table();
                 TextField tf = new TextField("1", Styles.defaultField);
                 tf.setFilter(TextField.TextFieldFilter.digitsOnly);
                 tf.setMaxLength(1);
                 row.add(tf).width(60.0f).pad(2.0f);
-                TextButton apply = new TextButton("Apply", Styles.defaultt);
+                TextButton apply = new TextButton(Core.bundle.get("rbmk.ui.apply"), Styles.defaultt);
                 apply.clicked(() -> {
                     int v = RBMKConsole.parseInt(tf.getText(), 1);
                     if (v < 1 || v > 4) {
@@ -488,7 +489,7 @@ public class RBMKConsole extends Block {
                 });
                 row.add(apply).size(70.0f, 32.0f).pad(2.0f);
                 boiler.add(row).pad(4.0f);
-                boiler.add("[gray]Applied to selected boilers.[]").left().pad(2.0f);
+                boiler.add(Core.bundle.get("rbmk.ui.console.boilerHint")).left().pad(2.0f);
             }).growX().pad(4.0f).row();
             cont.add(controls).pad(12.0f);
             cont.row();
@@ -496,15 +497,15 @@ public class RBMKConsole extends Block {
             // 底部横排：概览(+紧急) | 通量图
             cont.table(Styles.grayPanel, overview -> {
                 overview.left().defaults().left();
-                overview.add("[accent]Overview:[]").row();
+                overview.add(Core.bundle.get("rbmk.ui.console.overview")).row();
                 overview.add(this.statusLabel()).growX().pad(2.0f).row();
-                overview.add("[accent]Emergency Controls:[]").padTop(6.0f).row();
+                overview.add(Core.bundle.get("rbmk.ui.console.emergency")).padTop(6.0f).row();
                 overview.add(this.buildAZ5()).pad(2.0f);
             }).pad(12.0f).padTop(-100.0f);
             cont.add().width(12.0f);
             cont.table(Styles.grayPanel, flux -> {
                 flux.left().defaults().left();
-                flux.add("[accent]Neutron Flux History:[]").row();
+                flux.add(Core.bundle.get("rbmk.ui.console.fluxHist")).row();
                 flux.add(this.buildFluxChart()).height(210.0f).width(520.0f).pad(4.0f).row();
             }).pad(12.0f);
             cont.row();
@@ -562,7 +563,11 @@ public class RBMKConsole extends Block {
                         ++hullN;
                     }
                 }
-                return "Status: [accent]" + this.statusText() + "[]  Temp: " + (int)avg + "\u00b0C\nFlux: " + (int)this.fluxOut() + "  Xenon: " + (xenN == 0 ? "--" : (int)(xenSum / (float)xenN * 100.0f) + "%") + "  Depletion: " + (depN == 0 ? "--" : (int)(depSum / (float)depN) + "%") + "\nCore: " + (coreN == 0 ? "--" : (int)(coreSum / (float)coreN) + "\u00b0C") + "  Hull: " + (hullN == 0 ? "--" : (int)(hullSum / (float)hullN) + "\u00b0C") + "\nComponents: " + components + "  Fuel: " + fuel + "  Control: " + ctrl;
+                String xenonS = xenN == 0 ? "--" : (int)(xenSum / (float)xenN * 100.0f) + "%";
+                String depS = depN == 0 ? "--" : (int)(depSum / (float)depN) + "%";
+                String coreS = coreN == 0 ? "--" : (int)(coreSum / (float)coreN) + "°C";
+                String hullS = hullN == 0 ? "--" : (int)(hullSum / (float)hullN) + "°C";
+                return Core.bundle.format("rbmk.ui.console.status", this.statusText(), (int)avg, (int)this.fluxOut(), xenonS, depS, coreS, hullS, components, fuel, ctrl);
             });
             return l;
         }
@@ -571,32 +576,32 @@ public class RBMKConsole extends Block {
             Column c = this.view[index];
             StringBuilder sb = new StringBuilder();
             if (c.type == -1) {
-                sb.append("[gray]Empty[]");
+                sb.append(Core.bundle.get("rbmk.tip.empty"));
                 return sb.toString();
             }
             RBMKBase.ColumnType t = RBMKBase.ColumnType.values()[c.type];
-            sb.append("[accent]").append(t.name()).append("[]");
-            sb.append("  [gray]").append((int)c.heat).append("\u00b0C[]\n");
-            sb.append("Heat: ").append((int)c.heat).append(" / ").append((int)c.maxHeat).append("\u00b0C");
+            sb.append("[accent]").append(Core.bundle.get("rbmk.type." + t.name().toLowerCase())).append("[]");
+            sb.append("  [gray]").append((int)c.heat).append("°C[]\n");
+            sb.append(Core.bundle.format("rbmk.tip.heat", (int)c.heat, (int)c.maxHeat));
             if (c.moderated) {
-                sb.append("  [cyan]Moderated[]");
+                sb.append("  ").append(Core.bundle.get("rbmk.tip.moderated"));
             }
             if (c.level >= 0.0f) {
-                sb.append("\nLevel: ").append((int)(c.level * 100.0f)).append("%");
+                sb.append(Core.bundle.format("rbmk.tip.level", (int)(c.level * 100.0f)));
                 if (c.color >= 0 && c.color < GROUP_NAMES.length) {
-                    sb.append("  Group: ").append(GROUP_NAMES[c.color]);
+                    sb.append(Core.bundle.format("rbmk.tip.group", Core.bundle.get("rbmk.group." + GROUP_NAMES[c.color].toLowerCase())));
                 }
             }
             if (c.enrichment >= 0.0f) {
-                sb.append("\nEnrichment: ").append((int)(c.enrichment * 100.0f)).append("%");
-                sb.append("  Xenon: ").append((int)(c.xenon * 100.0f)).append("%");
-                sb.append("\nCore: ").append((int)c.coreHeat).append("\u00b0C");
-                sb.append("  Hull: ").append((int)c.hullHeat).append("\u00b0C");
+                sb.append(Core.bundle.format("rbmk.tip.enrichment", (int)(c.enrichment * 100.0f)));
+                sb.append(Core.bundle.format("rbmk.tip.xenon", (int)(c.xenon * 100.0f)));
+                sb.append(Core.bundle.format("rbmk.tip.core", (int)c.coreHeat));
+                sb.append(Core.bundle.format("rbmk.tip.hull", (int)c.hullHeat));
             }
             if (c.water >= 0.0f) {
-                sb.append("\nWater: ").append((int)c.water);
-                sb.append("  Steam: ").append((int)c.steam);
-                sb.append("  Tier: ").append(c.steamTier);
+                sb.append(Core.bundle.format("rbmk.tip.water", (int)c.water));
+                sb.append(Core.bundle.format("rbmk.tip.steam", (int)c.steam));
+                sb.append(Core.bundle.format("rbmk.tip.tier", c.steamTier));
             }
             return sb.toString();
         }
@@ -810,7 +815,7 @@ public class RBMKConsole extends Block {
 
         private Table buildAZ5() {
             Table t = new Table();
-            TextButton az = new TextButton("AZ-5 SCRAM", new TextButton.TextButtonStyle(Styles.flatt));
+            TextButton az = new TextButton(Core.bundle.get("rbmk.ui.az5"), new TextButton.TextButtonStyle(Styles.flatt));
             Element border = new Element() {
                 public void draw() {
                     if (!RBMKConsoleBuild.this.azArmed) {
@@ -830,9 +835,9 @@ public class RBMKConsole extends Block {
                 border.visible = this.azArmed;
                 if (this.azArmed) {
                     float left = Math.max(0.0f, (this.azDeathTime - Time.time) / 60.0f);
-                    az.setText("[red]CONFIRM! " + Mathf.ceil((float)left) + "s[]");
+                    az.setText(Core.bundle.format("rbmk.ui.az5.confirm", Mathf.ceil((float)left)));
                 } else {
-                    az.setText("AZ-5 SCRAM");
+                    az.setText(Core.bundle.get("rbmk.ui.az5"));
                 }
             });
             az.clicked(() -> {

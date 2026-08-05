@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.world.block.power;
 
+import arc.Core;
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.math.geom.*;
@@ -100,7 +101,7 @@ public class RBMKBase extends Block {
     public void setBars() {
         super.setBars();
         addBar("heat", (RBMKBaseBuild entity) -> new Bar(
-            () -> "Heat: " + (int) entity.heat + "°C",
+            () -> Core.bundle.format("rbmk.bar.heat", (int) entity.heat),
             () -> Pal.lightOrange,
             () -> entity.heat / entity.maxHeat()
         ));
