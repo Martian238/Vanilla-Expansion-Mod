@@ -2,6 +2,7 @@ package VanillaExpansion.expand.world.block.power;
 
 import VanillaExpansion.content.RBMKFuelData;
 import VanillaExpansion.content.RBMKRodItem;
+import arc.Core;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
@@ -39,27 +40,27 @@ public class RBMKRod extends RBMKBase {
     public void setBars() {
         super.setBars();
         addBar("fuel", (RBMKRodBuild entity) -> new Bar(
-            () -> entity.fuelState == null ? "Fuel: none" : "Fuel: " + (int) (entity.fuelState.getEnrichment(entity.currentRod()) * 100) + "%",
+            () -> entity.fuelState == null ? Core.bundle.get("rbmk.bar.fuel.none") : Core.bundle.format("rbmk.bar.fuel", (int) (entity.fuelState.getEnrichment(entity.currentRod()) * 100)),
             () -> entity.fuelState == null ? Pal.gray : Pal.ammo,
             () -> entity.fuelState == null ? 0f : (float) entity.fuelState.getEnrichment(entity.currentRod())
         ));
         addBar("xenon", (RBMKRodBuild entity) -> new Bar(
-            () -> "Xenon: " + (int) (entity.fuelState == null ? 0 : entity.fuelState.getPoisonLevel() * 100) + "%",
+            () -> Core.bundle.format("rbmk.bar.xenon", (int) (entity.fuelState == null ? 0 : entity.fuelState.getPoisonLevel() * 100)),
             () -> Pal.heal,
             () -> entity.fuelState == null ? 0f : (float) entity.fuelState.getPoisonLevel()
         ));
         addBar("core", (RBMKRodBuild entity) -> new Bar(
-            () -> entity.fuelState == null || entity.fuelItem == null ? "Core: none" : "Core: " + (int) entity.fuelState.coreHeat + "°C",
+            () -> entity.fuelState == null || entity.fuelItem == null ? Core.bundle.get("rbmk.bar.core.none") : Core.bundle.format("rbmk.bar.core", (int) entity.fuelState.coreHeat),
             () -> entity.fuelState == null ? Pal.gray : Pal.redLight,
             () -> entity.fuelState == null || entity.fuelItem == null ? 0f : (float) (entity.fuelState.coreHeat / entity.fuelItem.meltingPoint)
         ));
         addBar("hull", (RBMKRodBuild entity) -> new Bar(
-            () -> entity.fuelState == null || entity.fuelItem == null ? "Hull: none" : "Hull: " + (int) entity.fuelState.hullHeat + "°C",
+            () -> entity.fuelState == null || entity.fuelItem == null ? Core.bundle.get("rbmk.bar.hull.none") : Core.bundle.format("rbmk.bar.hull", (int) entity.fuelState.hullHeat),
             () -> entity.fuelState == null ? Pal.gray : Pal.slagOrange,
             () -> entity.fuelState == null || entity.fuelItem == null ? 0f : (float) (entity.fuelState.hullHeat / entity.fuelItem.meltingPoint)
         ));
         addBar("flux", (RBMKRodBuild entity) -> new Bar(
-            () -> "Flux: " + (int) entity.lastFluxOut + " (" + (int) (entity.lastFluxRatio * 100) + "% fast)",
+            () -> Core.bundle.format("rbmk.bar.rodflux", (int) entity.lastFluxOut, (int) (entity.lastFluxRatio * 100)),
             () -> Pal.reactorPurple,
             () -> Math.min(1f, (float) (entity.lastFluxOut / 1000f))
         ));
