@@ -101,41 +101,13 @@
         "layer": 32
       },
       {
-        "type": "DrawRegion"
+        "type": "DrawRegion",
         "suffix": "-shadow2"
       },
+
       {
-        "type": "DrawBlockParts",
+        "type": "VanillaExpansion.expand.world.block.draw.DrawStaticBlockParts",
         "parts": [
-          /*{
-            "type": "RegionPart",
-            "name": "ve-upgraded-reaction-pool-lights",
-            "color": "f25555",
-            "colorTo": "98ffa9",
-            "outline": false,
-            "layer": 31.9,
-            "rotation": 90,
-            "progress": {
-              "type": "warmup",
-              "op": "curve",
-              "interp": "sine"
-            }
-          },
-          {
-            "type": "RegionPart",
-            "name": "ve-upgraded-reaction-pool-lights-glow",
-            "color": "f2555480",
-            "colorTo": "98ffa940",
-            "outline": false,
-            "blending": "additive",
-            "layer": 31.91,
-            "rotation": 90,
-            "progress": {
-              "type": "warmup",
-              "op": "curve",
-              "interp": "sine"
-            }
-          },*/
           {
             "type": "RegionPart",
             "name": "ve-upgraded-reaction-pool-piston-r",
@@ -176,76 +148,76 @@
                       {
                         "op": "add",
                         "other": {
-                        "type": "time",
-                    "ops": [
-                      {
-                        "op": "loop",
-                        "time": 360
-                      },
-                      {
-                        "op": "compress",
-                        "start": 0.25,
-                        "end": 0.33333
-                      },
-                      {
-                        "op": "curve",
-                        "interp": "circleOut"
-                      },
-                      {
-                        "op": "mul",
-                        "amount": -5.25
-                      },
-                      {
-                        "op": "add",
-                        "other": {
-                        "type": "time",
-                    "ops": [
-                      {
-                        "op": "loop",
-                        "time": 360
-                      },
-                      {
-                        "op": "compress",
-                        "start": 0.5,
-                        "end": 0.58333
-                      },
-                      {
-                        "op": "curve",
-                        "interp": "circleOut"
-                      },
-                      {
-                        "op": "mul",
-                        "amount": 2.25
-                      },
-                      {
-                        "op": "add",
-                        "other": {
-                        "type": "time",
-                    "ops": [
-                      {
-                        "op": "loop",
-                        "time": 360
-                      },
-                      {
-                        "op": "compress",
-                        "start": 0.75,
-                        "end": 0.83333
-                      },
-                      {
-                        "op": "curve",
-                        "interp": "circleOut"
-                      },
-                      {
-                        "op": "mul",
-                        "amount": -2.25
-                      }
-                    ]
-                        }
-                      }
-                    ]
-                        }
-                      }
-                    ]
+                          "type": "time",
+                          "ops": [
+                            {
+                              "op": "loop",
+                              "time": 360
+                            },
+                            {
+                              "op": "compress",
+                              "start": 0.25,
+                              "end": 0.33333
+                            },
+                            {
+                              "op": "curve",
+                              "interp": "circleOut"
+                            },
+                            {
+                              "op": "mul",
+                              "amount": -5.25
+                            },
+                            {
+                              "op": "add",
+                              "other": {
+                                "type": "time",
+                                "ops": [
+                                  {
+                                    "op": "loop",
+                                    "time": 360
+                                  },
+                                  {
+                                    "op": "compress",
+                                    "start": 0.5,
+                                    "end": 0.58333
+                                  },
+                                  {
+                                    "op": "curve",
+                                    "interp": "circleOut"
+                                  },
+                                  {
+                                    "op": "mul",
+                                    "amount": 2.25
+                                  },
+                                  {
+                                    "op": "add",
+                                    "other": {
+                                      "type": "time",
+                                      "ops": [
+                                        {
+                                          "op": "loop",
+                                          "time": 360
+                                        },
+                                        {
+                                          "op": "compress",
+                                          "start": 0.75,
+                                          "end": 0.83333
+                                        },
+                                        {
+                                          "op": "curve",
+                                          "interp": "circleOut"
+                                        },
+                                        {
+                                          "op": "mul",
+                                          "amount": -2.25
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
                         }
                       }
                     ]
@@ -276,7 +248,7 @@
                     "ops": [
                       {
                         "op": "loop",
-                        "time": 480
+                        "time": 360
                       },
                       {
                         "op": "compress",
@@ -294,76 +266,76 @@
                       {
                         "op": "add",
                         "other": {
-                        "type": "time",
-                    "ops": [
-                      {
-                        "op": "loop",
-                        "time": 480
-                      },
-                      {
-                        "op": "compress",
-                        "start": 0.25,
-                        "end": 0.33333
-                      },
-                      {
-                        "op": "curve",
-                        "interp": "circleOut"
-                      },
-                      {
-                        "op": "mul",
-                        "amount": -5.25
-                      },
-                      {
-                        "op": "add",
-                        "other": {
-                        "type": "time",
-                    "ops": [
-                      {
-                        "op": "loop",
-                        "time": 480
-                      },
-                      {
-                        "op": "compress",
-                        "start": 0.5,
-                        "end": 0.58333
-                      },
-                      {
-                        "op": "curve",
-                        "interp": "circleOut"
-                      },
-                      {
-                        "op": "mul",
-                        "amount": 2.25
-                      },
-                      {
-                        "op": "add",
-                        "other": {
-                        "type": "time",
-                    "ops": [
-                      {
-                        "op": "loop",
-                        "time": 480
-                      },
-                      {
-                        "op": "compress",
-                        "start": 0.75,
-                        "end": 0.83333
-                      },
-                      {
-                        "op": "curve",
-                        "interp": "circleOut"
-                      },
-                      {
-                        "op": "mul",
-                        "amount": -2.25
-                      }
-                    ]
-                        }
-                      }
-                    ]
-                        }
-                      }
-                    ]
+                          "type": "time",
+                          "ops": [
+                            {
+                              "op": "loop",
+                              "time": 360
+                            },
+                            {
+                              "op": "compress",
+                              "start": 0.25,
+                              "end": 0.33333
+                            },
+                            {
+                              "op": "curve",
+                              "interp": "circleOut"
+                            },
+                            {
+                              "op": "mul",
+                              "amount": -5.25
+                            },
+                            {
+                              "op": "add",
+                              "other": {
+                                "type": "time",
+                                "ops": [
+                                  {
+                                    "op": "loop",
+                                    "time": 360
+                                  },
+                                  {
+                                    "op": "compress",
+                                    "start": 0.5,
+                                    "end": 0.58333
+                                  },
+                                  {
+                                    "op": "curve",
+                                    "interp": "circleOut"
+                                  },
+                                  {
+                                    "op": "mul",
+                                    "amount": 2.25
+                                  },
+                                  {
+                                    "op": "add",
+                                    "other": {
+                                      "type": "time",
+                                      "ops": [
+                                        {
+                                          "op": "loop",
+                                          "time": 360
+                                        },
+                                        {
+                                          "op": "compress",
+                                          "start": 0.75,
+                                          "end": 0.83333
+                                        },
+                                        {
+                                          "op": "curve",
+                                          "interp": "circleOut"
+                                        },
+                                        {
+                                          "op": "mul",
+                                          "amount": -2.25
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
                         }
                       }
                     ]
