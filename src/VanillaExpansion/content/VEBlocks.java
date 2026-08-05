@@ -80,6 +80,10 @@ public class VEBlocks {
     public static Block rbmkCooler;
     // RBMK 锅炉
     public static Block rbmkBoiler;
+    // RBMK 反射器
+    public static Block rbmkReflector;
+    // RBMK 慢化剂
+    public static Block rbmkModerator;
     // RBMK 控制台
     public static Block rbmkConsole;
 
@@ -390,6 +394,29 @@ public class VEBlocks {
                 VEItems.iron, 100,
                 Items.lead, 80,
                 Items.metaglass, 50
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 360;
+        }};
+
+        // RBMK 反射器（把逃逸中子弹回源燃料柱）
+        rbmkReflector = new RBMKReflector("rbmk-reflector"){{
+            requirements(Category.power, ItemStack.with(
+                VEItems.iron, 40,
+                VEItems.uranium, 5,
+                Items.lead, 15
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 360;
+        }};
+
+        // RBMK 慢化剂（快中子变慢中子，增益下游 SLOW/ANY 燃料）
+        rbmkModerator = new RBMKModerator("rbmk-moderator"){{
+            requirements(Category.power, ItemStack.with(
+                VEItems.iron, 30,
+                Items.graphite, 25
             ));
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;

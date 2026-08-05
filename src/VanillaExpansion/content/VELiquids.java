@@ -15,14 +15,6 @@ public class VELiquids {
     public static Liquid ultrahotSteam;    // 极热蒸汽 600°C
     public static Liquid spentSteam;       // 乏蒸汽（涡轮冷却输出）
     public static Liquid moltenCore;      // 熔融堆芯（corium）
-    public static Liquid perfluoromethylCold; // 冷全氟甲基（PFC 冷却液，低温端）
-    public static Liquid perfluoromethyl;     // 热全氟甲基（PFC 加热后，高温端）
-
-    // DFC系统专用流体
-    public static Liquid dfcCoolant;      // DFC冷却液
-    public static Liquid dfcFuel;         // DFC燃料
-    public static Liquid dfcAntimatter;   // 反物质
-    public static Liquid dfcPositiveMatter; // 正物质
 
     public static void load(){
         // 蒸汽 - 用于RBMK反应堆换热
@@ -84,56 +76,6 @@ public class VELiquids {
             explosiveness = 0f;
             effect = StatusEffects.burning; // 接触即灼烧
             gasColor = Color.valueOf("ff3d00").a(0.4f);
-        }};
-
-        // 冷全氟甲基 - RBMK 冷却器输入（对应 HBM PERFLUOROMETHYL_COLD，低温高效冷却液）
-        perfluoromethylCold = new Liquid("perfluoromethyl-cold", Color.valueOf("d8fcff")){{
-            viscosity = 0.4f;
-            temperature = 0.1f; // 低温
-            heatCapacity = 6f; // 高储热，极佳冷却剂
-            flammability = 0f;
-            gasColor = Color.valueOf("d8fcff").a(0.3f);
-        }};
-
-        // 热全氟甲基 - RBMK 冷却器输出（对应 HBM PERFLUOROMETHYL，600°C）
-        perfluoromethyl = new Liquid("perfluoromethyl", Color.valueOf("99525e")){{
-            viscosity = 0.4f;
-            temperature = 6f; // 高温
-            heatCapacity = 6f;
-            flammability = 0f;
-            gasColor = Color.valueOf("99525e").a(0.3f);
-        }};
-        
-        // DFC冷却液 - 高效冷却剂，用于DFC核心和交换器
-        dfcCoolant = new Liquid("dfc-coolant", Color.valueOf("00aaff")){{
-            viscosity = 0.5f;
-            heatCapacity = 5f;
-            flammability = 0f;
-            gasColor = Color.valueOf("00aaff").a(0.3f);
-        }};
-        
-        // DFC燃料 - 高能量密度燃料，用于能量发射器
-        dfcFuel = new Liquid("dfc-fuel", Color.valueOf("ff8800")){{
-            viscosity = 0.8f;
-            heatCapacity = 2f;
-            flammability = 1f;
-            gasColor = Color.valueOf("ff8800").a(0.3f);
-        }};
-        
-        // 反物质 - 用于DFC核心的高级燃料
-        dfcAntimatter = new Liquid("dfc-antimatter", Color.valueOf("ff00ff")){{
-            viscosity = 0.3f;
-            heatCapacity = 10f;
-            flammability = 0f;
-            gasColor = Color.valueOf("ff00ff").a(0.3f);
-        }};
-        
-        // 正物质 - 与反物质配对使用
-        dfcPositiveMatter = new Liquid("dfc-positive-matter", Color.valueOf("00ffff")){{
-            viscosity = 0.3f;
-            heatCapacity = 10f;
-            flammability = 0f;
-            gasColor = Color.valueOf("00ffff").a(0.3f);
         }};
     }
 }

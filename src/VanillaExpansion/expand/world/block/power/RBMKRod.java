@@ -186,11 +186,17 @@ public class RBMKRod extends RBMKBase {
 
             for (int i = 0; i < 4; i++) {
                 double stream = flux;
+                double streamRatio = ratio; // 快中子比例随慢化剂逐格衰减（对应 HBM fluxRatio）
                 for (int step = 1; step <= range; step++) {
                     Building nb = world.build(tileX() + dx[i] * s * step, tileY() + dy[i] * s * step);
 
                     if (nb instanceof RBMKBaseBuild b) {
                         RBMKType type = b.getRBMKType();
+                        // 慢化剂：快中子变慢中子，衰减流体的快中子比例并继续传播（fluxRatio *= 1 - moderatorEfficiency）
+                        if (type == RBMKType.MODERATOR) {
+                            streamRatio *= (1D - RBMKDials.moderatorEfficiency);
+                            continue;
+                        }
                         // 控制棒：全插（level==0）硬阻断整条流；否则按 getMult() 缩放并继续传播
                         if (type == RBMKType.CONTROL_ROD && b instanceof RBMKControl.RBMKControlBuild cb) {
                             if (cb.level > 0) {
@@ -201,7 +207,18 @@ public class RBMKRod extends RBMKBase {
                         }
                         // 燃料柱：有燃料则吸收整条流并停止传播；无燃料的空棒结构让流穿过（对应 HBM 空柱不吸收）
                         if (type == RBMKType.ROD && b instanceof RBMKRodBuild rb && rb.currentRod() != null) {
-                            rb.receiveFlux(stream, ratio);
+                            rb.receiveFlux(stream, streamRatio);
+                            break;
+                        }
+                        // 反射器：效率为 1 时把剩余通量整体回授给源燃料柱并停止传播（对应 HBM 完全反射）；
+                        // 否则按效率衰减后继续向后穿透（对应 HBM 部分反射）。
+                        if (type == RBMKType.REFLECTOR) {
+                            if (RBMKDials.reflectorEfficiency != 1.0f) {
+                                stream *= RBMKDials.reflectorEfficiency;
+                                streamRatio *= (1D - RBMKDials.moderatorEfficiency); // 反射前亦被慢化一次
+                                continue;
+                            }
+                            RBMKRodBuild.this.receiveFlux(stream, streamRatio);
                             break;
                         }
                     } else if (nb != null) {
