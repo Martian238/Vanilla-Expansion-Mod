@@ -84,6 +84,8 @@ public class VEBlocks {
     public static Block rbmkReflector;
     // RBMK 慢化剂
     public static Block rbmkModerator;
+    // RBMK 吸收器
+    public static Block rbmkAbsorber;
     // RBMK 控制台
     public static Block rbmkConsole;
 
@@ -417,6 +419,17 @@ public class VEBlocks {
             requirements(Category.power, ItemStack.with(
                 VEItems.iron, 30,
                 Items.graphite, 25
+            ));
+            buildVisibility = BuildVisibility.shown;
+            alwaysUnlocked = true;
+            health = 360;
+        }};
+
+        // RBMK 吸收器（通量→热，完全/部分吸收中子流）
+        rbmkAbsorber = new RBMKAbsorber("rbmk-absorber"){{
+            requirements(Category.power, ItemStack.with(
+                VEItems.iron, 30,
+                Items.lead, 20
             ));
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;

@@ -221,6 +221,17 @@ public class RBMKRod extends RBMKBase {
                             RBMKRodBuild.this.receiveFlux(stream, streamRatio);
                             break;
                         }
+                        // 吸收器：把通量转化为自身柱体热；效率为 1 时完全吸收该流并停止传播，
+                        // 否则按效率衰减后继续向后穿透（对应 HBM)。
+                        if (type == RBMKType.ABSORBER) {
+                            b.heat += RBMKDials.absorberHeatConversion * stream;
+                            if (b.heat > b.maxHeat()) b.heat = b.maxHeat();
+                            if (RBMKDials.absorberEfficiency != 1.0f) {
+                                stream *= RBMKDials.absorberEfficiency;
+                                continue;
+                            }
+                            break;
+                        }
                     } else if (nb != null) {
                         // 非 RBMK 实心方块挡住流；空气等空格让流继续穿过
                         break;
