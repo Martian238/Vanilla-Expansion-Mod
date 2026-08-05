@@ -23,6 +23,7 @@ import mindustry.Vars;
 import mindustry.content.Liquids;
 import mindustry.gen.Building;
 import mindustry.gen.Tex;
+import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.ui.Bar;
 import mindustry.ui.Fonts;
@@ -847,6 +848,142 @@ public class RBMKConsole extends Block {
             return t;
         }
 
+        // ---------- 方块表面结构图（复用 view[] 扫描快照，仅显示、不参与选择交互） ----------
+
+        @Override
+        public void draw() {
+            super.draw();
+            drawStructureOverlay();
+        }
+
+        /** 在方块表面绘制 16×16 结构图，逐格渲染与 UI heatOverlay 完全一致（含温度条/组件指示条，无选择框） */
+        public void drawStructureOverlay() {
+            float panelSize = block.size * Vars.tilesize - 5f;// 这是在方块面上绘制的结构图留给边框的px大小
+            float cellSize = panelSize / GRID;
+            float px = x, py = y;
+            float s = cellSize / 16f; // UI 16px 格 → 方块格的缩放系数
+
+            Draw.z(Layer.blockOver);
+
+            // 背景
+            Draw.color(Color.darkGray);
+            Fill.rect(px, py, panelSize, panelSize);
+
+            for (int i = 0; i < CELLS; i++) {
+                Column c = view[i];
+                int gx = i % GRID;
+                int gy = i / GRID;
+
+                // 本格左下角与中心
+                float bx = px - panelSize / 2f + cellSize * gx;
+                float by = py - panelSize / 2f + cellSize * gy;
+                float cx = bx + cellSize / 2f;
+                float cy = by + cellSize / 2f;
+                float h = cellSize;
+
+                if (c.type == -1) {
+                    Draw.color(Color.darkGray);
+                    Fill.rect(cx, cy, cellSize, cellSize);
+                    continue;
+                }
+
+                // 基色 = 类型颜色（与 UI buildBody 相同）
+                Draw.color(typeColor(c.type, c.heat, c.maxHeat));
+                Fill.rect(cx, cy, cellSize, cellSize);
+
+                if (c.maxHeat <= 0f) continue;
+
+                // 左侧温度竖条：自底部生长，红黄渐变分片（与 UI heatOverlay 逐项一致）
+                float frac = Mathf.clamp((c.heat - 20f) / c.maxHeat);
+                if (frac >= 0.02f) {
+                    float barH = h * frac;
+                    int slices = 8;
+                    float sh = barH / slices;
+                    for (int k = 0; k < slices; k++) {
+                        float t = 1f - k / (float) (slices - 1);
+                        Draw.color(0.9f - 0.25f * t, 0.15f + 0.45f * t, 0.08f + 0.1f * t, 0.55f + 0.45f * (1f - t));
+                        Fill.rect(bx + 1.5f * s, by + (k + 0.5f) * sh, 3f * s, sh);
+                    }
+                }
+
+                RBMKBase.ColumnType type = RBMKBase.ColumnType.values()[c.type];
+
+                if (type == RBMKBase.ColumnType.FUEL || type == RBMKBase.ColumnType.FUEL_SIM || type == RBMKBase.ColumnType.BREEDER) {
+                    if (c.coreHeat >= 0f) {
+                        float fh = Mathf.clamp((float) Math.ceil((c.coreHeat - 20f) * (h - 4f * s) / c.maxHeat), 0f, h - 4f * s);
+                        Draw.color(0.9f, 0.3f, 0.2f);
+                        Fill.rect(bx + 5.5f * s, by + 2f * s + fh / 2f, 2f * s, fh);
+                    }
+                    if (c.enrichment >= 0f) {
+                        float fe = Mathf.clamp(c.enrichment, 0f, 1f) * (h - 4f * s);
+                        Draw.color(0.3f, 0.9f, 0.3f);
+                        Fill.rect(bx + 9.5f * s, by + 2f * s + fe / 2f, 2f * s, fe);
+                    }
+                    if (c.xenon >= 0f) {
+                        float fx = Mathf.clamp(c.xenon, 0f, 1f) * (h - 4f * s);
+                        Draw.color(0.6f, 0.55f, 0.8f);
+                        Fill.rect(bx + 13.5f * s, by + 2f * s + fx / 2f, 2f * s, fx);
+                    }
+                } else if (type == RBMKBase.ColumnType.CONTROL || type == RBMKBase.ColumnType.CONTROL_AUTO) {
+                    if (c.level >= 0f) {
+                        float fr = (1f - Mathf.clamp(c.level, 0f, 1f)) * (h - 2f * s);
+                        Draw.color(0.95f, 0.8f, 0.2f);
+                        Fill.rect(cx, by + h - fr / 2f, 3f * s, fr);
+                    }
+                } else if (type == RBMKBase.ColumnType.BOILER) {
+                    if (c.water >= 0f) {
+                        float fw = Mathf.clamp(c.water / 100f) * (h - 4f * s);
+                        Draw.color(0.25f, 0.55f, 0.95f);
+                        Fill.rect(bx + 5.5f * s, by + 2f * s + fw / 2f, 2f * s, fw);
+                    }
+                    if (c.steam >= 0f) {
+                        float fs = Mathf.clamp(c.steam / 10000f) * (h - 4f * s);
+                        Draw.color(0.8f, 0.85f, 0.9f);
+                        Fill.rect(bx + 9.5f * s, by + 2f * s + fs / 2f, 2f * s, fs);
+                    }
+                    if (c.steamTier > 0) {
+                        float fy = 1f * s + 2f * s * Mathf.clamp(c.steamTier - 1, 0, 3);
+                        Draw.color(0.95f, 0.7f, 0.25f);
+                        Fill.rect(bx + 13.5f * s, by + h - fy - 1f * s, 2f * s, 2f * s);
+                    }
+                }
+            }
+
+            // 绿色网格线覆盖层（与 UI 通量图的网格风格一致）
+            Draw.color(0.3f, 0.6f, 0.3f);
+            Lines.stroke(0.25f);
+            float x0 = px - panelSize / 2f, x1 = px + panelSize / 2f;
+            float y0 = py - panelSize / 2f, y1 = py + panelSize / 2f;
+            for (int i = 0; i <= GRID; i++) {
+                float posX = x0 + cellSize * i;
+                Lines.line(posX, y0, posX, y1); // 竖线
+                float posY = y0 + cellSize * i;
+                Lines.line(x0, posY, x1, posY); // 横线
+            }
+            Draw.color();
+
+            // 控制台在本网格中的位置标记（以中心格估算）
+            if (linked) {
+                int cgx = (tileX() + block.size / 2 - targetX) / 2 + GRID / 2;
+                int cgy = (tileY() + block.size / 2 - targetY) / 2 + GRID / 2;
+                if (cgx >= 0 && cgx < GRID && cgy >= 0 && cgy < GRID) {
+                    float cx = px - panelSize / 2f + cellSize * cgx + cellSize / 2f;
+                    float cy = py - panelSize / 2f + cellSize * cgy + cellSize / 2f;
+                    Draw.color(Color.white);
+                    Lines.stroke(1.5f);
+                    Lines.line(cx - 2f, cy, cx + 2f, cy);
+                    Lines.line(cx, cy - 2f, cx, cy + 2f);
+                    Draw.color();
+                }
+            }
+        }
+
+        /** 序列化版本：1 起新增选中态/中心模式/AZ-5/通量环形指针等持久字段 */
+        @Override
+        public byte version() {
+            return 1;
+        }
+
         public void write(Writes write) {
             super.write(write);
             write.i(this.targetX);
@@ -855,6 +992,20 @@ public class RBMKConsole extends Block {
             for (float f : this.fluxBuf) {
                 write.f(f);
             }
+            // 版本 1：选中标记（16×16 打包为 32 字节）+ 中心设置模式 + AZ-5 状态 + 通量环形指针
+            for (int i = 0; i < 16; i++) {
+                for (int j = 0; j < 16; j += 8) {
+                    byte packed = 0;
+                    for (int k = 0; k < 8; k++) {
+                        if (this.sel[i][j + k]) packed |= (byte) (1 << k);
+                    }
+                    write.b(packed);
+                }
+            }
+            write.bool(this.centerMode);
+            write.bool(this.azArmed);
+            write.f(this.azDeathTime);
+            write.i(this.fluxStep);
         }
 
         public void read(Reads read, byte revision) {
@@ -864,6 +1015,20 @@ public class RBMKConsole extends Block {
             this.linked = read.bool();
             for (int i = 0; i < this.fluxBuf.length; ++i) {
                 this.fluxBuf[i] = read.f();
+            }
+            if (revision >= 1) {
+                for (int i = 0; i < 16; i++) {
+                    for (int j = 0; j < 16; j += 8) {
+                        byte packed = read.b();
+                        for (int k = 0; k < 8; k++) {
+                            this.sel[i][j + k] = (packed & (1 << k)) != 0;
+                        }
+                    }
+                }
+                this.centerMode = read.bool();
+                this.azArmed = read.bool();
+                this.azDeathTime = read.f();
+                this.fluxStep = read.i();
             }
         }
     }
