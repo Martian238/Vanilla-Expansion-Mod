@@ -1,6 +1,7 @@
 package VanillaExpansion.expand.world.block.defense;
 
 import arc.Core;
+import mindustry.entities.abilities.ShieldArcAbility;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
 import arc.audio.*;
 import arc.func.*;
@@ -16,47 +17,21 @@ import mindustry.entities.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.ui.*;
-import mindustry.world.meta.Stat;
-import mindustry.world.meta.StatUnit;
 
 
 public class ShieldArcPowerTurret extends PowerTurret {
 
-    // ========== 配置参数 ==========
-    public float shieldRadius = 60f;
-    public float shieldMax = 200f;
-    public float shieldRegen = 0.1f;
-    public float shieldCooldown = 60f * 5;
-    public float shieldAngle = 80f;
-    public float shieldWidth = 6f;
-    public float shieldAngleOffset = 0f;
-    public boolean whenShooting = true;
-    public float chanceDeflect = -1f;
-    public boolean drawArc = true;
-    public @Nullable Color shieldColor;
-    public boolean pushUnits = true;
 
-    // ========== 构造函数 ==========
+    public float shieldData;
     public ShieldArcPowerTurret(String name) {
         super(name);
-        // 确保炮台有电力消耗（如果是PowerTurret的话）
     }
 
-    @Override
-    public void setStats(){
-        super.setStats();
-        stats.add(Stat.shieldHealth, shieldMax, StatUnit.none);
-        stats.add(Stat.regenerationRate, shieldRegen * 60f, StatUnit.perSecond);
-    }
-
-    // ========== 自定义 Build 类 ==========
     public class ShieldArcTurretBuild extends PowerTurretBuild {
         public float shieldData = shieldMax;
         public float shieldAlpha = 0f;
         public float widthScale = 0f;
         public final Vec2 shieldPos = new Vec2();
-        public boolean shieldBroken = false;
-        public float cooldownTimer = 0f;
 
         @Override
         public void updateTile(){
@@ -64,82 +39,37 @@ public class ShieldArcPowerTurret extends PowerTurret {
             super.updateTile();
 
             // 2. 更新护盾数据
-            if(shieldBroken){
-                cooldownTimer += Time.delta;
-                if(cooldownTimer >= shieldCooldown){
-                    shieldBroken = false;
-                    shieldData = shieldMax * 0.5f; // 恢复一半
-                    cooldownTimer = 0f;
-                }
-                // 护盾破碎期间不恢复
-                widthScale = Mathf.lerpDelta(widthScale, 0f, 0.11f);
-                return;
-            }
-
-            // 恢复护盾
             if(shieldData < shieldMax){
                 shieldData += Time.delta * shieldRegen;
-                if(shieldData > shieldMax) shieldData = shieldMax;
             }
 
-            // 判断护盾是否激活
-            boolean hasPower = power != null && power.status > 0.1f;
-            boolean active = shieldData > 0.1f && (isActive() || !whenShooting) && hasPower;
+            boolean active = shieldData > 0 && (isActive() || !whenShooting);
+            shieldAlpha = Math.max(shieldAlpha - Time.delta / 10f, 0f);
 
             if(active){
                 widthScale = Mathf.lerpDelta(widthScale, 1f, 0.06f);
-                shieldAlpha = Mathf.lerpDelta(shieldAlpha, 1f, 0.02f);
-
-                // 计算护盾位置
                 shieldPos.set(0, 0).rotate(rotation - 90f).add(this);
 
-                // 拦截子弹
+                // 拦截子弹和单位
                 float reach = shieldRadius + shieldWidth;
                 Groups.bullet.intersect(
                         shieldPos.x - reach, shieldPos.y - reach,
                         reach * 2f, reach * 2f,
                         b -> {
-                            if(b.team != team && b.type.absorbable && shieldData > 0.1f){
-                                // 检查是否在护盾弧范围内
-                                float angleToBullet = shieldPos.angleTo(b);
-                                if(Angles.within(angleToBullet, rotation + shieldAngleOffset, shieldAngle / 2f)){
-                                    // 吸收子弹
-                                    b.absorb();
-                                    Fx.absorb.at(b);
-                                    shieldData -= b.damage();
-
-                                    // 护盾破碎
-                                    if(shieldData <= 0){
-                                        shieldData = 0;
-                                        shieldBroken = true;
-                                        cooldownTimer = 0f;
-                                        Fx.arcShieldBreak.at(shieldPos.x, shieldPos.y, 0,
-                                                shieldColor == null ? team.color : shieldColor, this);
-                                    }
-                                }
+                            if(b.team != team && b.type.absorbable && shieldData > 0){
+                                // ... 你的拦截逻辑
+                                b.absorb();
+                                Fx.absorb.at(b);
+                                shieldData -= b.damage();
                             }
                         }
                 );
-
-                // 推送单位（可选）
-                if(pushUnits){
-                    Units.nearbyEnemies(team, shieldPos.x - reach, shieldPos.y - reach, reach * 2f, reach * 2f, u -> {
-                        if(u.within(shieldPos, shieldRadius + shieldWidth)){
-                            float angleToUnit = shieldPos.angleTo(u);
-                            if(Angles.within(angleToUnit, rotation + shieldAngleOffset, shieldAngle / 2f)){
-                                // 推开单位
-                                float overlap = (shieldRadius + shieldWidth) - u.dst(shieldPos);
-                                if(overlap > 0){
-                                    u.move(Tmp.v1.set(u).sub(shieldPos).setLength(overlap + 1f));
-                                }
-                            }
-                        }
-                    });
-                }
             }else{
                 widthScale = Mathf.lerpDelta(widthScale, 0f, 0.11f);
-                shieldAlpha = Mathf.lerpDelta(shieldAlpha, 0f, 0.02f);
             }
+
+            // 护盾破碎恢复
+            if(shieldData < 0) shieldData = 0;
         }
 
         @Override
@@ -147,28 +77,21 @@ public class ShieldArcPowerTurret extends PowerTurret {
             // 1. 先绘制炮台本身
             super.draw();
 
-            // 2. 绘制护盾（仅当宽度和透明度都大于阈值）
-            if(widthScale > 0.01f && shieldAlpha > 0.01f && shieldData > 0.1f){
+            // 2. 绘制护盾
+            if(widthScale > 0.001f){
                 Draw.z(Layer.shields);
-                Color shieldCol = shieldColor == null ? team.color : shieldColor;
-                Draw.color(shieldCol, shieldAlpha * 0.6f);
-
-                // 计算护盾位置
-                shieldPos.set(0, 0).rotate(rotation - 90f).add(this);
+                Draw.color(shieldColor == null ? team.color : shieldColor);
+                Draw.alpha(Mathf.clamp(shieldAlpha));
 
                 if(drawArc){
                     Lines.stroke(shieldWidth * widthScale);
-                    // 从 -angle/2 到 +angle/2
-                    float startAngle = rotation + shieldAngleOffset - shieldAngle / 2f;
-                    Lines.arc(shieldPos.x, shieldPos.y, shieldRadius, shieldAngle / 360f, startAngle);
+                    Lines.arc(
+                            x + shieldPos.x, y + shieldPos.y,
+                            shieldRadius,
+                            shieldAngle / 360f,
+                            rotation + shieldAngleOffset - shieldAngle / 2f
+                    );
                 }
-
-                // 绘制护盾内部填充（可选）
-                if(shieldAlpha > 0.3f){
-                    Draw.alpha(0.08f * shieldAlpha * widthScale);
-                    Fill.circle(shieldPos.x, shieldPos.y, shieldRadius);
-                }
-
                 Draw.reset();
             }
         }
@@ -176,31 +99,11 @@ public class ShieldArcPowerTurret extends PowerTurret {
         @Override
         public void displayBars(Table table){
             super.displayBars(table);
-
-            // 护盾值条
             table.add(new Bar(
-                    () -> Core.bundle.format("bar.shieldhealth",
-                            Strings.autoFixed(shieldData, 1),
-                            Strings.autoFixed(shieldMax, 1)),
-                    () -> shieldBroken ? Pal.gray : Pal.accent,
+                    () -> Core.bundle.format("stat.shieldhealth", (int)shieldData, (int)shieldMax),
+                    () -> Pal.accent,
                     () -> shieldData / shieldMax
             )).row();
-
-            // 护盾状态条（如果破碎显示冷却）
-            if(shieldBroken){
-                table.add(new Bar(
-                        () -> Core.bundle.format("bar.shieldcooldown",
-                                Strings.autoFixed((shieldCooldown - cooldownTimer) / 60f, 1)),
-                        () -> Pal.remove,
-                        () -> cooldownTimer / shieldCooldown
-                )).row();
-            }
-        }
-
-        // 判断炮台是否在开火
-        public boolean isActive(){
-            // 使用父类的 isShooting 或检查 reload 状态
-            return this.isShooting || (reload < 1f && this.warmup() > 0.1f);
         }
     }
 
@@ -208,5 +111,224 @@ public class ShieldArcPowerTurret extends PowerTurret {
 
     public TurretBuild createTurretBuild(){
         return new ShieldArcTurretBuild();
+    }
+
+
+    private static ShieldArcTurretBuild paramUnit;
+    private static ShieldArcPowerTurret paramField;
+    private static final Vec2 paramPos = new Vec2();
+    private static final Cons<Bullet> shieldConsumer = b -> {
+        if(b.team != paramUnit.team && b.type.absorbable && paramField.shieldData > 0 &&
+                !(b.within(paramPos, paramField.shieldRadius - paramField.shieldWidth) && paramPos.within(b.x - b.deltaX, b.y - b.deltaY, paramField.shieldRadius - paramField.shieldWidth)) &&
+                (Tmp.v1.set(b).add(b.deltaX, b.deltaY).within(paramPos, paramField.shieldRadius + paramField.shieldWidth) || b.within(paramPos, paramField.shieldRadius + paramField.shieldWidth)) &&
+                (Angles.within(paramPos.angleTo(b), paramUnit.rotation + paramField.shieldAngleOffset, paramField.shieldAngle / 2f) || Angles.within(paramPos.angleTo(b.x + b.deltaX, b.y + b.deltaY), paramUnit.rotation + paramField.shieldAngleOffset, paramField.shieldAngle / 2f))){
+
+            if(paramField.chanceDeflect > 0f && b.vel.len() >= 0.1f && b.type.reflectable && Mathf.chance(paramField.chanceDeflect)){
+
+                //make sound
+                paramField.deflectSound.at(paramPos, Mathf.random(0.9f, 1.1f));
+
+                //translate bullet back to where it was upon collision
+                b.trns(-b.vel.x, -b.vel.y);
+
+                float penX = Math.abs(paramPos.x - b.x), penY = Math.abs(paramPos.y - b.y);
+
+                if(penX > penY){
+                    b.vel.x *= -1;
+                    b.vel.y *= paramField.reflectVel;
+                }else{
+                    b.vel.y *= -1;
+                    b.vel.x *= paramField.reflectVel;
+                }
+
+                b.owner = paramUnit;
+                b.team = paramUnit.team;
+                b.time = b.lifetime * paramField.reflectTime;
+                if(paramField.reflectBuildingDamage > 0f){
+                    b.buildingDamageMultiplier = paramField.reflectBuildingDamage;
+                }
+
+            }else{
+                b.absorb();
+                Fx.absorb.at(b);
+
+                paramField.shieldHitSound.at(b.x, b.y, 1f + Mathf.range(0.1f), paramField.shieldHitSoundVolume);
+            }
+
+            // break shield
+            if(paramField.shieldData <= b.damage()){
+                paramField.shieldData -= paramField.shieldCooldown * paramField.shieldRegen;
+
+                Fx.arcShieldBreak.at(paramPos.x, paramPos.y, 0, paramField.shieldColor == null ? paramUnit.team.color : paramField.shieldColor, paramUnit);
+
+                paramField.breakSound.at(paramPos.x, paramPos.y);
+            }
+
+            // shieldDamage for consistency
+            paramField.shieldData -= b.type.shieldDamage(b);
+            paramField.shieldAlpha = 1f;
+        }
+    };
+
+    protected static final Cons<Unit> unitConsumer = unit -> {
+        // ignore core units
+        if(paramField.shieldData > 0 && unit.targetable(paramUnit.team) &&
+                !(unit.within(paramPos, paramField.shieldRadius - paramField.shieldWidth) && paramPos.within(unit.x - unit.deltaX, unit.y - unit.deltaY, paramField.shieldRadius - paramField.shieldWidth)) &&
+                (Tmp.v1.set(unit).add(unit.deltaX, unit.deltaY).within(paramPos, paramField.shieldRadius + paramField.shieldWidth) || unit.within(paramPos, paramField.shieldRadius + paramField.shieldWidth)) &&
+                (Angles.within(paramPos.angleTo(unit), paramUnit.rotation + paramField.shieldAngleOffset, paramField.shieldAngle / 2f) || Angles.within(paramPos.angleTo(unit.x + unit.deltaX, unit.y + unit.deltaY), paramUnit.rotation + paramField.shieldAngleOffset, paramField.shieldAngle / 2f))){
+
+            if(unit.isMissile() && paramField.missileUnitMultiplier >= 0f){
+                Call.unitSafeDeath(unit);
+                Fx.absorb.at(unit);
+                paramField.pushEffect.at(unit.x, unit.y,paramUnit.team.color);
+
+                // consider missile hp and gamerule to damage the shield
+                paramField.shieldData -= unit.health() * paramField.missileUnitMultiplier * Vars.state.rules.unitDamage(unit.team);
+                paramField.shieldAlpha = 1f;
+
+            }else {
+                if(paramField.pushUnits) {
+                    unit.isFlying();
+                    float reach = paramField.shieldRadius + paramField.shieldWidth;
+                    float overlapDst = reach - unit.dst(paramPos.x, paramPos.y);
+
+                    if (overlapDst > 0) {
+                        //only nullify velocity if it's heading towards the shield
+                        if (Angles.angleDist(unit.angleTo(paramPos), unit.vel.angle()) < 90f) {
+                            unit.vel.setZero();
+                        }
+                        // get out
+                        unit.move(Tmp.v1.set(unit).sub(paramUnit).setLength(overlapDst + 0.01f));
+
+                        if (Mathf.chanceDelta(0.3f * Time.delta)) {
+                            paramField.pushEffect.at(unit.x, unit.y, paramUnit.team.color);
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    /** Shield radius. */
+    public float shieldRadius = 60f;
+    /** Shield regen speed in damage/tick. */
+    public float shieldRegen = 0.1f;
+    /** Maximum shield. */
+    public float shieldMax = 200f;
+    /** Cooldown after the shield is broken, in ticks. */
+    public float shieldCooldown = 60f * 5;
+    /** Angle of shield arc. */
+    public float shieldAngle = 80f;
+    /** Offset parameters for shield. */
+    public float shieldAngleOffset = 0f, shieldX = 0f, shieldY = 0f;
+    /** If true, only activates when shooting. */
+    public boolean whenShooting = true;
+    /** Width of shield line. */
+    public float shieldWidth = 6f;
+    /** Bullet deflection chance. -1 to disable */
+    public float chanceDeflect = -1f;
+    /** Multiplier for reflected bullet building damage. -1 to disable */
+    public float reflectBuildingDamage = 1f;
+    /** Velocity multiplier for reflected bullets on the opposite axis. Negative values = concave, positive values = convex */
+    public float reflectVel = 1f;
+    /** Time multiplier for reflected bullets. */
+    public float reflectTime = 1f - 0.5f;
+    /** Deflection sound. */
+    public Sound deflectSound = Sounds.none;
+    public Sound shieldBreakSound = Sounds.shieldBreakSmall;
+    public Sound shieldHitSound = Sounds.shieldHit;
+    public float shieldHitSoundVolume = 0.12f;
+    /** Multiplier for shield damage taken from missile units. */
+    public float missileUnitMultiplier = 2f;
+
+    /** Whether to draw the arc line. */
+    public boolean drawArc = true;
+    /** If not null, will be drawn on top. */
+    public @Nullable String region;
+    /** Color override of the shield. Uses unit shield colour by default. */
+    public @Nullable Color shieldColor;
+    /** If true, sprite position will be influenced by x/y. */
+    public boolean offsetRegion = false;
+    /** If true, enemy units are pushed out. */
+    public boolean pushUnits = true;
+    public Effect pushEffect = Fx.circleColorSpark;
+
+    /** State. */
+    protected float widthScale, shieldAlpha;
+
+
+    /*public void addStats(){
+        super.setStats();
+        stats.add("shield", Strings.autoFixed(shieldMax, 2));
+        stats.add("repairspeed", Strings.autoFixed(shieldRegen * 60f, 2));
+        stats.add("cooldown", Strings.autoFixed(shieldCooldown / 60f, 2));
+        if(chanceDeflect > 0f){
+            stats.add("deflectchance", Strings.autoFixed(chanceDeflect *100f, 2));
+        }
+    }*/
+
+
+    public void update(ShieldArcTurretBuild turret){
+
+
+        if(shieldData < shieldMax){
+            shieldData += Time.delta * shieldRegen;
+        }
+
+        boolean active = shieldData > 0 && (turret.isActive() || !whenShooting);
+        shieldAlpha = Math.max(shieldAlpha - Time.delta/10f, 0f);
+
+        if(active){
+            widthScale = Mathf.lerpDelta(widthScale, 1f, 0.06f);
+            paramUnit = turret;
+            paramField = this;
+            paramPos.set(shieldX, shieldY).rotate(turret.rotation - 90f).add(turret);
+
+            float reach = shieldRadius + shieldWidth;
+            Groups.bullet.intersect(paramPos.x - reach, paramPos.y - reach, reach * 2f, reach * 2f, shieldConsumer);
+            Units.nearbyEnemies(paramUnit.team, paramPos.x - reach, paramPos.y - reach, reach * 2f, reach * 2f, unitConsumer);
+        }else{
+            widthScale = Mathf.lerpDelta(widthScale, 0f, 0.11f);
+        }
+    }
+
+
+    public void created(ShieldArcTurretBuild turret){
+        shieldData = shieldMax;
+    }
+
+
+
+    public void draw(ShieldArcTurretBuild turret){
+
+
+        if(widthScale > 0.001f){
+            Draw.z(Layer.shields);
+
+            Draw.color(shieldColor == null ? turret.team.color : shieldColor, Color.white, Mathf.clamp(shieldAlpha));
+            var pos = paramPos.set(shieldX, shieldY).rotate(turret.rotation - 90f).add(turret);
+
+            if(!Vars.renderer.animateShields){
+                Draw.alpha(0.4f);
+            }
+
+            if(region != null){
+                Vec2 rp = offsetRegion ? pos : Tmp.v1.set(turret);
+                Draw.yscl = widthScale;
+                Draw.rect(region, rp.x, rp.y, turret.rotation - 90);
+                Draw.yscl = 1f;
+            }
+
+            if(drawArc){
+                Lines.stroke(shieldWidth * widthScale);
+                Lines.arc(pos.x, pos.y, shieldRadius, shieldAngle / 360f, turret.rotation + shieldAngleOffset - shieldAngle / 2f);
+            }
+            Draw.reset();
+        }
+    }
+
+
+    public void displayBars(Unit unit, Table bars){
+        bars.add(new Bar("stat.shieldhealth", Pal.accent, () -> shieldData / shieldMax)).row();
     }
 }

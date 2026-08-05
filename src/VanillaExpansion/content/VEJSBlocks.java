@@ -3,6 +3,7 @@ package VanillaExpansion.content;
 import VanillaExpansion.MultiCrafter;
 import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
+import VanillaExpansion.expand.world.block.production.CoolantDrill;
 import arc.struct.EnumSet;
 import mindustry.world.blocks.campaign.*;
 import mindustry.world.blocks.distribution.*;
@@ -396,6 +397,7 @@ public class VEJSBlocks {
         new GenericCrafter("nitroalkoss-cultivator-silicide");
 
         // group 26 火星钻头和培养机
+        new CoolantDrill("surge-digger");
         new GenericCrafter("reflector-cultivator");
 
         // group 27 瓜星钻头及培养机

@@ -1,0 +1,70 @@
+{
+  //"type": "Drill",
+  "category": "production",
+  "requirements": [ "surge-alloy/50","silicon/120","silicide/80","silver/100" ],
+  "research": {
+    "parent": "core-singularity-root",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "halo-mountains"
+      },
+      "magnetic-digger"
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "drillTime": 120,
+  "itemCapacity": 40,
+  "coolantMultiplier": 0.65,
+  "baseHeatCapacity": 0.4,
+  "consumeSpeed": 0.1,
+  "coolants": [ "water","cryofluid" ],
+  "size": 4,
+  "tier": 6,
+  "consumes": {
+    "coolant": {
+      "amount": 0.1,
+      "optional": true,
+      "booster": true
+    },
+    "power": 3.5
+  },
+  "hasPower": true,
+  "consumesPower": true,
+  "conductivePower": true,
+  "rotateSpeed": 9,
+  "liquidBoostIntensity": 1.5,
+  "warmupSpeed": 0.015,
+  "ambientSound": "loopDrill",
+  "ambientSoundVolume": 0.1,
+  "lightningSound": [ "roMechaBossSmallExplosion1","roMechaBossSmallExplosion2","roMechaBossSmallExplosion3" ],
+  "lightningVolume": 0.05,
+  "crushDamageMultiplier": 0.2,
+  "hardnessDrillMultiplier": 5,
+  "updateEffect": {
+    "type": "WrapEffect",
+    "effect": "mine",
+    "color": "cc8270"
+  },
+  "drillEffect": "mineHuge",
+  "drillMultipliers": {
+    "ferrum": 1.6,
+    "silver": 1.3,
+    "sand": 0.3,
+    "red-soil": 0.7,
+    "melon-dirt": 0.3,
+    "salt": 0.3,
+    "scrap": 1.15,
+    "coal": 0.3,
+    "tantalum": 1.25,
+    "thorium": 1.05,
+    "lead": 1.05,
+    "aluminium": 1.05,
+    "spore-pod": 0,
+    "pyratite": 0.3
+  },
+  "blockedItems": [ "spore-pod" ],
+  "drawRim": true,
+  "heatColor": "f3e979",
+  "shownPlanets": [ "maress","thavina" ]
+}
