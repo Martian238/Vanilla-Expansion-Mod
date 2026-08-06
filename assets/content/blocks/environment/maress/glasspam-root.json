@@ -8,6 +8,6 @@
   "buildVisibility": "sandboxOnly",
   "requirements": [ "reflector-matter/10" ],
   "breakSound": "plantBreak",
-  "needsSerface": false,
+  "needsSurface": false, // momiji
   "placeableLiquid": true
 }

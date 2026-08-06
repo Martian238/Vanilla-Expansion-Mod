@@ -4841,12 +4841,12 @@
         "type": "ContinuousBulletType",
         "length": 0,
         "lifetime": 520,
-        "fadeTime": 0,
+        // "fadeTime": 0, // momiji
         "damage": 0,
         "maxRange": 320,
         "collides": false,
         "incendAmount": 0,
-        "colors": [ "00000000","00000000","00000000","00000000" ],
+        // "colors": [ "00000000","00000000","00000000","00000000" ], // momiji
         "hitEffect": "none",
         "despawnEffect": "drillSteam"
       }
@@ -4860,7 +4860,7 @@
       "y": -8,
       "layerOffset": -0.001,
       "recoil": 0,
-      "warmupSpeed": 0.05,
+      "shootWarmupSpeed": 0.05, // momiji
       "shootSound": "none",
       "shootY": 0,
       "parentizeEffects": false,

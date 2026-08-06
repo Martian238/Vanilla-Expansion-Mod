@@ -4,7 +4,7 @@
   "flying": true,
   "hitSize": 40,
   "flyingLayer": 116,
-  "squareShadow": true,
+  "squareShape": true, // momiji
   "shadowElevation": 3.5,
   "faceTarget": false,
   "alwaysShootWhenMoving": true,
@@ -19,7 +19,7 @@
   "strafePenalty": 1,
   "health": 20000,
   "armor": 10,
-  "drawShield": false,
+  "drawShields": false, // momiji
   "immunities": [ "electrified","shocked","frozen","freezing","frosted","melting","watermelon" ],
   "isEnemy": false,
   "clipSize": 800,
@@ -427,7 +427,7 @@
             "rangeOverride": 800,
 "maxRange": 800,
 "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 30,//duration
@@ -478,7 +478,7 @@
             "rangeOverride": 800,
 "maxRange": 800,
 "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 30,//duration
@@ -532,7 +532,7 @@
             "rangeOverride": 800,
 "maxRange": 800,
 "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 20,//duration
@@ -583,7 +583,7 @@
             "rangeOverride": 800,
 "maxRange": 800,
 "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 20,//duration
@@ -637,7 +637,7 @@
             "rangeOverride": 800,
 "maxRange": 800,
 "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 15,//duration
@@ -688,7 +688,7 @@
             "rangeOverride": 800,
 "maxRange": 800,
 "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 15,//duration
@@ -742,7 +742,7 @@
             "rangeOverride": 800,
 "maxRange": 800,
 "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 10,//duration
@@ -793,7 +793,7 @@
             "rangeOverride": 800,
 "maxRange": 800,
 "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 10,//duration

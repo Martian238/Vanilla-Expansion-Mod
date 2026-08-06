@@ -22,7 +22,7 @@
   "forceTeam": "derelict",
   "health": 5,
   "breakEffect": {
-    "type": "WarpEffect",
+    "type": "WrapEffect", // momiji
     "effect": "breakProp",
     "color": "ff8a67"
   },

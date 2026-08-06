@@ -4922,7 +4922,7 @@
         "maxRange": 468,
         "collides": false,
         "incendAmount": 0,
-        "colors": [ "00000000","00000000","00000000","00000000" ],
+        // "colors": [ "00000000","00000000","00000000","00000000" ], //momiji
         "hitEffect": "none",
         "despawnEffect": "none",
         "smokeEffect": "smokeCloud"

@@ -6,7 +6,7 @@
   "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
   "databaseTag": "03serpulo-air-unit",
   "immunities": {"add":[ "frozen" ]},
-  "priority": -1,
+  "targetPriority": -1, // momiji
   "engineLayer": 89.99,
   "weapons": [
     {

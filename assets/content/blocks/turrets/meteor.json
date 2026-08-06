@@ -167,7 +167,7 @@
           "shrinkX": 0,
           "shrinkY": 0,
           "shrinkInterp": "circleIn",
-          "trailIWidth": 12,
+          "trailWidth": 12, // momiji
           "trailLength": 7,
           "trailColor": "ffa665",
           "collides": false,
@@ -626,7 +626,7 @@
           "shrinkX": 0,
           "shrinkY": 0,
           "shrinkInterp": "circleIn",
-          "trailIWidth": 12,
+          "trailWidth": 12, // momiji
           "trailLength": 7,
           "trailColor": "ffa665",
           "collides": false,
@@ -1085,7 +1085,7 @@
             "shrinkX": 0,
             "shrinkY": 0,
             "shrinkInterp": "circleIn",
-            "trailIWidth": 12,
+            "trailWidth": 12, // momiji
             "trailLength": 7,
             "trailColor": "f595be",
             "collides": false,
@@ -1397,7 +1397,7 @@
         "suffix": "-back",
         "mirror": true,
         "under": true,
-        "top": false,
+        // "top": false, // momiji
         "moveY": -3.5,
         "progress": {
           "type": "reload",
@@ -1442,7 +1442,7 @@
         "suffix": "-bar",
         "mirror": true,
         "under": true,
-        "top": false,
+        // "top": false, // momiji
         "y": -2,
         "moveY": 2,
         "progress": "warmup"
@@ -1452,7 +1452,7 @@
         "suffix": "-tube",
         "mirror": false,
         "under": true,
-        "top": false,
+        // "top": false, // momiji
         "moveY": -5,
         "progress": "recoil"
       },
@@ -1461,7 +1461,7 @@
         "suffix": "-side",
         "mirror": true,
         "under": false,
-        "top": false,
+        // "top": false, // momiji
         "moveX": 2,
         "progress": {
           "type": "reload",
