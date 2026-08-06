@@ -1,5 +1,5 @@
 {
-  "type": "LaunchPad",
+  // "type": "LaunchPad", // 尝试消除第一段警告
   "category": "effect",
   "research": {
     "parent": "rail-router",

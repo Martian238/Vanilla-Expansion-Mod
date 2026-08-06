@@ -23,6 +23,6 @@
   "research": {
     "parent": "super-assembler"
   },
-  "immunities": [ "frozen","disarmed" ]
-  "shownPlanets": [ "cyclant","phoon","maress","sitrullus","thavina" ],
+  "immunities": [ "frozen","disarmed" ],
+  "shownPlanets": [ "cyclant","phoon","maress","sitrullus","thavina" ]
 }

@@ -100,12 +100,11 @@
               "sizeFrom": 2.5,
               "sizeTo": 0,
               "lightColor": "98ffa9",
-              "lightOpacity": 1,
+              "lightOpacity": 1
             },
             "shootHeal"
           ]
         },
-        "hittable": false,
         "smokeEffect": "none",
         "collidesTeam": true,
         "healAmount": 20,

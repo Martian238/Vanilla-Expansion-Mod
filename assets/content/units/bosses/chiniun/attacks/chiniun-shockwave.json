@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -323,9 +322,9 @@
         "smokeEffect": "none",
         "ignoreSpawnAngle": true,
         "bullets": [
-        
-        
-        
+
+
+
           {
             "type": "PointBulletType", "drawSize": 800,//lightningroot90
             "absorbable": false,
@@ -341,7 +340,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -391,7 +390,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 90,
@@ -405,7 +404,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -455,7 +454,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 90,
@@ -469,7 +468,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -519,7 +518,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 90,
@@ -533,7 +532,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -583,7 +582,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 90,
@@ -597,7 +596,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -647,7 +646,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 90,
@@ -661,7 +660,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -711,7 +710,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 90,
@@ -725,7 +724,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -777,9 +776,9 @@
             "fragBullet": {
             }}  }}  }}  }}  }}  }}  }}
           },
-          
-          
-          
+
+
+
           {
             "type": "PointBulletType", "drawSize": 800,//lightningroot45
             "absorbable": false,
@@ -795,7 +794,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -845,7 +844,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 45,
@@ -859,7 +858,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -909,7 +908,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 45,
@@ -923,7 +922,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -973,7 +972,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 45,
@@ -987,7 +986,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1037,7 +1036,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 45,
@@ -1051,7 +1050,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1101,7 +1100,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 45,
@@ -1115,7 +1114,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1165,7 +1164,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 45,
@@ -1179,7 +1178,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1231,9 +1230,9 @@
             "fragBullet": {
             }}  }}  }}  }}  }}  }}  }}
           },
-          
-          
-          
+
+
+
           {
             "type": "PointBulletType", "drawSize": 800,//lightningroot0
             "absorbable": false,
@@ -1249,7 +1248,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1299,7 +1298,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 0,
@@ -1313,7 +1312,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1363,7 +1362,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 0,
@@ -1377,7 +1376,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1427,7 +1426,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 0,
@@ -1441,7 +1440,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1491,7 +1490,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 0,
@@ -1505,7 +1504,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1555,7 +1554,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 0,
@@ -1569,7 +1568,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1619,7 +1618,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 0,
@@ -1633,7 +1632,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1685,9 +1684,9 @@
             "fragBullet": {
             }}  }}  }}  }}  }}  }}  }}
           },
-          
-          
-          
+
+
+
           {
             "type": "PointBulletType", "drawSize": 800,//lightningroot-45
             "absorbable": false,
@@ -1703,7 +1702,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1753,7 +1752,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -45,
@@ -1767,7 +1766,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1817,7 +1816,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -45,
@@ -1831,7 +1830,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1881,7 +1880,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -45,
@@ -1895,7 +1894,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -1945,7 +1944,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -45,
@@ -1959,7 +1958,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2009,7 +2008,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -45,
@@ -2023,7 +2022,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2073,7 +2072,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -45,
@@ -2087,7 +2086,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2139,9 +2138,9 @@
             "fragBullet": {
             }}  }}  }}  }}  }}  }}  }}
           },
-          
-          
-          
+
+
+
           {
             "type": "PointBulletType", "drawSize": 800,//lightningroot-90
             "absorbable": false,
@@ -2157,7 +2156,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2207,7 +2206,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -90,
@@ -2221,7 +2220,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2271,7 +2270,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -90,
@@ -2285,7 +2284,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2335,7 +2334,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -90,
@@ -2349,7 +2348,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2399,7 +2398,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -90,
@@ -2413,7 +2412,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2463,7 +2462,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -90,
@@ -2477,7 +2476,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2527,7 +2526,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -90,
@@ -2541,7 +2540,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2593,9 +2592,9 @@
             "fragBullet": {
             }}  }}  }}  }}  }}  }}  }}
           },
-          
-          
-          
+
+
+
           {
             "type": "PointBulletType", "drawSize": 800,//lightningroot-135
             "absorbable": false,
@@ -2611,7 +2610,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2661,7 +2660,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -135,
@@ -2675,7 +2674,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2725,7 +2724,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -135,
@@ -2739,7 +2738,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2789,7 +2788,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -135,
@@ -2803,7 +2802,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2853,7 +2852,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -135,
@@ -2867,7 +2866,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2917,7 +2916,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -135,
@@ -2931,7 +2930,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -2981,7 +2980,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": -135,
@@ -2995,7 +2994,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3047,9 +3046,9 @@
             "fragBullet": {
             }}  }}  }}  }}  }}  }}  }}
           },
-          
-          
-          
+
+
+
           {
             "type": "PointBulletType", "drawSize": 800,//lightningroot180
             "absorbable": false,
@@ -3065,7 +3064,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3115,7 +3114,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 180,
@@ -3129,7 +3128,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3179,7 +3178,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 180,
@@ -3193,7 +3192,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3243,7 +3242,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 180,
@@ -3257,7 +3256,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3307,7 +3306,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 180,
@@ -3321,7 +3320,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3371,7 +3370,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 180,
@@ -3385,7 +3384,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3435,7 +3434,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 180,
@@ -3449,7 +3448,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3501,9 +3500,9 @@
             "fragBullet": {
             }}  }}  }}  }}  }}  }}  }}
           },
-          
-          
-          
+
+
+
           {
             "type": "PointBulletType", "drawSize": 800,//lightningroot135
             "absorbable": false,
@@ -3519,7 +3518,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3569,7 +3568,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 135,
@@ -3583,7 +3582,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3633,7 +3632,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 135,
@@ -3647,7 +3646,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3697,7 +3696,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 135,
@@ -3711,7 +3710,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3761,7 +3760,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 135,
@@ -3775,7 +3774,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3825,7 +3824,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 135,
@@ -3839,7 +3838,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -3889,7 +3888,7 @@
             "reflectable": false,
             "collides": false,
             "fragBullet": {
-            
+
             "type": "PointBulletType", "drawSize": 800,//lightningstem
             "absorbable": false,
             "angleOffset": 135,
@@ -3903,7 +3902,7 @@
           "interp": "linear",
           "sizeInterp": "circleOut",
           "colorFrom": "f25555aa",//lightningcolor1
-          "colorTo": "f2555500"//lightningcolor2,
+          "colorTo": "f2555500",//lightningcolor2,
           "sizeFrom": 7,//lightningwidth
           "sizeTo": 0,
           "lifetime": 50,
@@ -4072,7 +4071,7 @@
         "bullets": [
           {
             "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 30,//duration
@@ -4121,7 +4120,7 @@
           },
           {
             "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 30,//duration
@@ -4168,12 +4167,12 @@
               }
             ]
           },
-          
-          
-          
+
+
+
           {
             "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 20,//duration
@@ -4222,7 +4221,7 @@
           },
           {
             "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 20,//duration
@@ -4268,13 +4267,13 @@
                 "y": 42
               }
             ]
-          }
-          
-          
-          
+          },
+
+
+
           {
             "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 15,//duration
@@ -4323,7 +4322,7 @@
           },
           {
             "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 15,//duration
@@ -4370,12 +4369,12 @@
               }
             ]
           },
-          
-          
-          
+
+
+
           {
             "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 10,//duration
@@ -4424,7 +4423,7 @@
           },
           {
             "createChance": 0.4,//arc
-"randomRangleOffset": 180,
+            "randomAngleOffset": 180, // momiji
             "frontColor": "00000000",
             "backColor": "00000000",
             "lifetime": 10,//duration
@@ -4852,9 +4851,9 @@
         "despawnEffect": "none"
       }
     },
-    
-    
-    
+
+
+
     {
       "alwaysShooting": true,//shockwave bullets
       "recoil": 0,
@@ -4944,7 +4943,7 @@
           "fragBullets": 1,
           "fragVelocityMin": 1,
           "fragBullet": {
-            "frontColor": "00000000"
+            "frontColor": "00000000",
             "backColor": "00000000",
             "status": "killed",
             "statusDuration": 3600,

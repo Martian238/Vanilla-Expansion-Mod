@@ -13,7 +13,7 @@
   },
   "hasLiquids": false,
   "flammabilityScale": 0,
-  "explosivenessScale": 1.5
+  "explosivenessScale": 1.5,
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
@@ -117,16 +117,16 @@
   "explodeSound": "rlElectricBlockerBreakLoud",
   "research": {
     "parent": "isomorphic-reactor",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "ruins"
-      }, 
+      },
       "fusion-refueller"
     ]
   },
   "researchCostMultiplier": 0.1,
   "ambientSound": "si2OverchargedLaserLoop",
   "ambientSoundVolume": 0.3,
-  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
 }

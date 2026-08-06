@@ -234,10 +234,10 @@
               "hittable": false,
               "collides": false,
               "absorbable": false,
-              "frontColor": "ffffff00"
+              "frontColor": "ffffff00",
               "backColor": "ffffff00",
               "hitEffect": "none",
-              "despawnEffect": "none"
+              "despawnEffect": "none",
               "fragBullets": 1,
               "fragLifeMin": 0.2,
               "fragVelocityMin": 1,
@@ -299,10 +299,10 @@
               "hittable": false,
               "collides": false,
               "absorbable": false,
-              "frontColor": "ffffff00"
+              "frontColor": "ffffff00",
               "backColor": "ffffff00",
               "hitEffect": "none",
-              "despawnEffect": "none"
+              "despawnEffect": "none",
               "fragBullets": 2,
               "fragLifeMin": 0.2,
               "fragVelocityMin": 1,
@@ -361,10 +361,10 @@
               "hittable": false,
               "collides": false,
               "absorbable": false,
-              "frontColor": "ffffff00"
+              "frontColor": "ffffff00",
               "backColor": "ffffff00",
               "hitEffect": "none",
-              "despawnEffect": "none"
+              "despawnEffect": "none",
               "fragBullets": 1,
               "fragLifeMin": 0.2,
               "fragVelocityMin": 1,
@@ -498,10 +498,10 @@
               "hittable": false,
               "collides": false,
               "absorbable": false,
-              "frontColor": "ffffff00"
+              "frontColor": "ffffff00",
               "backColor": "ffffff00",
               "hitEffect": "none",
-              "despawnEffect": "none"
+              "despawnEffect": "none",
               "fragBullets": 1,
               "fragLifeMin": 0.2,
               "fragVelocityMin": 1,
@@ -556,10 +556,10 @@
               "hittable": false,
               "collides": false,
               "absorbable": false,
-              "frontColor": "ffffff00"
+              "frontColor": "ffffff00",
               "backColor": "ffffff00",
               "hitEffect": "none",
-              "despawnEffect": "none"
+              "despawnEffect": "none",
               "fragBullets": 1,
               "fragLifeMin": 0.2,
               "fragVelocityMin": 1,
@@ -693,10 +693,10 @@
               "hittable": false,
               "collides": false,
               "absorbable": false,
-              "frontColor": "ffffff00"
+              "frontColor": "ffffff00",
               "backColor": "ffffff00",
               "hitEffect": "none",
-              "despawnEffect": "none"
+              "despawnEffect": "none",
               "fragBullets": 1,
               "fragLifeMin": 0.2,
               "fragVelocityMin": 1,
@@ -830,10 +830,10 @@
               "hittable": false,
               "collides": false,
               "absorbable": false,
-              "frontColor": "ffffff00"
+              "frontColor": "ffffff00",
               "backColor": "ffffff00",
               "hitEffect": "none",
-              "despawnEffect": "none"
+              "despawnEffect": "none",
               "fragBullets": 2,
               "fragLifeMin": 0.2,
               "fragVelocityMin": 1,
@@ -1002,7 +1002,7 @@
       "beamWidth": 1,
       "repairSpeed": 3.4,
       "bullet": {
-        "maxRange": 160,
+        "maxRange": 160
       },
       "targetSwitchInterval": 1,
       "targetBuildings": true
@@ -1016,7 +1016,7 @@
       "beamWidth": 1,
       "repairSpeed": 3.4,
       "bullet": {
-        "maxRange": 160,
+        "maxRange": 160
       },
       "targetSwitchInterval": 1,
       "targetBuildings": true

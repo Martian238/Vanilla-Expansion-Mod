@@ -4,7 +4,7 @@
   "requirements": [ "astro-plate/50","phecteel/50","silicon/50" ],
   "size": 2,
   "research": {
-    "parent": "quantum-processor",
+    "parent": "quantum-processor"
   },
   "health": 1000,
   "armor": 32,

@@ -45,7 +45,7 @@
       "ejectEffect": "none",
       "shootY": 3.5,
       "bullet": {
-        "type": "PointBulletType"
+        "type": "PointBulletType",
         "damage": 2147483247,
         "pierceArmor": true,
         "lifetime": 6400,
@@ -57,7 +57,7 @@
           "sizeTo": 0
         },
         "despawnEffect": "shockwave",
-        "hitEffect": "shockwave"
+        "hitEffect": "shockwave",
         "shootEffect": "instShoot"
       }
     }

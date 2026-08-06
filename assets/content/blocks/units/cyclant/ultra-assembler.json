@@ -22,7 +22,7 @@
     {
       "unit": "ray",
       "time": 8400,
-      "requirements": [ 
+      "requirements": [
         "ve-ballistic/1",
         "ve-ultra-assemble-pack/5"
       ]
@@ -30,7 +30,7 @@
     {
       "unit": "corona",
       "time": 9000,
-      "requirements": [ 
+      "requirements": [
         "ve-solar/1",
         "ve-ultra-assemble-pack/5"
       ]
@@ -46,7 +46,7 @@
     {
       "unit": "meta",
       "time": 12000,
-      "requirements": [ 
+      "requirements": [
         "ve-square/1",
         "ve-ultra-assemble-pack/5"
       ]
@@ -56,7 +56,7 @@
   "consumes": {
     "power": 14,
     "liquids": [ "chlorine/0.4" ]
-  }
+  },
   "itemCapacity": 3600,
   "hasItems": true,
   "createSound": [ "si2EntranceOpen","si2EntranceClose" ],

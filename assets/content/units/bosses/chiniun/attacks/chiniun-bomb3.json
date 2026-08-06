@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -143,10 +142,10 @@
         "shootEffect": "none",
         "smokeEffect": "none"
       }
-    }
-    
-    
-    
+    },
+
+
+
     {
       "alwaysShooting": true,//bomb1
       "recoil":0,"y":16,"reload":3600,"mirror":false,"x": 0,"shootY": 7,"shootSound": "drStarDrop","shootSoundVolume":0.4,"useAttackRange":false,"soundPitchMax":0.5,"soundPitchMin":0.5,
@@ -171,7 +170,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -358,7 +357,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -545,7 +544,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -732,7 +731,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -919,7 +918,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -1106,7 +1105,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -1293,7 +1292,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -1480,7 +1479,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -1667,7 +1666,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -1854,7 +1853,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -2041,7 +2040,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -2228,7 +2227,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -2415,7 +2414,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -2602,7 +2601,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -2789,7 +2788,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -2976,7 +2975,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -3163,7 +3162,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -3350,7 +3349,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -3537,7 +3536,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -3724,7 +3723,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -3911,7 +3910,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -4098,7 +4097,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -4285,7 +4284,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -4472,7 +4471,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -4659,7 +4658,7 @@
         "shrinkY": -0.2,
         "shrinkX": -23,
         "sprite": "circle-bullet",
-        "mixColorTo": "f25555"
+        "mixColorTo": "f25555",
         "trailColor": "bf92f9",
         "trailInterval": 4,
         "parts": [
@@ -4821,10 +4820,10 @@
   "hitSize": 2
 }
       }
-    },
+    }
   ],
-  
-  
+
+
       "parts": [
         {
           "type": "EffectSpawnerPart",

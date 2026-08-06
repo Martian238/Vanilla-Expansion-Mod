@@ -28,7 +28,7 @@
         "suffix": "-glow"
       }
     ]
-  }
+  },
   "ambientSound": "loopSmelter",
   "ambientSoundVolume": 0.08,
   "consumes": {

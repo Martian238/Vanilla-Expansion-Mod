@@ -52,7 +52,7 @@
   ],
   "weapons": [
     {
-      "name": "corona-launcher"
+      "name": "corona-launcher",
       "x": 22.25,
       "y": -14.75,
       "rotate": true,
@@ -98,7 +98,7 @@
           "type": "MultiEffect",
           "effects": [
             "blastExplosion",
-            "shootTitan"
+            "shootTitan",
             {
               "type": "ParticleEffect",
               "particles": 12,
@@ -240,7 +240,7 @@
       "recoilTime": 36,
       "cooldownTime": 36,
       "shootY": 9.25,
-      "shoot": { 
+      "shoot": {
         "type": "ShootAlternate",
         "spread": 7
       },
@@ -280,7 +280,7 @@
       "recoilTime": 36,
       "cooldownTime": 36,
       "shootY": 9.25,
-      "shoot": { 
+      "shoot": {
         "type": "ShootAlternate",
         "spread": 7
       },

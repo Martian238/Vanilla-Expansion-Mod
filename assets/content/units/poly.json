@@ -51,7 +51,7 @@
           "moveY": -2,
           "progress": "recoil",
           "heatColor": "ffffffee"
-        }
+        },
         {
           "type": "RegionPart",
           "under": false,

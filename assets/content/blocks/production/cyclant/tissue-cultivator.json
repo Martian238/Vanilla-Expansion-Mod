@@ -18,7 +18,7 @@
     },
     "liquids": {
       "liquids": [ "water/0.06666666667" ]
-    }
+    },
     "power": 0.5
   },
   "craftEffect": "none",
@@ -43,13 +43,13 @@
         "type": "DrawLiquidTile",
         "drawLiquid": "water"
       },
-      { 
+      {
         "type": "DrawCultivator",
         "plantColorLight": "6aa95e",
         "plantColor": "4e904f",
         "bottomColor": "3f7a50"
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": ""
       },

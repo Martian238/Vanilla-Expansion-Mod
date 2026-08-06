@@ -1,8 +1,7 @@
 {
   "shownPlanets": {
     "add": [
-      "cyclant","phoon","thavina",
-        "maress"
+      "cyclant", "phoon", "thavina", "maress"
     ]
   }
 }

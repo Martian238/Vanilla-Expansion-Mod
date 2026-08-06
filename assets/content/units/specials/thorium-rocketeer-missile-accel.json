@@ -8,7 +8,6 @@
   "engineOffset": 0,
   "engineSize": 0,
   "hidden": true,
-  "envDisabled": 0,
   "immunities": [ "freezing","sapped" ],
   "engines": [
     {
@@ -126,7 +125,7 @@
               "lightOpacity": 0
             },
         "smokeEffect": "smokeCloud",
-        "speed": 999//20
+        "speed": 999,//20
       }
     },
     {

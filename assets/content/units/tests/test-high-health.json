@@ -11,7 +11,7 @@
   "parts": [
     {
       "name": "ve-test-outline",
-      "mixColor": "98ffa9"
+      "mixColor": "98ffa9",
       "x": 40,
       "xScl": 10,
       "yScl": 10,

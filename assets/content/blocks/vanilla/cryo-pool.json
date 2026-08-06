@@ -15,9 +15,9 @@
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
-      { 
-        "type": "DrawRegion"
-        "suffix": "-bottom2" 
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom2"
       },
       {
         "type": "DrawLiquidTile",
@@ -31,7 +31,7 @@
         "recurrence": 3,
         "spread": 12,
         "amount": 15
-      },    
+      },
       {
         "type": "DrawLiquidTile",
         "drawLiquid": "cryofluid",
@@ -45,32 +45,32 @@
         "spread": 12,
         "amount": 5
       },
-      { 
-        "type": "DrawRegion"
+      {
+        "type": "DrawRegion",
         "suffix": "-shadow2",
         "rotateSpeed": -2.5,
         "x": -1,
         "y": -1
       },
-      { 
-        "type": "DrawRegion"
+      {
+        "type": "DrawRegion",
         "suffix": "-rotator" ,
         "rotateSpeed": -2.5
       },
-      { 
-        "type": "DrawRegion"
-        "suffix": "-bottom1" 
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom1"
       },
       {
         "type": "DrawLiquidTile",
         "drawLiquid": "cryofluid",
         "padding": 11.75
       },
-      { 
-        "type": "DrawRegion"
-        "suffix": "-shadow1" 
+      {
+        "type": "DrawRegion",
+        "suffix": "-shadow1"
       },
-      { 
+      {
         "type": "DrawRegion"
       }
     ]

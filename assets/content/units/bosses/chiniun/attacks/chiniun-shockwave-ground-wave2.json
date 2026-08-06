@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -100,7 +99,7 @@
               "width": 12,
               "height": 12,
               "trailInterval": 1,
-              "trailSize": 3,
+              // "trailSize": 3, // momiji
               "trailColor": "ffd37f",
               "collidesGround": false,
               "collidesTiles": false,

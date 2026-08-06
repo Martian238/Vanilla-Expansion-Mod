@@ -3,7 +3,7 @@
   "requirements": [ "lead/170","silicon/115","cobalt/85","silicide/60" ],
   "research": {
     "parent": "mass-launcher",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "shale-quarry"
@@ -18,9 +18,9 @@
   "minDistribute": 60,
   "smokeEffect": "shootBigSmoke",
   "dumpTime": 1,
-  "shootEffect": { 
+  "shootEffect": {
     "type": "MultiEffect",
-    "effects": [ 
+    "effects": [
       "blastExplosion",
       "shootTitan",
       {
@@ -41,7 +41,7 @@
       "liquids": [ "water/0.2" ]
     }
   },
-  "liquidCapacity": 90
+  "liquidCapacity": 90,
   "range": 960,
   "bullet": {
     //"type": "MassDriverBolt",
@@ -58,5 +58,5 @@
     "trailWidth": 3,
     "trailColor": "f9c27a"
   },
-  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
 }

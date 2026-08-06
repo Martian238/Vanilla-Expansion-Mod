@@ -104,7 +104,7 @@
       "shootY": 0,
       "recoil": 0,
       "recoilTime": 60,
-      "recoilPow": 3
+      "recoilPow": 3,
       "display": false,
       "bullet": {
         "instantDisappear": true,
@@ -118,7 +118,7 @@
       },
       "parts": [
         {
-          "type": "ShapePart"
+          "type": "ShapePart",
           "progress": "recoil",
           "circle": true,
           "x": 0,
@@ -131,7 +131,7 @@
           "hollow": false
         },
         {
-          "type": "HaloPart"
+          "type": "HaloPart",
           "progress": "recoil",
           "tri": true,
           "shapes": 3,
@@ -152,7 +152,7 @@
           "layer": 100
         },
         {
-          "type": "HaloPart"
+          "type": "HaloPart",
           "progress": "recoil",
           "tri": true,
           "shapes": 3,
@@ -202,7 +202,7 @@
               "collides": false,
               "despawnSound": "drExplosionMmxTitan"
             },
-            { 
+            {
               "spawnUnit": "meta-orb"
             }
           ],
@@ -244,8 +244,8 @@
               "collides": false,
               "despawnSound": "drExplosionMmxTitan"
             },
-            { 
-              "spawnUnit": "meta-orb" 
+            {
+              "spawnUnit": "meta-orb"
             }
           ],
           "instantDisappear": true,
@@ -276,8 +276,8 @@
         "width": 0,
         "divisions": 0,
         "fadeTime": 0,
-        "lightColor": "98ffa9"
-        "shake": 0
+        "lightColor": "98ffa9",
+        "shake": 0,
         "colors": [ "98ffa900","98ffa900","98ffa900" ],
         "makeFire": false,
         "collides": false,
@@ -347,7 +347,7 @@
               "lightColor": "98ffa9",
               "lifetime": 30
             }
-          ],
+          ]
         },
         "smokeEffect": "none",
         "despawnEffect": "none",
@@ -363,7 +363,7 @@
       "rotateSpeed": 90,
       "shootCone": 361,
       "ejectEffect": "none",
-      "shootSound": "none"
+      "shootSound": "none",
       "continuous": true,
       "shootY": 0,
       "display": false,
@@ -374,8 +374,8 @@
         "width": 0,
         "divisions": 0,
         "fadeTime": 0,
-        "lightColor": "98ffa9"
-        "shake": 2
+        "lightColor": "98ffa9",
+        "shake": 2,
         "colors": [ "98ffa900","98ffa900","98ffa900" ],
         "makeFire": false,
         "collides": false,
@@ -394,7 +394,7 @@
       "rotateSpeed": 90,
       "shootCone": 361,
       "ejectEffect": "none",
-      "shootSound": "none"
+      "shootSound": "none",
       "continuous": true,
       "shootY": 0,
       "display": false,
@@ -405,8 +405,8 @@
         "width": 0,
         "divisions": 0,
         "fadeTime": 0,
-        "lightColor": "98ffa9"
-        "shake": 4
+        "lightColor": "98ffa9",
+        "shake": 4,
         "colors": [ "98ffa900","98ffa900","98ffa900" ],
         "makeFire": false,
         "collides": false,
@@ -425,7 +425,7 @@
       "rotateSpeed": 90,
       "shootCone": 361,
       "ejectEffect": "none",
-      "shootSound": "none"
+      "shootSound": "none",
       "continuous": true,
       "shootY": 0,
       "display": false,
@@ -436,8 +436,8 @@
         "width": 0,
         "divisions": 0,
         "fadeTime": 0,
-        "lightColor": "98ffa9"
-        "shake": 6
+        "lightColor": "98ffa9",
+        "shake": 6,
         "colors": [ "98ffa900","98ffa900","98ffa900" ],
         "makeFire": false,
         "collides": false,

@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -72,7 +71,7 @@
             "sizeInterp": "circleIn",
             "particles": 12,
             "layer": 89
-          },    
+          },
         "smokeEffect": "hitLaserBlast",
         "hitEffect": "none",
         "despawnEffect": "none",
@@ -85,7 +84,7 @@
         "despawnHit": true,
         "parts": [
           {
-            "type": "FlarePart"
+            "type": "FlarePart",
             "sides": 2,
             "rotation": 30,
             "radius": 90,
@@ -98,7 +97,7 @@
             "layer": 110,
             "spinSpeed": 0,
             "stroke": 8,
-            "useProgress": true,
+            // "useProgress": true, // momiji
             "progress": {
               "type": "life",
               "op": "curve",
@@ -106,7 +105,7 @@
             }
           },
           {
-            "type": "FlarePart"
+            "type": "FlarePart",
             "sides": 2,
             "rotation": -40,
             "radius": 90,
@@ -119,7 +118,7 @@
             "layer": 110,
             "spinSpeed": 0,
             "stroke": 8,
-            "useProgress": true,
+            // "useProgress": true, // momiji
             "progress": {
               "type": "life",
               "op": "curve",

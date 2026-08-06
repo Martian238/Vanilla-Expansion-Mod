@@ -13,7 +13,6 @@
   "health": 100,
   "lowAltitude": true,
   "missileAccelTime": 0,
-  "hidden": true,
   "alwaysUnlocked": true,
   "outlineColor": "565666",
   "engineLayer": 100,

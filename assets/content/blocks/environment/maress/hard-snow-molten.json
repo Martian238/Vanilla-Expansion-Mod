@@ -10,6 +10,6 @@
   "status": "frozen",
   "statusDuration": 300,
   "speedMultiplier": 0.8,
-  "dragMultiplier": 0.8
+  "dragMultiplier": 0.8,
   "albedo": 0.1
 }

@@ -994,7 +994,7 @@
     ]
   }
               },
-              { 
+              {
                 "op": "mul",
                 "amount": -0.5
               },
@@ -1460,7 +1460,7 @@
           "color": "ffffff",
           "colorTo": "dddddd",
           "moveX": 2,
-          "moveY": 0
+          "moveY": 0,
           "under": true,
           "layerOffset": -0.0005,
           "mirror": false
@@ -2381,7 +2381,7 @@
           "color": "dddddd",
           "colorTo": "ffffff",
           "moveX": 2,
-          "moveY": 0
+          "moveY": 0,
           "under": true,
           "layerOffset": -0.001,
           "mirror": false
@@ -3302,7 +3302,7 @@
           "color": "dddddd",
           "colorTo": "bbbbbb",
           "moveX": -2,
-          "moveY": 0
+          "moveY": 0,
           "under": true,
           "layerOffset": -0.0015,
           "mirror": false
@@ -4216,7 +4216,7 @@
     ]
   }
               },
-              { 
+              {
                 "op": "mul",
                 "amount": -0.5
               },
@@ -4682,7 +4682,7 @@
           "color": "bbbbbb",
           "colorTo": "dddddd",
           "moveX": -2,
-          "moveY": 0
+          "moveY": 0,
           "under": true,
           "layerOffset": -0.002,
           "mirror": false
@@ -4713,7 +4713,7 @@
         "type": "ShootMulti",
         "firstShotDelay": 1,
         "source": {
-          "firstShotDelay": 10
+          "firstShotDelay": 10,
           "shots": 16,
           "shotDelay": 25
         },
@@ -4893,7 +4893,7 @@
       "layer": 109.9,
       "spinSpeed": 0,
       "stroke": 1,
-      "progress": "warmup",
+      "progress": "warmup"
     },
     {
       "type": "FlarePart",
@@ -4923,7 +4923,7 @@
         "trailEffect": "none",
         "lifetime": 25,
         "fragBullets": 1,
-        "fragRandomSpread": 0
+        "fragRandomSpread": 0,
         "fragOffsetMax": 0,
         "fragOffsetMin": 0,
         "collides": false,

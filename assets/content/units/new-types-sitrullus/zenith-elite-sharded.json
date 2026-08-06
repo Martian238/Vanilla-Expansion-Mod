@@ -22,7 +22,7 @@
       "y": -1.75,
       "rotate": true,
       "shootY": 3.25,
-      "shoot": { 
+      "shoot": {
         "type": "ShootBarrel",
         "shots": 3,
         "shotDelay": 5,
@@ -148,7 +148,7 @@
       }
     },
     {
-      "name": "zenith-watermelo"
+      "name": "zenith-watermelo",
       "x": 0,
       "y": 0,
       "shootY": 12,
@@ -341,7 +341,7 @@
         "hittable": false,
         "absorbable": false,
         "hitSize": 8,
-        "collidesTiles": false,
+        "collidesTiles": false
         },
         "despawnEffect": "none",
         "hitEffect": "none",

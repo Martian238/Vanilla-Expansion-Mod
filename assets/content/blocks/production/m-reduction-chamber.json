@@ -7,7 +7,7 @@
   "category": "crafting",
   "research": {
     "parent": "multi-furnace",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "negotiation"
@@ -152,7 +152,7 @@
   "warmupSpeed": 0.005,
   "baseExplosiveness": 5,
   "updateEffect": {
-      "type": "WrapEffect"
+      "type": "WrapEffect",
       "effect": "mine",
       "color": "d1efff"
   },

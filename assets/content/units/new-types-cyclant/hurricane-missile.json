@@ -9,13 +9,12 @@
   "trailLength": 15,
   "speed": 5,
   "rotateSpeed": 0.5,
-  "maxRange": 6,
   "health": 100,
   "hitSize": 7,
   "lowAltitude": true,
   "missileAccelTime": 20,
   "deathSound": "cannonClassic",
-  "deathExplosionEffect": "massiveExplosion"
+  "deathExplosionEffect": "massiveExplosion",
   "loopSound": "none",
   "loopSoundVolume": 0,
   "fogRadius": 6,
@@ -94,7 +93,7 @@
               ]
             }
           ]
-        }
+        },
         "lifetime": 45,
         "splashDamage": 20,
         "splashDamageRadius": 128,

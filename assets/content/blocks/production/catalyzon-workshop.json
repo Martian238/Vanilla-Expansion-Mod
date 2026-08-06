@@ -16,7 +16,7 @@
   "ambientSoundVolume": 0.05,
   "research": {
     "parent": "blast-furnace",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "negotiation"
@@ -151,7 +151,7 @@
                     "color": "feb38000",
                     "colorTo": "feb380aa",
                     "name": "ve-catalyzon-workshop-beam-glow",
-                    "blending": "additive"
+                    "blending": "additive",
                     "progress": "warmup"
                       }
                     ]
@@ -250,7 +250,7 @@
                     "color": "feb38000",
                     "colorTo": "feb380aa",
                     "name": "ve-catalyzon-workshop-beam-glow",
-                    "blending": "additive"
+                    "blending": "additive",
                     "progress": "warmup"
                       }
                     ]
@@ -348,7 +348,7 @@
                     "color": "feb38000",
                     "colorTo": "feb380aa",
                     "name": "ve-catalyzon-workshop-beam-glow",
-                    "blending": "additive"
+                    "blending": "additive",
                     "progress": "warmup"
                       }
                     ]
@@ -447,7 +447,7 @@
                     "color": "feb38000",
                     "colorTo": "feb380aa",
                     "name": "ve-catalyzon-workshop-beam-glow",
-                    "blending": "additive"
+                    "blending": "additive",
                     "progress": "warmup"
                       }
                     ]
@@ -463,14 +463,14 @@
                 "progress": {
                   "type": "reload",
                   "ops": [
-                    { 
+                    {
                       "op": "inv"
                       //"time": 300
                     },
                     {
                       "op": "compress",
                       "start": 0.65,//cs
-                      "end": 1//ce
+                      "end": 1,//ce
                     },
                     {
                       "op": "curve",
@@ -498,14 +498,14 @@
                     "progress": {//aaaaaaaaa
                       "type": "reload",
                   "ops": [
-                    { 
+                    {
                       "op": "inv"
                       //"time": 300
                     },
                     {
                       "op": "compress",
                       "start": 0.65,//cs
-                      "end": 1//ce
+                      "end": 1,//ce
                     },
                     {
                       "op": "curve",
@@ -530,14 +530,14 @@
                       "other": {//bbbbbbbb
                         "type": "reload",
                   "ops": [
-                    { 
+                    {
                       "op": "inv"
                       //"time": 300
                     },
                     {
                       "op": "compress",
                       "start": 0.65,//cs
-                      "end": 1//ce
+                      "end": 1,//ce
                     },
                     {
                       "op": "curve",
@@ -573,14 +573,14 @@
                     "progress": {//aaaaaaaaa
                       "type": "reload",
                   "ops": [
-                    { 
+                    {
                       "op": "inv"
                       //"time": 300
                     },
                     {
                       "op": "compress",
                       "start": 0.65,//cs
-                      "end": 1//ce
+                      "end": 1,//ce
                     },
                     {
                       "op": "curve",
@@ -605,14 +605,14 @@
                       "other": {//bbbbbbbb
                         "type": "reload",
                   "ops": [
-                    { 
+                    {
                       "op": "inv"
                       //"time": 300
                     },
                     {
                       "op": "compress",
                       "start": 0.65,//cs
-                      "end": 1//ce
+                      "end": 1,//ce
                     },
                     {
                       "op": "curve",
@@ -648,14 +648,14 @@
                     "progress": {//aaaaaaaaa
                       "type": "reload",
                   "ops": [
-                    { 
+                    {
                       "op": "inv"
                       //"time": 300
                     },
                     {
                       "op": "compress",
                       "start": 0.65,//cs
-                      "end": 1//ce
+                      "end": 1,//ce
                     },
                     {
                       "op": "curve",
@@ -680,14 +680,14 @@
                       "other": {//bbbbbbbb
                         "type": "reload",
                   "ops": [
-                    { 
+                    {
                       "op": "inv"
                       //"time": 300
                     },
                     {
                       "op": "compress",
                       "start": 0.65,//cs
-                      "end": 1//ce
+                      "end": 1,//ce
                     },
                     {
                       "op": "curve",
@@ -723,14 +723,14 @@
                     "progress": {//aaaaaaaaa
                       "type": "reload",
                   "ops": [
-                    { 
+                    {
                       "op": "inv"
                       //"time": 300
                     },
                     {
                       "op": "compress",
                       "start": 0.65,//cs
-                      "end": 1//ce
+                      "end": 1,//ce
                     },
                     {
                       "op": "curve",
@@ -755,14 +755,14 @@
                       "other": {//bbbbbbbb
                         "type": "reload",
                   "ops": [
-                    { 
+                    {
                       "op": "inv"
                       //"time": 300
                     },
                     {
                       "op": "compress",
                       "start": 0.65,//cs
-                      "end": 1//ce
+                      "end": 1,//ce
                     },
                     {
                       "op": "curve",

@@ -120,7 +120,7 @@
         "layer": 105,
         "despawnShake": 3,
         "trailInterval": 3,
-        "trailColor": "98ffa9aa"
+        "trailColor": "98ffa9aa",
         "parts": [
           {
             "type": "FlarePart",
@@ -219,7 +219,7 @@
             "sparks": 6,
             "lifetime": 20
           }
-        },
+        }
       }
     },
     {
@@ -231,7 +231,7 @@
       "beamWidth": 1,
       "repairSpeed": 2.2,
       "bullet": {
-        "maxRange": 160,
+        "maxRange": 160
       },
       "targetSwitchInterval": 1,
       "targetBuildings": true

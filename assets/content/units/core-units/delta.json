@@ -96,11 +96,10 @@
               "waveColor": "989aa4",
               "waveStroke": 3,
               "waveRad": 32
-            },
+            }
           ]
         },
         "status": "blasted",
-        "statusDuration": 60,
         "hitShake": 2,
         "collidesTiles": true,
         "collidesAir": true,

@@ -97,7 +97,7 @@
         "shrinkY": 0,
         "splashDamage": 27,
         "shootEffect": "shootHeal",
-        "smokeEffect": "shootSmallSmoke"
+        "smokeEffect": "shootSmallSmoke",
         "despawnEffect": {
           "type": "ExplosionEffect",
           "waveColor": "98ffa9",

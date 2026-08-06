@@ -3,7 +3,7 @@
   "requirements": [
     "titanium/115","lead/200","silicon/95","chromium/80","catalyzon/30"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "salt-electrolyzer",
     "objectives": [
@@ -28,7 +28,7 @@
     },
     "liquids": {
       "liquids": [ "oil/0.6666666666667","chlorine/0.075" ]
-    }
+    },
     "power": 3.75
   },
   "craftEffect": "formsmoke",
@@ -38,15 +38,15 @@
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
-      { 
-        "type": "DrawRegion", 
+      {
+        "type": "DrawRegion",
         "suffix": "-bottom"
       },
       {
         "type": "DrawLiquidTile",
         "drawLiquid": "oil"
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": ""
       },

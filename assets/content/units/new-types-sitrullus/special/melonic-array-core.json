@@ -525,9 +525,9 @@
               }
             ]
           },
-          
-          
-          
+
+
+
           {
             "rangeOverride": 800,
 "maxRange": 800,
@@ -629,10 +629,10 @@
                 "y": 42
               }
             ]
-          }
-          
-          
-          
+          },
+
+
+
           {
             "rangeOverride": 800,
 "maxRange": 800,
@@ -735,9 +735,9 @@
               }
             ]
           },
-          
-          
-          
+
+
+
           {
             "rangeOverride": 800,
 "maxRange": 800,
@@ -1306,15 +1306,15 @@
       "xScl": -1,
       "outline": false
     },
-    
-    
-    
+
+
+
     //rocks
     {
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -1395,7 +1395,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -1476,7 +1476,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -1557,7 +1557,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -1638,7 +1638,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -1719,7 +1719,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -1800,7 +1800,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -1881,7 +1881,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -1962,7 +1962,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -2043,7 +2043,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -2124,7 +2124,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -2205,7 +2205,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -2286,7 +2286,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -2367,7 +2367,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -2448,7 +2448,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -2529,7 +2529,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -2610,7 +2610,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -2691,7 +2691,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius
@@ -2772,7 +2772,7 @@
       "type": "RegionPart",
       "clampProgress": false,
 "outline": false,
-"layer": 115.99
+"layer": 115.99,
       "x": 0,
       "y": 0,
       "moveX": 28,//radius

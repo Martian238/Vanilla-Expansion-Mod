@@ -31,7 +31,7 @@
   "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
   "research": {
     "parent": "cobalt-payload-rail",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "warp-tech-base"
@@ -308,11 +308,11 @@
         },
         "layer": 100,
         "circle": true
-      }
+      },
       {
         "type": "ShapePart",
         "color": "bf92f9",
-        "colorTo": "ffffff"
+        "colorTo": "ffffff",
         "radius": 0,
         "radiusTo": 3,
         "progress": {

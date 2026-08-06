@@ -59,7 +59,7 @@
         "backColor": "bf92f9",
         "hitColor": "bf92f9",
         "lightColor": "bf92f9",
-        "shootEffect": "shootSmallColor"
+        "shootEffect": "shootSmallColor",
         "speed": 5.2,
         "lifetime": 33,
         "scaleLife": true,

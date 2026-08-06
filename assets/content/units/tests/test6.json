@@ -40,7 +40,7 @@
         "homingPower": 1,
         "homingRange": 64,
         "knockback": -1*/
-        "type": "PointBulletType"
+        "type": "PointBulletType",
         "knockback": -0.5,
         "damage": 0,
         "pierceArmor": false,
@@ -57,7 +57,7 @@
           "colorFrom": "90dbff",
           "colorTo": "90dbff"
         },
-        "trailSpacing": 1
+        "trailSpacing": 1,
         "despawnEffect": {
           "type": "ParticleEffect",
           "length": 0,

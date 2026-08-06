@@ -81,7 +81,6 @@
         "backColor": "ffd37f",
         "frontColor": "ffffff",
         "shootEffect": "colorSpark",
-        "smokeEffect": "none",
         "speed": 13,
         "damage": 30,
         "height": 10,

@@ -19,5 +19,5 @@
   "researchCostMultiplier": 0.1,
   "hasPower": false,
   "squareSprite": false,
-  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
 }

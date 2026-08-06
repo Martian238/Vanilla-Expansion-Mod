@@ -25,7 +25,7 @@
   "strafePenalty": 0.7,
   "immunities": [ "electrified","charging","frozen" ],
   /*"abilities": [
-    { 
+    {
       "type": "StatusFieldAbility",
       "range": 96,
       "reload": 210,
@@ -79,7 +79,7 @@
       "inaccuracy": 45,
       "shadow": 12,
       "layerOffset": 0.01,
-      "shoot": { 
+      "shoot": {
         "shots": 3,
         "shotDelay": 0
       },
@@ -120,7 +120,7 @@
               "sides": 24
             },
             "shootBig"
-          ],
+          ]
           }
         },
         "lightColor": "ffa665",
@@ -177,7 +177,6 @@
           "statusDuration": 10,
           "lightningColor": "ffa665",
           "collidesAir": false,
-          "hitColor": "ffa665",
           "hitColor": "ffa665"
         },
         "hitEffect": {
@@ -544,7 +543,7 @@
       "shootY": 3.5,
       "shoot": {
         "shots": 2,
-        "shotDelay": 4,
+        "shotDelay": 4
       },
       "bullet": {
         "type": "MissileBulletType",
@@ -582,7 +581,7 @@
       "shootY": 3.5,
       "shoot": {
         "shots": 2,
-        "shotDelay": 4,
+        "shotDelay": 4
       },
       "bullet": {
         "type": "MissileBulletType",

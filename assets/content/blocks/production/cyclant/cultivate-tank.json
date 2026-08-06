@@ -18,8 +18,8 @@
   "consumes": {
     "liquids": {
       "liquids": [ "water/0.933333333" ]
-    }
-    "power": 1.5 
+    },
+    "power": 1.5
   },
   "flammabilityScale": 0,
   "explosivenessScale": 1.5,

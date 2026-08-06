@@ -37,7 +37,7 @@
         "useWarmupRadius": true,
         "timeScl": -0.5,
         "color": "ffd37f44"
-      }
+      },
       {
         "type": "DrawGlowRegion",
         "suffix": "-glow",
@@ -61,7 +61,7 @@
   "buildVisibility": "shown",
   "research": {
     "parent": "regen-projector",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "onset"

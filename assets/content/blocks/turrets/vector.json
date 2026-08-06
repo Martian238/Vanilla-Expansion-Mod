@@ -7,7 +7,6 @@
         "speed": 32,
         "shootEffect": [ "shootBigColor","colorSpark" ],
         "smokeEffect": "none",
-        "hitColor": "8aa3f4",
         "armorMultiplier": 1.5,
         "bullets": [
           {
@@ -29,7 +28,7 @@
             "damage": 60,
             "hitShake": 4,
             "despawnShake": 4,
-            "despawnHit": true
+            "despawnHit": true,
             "hitEffect": {
               "type": "MultiEffect",
               "effects": [ "hitBulletColor",
@@ -64,7 +63,7 @@
             "trailInterval": 1,
             "hittable": false,
             "status": "shocked",
-            "statusDuration": 10,
+            "statusDuration": 10
           }
         ],
         "hitColor": "8aa3f4",

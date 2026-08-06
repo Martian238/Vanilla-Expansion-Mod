@@ -15,7 +15,7 @@
   "lowAltitude": true,
   "missileAccelTime": 0,
   "deathSound": "cannonClassic",
-  "deathExplosionEffect": "massiveExplosion"
+  "deathExplosionEffect": "massiveExplosion",
   "loopSound": "none",
   "loopSoundVolume": 0,
   "fogRadius": 96,
@@ -142,7 +142,6 @@
           "status": "shocked",
           "statusDuration": 10,
           "lightningColor": "90dbff",
-          "hitColor": "90dbff",
           "hitColor": "90dbff",
           "lightColor": "90dbff"
       }

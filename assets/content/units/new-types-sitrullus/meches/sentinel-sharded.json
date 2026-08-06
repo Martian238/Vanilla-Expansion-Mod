@@ -1233,7 +1233,7 @@
       "x": 0,
       "shootY": 0,
       "mirror": false,
-      "shootSound": "carrionMechDeath"
+      "shootSound": "carrionMechDeath",
       "bullet": {
         "spawnUnit": "zenith-small-sharded",
         "shootEffect": "none",

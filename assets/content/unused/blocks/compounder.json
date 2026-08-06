@@ -27,7 +27,7 @@
         "flameRadius": 1.8,
         "flameRadiusIn": 1.2,
         "flameRadiusMag": 0.6,
-        "flameRadiusInMag": 0.3
+        "flameRadiusInMag": 0.3,
         "lightRadius": 5
       }
     ]

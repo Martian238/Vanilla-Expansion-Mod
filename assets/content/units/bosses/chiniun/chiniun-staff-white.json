@@ -85,10 +85,10 @@
       "layer": 99.995,
       "spinSpeed": 0,
       "stroke": 1.5,
-      "useProgress": false
+      // "useProgress": false // momiji
     },
-    
-    
+
+
     {
       "type": "RegionPart",
       "name": "ve-chiniun-staff-glow-mid",

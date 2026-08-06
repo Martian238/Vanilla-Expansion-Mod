@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -343,7 +342,7 @@
               "width": 9,
               "height": 9,
               "trailInterval": 1,
-              "trailSize": 2,
+              // "trailSize": 2, // momiji
               "trailColor": "bf92f9",
               "hitEffect": {
           "type": "ExplosionEffect",
@@ -391,7 +390,7 @@
               "width": 9,
               "height": 9,
               "trailInterval": 1,
-              "trailSize": 2,
+              // "trailSize": 2, // momiji
               "trailColor": "bf92f9",
               "hitEffect": {
           "type": "ExplosionEffect",
@@ -439,7 +438,7 @@
               "width": 9,
               "height": 9,
               "trailInterval": 1,
-              "trailSize": 2,
+              // "trailSize": 2, // momiji
               "trailColor": "bf92f9",
               "hitEffect": {
           "type": "ExplosionEffect",
@@ -488,7 +487,7 @@
               "width": 9,
               "height": 9,
               "trailInterval": 1,
-              "trailSize": 2,
+              // "trailSize": 2, // momiji
               "trailColor": "bf92f9",
               "hitEffect": {
           "type": "ExplosionEffect",

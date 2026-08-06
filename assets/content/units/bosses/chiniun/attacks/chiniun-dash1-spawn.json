@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -34,7 +33,7 @@
   "range": 0,
   "trailLength": 0,
   "targetAir": false,
-  "targetGround": false,    
+  "targetGround": false,
   "weapons": [
     {
       "alwaysShooting": true,//spawn dash unit

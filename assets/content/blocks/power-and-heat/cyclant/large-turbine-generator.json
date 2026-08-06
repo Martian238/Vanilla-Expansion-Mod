@@ -31,7 +31,7 @@
         "drawLiquid": "cryofluid"
       },
       { "type": "DrawRegion", "suffix": "" },
-      { 
+      {
         "type": "DrawFade",
         "suffix": "-heat"
       },
@@ -68,5 +68,5 @@
     "reflector-matter": 0.75,
     "pyratite": 3
   },
-  "shownPlanets": [ "cyclant","maress","phoon","thavina" ],
+  "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
 }

@@ -7,7 +7,6 @@
   "lifetime": 180,
   "engineOffset": 8.75,
   "engineSize": 2.5,
-  "envDisabled": 0,
   "engineColor": "bf92f9",
   "speed": 5.7,
   "armor": 5,
@@ -51,7 +50,7 @@
           "hollow": false,
           "radius": 0,
           "color": "bf92f988",
-          "colorTo": "f2555588"
+          "colorTo": "f2555588",
           "radiusTo": 80,
           "progress": "life",
           "layer": 0.01
@@ -75,7 +74,7 @@
           "progress": "life",
           "color": "ffffff00",
           "colorTo": "ffffffff",
-          "mixColor": "f2555500"
+          "mixColor": "f2555500",
           "mixColorTo": "ffffffff"
         },
         {

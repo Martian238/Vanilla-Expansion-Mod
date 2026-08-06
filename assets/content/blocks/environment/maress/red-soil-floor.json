@@ -8,6 +8,6 @@
   //"decoration": "red-soil-boulder",
   "itemDrop": "red-soil",
   "playerUnmineable": true,
-  "mapColor": "985834"
+  "mapColor": "985834",
   "blendGroup": "red-soil-floor"
 }

@@ -82,7 +82,6 @@
       "reload": 50,
       "ejectEffect": "none",
       "shootSound": "shootMissilePlasmaShort",
-      "layerOffset": -0.002,
       "recoil": 8,
       "predictTarget": false,
       "mirror": false,

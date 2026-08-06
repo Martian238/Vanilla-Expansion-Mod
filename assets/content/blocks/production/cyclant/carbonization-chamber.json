@@ -3,7 +3,7 @@
   "requirements": [
     "silicide/150","graphite/100","silicon/200","cobalt/70","lead/80"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "chain-transferer",
     "objectives": [
@@ -82,11 +82,11 @@
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
-      { 
-        "type": "DrawRegion", 
+      {
+        "type": "DrawRegion",
         "suffix": "-bottom1"
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": "-spin",
         "rotateSpeed": -8
@@ -102,7 +102,7 @@
         "glowIntensity": 0.35,
         "glowScale": 4
       },
-      /*{ 
+      /*{
         "type": "DrawRegion",
         "suffix": "-spin",
         "rotateSpeed": -6,
@@ -136,8 +136,8 @@
         "color": "ffa665",
         "glowIntensity": 0,
         "layer": -1
-      }
-      { 
+      },
+      {
         "type": "DrawRegion",
         "suffix": ""
       },
@@ -152,5 +152,5 @@
   },
   "outputItems": [ "titanium/10","fibralt/10" ],
   "outputLiquids": [ "hydrogen/0.354166666667" ],
-  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
 }

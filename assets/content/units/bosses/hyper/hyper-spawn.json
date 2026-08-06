@@ -46,7 +46,7 @@
         "minVolume": 2,
         "sound": "stAstroAmbient",
         "startDelay": 10
-      }
+      },
   {
     "type": "WaveEffect",
     "strokeFrom": 10,
@@ -164,7 +164,7 @@
           "baseLength": 0,
           "lightScl": 0,
           "layer": 120
-        },
+        }
     ]
   },
   "weapons": [
@@ -199,7 +199,7 @@
         "sideWidth": 0,
         "colors": [ "f2555560","f25555b0","f25555" ]
       }
-    }, 
+    },
     {
       "mirror": false,
       "controllable": false,
@@ -603,7 +603,7 @@
           "layer": 120
         },
         "instantDisappear": true,
-        "lightning": 1, 
+        "lightning": 1,
         "lightningDamage": 200,
         "lightningColor": "98ffa9",
         "lightningLength": 40,
@@ -817,7 +817,7 @@
         }
       }
     },
-    
+
     {
       "alwaysShooting": true,//darkness&shake1
       "recoil": 0,

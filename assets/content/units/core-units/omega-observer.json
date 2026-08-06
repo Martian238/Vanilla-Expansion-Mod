@@ -145,7 +145,6 @@
         "length": 0,
         "maxRange": 265,
         "colors": [ "ffd37f00","ffd37f00","ffffff00" ],
-        "hitColor": "ffd37f",
         "lightColor": "ffd37f",
         "shootEffect": "none",
         "hitColor": "ffd37f",

@@ -16,7 +16,7 @@
   "phaseBoost": 0,
   "phaseRangeBoost": 0,
   "consumes": {
-    "power": 5.5
+    "power": 5.5,
     "items": {
       "items": [
         "phase-fabric/1","silicon/1"

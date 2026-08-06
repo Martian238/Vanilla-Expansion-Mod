@@ -117,7 +117,7 @@
               "colorTo": "00ffce60",
               "lifetime": 960,
               "interp": "circleOut",
-              "sizeInterp": "circleIn"
+              "sizeInterp": "circleIn",
               "length": 1600,
               "baseLength": 0,
               "lightColor": "00ffce",
@@ -131,7 +131,7 @@
               "colorTo": "00ffce60",
               "lifetime": 900,
               "interp": "circleOut",
-              "sizeInterp": "circleIn"
+              "sizeInterp": "circleIn",
               "length": 1600,
               "baseLength": 0,
               "lightColor": "00ffce",
@@ -145,7 +145,7 @@
               "colorTo": "00ffce60",
               "lifetime": 840,
               "interp": "circleOut",
-              "sizeInterp": "circleIn"
+              "sizeInterp": "circleIn",
               "length": 1600,
               "baseLength": 0,
               "lightColor": "00ffce",
@@ -159,7 +159,7 @@
               "colorTo": "50504080",
               "lifetime": 1200,
               "interp": "circleOut",
-              "sizeInterp": "linear"
+              "sizeInterp": "linear",
               "length": 1600,
               "baseLength": 0,
               "lightColor": "00000000",
@@ -173,7 +173,7 @@
               "colorTo": "50504080",
               "lifetime": 1080,
               "interp": "circleOut",
-              "sizeInterp": "linear"
+              "sizeInterp": "linear",
               "length": 2000,
               "baseLength": 0,
               "lightColor": "00000000",
@@ -187,7 +187,7 @@
               "colorTo": "50504080",
               "lifetime": 960,
               "interp": "circleOut",
-              "sizeInterp": "linear"
+              "sizeInterp": "linear",
               "length": 2400,
               "baseLength": 0,
               "lightColor": "00000000",

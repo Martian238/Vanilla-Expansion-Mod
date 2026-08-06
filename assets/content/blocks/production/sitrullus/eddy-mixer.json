@@ -3,10 +3,10 @@
   "requirements": [
     "ferrum/100","graphite/250","silicon/80","silver/20"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "silicon-oxidator",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "fruit-flats"

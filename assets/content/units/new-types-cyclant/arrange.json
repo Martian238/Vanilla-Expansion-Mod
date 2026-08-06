@@ -17,7 +17,6 @@
   "immunities": [ "melting","burning","combusting","corroded","fusing" ],
   "drag": 0.07,
   "accel": 0.1,
-  "envDisabled": 0,
   "emitWalkSound": false,
   "treadRects": [
     {

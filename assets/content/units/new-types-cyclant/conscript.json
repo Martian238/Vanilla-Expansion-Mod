@@ -14,7 +14,6 @@
   "rotateMoveFirst": true,
   "drag": 0.07,
   "accel": 0.1,
-  "envDisabled": 0,
   "treadRects": [
     {
       "type": "Rect",
@@ -26,11 +25,11 @@
   ],
   "research": {
     "parent": "ground-fabricator",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "intervalley"
-      } 
+      }
     ],
     "requirements": [ "silicon/900","lead/450","silicide/300" ]
   },

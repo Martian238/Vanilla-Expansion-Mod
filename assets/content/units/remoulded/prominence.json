@@ -129,7 +129,7 @@
       "bullet": {
         "hitEffect": {
           "type": "MultiEffect",
-          "effects": [ 
+          "effects": [
             "hitBulletSmall",
             "fireHit"
           ]
@@ -140,7 +140,7 @@
         "trailColor": "f8e096",
         "splashDamage": 12,
         "splashDamageRadius": 28,
-        "status": "burning"
+        "status": "burning",
         "statusDuration": 240,
         "lightColor": "f8e096",
         "damage": 13,

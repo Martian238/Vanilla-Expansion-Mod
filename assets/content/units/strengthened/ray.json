@@ -49,7 +49,7 @@
         "bullets": [
         {
         /*1aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 4.8,//4.8*3=14.4
         "lifetime": 3,
         "collides": false,
@@ -65,11 +65,11 @@
           "smokeSize": 8,
           "smokeRad": 24,//R+8
           "smokes": 8
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*1.5aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 5.1,//5.4*3=16.2 14.4+16.2=30.6
         "lifetime": 6,
         "collides": false,
@@ -85,11 +85,11 @@
           "smokeSize": 8,
           "smokeRad": 28,//R+8
           "smokes": 8
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 5.4,//30.6+18=48.6 48.6/9=5.4
         "lifetime": 9,
         "collides": false,
@@ -105,11 +105,11 @@
           "smokeSize": 10,
           "smokeRad": 32,//R+8
           "smokes": 9
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*2.5aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 5.7,
         "lifetime": 12,
         "collides": false,
@@ -125,11 +125,11 @@
           "smokeSize": 10,
           "smokeRad": 35.5,//R+8
           "smokes": 9
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*3aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 6,
         "lifetime": 15,
         "collides": false,
@@ -145,11 +145,11 @@
           "smokeSize": 12,
           "smokeRad": 39,//R+8
           "smokes": 10
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*3.5aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 6.3,
         "lifetime": 18,
         "collides": false,
@@ -165,11 +165,11 @@
           "smokeSize": 12,
           "smokeRad": 42,//R+8
           "smokes": 10
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*4aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 6.6,
         "lifetime": 21,
         "collides": false,
@@ -185,11 +185,11 @@
           "smokeSize": 14,
           "smokeRad": 45,//R+8
           "smokes": 11
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*4.5aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 6.9,
         "lifetime": 24,
         "collides": false,
@@ -205,11 +205,11 @@
           "smokeSize": 14,
           "smokeRad": 47.5,//R+8
           "smokes": 11
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*5aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 7.2,
         "lifetime": 27,
         "collides": false,
@@ -225,11 +225,11 @@
           "smokeSize": 16,
           "smokeRad": 50,//R+8
           "smokes": 12
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*5.5aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 7.5,
         "lifetime": 30,
         "collides": false,
@@ -245,11 +245,11 @@
           "smokeSize": 16,
           "smokeRad": 52,//R+8
           "smokes": 12
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*6aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 7.8,
         "lifetime": 33,
         "collides": false,
@@ -265,11 +265,11 @@
           "smokeSize": 18,
           "smokeRad": 54,//R+8
           "smokes": 13
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*6.5aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 8.1,
         "lifetime": 36,
         "collides": false,
@@ -285,11 +285,11 @@
           "smokeSize": 18,
           "smokeRad": 55.5,//R+8
           "smokes": 13
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*7aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 8.4,
         "lifetime": 39,
         "collides": false,
@@ -305,11 +305,11 @@
           "smokeSize": 20,
           "smokeRad": 57,//R+8
           "smokes": 14
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*7.5aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 8.7,
         "lifetime": 42,
         "collides": false,
@@ -325,11 +325,11 @@
           "smokeSize": 20,
           "smokeRad": 58,//R+8
           "smokes": 14
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*8aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 9,
         "lifetime": 45,
         "collides": false,
@@ -345,11 +345,11 @@
           "smokeSize": 22,
           "smokeRad": 59,//R+8
           "smokes": 15
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*8.5aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 9.3,
         "lifetime": 48,
         "collides": false,
@@ -365,11 +365,11 @@
           "smokeSize": 22,
           "smokeRad": 59.5,//R+8
           "smokes": 15
-        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ }
+        }]},"fragBullets":0,"fragRandomSpread":0,"fragVelocityMin":1,"fragOffsetMin":0,"fragOffsetMax":0,"despawnShake":4,"hitShake":4,"despawnSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]/*,"fragBullet":*/ },
 
 {
         /*9aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/
-"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"]
+"trailColor":"ffa665","trailLength":5,"hittable":false,"frontColor":"ffffff00","backColor":"ffffff00","lightColor":"ffa665","hitSound":["si2Explosive1","si2Explosive2","si2Explosive3","si2Explosive4","si2Explosive5"],
         "speed": 9.6,
         "lifetime": 51,
         "collides": false,
@@ -389,7 +389,7 @@
         }
         ],
         "shootEffect": {
-          "type": "RadialEffect"
+          "type": "RadialEffect",
           "effect": "shootSmokeMissile",
           "amount": 1,
           "rotationOffset": 180

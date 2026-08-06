@@ -53,7 +53,7 @@
       "shootX": 0,
       "shootY": 4,
       "baseRotation": 0,
-      "mirror": true,
+      "mirror": true
     },
     {
       "name": "string-weapon",
@@ -99,7 +99,7 @@
         "shrinkY": 0,
         "splashDamage": 27,
         "shootEffect": "shootHeal",
-        "smokeEffect": "shootSmallSmoke"
+        "smokeEffect": "shootSmallSmoke",
         "despawnEffect": {
           "type": "ExplosionEffect",
           "waveColor": "98ffa9",
@@ -135,7 +135,7 @@
       }
     },
     {
-      "name": "zenith-watermelo"
+      "name": "zenith-watermelo",
       "x": 0,
       "y": 0,
       "shootY": 12,
@@ -328,7 +328,7 @@
         "hittable": false,
         "absorbable": false,
         "hitSize": 8,
-        "collidesTiles": false,
+        "collidesTiles": false
         },
         "despawnEffect": "none",
         "hitEffect": "none",

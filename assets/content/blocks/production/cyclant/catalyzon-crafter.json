@@ -4,7 +4,7 @@
     "aluminium/300","lead/250","silicon/400","cobalt/200"
   ],
   "buildCostMultiplier": 0.5,
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "extractor",
     "objectives": [
@@ -36,14 +36,14 @@
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
-      { 
+      {
         "type": "DrawRegion",
-        "suffix": "-bottom" 
+        "suffix": "-bottom"
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": "-beam",
-        "rotateSpeed": -1.4,
+        "rotateSpeed": -1.4
       },
       {
         "type": "DrawGlowRegion",

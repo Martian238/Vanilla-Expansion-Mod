@@ -13,7 +13,7 @@
       "accel": -0.4,
       "lifetime": 40,
       "frontColor": "ffffff",
-      "backColor": "f3e979"
+      "backColor": "f3e979",
       "shrinkY": 0,
       "sticky": true,
       "stickyExtraLifetime": 360,
@@ -26,7 +26,7 @@
         "lightningLength": 8,
         "lightningLengthRand": 4,
         "damage": 23,
-        "lightningColor": "f3e979"
+        "lightningColor": "f3e979",
         "hitSound": "spark",
         "hitSoundVolume": 0.4
       },
@@ -48,7 +48,7 @@
       "accel": -0.4,
       "lifetime": 40,
       "frontColor": "ffffff",
-      "backColor": "f3e979"
+      "backColor": "f3e979",
       "shrinkY": 0,
       "sticky": true,
       "stickyExtraLifetime": 1080,
@@ -61,7 +61,7 @@
         "lightningLength": 10,
         "lightningLengthRand": 5,
         "damage": 50,
-        "lightningColor": "f3e979"
+        "lightningColor": "f3e979",
         "hitSound": "spark",
         "hitSoundVolume": 0.4
       },
@@ -105,7 +105,7 @@
         "speed": 0,
         "frontColor": "00000000",
         "backColor": "00000000",
-        "hitColor": "ff6b41",
+        "hitColor": "ff6b41"
       },
       "spin": 12,
       "intervalBullets": 1,
@@ -186,7 +186,7 @@
         "impact": true,
         "frontColor": "00000000",
         "backColor": "00000000",
-        "hitColor": "9eabf7",
+        "hitColor": "9eabf7"
       },
       "intervalRandomSpread": 0,
       "intervalBullets": 1,
@@ -306,7 +306,7 @@
   },
   "research": {
     "parent": "buster",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "ruins"

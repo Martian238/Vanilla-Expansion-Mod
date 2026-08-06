@@ -23,7 +23,7 @@
   "loopSoundVolume": 0.25,
   "research": {
     "parent": "daybreak",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "slate-guardpost"
@@ -128,7 +128,7 @@
           "trailWidth": 0.75,
           "status": "blasted",
           "statusDuration": 60,
-          "trailEffect": "missileTrailShort",
+          "trailEffect": "missileTrailShort"
         },
         "trailColor": "ff835e",
         "trailInterval": 1,
@@ -262,8 +262,8 @@
       "y": 3,
       "mirror": true
     },
-    
-    
+
+
     {
       "type": "RegionPart",
       "name": "ve-shimmer-rotator1",

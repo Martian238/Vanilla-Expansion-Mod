@@ -8,7 +8,6 @@
   "lightColor": "ff8a67",
   "lightRadius": 12,
   "requirements": [ "nitroalkoss/10" ],
-  "allowDerelictRepair": false,
   "alwaysUnlocked": true,
   "instantDeconstruct": false,
   "buildVisibility": "sandboxOnly",

@@ -50,7 +50,7 @@
         "statusDuration": 10,
         "fragOnHit": true,
         "fragBullet": {
-          "type": "LightningBulletType"
+          "type": "LightningBulletType",
           "speed": 5,
           "drag": 0.1,
           "lightningColor": "8aa3f4",
@@ -59,7 +59,7 @@
           "damage": 9,
           "status": "shocked",
           "statusDuration": 10,
-          "hittable": false,
+          "hittable": false
         },
         "bulletInterval": 4,
         "fragBullets": 4,

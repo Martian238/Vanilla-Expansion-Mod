@@ -3,7 +3,7 @@
   "requirements": [
     "graphite/100","metaglass/50","chromium/100","surge-alloy/250"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "melting-electrolyzer",
     "objectives": [
@@ -51,7 +51,7 @@
       },
       {
         "type": "DrawLiquidTile",
-        "drawLiquid": "water"
+        "drawLiquid": "water",
         "padding": 5
       },
       {
