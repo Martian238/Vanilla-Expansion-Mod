@@ -1,6 +1,6 @@
 advanced-landing-pad.json: 2,
-注释掉了, 尝试消除第一段警告
-测试结论: 沙盒测试 改良接收台 无明显变化, 日志警告消失
+改回去了, 尝试消除第一段警告
+测试结论: 建筑直接没了, 日志警告消失
 
 chiniun-interrupted.json: 100, 121,
 chiniun-laser-bomb1.json: 96,
@@ -51,85 +51,85 @@ chiniun.json: 33,
 meteor.json: 1400, 1445, 1455, 1464,
 问题字段: top
 注释掉了, RegionPart 类中没有 top 字段, Weapon 类中有
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 gatling-mech-sharded.json: 4863,
 gatling-mech-sharded.json: 4704, 4823, 4864, 5015,
 问题字段: warmupSpeed
 替换为 shootWarmupSpeed, 推测是将 Weapon 类中的 shootWarmupSpeed 字段写错了
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 gatling-mech.json: 4844,
 gatling-mech-sharded.json: 4845,
 问题字段: fadeTime
 注释掉了, ContinuousBulletType 类中没有 fadeTime 字段, ContinuousLaserBulletType 类中有
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 gatling-mech.json: 4849,
 gatling-mech-sharded.json: 4850,
 hurricane.josn: 4925,
 问题字段: colors
 注释掉了, ContinuousBulletType 类中没有 colors 字段, ContinuousFlameBulletType 类和 ContinuousLaserBulletType 类中有
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 glasspam-root.json: 11,
 问题字段: needsSerface
 替换为 needsSurface, 推测是将 Floor 类中的 needsSurface 字段写错了
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 iota-final.json: 100,
 问题字段: homingRadius
 替换为 homingRange, 推测是将 BulletType 类中的 homingRange 字段写错了
-未测试, 日志警告消失
+测试结论: 好像范围是变大了, 日志警告消失
 
 melonic-array-core.json: 7,
 问题字段: squareShadow,
 替换为 squareShape, 推测是将 UnitType 类中的 squareShape 字段写错了
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 meteor.json: 170, 629, 1088,
 问题字段: trailIWidth
 替换为 trailWidth, 多个I
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 mono.json: 9,
 phantom-zenith-small.json: 14,
 poly.json: 9,
 问题字段: priority
 替换为 targetPriority, 推测是将 UnitType 类中的 targetPriority 字段与 Block 类中的 priority 字段记混了
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 nitroalkoss-plant.json: 25,
 问题: WarpEffect
 替换为 WrapEffect, 写错了
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 obvight.json: 6,
 问题字段: rottaeSpeed
 替换为 rotateSpeed, 写错了
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 obvight.json: 854, 861, 868, 875, 882, 889, 896, 903,
 问题字段: lightningRand
 替换为 lightningLengthRand, 推测是将 BulletType 类中的 lightningLengthRand 字段写错了
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 phantom-zenith.json: 43,
 phantom-zenith-small.json: 45,
 问题字段: colorFrom
 替换为 color, 推测是将 RegionPart 类中的 color 字段与其他类中的 colorFrom 字段记混了
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 sentinel.json: 234,
 sentinel-sharded.json: 235,
 问题字段: lengthRand
 替换为 randLength, 推测是将 ParticleEffect 类中的 randLength 字段与 SapBulletType 类中的 lengthRand 字段记混了
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 shower.json: 235,
 问题字段: firingMoveFract
 替换为 randLength, 推测是将 ParticleEffect 类中的 randLength 字段与 SapBulletType 类中的 lengthRand 字段记混了
-未测试, 日志警告消失
+测试结论: 日志警告消失
 
 
 

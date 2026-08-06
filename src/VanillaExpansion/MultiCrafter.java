@@ -59,6 +59,12 @@ import static mindustry.Vars.*;
 import static mindustry.Vars.content;
 import static mindustry.graphics.Pal.command;
 
+/**
+ * 多配方厂
+ *
+ * @see HeatCrafter
+ * @see GenericCrafter
+ */
 public class MultiCrafter extends HeatCrafter {
     public Seq<Recipe> recipes = new Seq<>();
     public float updateEffectChance = 0.05f;
@@ -1519,9 +1525,7 @@ public class MultiCrafter extends HeatCrafter {
         public void dumpOutputs() {
             for (Item item : outputItemsSet) {
                 if(item != null) {
-                    while (items.has(item) && dump(item)) {
-
-                    }
+                    while (items.has(item) && dump(item)) {}
                     if (!items.has(item)) outputItemsSet.remove(item);
                 }
             }
