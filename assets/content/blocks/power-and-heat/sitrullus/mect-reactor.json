@@ -1,5 +1,9 @@
 {
-  //"type": "ConsumeGenerator",
+
+  //此建筑原先为ConsumeGenerator，现为Java写的type，其屏幕震动与生成闪电子弹的功能是Java写的，Json模组不能抄
+  //此外，部件动画等均为纯Json内容，可以作为参考
+
+
   "consumes": {
     "items": [ "mect-complex/1" ],
     "liquids": [ "water/0.5" ]
@@ -15,6 +19,9 @@
   "warmupSpeed": 0.005,
   "legacyReadWarmup": true,
   "powerProduction": 200,
+
+  "lightningSound": "shockBullet",//Java自定义的接口，勿抄
+
   "consumeEffect": "drillSteam",
   "drawer": {
     "type": "DrawMulti",

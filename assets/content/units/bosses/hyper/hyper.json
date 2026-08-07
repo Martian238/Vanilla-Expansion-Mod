@@ -1,4 +1,9 @@
 {
+
+  //这个单位含有Java内容，部分能力、武器、子弹是Java写的，不适合作为Json模组的参考
+  //若要参考，请到同一目录下的hyper-boss.json，它没有Java内容，且Json部分和此单位几乎一致
+
+
   "type": "payload",
   "databaseTag": "10special-unit",
   "research": {
