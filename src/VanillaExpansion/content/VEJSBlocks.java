@@ -3,6 +3,7 @@ package VanillaExpansion.content;
 import VanillaExpansion.MultiCrafter;
 import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
+import VanillaExpansion.expand.world.block.power.ShakeGenerator;
 import VanillaExpansion.expand.world.block.production.CoolantDrill;
 import arc.struct.EnumSet;
 import mindustry.world.blocks.campaign.*;
@@ -372,7 +373,7 @@ public class VEJSBlocks {
         new ConsumeGenerator("cycle-turbine-generator");
         new ConsumeGenerator("fermentor");
         new ConsumeGenerator("activator-generator");
-        new ConsumeGenerator("mect-reactor");
+        new ShakeGenerator("mect-reactor");
 
         // group 25 原版及赛克钻头和培养机
         new Drill("mechanical-drill-micro");

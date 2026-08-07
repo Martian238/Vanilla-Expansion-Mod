@@ -8,7 +8,7 @@
     "objectives": [
       {
         "type": "OnSector",
-        "preset": "nuclear-powerplant"
+        "preset": "thorium-hacienda"
       }
     ]
   },

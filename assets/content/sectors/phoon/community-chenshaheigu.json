@@ -1,0 +1,23 @@
+{
+  "planet": "phoon",
+  "sector": 29,
+  "difficulty": 10,
+  "research": {
+    "parent": "community-leimingliegu",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "shale-quarry"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": false
+}
+
+
+

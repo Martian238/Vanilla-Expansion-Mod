@@ -1,5 +1,8 @@
 {
-  //"type": "Drill",
+
+  //这个建筑的类是Java写的，其可根据冷却剂冷却能力不同程度地提高效率的功能、生成闪电子弹的功能都是Java写的
+  //除此之外只是普通钻头类的特性，不值得作为Json模组的参考，应参考其他不是Java类的钻头
+
   "category": "production",
   "requirements": [ "surge-alloy/50","silicon/120","silicide/80","silver/100" ],
   "research": {

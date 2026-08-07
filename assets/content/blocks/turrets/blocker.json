@@ -2,7 +2,7 @@
   "requirements": [ "phase-fabric/120","silicon/400","silver/200" ],
   "category": "turret",
   "hasPower": true,
-  "size": 4,
+  "size": 3,
   "range": 320,
   "warmupMaintainTime": 600,
   "shieldMax": 4000,

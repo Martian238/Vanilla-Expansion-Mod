@@ -60,6 +60,7 @@ newSector("community-leimingliegu", Planets.tantros, 0);
 newSector("community-xingyunpendi", Planets.tantros, 0);
 newSector("community-xingyunxueshan", Planets.tantros, 0);
 newSector("community-yunshikeng", Planets.tantros, 0);
+newSector("community-chenshaheigu", Planets.tantros, 0);
 
 log("mar0");
 newSector("negotiation", Planets.tantros, 0);
