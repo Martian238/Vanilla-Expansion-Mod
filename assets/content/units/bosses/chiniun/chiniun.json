@@ -7,7 +7,7 @@
   "flying": true,
   "hitSize": 20,
   "lowAltitude": true,
-  "drawShield": false,
+  "drawShields": false, // momiji
   "armor": 5,
   "engineOffset": 12,
   "immunities": [ "frozen" ],
@@ -30,7 +30,7 @@
       "type": "RegionPart",
       "suffix": "-crown",
       "under": false,
-      "top": true,
+      // "top": true, // momiji
       "layerOffset": 0.01
     },
     {

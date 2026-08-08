@@ -274,7 +274,7 @@
           "suffix": "-blade-tube",
           "progress": "recoil",
           "moveY": -3,
-          "under": true
+          "under": true,
           "mirror": true
         }
       ]

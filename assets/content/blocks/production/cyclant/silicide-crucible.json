@@ -4,10 +4,10 @@
     "lead/110","metaglass/65","graphite/85","silicon/50"
   ],
   "buildCostMultiplier": 0.5,
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "isomorphic-smelter",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "intervalley"
@@ -28,7 +28,7 @@
   "craftEffect": {
     "type": "MultiEffect",
     "effects": [
-      {  
+      {
         "type": "SeqEffect",
         "effects": [ "smeltsmoke" ]
       },
@@ -48,7 +48,7 @@
     "type": "DrawMulti",
     "drawers": [
       { "type": "DrawDefault" },
-      { 
+      {
         "type": "DrawFlame",
         "flameColor": "ffef99",
         "flameRadius": 4,

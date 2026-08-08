@@ -8,7 +8,7 @@
     "items": [ "mect-complex/1" ],
     "liquids": [ "water/0.5" ]
   },
-  "outputLiquid": "melon-water/0.5"
+  "outputLiquid": "melon-water/0.5",
   "itemDuration": 600,
   "health": 30000,
   "armor": 16,
@@ -288,7 +288,7 @@
           "interp": "pow2Out",
           "sizeInterp": "circleOut",
           "sizeTo": 12,
-          "particles": 3//sparksmokes
+          "particles": 3,//sparksmokes
                   }
                 ]
               },
@@ -454,7 +454,7 @@
           "interp": "pow2Out",
           "sizeInterp": "circleOut",
           "sizeTo": 12,
-          "particles": 3//sparksmokes
+          "particles": 3,//sparksmokes
                   }
                 ]
               },
@@ -620,7 +620,7 @@
           "interp": "pow2Out",
           "sizeInterp": "circleOut",
           "sizeTo": 12,
-          "particles": 3//sparksmokes
+          "particles": 3,//sparksmokes
                   }
                 ]
               },
@@ -786,7 +786,7 @@
           "interp": "pow2Out",
           "sizeInterp": "circleOut",
           "sizeTo": 12,
-          "particles": 3//sparksmokes
+          "particles": 3,//sparksmokes
                   }
                 ]
               },
@@ -805,7 +805,7 @@
             "type": "RegionPart", "outline": false,
 "mirror": false,
 "under": false,
-            "name": "ve-mect-reactor-claw-l"
+            "name": "ve-mect-reactor-claw-l",
             "y": 0,
             "clampProgress": false,
             "moves": [
@@ -1001,7 +1001,7 @@
             "type": "RegionPart", "outline": false,
 "mirror": false,
 "under": false,
-            "name": "ve-mect-reactor-claw-r"
+            "name": "ve-mect-reactor-claw-r",
             "y": 0,
             "clampProgress": false,
             "moves": [
@@ -1197,7 +1197,7 @@
             "type": "RegionPart", "outline": false,
 "mirror": false,
 "under": false,
-            "name": "ve-mect-reactor-center"
+            "name": "ve-mect-reactor-center",
             "y": 0,
             "clampProgress": false,
             "moves": [

@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -290,7 +289,7 @@
         ],
         "shots": 75,
         "shotDelay": 1,
-        "firstShotDelay": 1,
+        "firstShotDelay": 1
       },
       "bullet": {
         "type": "MultiBulletType",
@@ -375,7 +374,7 @@
           2,0,0,
           -1,0,0,
           1,0,0,
-          0,0,0,
+          0,0,0
         ],
         "shots": 24,
         "shotDelay": 3,

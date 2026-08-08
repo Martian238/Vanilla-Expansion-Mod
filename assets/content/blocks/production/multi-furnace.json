@@ -4,7 +4,7 @@
     "aluminium/150","graphite/100","lead/80","ferrum/40"
   ],
   "researchCost": [ "aluminium/75","graphite/50","lead/40","ferrum/20" ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "blast-furnace"
   },
@@ -27,7 +27,7 @@
     "effect": {
       "type": "MultiEffect",
       "effects": [ "heatReactorSmoke",
-        "smeltsmoke" ],
+        "smeltsmoke" ]
     },
     "rotationOffset": 45,
     "rotationSpacing": 90,

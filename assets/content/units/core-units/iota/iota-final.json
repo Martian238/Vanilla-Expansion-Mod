@@ -81,7 +81,6 @@
         "backColor": "ffd37f",
         "frontColor": "ffffff",
         "shootEffect": "colorSpark",
-        "smokeEffect": "none",
         "speed": 13,
         "damage": 30,
         "height": 10,
@@ -98,7 +97,7 @@
         "buildingDamageMultiplier": 0.01,
         "despawnHit": true,
         "homingPower": 0.04,
-        "homingRadius": 128,
+        "homingRange": 128, // momiji
         "homingDelay": 2,
         "despawnEffect": "none",
         "lightColor": "ffd37f",

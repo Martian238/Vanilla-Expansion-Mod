@@ -6,92 +6,76 @@
   "buildVisibility": "editorOnly",
   "recipe": [
     {
-      "inputLiquids": [ "water/1" ]
-      
-      "outputLiquids": [ "water/1" ]
-      
+      "inputLiquids": [ "water/1" ],
+      "outputLiquids": [ "water/1" ],
       "craftTime": 60,
-"visual": {
-  "type": "DrawRegion",
-  "name": "ve-fluid-sorter-water"
-}
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-fluid-sorter-water"
+      }
     },
     {
-      "inputLiquids": [ "oil/1" ]
-      
-      "outputLiquids": [ "oil/1" ]
-      
+      "inputLiquids": [ "oil/1" ],
+      "outputLiquids": [ "oil/1" ],
       "craftTime": 60,
-"visual": {
-  "type": "DrawRegion",
-  "name": "ve-fluid-sorter-oil"
-}
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-fluid-sorter-oil"
+      }
     },
     {
-      "inputLiquids": [ "slag/1" ]
-      
-      "outputLiquids": [ "slag/1" ]
-      
+      "inputLiquids": [ "slag/1" ],
+      "outputLiquids": [ "slag/1" ],
       "craftTime": 60,
-"visual": {
-  "type": "DrawRegion",
-  "name": "ve-fluid-sorter-slag"
-}
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-fluid-sorter-slag"
+      }
     },
     {
-      "inputLiquids": [ "cryofluid/1" ]
-      
-      "outputLiquids": [ "cryofluid/1" ]
-      
+      "inputLiquids": [ "cryofluid/1" ],
+      "outputLiquids": [ "cryofluid/1" ],
       "craftTime": 60,
-"visual": {
-  "type": "DrawRegion",
-  "name": "ve-fluid-sorter-cryofluid"
-}
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-fluid-sorter-cryofluid"
+      }
     },
     {
-      "inputLiquids": [ "ve-lava/1" ]
-      
-      "outputLiquids": [ "ve-lava/1" ]
-      
+      "inputLiquids": [ "ve-lava/1" ],
+      "outputLiquids": [ "ve-lava/1" ],
       "craftTime": 60,
-"visual": {
-  "type": "DrawRegion",
-  "name": "ve-fluid-sorter-lava"
-}
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-fluid-sorter-lava"
+      }
     },
     {
-      "inputLiquids": [ "hydrogen/1" ]
-      
-      "outputLiquids": [ "hydrogen/1" ]
-      
+      "inputLiquids": [ "hydrogen/1" ],
+      "outputLiquids": [ "hydrogen/1" ],
       "craftTime": 60,
-"visual": {
-  "type": "DrawRegion",
-  "name": "ve-fluid-sorter-hydrogen"
-}
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-fluid-sorter-hydrogen"
+      }
     },
     {
-      "inputLiquids": [ "ve-chlorine/1" ]
-      
-      "outputLiquids": [ "ve-chlorine/1" ]
-      
+      "inputLiquids": [ "ve-chlorine/1" ],
+      "outputLiquids": [ "ve-chlorine/1" ],
       "craftTime": 60,
-"visual": {
-  "type": "DrawRegion",
-  "name": "ve-fluid-sorter-chlorine"
-}
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-fluid-sorter-chlorine"
+      }
     },
     {
-      "inputLiquids": [ "ve-dysharmony-fluid/1" ]
-      
-      "outputLiquids": [ "ve-dysharmony-fluid/1" ]
-      
+      "inputLiquids": [ "ve-dysharmony-fluid/1" ],
+      "outputLiquids": [ "ve-dysharmony-fluid/1" ],
       "craftTime": 60,
-"visual": {
-  "type": "DrawRegion",
-  "name": "ve-fluid-sorter-dysharmony-fluid"
-}
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-fluid-sorter-dysharmony-fluid"
+      }
     }
   ],
   "enableDrawStatus": false,

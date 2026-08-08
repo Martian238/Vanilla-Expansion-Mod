@@ -21,7 +21,7 @@
       "hitEffect": "flakExplosion",
       "despawnEffect": "flakExplosion",
       "impact": true,
-      "knockback": 2.4,
+      "knockback": 2.4
     },
     "scrap": {
       "width": 8,
@@ -359,7 +359,7 @@
   },
   "research": {
     "parent": "shock",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "intervalley"

@@ -26,7 +26,7 @@
   "envDisabled": 0,
   "lightColor": "98ffa9",
   "drawCell": true,
-  "databaseTag": "10special-unit"
+  "databaseTag": "10special-unit",
   "weapons": [
     {
       "reload": 1,

@@ -76,7 +76,7 @@
     ]
   },*/
   "research": {
-    "parent": "forcerator",
+    "parent": "forcerator"
   },
   "researchCostMultiplier": 0.3,
   "shownPlanets": [ "cyclant","maress","phoon" ]

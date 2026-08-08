@@ -134,7 +134,7 @@
   "weapons": [
     {
       "type": "PointDefenseWeapon",
-      "name": "point-defense-mount-new"
+      "name": "point-defense-mount-new",
       "x": 18,
       "y": -33.5,
       "reload": 4,
@@ -152,7 +152,7 @@
     },
     {
       "type": "PointDefenseWeapon",
-      "name": "point-defense-mount-new"
+      "name": "point-defense-mount-new",
       "x": 18,
       "y": -44.25,
       "reload": 4,
@@ -373,7 +373,7 @@
         "intervalBullet": {
           "damage": 70,
           "status": "electrified",
-          "statusDuration": 480
+          "statusDuration": 480,
           "pierce": true,
           "pierceCap": 1024
         },
@@ -462,7 +462,7 @@
             "ops": [
               {
                 "op": "add",
-                "amount": 0,
+                "amount": 0
               },
               {
                 "op": "mul",
@@ -513,7 +513,7 @@
             "ops": [
               {
                 "op": "add",
-                "amount": -0.1333,
+                "amount": -0.1333
               },
               {
                 "op": "mul",
@@ -564,7 +564,7 @@
             "ops": [
               {
                 "op": "add",
-                "amount": -0.2667,
+                "amount": -0.2667
               },
               {
                 "op": "mul",
@@ -615,7 +615,7 @@
             "ops": [
               {
                 "op": "add",
-                "amount": -0.6,
+                "amount": -0.6
               },
               {
                 "op": "mul",
@@ -633,7 +633,7 @@
           }
         },
         {
-          "type": "HaloPart"
+          "type": "HaloPart",
           "progress": {
             "type": "charge",//spikes1
             "ops": [
@@ -688,7 +688,7 @@
           "layer": 100
         },
         {
-          "type": "HaloPart"
+          "type": "HaloPart",
           "progress": {
             "type": "charge",//spikes2
             "ops": [
@@ -718,7 +718,7 @@
                   ]
                 }
               },
-              
+
               {
                 "op": "add",
                 "other": {
@@ -727,7 +727,7 @@
                     { "op": "inv" },
                     {
                       "op": "add",
-                      "amount": -0.5128,
+                      "amount": -0.5128
                     },
                     {
                       "op": "mul",
@@ -809,7 +809,7 @@
               { "op": "inv" },
               {
                 "op": "add",
-                "amount": -0.3846,
+                "amount": -0.3846
               },
               {
                 "op": "mul",
@@ -858,7 +858,7 @@
               { "op": "inv" },
               {
                 "op": "add",
-                "amount": -0.4615,
+                "amount": -0.4615
               },
               {
                 "op": "mul",
@@ -907,7 +907,7 @@
               { "op": "inv" },
               {
                 "op": "add",
-                "amount": -0.7692,
+                "amount": -0.7692
               },
               {
                 "op": "mul",
@@ -994,7 +994,7 @@
               { "op": "inv" },
               {
                 "op": "add",
-                "amount": -0.3846,
+                "amount": -0.3846
               },
               {
                 "op": "mul",
@@ -1043,7 +1043,7 @@
               { "op": "inv" },
               {
                 "op": "add",
-                "amount": -0.4615,
+                "amount": -0.4615
               },
               {
                 "op": "mul",
@@ -1092,7 +1092,7 @@
               { "op": "inv" },
               {
                 "op": "add",
-                "amount": -0.7692,
+                "amount": -0.7692
               },
               {
                 "op": "mul",
@@ -1175,7 +1175,7 @@
             "ops": [
               {
                 "op": "add",
-                "amount": 0,
+                "amount": 0
               },
               {
                 "op": "mul",
@@ -1227,7 +1227,7 @@
               { "op": "inv" },
               {
                 "op": "add",
-                "amount": -0.5641,
+                "amount": -0.5641
               },
               {
                 "op": "mul",
@@ -1270,7 +1270,7 @@
         }
       ]
     }
-    
+
     //0-60,75,90,150,165
     /*{
       "x": 0, //charge effect
@@ -1386,7 +1386,7 @@
               "collides": false,
               "despawnSound": "drExplosionMmxTitan"
             },
-            { 
+            {
               "spawnUnit": "meta-orb"
             }
           ],
@@ -1414,8 +1414,8 @@
           "collides": false,
           "damage": 0,
           "fragBullets": 8,
-          "fragBullet": { 
-            "spawnUnit": "meta-orb-small" 
+          "fragBullet": {
+            "spawnUnit": "meta-orb-small"
           },
           "fragRandomSpread": 0,
           "fragSpread": 45,
@@ -1435,8 +1435,8 @@
               "collides": false,
               "despawnSound": "drExplosionMmxTitan"
             },
-            { 
-              "spawnUnit": "meta-orb" 
+            {
+              "spawnUnit": "meta-orb"
             }
           ],
           "instantDisappear": true,
@@ -1463,8 +1463,8 @@
           "collides": false,
           "damage": 0,
           "fragBullets": 8,
-          "fragBullet": { 
-            "spawnUnit": "meta-orb-small" 
+          "fragBullet": {
+            "spawnUnit": "meta-orb-small"
           },
           "fragRandomSpread": 0,
           "fragSpread": 45,
@@ -1677,7 +1677,7 @@
               "collides": false,
               "despawnSound": "drExplosionMmxTitan"
             },
-            { 
+            {
               "spawnUnit": "meta-orb"
             }
           ],
@@ -1705,8 +1705,8 @@
           "collides": false,
           "damage": 0,
           "fragBullets": 8,
-          "fragBullet": { 
-            "spawnUnit": "meta-orb-small" 
+          "fragBullet": {
+            "spawnUnit": "meta-orb-small"
           },
           "fragRandomSpread": 0,
           "fragSpread": 45,
@@ -1726,8 +1726,8 @@
               "collides": false,
               "despawnSound": "drExplosionMmxTitan"
             },
-            { 
-              "spawnUnit": "meta-orb" 
+            {
+              "spawnUnit": "meta-orb"
             }
           ],
           "instantDisappear": true,
@@ -1754,8 +1754,8 @@
           "collides": false,
           "damage": 0,
           "fragBullets": 8,
-          "fragBullet": { 
-            "spawnUnit": "meta-orb-small" 
+          "fragBullet": {
+            "spawnUnit": "meta-orb-small"
           },
           "fragRandomSpread": 0,
           "fragSpread": 45,

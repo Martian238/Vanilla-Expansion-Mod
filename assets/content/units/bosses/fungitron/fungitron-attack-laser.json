@@ -25,7 +25,7 @@
   "loopSoundVolume": 0.2,
   "hidden": true,
   "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
-  "clipSize": 1000
+  "clipSize": 1000,
   "parts": [
     {
       "type": "HaloPart",

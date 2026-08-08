@@ -12,7 +12,7 @@
   "ambientSound": "none",
   "research": {
     "parent": "melon-repair-bay",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "boss-chiniun"
@@ -214,7 +214,7 @@
             },
             "moves": [
               {
-                "gx": -1
+                "gx": -1,
                 "gy": -1,
                 "progress": {
                   "type": "warmup",

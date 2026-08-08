@@ -221,7 +221,6 @@
       "velocityRnd": 0.3,
       "bullet": {
         "shootEffect": "shootBigColor",
-        "hitColor": "90dbff",
         "smokeEffect": "shootBigSmoke",
         "lightColor": "90dbff",
         "speed": 7,
@@ -322,7 +321,6 @@
       "velocityRnd": 0.3,
       "bullet": {
         "shootEffect": "shootBigColor",
-        "hitColor": "90dbff",
         "smokeEffect": "shootBigSmoke",
         "speed": 7,
         "lifetime": 35,

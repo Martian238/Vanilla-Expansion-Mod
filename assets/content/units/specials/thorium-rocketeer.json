@@ -18,7 +18,7 @@
   "envDisabled": 0,
   "research": {
     "parent": "thorium-bomber",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "blast-test"
@@ -150,7 +150,7 @@
         "speed": 0,
         "lifetime": 1,
         "instantDisappear": true,
-        "shootEffect": "none"
+        "shootEffect": "none",
         "smokeEffect": "none",
         "despawnEffect": "none",
         "hitEffect": "none"
@@ -166,7 +166,7 @@
           "progress": "recoil",
           "color": "ffffff00",
           "colorTo": "ffffffff",
-          "mixColor": "f2555500"
+          "mixColor": "f2555500",
           "mixColorTo": "ffffffff",
           "mirror": true
         },
@@ -206,7 +206,7 @@
         "speed": 0,
         "lifetime": 1,
         "instantDisappear": true,
-        "shootEffect": "none"
+        "shootEffect": "none",
         "smokeEffect": "none",
         "despawnEffect": "none",
         "hitEffect": "none"
@@ -222,7 +222,7 @@
           "progress": "recoil",
           "color": "ffffff00",
           "colorTo": "ffffffff",
-          "mixColor": "f2555500"
+          "mixColor": "f2555500",
           "mixColorTo": "ffffffff",
           "mirror": true
         },
@@ -262,7 +262,7 @@
         "speed": 0,
         "lifetime": 1,
         "instantDisappear": true,
-        "shootEffect": "none"
+        "shootEffect": "none",
         "smokeEffect": "none",
         "despawnEffect": "none",
         "hitEffect": "none"
@@ -278,7 +278,7 @@
           "progress": "recoil",
           "color": "ffffff00",
           "colorTo": "ffffffff",
-          "mixColor": "f2555500"
+          "mixColor": "f2555500",
           "mixColorTo": "ffffffff",
           "mirror": true
         },
@@ -318,7 +318,7 @@
         "speed": 0,
         "lifetime": 1,
         "instantDisappear": true,
-        "shootEffect": "none"
+        "shootEffect": "none",
         "smokeEffect": "none",
         "despawnEffect": "none",
         "hitEffect": "none"
@@ -334,7 +334,7 @@
           "progress": "recoil",
           "color": "ffffff00",
           "colorTo": "ffffffff",
-          "mixColor": "f2555500"
+          "mixColor": "f2555500",
           "mixColorTo": "ffffffff",
           "mirror": true
         },

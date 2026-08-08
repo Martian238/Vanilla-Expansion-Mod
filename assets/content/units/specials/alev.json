@@ -38,7 +38,7 @@
   "shownPlanets": [ "cyclant","phoon","thavina" ],
   "weapons": [
     {
-      "name": "alev-weapon"
+      "name": "alev-weapon",
       "mirror": false,
       "top": false,
       "shake": 4,

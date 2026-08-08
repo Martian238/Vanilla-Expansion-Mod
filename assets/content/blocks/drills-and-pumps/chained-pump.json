@@ -10,7 +10,7 @@
   "consumes": {
     "liquidFlammable": {
       "minFlammability": 0,
-      "amount": 0
+      "amount": 0,
       "optional": true,
       "booster": false
     }

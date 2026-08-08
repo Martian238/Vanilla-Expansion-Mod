@@ -264,7 +264,7 @@
         "hittable": false,
         "absorbable": false,
         "hitSize": 8,
-        "collidesTiles": false,
+        "collidesTiles": false
         },
         "despawnEffect": "none",
         "hitEffect": "none",

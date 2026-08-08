@@ -3,10 +3,10 @@
   "requirements": [
     "lead/100","silicon/80","thorium/50"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "catalyzon-crafter",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "thorium-hacienda"

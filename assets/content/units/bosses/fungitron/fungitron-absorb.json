@@ -43,7 +43,7 @@
           "colorFrom": "7c4b8000",
           "colorTo": "7457ce",
           "length": -80,
-          "randLength": false
+          "randLength": false,
           "lifetime": 60,
           "sizeFrom": 0,
           "sizeTo": 8,

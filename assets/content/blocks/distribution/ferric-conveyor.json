@@ -1,13 +1,13 @@
 {
   //"type": "Conveyor",
-  "requirements": [ "ferrum/1" ]
+  "requirements": [ "ferrum/1" ],
   "health": 120,
   "armor": 6,
   "category": "distribution",
   "speed": 0.12,
   "researchCost": [ "ferrum/10" ],
   "research": {
-    "parent": "core-nucleus-root-sitrullus",
+    "parent": "core-nucleus-root-sitrullus"
   },
   "hasShadow": true,
   "junctionReplacement": "valve-cross",

@@ -41,7 +41,7 @@
   "loopSound": "loopThoriumReactor",
   "loopSoundVolume": 1,
   "faceTarget": true,
-  "envDisabled": 0,
+
   "stepSound": [ "roMechScuff1","roMechScuff2","roMechScuff3" ],
   "stepSoundPitch": 0.6,
   "stepSoundPitchRange": 0,
@@ -164,7 +164,7 @@
           "progress": "warmup",
           "color": "ffffff00",
           "colorTo": "ffffffff",
-          "mixColor": "f2555500"
+          "mixColor": "f2555500",
           "mixColorTo": "ffffffff",
           "mirror": false
         },
@@ -250,7 +250,7 @@
           "waveRad": 16,
           "sparkRad": 16,
           "smokes": 4,
-          "lifetime": 20,
+          "lifetime": 20
           },
           "sound": "explosion",
           "minVolume": 0.7,
@@ -293,7 +293,7 @@
           "waveRad": 32,
           "sparkRad": 32,
           "smokes": 6,
-          "lifetime": 30,
+          "lifetime": 30
           },
           "sound": "bang",
           "minPitch": 1,
@@ -373,7 +373,7 @@
           "waveRad": 16,
           "sparkRad": 16,
           "smokes": 4,
-          "lifetime": 20,
+          "lifetime": 20
           },
           "sound": "explosion",
           "minVolume": 0.7,
@@ -416,7 +416,7 @@
           "waveRad": 32,
           "sparkRad": 32,
           "smokes": 6,
-          "lifetime": 30,
+          "lifetime": 30
           },
           "sound": "bang",
           "minPitch": 1,
@@ -440,7 +440,6 @@
       "reload": 60,
       "x": 0,
       "y": 0,
-      "mirror": false,
       "shootSound": "none",
       "ejectEffect": "none",
       "noAttack": true,
@@ -453,7 +452,7 @@
         "speed": 0,
         "lifetime": 1,
         "instantDisappear": true,
-        "shootEffect": "none"
+        "shootEffect": "none",
         "smokeEffect": "none",
         "despawnEffect": "none",
         "hitEffect": "none"
@@ -469,7 +468,7 @@
           "progress": "recoil",
           "color": "ffffff00",
           "colorTo": "ffffffff",
-          "mixColor": "f2555500"
+          "mixColor": "f2555500",
           "mixColorTo": "ffffffff",
           "mirror": false
         },
@@ -497,7 +496,6 @@
       "reload": 60,
       "x": 0,
       "y": 0,
-      "mirror": false,
       "shootSound": "none",
       "ejectEffect": "none",
       "noAttack": true,
@@ -510,7 +508,7 @@
         "speed": 0,
         "lifetime": 1,
         "instantDisappear": true,
-        "shootEffect": "none"
+        "shootEffect": "none",
         "smokeEffect": "none",
         "despawnEffect": "none",
         "hitEffect": "none"
@@ -526,7 +524,7 @@
           "progress": "recoil",
           "color": "ffffff00",
           "colorTo": "ffffffff",
-          "mixColor": "f2555500"
+          "mixColor": "f2555500",
           "mixColorTo": "ffffffff",
           "mirror": false
         },
@@ -546,7 +544,7 @@
         }
       ]
     },
-    
+
 
     {
       "name": "thorium-eradicator-explosion",
@@ -585,7 +583,7 @@
         "speed": 0,
         "lifetime": 1,
         "frontColor": "00000000",
-        "backColor": "00000000,"
+        "backColor": "00000000",
         "splashDamageRadius": 120,
         "splashDamage": 10000,
         "splashDamagePierce": true,
@@ -650,7 +648,7 @@
           "fragBullets": 1,
           "fragVelocityMin": 1,
           "fragBullet": {
-            "frontColor": "00000000"
+            "frontColor": "00000000",
             "backColor": "00000000",
             "hittable": false,
             "absorbable": true,

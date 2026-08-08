@@ -3,7 +3,7 @@
   "requirements": [
     "ferrum/220","lead/100","catalyzon/40","silicon/90","graphite/100"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "catalyzon-workshop",
     "objectives": [
@@ -35,12 +35,12 @@
     "type": "DrawMulti",
     "drawers": [
       { "type": "DrawDefault" },
-      { 
+      {
         "type": "DrawFade",
         "suffix": "-top"
       },
       { "type": "DrawHeatInput" },
-      { 
+      {
         "type": "DrawGlowRegion",
         "suffix": "-glow"
       }

@@ -25,7 +25,6 @@
   "engineSize": 0,
   "drawBody": false,
   "shadowElevation": 999,
-  "hidden": true,
   "loopSound": "none",
   "type": "missile",
   "lifetime": 2,

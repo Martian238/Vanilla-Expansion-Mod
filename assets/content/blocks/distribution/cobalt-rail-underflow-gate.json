@@ -8,5 +8,5 @@
     "parent": "cobalt-rail"
   },
   "squareSprite": false,
-  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
 }

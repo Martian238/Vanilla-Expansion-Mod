@@ -3,7 +3,7 @@
   "category": "crafting",
   "consumes": {
     "liquids": {
-      "liquids": [ "melon-water/0.0333333333333" ]
+      "liquids": [ "melon-water/0.0333333333333" ],
       "optional": false,
       "booster": false
     },

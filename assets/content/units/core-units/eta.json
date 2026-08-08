@@ -36,7 +36,7 @@
   "stepSoundPitch": 1,
   "stepSoundPitchRange": 0.1,
   "stepSoundVolume": 0.15,
-  "shownPlanets": [ "maress","thavina" ]
+  "shownPlanets": [ "maress","thavina" ],
   "abilities": [
     {
       "type": "RepairFieldAbility",
@@ -109,7 +109,7 @@
         "type": "ShootSpread",
         "shots": 2,
         "shotDelay": 4,
-        "spread": 6,
+        "spread": 6
       },
       "bullet": {
         "sprite": "missile",

@@ -15,7 +15,7 @@
   "lightColor": "8ca9e8",
   "research": {
     "parent": "hover",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "surface-cracks"
@@ -288,7 +288,7 @@
         "pierceCap": 0,
         "pierceBuilding": false,
         "pierceEffect": "none",
-        "pointEffect": { 
+        "pointEffect": {
           "type": "ParticleEffect",
           "length": 0.5,
           "lifetime": 3,
@@ -353,7 +353,7 @@
         "lifetime": 17.8125,
         "rangeOverride": 285,
         "fragBullets": 1,
-        "fragRandomSpread": 0
+        "fragRandomSpread": 0,
         "fragOffsetMax": 0,
         "fragOffsetMin": 0,
         "collides": false,

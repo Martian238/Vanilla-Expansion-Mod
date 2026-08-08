@@ -1,6 +1,6 @@
 {
   //"type": "ArmoredConveyor",
-  "requirements": [ "aluminium/1","ferrum/1" ]
+  "requirements": [ "aluminium/1","ferrum/1" ],
   "health": 120,
   "armor": 6,
   "category": "distribution",

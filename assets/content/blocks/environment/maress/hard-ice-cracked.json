@@ -8,6 +8,6 @@
   "wall": "ice-wall",
   //"decoration": "snow-boulder",
   "dragMultiplier": 0.2,
-  "speedMultiplier": 0.7
+  "speedMultiplier": 0.7,
   "albedo": 0.5
 }

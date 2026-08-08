@@ -23,7 +23,7 @@
   "loopSoundVolume": 0.1,
   "research": {
     "parent": "core-singularity-root",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "lower-pass"
@@ -66,7 +66,7 @@
         "status": "blasted",
         "statusDuration": 60
       }
-    },
+    }
   ],
   "parts": [
     {

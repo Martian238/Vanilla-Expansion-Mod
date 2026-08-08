@@ -89,7 +89,7 @@
           "progress": "recoil",
           "moveY": -4,
           "children": [
-        
+
         {
           "type": "RegionPart",
           "suffix": "-node",
@@ -278,7 +278,7 @@
                   "type": "RegionPart",
                   "suffix": "-claw-part",
                   "x": 0,
-                  "y": 0
+                  "y": 0,
                   "layerOffset": -0.001,
                   "under": false,
                   "progress": "warmup",

@@ -118,7 +118,7 @@
         "under": true,
         "colorTo": "ffffff00",
         "color": "ffffff"
-      }
+      },
       {
         "type": "RegionPart",
         "suffix": "-bar",
@@ -157,7 +157,7 @@
   },
   "research": {
     "parent": "ash",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "fort-port"

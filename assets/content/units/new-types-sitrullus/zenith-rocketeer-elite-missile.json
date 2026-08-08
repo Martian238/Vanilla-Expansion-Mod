@@ -26,7 +26,7 @@
   "lightColor": "f25555",
   "deathSound": "none",
   "drawCell": false,
-  "immunities": [ "blown","burning","disarmed","combusting","melting","fusing","sapped","electrified" ]
+  "immunities": [ "blown","burning","disarmed","combusting","melting","fusing","sapped","electrified" ],
   "weapons": [
     {
       "reload": 1,

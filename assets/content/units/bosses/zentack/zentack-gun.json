@@ -23,7 +23,7 @@
   "hidden": true,
   "weapons": [
     {
-      "name": "zentack-gun-weapon"
+      "name": "zentack-gun-weapon",
       "x": 0,
       "y": 0,
       "rotate": true,
@@ -34,7 +34,7 @@
       "shootSound": [ "lbp3LaserFire1","lbp3LaserFire2","lbp3LaserFire3","lbp3LaserFire4" ],
       "cooldownTime": 10,
       "mirror": false,
-      "bullet": { 
+      "bullet": {
         "sprite": "circle-bullet",
         "height": 6,
         "width": 6,

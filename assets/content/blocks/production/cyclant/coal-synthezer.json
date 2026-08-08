@@ -4,7 +4,7 @@
   "category": "crafting",
   "craftEffect": "coalSmeltsmoke",
   "size": 2,
-  "outputItems": [ "coal/2","sand/7" ]
+  "outputItems": [ "coal/2","sand/7" ],
   "craftTime": 120,
   "itemCapacity": 30,
   "hasPower": true,
@@ -35,7 +35,7 @@
         "suffix": "-heat"
       }
     ]
-  }
+  },
   "ambientSound": "loopSmelter",
   "ambientSoundVolume": 0.08,
   "consumes": {

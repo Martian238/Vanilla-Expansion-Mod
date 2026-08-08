@@ -27,7 +27,7 @@
         "flameRadiusInMag": 0.6
       }
     ]
-  }
+  },
   "ambientSound": "loopSmelter",
   "ambientSoundVolume": 0.03,
   "consumes": {

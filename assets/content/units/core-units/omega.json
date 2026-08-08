@@ -191,12 +191,11 @@
         "lightColor": "ffd37f",
         "shootEffect": {
           "type": "MultiEffect",
-          "effects": [ 
+          "effects": [
             "hitLaserBlast",
             "colorSpark"
           ]
-        },
-        "hitColor": "ffd37f"
+        }
       }
     }
   ]

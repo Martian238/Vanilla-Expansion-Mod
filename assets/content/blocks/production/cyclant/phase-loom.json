@@ -3,7 +3,7 @@
   "requirements": [
     "silicon/200","lead/185","thorium/100","fibralt/80"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "fibralt-extender",
     "objectives": [
@@ -32,9 +32,9 @@
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
-      { 
+      {
         "type": "DrawRegion",
-        "suffix": "-bottom" 
+        "suffix": "-bottom"
       },
       {
         "type": "DrawPistons",
@@ -42,12 +42,12 @@
         "sinScl": 5,
         "sides": 4,
         "angleOffset": 45,
-        "sideOffset": 1.57,
+        "sideOffset": 1.57
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": "-weave",
-        "rotateSpeed": 1.0,
+        "rotateSpeed": 1.0
       },
       {
         "type": "DrawGlowRegion",
@@ -89,5 +89,5 @@
     ]
   },
   "outputItem": "phase-fabric/9",
-  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ]
 }

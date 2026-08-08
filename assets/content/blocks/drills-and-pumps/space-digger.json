@@ -4,7 +4,7 @@
   "requirements": [ "silicon/300","lead/150","graphite/120","cobalt/90","warp-nucleus/40" ],
   "research": {
     "parent": "hydraulic-drill",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "warp-tech-base"
@@ -15,7 +15,7 @@
   "drillTime": 60,
   "hardnessDrillMultiplier": 0,
   "itemCapacity": 100,
-  "heatColor": "b791eb"
+  "heatColor": "b791eb",
   "size": 5,
   "tier": 7,
   "consumes": {
@@ -45,5 +45,5 @@
   "ambientSound": "lbp3PlasmaProjectile",
   "drillEffect": "mineHuge",
   "drawRim": true,
-  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
 }

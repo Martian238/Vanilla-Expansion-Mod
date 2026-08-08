@@ -114,11 +114,11 @@
         "reflectable": false,
         "shootEffect": "shootBigColor",
         "hitColor": "90dbff",
-        "smokeEffect": "shootBigSmoke"
+        "smokeEffect": "shootBigSmoke",
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "smeltsmoke",
-        "hitSound": "none"
+        "hitSound": "none",
         "hitEffect": "smeltsmoke",
         "trailChance": 0.1,
         "trailColor": "90dbff",

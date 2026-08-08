@@ -76,7 +76,19 @@
         "followParent": true,
         "sides": 24
       },
-      {"type":"ParticleEffect","colorFrom":"00ffce","colorTo":"88ffde","lifetime":10,"baseLength":30,"layer":109.5,"length":-30,"interp":"circleIn","sizeFrom":2,"sizeTo":8,"particles":6},
+      {
+        "type":"ParticleEffect",
+        "colorFrom":"00ffce",
+        "colorTo":"88ffde",
+        "lifetime":10,
+        "baseLength":30,
+        "layer":109.5,
+        "length":-30,
+        "interp":"circleIn",
+        "sizeFrom":2,
+        "sizeTo":8,
+        "particles":6
+      }
         ]
       },
       "x": 0,
@@ -486,7 +498,7 @@
           "layer": 120,
           "lightColor": "000000",
           "clip": 3200
-        },  
+        },
         "smokeEffect": "none",
         "hitSize": 50*/
     }

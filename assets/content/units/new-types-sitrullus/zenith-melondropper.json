@@ -14,7 +14,7 @@
   "isEnemy": false,
   "hidden": true,
   "shownPlanets": [ "sitrullus" ],
-  
+
   "deathExplosionEffect": "none",
   "deathSound": "none",
   "weapons": [
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "name": "zenith-watermelo"
+      "name": "zenith-watermelo",
       "x": 14,
       "y": 2,
       "shootSound": "pewClassicEdited",

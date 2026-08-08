@@ -10,8 +10,8 @@
   "thrusterLength": 10,
   "category": "effect",
   "research": {
-    "parent": "isomorphic-core-foundation"
-    "objectives": [ 
+    "parent": "isomorphic-core-foundation",
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "fort-port"

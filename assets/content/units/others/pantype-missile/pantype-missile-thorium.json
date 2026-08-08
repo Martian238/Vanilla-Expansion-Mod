@@ -57,7 +57,7 @@
           "hollow": false,
           "radius": 0,
           "color": "bf92f988",
-          "colorTo": "f2555588"
+          "colorTo": "f2555588",
           "radiusTo": 80,
           "progress": "life",
           "layer": 0.01

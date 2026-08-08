@@ -995,7 +995,7 @@
     ]
   }
               },
-              { 
+              {
                 "op": "mul",
                 "amount": -0.5
               },
@@ -1461,7 +1461,7 @@
           "color": "ffffff",
           "colorTo": "dddddd",
           "moveX": 2,
-          "moveY": 0
+          "moveY": 0,
           "under": true,
           "layerOffset": -0.0005,
           "mirror": false
@@ -2382,7 +2382,7 @@
           "color": "dddddd",
           "colorTo": "ffffff",
           "moveX": 2,
-          "moveY": 0
+          "moveY": 0,
           "under": true,
           "layerOffset": -0.001,
           "mirror": false
@@ -3303,7 +3303,7 @@
           "color": "dddddd",
           "colorTo": "bbbbbb",
           "moveX": -2,
-          "moveY": 0
+          "moveY": 0,
           "under": true,
           "layerOffset": -0.0015,
           "mirror": false
@@ -4217,7 +4217,7 @@
     ]
   }
               },
-              { 
+              {
                 "op": "mul",
                 "amount": -0.5
               },
@@ -4683,7 +4683,7 @@
           "color": "bbbbbb",
           "colorTo": "dddddd",
           "moveX": -2,
-          "moveY": 0
+          "moveY": 0,
           "under": true,
           "layerOffset": -0.002,
           "mirror": false
@@ -4701,7 +4701,7 @@
       "recoil": 0,
       "recoilTime": 60,
       "linearWarmup": true,
-      "warmupSpeed": 0.015,
+      "shootWarmupSpeed": 0.015, // momiji
       "minWarmup": 0.9,
       "shootSound": "none",
       "ejectEffect": "casing1",
@@ -4714,7 +4714,7 @@
         "type": "ShootMulti",
         "firstShotDelay": 1,
         "source": {
-          "firstShotDelay": 10
+          "firstShotDelay": 10,
           "shots": 16,
           "shotDelay": 25
         },
@@ -4820,7 +4820,7 @@
       "y": -8,
       "recoil": 0,
       "linearWarmup": true,
-      "warmupSpeed": 0.015,
+      "shootWarmupSpeed": 0.015, // momiji
       "minWarmup": 0.9,
       "shootSound": "carrionGatling",
       "shootSoundVolume": 0.7,
@@ -4842,12 +4842,12 @@
         "type": "ContinuousBulletType",
         "length": 0,
         "lifetime": 520,
-        "fadeTime": 0,
+        // "fadeTime": 0, // momiji
         "damage": 0,
         "maxRange": 320,
         "collides": false,
         "incendAmount": 0,
-        "colors": [ "00000000","00000000","00000000","00000000" ],
+        // "colors": [ "00000000","00000000","00000000","00000000" ], // momiji
         "hitEffect": "none",
         "despawnEffect": "drillSteam"
       }
@@ -4861,7 +4861,7 @@
       "y": -8,
       "layerOffset": -0.001,
       "recoil": 0,
-      "warmupSpeed": 0.05,
+      "shootWarmupSpeed": 0.05, // momiji
       "shootSound": "none",
       "shootY": 0,
       "parentizeEffects": false,
@@ -4894,7 +4894,7 @@
       "layer": 109.9,
       "spinSpeed": 0,
       "stroke": 1,
-      "progress": "warmup",
+      "progress": "warmup"
     },
     {
       "type": "FlarePart",
@@ -4924,7 +4924,7 @@
         "trailEffect": "none",
         "lifetime": 25,
         "fragBullets": 1,
-        "fragRandomSpread": 0
+        "fragRandomSpread": 0,
         "fragOffsetMax": 0,
         "fragOffsetMin": 0,
         "collides": false,
@@ -5012,7 +5012,7 @@
       "y": -8,
       "layerOffset": -0.001,
       "recoil": 2,
-      "warmupSpeed": 0.05,
+      "shootWarmupSpeed": 0.05, // momiji
       "shootSound": "none",
       "shootY": 0,
       "parentizeEffects": false,
@@ -5066,7 +5066,7 @@
       "y": 0,
       "x": 0,
       "shootY": 0,
-      "shootSound": "carrionMechDeath"
+      "shootSound": "carrionMechDeath",
       "bullet": {
         "spawnUnit": "zenith",
         "shootEffect": "none",

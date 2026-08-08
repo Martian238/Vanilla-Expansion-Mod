@@ -3,7 +3,7 @@
   "databaseTag": "10special-unit",
   "drag": 0.08,
   "speed": 1.8,
-  "rottaeSpeed": 2.5,
+  "rotateSpeed": 2.5, // momiji
   "accel": 0.09,
   "health": 2300,
   "armor": 6,
@@ -851,56 +851,56 @@
               "lightningColor": "ff6060",
               "damage": 17,
               "lightningLength": 2,
-              "lightningRand": 8
+              "lightningLengthRand": 8 // momiji
             },
             {
               "type": "LightningBulletType",
               "lightningColor": "ffff60",
               "damage": 17,
               "lightningLength": 2,
-              "lightningRand": 8
+              "lightningLengthRand": 8 // momiji
             },
             {
               "type": "LightningBulletType",
               "lightningColor": "60ff60",
               "damage": 17,
               "lightningLength": 2,
-              "lightningRand": 8
+              "lightningLengthRand": 8 // momiji
             },
             {
               "type": "LightningBulletType",
               "lightningColor": "60ffff",
               "damage": 17,
               "lightningLength": 2,
-              "lightningRand": 8
+              "lightningLengthRand": 8 // momiji
             },
             {
               "type": "LightningBulletType",
               "lightningColor": "6060ff",
               "damage": 17,
               "lightningLength": 2,
-              "lightningRand": 8
+              "lightningLengthRand": 8 // momiji
             },
             {
               "type": "LightningBulletType",
               "lightningColor": "ff60ff",
               "damage": 17,
               "lightningLength": 2,
-              "lightningRand": 8
+              "lightningLengthRand": 8 // momiji
             },
             {
               "type": "LightningBulletType",
               "lightningColor": "ffffff",
               "damage": 17,
               "lightningLength": 2,
-              "lightningRand": 8
+              "lightningLengthRand": 8 // momiji
             },
             {
               "type": "LightningBulletType",
               "lightningColor": "ffffff",
               "damage": 17,
               "lightningLength": 2,
-              "lightningRand": 8
+              "lightningLengthRand": 8 // momiji
             }
           ]
         },

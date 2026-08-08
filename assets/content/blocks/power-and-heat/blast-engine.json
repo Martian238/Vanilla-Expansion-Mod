@@ -16,7 +16,7 @@
   "shownPlanets": [ "maress","thavina" ],
   "research": {
     "parent": "spot-solar-pad",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "mirror-swamp"
@@ -95,7 +95,7 @@
       "type": "SoundEffect",
       "sound": [ "lbp3PlungerSwitch1","lbp3PlungerSwitch2","lbp3PlungerSwitch3" ],
       "minPitch": 1,
-      "maxPitch": 1
+      "maxPitch": 1,
       "maxVolume": 0.2,
       "minVolume": 0.2,
       "effect": {
@@ -113,7 +113,7 @@
               "ops": [
                 {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                 },
@@ -133,7 +133,7 @@
               "ops": [
                 {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                 },
@@ -181,7 +181,7 @@
               "ops": [
                 {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                 },
@@ -224,7 +224,7 @@
                   "ops": [
                     {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                     },
@@ -255,7 +255,7 @@
                   "ops": [
                     {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                     },
@@ -337,7 +337,7 @@
                   "ops": [
                     {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                     },
@@ -368,7 +368,7 @@
                   "ops": [
                     {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                     },
@@ -450,7 +450,7 @@
                   "ops": [
                     {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                     },
@@ -481,7 +481,7 @@
                   "ops": [
                     {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                     },
@@ -563,7 +563,7 @@
                   "ops": [
                     {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                     },
@@ -594,7 +594,7 @@
                   "ops": [
                     {
                       "op": "loop",
-                      "time": 80//reload
+                      "time": 80,//reload
                     },
 {"op": "mul","other": "warmup"
                     },

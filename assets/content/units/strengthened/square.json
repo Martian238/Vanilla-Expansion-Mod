@@ -94,7 +94,7 @@
       "progress": "warmup"
     }
   ],
-  "drawMineBeam": false
+  "drawMineBeam": false,
   "weapons": [
     {
       "reload": 45,
@@ -114,7 +114,7 @@
         "damage": 0,
         "speed": 0,
         "instantDisappear": true,
-        "shootEffect": "none"
+        "shootEffect": "none",
         "smokeEffect": "none",
         "despawnEffect": "none",
         "hitEffect": "none",
@@ -151,7 +151,7 @@
         "speed": 5,
         "lifetime": 48,
         "backColor": "98ffa9",
-        "frontColor": "ffffff"
+        "frontColor": "ffffff",
         "trailColor": "98ffa9",
         "lightColor": "98ffa9",
         "trailLength": 5,
@@ -185,7 +185,6 @@
             "hitBulletColor"
           ]
         },
-        "hitColor": "98ffa9",
         "despawnEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -229,7 +228,7 @@
       "beamWidth": 0.8,
       "repairSpeed": 1.4,
       "bullet": {
-        "maxRange": 120,
+        "maxRange": 120
       },
       "targetSwitchInterval": 1,
       "targetBuildings": true

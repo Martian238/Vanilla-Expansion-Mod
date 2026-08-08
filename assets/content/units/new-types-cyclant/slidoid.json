@@ -77,7 +77,6 @@
         "hitEffect": "hitLaserBlast",
         "despawnHit": true,
         "despawnEffect": "none",
-        "hitColor": "bf92f9",
         "trailLength": 5,
         "shootEffect": "shootSmallColor",
         "hitColor": "bf92f9",
@@ -130,7 +129,6 @@
         "hitEffect": "hitLaserBlast",
         "despawnHit": true,
         "despawnEffect": "none",
-        "hitColor": "bf92f9",
         "trailLength": 5,
         "shootEffect": "shootSmallColor",
         "hitColor": "bf92f9",
@@ -168,7 +166,6 @@
         "status": "sapped",
         "statusDuration": 240,
         "shootEffect": "colorSpark",
-        "hitColor": "bf92f9",
         "hitEffect": "hitLaserBlast",
         "hitColor": "bf92f9"
       }

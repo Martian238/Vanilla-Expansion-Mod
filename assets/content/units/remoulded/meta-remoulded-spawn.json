@@ -391,7 +391,7 @@
         },
         "hitEffect": "none",
         "despawnEffect": "none",
-        "smokeEffect": "none",
+        "smokeEffect": "none"
       }
     }
   ],

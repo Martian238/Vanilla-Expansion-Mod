@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -150,7 +149,7 @@
         "hittable": false,
         "absorbable": false,
         "hitSize": 32,
-        "collidesTiles": false,
+        "collidesTiles": false
         },
         "despawnEffect": "none",
         "hitEffect": "none",

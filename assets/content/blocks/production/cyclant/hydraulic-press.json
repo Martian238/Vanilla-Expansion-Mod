@@ -22,7 +22,7 @@
   },
   "research": {
     "parent": "isomorphic-press",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "fort-port"
@@ -38,7 +38,7 @@
         "type": "DrawLiquidTile",
         "drawLiquid": "water"
       },
-      {"type":"DrawRegion","suffix":""}
+      {"type":"DrawRegion","suffix":""},
       {
         "type": "DrawRegion",
         "rotateSpeed": -6,

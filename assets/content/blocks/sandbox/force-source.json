@@ -2,7 +2,7 @@
   //"type": "BaseShield",
   "radius": 40,
   "sides": 24,
-  "buildVisibility": "sandboxOnly"
+  "buildVisibility": "sandboxOnly",
   "alwaysUnlocked": true,
   "size": 1,
   "category": "effect",

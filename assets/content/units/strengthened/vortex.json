@@ -93,9 +93,7 @@
         "shrinkX": -0.2,
         "shrinkY": -0.2,
         "shootEffect": "shootHeal",
-        "hittable": false,
         "smokeEffect": "none",
-        "collidesTeam": true,
         "healAmount": 80,
         "healPercent": 7,
         "hitEffect": {
@@ -128,7 +126,7 @@
         "statusDuration": 10,
         "fragOnHit": true,
         "fragBullet": {
-          "type": "LightningBulletType"
+          "type": "LightningBulletType",
           "speed": 5,
           "drag": 0.1,
           "lightningColor": "98ffa9",
@@ -139,7 +137,7 @@
           "healAmount": 7,
           "status": "shocked",
           "statusDuration": 10,
-          "hittable": false,
+          "hittable": false
         },
         "bulletInterval": 4,
         "fragBullets": 4,
@@ -161,7 +159,7 @@
     },
     {
       "type": "PointDefenseWeapon",
-      "name": "vortex-point-defense"
+      "name": "vortex-point-defense",
       "x": 6,
       "y": -3.5,
       "reload": 12,

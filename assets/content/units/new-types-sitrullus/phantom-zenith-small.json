@@ -11,7 +11,7 @@
   "engineOffset": 6,
   "engineSize": 0,
   "immunities": [ "frozen","wet","shocked","freezing","burning","blown","tarred","melting","dusty","fusing","dysharmony","plasma-status","plasma-status-orange","sodiumified","silverified","muddy","sapped","electrified","blasted","spore-slowed","corroded","combusting","restraints" ],
-  "priority": -1,
+  "targetPriority": -1, // momiji
   "rotateSpeed": 4,
   "shownPlanets": [ "sitrullus" ],
   "range": 140,
@@ -42,7 +42,7 @@
       "suffix": "",
       "outline": false,
       "blending": "additive",
-      "colorFrom": "ffffff90",
+      "color": "ffffff90", // momiji
       "colorTo": "ffffff70",
       "layer": 90,
       "progress": {

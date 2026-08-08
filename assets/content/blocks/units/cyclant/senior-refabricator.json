@@ -18,7 +18,7 @@
   "consumes": {
     "power": 7,
     "items": {
-      "items": [ "silicon/220","cobalt/150","plastanium/90" ],
+      "items": [ "silicon/220","cobalt/150","plastanium/90" ]
     },
     "liquids": {
       "liquids": [ "hydrogen/0.1" ]

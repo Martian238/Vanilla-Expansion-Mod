@@ -91,7 +91,7 @@
           "frontColor": "00000000",
           "backColor": "00000000",
           "shrinkY": 0,
-          "hitColor": "bf92f9",
+          "hitColor": "bf92f9"
         },
         "spin": 12,
         "intervalBullets": 1,
@@ -99,7 +99,7 @@
         "despawnSound": "explosion",
         "despawnEffect": "blastExplosion",
         "damage": 25,
-        "rangeOverride": 240
+        "rangeOverride": 240,
         "hitSize": 8
       },
       "parts": [
@@ -173,7 +173,7 @@
           "frontColor": "00000000",
           "backColor": "00000000",
           "shrinkY": 0,
-          "hitColor": "bf92f9",
+          "hitColor": "bf92f9"
         },
         "spin": 12,
         "intervalBullets": 1,

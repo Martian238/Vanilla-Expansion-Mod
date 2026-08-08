@@ -16,7 +16,7 @@
   "missileAccelTime": 0,
   "deathSound": "none",
   "deathShake": 0,
-  "deathExplosionEffect": "none"
+  "deathExplosionEffect": "none",
   "loopSound": "none",
   "loopSoundVolume": 0,
   "fogRadius": 15,

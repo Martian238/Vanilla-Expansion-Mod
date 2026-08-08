@@ -22,7 +22,7 @@
   "itemCapacity": 10000,
   "research": {
     "parent": "thorium-eradicator",
-    "objectives": [ "dagger"
+    "objectives": [ "dagger",
       {
         "type": "SectorComplete",
         "preset": "prime-route"
@@ -69,7 +69,7 @@
           "type": "MultiEffect",
           "effects": [
             {
-              "type": "RadialEffect"
+              "type": "RadialEffect",
               "effect": "shootSmokeMissile",
               "amount": 1,
               "rotationOffset": 180
@@ -78,7 +78,6 @@
             "instShoot"
           ]
         },
-        "hitColor": "f9c27a",
         "smokeEffect": "none",
         "lightColor": "f9c27a",
         "speed": 7,
@@ -100,7 +99,7 @@
         "trailLength": 10,
         "trailWidth": 20,
         "trailColor": "f9c27a",
-        "shrinkY": 0
+        "shrinkY": 0,
         "despawnSound": "explosionTitan",
         "fragBullets": 16,
         "fragVelocityMin": 0.3,
@@ -116,7 +115,7 @@
           "lightColor": "f9c27a",
           "despawnEffect": {
             "type": "MultiEffect",
-            "effects": [ 
+            "effects": [
               "massiveExplosion",
               "blastExplosion",
               "flakExplosion",
@@ -134,7 +133,7 @@
           "despawnShake": 8,
           "status": "blasted",
           "statusDuration": 60,
-          "despawnSound": "explosionCrawler"
+          "despawnSound": "explosionCrawler",
           "despawnShake": 7,
           "collidesAir": true
         }

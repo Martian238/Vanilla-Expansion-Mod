@@ -194,7 +194,7 @@
     }
   ],
   "weapons": [
-    { 
+    {
       "mirror": false,
       "shootCone": 361,
       "shootWarmupSpeed": 0.5,
@@ -219,7 +219,7 @@
         "shootEffect": "none",
         "smokeEffect": "none"
       }
-    }
+    },
     {
       "type": "BuildWeapon",
       "rotate": false,

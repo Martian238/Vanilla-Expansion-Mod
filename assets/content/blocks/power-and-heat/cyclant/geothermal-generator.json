@@ -13,7 +13,7 @@
   "armor": 6,
   "research": {
     "parent": "large-combustion-generator",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "wetland-miningfield"
@@ -34,8 +34,8 @@
         "type": "DrawGlowRegion",
         "suffix": "-glow",
         "alpha": 0.7,
-        "glowIntensity": 0.2
-        "color": "ffa665",
+        "glowIntensity": 0.2,
+        "color": "ffa665"
       }
     ]
   },

@@ -58,7 +58,7 @@
       "hollow": true,
       "rotateSpeed": 3,
       "color": "f4ba6e",
-      "layer": 110,
+      "layer": 110
     }
   ],
   "targetUnderBlocks": false,
@@ -115,7 +115,6 @@
           "hitEffect": "massiveExplosion",
           "despawnEffect": "scatheSlash",
           "collides": false,
-          "hitColor": "f4ba6e",
           "width": 18,
           "height": 18,
           "knockback": 0.8,

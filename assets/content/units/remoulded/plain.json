@@ -102,7 +102,7 @@
             "sideWidth": 1,
             "sideLength": 25,
             "length": 25,
-            "colors": [ 
+            "colors": [
               "98ffa966","98ffa9","ffffff"
             ],
             "hitColor": "98ffa9"
@@ -112,7 +112,7 @@
         "lifetime": 24,
         "scaleLife": true,
         "backColor": "98ffa9",
-        "frontColor": "ffffff"
+        "frontColor": "ffffff",
         "lightColor": "98ffa9",
         "trailColor": "98ffa9",
         "trailLength": 30,
@@ -149,7 +149,7 @@
             },
             "shootHeal",
             {
-              "type": "RadialEffect"
+              "type": "RadialEffect",
               "effect": "shootHeal",
               "amount": 2,
               "rotationOffset": 0,
@@ -265,7 +265,7 @@
           "effects": [
             "missileTrail",
             {
-              "type": "RadialEffect"
+              "type": "RadialEffect",
               "effect": "shootHeal",
               "amount": 2,
               "rotationOffset": 0,

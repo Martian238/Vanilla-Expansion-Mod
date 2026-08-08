@@ -16,7 +16,7 @@
       "buildingDamageMultiplier": 0.25,
       "damage": 0,
       "shootEffect": [
-        { 
+        {
           "type": "ParticleEffect",
           "cone": 10,
           "colorFrom": "ffa665",
@@ -30,7 +30,7 @@
           "particles": 5,
           "layer": 99.99
         },
-        { 
+        {
           "type": "ParticleEffect",
           "cone": 20,
           "colorFrom": "ffa665",
@@ -44,7 +44,7 @@
           "particles": 10,
           "layer": 99.99
         },
-        { 
+        {
           "type": "ParticleEffect",
           "cone": 30,
           "colorFrom": "ffa665",
@@ -57,8 +57,8 @@
           "length": 32,
           "particles": 15,
           "layer": 99.99
-        }
-        { 
+        },
+        {
           "type": "ParticleEffect",
           "cone": 15,
           "colorFrom": "ffffff80",
@@ -72,7 +72,7 @@
           "particles": 7,
           "layer": 99
         },
-        { 
+        {
           "type": "ParticleEffect",
           "cone": 30,
           "colorFrom": "ffffff80",
@@ -86,7 +86,7 @@
           "particles": 14,
           "layer": 99
         },
-        { 
+        {
           "type": "ParticleEffect",
           "cone": 45,
           "colorFrom": "ffffff80",
@@ -167,7 +167,7 @@
           "shrinkX": 0,
           "shrinkY": 0,
           "shrinkInterp": "circleIn",
-          "trailIWidth": 12,
+          "trailWidth": 12, // momiji
           "trailLength": 7,
           "trailColor": "ffa665",
           "collides": false,
@@ -296,7 +296,7 @@
                 "type": "life",
                 "op": "curve",
                 "interp": "pow2Out"
-              } 
+              }
         },
     {
       "type": "FlarePart",
@@ -374,7 +374,7 @@
           "width": 0,
           "height": 0,
           "progress": "life"
-        }  
+        }
       ]
           }
         ],
@@ -475,7 +475,7 @@
       "buildingDamageMultiplier": 0.5,
       "damage": 0,
       "shootEffect": [
-        { 
+        {
           "type": "ParticleEffect",
           "cone": 10,
           "colorFrom": "f8e096",
@@ -489,7 +489,7 @@
           "particles": 5,
           "layer": 99.99
         },
-        { 
+        {
           "type": "ParticleEffect",
           "cone": 20,
           "colorFrom": "f8e096",
@@ -503,7 +503,7 @@
           "particles": 10,
           "layer": 99.99
         },
-        { 
+        {
           "type": "ParticleEffect",
           "cone": 30,
           "colorFrom": "f8e096",
@@ -516,8 +516,8 @@
           "length": 32,
           "particles": 15,
           "layer": 99.99
-        }
-        { 
+        },
+        {
           "type": "ParticleEffect",
           "cone": 15,
           "colorFrom": "ffffff80",
@@ -531,7 +531,7 @@
           "particles": 7,
           "layer": 99
         },
-        { 
+        {
           "type": "ParticleEffect",
           "cone": 30,
           "colorFrom": "ffffff80",
@@ -545,7 +545,7 @@
           "particles": 14,
           "layer": 99
         },
-        { 
+        {
           "type": "ParticleEffect",
           "cone": 45,
           "colorFrom": "ffffff80",
@@ -626,7 +626,7 @@
           "shrinkX": 0,
           "shrinkY": 0,
           "shrinkInterp": "circleIn",
-          "trailIWidth": 12,
+          "trailWidth": 12, // momiji
           "trailLength": 7,
           "trailColor": "ffa665",
           "collides": false,
@@ -755,7 +755,7 @@
                 "type": "life",
                 "op": "curve",
                 "interp": "pow2Out"
-              } 
+              }
         },
     {
       "type": "FlarePart",
@@ -833,7 +833,7 @@
           "width": 0,
           "height": 0,
           "progress": "life"
-        }  
+        }
       ]
           }
         ],
@@ -975,7 +975,7 @@
           "length": 32,
           "particles": 15,
           "layer": 99.99
-        }
+        },
         {
           "type": "ParticleEffect",
           "cone": 15,
@@ -1085,7 +1085,7 @@
             "shrinkX": 0,
             "shrinkY": 0,
             "shrinkInterp": "circleIn",
-            "trailIWidth": 12,
+            "trailWidth": 12, // momiji
             "trailLength": 7,
             "trailColor": "f595be",
             "collides": false,
@@ -1857,14 +1857,14 @@
   "recoilTime": 40,
   "drawer": {
     "type": "DrawTurret",
-    "basePrefix": "ferrum-"
+    "basePrefix": "ferrum-",
     "parts": [
       {
         "type": "RegionPart",
         "suffix": "-back",
         "mirror": true,
         "under": true,
-        "top": false,
+        // "top": false, // momiji
         "moveY": -3.5,
         "progress": {
           "type": "reload",
@@ -1909,8 +1909,8 @@
         "suffix": "-bar",
         "mirror": true,
         "under": true,
-        "top": false,
-        "y": -2
+        // "top": false, // momiji
+        "y": -2,
         "moveY": 2,
         "progress": "warmup"
       },
@@ -1919,7 +1919,7 @@
         "suffix": "-tube",
         "mirror": false,
         "under": true,
-        "top": false,
+        // "top": false, // momiji
         "moveY": -5,
         "progress": "recoil"
       },
@@ -1928,7 +1928,7 @@
         "suffix": "-side",
         "mirror": true,
         "under": false,
-        "top": false,
+        // "top": false, // momiji
         "moveX": 2,
         "progress": {
           "type": "reload",
@@ -1972,7 +1972,7 @@
   },
   "research": {
     "parent": "double",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "fruit-flats"

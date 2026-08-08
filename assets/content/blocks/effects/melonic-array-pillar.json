@@ -234,7 +234,7 @@
         "frontColor": "ff5555",
         "backColor": "ff555580",
         "trailInterval": 1,
-        "trailColor": "ff5555"
+        "trailColor": "ff5555",
         "width": 18,
         "height": 18,
         "shrinkY": -0.1,
@@ -631,7 +631,7 @@
         "type": "RegionPart",
         "outline": false,
         "suffix": "-pillar",
-        "layer": 119,
+        "layer": 119
       },
       {
         "type": "RegionPart",
@@ -1057,7 +1057,6 @@
           "type": "ParticleEffect",
             "region": "ve-square-effect",
             "sizeFrom": 24,
-            "sizeTo": 0,
             "sizeTo": 0,
             "length": 0,
             "baseLength": 0,

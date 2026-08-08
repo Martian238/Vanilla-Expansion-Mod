@@ -25,21 +25,21 @@
     "type": "DrawMulti",
     "drawers": [
       { "type": "DrawDefault" },
-      { 
+      {
         "type": "DrawGlowRegion",
         "suffix": "-top",
         "color": "ffffff",
         "alpha": 1,
         "glowIntensity": 0.01
       },
-      { 
+      {
         "type": "DrawGlowRegion",
         "suffix": "-glow2",
         "color": "f3e979",
-        "alpha": 0.7
+        "alpha": 0.7,
         "glowScale": 5
       },
-      { 
+      {
         "type": "DrawGlowRegion",
         "suffix": "-glow1",
         "color": "f3e979",

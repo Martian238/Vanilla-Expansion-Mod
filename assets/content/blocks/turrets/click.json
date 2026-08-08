@@ -27,9 +27,8 @@
       /*"reloadMultiplier": 0.8,*/
       "shootEffect": "colorSpark",
       "smokeEffect": "shootSmallSmoke",
-      "hitEffect": "hitBulletColor"
+      "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
-      "hitColor": "dae1ee",
       "hitColor": "dae1ee",
       "backColor": "7d89d8",
       "frontColor": "dae1ee",
@@ -50,7 +49,6 @@
       "shootEffect": "colorSpark",
       "smokeEffect": "shootSmallSmoke",
       "hitEffect": "hitSquaresColor",
-      "hitColor": "f68021",
       "despawnEffect": "hitSquaresColor",
       "hitColor": "f68021",
       "backColor": "f68021",
@@ -70,9 +68,8 @@
       "homingPower": 0.5,
       "shootEffect": "colorSpark",
       "smokeEffect": "shootSmallSmoke",
-      "hitEffect": "hitBulletColor"
+      "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
-      "hitColor": "999ba0",
       "hitColor": "999ba0",
       "backColor": "707594",
       "trailColor": "707594",

@@ -3,10 +3,10 @@
   "requirements": [
     "lead/130","chromium/50","graphite/100","silicon/40"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "silicide-crucible",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "fort-port"
@@ -42,7 +42,7 @@
     "drawers": [
       {
         "type": "DrawRegion",
-        "suffix":"-bottom" 
+        "suffix":"-bottom"
       },
       {
         "type": "DrawGlowRegion",
@@ -52,7 +52,7 @@
         "glowScale": 3,
         "layer": -1
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": "-rotator",
         "rotateSpeed": 9,

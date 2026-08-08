@@ -60,7 +60,7 @@
         "damage": 50,
         "healAmount": 100,
         "healPercent": 7,
-        "sprite": "large-orb"
+        "sprite": "large-orb",
         "collidesTeam": true,
         "width": 11,
         "height": 11,

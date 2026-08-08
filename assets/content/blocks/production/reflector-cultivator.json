@@ -7,10 +7,10 @@
     "parent": "blast-furnace"
   },
   "consumes": {
-    "items": [ "red-soil/2" ]
+    "items": [ "red-soil/2" ],
     "liquids": {
       "liquids": [ "water/0.0333333333" ]
-    }
+    },
     "power": 0.7
   },
   "craftEffect": "none",
@@ -37,13 +37,13 @@
         "type": "DrawLiquidTile",
         "drawLiquid": "water"
       },
-      { 
+      {
         "type": "DrawCultivator",
         "plantColorLight": "a58570",
         "plantColor": "a58570",
         "bottomColor": "a58570"
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": ""
       },

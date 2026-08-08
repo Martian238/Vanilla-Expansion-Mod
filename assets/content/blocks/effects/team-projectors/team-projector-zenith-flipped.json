@@ -38,7 +38,7 @@
         "useWarmupRadius": true,
         "timeScl": -0.5,
         "color": "ffa66544"
-      }
+      },
       {
         "type": "DrawBlockParts",
         "parts": [
@@ -206,7 +206,7 @@
             },
             "moves": [
               {
-                "gx": -1
+                "gx": -1,
                 "gy": -1,
                 "progress": {
                   "type": "warmup",

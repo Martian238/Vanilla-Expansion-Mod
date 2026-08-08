@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -9,7 +8,7 @@
   "wobble": false,
   "createScorch": false,
   "targetable": false,
-  "noAttack": true,
+  // "noAttack": true, // momiji
   "useUnitCap": false,
   "drawSoftShadow": false,
   "drawMinimap": false,

@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": true,
   "physics": false,
   "flying": true,
@@ -382,7 +381,7 @@
       "shootY": 2.5,
       "baseRotation": 0,
       "shoot": {
-        "firstShotDelay": 60,
+        "firstShotDelay": 60
       },
       "shootSound": "utyGuardenerLaserLoop",
       "initialShootSound": "utyGuardenerLaserShoot",
@@ -420,7 +419,7 @@
       "shootY": 2.5,
       "baseRotation": 60,
       "shoot": {
-        "firstShotDelay": 60,
+        "firstShotDelay": 60
       },
       "shootSound": "utyGuardenerLaserLoop",
       "initialShootSound": "utyGuardenerLaserShoot",
@@ -458,7 +457,7 @@
       "shootY": 2.5,
       "baseRotation": 120,
       "shoot": {
-        "firstShotDelay": 60,
+        "firstShotDelay": 60
       },
       "shootSound": "utyGuardenerLaserLoop",
       "initialShootSound": "utyGuardenerLaserShoot",
@@ -496,7 +495,7 @@
       "shootY": 2.5,
       "baseRotation": 180,
       "shoot": {
-        "firstShotDelay": 60,
+        "firstShotDelay": 60
       },
       "shootSound": "utyGuardenerLaserLoop",
       "initialShootSound": "utyGuardenerLaserShoot",
@@ -534,7 +533,7 @@
       "shootY": 2.5,
       "baseRotation": -120,
       "shoot": {
-        "firstShotDelay": 60,
+        "firstShotDelay": 60
       },
       "shootSound": "utyGuardenerLaserLoop",
       "initialShootSound": "utyGuardenerLaserShoot",
@@ -572,7 +571,7 @@
       "shootY": 2.5,
       "baseRotation": -60,
       "shoot": {
-        "firstShotDelay": 60,
+        "firstShotDelay": 60
       },
       "shootSound": "utyGuardenerLaserLoop",
       "initialShootSound": "utyGuardenerLaserShoot",
@@ -600,5 +599,5 @@
       },
       "controllable": false
     }
-  ]   
+  ]
 }

@@ -19,7 +19,6 @@
   "accel": 1,
   "engineSize": 0,
   "immunities": [ "blown" ],
-  "hidden": true,
   "alwaysUnlocked": true,
   "deathShake": 12,
   "drawShields": false,
@@ -302,7 +301,7 @@
         },
         "hitEffect": "none",
         "despawnEffect": "none",
-        "smokeEffect": "none",
+        "smokeEffect": "none"
       }
     }
   ],

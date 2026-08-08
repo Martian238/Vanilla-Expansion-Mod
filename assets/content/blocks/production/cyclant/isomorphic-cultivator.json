@@ -8,7 +8,7 @@
   "consumes": {
     "liquids": {
       "liquids": [ "water/0.26666666667" ]
-    }
+    },
     "power": 1
   },
   "craftEffect": "none",
@@ -34,9 +34,9 @@
       },
       { "type": "DrawCultivator" },
       { "type": "DrawDefault" },
-      { 
+      {
         "type": "DrawRegion",
-        "suffix": "-top" 
+        "suffix": "-top"
       }
     ]
   },
