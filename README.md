@@ -3,6 +3,9 @@
 A Json mod with a few Java contents, extends Serpulo's story and campaign with 4 new planets and their own contents.\
 \
 In this mod, Crux left Serpulo after completing the mega base, leaving only a set of automatic managing and defending system. Players will continute to play a role as Sharded, the one just revived at Ground Zero, to vanquish Serpulo and chase Crux until eventually defeating it.
+## DISCORD LINK
+Vanilla Expansion's Discord server [here](https://discord.gg/4KgzzunQ9q).
+
 ## GITHUB LINKS
 This mod [here](https://github.com/Martian238/Vanilla-Expansion-Mod).\
 It also can be seen on the mod browser and Discord.\

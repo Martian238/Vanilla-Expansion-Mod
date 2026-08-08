@@ -32,6 +32,7 @@ public class HyperKillBulletType extends PointBulletType {
 
     public String exceptName1 = "new-horizon-nucleoid";
     public String exceptName2 = "new-horizon-pester";
+    public ObjectSet<Unit> deathNote = new ObjectSet<>();
 
     public HyperKillBulletType(){}
 
@@ -47,6 +48,11 @@ public class HyperKillBulletType extends PointBulletType {
 
     @Override
     public void hitEntity(Bullet b, Hitboxc entity, float health){
+        for(Unit unit : deathNote){
+            if(unit.dead){
+                deathNote.remove(unit);
+            }
+        }
             if(entity instanceof Unit unit){
                 if(Objects.equals(unit.type.name, exceptName1)) {
                     try {
@@ -59,10 +65,23 @@ public class HyperKillBulletType extends PointBulletType {
                     } catch (Exception ignored) {
                     }
                 }else{
-                    try {
-                        unit.kill();
-                        unit.remove();
-                    } catch (Exception ignored) {
+                    if(!unit.type.name.startsWith("ve-") || unit.type.name.equals("ve-test-high-health")) {
+                        try {
+                            if(deathNote.contains(unit)) {
+                                unit.x(99999999 * 8);
+                                unit.y(99999999 * 8);
+                                unit.kill();
+                                unit.remove();
+                                deathNote.remove(unit);
+                            }else {
+                                unit.kill();
+                                unit.remove();
+                                deathNote.add(unit);
+                            }
+                        } catch (Exception ignored) {
+                        }
+                    }else{
+                        unit.damage(1f);
                     }
                 }
             }else if(entity instanceof Healthc h) {
