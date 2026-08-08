@@ -1402,6 +1402,8 @@
       "ejectEffect": "none",
       "noAttack": true,
       "display": false,
+      "status": "boss",
+      "statusDuration": 600,
       "recoil": 0,
       "bullet": {
         "damage": 0,

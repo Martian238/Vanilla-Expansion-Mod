@@ -2136,6 +2136,7 @@
       "minWarmup": 0.8,
       "shootStatus": "invincible",
       "shootStatusDuration": 1200,
+      "spawn": "hyper",
       "bullet": {
         "type": "VanillaExpansion.expand.bullets.HyperKillBulletType",
         /*"hitEffect": "none",

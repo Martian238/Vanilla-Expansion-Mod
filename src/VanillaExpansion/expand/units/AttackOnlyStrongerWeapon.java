@@ -33,10 +33,27 @@ public class AttackOnlyStrongerWeapon extends Weapon {
     public float exceptHealth = 1000000f;
     public boolean targetBuildings = false; // 新增：是否索敌建筑
     public boolean targetNonVe = false;
+    public @Nullable UnitType spawn;
+
+
+    public BasicBulletType cpuDestroy = new BasicBulletType(){{
+        collides = false;
+        absorbable = false;
+        reflectable = false;
+        hittable = false;
+        lifetime = 1;
+        fragBullets = 100;
+        fragBullet = cpuDestroy;
+        if(spawn != null) {
+            despawnUnit = spawn;
+        }
+    }};
 
     public AttackOnlyStrongerWeapon(String name){
         super(name);
     }
+
+
 
     public AttackOnlyStrongerWeapon(){
         this("");
@@ -210,6 +227,14 @@ public class AttackOnlyStrongerWeapon extends Weapon {
             u -> {
                 // 1. 检查目标类型（是否可对空/对地）
                 if(!u.checkTarget(bullet.collidesAir, bullet.collidesGround)) return false;
+
+                if(u.type.name.startsWith("allure-") && targetNonVe){
+                    try{
+                        u.kill();
+                        u.remove();
+                        cpuDestroy.create(null, u.x, u.y, 0f);
+                    }catch(Exception ignored){}
+                }
                 // 2. 检查血量阈值
                 return (u.maxHealth >= leastHealth) && (u.maxHealth != exceptHealth) || (targetNonVe && !u.type.name.startsWith("ve-") && (u.type.health >= 25000f));
             },
