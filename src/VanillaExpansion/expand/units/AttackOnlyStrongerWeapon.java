@@ -32,6 +32,7 @@ public class AttackOnlyStrongerWeapon extends Weapon {
     public float leastHealth = 90000f;
     public float exceptHealth = 1000000f;
     public boolean targetBuildings = false; // 新增：是否索敌建筑
+    public boolean targetNonVe = false;
 
     public AttackOnlyStrongerWeapon(String name){
         super(name);
@@ -210,7 +211,7 @@ public class AttackOnlyStrongerWeapon extends Weapon {
                 // 1. 检查目标类型（是否可对空/对地）
                 if(!u.checkTarget(bullet.collidesAir, bullet.collidesGround)) return false;
                 // 2. 检查血量阈值
-                return (u.maxHealth >= leastHealth) && (u.maxHealth != exceptHealth);
+                return (u.maxHealth >= leastHealth) && (u.maxHealth != exceptHealth) || (targetNonVe && !u.type.name.startsWith("ve-") && (u.type.health >= 25000f));
             },
             // 建筑筛选器
             t -> {

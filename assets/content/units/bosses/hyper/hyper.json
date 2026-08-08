@@ -137,7 +137,7 @@
   "faceTarget": true,
   "rotateToBuilding": false,
   "loopSound": "loopMalign",
-  "loopSoundVolume": 1.0,
+  "loopSoundVolume": 0.8,
   "targetFlags": [
     "storage"
   ],
@@ -2116,6 +2116,7 @@
 
     {
       "type": "VanillaExpansion.expand.units.AttackOnlyStrongerWeapon",
+      "targetNonVe": true,
       "leastHealth": 200000,
       "exceptHealth": 1000001,
       "mirror": false,
@@ -2133,6 +2134,8 @@
       "recoil": 0,
       "rotate": true,
       "minWarmup": 0.8,
+      "shootStatus": "invincible",
+      "shootStatusDuration": 1200,
       "bullet": {
         "type": "VanillaExpansion.expand.bullets.HyperKillBulletType",
         /*"hitEffect": "none",
