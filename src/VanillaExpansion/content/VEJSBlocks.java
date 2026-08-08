@@ -241,9 +241,7 @@ public class VEJSBlocks {
         new ConsumeGenerator("sweeper");
         new OverdriveProjector("overdriver");
         new MendProjector("mend-dome");
-        new GenericCrafter("team-projector-sharded"){{
-            flags = EnumSet.of(BlockFlag.core,BlockFlag.storage,BlockFlag.generator,BlockFlag.turret,BlockFlag.factory,BlockFlag.repair,BlockFlag.battery,BlockFlag.reactor,BlockFlag.drill,BlockFlag.shield);
-        }};
+        new GenericCrafter("team-projector-sharded");
         new GenericCrafter("team-projector-alpha");
         new GenericCrafter("team-projector-crux");
         new GenericCrafter("team-projector-omega");

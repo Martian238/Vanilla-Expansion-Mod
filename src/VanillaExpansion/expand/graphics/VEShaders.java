@@ -9,6 +9,7 @@ import arc.math.geom.*;
 import arc.struct.*;
 import arc.util.Time;
 import VanillaExpansion.*;
+import mindustry.graphics.Shaders;
 
 import static mindustry.Vars.*;
 
@@ -23,6 +24,7 @@ public class VEShaders {
     public static ChaosShader chaosShader;
     public static OrderShader orderShader;
     public static ThirdImpactShader thirdImpactShader;
+    public static Shaders.SurfaceShader dysharmony, lava;
 
     static String defaultVert = """
                     attribute vec4 a_position;
@@ -52,6 +54,8 @@ public class VEShaders {
         chaosShader = new ChaosShader();
         orderShader = new OrderShader();
         thirdImpactShader = new ThirdImpactShader();
+        dysharmony = new Shaders.SurfaceShader("dysharmony");
+        lava = new Shaders.SurfaceShader("lava");
     }
 
     public static Fi file(String path){
