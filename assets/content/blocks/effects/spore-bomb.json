@@ -8,7 +8,6 @@
   "buildTime": 45,
   "rotate": false,
   "research": "double",
-  "alwaysUnlocked": true,
   "canPickup": false,
   "shownPlanets": [ "sitrullus" ],
   "targetable": false,

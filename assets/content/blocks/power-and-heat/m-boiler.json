@@ -23,7 +23,7 @@
       "inputItems": [ "spore-pod/1" ],
       "craftTime": 120,
       "outputHeat": 15
-    }
+    },
     {
       "inputItems": [ "ve-reflector-matter/1" ],
       "craftTime": 75,
@@ -37,7 +37,7 @@
     {
       "inputLiquids": [ "hydrogen/0.05" ],
       "craftTime": 120,
-      "outputHeat": 20, 
+      "outputHeat": 20,
       "outputLiquids": [ "water/0.08333333333" ]
     },
     {
@@ -82,7 +82,7 @@
   "drawArrow": true,
   "research": {
     "parent": "blast-furnace",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "icy-boundary"

@@ -19,7 +19,6 @@
   "immunities": [ "melting","burning","combusting","corroded","fusing" ],
   "drag": 0.07,
   "accel": 0.09,
-  "envDisabled": 0,
   "lightColor": "feb380",
   "emitWalkSound": false,
   "treadRects": [
@@ -80,9 +79,9 @@
         "buildingDamageMultiplier": 0.5,
         "shootEffect": {
           "type": "MultiEffect",
-          "effects": [ 
+          "effects": [
             "shootBig",
-            { 
+            {
               "type": "RadialEffect",
               "effect": "shootBigSmoke",
               "rotationOffset": 180,
@@ -112,7 +111,7 @@
         "trailLength": 30,
         "trailColor": "feb380",
         "homingPower": 0.06,
-        "homingDelay": 10
+        "homingDelay": 10,
         "parts": [
           {
             "type": "FlarePart",

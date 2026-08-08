@@ -8,7 +8,7 @@
   "databaseTag": "10special-unit",
   "research": {
     "parent": "huge-dagger",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "retreat-zone"
@@ -533,9 +533,9 @@
             "length": 30,
             "baseLength": 50,
             "layer": 100,
-            "interp": "circleOut"
+            "interp": "circleOut",
             "sizeInterp": "circleIn"
-          },
+          }
         } ],
         "chargeEffect": {
           "type": "MultiEffect",
@@ -579,7 +579,7 @@
               "sizeTo": 20,
               "colorFrom": "98ffa9",
               "colorTo": "ffffff",
-              "interp": "circleOut",
+              "interp": "circleOut"
             }
           ]
         },
@@ -702,7 +702,7 @@
                 "sizeTo": 15,
                 "colorFrom": "98ffa9",
                 "colorTo": "ffffff",
-                "interp": "pow3Out",
+                "interp": "pow3Out"
               },
               {
                 "type": "WaveEffect",
@@ -1789,7 +1789,7 @@
       "minWarmup": 2,
       "useAttackRange": false
     },
-    
+
 
 
     {
@@ -2111,9 +2111,9 @@
         "speed": 0
       }
     },
-    
-    
-    
+
+
+
     {
       "type": "VanillaExpansion.expand.units.AttackOnlyStrongerWeapon",
       "leastHealth": 200000,

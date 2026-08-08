@@ -10,8 +10,8 @@
   "thrusterLength": 8.5,
   "category": "effect",
   "research": {
-    "parent": "isomorphic-core-shard"
-    "objectives": [ 
+    "parent": "isomorphic-core-shard",
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "intervalley"

@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -33,7 +32,7 @@
             "lightColor": "ffffff",
             "layer": 29.9,
             "startDelay": 3
-          },    
+          },
           {
                 "type": "WaveEffect",
                 "sizeFrom": 0,
@@ -52,7 +51,6 @@
   "drawBody": false,
   "shadowElevation": 999,
   "hidden": true,
-  "loopSound": "none",
   "loopSoundVolume": 1,
   "type": "missile",
   "lifetime": 120,
@@ -99,7 +97,7 @@
         },
         "smokeEffect": "none"
       }
-    }
+    },
     {
       "alwaysShooting": true,// pre wave
       "recoil": 0,

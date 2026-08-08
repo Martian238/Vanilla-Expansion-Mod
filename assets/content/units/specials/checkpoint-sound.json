@@ -38,7 +38,7 @@
         "minPitch": 1,
         "maxVolume": 1.25,
         "minVolume": 1.25,
-        "sound": "lbp3CheckpointDoubleActivate"
+        "sound": "lbp3CheckpointDoubleActivate",
         "effect": "none"
         },
           "instantDisappear": true,

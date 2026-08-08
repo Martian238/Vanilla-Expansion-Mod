@@ -10,7 +10,7 @@
   "attribute": "oil",
   "armor": 12,
   "crushDamageMultiplier": 0.2,
-  "consumes": { 
+  "consumes": {
     "power": 5,
     "liquid": "water/0.35"
   },
@@ -29,5 +29,5 @@
   "researchCostMultiplier": 0.2,
   "floating": true,
   "placeableLiquid": true,
-  "shownPlanets": [ "cyclant","phoon" ],
+  "shownPlanets": [ "cyclant","phoon" ]
 }

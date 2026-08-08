@@ -6,7 +6,6 @@
   "health": 40,
   //"speed": 60,
   "fadeIn": false,
-  "hasPower": false,
   "moveArrows": false,
   "arrowSpacing": 6,
   "buildCostMultiplier": 3,

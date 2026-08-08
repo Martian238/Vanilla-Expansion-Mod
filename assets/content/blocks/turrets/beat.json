@@ -26,9 +26,8 @@
       /*"reloadMultiplier": 0.7,*/
       "shootEffect": "shootSmall",
       "smokeEffect": "shootSmallSmoke",
-      "hitEffect": "hitBulletColor"
+      "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
-      "hitColor": "dae1ee",
       "hitColor": "dae1ee",
       "frontColor": "dae1ee"
     },
@@ -48,7 +47,6 @@
       "hitEffect": "hitSquaresColor",
       "hitColor": "f68021",
       "despawnEffect": "hitSquaresColor",
-      "hitColor": "f68021"
       "backColor": "f68021",
       "trailColor": "f68021",
       "trailLength": 5
@@ -68,9 +66,8 @@
       "trailLength": 4,
       "trailColor": "707594",
       "backColor": "707594",
-      "hitEffect": "hitBulletColor"
+      "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
-      "hitColor": "999ba0",
       "hitColor": "999ba0",
       "frontColor": "999ba0"
     },
@@ -129,7 +126,7 @@
       "smokeEffect": "shootSmallSmoke",
       "hitEffect": {
         "type": "MultiEffect",
-        "effects": [ 
+        "effects": [
           "hitBulletSmall",
           "fireHit"
         ]
@@ -243,7 +240,7 @@
   },
   "research": {
     "parent": "click",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "intervalley"

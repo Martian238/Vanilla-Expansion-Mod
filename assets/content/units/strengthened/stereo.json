@@ -57,7 +57,7 @@
   "weapons": [
     {
       "type": "PointDefenseWeapon",
-      "name": "point-defense-mount"
+      "name": "point-defense-mount",
       "x": 7.5,
       "y": -1.25,
       "reload": 4,
@@ -160,7 +160,7 @@
             "status": "electrified",
             "statusDuration": 120,
             "speed": -0.5,
-            "lightColor": "98ffa9",
+            "lightColor": "98ffa9"
           }
         },
         "shootEffect": {
@@ -180,7 +180,7 @@
     }
   ]
         },
-        "parts": [ 
+        "parts": [
     {
       "type": "HaloPart",
       "x": 0,

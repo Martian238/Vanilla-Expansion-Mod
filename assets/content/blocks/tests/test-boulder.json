@@ -3,6 +3,6 @@
   "requirements": [ "aluminium/6","lead/6" ],
   "category": "defense",
   "alwaysUnlocked": true,
-  "buildVisibility": "sandboxOnly"
+  "buildVisibility": "sandboxOnly",
   "health": 480
 }

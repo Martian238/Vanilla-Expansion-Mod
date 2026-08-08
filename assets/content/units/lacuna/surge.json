@@ -87,7 +87,7 @@
   "alwaysShootWhenMoving": true,
   "weapons": [
     {
-      "name": "surge-weapon"
+      "name": "surge-weapon",
       "x": 12,
       "y": -2,
       "rotate": false,
@@ -102,7 +102,7 @@
       "layerOffset": -2,
       "shootY": 1,
       "shoot": {
-        "type": "ShootBarrel"
+        "type": "ShootBarrel",
         "shots": 2,
         "shotDelay": 8,
         "barrels": [ 0,0,0,0,0,-30 ]

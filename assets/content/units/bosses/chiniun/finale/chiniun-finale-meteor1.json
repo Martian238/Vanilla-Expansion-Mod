@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -108,7 +107,7 @@
                 "type": "life",
                 "op": "curve",
                 "interp": "pow2Out"
-              } 
+              }
         },
     {
       "type": "FlarePart",
@@ -186,7 +185,7 @@
           "height": 0,
           "progress": "life"
         }
-    
+
       ]
     }
   ],

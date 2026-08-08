@@ -68,7 +68,7 @@
         "splashDamageRadius": 56,
         "splashDamage": 90,
         "backColor": "f9c27a",
-        "frontColor": "fff8e8"
+        "frontColor": "fff8e8",
         "lightColor": "f9c27a",
         "fragBullets": 2,
         "fragSpread": 180,
@@ -91,7 +91,7 @@
           "splashDamageRadius": 36,
           "splashDamage": 70,
           "backColor": "f9c27a",
-          "frontColor": "fff8e8"
+          "frontColor": "fff8e8",
           "lightColor": "f9c27a",
           "fragBullets": 2,
           "fragSpread": 180,
@@ -114,11 +114,11 @@
             "splashDamageRadius": 24,
             "splashDamage": 40,
             "backColor": "f9c27a",
-            "frontColor": "fff8e8"
+            "frontColor": "fff8e8",
             "lightColor": "f9c27a",
             "hitSound": "explosionArtillery",
-            "despawnSound": "explosionArtillery",
-          } 
+            "despawnSound": "explosionArtillery"
+          }
         }
       }
     }

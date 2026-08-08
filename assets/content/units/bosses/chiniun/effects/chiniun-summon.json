@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -49,7 +48,7 @@
       "layer": 100.1,
       "spinSpeed": -4.5,
       "stroke": 2.5,
-      "useProgress": true,
+      // "useProgress": true, // momiji
       "progress": {
         "type": "life",
         "ops": [

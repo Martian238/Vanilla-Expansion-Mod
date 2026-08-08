@@ -7,7 +7,7 @@
   "liquidCapacity": 70,
   "liquidPressure": 1.025,
   "research": {
-    "parent": "pressure-conduit"
+    "parent": "pressure-conduit",
     "objectives": [
       {
         "type": "OnSector",

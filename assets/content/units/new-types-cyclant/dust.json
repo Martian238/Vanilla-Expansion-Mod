@@ -20,7 +20,7 @@
   "canDrown": false,
   "research": {
     "parent": "conscript",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "volcanic-top"
@@ -75,7 +75,6 @@
         "height": 15,
         "speed": 7,
         "damage": 12,
-        "hitColor": "90dbff",
         "hitEffect": "hitBulletColor",
         "lightColor": "90dbff",
         "hitColor": "90dbff",

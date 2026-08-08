@@ -36,5 +36,5 @@
   "ambientSoundVolume": 0.24,
   "ambientSound": "shield",
   "hitSoundVolume": 0.2,
-  "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "shownPlanets": [ "cyclant","phoon","thavina" ]
 }

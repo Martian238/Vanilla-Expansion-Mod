@@ -13,7 +13,7 @@
   "boostWhenMining": true,
   "research": {
     "parent": "blade",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "unit-laboratory"
@@ -68,7 +68,7 @@
       "top": false,
       "rotate": false,
       "shootSound": "shootLaser",
-      "initialShootSound": "lasershootClassic"
+      "initialShootSound": "lasershootClassic",
       "ejectEffect": "none",
       "reload": 30,
       "alternate": false,
@@ -82,7 +82,7 @@
       },
       "bullet": {
         "type": "LaserBoltBulletType",
-        "shootEffect": "shootHeal"
+        "shootEffect": "shootHeal",
         "lightColor": "98ffa9",
         "speed": 5.2,
         "damage": 16,

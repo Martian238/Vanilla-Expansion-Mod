@@ -17,7 +17,7 @@
   "dumpTime": 1,
   "research": {
     "parent": "catalyzon-workshop",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "mirror-swamp"
@@ -25,7 +25,6 @@
     ]
   },
   "researchCostMultiplier": 0.2,
-  "shownPlanets": [ "maress","thavina" ]
   /*"changeRecipeEffect": {
     "type": "SoundEffect",
     "effect": {
@@ -41,16 +40,16 @@
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
-      { 
-        "type": "DrawRegion"
+      {
+        "type": "DrawRegion",
         "suffix": "-rotator",
         "rotateSpeed": -2.5
       },
-      { 
-        "type": "DrawRegion"
-        "suffix": "-shadow1" 
+      {
+        "type": "DrawRegion",
+        "suffix": "-shadow1"
       },
-      { 
+      {
         "type": "DrawRegion"
       },
       {
@@ -93,7 +92,7 @@
         "drawLiquid": "water",
         "padLeft": 14.75,
         "padRight": 14.75,
-        "padding": 11.5,
+        "padding": 11.5
       },
       {
         "type": "DrawRegion",
@@ -733,7 +732,7 @@
     },
     {
       "inputLiquids": [ "slag/0.5","water/0.5" ],
-      "inputPower": 2
+      "inputPower": 2,
       "outputLiquids": [ "water/0.5" ],
       "outputItems": [ "scrap/30" ],
       "outputHeat": 50,
@@ -781,7 +780,7 @@
     },
     {
       "inputLiquids": [ "slag/1","cryofluid/0.5" ],
-      "inputPower": 2.5
+      "inputPower": 2.5,
       "outputLiquids": [ "cryofluid/0.5" ],
       "outputItems": [ "scrap/30" ],
       "outputHeat": 100,
@@ -826,7 +825,7 @@
           }
         ]
       }
-    },
+    }
   ],
   "conductivePower": false
 }

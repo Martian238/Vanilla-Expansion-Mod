@@ -232,7 +232,7 @@
             "line": true,
             "lenFrom": 0,
             "lenTo": 6,
-            "lengthRand": false,
+            "randLength": false, // momiji
             "length": -56,
             "baseLength": 56,
             "colorFrom": "ffa665",
@@ -1233,7 +1233,7 @@
       "x": 0,
       "shootY": 0,
       "mirror": false,
-      "shootSound": "carrionMechDeath"
+      "shootSound": "carrionMechDeath",
       "bullet": {
         "spawnUnit": "zenith-small-sharded",
         "shootEffect": "none",

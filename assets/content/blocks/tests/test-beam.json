@@ -1,7 +1,7 @@
 {
   "type": "BeamNode",
   "alwaysUnlocked": true,
-  "buildVisibility": "sandboxOnly"
+  "buildVisibility": "sandboxOnly",
   "category": "power",
   "range": 20,
   "size": 2,

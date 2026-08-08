@@ -18,7 +18,7 @@
   "isEnemy": false,
   "defaultCommand": "rebuild",
   "shownPlanets": [ "sitrullus","maress","thavina" ],
-  "research": "zenith-small-miner-sharded"
+  "research": "zenith-small-miner-sharded",
   "weapons": [
     {
       "name": "zenith-build-weapon",
@@ -45,10 +45,10 @@
       "bullet": {
         "maxRange": 120
       },
-      "targetBuildings": true,
-    }
+      "targetBuildings": true
+    },
     {
-      "name": "zenith-watermelo"
+      "name": "zenith-watermelo",
       "x": 0,
       "y": 0,
       "shootY": 6,
@@ -247,7 +247,7 @@
         "hittable": false,
         "absorbable": false,
         "hitSize": 8,
-        "collidesTiles": false,
+        "collidesTiles": false
         },
         "despawnEffect": "none",
         "hitEffect": "none",

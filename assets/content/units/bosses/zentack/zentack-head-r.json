@@ -18,6 +18,6 @@
   "engineSize": 0,
   "lightRadius": 0,
   "bounded": false,
-  "drawShields": true
-  "hidden": true,
+  "drawShields": true,
+  "hidden": true
 }

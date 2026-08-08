@@ -164,7 +164,7 @@
       "despawnEffect": "none",
       "despawnHit": true,
       "hitColor": "f8e096"
-    }, 
+    },
     "dense-melon-dirt": {
       "sprite": "shell",
       "width": 16,
@@ -310,7 +310,6 @@
         "despawnSound": "bangClassic",
         "frontColor": "ff8a67",
         "backColor": "ff8a67",
-        "status": "combusting",
         "statusDuration": 240,
         "splashDamage": 53,
         "splashDamageRadius": 40,
@@ -364,7 +363,7 @@
       "bulletInterval": 5,
       "intervalBullet": {
         "type": "LightningBulletType",
-        "hitColor": "f3e979"
+        "hitColor": "f3e979",
         "lightningLength": 6,
         "lightningLengthRand": 3,
         "lightningDamage": 24,
@@ -375,7 +374,7 @@
       "lightningLength": 12,
       "lightningLengthRand": 6,
       "lightningDamage": 20,
-      "lightningColor": "f3e979"
+      "lightningColor": "f3e979",
       "shootEffect": "shootTitan",
       "smokeEffect": "smokeCloud",
       "hitEffect": {
@@ -399,7 +398,7 @@
       "despawnEffect": "none",
       "despawnHit": true,
       "hitColor": "f3e979"
-    },
+    }
   },
   "recoil": 4,
   "ammoPerShot": 4,
@@ -450,7 +449,7 @@
     ]
   },
   "research": {
-    "parent": "core-singularity-root",
+    "parent": "core-singularity-root"
   },
   "consumes": {
     "coolant": {

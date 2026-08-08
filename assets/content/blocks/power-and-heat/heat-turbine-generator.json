@@ -39,7 +39,7 @@
       {
         "type": "DrawLiquidTile",
         "drawLiquid": "cryofluid"
-      }
+      },
       { "type": "DrawDefault" },
       { "type": "DrawHeatInput" },
       {
@@ -61,7 +61,7 @@
   "warmupRate": 0.01,
   "research": {
     "parent": "spot-solar-pad",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "icy-boundary"

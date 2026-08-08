@@ -78,7 +78,7 @@
         "pierceCap": 3,
         "pierceArmor": true
       }
-    }
+    },
     "silicon": {
       "sprite": "missile",
       "width": 9,
@@ -131,7 +131,7 @@
       "hitSound": "explosion",
       "despawnSound": "explosion",
       "homingPower": 0.15
-    },
+    }
   },
   "recoil": 1.2,
   "shootSound": "shootMissile",

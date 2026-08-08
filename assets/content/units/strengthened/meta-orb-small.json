@@ -15,7 +15,7 @@
   "lowAltitude": true,
   "missileAccelTime": 0,
   "deathSound": "explosionArtilleryShock",
-  "deathExplosionEffect": "massiveExplosion"
+  "deathExplosionEffect": "massiveExplosion",
   "loopSound": "none",
   "loopSoundVolume": 0,
   "fogRadius": 15,

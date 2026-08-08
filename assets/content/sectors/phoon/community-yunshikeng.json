@@ -5,7 +5,7 @@
   "research": {
     "parent": "community-xingyunxueshan",
     "objectives": [
-      "core-singularity"
+      "core-singularity",
       {
         "type": "SectorComplete",
         "preset": "retreat-zone"

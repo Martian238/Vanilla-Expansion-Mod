@@ -44,10 +44,10 @@
       "bullet": {
         "maxRange": 120
       },
-      "targetBuildings": true,
-    }
+      "targetBuildings": true
+    },
     {
-      "name": "zenith-watermelo"
+      "name": "zenith-watermelo",
       "x": 0,
       "y": 0,
       "shootY": 6,
@@ -246,7 +246,7 @@
         "hittable": false,
         "absorbable": false,
         "hitSize": 8,
-        "collidesTiles": false,
+        "collidesTiles": false
         },
         "despawnEffect": "none",
         "hitEffect": "none",

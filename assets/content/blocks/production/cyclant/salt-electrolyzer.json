@@ -3,10 +3,10 @@
   "requirements": [
     "graphite/20","metaglass/30","chromium/40","catalyzon/10"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "isomorphic-kiln",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "fort-port"
@@ -75,7 +75,7 @@
         "padTop": 8
       },
       { "type": "DrawRegion", "suffix": "" },
-      { "type": "DrawLiquidOutputs" }
+      { "type": "DrawLiquidOutputs" },
       {
         "type": "DrawGlowRegion",
         "suffix": "-glow",

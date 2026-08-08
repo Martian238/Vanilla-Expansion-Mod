@@ -3,7 +3,7 @@
   "category": "crafting",
   "consumes": {
     "liquids": {
-      "liquids": [ "water/0" ]
+      "liquids": [ "water/0" ],
       "optional": true,
       "booster": false
     },
@@ -23,7 +23,7 @@
   "itemCapacity": 30,
   "research": {
     "parent": "blender",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "fruit-flats"
@@ -37,8 +37,8 @@
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
-      { 
-        "type": "DrawRegion", 
+      {
+        "type": "DrawRegion",
         "suffix": "-rotator-bottom",
         "rotateSpeed": 1.5,
         "spinSprite": false
@@ -47,32 +47,32 @@
         "type": "DrawLiquidTile",
         "drawLiquid": "water"
       },
-      { 
-        "type": "DrawRegion", 
+      {
+        "type": "DrawRegion",
         "suffix": "-rotator-shadow",
         "rotateSpeed": -1.5,
         "spinSprite": false,
         "x": -0.75,
         "y": -0.75
       },
-      { 
-        "type": "DrawRegion", 
-        "suffix": "-base",
+      {
+        "type": "DrawRegion",
+        "suffix": "-base"
       },
-      { 
-        "type": "DrawRegion", 
+      {
+        "type": "DrawRegion",
         "suffix": "-rotator-edge",
         "rotateSpeed": -1.5,
         "spinSprite": true
       },
-      { 
-        "type": "DrawRegion", 
+      {
+        "type": "DrawRegion",
         "suffix": "-rotator",
         "rotateSpeed": -1.5,
         "spinSprite": false
       },
-      { 
-        "type": "DrawRegion", 
+      {
+        "type": "DrawRegion",
         "suffix": "-rotator-top-shadow",
         "rotateSpeed": -1.5,
         "spinSprite": false,
@@ -80,8 +80,8 @@
         "y": -0.75
       },
       { "type": "DrawRegion", "suffix": "-cap" },
-      { 
-        "type": "DrawRegion", 
+      {
+        "type": "DrawRegion",
         "suffix": "-rotator-top",
         "rotateSpeed": -1.5,
         "spinSprite": false

@@ -14,7 +14,7 @@
   "ambientSoundVolume": 0.15,
   "research": {
     "parent": "large-turbine-generator",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "intervalley"
@@ -36,8 +36,8 @@
         "type": "DrawGlowRegion",
         "suffix": "-glow",
         "alpha": 0.9,
-        "glowIntensity": 0.2
-        "color": "ffa665",
+        "glowIntensity": 0.2,
+        "color": "ffa665"
       }
     ]
   },

@@ -37,7 +37,6 @@
   "loopSound": "loopHum",
   "loopSoundVolume": 0.18,
   "researchCostMultiplier": 0.01,
-  "envDisabled": 0,
   "stepSound": "walkerStepTiny",
   "stepSoundVolume": 0.4,
   "stepSoundPitch": 0.8,
@@ -100,7 +99,7 @@
           "progress": "warmup",
           "color": "ffffff00",
           "colorTo": "ffffffff",
-          "mixColor": "f2555500"
+          "mixColor": "f2555500",
           "mixColorTo": "ffffffff"
         },
         {
@@ -148,7 +147,7 @@
           "hollow": false,
           "radius": 0,
           "color": "bf92f988",
-          "colorTo": "f2555588"
+          "colorTo": "f2555588",
           "radiusTo": 84.22,
           "progress": "warmup",
           "layer": 0.01
@@ -260,6 +259,6 @@
         "collidesAir": true,
         "scaledSplashDamage": true
       }
-    },
+    }
   ]
 }

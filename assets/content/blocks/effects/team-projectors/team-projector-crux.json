@@ -37,7 +37,7 @@
         "useWarmupRadius": true,
         "timeScl": -0.5,
         "color": "f2555544"
-      }
+      },
       {
         "type": "DrawGlowRegion",
         "suffix": "-glow",

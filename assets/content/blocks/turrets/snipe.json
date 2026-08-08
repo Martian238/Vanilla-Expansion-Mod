@@ -15,10 +15,8 @@
       "speed": 8,
       "damage": 40,
       "shootEffect": "colorSpark",
-      "hitColor": "f68021",
       "smokeEffect": "shootBigSmoke",
       "hitEffect": "hitSquaresColor",
-      "hitColor": "f68021",
       "despawnEffect": "hitSquaresColor",
       "hitColor": "f68021",
       "backColor": "f68021"
@@ -37,11 +35,9 @@
       "reloadMultiplier": 1.3,
       "damage": 38,
       "shootEffect": "colorSpark",
-      "hitColor": "999ba0",
       "frontColor": "999ba0",
       "smokeEffect": "shootBigSmoke",
       "hitEffect": "hitBulletColor",
-      "hitColor": "999ba0",
       "despawnEffect": "hitBulletColor",
       "hitColor": "999ba0",
       "backColor": "707594"
@@ -55,7 +51,7 @@
       "homingRange": 320,
       "trailInterval": 3,
       "trailWidth": 0.5,
-      "trailEffect": "missileTrailShort"
+      "trailEffect": "missileTrailShort",
       "trailColor": "a9d8ff",
       "rangeChange": 40,
       "speed": 8,
@@ -79,11 +75,9 @@
       "speed": 10,
       "pierce": true,
       "pierceCap": 8,
-      "pierceBuilding": true,
       "knockback": 1,
       "damage": 48,
       "shootEffect": "colorSpark",
-      "hitColor": "90dbff",
       "smokeEffect": "shootBigSmoke",
       "armorMultiplier": -1,
       "hitEffect": {
@@ -101,12 +95,11 @@
                   "sides": 4,
                   "strokeFrom": 4,
                   "lifetime": 5
-                },
+                }
               ]
             }
           ]
       },
-      "hitColor": "90dbff",
       "despawnEffect": "hitBulletColor",
       "hitColor": "90dbff",
       "backColor": "90dbff",
@@ -120,10 +113,8 @@
       "speed": 8,
       "damage": 35,
       "shootEffect": "colorSpark",
-      "hitColor": "ffd37f",
       "smokeEffect": "shootBigSmoke",
       "hitEffect": "hitBulletColor",
-      "hitColor": "ffd37f",
       "despawnEffect": "hitBulletColor",
       "hitColor": "ffd37f",
       "backColor": "ffd37f",
@@ -134,7 +125,7 @@
       "hitSound": "shockBullet",
       "despawnSound": "shockBullet"
     }
-  }
+  },
   "recoil": 1,
   "shootSound": "shootSalvo",
   "shoot": {
@@ -171,7 +162,7 @@
   },
   "research": {
     "parent": "buffet",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "shale-quarry"

@@ -9,7 +9,6 @@
   },
   "outputItem": "graphite/2",
   "itemCapacity": 10,
-  "hasItems": true,
   "research": {
     "parent": "melting-electrolyzer"
   },

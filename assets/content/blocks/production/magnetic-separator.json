@@ -4,7 +4,7 @@
     "ferrum/30","graphite/30","silicon/20"
   ],
   "researchCost": [ "ferrum/30","graphite/30","silicon/20" ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "blast-furnace"
   },

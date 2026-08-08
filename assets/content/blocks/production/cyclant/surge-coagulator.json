@@ -4,10 +4,10 @@
     "aluminium/100","graphite/200","silicide/180","silicon/120"
   ],
   "buildCostMultiplier": 1,
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "silicide-crucible",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "ruins"
@@ -36,7 +36,7 @@
   "craftEffect": {
     "type": "MultiEffect",
     "effects": [
-      {  
+      {
         "type": "MultiEffect",
         "effects": [ "smeltsmoke","fuelburn" ]
       },
@@ -75,7 +75,7 @@
         "color": "f3e979",
         "glowScale": 2.5
       },
-      { 
+      {
         "type": "DrawFlame",
         "flameColor": "f3e979",
         "flameRadiusScl": 10,

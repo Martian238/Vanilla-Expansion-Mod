@@ -192,7 +192,7 @@
         },
         "hitEffect": "flakExplosion",
         "despawnEffect": "flakExplosion",
-        "hitColor": "f25555"
+        "hitColor": "f25555",
         "damage": 22,
         "hitShake": 1,
         "despawnShake": 1
@@ -265,7 +265,7 @@
         "type": "ShootBarrel",
         "barrels": [ 3,0,0,0,0,0,-3,0,0 ],
         "shots": 3,
-        "shotDelay": 20,
+        "shotDelay": 20
       },
       "reload": 90,
       "bullet": {

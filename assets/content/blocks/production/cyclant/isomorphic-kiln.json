@@ -18,7 +18,7 @@
         //"lightColor": "ccbcee"
       }
     ]
-  }
+  },
   "ambientSound": "loopSmelter",
   "ambientSoundVolume": 0.08,
   "consumes": {
@@ -29,7 +29,7 @@
   },
   "research": {
     "parent": "isomorphic-press",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "carbon-relics"

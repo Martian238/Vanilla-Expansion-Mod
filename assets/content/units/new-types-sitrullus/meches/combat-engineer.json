@@ -224,7 +224,7 @@
     },
     {
       "type": "PointDefenseWeapon",
-      "name": "point-defense-mount-new"
+      "name": "point-defense-mount-new",
       "x": 17.5,
       "y": 4.25,
       "reload": 4,
@@ -253,7 +253,7 @@
       "bullet": {
         "maxRange": 160
       },
-      "targetBuildings": true,
+      "targetBuildings": true
     },
     {
       "name": "mega",
@@ -268,7 +268,7 @@
       "y": -9.5,
       "x": 0,
       "shootY": 0,
-      "shootSound": "carrionMechDeath"
+      "shootSound": "carrionMechDeath",
       "bullet": {
         "spawnUnit": "mega",
         "shootEffect": "none",

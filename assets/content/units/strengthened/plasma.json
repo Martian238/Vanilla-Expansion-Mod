@@ -46,7 +46,7 @@
       "rotate": false,
       "shootCone": 360,
       "baseRotation": 180,
-      "inaccuracy": 15
+      "inaccuracy": 15,
       "shootX": 0,
       "shootY": 0,
       "reload": 48,

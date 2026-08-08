@@ -10,7 +10,7 @@
         "preset": "shale-quarry"
       }
     ]
-  }
+  },
   "researchCostMultiplier": 0.01,
   "isFirstTier": false,
   "unitType": "delta",

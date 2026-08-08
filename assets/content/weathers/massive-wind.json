@@ -14,7 +14,7 @@
   "density": 3000,
   "baseSpeed": 15,
   "attrs": {
-    "heat": -0.3
+    "heat": -0.3,
     "light": -0.1,
     "steam": 4
   },

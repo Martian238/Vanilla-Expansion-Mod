@@ -20,7 +20,7 @@
     },
     "liquids": {
       "liquids": [ "water/1.2" ]
-    }
+    },
     "power": 1.5
   },
   "flammabilityScale": 0,
@@ -46,13 +46,13 @@
         "type": "DrawLiquidTile",
         "drawLiquid": "water"
       },
-      { 
+      {
         "type": "DrawCultivator",
         "plantColorLight": "ff8a67",
         "plantColor": "e16049",
         "bottomColor": "ba352b"
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": ""
       }

@@ -3,7 +3,7 @@
   "requirements": [
     "lead/40","chromium/15","graphite/20"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "cultivate-tank"
   },

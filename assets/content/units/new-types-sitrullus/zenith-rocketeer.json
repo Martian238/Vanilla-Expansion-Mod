@@ -34,15 +34,15 @@
         "spawnUnit": "zenith-rocketeer-missile",
         "shootEffect": {
           "type": "MultiEffect",
-          "effects": [ 
-            { 
+          "effects": [
+            {
               "type": "RadialEffect",
               "effect": "shootBigSmoke",
               "rotationOffset": 180,
               "lengthOffset": 4,
               "amount": 1
             },
-            { 
+            {
               "type": "RadialEffect",
               "effect": "shootBig2",
               "rotationOffset": 180,
@@ -98,15 +98,15 @@
         "spawnUnit": "zenith-rocketeer-missile",
         "shootEffect": {
           "type": "MultiEffect",
-          "effects": [ 
-            { 
+          "effects": [
+            {
               "type": "RadialEffect",
               "effect": "shootBigSmoke",
               "rotationOffset": 180,
               "lengthOffset": 4,
               "amount": 1
             },
-            { 
+            {
               "type": "RadialEffect",
               "effect": "shootBig2",
               "rotationOffset": 180,
@@ -162,15 +162,15 @@
         "spawnUnit": "zenith-rocketeer-missile",
         "shootEffect": {
           "type": "MultiEffect",
-          "effects": [ 
-            { 
+          "effects": [
+            {
               "type": "RadialEffect",
               "effect": "shootBigSmoke",
               "rotationOffset": 180,
               "lengthOffset": 4,
               "amount": 1
             },
-            { 
+            {
               "type": "RadialEffect",
               "effect": "shootBig2",
               "rotationOffset": 180,
@@ -226,15 +226,15 @@
         "spawnUnit": "zenith-rocketeer-missile",
         "shootEffect": {
           "type": "MultiEffect",
-          "effects": [ 
-            { 
+          "effects": [
+            {
               "type": "RadialEffect",
               "effect": "shootBigSmoke",
               "rotationOffset": 180,
               "lengthOffset": 4,
               "amount": 1
             },
-            { 
+            {
               "type": "RadialEffect",
               "effect": "shootBig2",
               "rotationOffset": 180,
@@ -304,7 +304,7 @@
       }
     },
     {
-      "name": "zenith-watermelo"
+      "name": "zenith-watermelo",
       "x": 0,
       "y": 0,
       "shootY": 12,
@@ -498,7 +498,7 @@
         "hittable": false,
         "absorbable": false,
         "hitSize": 8,
-        "collidesTiles": false,
+        "collidesTiles": false
         },
         "despawnEffect": "none",
         "hitEffect": "none",

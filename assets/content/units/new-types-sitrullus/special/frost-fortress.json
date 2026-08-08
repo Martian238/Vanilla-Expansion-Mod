@@ -23,7 +23,7 @@
   "outlineColor": "596692",
   "mechLegColor": "596692",
   "immunities": [ "wet","freezing","frozen","dusty","frosted" ],
-  "research": "zenith-small-sharded"
+  "research": "zenith-small-sharded",
   "weapons": [
     {
       "name": "frost-artillery",

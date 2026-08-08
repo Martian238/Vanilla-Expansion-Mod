@@ -18,7 +18,7 @@
     },
     "liquids": {
       "liquids": [ "water/0.1" ]
-    }
+    },
     "power": 3
   },
   "shownPlanets": [ "cyclant","phoon" ],
@@ -46,12 +46,12 @@
         "type": "DrawLiquidTile",
         "drawLiquid": "water"
       },
-      { 
+      {
         "type": "DrawCultivator",
         "plantColorLight": "e16049",
         "plantColor": "ba352b",
         "bottomColor": "892018"
-      }
+      },
       {
         "type": "DrawRegion",
         "suffix": "-rotator",
@@ -80,7 +80,7 @@
         "x": 9,
         "y": -9
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": ""
       },

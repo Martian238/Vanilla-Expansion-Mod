@@ -170,7 +170,7 @@
         "sizeFrom": 50,
         "sizeTo": 50,
         "layer": 100,
-         
+
         "lightColor": "ffa665",
         "region": "ve-corona-full",
         "offset": 0,
@@ -190,7 +190,7 @@
         "sizeFrom": 50,
         "sizeTo": 50,
         "layer": 100,
-         
+
         "lightColor": "ffa665",
         "region": "ve-corona-full",
         "offset": -90,
@@ -210,7 +210,7 @@
         "sizeFrom": 50,
         "sizeTo": 50,
         "layer": 100,
-         
+
         "lightColor": "ffa665",
         "region": "ve-corona-full",
         "offset": 180,
@@ -230,7 +230,7 @@
         "sizeFrom": 50,
         "sizeTo": 50,
         "layer": 100,
-         
+
         "lightColor": "ffa665",
         "region": "ve-corona-full",
         "offset": 90,
@@ -253,7 +253,7 @@
         "sizeFrom": 50,
         "sizeTo": 50,
         "layer": 100,
-         
+
         "lightColor": "ffa665",
         "region": "ve-corona-full",
         "offset": 0,
@@ -275,7 +275,7 @@
         "sizeFrom": 50,
         "sizeTo": 50,
         "layer": 100,
-         
+
         "lightColor": "ffa665",
         "region": "ve-corona-full",
         "offset": -90,
@@ -297,7 +297,7 @@
         "sizeFrom": 50,
         "sizeTo": 50,
         "layer": 100,
-         
+
         "lightColor": "ffa665",
         "region": "ve-corona-full",
         "offset": 180,
@@ -319,7 +319,7 @@
         "sizeFrom": 50,
         "sizeTo": 50,
         "layer": 100,
-         
+
         "lightColor": "ffa665",
         "region": "ve-corona-full",
         "offset": 90,
@@ -335,7 +335,7 @@
         },
         "hitEffect": "none",
         "despawnEffect": "none",
-        "smokeEffect": "none",
+        "smokeEffect": "none"
       }
     }
   ],

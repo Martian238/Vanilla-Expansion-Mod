@@ -4,7 +4,7 @@
   "category": "crafting",
   "craftEffect": "smeltsmoke",
   "size": 2,
-  "outputItems": [ "silicon/2","sand/5" ]
+  "outputItems": [ "silicon/2","sand/5" ],
   "craftTime": 120,
   "itemCapacity": 20,
   "hasPower": true,
@@ -19,7 +19,7 @@
         "flameRadiusScl": 10
       }
     ]
-  }
+  },
   "ambientSound": "loopSmelter",
   "ambientSoundVolume": 0.09,
   "consumes": {

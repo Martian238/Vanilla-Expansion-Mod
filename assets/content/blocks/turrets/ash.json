@@ -521,7 +521,7 @@
         "colorTo": "ffa665",
         "outline": false,
         "blending": "additive"
-      }
+      },
       {
         "type": "RegionPart",
         "suffix": "-joint",
@@ -560,7 +560,7 @@
     ]
   },
   "research": {
-    "parent": "burst",
+    "parent": "burst"
   },
   "consumes": {
     "coolant": {

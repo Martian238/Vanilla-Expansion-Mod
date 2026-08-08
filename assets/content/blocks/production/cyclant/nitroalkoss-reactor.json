@@ -18,7 +18,7 @@
     },
     "liquids": {
       "liquids": [ "water/0.4" ]
-    }
+    },
     "power": 1.25
   },
   "baseExplosiveness": 10,
@@ -45,7 +45,7 @@
         "type": "DrawLiquidTile",
         "drawLiquid": "water"
       },
-      { 
+      {
         "type": "DrawCultivator",
         "plantColorLight": "ff8a6780",
         "plantColor": "e1604980",
@@ -55,7 +55,7 @@
         "type": "DrawLiquidTile",
         "drawLiquid": "chlorine"
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": ""
       },

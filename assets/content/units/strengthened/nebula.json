@@ -94,7 +94,7 @@
       "max": 600,
       "cooldown": 150,
       "angle": 60,
-      "angleOffset": -120
+      "angleOffset": -120,
       "whenShooting": false,
       "width": 60
     },
@@ -134,12 +134,12 @@
       "shake": 4,
       "bullet": {
         "maxRange": 168,
-        "shootEffect": { 
+        "shootEffect": {
           "type": "WaveEffect",
           "colorTo": "98ffa9",
           "sizeTo": 24,
           "lifetime": 8,
-          "strokeFrom": 5,
+          "strokeFrom": 5
         },
         "recoil": 0.2,
         "smokeEffect": "shootSmokeTitan",
@@ -156,7 +156,6 @@
         "damage": 0,
         "speed": 0,
         "despawnEffect": "colorSpark",
-        "hitColor": "98ffa9",
         "hitEffect": "colorSpark",
         "hitColor": "98ffa9",
         "keepVelocity": false,

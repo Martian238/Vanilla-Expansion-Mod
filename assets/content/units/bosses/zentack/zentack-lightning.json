@@ -43,7 +43,7 @@
         "rangeOverride": 8000,
         "hitEffect": "none",
         "despawnEffect": "none",
-        "instantDisappear": true
+        "instantDisappear": true,
         "killShooter": true,
         "shootEffect": "none",
         "smokeEffect": {

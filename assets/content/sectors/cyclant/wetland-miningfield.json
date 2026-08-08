@@ -4,12 +4,12 @@
   "difficulty": 3,
   "research": {
     "parent": "carbon-relics",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "carbon-relics"
       },
-      "isomorphic-kiln","isomorphic-pump"
+      "isomorphic-kiln","isomorphic-pump",
       "power-drill","shelf",
       "air-fabricator"
     ]

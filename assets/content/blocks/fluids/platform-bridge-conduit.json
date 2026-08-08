@@ -6,7 +6,6 @@
   "health": 300,
   "armor": 6,
   "fadeIn": false,
-  "hasPower": false,
   "moveArrows": false,
   "arrowSpacing": 6,
   "buildCostMultiplier": 3,

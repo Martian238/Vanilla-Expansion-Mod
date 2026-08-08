@@ -21,7 +21,7 @@
           "xScl": 1.2,
           "growX": -1.2,
           "colorTo": "ffffff00",
-          "progress": "warmup",
+          "progress": "warmup"
         }
       ],
       "bullet": { "maxRange": 336, "speed": 13 },

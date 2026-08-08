@@ -40,7 +40,7 @@
       "suffix": "",
       "outline": false,
       "blending": "additive",
-      "colorFrom": "ffffff90",
+      "color": "ffffff90", // momiji
       "colorTo": "ffffff70",
       "layer": 90,
       "progress": {

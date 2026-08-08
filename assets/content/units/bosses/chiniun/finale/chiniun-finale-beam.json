@@ -1,7 +1,6 @@
 {
   "isEnemy": false,
   "drawCell": false,
-  "hidden": true,
   "hittable": false,
   "physics": false,
   "flying": true,
@@ -157,7 +156,7 @@
           "layer": 120,
           "lightColor": "000000",
           "clip": 3200
-        },  
+        },
         "smokeEffect": "none",
         "hitSize": 50
       }

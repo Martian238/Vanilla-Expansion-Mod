@@ -18,7 +18,6 @@
   "drag": 0.06,
   "accel": 0.08,
   "deathSound": "si2Explode",
-  "envDisabled": 0,
   "lightColor": "feb380",
   "emitWalkSound": false,
   "floorMultiplier": 0.3,
@@ -88,7 +87,7 @@
               "sizeFrom": 2.5,
               "sizeTo": 0,
               "lightColor": "feb380",
-              "lightOpacity": 1,
+              "lightOpacity": 1
             },
             {
               "type": "ParticleEffect",
@@ -105,7 +104,7 @@
               "sizeFrom": 4,
               "sizeTo": 2,
               "lightColor": "feb380",
-              "lightOpacity": 0.5,
+              "lightOpacity": 0.5
             }
           ]
         },

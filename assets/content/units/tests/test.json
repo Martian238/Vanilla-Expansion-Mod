@@ -487,7 +487,7 @@
             }
           }
         ]*/
-        
+
         /*
       "type": "PointBulletType",
       "speed": 3.6,
@@ -582,7 +582,7 @@
         "hitSound": "explosionQuad",
         "despawnSound": "explosionQuad"
       }
-    
+
       }
     }*/
     {
@@ -723,7 +723,7 @@
                     "op": "add",
                     "amount": -1
                   },
-                  { "op": "clamp" }
+                  { "op": "clamp" },
               {
                 "op": "curve",
                 "interp": "pow3Out"
@@ -741,7 +741,7 @@
                     "op": "add",
                     "amount": -1
                   },
-                  { "op": "clamp" }
+                  { "op": "clamp" },
               {
                 "op": "curve",
                 "interp": "pow3Out"

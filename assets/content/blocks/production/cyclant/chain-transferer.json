@@ -3,7 +3,7 @@
   "requirements": [
     "cobalt/100","thorium/90","silicon/130","lead/85","catalyzon/20"
   ],
-  "category": "crafting"
+  "category": "crafting",
   "research": {
     "parent": "fibralt-extender",
     "objectives": [
@@ -27,7 +27,7 @@
     },
     "liquids": {
       "liquids": [ "hydrogen/0.354166666667" ]
-    }
+    },
     "power": 2.6
   },
   "shownPlanets": [ "cyclant","phoon","thavina" ],
@@ -38,15 +38,15 @@
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
-      { 
-        "type": "DrawRegion", 
+      {
+        "type": "DrawRegion",
         "suffix": "-bottom"
       },
       {
         "type": "DrawLiquidTile",
         "drawLiquid": "hydrogen"
       },
-      { 
+      {
         "type": "DrawRegion",
         "suffix": ""
       },

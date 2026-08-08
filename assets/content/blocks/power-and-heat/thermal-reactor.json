@@ -45,7 +45,7 @@
         "color": "6ecdec",
         "alpha": 0.6,
         "glowIntensity": 0.1
-      }
+      },
       {
         "type": "DrawGlowRegion",
         "suffix": "-ventglow",
@@ -58,7 +58,7 @@
   "armor": 12,
   "research": {
     "parent": "heat-turbine-generator",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "radioactive-islands"

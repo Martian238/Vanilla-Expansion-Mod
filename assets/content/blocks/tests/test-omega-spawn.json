@@ -1,7 +1,7 @@
 {
   "type": "ConsumeGenerator",
   "explodeOnFull": true,
-  "outputLiquid": "nitrogen/1"
+  "outputLiquid": "nitrogen/1",
   "category": "units",
   "liquidCapacity": 0.1,
   "rebuildable": true,

@@ -120,7 +120,7 @@
       "width": 2,
       "height": 30
     },
-   
+
     {
       "type": "Rect",
       "x": -44,
@@ -268,7 +268,7 @@
         "trailWidth": 2,
         "trailLength": 5,
         "speed": 6,
-        "lifetime": 10
+        "lifetime": 10,
         "collides": false,
         "hittable": false,
         "reflectable": false,
@@ -288,7 +288,7 @@
         "lightColor": "00ffce",
         "fragBullets": 1,
         "fragBullet": {
-        
+
         "sprite": "circle-bullet",
         "width": 4,
         "height": 16,
@@ -301,7 +301,7 @@
         "trailWidth": 2,
         "trailLength": 5,
         "speed": 6,
-        "lifetime": 10
+        "lifetime": 10,
         "collides": false,
         "hittable": false,
         "reflectable": false,
@@ -368,7 +368,7 @@
             "waveRad": 40,
             "smokes": 4
           },
-          "lightColor": "00ffce",
+          "lightColor": "00ffce"
         }],
         "intervalRandomSpread": 360,
         "bulletInterval": 60,
@@ -376,7 +376,7 @@
         "lightColor": "00ffce",
         "fragBullets": 1,
         "fragBullet": {
-        
+
         "sprite": "circle-bullet",
         "width": 4,
         "height": 16,
@@ -389,7 +389,7 @@
         "trailWidth": 2,
         "trailLength": 5,
         "speed": 6,
-        "lifetime": 10
+        "lifetime": 10,
         "collides": false,
         "hittable": false,
         "reflectable": false,
@@ -456,7 +456,7 @@
             "waveRad": 40,
             "smokes": 4
           },
-          "lightColor": "00ffce",
+          "lightColor": "00ffce"
         }],
         "intervalRandomSpread": 360,
         "bulletInterval": 60,
@@ -464,7 +464,7 @@
         "lightColor": "00ffce",
         "fragBullets": 1,
         "fragBullet": {
-        
+
         "sprite": "circle-bullet",
         "width": 4,
         "height": 16,
@@ -477,7 +477,7 @@
         "trailWidth": 2,
         "trailLength": 5,
         "speed": 6,
-        "lifetime": 10
+        "lifetime": 10,
         "collides": false,
         "hittable": false,
         "reflectable": false,
@@ -544,7 +544,7 @@
             "waveRad": 40,
             "smokes": 4
           },
-          "lightColor": "00ffce",
+          "lightColor": "00ffce"
         }],
         "intervalRandomSpread": 360,
         "bulletInterval": 60,
@@ -552,7 +552,7 @@
         "lightColor": "00ffce",
         "fragBullets": 1,
         "fragBullet": {
-        
+
         "sprite": "circle-bullet",
         "width": 4,
         "height": 16,
@@ -565,7 +565,7 @@
         "trailWidth": 2,
         "trailLength": 5,
         "speed": 6,
-        "lifetime": 10
+        "lifetime": 10,
         "collides": false,
         "hittable": false,
         "reflectable": false,
@@ -632,7 +632,7 @@
             "waveRad": 40,
             "smokes": 4
           },
-          "lightColor": "00ffce",
+          "lightColor": "00ffce"
         }],
         "intervalRandomSpread": 360,
         "bulletInterval": 60,
@@ -640,7 +640,7 @@
         "lightColor": "00ffce",
         "fragBullets": 1,
         "fragBullet": {
-        
+
         "sprite": "circle-bullet",
         "width": 4,
         "height": 16,
@@ -653,7 +653,7 @@
         "trailWidth": 2,
         "trailLength": 5,
         "speed": 6,
-        "lifetime": 10
+        "lifetime": 10,
         "collides": false,
         "hittable": false,
         "reflectable": false,
@@ -720,7 +720,7 @@
             "waveRad": 40,
             "smokes": 4
           },
-          "lightColor": "00ffce",
+          "lightColor": "00ffce"
         }],
         "intervalRandomSpread": 360,
         "bulletInterval": 60,
@@ -728,7 +728,7 @@
         "lightColor": "00ffce",
         "fragBullets": 1,
         "fragBullet": {
-        
+
         "sprite": "circle-bullet",
         "width": 4,
         "height": 16,
@@ -741,7 +741,7 @@
         "trailWidth": 2,
         "trailLength": 5,
         "speed": 6,
-        "lifetime": 10
+        "lifetime": 10,
         "collides": false,
         "hittable": false,
         "reflectable": false,
@@ -808,7 +808,7 @@
             "waveRad": 40,
             "smokes": 4
           },
-          "lightColor": "00ffce",
+          "lightColor": "00ffce"
         }],
         "intervalRandomSpread": 360,
         "bulletInterval": 60,
@@ -879,7 +879,7 @@
       }
     },
     {
-      "name": "plasm-weapon"
+      "name": "plasm-weapon",
       "x": -8,
       "y": 1.75,
       "rotate": true,

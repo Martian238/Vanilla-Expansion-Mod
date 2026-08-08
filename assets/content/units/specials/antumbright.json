@@ -84,7 +84,7 @@
       "shootY": 3.5,
       "shoot": {
         "shots": 2,
-        "shotDelay": 4,
+        "shotDelay": 4
       },
       "layerOffset": 25,
       "bullet": {
@@ -124,7 +124,7 @@
       "shootY": 3.5,
       "shoot": {
         "shots": 2,
-        "shotDelay": 4,
+        "shotDelay": 4
       },
       "layerOffset": 25,
       "bullet": {

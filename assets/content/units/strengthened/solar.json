@@ -94,7 +94,7 @@
           "statusDuration": 60,
           "lightColor": "ffa665",
           "hitSound": "explosion",
-          "despawnSound": "explosion",
+          "despawnSound": "explosion"
         },
         "bulletInterval": 4,
         "fragBullets": 10,
@@ -124,7 +124,7 @@
           "status": "blasted",
           "statusDuration": 60,
           "despawnSound": "explosionArtillery"
-        },
+        }
       }
     },
     {
@@ -140,7 +140,7 @@
       "shadow": 4,
       "shootY": 2.5,
       "shoot": {
-        "type": "ShootBarrel"
+        "type": "ShootBarrel",
         "shots": 2,
         "shotDelay": 2,
         "barrels": [ -1,0,0,1,0,0 ]

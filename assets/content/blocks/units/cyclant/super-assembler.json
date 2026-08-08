@@ -11,14 +11,14 @@
         "preset": "thorium-hacienda"
       }
     ]
-  }
+  },
   "size": 5,
   "droneType": "assembly-drone-ve",
   "plans": [
     {
       "unit": "firelock",
       "time": 3000,
-      "requirements": [ 
+      "requirements": [
         "ve-ballistic/1",
         "ve-super-assemble-pack/5"
       ]
@@ -26,7 +26,7 @@
     {
       "unit": "magnetic",
       "time": 2700,
-      "requirements": [ 
+      "requirements": [
         "ve-solar/1",
         "ve-super-assemble-pack/5"
       ]
@@ -42,7 +42,7 @@
     {
       "unit": "stereo",
       "time": 3900,
-      "requirements": [ 
+      "requirements": [
         "ve-square/1",
         "ve-super-assemble-pack/5"
       ]

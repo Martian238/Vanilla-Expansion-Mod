@@ -7,13 +7,13 @@
   "armor": 4,
   "research": {
     "parent": "advanced-node",
-    "objectives": [   
+    "objectives": [
       {
         "type": "SectorComplete",
         "preset": "wetland-miningfield"
       }
     ]
-  }
+  },
   "laserColor2": "ffd37f",
   "laserWidth": 0.5,
   "researchCostMultiplier": 0.3,

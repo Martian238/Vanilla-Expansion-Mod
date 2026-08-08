@@ -32,7 +32,7 @@
       "shootWarmupSpeed": 0.2,
       "rotate": true,
       "top": true,
-      "rotationLimit": 30
+      "rotationLimit": 30,
       "shootY": 13.25,
 "shootSound": [ "lbp3Flamethrower1","lbp3Flamethrower2","lbp3Flamethrower3" ],
 "shootSoundVolume": 0.25,
@@ -156,7 +156,7 @@
       }
     },
     {
-      "name": "zenith-watermelo"
+      "name": "zenith-watermelo",
       "x": 0,
       "y": 0,
       "shootY": 12,
@@ -349,7 +349,7 @@
         "hittable": false,
         "absorbable": false,
         "hitSize": 8,
-        "collidesTiles": false,
+        "collidesTiles": false
         },
         "despawnEffect": "none",
         "hitEffect": "none",

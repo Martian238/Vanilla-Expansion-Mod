@@ -70,7 +70,7 @@
   "loopSoundVolume": 0.05,
   "weapons": [
     {
-      "name": "plasm-weapon"
+      "name": "plasm-weapon",
       "x": 6.75,
       "y": 1,
       "rotate": true,

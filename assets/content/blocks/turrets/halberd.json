@@ -15,7 +15,7 @@
     "sideWidth": 1,
     "largeHit": true,
     "hitSize": 8,
-    "lifetime": 20
+    "lifetime": 20,
     "damage": 125
   },
   "shoot": { "shots": 2, "shotDelay": 3 },

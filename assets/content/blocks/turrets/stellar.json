@@ -51,7 +51,7 @@
         "lightColor": "aad6c0",
         "layer": 120
       },
-      { 
+      {
         "type": "SoundEffect",
         "maxVolume": 0.7,
         "minVolume": 0.7,
@@ -233,7 +233,6 @@
     }
   },
   "recoil": 4,
-  "predictTarget": false,
   "shootSound": [ "roMechaBossSmallExplosion1","roMechaBossSmallExplosion2","roMechaBossSmallExplosion3" ],
   "soundPitchMin": 0.8,
   "soundPitchMax": 0.8,
@@ -265,7 +264,7 @@
   "liquidCapacity": 120,
   "consumes": {
     "liquids": {
-      "liquids": [ "chlorine/0.25" ],
+      "liquids": [ "chlorine/0.25" ]
     },
     "power": 2.5
   },
@@ -289,7 +288,7 @@
         "hollow": true,
         "stroke": 0,
         "radius": 5,
-        "progress": "warmup"
+        "progress": "warmup",
         "strokeTo": 2.5,
         "rotation": 90,
         "y": -8,
@@ -303,7 +302,7 @@
         "stroke": 0,
         "radius": 11,
         "rotation": 90,
-        "progress": "warmup"
+        "progress": "warmup",
         "strokeTo": 0.75,
         "y": -8,
         "color": "67f0ab",

@@ -61,7 +61,7 @@
         "colorTo": "7457ce",
         "particles": 1,
         "length": 0,
-        "baseLength": 0
+        "baseLength": 0,
         "lifetime": 15,
         "sizeFrom": 7,
         "sizeTo": 0,

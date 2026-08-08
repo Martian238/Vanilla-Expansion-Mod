@@ -59,7 +59,7 @@
         "hitColor": "bf92f9",
         "lightColor": "bf92f9",
         "type": "LaserBoltBulletType",
-        "shootEffect": "shootSmallColor"
+        "shootEffect": "shootSmallColor",
         "speed": 5.2,
         "lifetime": 25,
         "hittable": false,

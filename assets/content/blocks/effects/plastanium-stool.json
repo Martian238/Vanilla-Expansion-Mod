@@ -19,5 +19,5 @@
   "destroySound": "blockExplodeWall",
   "destroySoundVolume": 1,
   "underBullets": false,
-  "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "shownPlanets": [ "cyclant","phoon","maress","thavina" ]
 }

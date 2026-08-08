@@ -194,7 +194,7 @@
           "damage": 5000,
           "sideLength": 0,
           "laserEffect": "chainLightning",
-          "hitColor": "00ffce"
+          "hitColor": "00ffce",
         "shootEffect": "none",
         "smokeEffect": "none"
       }
@@ -262,7 +262,7 @@
         },
         "hitEffect": "none",
         "despawnEffect": "none",
-        "smokeEffect": "none",
+        "smokeEffect": "none"
       }
     }
   ],

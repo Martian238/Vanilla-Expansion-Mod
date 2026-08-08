@@ -3,7 +3,7 @@
   "sector": 28,
   "difficulty": 7,
   "research": {
-    "parent": "melon-onset",
+    "parent": "melon-onset"
   },
   "overrideLaunchDefaults": true,
   "captureWave": 0,

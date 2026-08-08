@@ -109,7 +109,7 @@
           "pierce": true,
           "pierceCap": 3,
           "status": "plasma-status",
-          "statusDuration": 300
+          "statusDuration": 300,
           "bullets": [
             {
               "instantDisappear": true,
@@ -146,7 +146,7 @@
           "length": 0,
           "baseLength": 0,
           "followParent": true,
-          "rotWithParent": true,
+          "rotWithParent": true
         }
                 ]
               },
@@ -188,7 +188,7 @@
                 "lifetime": 3,
                 "particles": 1,
                 "length": 0,
-                "baseLength": 0,
+                "baseLength": 0
               },
              "pointEffectSpace": 1
             }
@@ -430,8 +430,7 @@
               "length": 0,
               "baseLength": 9,
               "interp": "circleIn",
-              "region": "ve-square-effect",
-               
+              "region": "ve-square-effect"
             }
           ]
         },
@@ -549,8 +548,7 @@
               "length": 0,
               "baseLength": 9,
               "interp": "circleIn",
-              "region": "ve-square-effect",
-               
+              "region": "ve-square-effect"
             }
           ]
         },
@@ -668,8 +666,7 @@
               "length": 0,
               "baseLength": 9,
               "interp": "circleIn",
-              "region": "ve-square-effect",
-               
+              "region": "ve-square-effect"
             }
           ]
         },
@@ -787,8 +784,7 @@
               "length": 0,
               "baseLength": 9,
               "interp": "circleIn",
-              "region": "ve-square-effect",
-               
+              "region": "ve-square-effect"
             }
           ]
         },

@@ -105,7 +105,6 @@
         "height": 15,
         "speed": 7,
         "damage": 12,
-        "hitColor": "90dbff",
         "hitEffect": "hitBulletColor",
         "despawnEffect": "hitBulletColor",
         "lifetime": 45,
@@ -160,7 +159,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "status": "blown",
         "statusDuration": 900,
         "hitEffect": {
@@ -178,7 +177,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -211,7 +210,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -227,7 +226,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -263,7 +262,7 @@
         "shieldDamageMultiplier": 2.5,
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -279,7 +278,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -315,7 +314,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -331,7 +330,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -367,7 +366,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -383,7 +382,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -419,7 +418,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -435,7 +434,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -471,7 +470,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -487,7 +486,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -523,7 +522,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -539,7 +538,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -575,7 +574,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -591,7 +590,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -625,7 +624,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -641,7 +640,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -675,7 +674,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -691,7 +690,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -722,7 +721,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "blastExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -825,7 +824,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "status": "blown",
         "statusDuration": 900,
         "hitEffect": {
@@ -843,7 +842,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -877,7 +876,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -893,7 +892,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -929,7 +928,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -945,7 +944,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -981,7 +980,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -997,7 +996,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -1033,7 +1032,7 @@
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
         "shieldDamageMultiplier": 2.5,
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -1049,7 +1048,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -1085,7 +1084,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -1101,7 +1100,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -1137,7 +1136,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -1153,7 +1152,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -1189,7 +1188,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -1205,7 +1204,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -1241,7 +1240,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -1257,7 +1256,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -1291,7 +1290,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -1307,7 +1306,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -1341,7 +1340,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "flakExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [
@@ -1357,7 +1356,7 @@
                   "sides": 6,
                   "strokeFrom": 4,
                   "lifetime": 10
-                },
+                }
               ]
             }
           ]
@@ -1388,7 +1387,7 @@
         "frontColor": "ffffff",
         "backColor": "90dbff",
         "despawnEffect": "blastExplosion",
-        "hitSound": "bangClassic"
+        "hitSound": "bangClassic",
         "hitEffect": {
           "type": "MultiEffect",
           "effects": [

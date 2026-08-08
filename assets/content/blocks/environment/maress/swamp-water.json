@@ -4,7 +4,6 @@
   "variants": 0,
   "liquidDrop": "water",
   "liquidMultiplier": 1,
-  "isLiquid": true,
   "status": "wet",
   "statusDuration": 120,
   "cacheLayer": "water",

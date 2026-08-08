@@ -429,9 +429,9 @@
             "length": 30,
             "baseLength": 50,
             "layer": 100,
-            "interp": "circleOut"
+            "interp": "circleOut",
             "sizeInterp": "circleIn"
-          },
+          }
         } ],
         "chargeEffect": {
           "type": "MultiEffect",
@@ -475,7 +475,7 @@
               "sizeTo": 20,
               "colorFrom": "98ffa9",
               "colorTo": "ffffff",
-              "interp": "circleOut",
+              "interp": "circleOut"
             }
           ]
         },
@@ -599,7 +599,7 @@
                 "sizeTo": 15,
                 "colorFrom": "98ffa9",
                 "colorTo": "ffffff",
-                "interp": "pow3Out",
+                "interp": "pow3Out"
               },
               {
                 "type": "WaveEffect",
@@ -1329,7 +1329,7 @@
       "name": "hyper-repairer",
       "x": 88,
       "y": 34,
-      "layerOffset": 1
+      "layerOffset": 1,
       "type": "RepairBeamWeapon",
       "shootY": 13.5,
       "beamWidth": 1.5,
@@ -1343,7 +1343,7 @@
       "name": "hyper-repairer",
       "x": 61,
       "y": 34,
-      "layerOffset": 1
+      "layerOffset": 1,
       "type": "RepairBeamWeapon",
       "shootY": 13.5,
       "beamWidth": 1.5,
@@ -1354,7 +1354,7 @@
       "fractionRepairSpeed": 0.05
     },
     {
-      "name": "hyper-missile-weapon"
+      "name": "hyper-missile-weapon",
       "x": 160,
       "y": 0,
       "shootY": 0,
@@ -1673,7 +1673,7 @@
       "layerOffset": -19.99,
       "minWarmup": 2
     },
-    
+
 
 
     {
@@ -1984,9 +1984,9 @@
         "speed": 0
       }
     },
-    
-    
-    
+
+
+
     /*{
       "mirror": false,
       "x": 0,

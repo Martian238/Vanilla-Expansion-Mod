@@ -17,9 +17,8 @@
       "frontColor": "dae1ee",
       "shootEffect": "shootBigColor",
       "smokeEffect": "shootBigSmoke",
-      "hitEffect": "hitBulletColor"
+      "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
-      "hitColor": "dae1ee",
       "hitColor": "dae1ee",
       "armorMultiplier": 0.7
     },
@@ -32,11 +31,10 @@
       "damage": 30,
       "shootEffect": "shootBigColor",
       "smokeEffect": "shootBigSmoke",
-      "hitEffect": "hitBulletColor"
+      "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
       "backColor": "f9a3c7",
       "frontColor": "ffffff",
-      "hitColor": "f9a3c7",
       "hitColor": "f9a3c7",
       "armorMultiplier": 0.5,
       "pierce": true,
@@ -53,7 +51,6 @@
       "ammoMultiplier": 4,
       "backColor": "f3e979",
       "frontColor": "ffffff",
-      "hitColor": "f3e979",
       "hitColor": "f3e979",
       "hitEffect": "hitBulletColor",
       "despawnEffect": "hitBulletColor",
@@ -136,7 +133,6 @@
       "shootEffect": "shootBigColor",
       "smokeEffect": "shootBigSmoke",
       "hitEffect": "hitSquaresColor",
-      "hitColor": "f68021",
       "despawnEffect": "hitSquaresColor",
       "hitColor": "f68021",
       "backColor": "f68021",
@@ -199,7 +195,7 @@
       "smokeEffect": "hitFlameSmall",
       "hitEffect": {
         "type": "MultiEffect",
-        "effects": [ 
+        "effects": [
           "hitBulletSmall",
           "fireHit"
         ]
@@ -280,7 +276,7 @@
         "pierceCap": 4,
         "pierceArmor": true
       }
-    }
+    },
     "sodium": {
       "width": 8,
       "height": 12,
@@ -292,7 +288,6 @@
       "shootEffect": "shootBig",
       "smokeEffect": "shootBigSmoke",
       "backColor": "d4e5ed",
-      "hitColor": "d4e5ed",
       "hitColor": "d4e5ed",
       "hitEffect": "mineSmall",
       "despawnEffect": "hitBulletColor",
@@ -429,13 +424,13 @@
             "x": -4,
             "y": 0,
             "progress": {
-              "type": "reload", 
+              "type": "reload",
               "ops": [
                 {
                   "op": "mul",
                   "other": "reload"
                 },
-                { 
+                {
                   "op": "mul",
                   "amount": -0.5
                 },
@@ -481,7 +476,7 @@
                   "op": "mul",
                   "other": "reload"
                 },
-                { 
+                {
                   "op": "mul",
                   "amount": -0.5
                 },
@@ -521,13 +516,13 @@
             "x": 4,
             "y": 0,
             "progress": {
-              "type": "reload",     
+              "type": "reload",
               "ops": [
                 {
                   "op": "mul",
                   "other": "reload"
                 },
-                { 
+                {
                   "op": "mul",
                   "amount": -0.5
                 },
@@ -573,7 +568,7 @@
                   "op": "mul",
                   "other": "reload"
                 },
-                { 
+                {
                   "op": "mul",
                   "amount": -0.5
                 },
@@ -594,7 +589,7 @@
   },
   "research": {
     "parent": "beat",
-    "objectives": [ 
+    "objectives": [
       {
         "type": "OnSector",
         "preset": "fort-port"

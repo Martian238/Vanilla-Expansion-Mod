@@ -5,7 +5,6 @@
   "health": 370,
   "armor": 16,
   "range": 4,
-  "arrowSpacing": 6,
   "fadeIn": false,
   "hasPower": false,
   "moveArrows": false,

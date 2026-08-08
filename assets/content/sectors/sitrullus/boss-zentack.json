@@ -3,7 +3,7 @@
   "sector": 71,
   "difficulty": 8,
   "research": {
-    "parent": "boss-fungitron",
+    "parent": "boss-fungitron"
   },
   "overrideLaunchDefaults": true,
   "captureWave": 0,
