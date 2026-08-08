@@ -38,6 +38,9 @@ public class SkyLightningEffect extends Effect{
     public boolean shorterTwist = true;
     public float shortestTwistRange = 75f;
 
+    public float shake = 0f;
+    public float shakeDuration = 40f;
+
     public SkyLightningEffect(){
         clip = pointClip;
     }
