@@ -11,7 +11,7 @@ public class VECacheLayer extends CacheLayer {
             dysharmony, lava, acid;
 
     public static void init(){
-        addLast(
+        add(
                 dysharmony = new ShaderLayer(VEShaders.dysharmony),
                 lava = new ShaderLayer(VEShaders.lava),
                 acid = new ShaderLayer(VEShaders.acid)

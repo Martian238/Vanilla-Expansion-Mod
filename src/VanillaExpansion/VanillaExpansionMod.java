@@ -1,5 +1,7 @@
 package VanillaExpansion;
 
+import VanillaExpansion.expand.graphics.VECacheLayer;
+import VanillaExpansion.expand.graphics.VEShaders;
 import arc.Events;
 import arc.scene.ui.layout.Table;
 import mindustry.Vars;
@@ -19,7 +21,6 @@ public class VanillaExpansionMod extends Mod {
     @Override
     public void init() {
         ContentOrderGuard.init();
-
         LensShockwaveFX.init();
 
         // 替换输入处理器（仅客户端，移动端除外）
@@ -51,6 +52,8 @@ public class VanillaExpansionMod extends Mod {
     }
     @Override
     public void loadContent(){
+        VEShaders.load();
+        VECacheLayer.init();
         //VanillaExpansion.content.VEStuffTypes.load();
         //VanillaExpansion.effects.SpecialDeathEffects.load();
         //VanillaExpansion.expand.special.SpecialContent.load();
