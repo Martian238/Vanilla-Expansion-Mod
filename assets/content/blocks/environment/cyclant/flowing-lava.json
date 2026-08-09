@@ -1,12 +1,12 @@
 {
-  "type": "Floor",
+  //"type": "Floor",
   "isLiquid": true,
   "status": "fusing",
   "drownTime": 600,
   "speedMultiplier": 0.3,
   "variants": 3,
   "liquidDrop": "lava",
-  "cacheLayer": "water",
+  //"cacheLayer": "water",
   "attributes": {
     "heat": 0.9
   },

@@ -1,6 +1,7 @@
 package VanillaExpansion.content;
 
 import VanillaExpansion.MultiCrafter;
+import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import VanillaExpansion.expand.world.block.power.ShakeGenerator;
@@ -8,6 +9,7 @@ import VanillaExpansion.expand.world.block.production.CoolantDrill;
 import arc.struct.EnumSet;
 import mindustry.world.blocks.campaign.*;
 import mindustry.world.blocks.distribution.*;
+import mindustry.world.blocks.environment.Floor;
 import mindustry.world.blocks.heat.*;
 import mindustry.world.blocks.liquid.*;
 import mindustry.world.blocks.payloads.*;
@@ -530,5 +532,13 @@ public class VEJSBlocks {
         new MemoryBlock("isomorphic-memory-bank");
         new LogicBlock("quantum-processor");
         new MemoryBlock("quantum-memory-cell");
+
+        //group 37 环境块
+        new Floor("flowing-lava"){{
+            cacheLayer = VECacheLayer.lava;
+        }};
+        new Floor("dysharmony-fluid-floor"){{
+            cacheLayer = VECacheLayer.dysharmony;
+        }};
     }
 }

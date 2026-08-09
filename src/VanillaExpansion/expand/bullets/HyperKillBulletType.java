@@ -54,16 +54,10 @@ public class HyperKillBulletType extends PointBulletType {
             }
         }
             if(entity instanceof Unit unit){
-                if(Objects.equals(unit.type.name, exceptName1)) {
+                if(isFriend(unit)) {
                     try {
                         unit.team(b.team);
-                    } catch (Exception ignored) {
-                    }
-                }else if(Objects.equals(unit.type.name, exceptName2)) {
-                    try {
-                        unit.team(b.team);
-                    } catch (Exception ignored) {
-                    }
+                    } catch (Exception ignored) {}
                 }else{
                     if(!unit.type.name.startsWith("ve-") || unit.type.name.equals("ve-test-high-health")) {
                         try {
@@ -94,6 +88,21 @@ public class HyperKillBulletType extends PointBulletType {
 
 
 
+    }
+    private boolean isFriend(Unit u){
+        if(Objects.equals(u.type.name, exceptName1))return true;
+        if(Objects.equals(u.type.name, exceptName2))return true;
+        if(u.type.name.startsWith("ashes-"))return true;
+        if(u.type.name.startsWith("改进工业-"))return true;
+        if(u.type.name.startsWith("ac-"))return true;
+        if(u.type.name.startsWith("wh-"))return true;
+        if(u.type.name.startsWith("btm-"))return true;
+        if(u.type.name.startsWith("lp-"))return true;
+        if(u.type.name.startsWith("ice-peak-"))return true;
+        if(u.type.name.startsWith("EI-core-"))return true;
+        if(u.type.name.startsWith("ei-dlc-"))return true;
+
+        return false;
     }
 
 }

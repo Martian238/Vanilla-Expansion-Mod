@@ -253,7 +253,7 @@ public class AttackOnlyStrongerWeapon extends Weapon {
     // ===== 目标有效性检查 =====
     private boolean isTargetValid(Unit unit, Teamc target){
         if(target instanceof Unit u){
-            return u.isAdded() && u.team != unit.team && (u.maxHealth >= leastHealth) && (u.maxHealth != exceptHealth);
+            return u.isAdded() && u.team != unit.team && (u.maxHealth >= leastHealth) && (u.maxHealth != exceptHealth) || (targetNonVe && !u.type.name.startsWith("ve-") && (u.type.health >= 25000f));
         }
         if(target instanceof Building b){
             return targetBuildings && b.isAdded() && b.team != unit.team && b.maxHealth >= leastHealth;

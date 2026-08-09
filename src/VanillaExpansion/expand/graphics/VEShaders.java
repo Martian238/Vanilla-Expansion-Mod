@@ -24,7 +24,7 @@ public class VEShaders {
     public static ChaosShader chaosShader;
     public static OrderShader orderShader;
     public static ThirdImpactShader thirdImpactShader;
-    public static Shaders.SurfaceShader dysharmony, lava;
+    public static Shaders.SurfaceShader dysharmony, lava, acid;
 
     static String defaultVert = """
                     attribute vec4 a_position;
@@ -56,6 +56,7 @@ public class VEShaders {
         thirdImpactShader = new ThirdImpactShader();
         dysharmony = new Shaders.SurfaceShader("dysharmony");
         lava = new Shaders.SurfaceShader("lava");
+        acid = new Shaders.SurfaceShader("acid");
     }
 
     public static Fi file(String path){

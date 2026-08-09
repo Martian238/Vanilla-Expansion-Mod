@@ -8,7 +8,7 @@
     {
       "alwaysShooting": true,
       "inaccuracy": 360,
-      "shootSound": "stAstroExplode",
+      //"shootSound": "stAstroExplode",
       "velocityRnd": 0.9,
       "shake": 64,
       "bullet": {
@@ -31,8 +31,8 @@
         "homingPower": 1,
         "homingRange": 800,
         "despawnShake": 256,
-        "hitSound": "stAstroExplode",
-        "despawnSound": "stAstroExplode",
+        //"hitSound": "stAstroExplode",
+        //"despawnSound": "stAstroExplode",
         "hitEffect": "mineHuge",
         "hitColor": "00ffce",
         "width": 256,
