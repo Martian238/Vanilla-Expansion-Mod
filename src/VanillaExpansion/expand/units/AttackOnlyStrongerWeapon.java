@@ -232,7 +232,7 @@ public class AttackOnlyStrongerWeapon extends Weapon {
                     try{
                         u.kill();
                         u.remove();
-                        cpuDestroy.create(null, u.x, u.y, 0f);
+                        cpuDestroy.create((Teamc) this, u.x, u.y, 0f);
                     }catch(Exception ignored){}
                 }
                 // 2. 检查血量阈值

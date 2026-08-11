@@ -13,7 +13,7 @@
   "heatRequirement": 5,
   "maxEfficiency": 3,
   "research": {
-    "parent": "reduction-chamber",
+    "parent": "m-reduction-chamber",
     "objectives": [
       {
         "type": "OnSector",
@@ -22,6 +22,7 @@
     ]
   },
   "hasLiquids": true,
+  "shownPlanets": [ "maress" ],
   "hasItems": true,
   "itemCapacity": 60,
   "liquidCapacity": 60,

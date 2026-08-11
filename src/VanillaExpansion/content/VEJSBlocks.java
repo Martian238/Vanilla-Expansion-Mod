@@ -5,6 +5,7 @@ import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import VanillaExpansion.expand.world.block.power.ShakeGenerator;
+import VanillaExpansion.expand.world.block.production.ConfigurableHeatProducer;
 import VanillaExpansion.expand.world.block.production.CoolantDrill;
 import VanillaExpansion.expand.world.block.production.HeatButNoHeatCanStillWorkCrafter;
 import arc.struct.EnumSet;
@@ -174,6 +175,7 @@ public class VEJSBlocks {
         new HeatConductor("heat-conduct-distributor");
         new MultiCrafter("m-boiler");
         new HeatProducer("reactor-core");
+        new ConfigurableHeatProducer("config-phase-heater");
 
         // group 12 瓜星工厂
         new GenericCrafter("silicon-oxidator");
