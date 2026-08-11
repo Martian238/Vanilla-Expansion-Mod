@@ -35,7 +35,19 @@
           "outline": false,
           "under": true,
           "y": 64,
-          "progress": "reload",
+          "progress": {
+            "type": "time",
+            "ops": [
+              {
+                "op": "loop",
+                "time": 60
+              },
+              {
+                "op": "inv",
+                "amount": -3
+              }
+            ]
+          },
           "layer": 29.75
     },
     {
@@ -49,8 +61,46 @@
           "under": true,
           "y": 96,
           "moveY": -96,
-          "progress": "heat",
-          "growProgress": "heat",
+          "progress": {
+            "type": "time",
+            "ops": [
+              {
+                "op": "loop",
+                "time": 60
+              },
+              {
+                "op": "mul",
+                "amount": -3
+              },
+              {
+                "op": "add",
+                "amount": 1
+              },
+              {
+                "op": "clamp"
+              }
+            ]
+          },
+          "growProgress": {
+            "type": "time",
+            "ops": [
+              {
+                "op": "loop",
+                "time": 60
+              },
+              {
+                "op": "mul",
+                "amount": -3
+              },
+              {
+                "op": "add",
+                "amount": 1
+              },
+              {
+                "op": "clamp"
+              }
+            ]
+          },
           "xScl": 1.5,
           "yScl": 1.5,
           "growX": -1.5,
@@ -59,27 +109,6 @@
     }
   ],
   "weapons": [
-    {
-      "mirror": false,
-      "useAttackRange": false,
-      "reload": 60,
-      "cooldownTime": 20,
-      "alwaysShooting": true,
-      "shootSound": "none",
-      "ignoreRotation": true,
-      "controllable": false,
-      "bullet": {
-        "instantDisappear": true,
-        "hitEffect": "none",
-        "despawnEffect": "none",
-        "shootEffect": "none",
-        "smokeEffect": "none",
-        "collides": false,
-        "absorbable": false,
-        "hittable": false,
-        "reflectable": false
-      }
-    },
     {
       "x": 0,
       "y": 0,

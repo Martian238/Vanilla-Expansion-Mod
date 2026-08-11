@@ -31,7 +31,7 @@
         "radius": 48,
         "useWarmupRadius": true,
         "timeScl": 0.5,
-        "color": "f2555544"
+        "color": "f2555522"
       },
       {
         "type": "DrawShape",
@@ -39,7 +39,7 @@
         "radius": 48,
         "useWarmupRadius": true,
         "timeScl": -0.5,
-        "color": "f2555544"
+        "color": "f2555522"
       },
       {
         "type": "DrawBlockParts",

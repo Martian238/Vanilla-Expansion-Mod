@@ -4,6 +4,7 @@
   "breakSound": [ "pvzMelonImpact1","pvzMelonImpact2" ],
   "requirements": [ "melon-dirt/10" ],
   "instantDeconstruct": false,
+  "rebuildable": false,
   "buildVisibility": "shown",
   "destroyBullet": {
         "instantDisappear": true,

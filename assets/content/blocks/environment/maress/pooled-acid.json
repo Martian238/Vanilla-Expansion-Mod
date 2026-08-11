@@ -1,0 +1,27 @@
+{
+  //"type": "Floor",
+  "isLiquid": true,
+  "status": "corroded",
+  "drownTime": 300,
+  "speedMultiplier": 0.5,
+  "variants": 0,
+  "liquidDrop": "acid",
+  "damageTaken": 0.5,
+
+  "attributes": {
+  },
+  "drownUpdateEffect": {
+    "type": "SoundEffect",
+    "effect": {
+      "type": "WrapEffect",
+      "effect": "vapor",
+      "color": "f4c55a"
+    },
+    "sound": "none",
+    "maxPitch": 1,
+    "minPitch": 0.9
+  },
+  "emitLight": false,
+  "liquidMultiplier": 1,
+  "canShadow": true
+}

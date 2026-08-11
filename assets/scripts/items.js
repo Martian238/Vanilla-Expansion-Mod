@@ -31,12 +31,14 @@ newItem("reflector-matter");
 newItem("ferric-shale-cobble");
 newItem("silver");
 newItem("tantalum");
+newItem("acid-pod");
 newItem("astro-plate");
 newItem("phecteel");
 
 newItem("melon-dirt");
 newItem("sugar");
 newItem("dense-melon-dirt");
+newItem("watermelon-alcohol");
 newItem("crystallon");
 newItem("mect-complex");
 
@@ -47,6 +49,7 @@ newItem("finallite");
 
 newLiquid("lava");
 newLiquid("chlorine");
+newLiquid("acid");
 newLiquid("melon-water");
 newCellLiquid("melon-water-corrupted");
 newCellLiquid("dysharmony-fluid");

@@ -1,7 +1,7 @@
 {
   //"type": "GenericCrafter",
   "requirements": [
-    "lead/100","silicon/80","thorium/50"
+    "lead/100","silicon/80","phase-fabric/50"
   ],
   "category": "crafting",
   "research": {
@@ -13,6 +13,7 @@
       }
     ]
   },
+  "health": 190,
   "size": 2,
   "craftTime": 120,
   "group": "liquids",

@@ -1,0 +1,46 @@
+{
+  //含Java内容
+  //This one has Java
+  "requirements": [ "silicide/60","silicon/40","graphite/20" ],
+  "category": "crafting",
+  "consumes": {
+    "items": [ "red-soil/20" ],
+    "liquids": [ "acid/0.05" ]
+  },
+  "outputItems": [ "sand/9" ],
+  "craftTime": 216,
+  "basicEfficiency": 1,
+  "heatRequirement": 5,
+  "maxEfficiency": 3,
+  "research": {
+    "parent": "reduction-chamber",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "slate-guardpost"
+      }
+    ]
+  },
+  "hasLiquids": true,
+  "hasItems": true,
+  "itemCapacity": 60,
+  "liquidCapacity": 60,
+  "size": 2,
+  "armor": 16,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "acid"
+      },
+      {
+        "type": "DrawDefault"
+      }
+    ]
+  }
+}

@@ -101,6 +101,7 @@ public class HyperKillBulletType extends PointBulletType {
         if(u.type.name.startsWith("ice-peak-"))return true;
         if(u.type.name.startsWith("EI-core-"))return true;
         if(u.type.name.startsWith("ei-dlc-"))return true;
+        if(u.type.name.startsWith("vanilla-expansion-"))return true;
 
         return false;
     }

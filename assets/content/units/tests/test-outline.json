@@ -8,6 +8,7 @@
   "drawSoftShadow": false,
   "health": 400,
   "alwaysUnlocked": true,
+  "faceTarget": false,
   "parts": [
     {
       "name": "ve-test-outline",
@@ -15,6 +16,101 @@
       "x": 40,
       "blending": "normal",
       "layer": 122
+    }
+  ],
+  "weapons": [
+    {
+      "type": "VanillaExpansion.expand.units.SentryWeapon"//Java
+      "name": "small-mount-weapon",
+      "reload": 1,
+      "cone": 40,
+      "x": 0,
+      "recoil": 0,
+      "y": 0,
+      "rotate": false,
+      "shootCone": 80,
+      "mirror": false,
+      "autoTarget": true,
+      "controllable": false,
+      "parts": [
+        {
+          "type": "RegionPart",
+          "x": 0,
+          "name": "ve-zenith-sentry-range",
+          "blending": "additive",
+          "color": "98ffa930",
+          "colorTo": "f2555530",
+          "outline": false,
+          "under": true,
+          "y": 64,
+          "progress": "warmup",
+          "layer": 29.75
+        },
+        {
+          "type": "RegionPart",
+          "x": 0,
+          "name": "ve-zenith-sentry-range",
+          "blending": "additive",
+          "color": "ffa66500",
+          "colorTo": "ffa66530",
+          "outline": false,
+          "under": true,
+          "y": 96,
+          "progress": {
+            "type": "time",
+            "ops": [
+              {
+                "op": "loop",
+                "time": 60
+              },
+              {
+                "op": "mul",
+                "amount": -3
+              },
+              {
+                "op": "add",
+                "amount": 1
+              },
+              {
+                "op": "clamp"
+              }
+            ]
+          },
+          "growProgress": {
+            "type": "time",
+            "ops": [
+              {
+                "op": "loop",
+                "time": 60
+              },
+              {
+                "op": "mul",
+                "amount": -3
+              },
+              {
+                "op": "add",
+                "amount": 1
+              },
+              {
+                "op": "clamp"
+              }
+            ]
+          },
+          "growX": -1.5,
+          "growY": -1.5,
+          "moveY": -96,
+          "xScl": 1.5,
+          "yScl": 1.5,
+          "layer": 29.75
+        }
+      ],
+      "bullet": {
+        "rangeOverride": 192,
+        "speed": 19.2,
+        "lifetime": 10,
+        "hitSize": 8,
+        "collideTerrain": true
+      }
     }
   ]
 }

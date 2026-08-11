@@ -28,6 +28,7 @@
   },
   "drawTeamOverlay": false,
   "allowDerelictRepair": false,
+  "rebuildable": false,
   "destroyBullet": {
       "fragLifeMin": 0.2,
       "fragVelocityMin": 0.5,

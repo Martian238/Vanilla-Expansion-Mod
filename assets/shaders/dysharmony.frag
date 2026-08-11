@@ -2,7 +2,7 @@
 
 //shades of dysharmony fluid
 //FF3A73 FF6B90 FF9DB3
-#define S1 vec3(53.0, 42.0, 56.0) / 100.0
+#define S1 vec3(100.0, 42.0, 56.0) / 100.0
 #define S2 vec3(100.0, 62.0, 68.0) / 100.0
 #define NSCALE 100.0 / 2.0
 
@@ -17,7 +17,11 @@ varying vec2 v_texCoords;
 
 void main(){
     vec2 c = v_texCoords.xy;
-    vec2 coords = vec2(c.x * u_resolution.x + u_campos.x, c.y * u_resolution.y + u_campos.y);
+    vec2 coordsOri = vec2(c.x * u_resolution.x + u_campos.x, c.y * u_resolution.y + u_campos.y);
+    vec2 coords = vec2(
+        coordsOri.y,
+        -coordsOri.x
+    );
 
     float btime = u_time / 5000.0;
     float wave = abs(sin(coords.x * 1.1 + coords.y) + 0.1 * sin(2.5 * coords.x) + 0.15 * sin(3.0 * coords.y)) / 30.0;

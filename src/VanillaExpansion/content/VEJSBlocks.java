@@ -6,6 +6,7 @@ import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import VanillaExpansion.expand.world.block.power.ShakeGenerator;
 import VanillaExpansion.expand.world.block.production.CoolantDrill;
+import VanillaExpansion.expand.world.block.production.HeatButNoHeatCanStillWorkCrafter;
 import arc.struct.EnumSet;
 import mindustry.world.blocks.campaign.*;
 import mindustry.world.blocks.distribution.*;
@@ -165,6 +166,7 @@ public class VEJSBlocks {
         new GenericCrafter("catalyzon-workshop");
         new MultiCrafter("m-upgraded-reaction-pool");
         new HeatCrafter("thermoplastic-compressor");
+        new HeatButNoHeatCanStillWorkCrafter("pickling-pool");
 
         // group 11.3 火星热量
         new HeatConductor("heat-conduct-conductor");
@@ -247,10 +249,12 @@ public class VEJSBlocks {
         new GenericCrafter("team-projector-alpha");
         new GenericCrafter("team-projector-crux");
         new GenericCrafter("team-projector-omega");
+        new GenericCrafter("team-projector-hyper");
         new GenericCrafter("team-projector-zenith");
         new GenericCrafter("team-projector-zenith-flipped");
         new GenericCrafter("team-projector-erekir-sharded");
         new GenericCrafter("team-projector-erekir-malis");
+        new GenericCrafter("cover-projector");
         new MendProjector("pog-mender");
         new OverdriveProjector("pog-overdriver");
         new ConsumeGenerator("sandbox-blast");
@@ -536,6 +540,9 @@ public class VEJSBlocks {
         //group 37 环境块
         new Floor("flowing-lava"){{
             cacheLayer = VECacheLayer.lava;
+        }};
+        new Floor("pooled-acid"){{
+            cacheLayer = VECacheLayer.acid;
         }};
         new Floor("dysharmony-fluid-floor"){{
             cacheLayer = VECacheLayer.dysharmony;

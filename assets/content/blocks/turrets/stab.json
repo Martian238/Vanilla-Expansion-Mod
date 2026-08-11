@@ -274,8 +274,8 @@
             },"hitLaserBlast","instBomb" ]
         },
         "despawnHit": false,
-        "hitSound": "blockExplodeEletric",
-        "despawnSound": "blockExplodeEletric",
+        "hitSound": "blockExplodeElectric",
+        "despawnSound": "blockExplodeElectric",
       "hitSoundVolume": 0.6,
         "status": "shocked",
         "statusDuration": 60,

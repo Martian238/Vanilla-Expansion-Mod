@@ -20,12 +20,12 @@ void main(){
 
     float btime = u_time / 5000.0;
     vec4 orig = texture2D(u_texture, v_texCoords);
-    float noise = (texture2D(u_noise, (coords) / NSCALE + vec2(btime) * vec2(-0.9, 0.8)).r + texture2D(u_noise, (coords) / NSCALE + vec2(btime * 1.1) * vec2(0.8, -1.0)).r) / 2.0;
+    float noise = (texture2D(u_noise, (coords * 4.0) / NSCALE + vec2(btime) * vec2(-0.9, 0.8)).r + texture2D(u_noise, (coords) / NSCALE + vec2(btime * 1.1) * vec2(0.8, -1.0)).r) / 2.0;
 
     //TODO: pack noise texture
     vec2 c = v_texCoords + (vec2(
-    texture2D(u_noise, (coords) / 170.0 + vec2(btime) * vec2(-0.9, 0.8)).r,
-    texture2D(u_noise, (coords) / 170.0 + vec2(btime * 1.1) * vec2(0.8, -1.0)).r
+    texture2D(u_noise, (coords * 4.0) / 170.0 + vec2(btime) * vec2(-0.9, 0.8)).r,
+    texture2D(u_noise, (coords * 4.0) / 170.0 + vec2(btime * 1.1) * vec2(0.8, -1.0)).r
     ) - vec2(0.5)) * 8.0 / u_resolution;
 
     vec4 color = texture2D(u_texture, c);
@@ -33,9 +33,9 @@ void main(){
         color = orig;
     }
 
-    if(noise > 0.6){
+    if(noise > 0.57){
         color.rgb = S2;
-    }else if(noise > 0.54){
+    }else if(noise > 0.5){
         color.rgb = S1;
     }
 

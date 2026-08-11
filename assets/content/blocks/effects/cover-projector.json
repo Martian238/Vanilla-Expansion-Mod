@@ -1,0 +1,82 @@
+{
+  //"type": "GenericCrafter",
+  "category": "effect",
+  "requirements": [ "silicon/50","quartz/20","phase-fabric/20" ],
+  "size": 2,
+  "health": 500,
+  //"priority": 10,
+  "consumes": {
+    "power": 0.25
+  },
+  "hasPower": true,
+  "ambientSound": "none",
+  "research": {
+    "parent": "team-projector-sharded",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "thorium-hacienda"
+      }
+    ]
+  },
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawRegion", "suffix": "" },
+      {
+        "type": "DrawBlockParts",
+        "parts": [
+          {
+            "type": "RegionPart",
+            "name": "ve-map-power-source-dark",
+            "layer": 81,
+            "xScl": 0,
+            "yScl": 0,
+            "color": "00000000",
+            "colorTo": "000000",
+            "moveRot": -180,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "pow2Out"
+            },
+            "growProgress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "pow2Out"
+            },
+            "growX": 2,
+            "growY": 2
+          },
+          {
+            "type": "ShapePart",
+            "sides": 4,
+            "radius": 101.823376491,
+            "color": "f2555540",
+            "colorTo": "f2555500",
+            "layer": 81,
+            "rotation": 45,
+            "hollow": true,
+            "stroke": 1,
+            "progress": "warmup"
+          },
+          {
+            "type": "ShapePart",
+            "sides": 4,
+            "radius": 33.9411254968,
+            "color": "f2555540",
+            "colorTo": "f2555500",
+            "layer": 81,
+            "rotation": 45,
+            "hollow": true,
+            "stroke": 1,
+            "progress": "warmup"
+          }
+        ]
+      }
+    ]
+  },
+  "buildCostMultiplier": 1,
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
+  "buildVisibility": "shown"
+}

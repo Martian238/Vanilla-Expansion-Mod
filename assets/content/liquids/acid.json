@@ -1,0 +1,13 @@
+{
+  "color": "f4c55a",
+  "heatCapacity": 0.3,
+  "effect": "corroded",
+  "boilPoint": 0.9,
+  "viscosity": 0.65,
+  "gasColor": "f4c55a",
+  "temperature": 0.56,
+  "databaseTag": "liquid-fluid",
+  "research": "ferric-shale-cobble",
+  "shownPlanets": [ "maress" ],
+  "canStayOn": [ "water","melon-water-corrupted" ]
+}

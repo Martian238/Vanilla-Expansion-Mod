@@ -11,7 +11,13 @@
   "hasPower": true,
   "ambientSound": "none",
   "research": {
-    "parent": "team-projector-sharded"
+    "parent": "team-projector-alpha",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "retreat-zone"
+      }
+    ]
   },
   "drawer": {
     "type": "DrawMulti",
@@ -20,7 +26,7 @@
       {
         "type": "DrawGlowRegion",
         "suffix": "-top",
-        "color": "ffa665",
+        "color": "98ffa9",
         "alpha": 0.9,
         "glowIntensity": 0.5,
         "glowScale": 10
@@ -31,7 +37,7 @@
         "radius": 48,
         "useWarmupRadius": true,
         "timeScl": 0.5,
-        "color": "ffd37f22"
+        "color": "98ffa922"
       },
       {
         "type": "DrawShape",
@@ -39,19 +45,20 @@
         "radius": 48,
         "useWarmupRadius": true,
         "timeScl": -0.5,
-        "color": "ffd37f22"
+        "color": "98ffa922"
       },
       {
         "type": "DrawBlockParts",
         "parts": [
           {
             "type": "RegionPart",
-            "name": "ve-team-projector-alpha-glow",
+            "name": "ve-team-projector-hyper-glow",
             "color": "ffffff",
             "blending": "additive",
             "growX": 0.33333, "growY": -0.29771,
-            "rotation": 90,//0.302 -0.338
-            "moveX": 8.87052,//10.071
+            "rotation": 90,
+            "moveX": 8.87052,
+            "x": 3.5,
             "outline": false,
             "layer": 110.1,
             "progress": {
@@ -221,7 +228,7 @@
       },
       {
         "type": "DrawFlame",
-        "flameColor": "ffd37f00",
+        "flameColor": "f2555500",
         "flameRadius": 0,
         "flameRadiusIn": 0,
         "lightRadius": 64,
@@ -231,5 +238,6 @@
     ]
   },
   "buildCostMultiplier": 20,
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus","thavina" ]
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","sitrullus","thavina" ],
+  "buildVisibility": "shown"
 }

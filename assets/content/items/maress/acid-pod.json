@@ -1,0 +1,8 @@
+{
+  "color": "f4c55a",
+  "cost": 1,
+  "shownPlanets": [ "maress" ],
+  "research": "acid",
+  "databaseTag": "processed-item",
+  "radioactivity": -0.5
+}

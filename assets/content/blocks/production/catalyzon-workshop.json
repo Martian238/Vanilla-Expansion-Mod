@@ -491,7 +491,7 @@
                     "type": "RegionPart",
                     "name": "ve-catalyzon-workshop-rotator",//1
                     "outline": false,
-                    "color": "ffffff00",
+                    "color": "fffffe00",
                     "layer": 30.01,
                     "colorTo": "ffffff",
                     "rotation": 0,
@@ -566,7 +566,7 @@
                     "type": "RegionPart",
                     "name": "ve-catalyzon-workshop-rotator",//2
                     "outline": false,
-                    "color": "ffffff00",
+                    "color": "fffffe00",
                     "layer": 30.01,
                     "colorTo": "ffffff",
                     "rotation": 90,
@@ -641,7 +641,7 @@
                     "type": "RegionPart",
                     "name": "ve-catalyzon-workshop-rotator",//3
                     "outline": false,
-                    "color": "ffffff00",
+                    "color": "fffffe00",
                     "layer": 30.01,
                     "colorTo": "ffffff",
                     "rotation": 180,
@@ -716,7 +716,7 @@
                     "type": "RegionPart",
                     "name": "ve-catalyzon-workshop-rotator",
                     "outline": false,
-                    "color": "ffffff00",
+                    "color": "fffffe00",
                     "layer": 30.01,
                     "colorTo": "ffffff",
                     "rotation": 270,

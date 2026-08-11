@@ -1,0 +1,25 @@
+{
+  "planet": "phoon",
+  "sector": 15,
+  "difficulty": 8,
+  "research": {
+    "parent": "community-huoshankou",
+    "objectives": [
+      "core-singularity",
+      {
+        "type": "SectorComplete",
+        "preset": "nuclear-powerplant"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": true,
+  "captureWave": 70,
+  "attackAfterWaves": true,
+  "addStartingItems": true,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": false
+}
+
+
+
