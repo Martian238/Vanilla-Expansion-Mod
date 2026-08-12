@@ -59,7 +59,7 @@
     "tantalum": 1,
     "melon-dirt": 4,
     "spore-pod": 6,
-    "ferric-shale-cobble": 3,
+    "ferric-shale-cobble": 1.5,
     "red-soil": 2
   },
   "crushDamageMultiplier": 0.2,

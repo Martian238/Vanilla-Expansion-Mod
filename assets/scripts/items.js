@@ -47,9 +47,11 @@ newItem("technolite");
 newItem("chrysopite");
 newItem("finallite");
 
+/*
 newLiquid("lava");
 newLiquid("chlorine");
 newLiquid("acid");
 newLiquid("melon-water");
 newCellLiquid("melon-water-corrupted");
 newCellLiquid("dysharmony-fluid");
+*/

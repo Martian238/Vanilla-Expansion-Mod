@@ -21,6 +21,7 @@
       }
     ]
   },
+  "researchCostMultiplier": 0.1,
   "hasLiquids": true,
   "shownPlanets": [ "maress" ],
   "hasItems": true,

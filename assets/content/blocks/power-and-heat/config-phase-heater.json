@@ -1,24 +1,27 @@
 {
-  "requirements": [ "phase-fabric/20","silicide/30","silicon/30","ferrum/20" ],
+  //含Java内容
+  //This one has Java
+  "requirements": [ "thorium/20","silicon/60","ferrum/40" ],
   "category": "crafting",
   "size": 2,
   "consumes": {
     "item": "phase-fabric"
   },
   "defaultCraftTime": 480,
-  "defaultHeat": 15,
+  "defaultHeat": 30,
   "craftTime": 480,
   "itemCapacity": 10,
   "hasItems": true,
   "research": {
-    "parent": "reactor-core",
+    "parent": "m-boiler",
     "objectives": [
       {
-        "type": "SectorComplete",
+        "type": "OnSector",
         "preset": "slate-guardpost"
       }
     ]
   },
+  "researchCostMultiplier": 0.1,
   "shownPlanets": [ "maress","thavina" ],
   "wrongBullet": {
     "despawnHit": true,

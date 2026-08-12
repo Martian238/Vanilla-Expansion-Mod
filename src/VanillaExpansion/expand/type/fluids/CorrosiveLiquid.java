@@ -22,7 +22,7 @@ import static mindustry.entities.Puddles.*;
 public class CorrosiveLiquid extends Liquid {
 
     public Seq<Block> whitelistBlocks = new Seq<>();
-    public float damageRate = 0.1f;
+    public float damageRate = 1f;
 
     public CorrosiveLiquid(String name){
         super(name);

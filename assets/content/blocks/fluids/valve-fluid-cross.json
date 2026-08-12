@@ -6,5 +6,5 @@
   "solid": false,
   "researchCost": [ "silver/20" ],
   "research": "silver-conduit",
-  "shownPlanets": [ "sitrullus" ]
+  "shownPlanets": [ "sitrullus","maress" ]
 }

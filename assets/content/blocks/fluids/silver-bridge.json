@@ -14,5 +14,5 @@
   "arrowPeriod": 1.6,
   "arrowTimeScl": 2,
   "arrowOffset": 4,
-  "shownPlanets": [ "sitrullus" ]
+  "shownPlanets": [ "sitrullus","maress" ]
 }

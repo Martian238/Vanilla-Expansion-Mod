@@ -10,6 +10,6 @@
   "junctionReplacement": "valve-fluid-cross",
   "bridgeReplacement": "silver-bridge",
   "drawTeamOverlay": false,
-  "shownPlanets": [ "sitrullus" ],
+  "shownPlanets": [ "sitrullus","maress" ],
   "liquidCapacity": 30
 }

@@ -136,7 +136,7 @@ public class ConfigurableHeatProducer extends HeatProducer {
                         };
                     }});
                 }else{
-                    BaseDialog dialog = new BaseDialog("@editmessage");
+                    BaseDialog dialog = new BaseDialog("@editheater");
                     dialog.setFillParent(false);
                     TextArea a = dialog.cont.add(new TextArea(message.toString().replace("\r", "\n"))).size(380f, 160f).get();
                     a.setFilter((textField, c) -> {

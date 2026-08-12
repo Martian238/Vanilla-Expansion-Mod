@@ -78,5 +78,6 @@
   },
   "buildCostMultiplier": 1,
   "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
-  "buildVisibility": "shown"
+  "buildVisibility": "shown",
+  "clipSize": 160
 }

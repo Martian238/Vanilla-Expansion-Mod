@@ -6,5 +6,5 @@
   "liquidCapacity": 100,
   "research": "valve-fluid-cross",
   "squareSprite": false,
-  "shownPlanets": [ "sitrullus" ]
+  "shownPlanets": [ "sitrullus","maress" ]
 }
