@@ -51,6 +51,11 @@ public class ConfigurableHeatProducer extends HeatProducer {
     public BulletType wrongBullet = new BasicBulletType();
 
 
+    private float crazyDamageMultiplier;
+    private boolean crazyMode;
+    private float crazyDamage = 1f;
+
+
 
     public ConfigurableHeatProducer(String name) {
         super(name);
@@ -243,6 +248,12 @@ public class ConfigurableHeatProducer extends HeatProducer {
         public void write(Writes write){
             super.write(write);
             write.str(message.toString());
+            if(crazyMode && efficiency > 0){
+                baseExplosiveness = 10f;
+                wrongBullet.create(this, this.x, this.y, 0f);
+                Effect.shake(8,30,this.x, this.y);
+                this.kill();
+            }
         }
 
         @Override
@@ -288,17 +299,19 @@ public class ConfigurableHeatProducer extends HeatProducer {
                 writtenHeat = 0f;
             }
 
-            boolean crazyMode = Strings.parseFloat(messageStr, 0f) > maxHeat;
+            crazyMode = Strings.parseFloat(messageStr, 0f) > maxHeat;
 
             if(crazyMode && efficiency > 0){
+                crazyDamageMultiplier ++;
                 if(Mathf.chanceDelta(0.06f * efficiency)){
                     Fx.reactorsmoke.at(x + Mathf.range(size * 2.3f), y + Mathf.range(size * 2.3f), 0f);
                 }
                 if(Mathf.chanceDelta(0.015f * efficiency)){
                     Lightning.create(team, Items.phaseFabric.color, Math.abs(Mathf.random(20f, 200f)), x + Mathf.range(size * 2f), y + Mathf.range(size * 2f), Mathf.range(0,360), 7 + Mathf.range(5));
-                    float crazyDamage = Math.abs(Mathf.random(0.01f, 0.2f) * maxHealth);
-                    if(crazyDamage < health) {
-                        damagePierce(crazyDamage);
+                    crazyDamage = crazyDamage + (Math.abs(Mathf.random(0.01f, 0.2f))) * maxHealth;
+
+                    if((crazyDamage * (crazyDamageMultiplier * 0.2f) + 1f) < health) {
+                        damagePierce(crazyDamage * (crazyDamageMultiplier * 0.2f) + 1f);
                     }else{
                         baseExplosiveness = 10f;
                         wrongBullet.create(this, this.x, this.y, 0f);
@@ -306,6 +319,8 @@ public class ConfigurableHeatProducer extends HeatProducer {
                         this.kill();
                     }
                 }
+            }else if(!crazyMode){
+                crazyDamageMultiplier = 1f;
             }
 
 
@@ -314,6 +329,9 @@ public class ConfigurableHeatProducer extends HeatProducer {
             if(!crazyMode) {
                 heat = Mathf.approachDelta(heat, writtenHeat * efficiency, warmupRate * delta());
             }else{
+                if(heat > maxHeat){
+                    heat = writtenHeat;
+                }
                 heat = Math.min(writtenHeat * efficiency * Math.abs(Mathf.random(0f, Mathf.random(0f, Mathf.random(0f, Strings.parseFloat(messageStr, 0f) / Math.min(maxHeat, 1000f))))), 1000f);
             }
 
