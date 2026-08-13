@@ -455,7 +455,7 @@ public class VEJSBlocks {
         new PowerTurret("melonic-array-pillar");
 
         //group 31.1 钽炮布炮
-        new PowerTurret("stellar");
+        new LiquidTurret("stellar");
         new TractorBeamTurret("disintegrate");
         new ItemTurret("asylum");
         new ShieldArcPowerTurret("blocker");

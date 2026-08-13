@@ -87,6 +87,22 @@
       "velocityScaleRandMin": 0.3,
       "impact": true
     },
+    "acid": {
+      "type": "LiquidBulletType",
+      "liquid": "acid",
+      "orbSize": 2,
+      "drag": 0.01,
+      "knockback": 8,
+      "layer": 98,
+      "damage": 1,
+      "puddleSize": 6,
+      "status": "corroded",
+      "statusDuration": 600,
+      "lifetime": 180,
+      "speed": 10,
+      "velocityScaleRandMin": 0.3,
+      "impact": true
+    },
     "arkycite": {
       "type": "LiquidBulletType",
       "liquid": "arkycite",

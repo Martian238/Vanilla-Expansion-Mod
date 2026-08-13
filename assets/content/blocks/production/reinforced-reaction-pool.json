@@ -99,7 +99,7 @@
         "type": "DrawMulti",
         "drawers": [
           {
-            "type": "DrawBlockParts",
+            "type": "VanillaExpansion.expand.world.block.draw.DrawStaticBlockParts",
             "parts": [
               {
                 "type": "RegionPart",
@@ -176,7 +176,7 @@
         "type": "DrawMulti",
         "drawers": [
           {
-            "type": "DrawBlockParts",
+            "type": "VanillaExpansion.expand.world.block.draw.DrawStaticBlockParts",
             "parts": [
               {
                 "type": "RegionPart",
@@ -253,7 +253,7 @@
         "type": "DrawMulti",
         "drawers": [
           {
-            "type": "DrawBlockParts",
+            "type": "VanillaExpansion.expand.world.block.draw.DrawStaticBlockParts",
             "parts": [
               {
                 "type": "RegionPart",
@@ -330,7 +330,7 @@
         "type": "DrawMulti",
         "drawers": [
           {
-            "type": "DrawBlockParts",
+            "type": "VanillaExpansion.expand.world.block.draw.DrawStaticBlockParts",
             "parts": [
               {
                 "type": "RegionPart",
@@ -408,7 +408,7 @@
         "type": "DrawMulti",
         "drawers": [
           {
-            "type": "DrawBlockParts",
+            "type": "VanillaExpansion.expand.world.block.draw.DrawStaticBlockParts",
             "parts": [
               {
                 "type": "RegionPart",
@@ -486,7 +486,7 @@
         "type": "DrawMulti",
         "drawers": [
           {
-            "type": "DrawBlockParts",
+            "type": "VanillaExpansion.expand.world.block.draw.DrawStaticBlockParts",
             "parts": [
               {
                 "type": "RegionPart",
@@ -563,7 +563,7 @@
         "type": "DrawMulti",
         "drawers": [
           {
-            "type": "DrawBlockParts",
+            "type": "VanillaExpansion.expand.world.block.draw.DrawStaticBlockParts",
             "parts": [
               {
                 "type": "RegionPart",
@@ -640,7 +640,7 @@
         "type": "DrawMulti",
         "drawers": [
           {
-            "type": "DrawBlockParts",
+            "type": "VanillaExpansion.expand.world.block.draw.DrawStaticBlockParts",
             "parts": [
               {
                 "type": "RegionPart",
