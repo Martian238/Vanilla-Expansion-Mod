@@ -30,7 +30,7 @@ void main(){
                            sin(stime / 20.0 + coords.x/4.0) * 1.0, mscl);
 
     if(tester < mth){
-        color *= 1;
+        color *= 1.0;
     }
 
 	gl_FragColor = vec4(color.rgb, min(sampled.a * 100.0, 1.0));
