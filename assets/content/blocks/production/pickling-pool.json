@@ -41,7 +41,7 @@
         "drawLiquid": "acid"
       },
       {
-        "type": "DrawBobbles",
+        "type": "DrawBubbles",
         "color": "f4c55a",
         "sides": 8,
         "recurrence": 3,

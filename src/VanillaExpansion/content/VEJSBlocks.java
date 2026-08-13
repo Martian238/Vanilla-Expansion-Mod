@@ -285,6 +285,7 @@ public class VEJSBlocks {
         new CoreBlock("core-nucleus-root");
         new CoreBlock("core-singularity-root");
         new CoreBlock("core-nucleus-root-sitrullus");
+        new CoreBlock("core-nucleus-root-thavina");
         new CoreBlock("isomorphic-core-shard");
         new CoreBlock("isomorphic-core-foundation");
         new CoreBlock("isomorphic-core-nucleus");

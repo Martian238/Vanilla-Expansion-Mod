@@ -83,6 +83,7 @@ public class VanillaExpansionMod extends Mod {
 
 
         //全图酸腐蚀处理
+
             Events.run(EventType.Trigger.update, () -> {
                 if(state.isPaused() || !state.rules.fire) return;
                 timer += Time.delta;

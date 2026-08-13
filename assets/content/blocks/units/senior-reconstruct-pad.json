@@ -12,7 +12,7 @@
   "consumes": {
     "power": 4,
     "items": {
-      "items": [ "silicon/180","plastanium/60" ]
+      "items": [ "silicon/240","plastanium/80" ]
     },
     "liquids": {
       "liquids": [ "water/0.4" ]
