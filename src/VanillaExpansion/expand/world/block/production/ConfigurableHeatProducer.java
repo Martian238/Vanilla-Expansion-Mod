@@ -5,6 +5,8 @@ import arc.math.Mathf;
 import arc.scene.ui.layout.Table;
 import mindustry.content.Fx;
 import mindustry.content.Items;
+import mindustry.content.StatusEffects;
+import mindustry.content.UnitTypes;
 import mindustry.entities.Effect;
 import mindustry.entities.Lightning;
 import mindustry.entities.bullet.BasicBulletType;
@@ -124,7 +126,7 @@ public class ConfigurableHeatProducer extends HeatProducer {
 
         @Override
         public void buildConfiguration(Table table){
-            table.button(Icon.edit, Styles.cleari, () -> {
+            table.button(Icon.settings, Styles.cleari, () -> {
                 if(mobile){
                     var contents = message;
                     Core.input.getTextInput(new TextInput(){{
@@ -312,7 +314,7 @@ public class ConfigurableHeatProducer extends HeatProducer {
             if(!crazyMode) {
                 heat = Mathf.approachDelta(heat, writtenHeat * efficiency, warmupRate * delta());
             }else{
-                heat = Math.min(writtenHeat * efficiency * Math.abs(Mathf.random(0f, Mathf.random(0f, Mathf.random(0f, Strings.parseFloat(messageStr, 0f) / maxHeat)))), 100000f);
+                heat = Math.min(writtenHeat * efficiency * Math.abs(Mathf.random(0f, Mathf.random(0f, Mathf.random(0f, Strings.parseFloat(messageStr, 0f) / Math.min(maxHeat, 1000f))))), 1000f);
             }
 
 
@@ -376,6 +378,7 @@ public class ConfigurableHeatProducer extends HeatProducer {
         super.setStats();
         stats.remove(Stat.output);
         stats.add(Stat.output, defaultHeat, StatUnit.heatUnits);
+        stats.add(Stat.maxEfficiency, maxHeat,  StatUnit.heatUnits);
     }
 
     @Override
@@ -385,9 +388,9 @@ public class ConfigurableHeatProducer extends HeatProducer {
         removeBar("heat");
         addBar("heat", (ConfigureableHeatProducerBuild entity) -> new Bar("bar.heat", Pal.lightOrange, () -> entity.heat / entity.writtenHeat));
         addBar("writtenEfficiency", (ConfigureableHeatProducerBuild entity) -> new Bar(
-                () -> Core.bundle.format("bar.efficiency",
-                        (int)(defaultCraftTime / entity.currentCraftTime * 100)),
-                () -> Pal.lightOrange,
+                () -> Core.bundle.format("bar.consumerate",
+                        ((1 / (entity.currentCraftTime / 60f)))),
+                () -> Items.phaseFabric.color,
                 entity::heatFrac
         ));
     }

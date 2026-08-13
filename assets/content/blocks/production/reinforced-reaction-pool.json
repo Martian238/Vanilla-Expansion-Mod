@@ -1,0 +1,711 @@
+{
+  //含Java
+  //Java content
+  "requirements": [ "tantalum/200","ferrum/100","silicon/100","silicide/200","graphite/100" ],
+  "category": "crafting",
+  "craftEffect": "none",
+  "size": 4,
+  "armor": 32,
+  "hasPower": true,
+  "hasLiquids": true,
+  "liquidCapacity": 500,
+  "itemCapacity": 200,
+  "hasItems": true,
+  "rotate": true,
+  "rotateDraw": false,
+  "drawArrow": true,
+  "warmupSpeed": 0.05,
+  "dumpTime": 1,
+  "research": {
+    "parent": "m-upgraded-reaction-pool",
+    "objectives": [
+      "m-upgraded-reaction-pool"
+    ]
+  },
+  "researchCostMultiplier": 0.2,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-rotator",
+        "rotateSpeed": -2.5
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-shadow1"
+      },
+      {
+        "type": "DrawRegion"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "slag",
+        "padLeft": 11.75,
+        "padRight": 17.75,
+        "padding": 11.5
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "lava",
+        "padLeft": 11.75,
+        "padRight": 17.75,
+        "padding": 11.5
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "water",
+        "padLeft": 17.75,
+        "padRight": 11.75,
+        "padding": 11.5
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "hydrogen",
+        "padLeft": 17.75,
+        "padRight": 11.75,
+        "padding": 11.5
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "acid",
+        "padLeft": 14.75,
+        "padRight": 14.75,
+        "padding": 11.5
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-shell",
+        "layer": 32
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-shadow2"
+      }
+    ]
+  },
+  "ambientSound": "si2Steamvent",
+  "ambientSoundVolume": 0.1,
+  "shownPlanets": [ "maress" ],
+  "recipe": [
+    {
+      "inputLiquids": [ "acid/0.45" ],//1
+      "inputItems": [ "red-soil/20" ],
+      "inputPower": 2,
+      "outputLiquids": [ "acid/0" ],
+      "outputItems": [ "sand/9" ],
+      "craftTime": 24,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1",
+                "color": "f25555",
+                "colorTo": "f4c55a",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1-glow",
+                "color": "f2555560",
+                "colorTo": "f4c55a80",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2",
+                "color": "f25555",
+                "colorTo": "f4c55a",
+                "outline": false,
+                "layer": 32.1,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2-glow",
+                "color": "f2555560",
+                "colorTo": "f4c55a80",
+                "outline": false,
+                "blending": "additive",
+                "layer": 32.11,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              }
+            ]
+          },
+          //{ "type": "DrawHeatOutput" }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [  ],//1.1
+      "inputItems": [ "red-soil/100","acid-pod/1" ],
+      "inputPower": 2.5,
+      "outputLiquids": [  ],
+      "outputItems": [ "sand/45","tantalum/1" ],
+      "craftTime": 120,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1",
+                "color": "f25555",
+                "colorTo": "f4c55a",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1-glow",
+                "color": "f2555560",
+                "colorTo": "f4c55a80",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2",
+                "color": "f25555",
+                "colorTo": "f4c55a",
+                "outline": false,
+                "layer": 32.1,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2-glow",
+                "color": "f2555560",
+                "colorTo": "f4c55a80",
+                "outline": false,
+                "blending": "additive",
+                "layer": 32.11,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              }
+            ]
+          },
+          //{ "type": "DrawHeatOutput" }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [ "acid/1" ],//2
+      "inputItems": [ "ferric-shale-cobble/10" ],
+      "inputPower": 4,
+      "outputLiquids": [ "acid/0" ],
+      "outputItems": [ "sand/58" ],
+      "craftTime": 120,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1",
+                "color": "f25555",
+                "colorTo": "f4c55a",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1-glow",
+                "color": "f2555560",
+                "colorTo": "f4c55a80",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2",
+                "color": "f25555",
+                "colorTo": "f4c55a",
+                "outline": false,
+                "layer": 32.1,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2-glow",
+                "color": "f2555560",
+                "colorTo": "f4c55a80",
+                "outline": false,
+                "blending": "additive",
+                "layer": 32.11,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              }
+            ]
+          },
+          //{ "type": "DrawHeatOutput" }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [  ],//2.1
+      "inputItems": [ "ferric-shale-cobble/10","acid-pod/2" ],
+      "inputPower": 4.5,
+      "outputLiquids": [  ],
+      "outputItems": [ "sand/58","tantalum/2" ],
+      "craftTime": 120,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1",
+                "color": "f25555",
+                "colorTo": "f4c55a",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1-glow",
+                "color": "f2555560",
+                "colorTo": "f4c55a80",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2",
+                "color": "f25555",
+                "colorTo": "f4c55a",
+                "outline": false,
+                "layer": 32.1,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2-glow",
+                "color": "f2555560",
+                "colorTo": "f4c55a80",
+                "outline": false,
+                "blending": "additive",
+                "layer": 32.11,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              }
+            ]
+          },
+          //{ "type": "DrawHeatOutput" }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [ "water/0.25","acid/0.25" ],//3
+      "inputItems": [  ],
+      "inputPower": 0,
+      "outputLiquids": [ "water/0","acid/0" ],
+      "outputItems": [  ],
+      "outputHeat": 50,
+      "craftTime": 60,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1",
+                "color": "f25555",
+                "colorTo": "ffa665",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1-glow",
+                "color": "f2555560",
+                "colorTo": "ffa66580",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2",
+                "color": "f25555",
+                "colorTo": "ffa665",
+                "outline": false,
+                "layer": 32.1,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2-glow",
+                "color": "f2555560",
+                "colorTo": "ffa66580",
+                "outline": false,
+                "blending": "additive",
+                "layer": 32.11,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              }
+            ]
+          },
+          { "type": "DrawHeatOutput" }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [ "water/0.25" ],//3.1
+      "inputItems": [ "acid-pod/1" ],
+      "inputPower": 0.5,
+      "outputLiquids": [ "water/0" ],
+      "outputItems": [ "tantalum/1" ],
+      "outputHeat": 50,
+      "craftTime": 240,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1",
+                "color": "f25555",
+                "colorTo": "ffa665",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1-glow",
+                "color": "f2555560",
+                "colorTo": "ffa66580",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2",
+                "color": "f25555",
+                "colorTo": "ffa665",
+                "outline": false,
+                "layer": 32.1,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2-glow",
+                "color": "f2555560",
+                "colorTo": "ffa66580",
+                "outline": false,
+                "blending": "additive",
+                "layer": 32.11,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              }
+            ]
+          },
+          { "type": "DrawHeatOutput" }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [ "acid/3" ],//4
+      "inputItems": [ "tantalum/3" ],
+      "inputPower": 0.5,
+      "outputLiquids": [ "acid/0" ],
+      "outputItems": [ "acid-pod/3" ],
+      "craftTime": 60,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1",
+                "color": "f25555",
+                "colorTo": "98ffa9",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1-glow",
+                "color": "f2555560",
+                "colorTo": "98ffa980",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2",
+                "color": "f25555",
+                "colorTo": "98ffa9",
+                "outline": false,
+                "layer": 32.1,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2-glow",
+                "color": "f2555560",
+                "colorTo": "98ffa980",
+                "outline": false,
+                "blending": "additive",
+                "layer": 32.11,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              }
+            ]
+          },
+          //{ "type": "DrawHeatOutput" }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [  ],//5
+      "inputItems": [ "acid-pod/3" ],
+      "inputPower": 0.5,
+      "outputLiquids": [ "acid/3" ],
+      "outputItems": [ "tantalum/3" ],
+      "craftTime": 60,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1",
+                "color": "f25555",
+                "colorTo": "98ffa9",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights1-glow",
+                "color": "f2555560",
+                "colorTo": "98ffa980",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2",
+                "color": "f25555",
+                "colorTo": "98ffa9",
+                "outline": false,
+                "layer": 32.1,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-reinforced-reaction-pool-lights2-glow",
+                "color": "f2555560",
+                "colorTo": "98ffa980",
+                "outline": false,
+                "blending": "additive",
+                "layer": 32.11,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              }
+            ]
+          },
+          //{ "type": "DrawHeatOutput" }
+        ]
+      }
+    }
+  ],
+  "conductivePower": false
+}

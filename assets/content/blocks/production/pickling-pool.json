@@ -41,7 +41,18 @@
         "drawLiquid": "acid"
       },
       {
+        "type": "DrawBobbles",
+        "color": "f4c55a",
+        "sides": 8,
+        "recurrence": 3,
+        "spread": 4,
+        "amount": 3
+      },
+      {
         "type": "DrawDefault"
+      },
+      {
+        "type": "DrawHeatInput"
       }
     ]
   }

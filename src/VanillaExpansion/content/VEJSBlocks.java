@@ -168,6 +168,7 @@ public class VEJSBlocks {
         new MultiCrafter("m-upgraded-reaction-pool");
         new HeatCrafter("thermoplastic-compressor");
         new HeatButNoHeatCanStillWorkCrafter("pickling-pool");
+        new MultiCrafter("reinforced-reaction-pool");
 
         // group 11.3 火星热量
         new HeatConductor("heat-conduct-conductor");

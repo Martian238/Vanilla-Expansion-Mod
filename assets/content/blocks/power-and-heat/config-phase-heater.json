@@ -1,16 +1,18 @@
 {
   //含Java内容
   //This one has Java
-  "requirements": [ "thorium/20","silicon/60","ferrum/40" ],
+  "requirements": [ "thorium/20","silicon/90","ferrum/40" ],
   "category": "crafting",
   "size": 2,
   "consumes": {
     "item": "phase-fabric"
   },
-  "defaultCraftTime": 480,
+  "defaultCraftTime": 960,
   "defaultHeat": 30,
-  "craftTime": 480,
+  "craftTime": 960,
   "itemCapacity": 10,
+  "penaltyMultiplier": 1.2,
+  "rebuildable": false,
   "hasItems": true,
   "research": {
     "parent": "m-boiler",
@@ -23,6 +25,17 @@
   },
   "researchCostMultiplier": 0.1,
   "shownPlanets": [ "maress","thavina" ],
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawDefault"
+      },
+      {
+        "type": "DrawHeatOutput"
+      }
+    ]
+  },
   "wrongBullet": {
     "despawnHit": true,
     "despawnEffect": "none",

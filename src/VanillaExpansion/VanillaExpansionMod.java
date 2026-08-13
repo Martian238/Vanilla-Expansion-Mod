@@ -96,7 +96,7 @@ public class VanillaExpansionMod extends Mod {
                     if(building.block instanceof LiquidBlock || building.block instanceof LiquidBridge){
                         if(building.liquids.get(VEJSLiquids.acid) > 0.01f && !blockWhitelist1.contains(building.block.name) && !blockWhitelist2.contains(building.block.name) && !(erekirBlockWhitelist.contains(building.block.name) && !state.rules.hasEnv(Env.scorching))){
                             if(Mathf.chanceDelta(0.33f)) {
-                                building.damage(Math.abs(Mathf.range(0.01f, 0.05f)) * building.block.health * (building.liquids.get(VEJSLiquids.acid) / building.block.liquidCapacity));
+                                building.damagePierce(Math.abs(Mathf.range(0.01f, 0.1f)) * building.block.health * (building.liquids.get(VEJSLiquids.acid) / building.block.liquidCapacity));
                                 building.liquids.remove(VEJSLiquids.acid, 0.1f);
                             }
                             hasCorrosive = true;
