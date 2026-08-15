@@ -69,8 +69,6 @@ public class CustomFx{
                 Lines.poly(e.x, e.y, ab.sides, e.rotation + e.fin(), ab.shieldRotation);
                 return;
             }
-
-
             Lines.poly(e.x, e.y, 6, e.rotation + e.fin());
         }).followParent(true)
 

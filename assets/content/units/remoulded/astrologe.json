@@ -75,12 +75,14 @@
         "speed": 3.4,
         "damage": 23,
         "lifetime": 18,
-        "hitSize": 7,
         "pierce": true,
         "makeFire": true,
         "collidesAir": true,
         "statusDuration": 240,
         "lightColor": "98ffa9",
+        "frontColor": "00000000",
+        "backColor": "00000000",
+        "hitSize": 7,
         "shrinkX": 0,
         "shrinkY": 0,
         "shootEffect": {
@@ -111,10 +113,8 @@
         "healPercent": 3,
         "hitEffect": "hitFlamePlasma",
         "despawnEffect": "none",
-        "backColor": "98ffa9",
         "keepVelocity": false,
         "hittable": false,
-        "frontColor": "ffffff",
         "status": "burning"
       }
     },
