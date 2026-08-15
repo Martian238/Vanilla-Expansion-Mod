@@ -66,6 +66,7 @@ public class VEPlanets {
             camRadius = 1.8f;
             clipRadius = 1.5f;
             startSector = 0;
+            drawOrbit = false;
             ruleSetter = r -> {
                 r.waves = false;
             };

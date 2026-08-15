@@ -1,5 +1,5 @@
 {
-  "type": "Floor",
+  //"type": "Floor",
   "speedMultiplier": 0.1,
   "variants": 3,
   "liquidDrop": "melon-water-corrupted",

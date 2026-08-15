@@ -1,5 +1,5 @@
 {
-  "type": "Floor",
+  //"type": "Floor",
   "drawEdgeOut": false,
   "drawEdgeIn": false,
   "variants": 0,

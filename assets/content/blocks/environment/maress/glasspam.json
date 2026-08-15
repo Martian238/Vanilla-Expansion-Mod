@@ -1,5 +1,5 @@
 {
-  "type": "WobbleProp",
+  //"type": "WobbleProp",
   "variants": 5,
   "wmag": 0.3,
   "wscl": 20,

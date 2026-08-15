@@ -1,5 +1,5 @@
 {
-  "type": "Prop",
+  //"type": "Prop",
   "variants": 4,
   "breakSound": [ "pvzMelonImpact1","pvzMelonImpact2" ],
   "requirements": [ "melon-dirt/10" ],

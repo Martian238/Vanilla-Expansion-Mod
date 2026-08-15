@@ -1,0 +1,33 @@
+{
+  "type": "payload",
+  "outlineRadius": 5,
+  "databaseTag": "13other-unit",
+  "flying": false,
+  "canBoost": true,
+  "engineSize": 5,
+  "speed": 3,
+  "accel": 0.1,
+  "drag": 0.05,
+  "wobble": false,
+  "hitSize": 24,
+  "payloadCapacity": 102400,
+  "drawSoftShadow": false,
+  "health": 20000,
+  "alwaysUnlocked": true,
+  "faceTarget": true,
+  "parts": [
+    {
+      "name": "ve-test-outline",
+      "mixColor": "f25555",
+      "x": 0,
+      "yScl": 0.65,
+      "blending": "normal",
+      "layer": 122
+    }
+  ],
+  "weapons": [
+    {
+      "bullet": {}
+    }
+  ]
+}

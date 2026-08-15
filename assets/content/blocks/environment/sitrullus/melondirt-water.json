@@ -1,5 +1,5 @@
 {
-  "type": "Floor",
+  //"type": "Floor",
   "speedMultiplier": 0.8,
   "variants": 6,
   "liquidDrop": "melon-water",

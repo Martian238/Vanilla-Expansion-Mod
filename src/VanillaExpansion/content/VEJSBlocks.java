@@ -542,14 +542,7 @@ public class VEJSBlocks {
         new MemoryBlock("quantum-memory-cell");
 
         //group 37 环境块
-        new Floor("flowing-lava"){{
-            cacheLayer = VECacheLayer.lava;
-        }};
-        new Floor("pooled-acid"){{
-            cacheLayer = VECacheLayer.acid;
-        }};
-        new Floor("dysharmony-fluid-floor"){{
-            cacheLayer = VECacheLayer.dysharmony;
-        }};
+
+
     }
 }

@@ -1,5 +1,5 @@
 {
-  "type": "Floor",
+  //"type": "Floor",
   "variants": 6,
   "attributes": {
     "water": 1.5,

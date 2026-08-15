@@ -1,5 +1,5 @@
 {
-  "type": "StaticWall",
+  //"type": "StaticWall",
   "variants": 4,
   /*"drawer": {
     "type": "DrawGlowRegion",

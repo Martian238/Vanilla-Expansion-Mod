@@ -1,5 +1,5 @@
 {
-  "type": "StaticTree",
+  //"type": "StaticTree",
   "variants": 6,
   "requirements": [ "plant-matter/40" ],
   "buildCostMultiplier": 18,

@@ -1,5 +1,5 @@
 {
-  "type": "StaticWall",
+  //"type": "StaticWall",
   "variants": 5,
   "mapColor": "646567"
 }

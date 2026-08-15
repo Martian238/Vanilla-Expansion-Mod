@@ -1,5 +1,5 @@
 {
-  "type": "Floor",
+  //"type": "Floor",
   "variants": 5,
   "itemDrop": "sand",
   "playerUnmineable": true,

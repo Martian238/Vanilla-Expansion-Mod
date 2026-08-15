@@ -1,0 +1,21 @@
+{
+  //"type": "Floor",
+  "speedMultiplier": 0.6,
+  "dragMultiplier": 0.7,
+  "variants": 9,
+  "liquidDrop": "water",
+  "liquidMultiplier": 1,
+  "isLiquid": true,
+  "status": "frozen",
+  "statusDuration": 300,
+  "cacheLayer": "water",
+  "albedo": 0.9,
+  "supportsOverlay": true,
+  "drownTime": 0,
+  "itemDrop": "red-soil",
+  "playerUnmineable": true,
+  "attributes": {
+    "water": 0.1,
+    "heat": -0.3
+  }
+}
