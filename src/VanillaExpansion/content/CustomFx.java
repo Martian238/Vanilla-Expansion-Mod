@@ -1,6 +1,7 @@
 package VanillaExpansion.content;
 
 import VanillaExpansion.VEPal;
+import VanillaExpansion.expand.world.block.defense.TestPullRequestForceProjector;
 import arc.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
@@ -14,6 +15,7 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.world.*;
+import mindustry.world.blocks.defense.ForceProjector;
 import mindustry.world.blocks.units.UnitAssembler.*;
 
 import static arc.graphics.g2d.Draw.rect;
@@ -26,7 +28,7 @@ public class CustomFx{
     public static final Rand rand = new Rand();
     public static final Vec2 v = new Vec2();
 
-    public static void load() {
+    public static final
         Effect instHit2 = new Effect(20f, 200f, e -> {
             color(VEPal.cyclant);
 
@@ -55,7 +57,24 @@ public class CustomFx{
                     Fill.square(e.x + x, e.y + y, c.fout() * 3f, 45f);
                 });
             });
-        });
+        }),
+
+        shieldBreakProjector = new Effect(40, e -> {
+            color(e.color);
+            stroke(3f * e.fout());
+            if(e.data instanceof ForceFieldAbility ab){
+                Lines.poly(e.x, e.y, ab.sides, e.rotation + e.fin(), ab.rotation);
+                return;
+            }else if(e.data instanceof TestPullRequestForceProjector ab){
+                Lines.poly(e.x, e.y, ab.sides, e.rotation + e.fin(), ab.shieldRotation);
+                return;
+            }
+
+
+            Lines.poly(e.x, e.y, 6, e.rotation + e.fin());
+        }).followParent(true)
+
+                ;
     }
-}
+
 

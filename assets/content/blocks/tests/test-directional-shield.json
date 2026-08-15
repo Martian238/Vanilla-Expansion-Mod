@@ -1,6 +1,6 @@
 {
-  //"type": "DirectionalForceProjector",
-  "shieldHealth": 1000,
+  "type": "VanillaExpansion.expand.world.block.defense.TestPullRequestForceProjector",
+  "shieldHealth": 100,
   "consumes": {
     "power": 1,
     "coolant": { "amount": 0.1,"optional": true }
@@ -8,5 +8,7 @@
   "alwaysUnlocked": true,
   "buildVisibility": "sandboxOnly",
   "category": "effect",
-  //"size": 2
+  "sides": 8,
+  "size": 2,
+  "shieldRotation": 12
 }

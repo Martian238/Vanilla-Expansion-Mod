@@ -27,7 +27,11 @@
   ],
   "weapons": [
     {
-      "bullet": {}
+      "bullet": {
+        "speed": 5,
+        "damage": 10,
+        "lifesteal": -1
+      }
     }
   ]
 }
