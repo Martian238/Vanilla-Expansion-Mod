@@ -1,7 +1,6 @@
 {
   "type": "GenericCrafter",
   "enableDrawStatus": false,
-  "drawTeamOverlay": false,
   "buildVisibility": "sandboxOnly",
   "ambientSound": "si2TeleporterActive",
   "ambientSoundVolume": 0.4,
@@ -30,31 +29,19 @@
     "type": "DrawMulti",
     "drawers": [
       { "type": "DrawDefault" },
+      {
+        "type": "DrawRegion",
+        "suffix": "-ring-shadow",
+        "x": -2,
+        "y": -2,
+        "spinSprite": true,
+        "rotateSpeed": -8
+      },
       { 
         "type": "DrawRegion",
         "suffix": "-ring",
         "spinSprite": true,
         "rotateSpeed": -8
-      },
-      { 
-        "type": "DrawGlowRegion",
-        "suffix": "-ring-glow",
-        "color": "00ffce",
-        "alpha": 0.3,
-        "glowIntensity": 0,
-        "rotateSpeed": -8
-      },
-      { 
-        "type": "DrawRegion",
-        "suffix": "-cap"
-      },
-      { 
-        "type": "DrawGlowRegion",
-        "suffix": "-cap-glow",
-        "color": "00ffce",
-        "alpha": 0.6,
-        "glowIntensity": 0.1,
-        "glowScale": 3
       },
       { 
         "type": "DrawGlowRegion",
@@ -71,6 +58,37 @@
         "rotateSpeed": 0.5,
         "color": "ffffff",
         "alpha": 1
+      },
+      {
+        "type": "DrawBlockParts",
+        "parts": [
+          {
+            "type": "ShapePart",
+            "radius": 0,
+            "radiusTo": 4,
+            "circle": true,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "pow2Out"
+            },
+            "color": "00ffce",
+            "layer": 99.99
+          },
+          {
+            "type": "ShapePart",
+            "radius": 0,
+            "radiusTo": 3,
+            "circle": true,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "pow2Out"
+            },
+            "color": "ffffff",
+            "layer": 99.99
+          }
+        ]
       }
     ]
   },

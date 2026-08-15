@@ -43,6 +43,7 @@
       "cooldown": 180,
       "sides": 6
     }*/
+    /*
     {
       "type": "ShieldArcAbility",
       "radius": 30,
@@ -107,6 +108,80 @@
       "angle": 60,
       "angleOffset": 180,
       "whenShooting": false,
+      "width": 60
+    }
+    */
+    //It was all Json before. Now it has Java-written shields.
+    {
+      "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
+      "radius": 30,
+      "regen": 0.75,
+      "max": 700,
+      "cooldown": 180,
+      "angle": 60,
+      "angleOffset": 0,
+      "whenShooting": false,
+      "rotateSpeed": 1.5,
+      "width": 60
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
+      "radius": 30,
+      "regen": 0.75,
+      "max": 700,
+      "cooldown": 180,
+      "angle": 60,
+      "angleOffset": 60,
+      "whenShooting": false,
+      "rotateSpeed": 1.5,
+      "width": 60
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
+      "radius": 30,
+      "regen": 0.75,
+      "max": 700,
+      "cooldown": 180,
+      "angle": 60,
+      "angleOffset": 120,
+      "whenShooting": false,
+      "rotateSpeed": 1.5,
+      "width": 60
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
+      "radius": 30,
+      "regen": 0.75,
+      "max": 700,
+      "cooldown": 180,
+      "angle": 60,
+      "angleOffset": 180,
+      "whenShooting": false,
+      "rotateSpeed": 1.5,
+      "width": 60
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
+      "radius": 30,
+      "regen": 0.75,
+      "max": 700,
+      "cooldown": 180,
+      "angle": 60,
+      "angleOffset": 240,
+      "whenShooting": false,
+      "rotateSpeed": 1.5,
+      "width": 60
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
+      "radius": 30,
+      "regen": 0.75,
+      "max": 700,
+      "cooldown": 180,
+      "angle": 60,
+      "angleOffset": 300,
+      "whenShooting": false,
+      "rotateSpeed": 1.5,
       "width": 60
     }
   ],

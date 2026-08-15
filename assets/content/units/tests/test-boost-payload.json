@@ -41,6 +41,32 @@
       "rotateSpeed": 3,
       "width": 10
       //60
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
+      "radius": 60,
+      "regen": 0.55,
+      "max": 700,
+      "cooldown": 120,
+      "angle": 120,
+      "angleOffset": 0,
+      "whenShooting": false,
+      "rotateSpeed": -1.5,
+      "width": 10
+      //60
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
+      "radius": 60,
+      "regen": 0.55,
+      "max": 700,
+      "cooldown": 120,
+      "angle": 120,
+      "angleOffset": 180,
+      "whenShooting": false,
+      "rotateSpeed": -1.5,
+      "width": 10
+      //60
     }
   ],
   "parts": [

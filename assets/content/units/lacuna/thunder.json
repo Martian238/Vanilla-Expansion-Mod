@@ -107,7 +107,7 @@
       "shootY": 20,
       "shootSound": "stAstroCharge",
       "continuous": true,
-      "reload": 2000,
+      "reload": 1070,
       "display": false,
       "useAttackRange": false,
       "shake": 1,
@@ -319,7 +319,7 @@
       "shootSound": "none",
       "chargeSound": "none",
       "parentizeEffects": true,
-      "reload": 2000,
+      "reload": 1070,
       "recoilTime": 10,
       "shake": 16,
       "shoot": {

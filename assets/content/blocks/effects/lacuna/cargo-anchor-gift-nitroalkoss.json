@@ -1,0 +1,35 @@
+{
+  "type": "GenericCrafter",
+  "category": "effect",
+  "hasItems": true,
+  "itemCapacity": 1800,
+  "conductivePower": false,
+  "hasPower": false,
+  "shownPlanets": [ "maress" ],
+  "squareSprite": false,
+  "canOverdrive": false,
+  "dumpTime": 1,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor"
+      },
+      {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-gift-idle",
+        "layer": 99.99
+      }
+    ]
+  },
+  "outputItems": [ "nitroalkoss/900" ],
+  "craftTime": 600,
+  "size": 3,
+  "armor": 0,
+  "ambientSound": "none",
+  "ambientSoundVolume": 0.08,
+  "updateEffect": "none",
+  "craftEffect": "none",
+  "buildVisibility": "sandboxOnly"
+}

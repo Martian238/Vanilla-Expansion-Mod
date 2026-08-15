@@ -16,10 +16,10 @@
     "colorTo": "00ffce"
   },
   "applyEffect": "none",
-  "reloadMultiplier": 2.5,
-  "healthMultiplier": 0.6,
+  "reloadMultiplier": 1,
+  "healthMultiplier": 1,
   "effectChance": 0.3,
   "speedMultiplier": 0,
-  "dragMultiplier": 2,
+  "dragMultiplier": 100,
   "generateIcons": false
 }
