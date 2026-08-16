@@ -390,10 +390,12 @@
       "effectSizeParam": false
     },
     {
-      "type": "ShieldArcAbility",
+      "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",//Java
       "cooldown": 120,
       "regen": 50,
-      "max": 300000,//20000
+      "max": 300000,
+      "rotateSpeed": 0,
+      "perfectDeflect": true,
       "angle": 135,
       "radius": 170,
       "width": 25,

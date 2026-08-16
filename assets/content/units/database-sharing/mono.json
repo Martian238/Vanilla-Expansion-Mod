@@ -1,7 +1,8 @@
 {
   "mineWalls": true,
   "mineItems": {
-    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite" ]
+    "add": [ "thorium","aluminium","quartz","chromium","cobalt","ferrum","silver","tantalum","beryllium","graphite","tungsten","motiphite","technolite","chrysopite","finallite",
+    "spore-pod"]
   },
   "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
   "databaseTag": "03serpulo-air-unit",

@@ -1,0 +1,6 @@
+{
+  "type": "VanillaExpansion.expand.world.block.sandbox.SpawnEgg",
+  "size": 1,
+  "category": "units",
+  "buildVisibility": "sandboxOnly"
+}
