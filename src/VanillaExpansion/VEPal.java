@@ -32,4 +32,8 @@ public class VEPal {
 
     public static Color cyclant = new Color(0x90dbff);
     public static Color lacuna = new Color(0x00ffce);
+
+    public static Color exp = Color.valueOf("4DFF7DFF");
+    public static Color expMax = Color.valueOf("18DC4CFF");
+    public static Color expBack = Color.valueOf("18AD40FF");
 }
