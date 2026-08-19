@@ -18,7 +18,7 @@
   "abilities": [
     {
       "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
-      "radius": 30,
+      "radius": 15,
       "regen": 0.55,
       "max": 700,
       "cooldown": 120,
@@ -31,7 +31,7 @@
     },
     {
       "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
-      "radius": 30,
+      "radius": 15,
       "regen": 0.55,
       "max": 700,
       "cooldown": 120,
@@ -44,7 +44,7 @@
     },
     {
       "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
-      "radius": 60,
+      "radius": 30,
       "regen": 0.55,
       "max": 700,
       "cooldown": 120,
@@ -57,7 +57,7 @@
     },
     {
       "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
-      "radius": 60,
+      "radius": 30,
       "regen": 0.55,
       "max": 700,
       "cooldown": 120,
@@ -67,6 +67,15 @@
       "rotateSpeed": -1.5,
       "width": 10
       //60
+    },
+
+    {
+      "type": "VanillaExpansion.expand.abilities.DetainerClawAbility",
+      "releaseSound": [ "roMoskitoRelease1","roMoskitoRelease2","roMoskitoRelease3","roMoskitoRelease4" ]
+    },
+
+    {
+      "type": "VanillaExpansion.expand.abilities.WarpAbility"
     }
   ],
   "parts": [
@@ -81,11 +90,13 @@
   ],
   "weapons": [
     {
+      "minWarmup": 2,
       "bullet": {
         "speed": 5,
         "damage": 10,
         "lifesteal": -1
       }
     }
-  ]
+  ],
+  "buildSpeed": 1
 }

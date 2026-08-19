@@ -92,7 +92,7 @@
       "x": 0,
       "y": 17.25,
       "mirror": false,
-      "reload": 180,
+      "reload": 360000,
       "rotate": true,
       "controllable": false,
       "alwaysShooting": true,
@@ -126,6 +126,7 @@
         "hitEffect": "none",
         "despawnEffect": "none",
         "maxRange": 480,
+        "absorbable": false,
         "collides": false,
         "damage": 0
       }

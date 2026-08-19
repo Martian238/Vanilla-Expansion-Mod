@@ -135,11 +135,5 @@ public class VanillaExpansionMod extends Mod {
     }
 
 
-    public class CorrosiveLiquidListener{
 
-
-
-
-
-    }
 }
