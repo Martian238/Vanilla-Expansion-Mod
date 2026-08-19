@@ -13,16 +13,25 @@ import VanillaExpansion.expand.world.block.liquid.SideOutputConduit;
 import VanillaExpansion.expand.world.block.optics.LaserEmitter;
 import VanillaExpansion.expand.world.block.optics.LaserMirror;
 import VanillaExpansion.expand.world.block.optics.LaserReceiver;
+import VanillaExpansion.expand.exp.EField;
+import VanillaExpansion.expand.exp.ExpTurret;
+import VanillaExpansion.expand.exp.ExpLaserBulletType;
+import VanillaExpansion.expand.exp.ExpWall;
 import VanillaExpansion.expand.world.block.power.*;
 import VanillaExpansion.expand.world.block.production.CoolantDrill;
 import VanillaExpansion.expand.world.block.production.RockCoreDrill;
 import VanillaExpansion.expand.world.block.production.RotatableCrafter;
 import arc.struct.*;
 import arc.graphics.Color;
+import arc.math.Mathf;
+import arc.util.Strings;
 import mindustry.content.*;
 import mindustry.entities.bullet.BasicBulletType;
+import mindustry.entities.bullet.LaserBulletType;
 import mindustry.entities.part.RegionPart;
+import mindustry.entities.pattern.ShootPattern;
 import mindustry.gen.Sounds;
+import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
@@ -35,7 +44,10 @@ import mindustry.world.consumers.ConsumeLiquid;
 import mindustry.world.draw.DrawTurret;
 import mindustry.world.meta.BlockGroup;
 import mindustry.world.meta.BuildVisibility;
+import mindustry.world.meta.Stat;
 import VanillaExpansion.expand.world.block.*;
+
+import static mindustry.Vars.tilesize;
 
 public class VEBlocks {
     public static Block oreIron, oreUranium, oreManganese, oreQuartz;
@@ -88,6 +100,10 @@ public class VEBlocks {
     public static Block rbmkAbsorber;
     // RBMK 控制台
     public static Block rbmkConsole;
+    // 经验激光炮塔
+    public static Block expTurret;
+    // 经验墙
+    public static Block expWall;
 
     //测试玩意
     public static Block testCoolantDrill;
@@ -446,6 +462,50 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 500;
+        }};
+
+        // 经验激光炮塔（移植自 Project Unity 的 laser-turret 注册，简化去 powerUse/chargeTime）
+        expTurret = new ExpTurret("exp-laser-turret"){{
+            requirements(Category.turret, ItemStack.with(Items.copper, 90, Items.silicon, 40, Items.titanium, 15));
+            size = 2;
+            health = 600;
+
+            reload = 35f;
+            range = 140f;
+            targetAir = false;
+            shootSound = Sounds.shootLaser;
+            consumePower(2f);
+
+            maxLevel = 10;
+            expFields = new EField[]{
+                new EField.ELinear(v -> range = v, 120f, 2f, Stat.shootRange, v -> Strings.autoFixed(v / tilesize, 2) + " blocks"),
+                new EField.EBool(v -> targetAir = v, false, 5, Stat.targetsAir)
+            };
+
+            shoot = new ShootPattern(){{
+                shotDelay = 12f;
+                shots = 2;
+            }};
+
+            shootType = new ExpLaserBulletType(140f, 25f){{
+                damageInc = 7f;
+                expGain = buildingExpGain = 2;
+                fromColor = Pal.accent;
+                toColor = Pal.lancerLaser;
+            }};
+        }};
+
+        // 经验墙（移植自 Project Unity 的 steel-wall 注册，基于简化 ExpWall）
+        expWall = new ExpWall("exp-wall"){{
+            requirements(Category.defense, ItemStack.with(Items.titanium, 24, Items.silicon, 24));
+            size = 2;
+            health = 3240;
+
+            maxLevel = 12;
+            damageExp = 1 / 20f;
+            expFields = new EField[]{
+                new EField.ELinear(v -> damageReduction = v, 0.1f, 0.02f, Stat.armor, f -> Strings.autoFixed(Mathf.roundPositive(f * 10000f) / 100f, 2) + "%")
+            };
         }};
     }
 }
