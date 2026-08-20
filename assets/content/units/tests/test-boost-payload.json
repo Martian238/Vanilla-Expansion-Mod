@@ -2,19 +2,18 @@
   "type": "payload",
   "outlineRadius": 5,
   "databaseTag": "13other-unit",
-  "flying": false,
-  "canBoost": true,
   "engineSize": 5,
   "speed": 3,
   "accel": 0.1,
   "drag": 0.05,
-  "wobble": false,
+  "wobble": true,
   "hitSize": 24,
   "payloadCapacity": 102400,
   "drawSoftShadow": false,
   "health": 20000,
   "alwaysUnlocked": true,
   "faceTarget": true,
+  "flying": true,
   "abilities": [
     {
       "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
@@ -71,7 +70,19 @@
 
     {
       "type": "VanillaExpansion.expand.abilities.DetainerClawAbility",
-      "releaseSound": [ "roMoskitoRelease1","roMoskitoRelease2","roMoskitoRelease3","roMoskitoRelease4" ]
+      "releaseSound": [ "roMoskitoRelease1","roMoskitoRelease2","roMoskitoRelease3","roMoskitoRelease4" ],
+      "otherControlKeys": [ 2,3 ],
+      "controlKeyJson": 1,
+      "switchModeSound": "si2TeleporterSwitch"
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.DetainerClawAbility",
+      "releaseSound": [ "roMoskitoRelease1","roMoskitoRelease2","roMoskitoRelease3","roMoskitoRelease4" ],
+      "otherControlKeys": [ 1,3 ],
+      "controlKeyJson": 2,
+      "rootX": -16,
+      "clawRotateSpeed": -3,
+      "switchModeSoundPlayer": false
     },
 
     {
