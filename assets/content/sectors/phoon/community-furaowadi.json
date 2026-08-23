@@ -1,0 +1,23 @@
+{
+  "planet": "phoon",
+  "sector": 7,
+  "difficulty": 1,
+  "research": {
+    "parent": "community-guzhutiankeng",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "nuclear-powerplant"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

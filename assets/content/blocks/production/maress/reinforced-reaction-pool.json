@@ -19,7 +19,8 @@
   "research": {
     "parent": "m-upgraded-reaction-pool",
     "objectives": [
-      "m-upgraded-reaction-pool"
+      "m-upgraded-reaction-pool",
+      "pickling-pool-large"
     ]
   },
   "researchCostMultiplier": 0.2,
@@ -247,7 +248,7 @@
       "inputItems": [ "ferric-shale-cobble/10" ],
       "inputPower": 4,
       "outputLiquids": [ "acid/0" ],
-      "outputItems": [ "sand/58" ],
+      "outputItems": [ "sand/60" ],
       "craftTime": 120,
       "visual": {
         "type": "DrawMulti",
@@ -324,7 +325,7 @@
       "inputItems": [ "ferric-shale-cobble/10","acid-pod/2" ],
       "inputPower": 4.5,
       "outputLiquids": [  ],
-      "outputItems": [ "sand/58","tantalum/2" ],
+      "outputItems": [ "sand/60","tantalum/2" ],
       "craftTime": 120,
       "visual": {
         "type": "DrawMulti",

@@ -4,6 +4,7 @@
   "category": "distribution",
   "capacity": 5,
   "speed": 10,
+  "displayedSpeed": 30,
   "buildCostMultiplier": 4,
   "research": {
     "parent": "ferric-conveyor"

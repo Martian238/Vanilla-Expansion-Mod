@@ -25,7 +25,7 @@
   "shake": 3,
   "arrows": 1,
   "armor": 5,
-  "invertedTime": 120,
+  "invertedTime": 90,
   "arrowColor": "ff6b41",
   "glowColor": "ff6b41",
   "baseArrowColor": "2d2f39",

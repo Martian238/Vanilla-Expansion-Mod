@@ -26,6 +26,49 @@
         "type": "DrawBlockParts",
         "parts": [
           {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",//Java
+            "moveRot": -360,
+            "progress": "reload",
+            "y": 48,
+            "rotation": 90,
+            "invisible": true,
+            "outline": false,
+            "children": [
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",//Java
+                "name": "ve-test-rs-part2",
+                "rotation": 0,
+                "moveX": 2,
+                "moveY": 2,
+                "progress": "warmup"
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",//Java
+                "name": "ve-test-rs-part2",
+                "rotation": 90,
+                "moveX": -2,
+                "moveY": 2,
+                "progress": "warmup"
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",//Java
+                "name": "ve-test-rs-part2",
+                "rotation": 180,
+                "moveX": -2,
+                "moveY": -2,
+                "progress": "warmup"
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",//Java
+                "name": "ve-test-rs-part2",
+                "rotation": 270,
+                "moveX": 2,
+                "moveY": -2,
+                "progress": "warmup"
+              }
+            ]
+          },
+          {
             "type": "RegionPart",
             "name": "distributor",
             "x": -48,

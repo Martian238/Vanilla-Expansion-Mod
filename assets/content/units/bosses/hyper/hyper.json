@@ -2124,7 +2124,7 @@
       "mirror": false,
       "x": 0,
       "y": 0,
-      "reload": 600,
+      "reload": 60,
       "rotateSpeed": 360,
       "display": false,
       "shootSound": "none",
@@ -2272,7 +2272,7 @@
         "smokeEffect": "none",
         "lifetime": 1,
         "speed": 1600,
-        "rangeOverride": 1600,
+        "rangeOverride": 8000,
         "trailEffect": [
           {
             "type": "ParticleEffect",
@@ -2395,7 +2395,7 @@
       "autoTarget": true,
       "controllable": false,
       "bullet": {
-        "rangeOverride": 1440,
+        "rangeOverride": 4000,
         "shootEffect": {
           "type": "ParticleEffect",
           "lifetime": 60,

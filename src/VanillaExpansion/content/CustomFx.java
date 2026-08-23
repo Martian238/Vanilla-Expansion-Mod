@@ -11,6 +11,7 @@ import arc.struct.*;
 import arc.util.*;
 import mindustry.entities.*;
 import mindustry.entities.abilities.*;
+import mindustry.game.Team;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
@@ -70,7 +71,64 @@ public class CustomFx{
                 return;
             }
             Lines.poly(e.x, e.y, 6, e.rotation + e.fin());
-        }).followParent(true)
+        }).followParent(true),
+
+
+
+    shockwaveSparks = new Effect(75f, e -> {
+        color(e.color);
+        Lines.stroke(1.25f + 1.25f*e.fout());
+        float spread = 30f;
+
+        rand.setSeed(e.id);
+        for(int i = 0; i < 20; i++){
+            float ang = e.rotation + rand.range(17f);
+            v.trns(ang, rand.random(e.fin() * 55f));
+            Lines.lineAngle(e.x + v.x + rand.range(spread), e.y + v.y + rand.range(spread), ang, e.fout() * 10f * rand.random(1f));
+        }
+    }),
+
+    shockwaveSparksSmall = new Effect(60f, e -> {
+        color(e.color);
+        Lines.stroke(0.75f + 0.75f*e.fout());
+        float spread = 20f;
+
+        rand.setSeed(e.id);
+        for(int i = 0; i < 5; i++){
+            float ang = e.rotation + rand.range(17f);
+            v.trns(ang, rand.random(e.fin() * 55f));
+            Lines.lineAngle(e.x + v.x + rand.range(spread), e.y + v.y + rand.range(spread), ang, e.fout() * 10f * rand.random(1f));
+        }
+    }),
+
+    shockwaveHitGround = new Effect(50f, 100f, e -> {
+
+        float rad = 5 * tilesize;
+
+        e.scaled(7f, b -> {
+            color(Team.crux.color, b.fout());
+            Fill.circle(e.x, e.y, rad);
+        });
+
+        color(Team.crux.color);
+        stroke(e.fout() * 6f);
+        Lines.circle(e.x, e.y, rad);
+
+        int points = 8;
+        float offset = Mathf.randomSeed(e.id, 360f);
+        for(int i = 0; i < points; i++){
+            float angle = i* 360f / points + offset;
+            //for(int s : Mathf.zeroOne){
+            Drawf.tri(e.x + Angles.trnsx(angle, rad), e.y + Angles.trnsy(angle, rad), 6f, 80f * e.fout(), angle/* + s*180f*/);
+            //}
+        }
+
+        Draw.z(Layer.blockUnder + 0.25f);
+        Fill.circle(e.x, e.y, 12f * e.fout());
+        color();
+        Fill.circle(e.x, e.y, 6f * e.fout());
+        Drawf.light(e.x, e.y, rad * 1.6f, Team.crux.color, e.fout());
+    });
 
                 ;
     }

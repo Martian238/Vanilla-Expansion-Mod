@@ -5,6 +5,7 @@ import arc.audio.Sound;
 import arc.func.Cons;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
+import arc.graphics.g2d.Fill;
 import arc.graphics.g2d.Lines;
 import arc.input.KeyCode;
 import arc.math.Angles;
@@ -19,15 +20,20 @@ import mindustry.content.StatusEffects;
 import mindustry.entities.Effect;
 import mindustry.entities.Units;
 import mindustry.entities.abilities.Ability;
-import mindustry.entities.bullet.BasicBulletType;
-import mindustry.entities.bullet.BombBulletType;
-import mindustry.entities.bullet.BulletType;
-import mindustry.entities.bullet.LiquidBulletType;
+import mindustry.entities.bullet.*;
+import mindustry.entities.effect.ExplosionEffect;
+import mindustry.entities.effect.MultiEffect;
+import mindustry.entities.effect.ParticleEffect;
+import mindustry.entities.effect.WrapEffect;
 import mindustry.entities.part.DrawPart;
 import mindustry.gen.*;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
+import mindustry.type.UnitType;
+import mindustry.world.Block;
+import mindustry.world.Tile;
+import mindustry.world.blocks.environment.EmptyFloor;
 import mindustry.world.blocks.environment.Floor;
 
 import static java.lang.Float.NaN;
@@ -64,7 +70,7 @@ public class DetainerClawAbility extends Ability {
     public Sound absorbSound = Sounds.shieldHit;
     public Effect releaseEffect = Fx.shockwave;
     public Sound releaseSound = Sounds.none;
-    public float releaseShake = 4f;
+    public float releaseShake = 6f;
 
     public String clawRegion = "test-claw-outline";
     public String clawBottomRegion = "test-claw-bottom-outline";
@@ -113,6 +119,11 @@ public class DetainerClawAbility extends Ability {
     public boolean switchModeSoundPlayer = true;
 
     public boolean faceControlling = true;
+    public boolean outputLaser = false;
+    public Effect energyEffect = Fx.none;
+    public Sound energyOrbSound = Sounds.shootNavanax;
+    public Sound laserShootSound = Sounds.none;
+    public Sound laserLoopSound = Sounds.none;
 
 
 
@@ -120,7 +131,7 @@ public class DetainerClawAbility extends Ability {
 
 
     private float x, y, rot, rotMultiplier = 1f, totalDamage, clawSpeedMultiplier = 0.2f,
-            rotZ, armDistance, armDistanceTarget, wristAngle, wristAngleTarget, armNodeOffset, armRot;
+            rotZ, armDistance, armDistanceTarget, wristAngle, wristAngleTarget, armNodeOffset, armRot, dvx, dvy, lastX, lastY;
     private final boolean activated = true;
     private boolean hasBullet = false, releaseSoundPlay = false;
     private final BulletType[] tempBulletType = new BulletType[99];
@@ -131,6 +142,7 @@ public class DetainerClawAbility extends Ability {
     private KeyCode payloadModeKey = KeyCode.num6; //mode2
     private boolean flip = (rootX < 0);
     private int mode;
+    private float totalEnergy;
 
 
 
@@ -158,6 +170,7 @@ public class DetainerClawAbility extends Ability {
         armDistance = armDistanceTarget = armLength * armDefaultScale;
         rotZ = unit.rotation;
         wristAngle = wristAngleTarget = wristAngleDefault;
+        unit.flag(0);
 
     }
 
@@ -344,9 +357,11 @@ public class DetainerClawAbility extends Ability {
         totalDamage = 0f;
         hasBullet = false;
         releaseSoundPlay = false;
+        if(mode != 1) totalEnergy = 0f;
 
         Groups.bullet.intersect(unit.x + x - absorbRadius, unit.y + y - absorbRadius, absorbRadius * 2f, absorbRadius * 2f, clawConsumer);
         Units.nearby(unit.x + x - absorbRadius, unit.y + y - absorbRadius, absorbRadius * 2f, absorbRadius * 2f, missileConsumer);
+        Units.nearby(unit.x + x - absorbRadius, unit.y + y - absorbRadius, absorbRadius * 2f, absorbRadius * 2f, unitConsumer);
 
         if(releaseSoundPlay){
             releaseEffect.at(unit.x + x, unit.y + y, paramUnit.team.color);
@@ -355,14 +370,31 @@ public class DetainerClawAbility extends Ability {
                 Effect.shake(releaseShake, releaseShake * 2f, unit.x + x, unit.y + y);
             }
         }
+        if(mode == 1 && totalEnergy > 0){
+            float d = Math.min(totalEnergy, Math.max(totalEnergy * 0.01f, 10f));
+            unit.flag += d;
+            totalEnergy -= d;
+            Fx.circleColorSpark.at(unit.x + x, unit.y + y, 0f, clawLaserColor == null? unit.team.color : clawLaserColor);
+        }
 
         rotMultiplier = 1f;
         if(hasBullet){
-            rotMultiplier = Math.min(10f, 2f * ((totalDamage / 500f) + 1f));
+            rotMultiplier = Mathf.approachDelta(rotMultiplier, Math.min(10f, 2f * ((totalDamage / 500f) + 1f)), 5f);
         }
+        if(unit.flag > 0 || totalEnergy > 0){
+            rotMultiplier = Mathf.approachDelta(rotMultiplier, (float) Math.min(10f, 2f * (((unit.flag + totalEnergy) / 1000f) + 1f)), 5f);
+        }
+        if(laserShooting){
+            rotMultiplier = Mathf.approachDelta(rotMultiplier, (float) Math.min(10f, 1f * (((unit.flag + totalEnergy) / 1000f) + 5.5f)), 5f);
+        }
+        if(rotMultiplier > 10f) rotMultiplier = 10f;
+        if(rotMultiplier < 1f) rotMultiplier = 1f;
+        if(Float.isNaN(rotMultiplier)) rotMultiplier = 1f;
         rot = rot + clawRotateSpeed * rotMultiplier;
         if(rot > 360f) rot -= 360f;
         if(rot < -360f) rot += 360f;
+
+
 
 
 
@@ -372,8 +404,37 @@ public class DetainerClawAbility extends Ability {
             unitFaceClaw(unit);
         }
 
+        if(delayShootingTimer > 0) delayShootingTimer -= 1;
+
         //Log.info(x +", "+ y);
-    }
+
+        dvx = x - lastX;
+        dvy = y - lastY;
+        lastX = x;
+        lastY = y;
+
+        laserShooting = false;
+        if(unit.flag + totalEnergy > 0 && mode == 1){
+            outputModeAttack(unit);
+        }else{
+            if(unit.flag + totalEnergy > 0 && mode == 2){
+                unit.flag(0);
+                totalEnergy = 0;
+            }else{
+                energyCharging = false;
+            }
+        }
+        Vec2 laserSoundPos = new Vec2();
+        laserSoundPos.x = unit.x + x;
+        laserSoundPos.y = unit.y + y;
+        if(laserShooting) Vars.control.sound.loop(laserLoopSound, laserSoundPos, 1f);
+        if(orbTimer > 0){
+            orbTimer -= 1;
+        }
+    }//end update()
+
+
+
 
     public void controlling(Unit unit){
         controlKey = KeyCode.byOrdinal(28 + controlKeyJson);
@@ -399,21 +460,21 @@ public class DetainerClawAbility extends Ability {
             if(Core.input.keyTap(deflectModeKey)){
                 mode = 0;
                 if(switchModeSoundPlayer){
-                    switchModeSound.at(unit.x, unit.y, 1, 0.5f);
+                    switchModeSound.at(unit.x, unit.y, 1, 0.3f);
                     Vars.ui.announce(Core.bundle.format("detainerclaw.mode0"), 1f);
                 }
             }
             if(Core.input.keyTap(outputModeKey)){
                 mode = 1;
                 if(switchModeSoundPlayer){
-                    switchModeSound.at(unit.x, unit.y, 1, 0.5f);
+                    switchModeSound.at(unit.x, unit.y, 1, 0.3f);
                     Vars.ui.announce(Core.bundle.format("detainerclaw.mode1"), 1f);
                 }
             }
             if(Core.input.keyTap(payloadModeKey)){
                 mode = 2;
                 if(switchModeSoundPlayer){
-                    switchModeSound.at(unit.x, unit.y, 1, 0.5f);
+                    switchModeSound.at(unit.x, unit.y, 1, 0.3f);
                     Vars.ui.announce(Core.bundle.format("detainerclaw.mode2"), 1f);
                 }
             }
@@ -425,6 +486,121 @@ public class DetainerClawAbility extends Ability {
         rotZ = unit.rotation;
         wristAngleTarget = wristAngleDefault;
     }
+
+    private float holdTime, max = 60f, orbTimer;
+    private boolean energyCharging, laserShooting;
+
+    public void outputModeAttack(Unit unit){
+        float limit = 65f;
+        if(unit.isShooting() && aimControlling && (holdTime < limit || outputLaser)){
+            energyCharging = true;
+            holdTime += 1;
+            if(outputLaser && holdTime > max){
+                if(holdTime == max + 1){
+                    laserShootSound.at(unit.x + x, unit.y + y);
+                    Effect.shake(4f, 16, unit.x + x, unit.y + y);
+                }
+                laserShooting = true;
+                orbTimer = 20f;
+                RailBulletType laser = new RailBulletType(){{
+                    length = 600f;
+                    pierceEffect = hitEffect = new WrapEffect(Fx.hitLaserColor, clawLaserColor == null? unit.team.color : clawLaserColor);
+                    damage = 10;
+                    pierceDamageFactor = 0.5f;
+                    pierceArmor = true;
+                    despawnEffect = Fx.none;
+                    pierceCap = 5;
+                    Effect b = Fx.pointBeam;
+                    b.lifetime = 2;
+                    lineEffect = b;
+                    pointEffect = new MultiEffect(new ParticleEffect(){{
+                        particles = 1;
+                        colorFrom = colorTo = clawLaserColor == null? unit.team.color : clawLaserColor;
+                        layer = Layer.bullet;
+                        sizeFrom = 6;
+                        sizeTo = 0;
+                        lifetime = 1;
+                        length = baseLength = 0;
+                    }},
+                            new ParticleEffect(){{
+                                particles = 1;
+                                colorFrom = colorTo = clawLaserColor == null? unit.team.color : clawLaserColor;
+                                layer = Layer.bullet - 0.01f;
+                                sizeFrom = 5;
+                                sizeTo = 0;
+                                lifetime = 10;
+                                length = 10;
+                                baseLength = 0;
+                            }}
+                            );
+                    pointEffectSpace = 1;
+                }};
+                laser.create(unit, unit.team, unit.x + x, unit.y + y, stereoMode? rotZ : Mathf.radiansToDegrees * Mathf.atan2(x, y));
+                unit.flag -= 10;
+                if(unit.flag < 0){
+                    unit.flag = 0;
+                }
+                Effect.shake(1.5f, 4, unit.x + x, unit.y + y);
+
+            }
+        }else{
+            energyCharging = false;
+            if(holdTime > 0){
+                if(!outputLaser){
+                    float h = holdTime;
+                    float d = (float) (Mathf.clamp(h / max) * (unit.flag + totalEnergy));
+                    float r = Math.max(6f, 24f * Mathf.clamp((float) ((totalEnergy + unit.flag) / 4500)));
+                    BasicBulletType orb = new BasicBulletType(){{
+                        //sprite = "circle-bullet";
+                        frontRegion = Core.atlas.find("circle-bullet");
+                        backRegion = Core.atlas.find("circle-bullet-back");
+                        damage = 0;
+                        splashDamage = d;
+                        splashDamageRadius = r * 3;
+                        despawnShake = hitShake = r;
+                        knockback = r / 2;
+                        width = height = r * 1.25f;
+                        speed = releaseSpeed;
+                        trailLength = (int) (r / 4);
+                        trailWidth = r / 8;
+                        backColor = trailColor = clawLaserColor == null? unit.team.color: clawLaserColor;
+                        frontColor = clawLaserCenterColor;
+                        hittable = false;
+                        lifetime = 600f;
+                        hitEffect = despawnEffect = new ExplosionEffect(){{
+                            waveRad = r * 3;
+                            waveLife = 10f;
+                            smokeRad = r * 2;
+                            smokes = (int) (r * 2);
+                            sparks = (int) r;
+                            sparkRad = r * 2;
+                            smokeColor = sparkColor = waveColor = clawLaserColor == null? unit.team.color: clawLaserColor;
+                            lifetime = 60f;
+                            smokeSize = r * 0.25f + 1f;
+                            sparkLen = r * 0.5f;
+                            sparkStroke = (int) (Math.sqrt(r) / 2);
+                            waveStroke = 2;
+                        }};
+                        hitSound = despawnSound = Sounds.explosionAfflict;
+                        hitSoundVolume = Mathf.clamp(r / 9);
+                        shootEffect = Fx.shockwave;
+                    }};
+                    orbTimer = 20f;
+                    orb.create(unit, unit.team, unit.x + x, unit.y + y, stereoMode? rotZ : Mathf.radiansToDegrees * Mathf.atan2(x, y));
+                    unit.flag -= d;
+                    if(unit.flag < 0){
+                        unit.flag = 0;
+                    }
+                    energyOrbSound.at(unit.x + x, unit.y + y, 1, 1);
+                    orb.shootEffect.at(unit.x + x, unit.y + y, stereoMode? rotZ : Mathf.radiansToDegrees * Mathf.atan2(x, y));
+                    Effect.shake(r / 3, (float) (r * 1.5), unit.x + x, unit.y + y);
+                }
+                holdTime = 0;
+            }
+        }
+    }
+
+
 
     @Override
     public void draw(Unit unit){
@@ -456,6 +632,13 @@ public class DetainerClawAbility extends Ability {
         if(clawShadowElevation > 0){
             Draw.z(Math.min(Layer.darkness, Layer.flyingUnitLow - 1f));
             drawShadow(unit);
+        }
+
+        if(activated){
+            if(clawLaserColor == null){
+                clawLaserColor = unit.team.color;
+            }
+            drawClawLaser(unit, clawLaserColor, clawLaserCenterColor);
         }
     }
 
@@ -677,6 +860,36 @@ public class DetainerClawAbility extends Ability {
                     lx + lr * Mathf.cosDeg(rotZ - 90f), ly + lr * Mathf.sinDeg(rotZ - 90f),
                     clawWidth * 0.3f, color2, 0.25f);
         }
+
+        Draw.alpha(1.0f);
+        if(mode != 2 && totalEnergy + unit.flag > 0){
+            drawClawEnergy(unit);
+        }
+    }
+
+    public void drawClawEnergy(Unit unit){
+        float e = (float) (totalEnergy + unit.flag);
+        Draw.z(99.99f);
+        Draw.color(clawLaserColor);
+        float r = Math.max(6f, 24f * Mathf.clamp((float) ((totalEnergy + unit.flag) / 4500)));
+        Fill.circle(unit.x + x, unit.y + y, r * 0.75f);
+        Draw.z(101f);
+        Draw.color(clawLaserCenterColor);
+        Fill.circle(unit.x + x, unit.y + y, r * 0.5f);
+        Drawf.light(unit.x + x, unit.y + y, r * 2, clawLaserColor, 1f);
+        if(Mathf.chanceDelta(r / 48f)){
+            energyEffect.at(unit.x + x + Mathf.range(absorbRadius / 2), unit.y + y + Mathf.range(absorbRadius / 2));
+        }
+
+        if(energyCharging){
+            float maxr = absorbRadius;
+            float curr = Mathf.clamp(holdTime / max) * maxr;
+            Draw.z(Layer.flyingUnitLow - 1f);
+            Draw.color(clawLaserColor);
+            Draw.alpha(0.5f);
+            Lines.circle(unit.x + x, unit.y + y, maxr);
+            Fill.circle(unit.x + x, unit.y + y, curr);
+        }
     }
 
 
@@ -687,8 +900,8 @@ public class DetainerClawAbility extends Ability {
 
 
     private static final Cons<Bullet> clawConsumer = b -> {
-        if(paramField.activated && b.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius) && b.type.absorbable
-                && (b.team != paramUnit.team || ((paramField.absorbSameTeam || b.owner == paramUnit) && !paramUnit.isShooting()))
+        if(paramField.orbTimer <= 0 && paramField.activated && paramField.mode != 2 && b.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius) && b.type.absorbable
+                && (b.team != paramUnit.team || ((paramField.absorbSameTeam || b.owner == paramUnit) && !paramField.delayedShooting(paramUnit)))
                 && !b.type.killShooter && !b.type.underwater && (b.type instanceof BasicBulletType || b.type instanceof LiquidBulletType)) {
 
             if(b.owner != paramUnit) {
@@ -703,12 +916,18 @@ public class DetainerClawAbility extends Ability {
             b.rotation(b.rotation() + paramField.clawRotateSpeed + paramField.rotMultiplier);
             b.vel.x = 0f;
             b.vel.y = 0f;
-            paramField.hasBullet = true;
+            if(paramField.mode == 1){
+                paramField.totalEnergy += b.type.damage;
+                paramField.totalEnergy += b.type.splashDamage;
+                paramField.absorbSound.at(b.x, b.y, 2, 0.6f);
+                b.remove();
+            }
             paramField.totalDamage += b.type.damage;
             paramField.totalDamage += b.type.splashDamage;
+            paramField.hasBullet = true;
         }
-        if(paramField.activated && b.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius / 2f)
-                && (b.team == paramUnit.team && b.owner == paramUnit && paramUnit.isShooting())) {
+        if(paramField.orbTimer <= 0 && paramField.activated && b.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius / 2f)
+                && (b.team == paramUnit.team && b.owner == paramUnit && (paramField.delayedShooting(paramUnit) || paramField.mode == 2))) {
 
             b.time = 0f;
             float outSpeed = Math.min(Math.max((b.type instanceof BombBulletType)? paramField.releaseSpeed : 3f, 2f * b.type.speed) ,Math.max(b.type.speed, paramField.releaseSpeed));
@@ -752,8 +971,8 @@ public class DetainerClawAbility extends Ability {
     };
 
     private static final Cons<Unit> missileConsumer = m -> {
-        if(paramField.activated && m.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius)
-                && (m.team != paramUnit.team || ((paramField.absorbSameTeam || m.flag == 1f) && !paramUnit.isShooting()))
+        if(paramField.activated && paramField.mode != 2 && m.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius)
+                && (m.team != paramUnit.team || ((paramField.absorbSameTeam || m.flag == 1f) && !paramField.delayedShooting(paramUnit)))
                 && m.isMissile() && m.flag != 2f) {
 
             if(m.flag != 1f) {
@@ -768,11 +987,17 @@ public class DetainerClawAbility extends Ability {
             m.x = paramUnit.x + paramField.x;
             m.y = paramUnit.y + paramField.y;
             m.rotation = paramField.stereoMode? paramField.rotZ : Mathf.radiansToDegrees * Mathf.atan2(paramField.x, paramField.y);
+            if(paramField.mode == 1){
+                paramField.totalDamage += m.type.estimateDps();
+                paramField.absorbSound.at(m.x, m.y, 2, 0.6f);
+                m.remove();
+            }
             paramField.totalDamage += m.type.estimateDps();
             paramField.hasBullet = true;
+
         }
         if(paramField.activated && m.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius)
-                && m.team == paramUnit.team && m.isMissile() && paramUnit.isShooting() && m.flag == 1f) {
+                && m.team == paramUnit.team && m.isMissile() && (paramField.delayedShooting(paramUnit) || paramField.mode == 2) && m.flag == 1f) {
 
             if(m instanceof TimedKillc tk){
                 tk.time(0f);
@@ -784,4 +1009,94 @@ public class DetainerClawAbility extends Ability {
         }
 
     };
+
+    private static final Cons<Unit> unitConsumer = u -> {
+        if(((paramField.activated && paramField.mode == 2)
+                && (!paramField.canDropUnit(u, paramField.x + paramUnit.x, paramField.y + paramUnit.y) || (paramUnit.isShooting()) && paramField.mode == 2))
+                && !u.type.hidden && u.type.hitSize <= paramField.clawLength
+                && !u.spawnedByCore() && u.type != paramUnit.type
+                 && paramField.aimControlling && u.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius * 0.75f)){
+            if(paramField.canDropUnit(u, paramField.x + paramUnit.x, paramField.y + paramUnit.y)) {
+                u.x = paramUnit.x + paramField.x;
+                u.y = paramUnit.y + paramField.y;
+                u.vel.x = paramField.dvx;
+                u.vel.y = paramField.dvy;
+                if(paramField.stereoMode){
+                    u.rotation(paramField.rotZ);
+                }else{
+                    u.rotation(Mathf.radiansToDegrees * Mathf.atan2(paramField.x, paramField.y));
+                }
+            }else{
+                u.apply(StatusEffects.unmoving, 2f);
+            }
+            paramField.hasBullet = true;
+            paramField.totalDamage += u.type.hitSize * 5;
+
+        }
+    };
+
+    private float delayShootingTimer;
+
+    public boolean delayedShooting(Unit unit) {
+        if(unit.isShooting()){
+            delayShootingTimer = 15f;
+            return true;
+        }else{
+            if(delayShootingTimer > 0){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean canDropUnit(Unit u, float x, float y) {
+        Floor floor = world.floorWorld(x, y);
+        Tile tile = world.tileWorld(x, y);
+        Building build = world.buildWorld(x, y);
+        if(u.type.flying || u.type.canBoost) {
+            return true;
+        }else if(u.type.naval){
+            if(floor != null){
+                if(floor.isLiquid){
+                    if(tile != null){
+                        if(!tile.block().solid){
+                            if(build != null){
+                                return !build.block.solid;
+                            }else return true;
+                        }else return false;
+                    }else{
+                        if(build != null){
+                            return !build.block.solid;
+                        }else return true;
+                    }
+                }else return false;
+            }else return false;
+        }else{
+            if((u instanceof LegsUnit && u.type.allowLegStep) || (u instanceof CrawlUnit)){
+                if(floor != null){
+                    if(floor.placeableOn && !(floor instanceof EmptyFloor)){
+                        if(tile != null){
+                            return !tile.block().solid;
+                        }else return true;
+                    }else return false;
+                }else return false;
+            }else{
+                if(floor != null){
+                    if(floor.placeableOn && !(floor instanceof EmptyFloor)){
+                        if(tile != null){
+                            if(!tile.block().solid){
+                                if(build != null){
+                                    return !build.block.solid;
+                                }else return true;
+                            }else return false;
+                        }else{
+                            if(build != null){
+                                return !build.block.solid;
+                            }else return true;
+                        }
+                    }else return false;
+                }else return false;
+            }
+        }
+    }
 }

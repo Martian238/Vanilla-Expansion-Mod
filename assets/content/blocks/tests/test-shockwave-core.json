@@ -1,0 +1,2270 @@
+{
+  "type": "VanillaExpansion.expand.world.block.crux.ShockwaveCoreBlock",//Java
+  "chargeSound": "chiniunShockwaveCharge",
+  "size": 5,
+  "category": "effect",
+  "buildVisibility": "editorOnly",
+  "health": 6000,
+  "armor": 3,
+  "itemCapacity": 13000,
+  "drawTeamOverlay": false,
+
+
+  "forceTeam": "crux",
+  "shockwaveEffect": [
+    {
+      "particles": 1,
+      "cone": 0,
+      "region": "ve-circle-soft",
+      "sizeFrom": 3200,
+      "sizeTo": 3200,
+      "colorFrom": "f2555580",
+      "colorTo": "f2555500",
+      "lifetime": 30,
+      "interp": "pow2In",
+      "length": 0,
+      "baseLength": 0,
+      "lightColor": "f25555",
+      "layer": 29.75,
+      "clip": 8000
+    }
+  ],
+  "finalChargeEffect": {
+    "type": "SoundEffect",
+    "effect": {
+      "type": "WaveEffect",
+      "sizeFrom": 128,
+      "sizeTo": 0,
+      "strokeFrom": 6,
+      "colorFrom": "f25555",
+      "colorTo": "f25555",
+      "lightColor": "f25555",
+      "clip": 4000,
+      "layer": 110,
+      "interp": "circleIn",
+      "lifetime": 30
+    },
+    "sound": "chargeVelaFast",
+    "maxPitch": 1,
+    "minPitch": 1,
+    "maxVolume": 2,
+    "minVolume": 2
+  },
+  "finalCharge": 30,
+  "chargeEffect1": [
+    {
+      "type": "ParticleEffect",
+      "particles": 1,
+      "layer": 35,
+      "sizeFrom": 32,
+      "sizeTo": 12,
+      "sizeInterp": "linear",
+      "interp": "pow2In",
+      "lifetime": 60,
+      "colorFrom": "f2555500",
+      "colorTo": "f2555560",
+      "length": -800,
+      "baseLength": 800,
+      "randLength": false,
+      "clip": 800
+    },
+    {
+      "type": "ParticleEffect",
+      "particles": 1,
+      "layer": 35,
+      "sizeFrom": 64,
+      "sizeTo": 12,
+      "sizeInterp": "linear",
+      "interp": "pow2In",
+      "lifetime": 60,
+      "colorFrom": "f2555500",
+      "colorTo": "f2555560",
+      "length": -600,
+      "baseLength": 600,
+      "randLength": false,
+      "clip": 600
+    },
+    {
+      "type": "ParticleEffect",
+      "particles": 1,
+      "layer": 100,
+      "sizeFrom": 0,
+      "sizeTo": 4,
+      "sizeInterp": "circleOut",
+      "interp": "pow2In",
+      "lifetime": 60,
+      "colorFrom": "f25555",
+      "colorTo": "f25555",
+      "length": -200,
+      "baseLength": 200,
+      "randLength": false,
+      "clip": 200
+    },
+    {
+      "type": "ParticleEffect",
+      "particles": 1,
+      "layer": 100,
+      "sizeFrom": 0,
+      "sizeTo": 2,
+      "sizeInterp": "circleOut",
+      "interp": "pow2In",
+      "lifetime": 60,
+      "colorFrom": "f25555",
+      "colorTo": "f25555",
+      "length": -100,
+      "baseLength": 100,
+      "randLength": false,
+      "clip": 100
+    }
+  ],
+  "chargeEffect1End": 60,
+  "chargeEffect2": [
+    {
+      "particles": 1,
+      "cone": 0,
+      "region": "ve-warp1",
+      "sizeFrom": 0,
+      "sizeTo": 96,
+      "colorFrom": "f2555544",
+      "colorTo": "f2555500",
+      "interp": "circleIn",
+      "lifetime": 20,
+      "sizeInterp": "slope",
+      "length": 120,
+      "baseLength": 60,
+      "lightScl": 8
+    }
+  ],
+  "chargeEffect3": [
+    {
+      "particles": 1,
+      "cone": 0,
+      "region": "ve-warp2",
+      "sizeFrom": 0,
+      "sizeTo": 96,
+      "colorFrom": "f2555544",
+      "colorTo": "f2555500",
+      "interp": "circleIn",
+      "lifetime": 20,
+      "sizeInterp": "slope",
+      "length": 120,
+      "baseLength": 60,
+      "lightScl": 8
+    }
+  ],
+  "warnSound": "si2ExplosiveAgitated",
+
+
+
+  "drawer":
+
+      {
+        "type": "DrawBlockParts",
+        "parts": [
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "shading": false,
+            "name": "ve-core-shockwave-bottom",
+            "layer": 30,
+            "outline": false,
+            "rotation": 90
+          },
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "shading": false,
+            "name": "ve-core-shockwave-bottom-light",
+            "color": "f2555500",
+            "colorTo": "f25555",
+            "rotation": 90,
+            "layer": 30.05,
+            "outline": false,
+            "progress": {
+              "type": "reload",
+              "op": "curve",
+              "interp": "circleOut"
+            }
+          },
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "shading": false,
+            "name": "ve-core-shockwave-bottom-light-glow",
+            "color": "f2555500",
+            "colorTo": "f25555",
+            "rotation": 90,
+            "layer": 30.06,
+            "outline": false,
+            "blending": "additive",
+            "progress": {
+              "type": "reload",
+              "op": "curve",
+              "interp": "circleOut"
+            }
+          },
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "name": "dagger",
+            "color": "00000000",
+            "rotation": 90,
+            "outline": false,
+            "progress": {
+              "type": "warmup",
+              "op": "curve",
+              "interp": "sine"
+            },
+            "moveRot": -180,
+            "children": [
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p1",
+                "outline": false,
+                "rotation": 0,
+                "progress": "warmup",
+                "layer": 30.2,
+                "moveX": 4,
+                "moveY": 0,
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p1-glow",
+                    "outline": false,
+                    "blending": "additive",
+                    "layer": 31,
+                    "color": "f2555500",
+                    "colorTo": "f2555580",
+                    "progress": {
+                      "type": "warmup",
+                      "op": "mul",
+                      "other": {
+                        "type": "warmup",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 0
+                          },
+                          {
+                            "op": "sin",
+                            "scl": 5,
+                            "mag": 0.2
+                          },
+                          {
+                            "op": "add",
+                            "amount": 0.8
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "moves": [
+                  {
+                    "x": 4,
+                    "progress": {
+                      "type": "reload",
+                      "op": "compress",
+                      "start": 0.6,
+                      "end": 0.9285
+                    }
+                  },
+                  {
+                    "x": -8,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9285,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p1",
+                "outline": false,
+                "rotation": 90,
+                "progress": "warmup",
+                "layer": 30.2,
+                "moveX": 0,
+                "moveY": 4,
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p1-glow",
+                    "outline": false,
+                    "blending": "additive",
+                    "layer": 31,
+                    "color": "f2555500",
+                    "colorTo": "f2555580",
+                    "progress": {
+                      "type": "warmup",
+                      "op": "mul",
+                      "other": {
+                        "type": "warmup",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 0
+                          },
+                          {
+                            "op": "sin",
+                            "scl": 5,
+                            "mag": 0.2
+                          },
+                          {
+                            "op": "add",
+                            "amount": 0.8
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "moves": [
+                  {
+                    "y": 4,
+                    "progress": {
+                      "type": "reload",
+                      "op": "compress",
+                      "start": 0.6,
+                      "end": 0.9285
+                    }
+                  },
+                  {
+                    "y": -8,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9285,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p1",
+                "outline": false,
+                "rotation": 180,
+                "progress": "warmup",
+                "layer": 30.2,
+                "moveX": -4,
+                "moveY": 0,
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p1-glow",
+                    "outline": false,
+                    "blending": "additive",
+                    "layer": 31,
+                    "color": "f2555500",
+                    "colorTo": "f2555580",
+                    "progress": {
+                      "type": "warmup",
+                      "op": "mul",
+                      "other": {
+                        "type": "warmup",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 0
+                          },
+                          {
+                            "op": "sin",
+                            "scl": 5,
+                            "mag": 0.2
+                          },
+                          {
+                            "op": "add",
+                            "amount": 0.8
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "moves": [
+                  {
+                    "x": -4,
+                    "progress": {
+                      "type": "reload",
+                      "op": "compress",
+                      "start": 0.6,
+                      "end": 0.9285
+                    }
+                  },
+                  {
+                    "x": 8,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9285,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p1",
+                "outline": false,
+                "rotation": -90,
+                "progress": "warmup",
+                "layer": 30.2,
+                "moveX": 0,
+                "moveY": -4,
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p1-glow",
+                    "outline": false,
+                    "blending": "additive",
+                    "layer": 31,
+                    "color": "f2555500",
+                    "colorTo": "f2555580",
+                    "progress": {
+                      "type": "warmup",
+                      "op": "mul",
+                      "other": {
+                        "type": "warmup",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 0
+                          },
+                          {
+                            "op": "sin",
+                            "scl": 5,
+                            "mag": 0.2
+                          },
+                          {
+                            "op": "add",
+                            "amount": 0.8
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ],
+                "moves": [
+                  {
+                    "y": -4,
+                    "progress": {
+                      "type": "reload",
+                      "op": "compress",
+                      "start": 0.6,
+                      "end": 0.9285
+                    }
+                  },
+                  {
+                    "y": 8,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9285,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "circleIn"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "name": "dagger",
+            "color": "00000000",
+            "rotation": 90,
+            "outline": false,
+            "children": [
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p2l",
+                "rotation": 0,
+                "layer": 30.3,
+                "outline": false,
+                "moveY": 1.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 7
+                          },
+                          {
+                            "op": "inv"
+                          },
+                          {
+                            "op": "clamp"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "x": 6,
+                    "progress": {
+                      "type": "warmup",
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  },
+                  {
+                    "x": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.9285
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "slope"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "mul",
+                                "amount": 0
+                              },
+                              {
+                                "op": "sin",
+                                "scl": 1.5,
+                                "mag": 0.5
+                              },
+                              {
+                                "op": "add",
+                                "amount": 0.5
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": 3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.5,
+                          "end": 0.75
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3In"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": -5,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p2l-glow",
+                    "outline": false,
+                    "layer": 31,
+                    "blending": "additive",
+                    "color": "f2555500",
+                    "colorTo": "f25555a0",
+                    "progress": "warmup"
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p2r",
+                "rotation": 0,
+                "layer": 30.3,
+                "outline": false,
+                "moveY": -1.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 7
+                          },
+                          {
+                            "op": "inv"
+                          },
+                          {
+                            "op": "clamp"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "x": 6,
+                    "progress": {
+                      "type": "warmup",
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  },
+                  {
+                    "x": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.9285
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "slope"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "mul",
+                                "amount": 0
+                              },
+                              {
+                                "op": "sin",
+                                "scl": 1.5,
+                                "mag": 0.5
+                              },
+                              {
+                                "op": "add",
+                                "amount": 0.5
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": 3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.5,
+                          "end": 0.75
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3In"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": -5,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p2r-glow",
+                    "outline": false,
+                    "layer": 31,
+                    "blending": "additive",
+                    "color": "f2555500",
+                    "colorTo": "f25555a0",
+                    "progress": "warmup"
+                  }
+                ]
+              },
+
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p2l",
+                "rotation": 90,
+                "layer": 30.3,
+                "outline": false,
+                "moveX": 1.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 7
+                          },
+                          {
+                            "op": "inv"
+                          },
+                          {
+                            "op": "clamp"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "y": 6,
+                    "progress": {
+                      "type": "warmup",
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  },
+                  {
+                    "y": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.9285
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "slope"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "mul",
+                                "amount": 0
+                              },
+                              {
+                                "op": "sin",
+                                "scl": 1.5,
+                                "mag": 0.5
+                              },
+                              {
+                                "op": "add",
+                                "amount": 0.5
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.5,
+                          "end": 0.75
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3In"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -5,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p2l-glow",
+                    "outline": false,
+                    "layer": 31,
+                    "blending": "additive",
+                    "color": "f2555500",
+                    "colorTo": "f25555a0",
+                    "progress": "warmup"
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p2r",
+                "rotation": 90,
+                "layer": 30.3,
+                "outline": false,
+                "moveX": -1.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 7
+                          },
+                          {
+                            "op": "inv"
+                          },
+                          {
+                            "op": "clamp"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "y": 6,
+                    "progress": {
+                      "type": "warmup",
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  },
+                  {
+                    "y": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.9285
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "slope"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "mul",
+                                "amount": 0
+                              },
+                              {
+                                "op": "sin",
+                                "scl": 1.5,
+                                "mag": 0.5
+                              },
+                              {
+                                "op": "add",
+                                "amount": 0.5
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.5,
+                          "end": 0.75
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3In"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -5,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p2r-glow",
+                    "outline": false,
+                    "layer": 31,
+                    "blending": "additive",
+                    "color": "f2555500",
+                    "colorTo": "f25555a0",
+                    "progress": "warmup"
+                  }
+                ]
+              },
+
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p2l",
+                "rotation": 180,
+                "layer": 30.3,
+                "outline": false,
+                "moveY": -1.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 7
+                          },
+                          {
+                            "op": "inv"
+                          },
+                          {
+                            "op": "clamp"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "x": -6,
+                    "progress": {
+                      "type": "warmup",
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  },
+                  {
+                    "x": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.9285
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "slope"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "mul",
+                                "amount": 0
+                              },
+                              {
+                                "op": "sin",
+                                "scl": 1.5,
+                                "mag": 0.5
+                              },
+                              {
+                                "op": "add",
+                                "amount": 0.5
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": -3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.5,
+                          "end": 0.75
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3In"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": 5,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p2l-glow",
+                    "outline": false,
+                    "layer": 31,
+                    "blending": "additive",
+                    "color": "f2555500",
+                    "colorTo": "f25555a0",
+                    "progress": "warmup"
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p2r",
+                "rotation": 180,
+                "layer": 30.3,
+                "outline": false,
+                "moveY": 1.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 7
+                          },
+                          {
+                            "op": "inv"
+                          },
+                          {
+                            "op": "clamp"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "x": -6,
+                    "progress": {
+                      "type": "warmup",
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  },
+                  {
+                    "x": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.9285
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "slope"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "mul",
+                                "amount": 0
+                              },
+                              {
+                                "op": "sin",
+                                "scl": 1.5,
+                                "mag": 0.5
+                              },
+                              {
+                                "op": "add",
+                                "amount": 0.5
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": -3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.5,
+                          "end": 0.75
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3In"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": 5,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p2r-glow",
+                    "outline": false,
+                    "layer": 31,
+                    "blending": "additive",
+                    "color": "f2555500",
+                    "colorTo": "f25555a0",
+                    "progress": "warmup"
+                  }
+                ]
+              },
+
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p2l",
+                "rotation": -90,
+                "layer": 30.3,
+                "outline": false,
+                "moveX": -1.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 7
+                          },
+                          {
+                            "op": "inv"
+                          },
+                          {
+                            "op": "clamp"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "y": -6,
+                    "progress": {
+                      "type": "warmup",
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  },
+                  {
+                    "y": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.9285
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "slope"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "mul",
+                                "amount": 0
+                              },
+                              {
+                                "op": "sin",
+                                "scl": 1.5,
+                                "mag": 0.5
+                              },
+                              {
+                                "op": "add",
+                                "amount": 0.5
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.5,
+                          "end": 0.75
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3In"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 5,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p2l-glow",
+                    "outline": false,
+                    "layer": 31,
+                    "blending": "additive",
+                    "color": "f2555500",
+                    "colorTo": "f25555a0",
+                    "progress": "warmup"
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p2r",
+                "rotation": -90,
+                "layer": 30.3,
+                "outline": false,
+                "moveX": 1.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 7
+                          },
+                          {
+                            "op": "inv"
+                          },
+                          {
+                            "op": "clamp"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "y": -6,
+                    "progress": {
+                      "type": "warmup",
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  },
+                  {
+                    "y": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.9285
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "slope"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "mul",
+                                "amount": 0
+                              },
+                              {
+                                "op": "sin",
+                                "scl": 1.5,
+                                "mag": 0.5
+                              },
+                              {
+                                "op": "add",
+                                "amount": 0.5
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.5,
+                          "end": 0.75
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3In"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 5,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p2r-glow",
+                    "outline": false,
+                    "layer": 31,
+                    "blending": "additive",
+                    "color": "f2555500",
+                    "colorTo": "f25555a0",
+                    "progress": "warmup"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "name": "dagger",
+            "color": "00000000",
+            "rotation": 90,
+            "outline": false,
+            "moveRot": 90,
+            "progress": {
+              "type": "reload",
+              "ops": [
+                {
+                  "op": "compress",
+                  "start": 0.2,
+                  "end": 0.3
+                },
+                {
+                  "op": "curve",
+                  "interp": "sine"
+                },
+                {
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              ]
+            },
+            "children": [
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p3",
+                "outline": false,
+                "rotation": 0,
+                "moveX": 4,
+                "moveY": 4,
+                "layer": 30.4,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                "moves": [
+                  {
+                    "x": -4,
+                    "y": -4,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.857,
+                          "end": 0.95
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2In"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0,
+                                "end": 0.2
+                              },
+                              {
+                                "op": "inv"
+                              },
+                              {
+                                "op": "mul",
+                                "other": {
+                                  "type": "warmup",
+                                  "op": "curve",
+                                  "interp": "pow2In"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p3",
+                "outline": false,
+                "rotation": 90,
+                "moveX": -4,
+                "moveY": 4,
+                "layer": 30.4,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                "moves": [
+                  {
+                    "x": 4,
+                    "y": -4,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.857,
+                          "end": 0.95
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2In"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0,
+                                "end": 0.2
+                              },
+                              {
+                                "op": "inv"
+                              },
+                              {
+                                "op": "mul",
+                                "other": {
+                                  "type": "warmup",
+                                  "op": "curve",
+                                  "interp": "pow2In"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p3",
+                "outline": false,
+                "rotation": 180,
+                "moveX": -4,
+                "moveY": -4,
+                "layer": 30.4,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                "moves": [
+                  {
+                    "x": 4,
+                    "y": 4,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.857,
+                          "end": 0.95
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2In"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0,
+                                "end": 0.2
+                              },
+                              {
+                                "op": "inv"
+                              },
+                              {
+                                "op": "mul",
+                                "other": {
+                                  "type": "warmup",
+                                  "op": "curve",
+                                  "interp": "pow2In"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p3",
+                "outline": false,
+                "rotation": -90,
+                "moveX": 4,
+                "moveY": -4,
+                "layer": 30.4,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "pow2In"
+                },
+                "moves": [
+                  {
+                    "x": -4,
+                    "y": 4,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.857,
+                          "end": 0.95
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2In"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0,
+                                "end": 0.2
+                              },
+                              {
+                                "op": "inv"
+                              },
+                              {
+                                "op": "mul",
+                                "other": {
+                                  "type": "warmup",
+                                  "op": "curve",
+                                  "interp": "pow2In"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "rotation": 90,
+            "outline": false,
+            "moveRot": -10800,
+            "name": "dagger",
+            "color": "00000000",
+            "progress": {
+              "type": "reload",
+              "op": "curve",
+              "interp": "pow10In"
+            },
+            "children": [
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p4",
+                "outline": false,
+                "rotation": 0,
+                "moveX": 3,
+                "moveY": 3,
+                "layer": 30.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "pow2In"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  ]
+                },
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p4-glow",
+                    "color": "f2555500",
+                    "colorTo": "f25555",
+                    "layer": 31,
+                    "outline": false,
+                    "blending": "additive",
+                    "progress": {
+                      "type": "warmup",
+                      "op": "mul",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 0.5
+                          },
+                          {
+                            "op": "add",
+                            "amount": 0.5
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p4",
+                "outline": false,
+                "rotation": 90,
+                "moveX": -3,
+                "moveY": 3,
+                "layer": 30.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "pow2In"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  ]
+                },
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p4-glow",
+                    "color": "f2555500",
+                    "colorTo": "f25555",
+                    "layer": 31,
+                    "outline": false,
+                    "blending": "additive",
+                    "progress": {
+                      "type": "warmup",
+                      "op": "mul",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 0.5
+                          },
+                          {
+                            "op": "add",
+                            "amount": 0.5
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p4",
+                "outline": false,
+                "rotation": 180,
+                "moveX": -3,
+                "moveY": -3,
+                "layer": 30.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "pow2In"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  ]
+                },
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p4-glow",
+                    "color": "f2555500",
+                    "colorTo": "f25555",
+                    "layer": 31,
+                    "outline": false,
+                    "blending": "additive",
+                    "progress": {
+                      "type": "warmup",
+                      "op": "mul",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 0.5
+                          },
+                          {
+                            "op": "add",
+                            "amount": 0.5
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p4",
+                "outline": false,
+                "rotation": -90,
+                "moveX": 3,
+                "moveY": -3,
+                "layer": 30.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "pow2In"
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  ]
+                },
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p4-glow",
+                    "color": "f2555500",
+                    "colorTo": "f25555",
+                    "layer": 31,
+                    "outline": false,
+                    "blending": "additive",
+                    "progress": {
+                      "type": "warmup",
+                      "op": "mul",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 0.5
+                          },
+                          {
+                            "op": "add",
+                            "amount": 0.5
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "shading": false,
+            "name": "ve-shockwave-core-top",
+            "layer": 30.6,
+            "outline": false,
+            "rotation": 90
+          },
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "shading": false,
+            "name": "ve-shockwave-core-top-light",
+            "layer": 30.9,
+            "outline": false,
+            "rotation": 90,
+            "color": "f2555500",
+            "colorTo": "ffffff",
+            "progress": "warmup"
+          },
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "shading": false,
+            "name": "ve-shockwave-core-top-light-glow",
+            "layer": 31,
+            "outline": false,
+            "rotation": 90,
+            "blending": "additive",
+            "color": "f2555500",
+            "colorTo": "f25555",
+            "progress": "warmup"
+          }
+        ]
+      }
+}

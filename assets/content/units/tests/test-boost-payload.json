@@ -3,7 +3,7 @@
   "outlineRadius": 5,
   "databaseTag": "13other-unit",
   "engineSize": 5,
-  "speed": 3,
+  "speed": 4,
   "accel": 0.1,
   "drag": 0.05,
   "wobble": true,
@@ -14,6 +14,8 @@
   "alwaysUnlocked": true,
   "faceTarget": true,
   "flying": true,
+  "strafePenalty": 1,
+  "logicControllable": false,
   "abilities": [
     {
       "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
@@ -70,19 +72,52 @@
 
     {
       "type": "VanillaExpansion.expand.abilities.DetainerClawAbility",
-      "releaseSound": [ "roMoskitoRelease1","roMoskitoRelease2","roMoskitoRelease3","roMoskitoRelease4" ],
+      "releaseSound": [ "lbp3LaserFire1","lbp3LaserFire2","lbp3LaserFire3","lbp3LaserFire4" ],
       "otherControlKeys": [ 2,3 ],
       "controlKeyJson": 1,
-      "switchModeSound": "si2TeleporterSwitch"
+      "switchModeSound": "si2TeleporterSwitch",
+      "energyEffect": {
+        "type": "ParticleEffect",
+        "particles": 4,
+        "line": true,
+        "strokeFrom": 3,
+        "strokeTo": 0,
+        "lenFrom": 10,
+        "lenTo": 0,
+        "length": 20,
+        "baseLength": 0,
+        "lifetime": 10,
+        "colorFrom": "ffffff",
+        "colorTo": "ffd37f"
+      },
+      "energyOrbSound": [ "lbp3LaserFire1","lbp3LaserFire2","lbp3LaserFire3","lbp3LaserFire4" ]
     },
     {
       "type": "VanillaExpansion.expand.abilities.DetainerClawAbility",
-      "releaseSound": [ "roMoskitoRelease1","roMoskitoRelease2","roMoskitoRelease3","roMoskitoRelease4" ],
+      "releaseSound": [ "lbp3LaserFire1","lbp3LaserFire2","lbp3LaserFire3","lbp3LaserFire4" ],
       "otherControlKeys": [ 1,3 ],
       "controlKeyJson": 2,
       "rootX": -16,
       "clawRotateSpeed": -3,
-      "switchModeSoundPlayer": false
+      "switchModeSoundPlayer": false,
+      "energyEffect": {
+        "type": "ParticleEffect",
+        "particles": 4,
+        "line": true,
+        "strokeFrom": 3,
+        "strokeTo": 0,
+        "lenFrom": 10,
+        "lenTo": 0,
+        "length": 20,
+        "baseLength": 0,
+        "lifetime": 10,
+        "colorFrom": "ffffff",
+        "colorTo": "ffd37f"
+      },
+      "energyOrbSound": [ "lbp3LaserFire1","lbp3LaserFire2","lbp3LaserFire3","lbp3LaserFire4" ],
+      "outputLaser": true,
+      "laserShootSound": "si2OverchargedLaserShoot",
+      "laserLoopSound": "si2OverchargedLaserLoop"
     },
 
     {

@@ -1,0 +1,69 @@
+{
+
+  "requirements": [ "silicide/150","silicon/60","graphite/80","ferrum/50" ],
+  "category": "crafting",
+  "consumes": {
+    "items": [ "ferric-shale-cobble/1" ],
+    "liquids": [ "acid/0.3" ],
+    "power": 0.5
+  },
+  "outputItems": [ "sand/6" ],
+  "craftTime": 24,
+  "heatRequirement": 15,
+  "maxEfficiency": 2,
+  "research": {
+    "parent": "pickling-pool",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "slate-guardpost"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "hasLiquids": true,
+  "shownPlanets": [ "maress" ],
+  "hasItems": true,
+  "hasPower": true,
+  "itemCapacity": 60,
+  "liquidCapacity": 150,
+  "size": 3,
+  "armor": 16,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawLiquidTile",
+        "drawLiquid": "acid"
+      },
+      {
+        "type": "DrawBubbles",
+        "color": "f4c55a",
+        "sides": 8,
+        "recurrence": 3,
+        "spread": 6,
+        "amount": 6
+      },
+      {
+        "type": "DrawDefault"
+      },
+      {
+        "type": "DrawHeatInput"
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-rotator",
+        "spinSprite": true,
+        "rotateSpeed": -4
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-cap"
+      }
+    ]
+  }
+}

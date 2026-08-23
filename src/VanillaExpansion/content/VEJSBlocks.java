@@ -168,6 +168,7 @@ public class VEJSBlocks {
         new MultiCrafter("m-upgraded-reaction-pool");
         new HeatCrafter("thermoplastic-compressor");
         new HeatButNoHeatCanStillWorkCrafter("pickling-pool");
+        new HeatCrafter("pickling-pool-large");
         new MultiCrafter("reinforced-reaction-pool");
 
         // group 11.3 火星热量
