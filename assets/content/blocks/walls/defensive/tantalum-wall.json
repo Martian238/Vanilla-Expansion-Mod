@@ -2,7 +2,7 @@
   //"type": "Wall",
   "requirements": [ "tantalum/4","aluminium/2" ],
   "category": "defense",
-  "research": "silicide-ferrum-wall",
+  "research": "burst",
   "health": 850,
   "armor": 12,
   "researchCostMultiplier": 0.3,

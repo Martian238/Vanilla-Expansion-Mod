@@ -35,7 +35,7 @@ void main(){
 
     if(noise > 0.57){
         color.rgb = S2;
-    }else if(noise > 0.5){
+    }else if(noise < 0.5){
         color.rgb = S1;
     }
 

@@ -26,6 +26,7 @@ import mindustry.gen.Building;
 import mindustry.gen.Groups;
 import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
+import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.world.blocks.LaunchAnimator;
 import mindustry.world.blocks.defense.BaseShield;
@@ -110,6 +111,13 @@ public class ShockwaveCoreBlock extends CoreBlock {
 
     public DrawBlock drawer = new DrawDefault();
 
+    @Override
+    public void load(){
+        super.load();
+
+        drawer.load(this);
+    }
+
 
 
     public class ShockwaveCoreBuild extends CoreBuild implements LaunchAnimator{
@@ -118,7 +126,7 @@ public class ShockwaveCoreBlock extends CoreBlock {
         private float[] safeDistance = new float[3600];
         private float[][] safeTiles = new float[3600][800];
 
-        private float shockwaveRadius = 3200;//tilesize * getDistance(0, 0, (float) state.map.width,  (float) state.map.height);
+        private float shockwaveRadius = 6400;//tilesize * getDistance(0, 0, (float) state.map.width,  (float) state.map.height);
 
         private Color effectColor = genericColor == null? team.color : genericColor;
 
@@ -127,7 +135,7 @@ public class ShockwaveCoreBlock extends CoreBlock {
             strokeFrom = 60f;
             strokeTo = 60f;
             sizeFrom = 1;
-            sizeTo = 3200f;
+            sizeTo = 6400f;
             colorFrom = Color.valueOf("f25555a0");
             colorTo = Color.valueOf("f25555a0");
             layer = Layer.flyingUnit + 4f;
@@ -139,6 +147,8 @@ public class ShockwaveCoreBlock extends CoreBlock {
         @Override
         public void draw(){
             //draw thrusters when just landed
+
+            drawer.draw(this);
             if(thrusterTime > 0){
                 float frame = thrusterTime;
 
@@ -151,10 +161,11 @@ public class ShockwaveCoreBlock extends CoreBlock {
 
                 drawTeamTop();
             }else{
-                drawer.draw(this);
+
 
                 if(enabled && !state.isEditor() && Vars.ui.hudfrag.shown){
                     drawChargeBar();
+                    Drawf.light(x, y, 80f, team.color, 1f);
                 }
             }
         }
@@ -254,6 +265,7 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 }else{
                     Time.run((float) (Math.sqrt(id / core.shockwaveRadius) * (coreBlock.shockwaveDuration)), () -> {
                         Sounds.stepWater.at(ix, iy);
+                        Fx.hitLiquid.at(ix, iy, Math.abs(Mathf.range(2f)) + 2f,  floor.liquidDrop.color);
                     });
                 }
             }
@@ -343,7 +355,7 @@ public class ShockwaveCoreBlock extends CoreBlock {
 
         @Override
         public float progress(){
-            return Mathf.clamp(shockwaveCharge / chargeDuration);
+            return 1 - Mathf.clamp(shockwaveCharge / chargeDuration);
         }
 
         public static final Cons<Unit> unitConsumer = u -> {
@@ -374,6 +386,14 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 });
             }
         };
+
+        public void specialKill(Unit u){
+            for(Unit ug : Groups.unit){
+                if(ug == u){
+
+                }
+            }
+        }
 
         public boolean isProtected(Unit u){
             if(u.team == core.team) return true;
@@ -507,7 +527,7 @@ public class ShockwaveCoreBlock extends CoreBlock {
             Draw.color(Color.valueOf("f25555"));
             Draw.alpha(1f);
             Draw.z(Layer.end - 9.9f);
-            Fill.rect(Core.camera.position.x - 0.5f * w * (1 - progress()), Core.camera.position.y + dy, w * progress(), h);
+            Fill.rect(Core.camera.position.x - 0.5f * w * (progress()), Core.camera.position.y + dy, w * (1 - progress()), h);
             if(shockwaveCharge < 0){
                 Draw.color(Color.valueOf("f25555").mul(2 -(shockwaveCharge + shockwaveDuration) / shockwaveDuration));
                 Draw.alpha(1 -(shockwaveCharge + shockwaveDuration) / shockwaveDuration);

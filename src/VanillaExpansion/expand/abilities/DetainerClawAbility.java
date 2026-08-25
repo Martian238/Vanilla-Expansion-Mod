@@ -48,6 +48,8 @@ public class DetainerClawAbility extends Ability {
 
     }
 
+    //TODO
+
 
     public float clawLength = 48f;
     public float clawWidth = 4f;

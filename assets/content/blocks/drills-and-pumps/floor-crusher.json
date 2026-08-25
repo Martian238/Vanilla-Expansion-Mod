@@ -31,7 +31,7 @@
   "baseArrowColor": "2d2f39",
   "itemCapacity": 30,
   "blockedItems": [ "scrap","copper","lead","aluminium","titanium","thorium","catalyzon","beryllium","tungsten",
-  "silver","ferrum","cobalt","tantalum"
+  "silver","ferrum","cobalt","tantalum","coal"
   ],
   "researchCostMultiplier": 0.1,
   "consumes": {
@@ -60,7 +60,8 @@
     "melon-dirt": 4,
     "spore-pod": 6,
     "ferric-shale-cobble": 1.5,
-    "red-soil": 2
+    "red-soil": 2,
+    "coal": 0
   },
   "crushDamageMultiplier": 0.2,
   "liquidBoostIntensity": 1,

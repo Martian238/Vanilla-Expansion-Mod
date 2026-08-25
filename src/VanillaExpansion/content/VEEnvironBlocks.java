@@ -4,15 +4,18 @@ import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.world.block.environment.MantleTunnel;
 import VanillaExpansion.expand.world.block.environment.NitroalkossProp;
 import mindustry.world.blocks.environment.*;
+import mindustry.world.meta.BuildVisibility;
 
 public class VEEnvironBlocks {
     public static void load(){
 
         //没用玩意
-        new Floor("core-zone-cyclant");
+        new Floor("core-zone-cyclant"){{
+            buildVisibility = BuildVisibility.hidden;
+        }};
         new StaticWall("dark-metal-repaired");
-        new Floor("lava-rock");
-        new Floor("volcanic-rock");
+        //new Floor("lava-rock");
+        //new Floor("volcanic-rock");
         new Prop("bush");
 
 
@@ -105,6 +108,7 @@ public class VEEnvironBlocks {
         new Floor("frostone-radioactive");
         new StaticWall("frostone-wall");
         new Prop("frostone-boulder");
+        new SteamVent("hydrogen-vent");
         //玛瑞斯-峡谷
         new Floor("gravel-ferric");
         new Floor("ferric-shale");

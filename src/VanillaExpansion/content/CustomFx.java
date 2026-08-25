@@ -128,6 +128,17 @@ public class CustomFx{
         color();
         Fill.circle(e.x, e.y, 6f * e.fout());
         Drawf.light(e.x, e.y, rad * 1.6f, Team.crux.color, e.fout());
+    }),
+
+    shootTriple = new Effect(15, e -> {
+        color(Color.valueOf("2eeaea"), e.color, e.fin());
+        float w = 1.3f + 10 * e.fout();
+        Drawf.tri(e.x, e.y, w, 35f * e.fout(), e.rotation);
+        Drawf.tri(e.x, e.y, w, 6f * e.fout(), e.rotation + 180f);
+        Drawf.tri(e.x, e.y, w * 0.8f, 25f * e.fout(), e.rotation + 30f);
+        Drawf.tri(e.x, e.y, w * 0.8f, 6f * e.fout(), e.rotation + 210f);
+        Drawf.tri(e.x, e.y, w * 0.8f, 25f * e.fout(), e.rotation - 30f);
+        Drawf.tri(e.x, e.y, w * 0.8f, 6f * e.fout(), e.rotation + 150f);
     });
 
                 ;

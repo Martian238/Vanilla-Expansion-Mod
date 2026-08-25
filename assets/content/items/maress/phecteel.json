@@ -4,7 +4,7 @@
   "shownPlanets": [ "maress","thavina" ],
   "charge": 1.5,
   "explosiveness": 0.5,
-  "research": "tantalum",
+  "research": "astro-plate",
   "frames": 18,
   "frameTime": 5,
   "databaseTag": "processed-item"

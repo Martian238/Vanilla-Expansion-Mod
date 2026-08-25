@@ -1,0 +1,15 @@
+{
+  "type": "GenericCrafter",
+  "craftTime": 420,
+  "size": 5,
+  "warmupRate": 0.1,
+  "consumes": {
+    "power": 1
+  },
+  "buildVisibility": "sandboxOnly",
+  "hasPower": true,
+  "outputItem": "scrap/1"
+
+
+
+}

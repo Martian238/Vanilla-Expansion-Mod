@@ -1,4 +1,9 @@
 {
   //Java
-  "variants": 1
+  "variants": 1,
+  "attributes": {
+    "heat": 2,
+    "water": -1,
+    "lava": 10
+  }
 }

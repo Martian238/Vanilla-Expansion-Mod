@@ -41,8 +41,13 @@
   "legPhysicsLayer": false,
   "shadowElevation": 0.1,
   "groundLayer": 75,
-  "weapons": [
+  "abilities": [
     {
+      "type": "VanillaExpansion.expand.abilities.HoverTurretAbility"
+    }
+  ],
+  "weapons": [
+    /*{
       "name": "testB-tractor",
       "rotate": false,
       "shootSound": "none",
@@ -80,7 +85,7 @@
         }
       ],
       "minWarmup": 2
-    },
+    },*/
     {
       "name": "test-weapon",
       "rotate": false,
@@ -92,6 +97,7 @@
       "reload": 30,
       "shootSound": "pewClassicEdited",
       "ejectEffect": "none",
+      "minWarmup": 2,
       "shootY": 3.5,
       "bullet": {
         /*"type": "BulletType",

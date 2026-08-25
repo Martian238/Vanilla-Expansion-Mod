@@ -39,7 +39,7 @@ public class VanillaExpansionMod extends Mod {
 
             "ve-silicide-fluid-source","ve-silicide-fluid-void",
             "ve-silver-conduit","ve-silver-conduit-armored","ve-valve-fluid-cross","ve-valve-fluid-distribute",
-            "ve-silver-bridge"
+            "ve-silver-bridge","ve-chained-pump"
     );
     public static Seq<String> erekirBlockWhitelist = Seq.with(
             "reinforced-conduit","reinforced-bridge-conduit","reinforced-liquid-junction",

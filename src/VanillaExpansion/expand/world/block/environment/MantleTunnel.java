@@ -56,7 +56,7 @@ public class MantleTunnel extends Floor {
         lightRadius = Blocks.magmarock.lightRadius;
         attributes.set(Attribute.heat, 2f);
         attributes.set(Attribute.water, -1f);
-        attributes.set(Attribute.sand, 10f);
+        //attributes.set(Attribute.sand, 10f);
         parent = blendGroup = Blocks.darkPanel3;
     }
 

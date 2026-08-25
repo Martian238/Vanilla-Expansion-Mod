@@ -7,6 +7,7 @@ import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import VanillaExpansion.expand.world.block.power.ShakeGenerator;
 import VanillaExpansion.expand.world.block.production.ConfigurableHeatProducer;
 import VanillaExpansion.expand.world.block.production.CoolantDrill;
+import VanillaExpansion.expand.world.block.production.GasPump;
 import VanillaExpansion.expand.world.block.production.HeatButNoHeatCanStillWorkCrafter;
 import arc.struct.EnumSet;
 import mindustry.world.blocks.campaign.*;
@@ -315,6 +316,7 @@ public class VEJSBlocks {
         new Pump("isomorphic-pump");
         new Pump("pressure-pump");
         new Pump("platform-pump");
+        new GasPump("gas-pump");
         new Pump("chained-pump");
         new Conduit("isomorphic-conduit");
         new LiquidRouter("fluid-router");

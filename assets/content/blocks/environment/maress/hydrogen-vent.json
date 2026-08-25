@@ -1,0 +1,16 @@
+{
+  "variants": 3,
+  "attributes": {
+    "water": -1,
+    "hydrogen": 1
+  },
+  "effect": "vapor",
+  "effectColor": "9eabf7",
+  "effectSpacing": 30,
+  "parent": "frostone",
+  "blendGroup": "frostone",
+  "liquidDrop": "hydrogen",
+  "liquidMultiplier": 0,
+  "isLiquid": true,
+  "walkSoundVolume": 0
+}

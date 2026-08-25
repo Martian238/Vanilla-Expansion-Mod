@@ -26,6 +26,145 @@
   "drawBuildBeam": false,
   "mineRange": 6400,
   "buildRange": 6400,
+  "abilities": [
+    {
+      "type": "VanillaExpansion.expand.abilities.HoverTurretAbility",//Java
+      "shootY": -12.75,
+      "sprite": "ve-test-hover-turret-full",
+      "parts": [
+        {
+          "type": "RegionPart",
+          "outline": false,
+          "name": "ve-test-hover-turret-glow",
+          "progress": "heat",
+          "color": "2eeaea00",
+          "colorTo": "ffffff",
+          "blending": "additive"
+        }
+      ],
+      "shootSound": "shootEclipse",
+      "shootingResistance": 0.25,
+      "minRotateSpeedThreshold": 1,
+      "shootEffect": "shockwave",
+      "offsetY": -30,
+      "shootingOffsetY": -8,
+      "shootingOffsetX": 60,
+      "airResistance": 0.05,
+      "accelerationMultiplier": 0.04,
+      "reload": 50,
+      "warmup": 60,
+      "recoil": 4,
+      "shake": 4,
+      "cooldown": 30,
+      "bullet": {
+        "type": "RailBulletType",
+        "damage": 200,
+        "length": 320,
+        "despawnEffect": "none",
+        "smokeEffect": "none",
+        "hitColor": "2eeaea",
+        "hitEffect": "hitLaserBlast",
+        "pierceEffect": "hitLaserBlast",
+        "pierceCap": 4,
+        "status": "corroded",
+        "statusDuration": 300
+      },
+      "drawBeam": true,
+      "beamLength": 320
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.HoverTurretAbility",//Java
+      "shootY": -12.75,
+      "sprite": "ve-test-hover-turret-full",
+      "parts": [
+        {
+          "type": "RegionPart",
+          "outline": false,
+          "name": "ve-test-hover-turret-glow",
+          "progress": "heat",
+          "color": "2eeaea00",
+          "colorTo": "ffffff",
+          "blending": "additive"
+        }
+      ],
+      "shootSound": "shootEclipse",
+      "shootingResistance": 0.25,
+      "minRotateSpeedThreshold": 1,
+      "shootEffect": "shockwave",
+      "offsetX": 15,
+      "offsetY": -45,
+      "shootingOffsetY": -60,
+      "shootingOffsetX": 0,
+      "airResistance": 0.05,
+      "accelerationMultiplier": 0.04,
+      "reload": 50,
+      "warmup": 60,
+      "recoil": 4,
+      "shake": 4,
+      "cooldown": 30,
+      "bullet": {
+        "type": "RailBulletType",
+        "damage": 200,
+        "length": 320,
+        "despawnEffect": "none",
+        "smokeEffect": "none",
+        "hitColor": "2eeaea",
+        "hitEffect": "hitLaserBlast",
+        "pierceEffect": "hitLaserBlast",
+        "pierceCap": 4,
+        "status": "corroded",
+        "statusDuration": 300
+      },
+      "drawBeam": true,
+      "beamLength": 320
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.HoverTurretAbility",//Java
+      "shootY": -12.75,
+      "sprite": "ve-test-hover-turret-full",
+      "parts": [
+        {
+          "type": "RegionPart",
+          "outline": false,
+          "name": "ve-test-hover-turret-glow",
+          "progress": "heat",
+          "color": "2eeaea00",
+          "colorTo": "ffffff",
+          "blending": "additive"
+        }
+      ],
+      "shootSound": "shootEclipse",
+      "shootingResistance": 0.25,
+      "minRotateSpeedThreshold": 1,
+      "shootEffect": "shockwave",
+      "offsetX": -15,
+      "offsetY": -45,
+      "shootingOffsetY": -8,
+      "shootingOffsetX": -60,
+      "airResistance": 0.05,
+      "accelerationMultiplier": 0.04,
+      "reload": 50,
+      "warmup": 60,
+      "recoil": 4,
+      "shake": 4,
+      "cooldown": 30,
+      "bullet": {
+        "type": "RailBulletType",
+        "damage": 200,
+        "length": 320,
+        "despawnEffect": "none",
+        "smokeEffect": "none",
+        "hitColor": "2eeaea",
+        "hitEffect": "hitLaserBlast",
+        "pierceEffect": "hitLaserBlast",
+        "pierceCap": 4,
+        "status": "corroded",
+        "statusDuration": 300
+      },
+      "drawBeam": true,
+      "beamLength": 320
+    }
+  ],
   "weapons": [
     /*{
       "name": "test-weapon",//gatling gun
@@ -592,6 +731,7 @@
       "shootSound": "pewClassicEdited",
       "reload": 200,
       "recoil": 0,
+      "minWarmup": 2, //TEMPORARILY LOCKED FOR OTHER TESTING.
       "shoot": {
         "type": "ShootBarrel",
         "barrels": [
@@ -805,10 +945,11 @@
             "shootEffect": "none",
             "smokeEffect": "none",
             "chargeEffect": "shockwave",
-            "rangeOverride": 240,
+            "rangeOverride": 320,//240
             "incendSpread": 0,
             "incendAmount": 1,
-            "incendChance": 0.05
+            "incendChance": 0.05,
+        "speed": 99999
       }
     }
   ]

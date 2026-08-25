@@ -1,13 +1,14 @@
 {
   "type": "VanillaExpansion.expand.world.block.crux.ShockwaveCoreBlock",//Java
-  "chargeSound": "chiniunShockwaveCharge",
+  "chargeSound": "coreShockwaveCharge",
   "size": 5,
   "category": "effect",
-  "buildVisibility": "editorOnly",
+  "buildVisibility": "sandboxOnly",
   "health": 6000,
   "armor": 3,
   "itemCapacity": 13000,
   "drawTeamOverlay": false,
+  "unitType": "gamma",
 
 
   "forceTeam": "crux",
@@ -202,8 +203,7 @@
           },
           {
             "type": "VanillaExpansion.expand.parts.AutoShadingPart",
-            "name": "dagger",
-            "color": "00000000",
+            "invisible": true,
             "rotation": 90,
             "outline": false,
             "progress": {
@@ -212,6 +212,46 @@
               "interp": "sine"
             },
             "moveRot": -180,
+            "moves": [
+              {
+                "rot": 135,
+                "progress": {
+                  "type": "reload",
+                  "ops": [
+                    {
+                      "op": "compress",
+                      "start": 0,
+                      "end": 0.15
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "compress",
+                            "start": 0.72,
+                            "end": 0.8
+                          },
+                          {
+                            "op": "curve",
+                            "interp": "sine"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
             "children": [
               {
                 "type": "VanillaExpansion.expand.parts.AutoShadingPart",
@@ -220,7 +260,7 @@
                 "rotation": 0,
                 "progress": "warmup",
                 "layer": 30.2,
-                "moveX": 4,
+                "moveX": 6,
                 "moveY": 0,
                 "children": [
                   {
@@ -267,7 +307,7 @@
                     }
                   },
                   {
-                    "x": -8,
+                    "x": -10,
                     "progress": {
                       "type": "reload",
                       "ops": [
@@ -279,6 +319,30 @@
                         {
                           "op": "curve",
                           "interp": "circleIn"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0,
+                                "end": 0.1
+                              },
+                              {
+                                "op": "inv"
+                              },
+                              {
+                                "op": "mul",
+                                "other": "warmup"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": 0.4
+                              }
+                            ]
+                          }
                         }
                       ]
                     }
@@ -293,7 +357,7 @@
                 "progress": "warmup",
                 "layer": 30.2,
                 "moveX": 0,
-                "moveY": 4,
+                "moveY": 6,
                 "children": [
                   {
                     "type": "VanillaExpansion.expand.parts.AutoShadingPart",
@@ -339,7 +403,7 @@
                     }
                   },
                   {
-                    "y": -8,
+                    "y": -10,
                     "progress": {
                       "type": "reload",
                       "ops": [
@@ -351,6 +415,30 @@
                         {
                           "op": "curve",
                           "interp": "circleIn"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0,
+                                "end": 0.1
+                              },
+                              {
+                                "op": "inv"
+                              },
+                              {
+                                "op": "mul",
+                                "other": "warmup"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": 0.4
+                              }
+                            ]
+                          }
                         }
                       ]
                     }
@@ -364,7 +452,7 @@
                 "rotation": 180,
                 "progress": "warmup",
                 "layer": 30.2,
-                "moveX": -4,
+                "moveX": -6,
                 "moveY": 0,
                 "children": [
                   {
@@ -411,7 +499,7 @@
                     }
                   },
                   {
-                    "x": 8,
+                    "x": 10,
                     "progress": {
                       "type": "reload",
                       "ops": [
@@ -423,6 +511,30 @@
                         {
                           "op": "curve",
                           "interp": "circleIn"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0,
+                                "end": 0.1
+                              },
+                              {
+                                "op": "inv"
+                              },
+                              {
+                                "op": "mul",
+                                "other": "warmup"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": 0.4
+                              }
+                            ]
+                          }
                         }
                       ]
                     }
@@ -437,7 +549,7 @@
                 "progress": "warmup",
                 "layer": 30.2,
                 "moveX": 0,
-                "moveY": -4,
+                "moveY": -6,
                 "children": [
                   {
                     "type": "VanillaExpansion.expand.parts.AutoShadingPart",
@@ -483,7 +595,7 @@
                     }
                   },
                   {
-                    "y": 8,
+                    "y": 10,
                     "progress": {
                       "type": "reload",
                       "ops": [
@@ -495,6 +607,30 @@
                         {
                           "op": "curve",
                           "interp": "circleIn"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0,
+                                "end": 0.1
+                              },
+                              {
+                                "op": "inv"
+                              },
+                              {
+                                "op": "mul",
+                                "other": "warmup"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": 0.4
+                              }
+                            ]
+                          }
                         }
                       ]
                     }
@@ -505,8 +641,7 @@
           },
           {
             "type": "VanillaExpansion.expand.parts.AutoShadingPart",
-            "name": "dagger",
-            "color": "00000000",
+            "invisible": true,
             "rotation": 90,
             "outline": false,
             "children": [
@@ -649,6 +784,45 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "rot": 10,
+                    "y": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.85,
+                                "end": 0.9
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
                   }
                 ],
                 "children": [
@@ -804,6 +978,45 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "rot": -10,
+                    "y": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.85,
+                                "end": 0.9
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
                   }
                 ],
                 "children": [
@@ -824,6 +1037,200 @@
               {
                 "type": "VanillaExpansion.expand.parts.AutoShadingPart",
                 "name": "ve-core-shockwave-p2l",
+                "rotation": 90,
+                "layer": 30.3,
+                "outline": false,
+                "moveX": -1.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 7
+                          },
+                          {
+                            "op": "inv"
+                          },
+                          {
+                            "op": "clamp"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "y": 6,
+                    "progress": {
+                      "type": "warmup",
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  },
+                  {
+                    "y": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.9285
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "slope"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "mul",
+                                "amount": 0
+                              },
+                              {
+                                "op": "sin",
+                                "scl": 1.5,
+                                "mag": 0.5
+                              },
+                              {
+                                "op": "add",
+                                "amount": 0.5
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.5,
+                          "end": 0.75
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3In"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -5,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "rot": 10,
+                    "x": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.85,
+                                "end": 0.9
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p2l-glow",
+                    "outline": false,
+                    "layer": 31,
+                    "blending": "additive",
+                    "color": "f2555500",
+                    "colorTo": "f25555a0",
+                    "progress": "warmup"
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p2r",
                 "rotation": 90,
                 "layer": 30.3,
                 "outline": false,
@@ -960,158 +1367,42 @@
                         }
                       ]
                     }
-                  }
-                ],
-                "children": [
-                  {
-                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
-                    "shading": false,
-                    "name": "ve-core-shockwave-p2l-glow",
-                    "outline": false,
-                    "layer": 31,
-                    "blending": "additive",
-                    "color": "f2555500",
-                    "colorTo": "f25555a0",
-                    "progress": "warmup"
-                  }
-                ]
-              },
-              {
-                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
-                "name": "ve-core-shockwave-p2r",
-                "rotation": 90,
-                "layer": 30.3,
-                "outline": false,
-                "moveX": -1.5,
-                "progress": {
-                  "type": "warmup",
-                  "ops": [
-                    {
-                      "op": "curve",
-                      "interp": "circleOut"
-                    },
-                    {
-                      "op": "add",
-                      "other": {
-                        "type": "reload",
-                        "ops": [
-                          {
-                            "op": "mul",
-                            "amount": 7
-                          },
-                          {
-                            "op": "inv"
-                          },
-                          {
-                            "op": "clamp"
-                          },
-                          {
-                            "op": "mul",
-                            "amount": -1
-                          }
-                        ]
-                      }
-                    }
-                  ]
-                },
-                "moves": [
-                  {
-                    "y": 6,
-                    "progress": {
-                      "type": "warmup",
-                      "op": "curve",
-                      "interp": "sine"
-                    }
                   },
                   {
-                    "y": 2,
+                    "rot": -10,
+                    "x": -2,
                     "progress": {
                       "type": "reload",
                       "ops": [
                         {
                           "op": "compress",
-                          "start": 0,
-                          "end": 0.1
-                        },
-                        {
-                          "op": "curve",
-                          "interp": "sine"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "y": 2,
-                    "progress": {
-                      "type": "reload",
-                      "ops": [
-                        {
-                          "op": "compress",
-                          "start": 0.1,
-                          "end": 0.9285
-                        },
-                        {
-                          "op": "curve",
-                          "interp": "slope"
+                          "start": 0.25,
+                          "end": 0.3
                         },
                         {
                           "op": "curve",
                           "interp": "sine"
                         },
                         {
-                          "op": "mul",
+                          "op": "add",
                           "other": {
                             "type": "reload",
                             "ops": [
                               {
+                                "op": "compress",
+                                "start": 0.85,
+                                "end": 0.9
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
+                              },
+                              {
                                 "op": "mul",
-                                "amount": 0
-                              },
-                              {
-                                "op": "sin",
-                                "scl": 1.5,
-                                "mag": 0.5
-                              },
-                              {
-                                "op": "add",
-                                "amount": 0.5
+                                "amount": -1
                               }
                             ]
                           }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "y": 3,
-                    "progress": {
-                      "type": "reload",
-                      "ops": [
-                        {
-                          "op": "compress",
-                          "start": 0.5,
-                          "end": 0.75
-                        },
-                        {
-                          "op": "curve",
-                          "interp": "pow3In"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "y": -5,
-                    "progress": {
-                      "type": "reload",
-                      "ops": [
-                        {
-                          "op": "compress",
-                          "start": 0.9,
-                          "end": 1
-                        },
-                        {
-                          "op": "curve",
-                          "interp": "sine"
                         }
                       ]
                     }
@@ -1268,6 +1559,45 @@
                         {
                           "op": "curve",
                           "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "rot": 10,
+                    "y": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.85,
+                                "end": 0.9
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
                         }
                       ]
                     }
@@ -1426,6 +1756,45 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "rot": -10,
+                    "y": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.85,
+                                "end": 0.9
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
                   }
                 ],
                 "children": [
@@ -1446,161 +1815,6 @@
               {
                 "type": "VanillaExpansion.expand.parts.AutoShadingPart",
                 "name": "ve-core-shockwave-p2l",
-                "rotation": -90,
-                "layer": 30.3,
-                "outline": false,
-                "moveX": -1.5,
-                "progress": {
-                  "type": "warmup",
-                  "ops": [
-                    {
-                      "op": "curve",
-                      "interp": "circleOut"
-                    },
-                    {
-                      "op": "add",
-                      "other": {
-                        "type": "reload",
-                        "ops": [
-                          {
-                            "op": "mul",
-                            "amount": 7
-                          },
-                          {
-                            "op": "inv"
-                          },
-                          {
-                            "op": "clamp"
-                          },
-                          {
-                            "op": "mul",
-                            "amount": -1
-                          }
-                        ]
-                      }
-                    }
-                  ]
-                },
-                "moves": [
-                  {
-                    "y": -6,
-                    "progress": {
-                      "type": "warmup",
-                      "op": "curve",
-                      "interp": "sine"
-                    }
-                  },
-                  {
-                    "y": -2,
-                    "progress": {
-                      "type": "reload",
-                      "ops": [
-                        {
-                          "op": "compress",
-                          "start": 0,
-                          "end": 0.1
-                        },
-                        {
-                          "op": "curve",
-                          "interp": "sine"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "y": -2,
-                    "progress": {
-                      "type": "reload",
-                      "ops": [
-                        {
-                          "op": "compress",
-                          "start": 0.1,
-                          "end": 0.9285
-                        },
-                        {
-                          "op": "curve",
-                          "interp": "slope"
-                        },
-                        {
-                          "op": "curve",
-                          "interp": "sine"
-                        },
-                        {
-                          "op": "mul",
-                          "other": {
-                            "type": "reload",
-                            "ops": [
-                              {
-                                "op": "mul",
-                                "amount": 0
-                              },
-                              {
-                                "op": "sin",
-                                "scl": 1.5,
-                                "mag": 0.5
-                              },
-                              {
-                                "op": "add",
-                                "amount": 0.5
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "y": -3,
-                    "progress": {
-                      "type": "reload",
-                      "ops": [
-                        {
-                          "op": "compress",
-                          "start": 0.5,
-                          "end": 0.75
-                        },
-                        {
-                          "op": "curve",
-                          "interp": "pow3In"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "y": 5,
-                    "progress": {
-                      "type": "reload",
-                      "ops": [
-                        {
-                          "op": "compress",
-                          "start": 0.9,
-                          "end": 1
-                        },
-                        {
-                          "op": "curve",
-                          "interp": "sine"
-                        }
-                      ]
-                    }
-                  }
-                ],
-                "children": [
-                  {
-                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
-                    "shading": false,
-                    "name": "ve-core-shockwave-p2l-glow",
-                    "outline": false,
-                    "layer": 31,
-                    "blending": "additive",
-                    "color": "f2555500",
-                    "colorTo": "f25555a0",
-                    "progress": "warmup"
-                  }
-                ]
-              },
-              {
-                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
-                "name": "ve-core-shockwave-p2r",
                 "rotation": -90,
                 "layer": 30.3,
                 "outline": false,
@@ -1737,6 +1951,239 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "rot": 10,
+                    "x": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.85,
+                                "end": 0.9
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "shading": false,
+                    "name": "ve-core-shockwave-p2l-glow",
+                    "outline": false,
+                    "layer": 31,
+                    "blending": "additive",
+                    "color": "f2555500",
+                    "colorTo": "f25555a0",
+                    "progress": "warmup"
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "name": "ve-core-shockwave-p2r",
+                "rotation": -90,
+                "layer": 30.3,
+                "outline": false,
+                "moveX": -1.5,
+                "progress": {
+                  "type": "warmup",
+                  "ops": [
+                    {
+                      "op": "curve",
+                      "interp": "circleOut"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "mul",
+                            "amount": 7
+                          },
+                          {
+                            "op": "inv"
+                          },
+                          {
+                            "op": "clamp"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "moves": [
+                  {
+                    "y": -6,
+                    "progress": {
+                      "type": "warmup",
+                      "op": "curve",
+                      "interp": "sine"
+                    }
+                  },
+                  {
+                    "y": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0,
+                          "end": 0.1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.9285
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "slope"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "mul",
+                                "amount": 0
+                              },
+                              {
+                                "op": "sin",
+                                "scl": 1.5,
+                                "mag": 0.5
+                              },
+                              {
+                                "op": "add",
+                                "amount": 0.5
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.5,
+                          "end": 0.75
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow3In"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 5,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.9,
+                          "end": 1
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "rot": -10,
+                    "x": 2,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.25,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.85,
+                                "end": 0.9
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
                   }
                 ],
                 "children": [
@@ -1757,8 +2204,7 @@
           },
           {
             "type": "VanillaExpansion.expand.parts.AutoShadingPart",
-            "name": "dagger",
-            "color": "00000000",
+            "invisible": true,
             "rotation": 90,
             "outline": false,
             "moveRot": 90,
@@ -1767,8 +2213,8 @@
               "ops": [
                 {
                   "op": "compress",
-                  "start": 0.2,
-                  "end": 0.3
+                  "start": 0,
+                  "end": 0.15
                 },
                 {
                   "op": "curve",
@@ -1780,6 +2226,46 @@
                 }
               ]
             },
+            "moves": [
+              {
+                "rot": -45,
+                "progress": {
+                  "type": "reload",
+                  "ops": [
+                    {
+                      "op": "compress",
+                      "start": 0,
+                      "end": 0.15
+                    },
+                    {
+                      "op": "curve",
+                      "interp": "sine"
+                    },
+                    {
+                      "op": "add",
+                      "other": {
+                        "type": "reload",
+                        "ops": [
+                          {
+                            "op": "compress",
+                            "start": 0.72,
+                            "end": 0.8
+                          },
+                          {
+                            "op": "curve",
+                            "interp": "sine"
+                          },
+                          {
+                            "op": "mul",
+                            "amount": -1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
             "children": [
               {
                 "type": "VanillaExpansion.expand.parts.AutoShadingPart",
@@ -1817,8 +2303,12 @@
                             "ops": [
                               {
                                 "op": "compress",
-                                "start": 0,
+                                "start": 0.05,
                                 "end": 0.2
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
                               },
                               {
                                 "op": "inv"
@@ -1836,6 +2326,61 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "x": -3,
+                    "y": -3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.25
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.78,
+                                "end": 0.857
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "circleOut"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "name": "ve-core-shockwave-p3-shadow",
+                    "shading": false,
+                    "color": "00000000",
+                    "colorTo": "00000080",
+                    "progress": "warmup",
+                    "layer": 29.9,
+                    "outline": false
                   }
                 ]
               },
@@ -1875,8 +2420,12 @@
                             "ops": [
                               {
                                 "op": "compress",
-                                "start": 0,
+                                "start": 0.05,
                                 "end": 0.2
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
                               },
                               {
                                 "op": "inv"
@@ -1894,6 +2443,61 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "x": 3,
+                    "y": -3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.25
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.78,
+                                "end": 0.857
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "circleOut"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "name": "ve-core-shockwave-p3-shadow",
+                    "shading": false,
+                    "color": "00000000",
+                    "colorTo": "00000080",
+                    "progress": "warmup",
+                    "layer": 29.9,
+                    "outline": false
                   }
                 ]
               },
@@ -1933,8 +2537,12 @@
                             "ops": [
                               {
                                 "op": "compress",
-                                "start": 0,
+                                "start": 0.05,
                                 "end": 0.2
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
                               },
                               {
                                 "op": "inv"
@@ -1952,6 +2560,61 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "x": 3,
+                    "y": 3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.25
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.78,
+                                "end": 0.857
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "circleOut"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "name": "ve-core-shockwave-p3-shadow",
+                    "shading": false,
+                    "color": "00000000",
+                    "colorTo": "00000080",
+                    "progress": "warmup",
+                    "layer": 29.9,
+                    "outline": false
                   }
                 ]
               },
@@ -1991,8 +2654,12 @@
                             "ops": [
                               {
                                 "op": "compress",
-                                "start": 0,
+                                "start": 0.05,
                                 "end": 0.2
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "sine"
                               },
                               {
                                 "op": "inv"
@@ -2010,6 +2677,61 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "x": -3,
+                    "y": 3,
+                    "progress": {
+                      "type": "reload",
+                      "ops": [
+                        {
+                          "op": "compress",
+                          "start": 0.1,
+                          "end": 0.25
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "sine"
+                        },
+                        {
+                          "op": "add",
+                          "other": {
+                            "type": "reload",
+                            "ops": [
+                              {
+                                "op": "compress",
+                                "start": 0.78,
+                                "end": 0.857
+                              },
+                              {
+                                "op": "curve",
+                                "interp": "circleOut"
+                              },
+                              {
+                                "op": "mul",
+                                "amount": -1
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                    "name": "ve-core-shockwave-p3-shadow",
+                    "shading": false,
+                    "color": "00000000",
+                    "colorTo": "00000080",
+                    "progress": "warmup",
+                    "layer": 29.9,
+                    "outline": false
                   }
                 ]
               }
@@ -2020,12 +2742,11 @@
             "rotation": 90,
             "outline": false,
             "moveRot": -10800,
-            "name": "dagger",
-            "color": "00000000",
+            "invisible": true,
             "progress": {
               "type": "reload",
               "op": "curve",
-              "interp": "pow10In"
+              "interp": "pow2In"
             },
             "children": [
               {
@@ -2237,7 +2958,7 @@
           {
             "type": "VanillaExpansion.expand.parts.AutoShadingPart",
             "shading": false,
-            "name": "ve-shockwave-core-top",
+            "name": "ve-core-shockwave-top",
             "layer": 30.6,
             "outline": false,
             "rotation": 90
@@ -2245,7 +2966,7 @@
           {
             "type": "VanillaExpansion.expand.parts.AutoShadingPart",
             "shading": false,
-            "name": "ve-shockwave-core-top-light",
+            "name": "ve-core-shockwave-top-light",
             "layer": 30.9,
             "outline": false,
             "rotation": 90,
@@ -2256,14 +2977,39 @@
           {
             "type": "VanillaExpansion.expand.parts.AutoShadingPart",
             "shading": false,
-            "name": "ve-shockwave-core-top-light-glow",
+            "name": "ve-core-shockwave-top-light-glow",
             "layer": 31,
             "outline": false,
             "rotation": 90,
             "blending": "additive",
             "color": "f2555500",
             "colorTo": "f25555",
-            "progress": "warmup"
+            "progress": {
+              "type": "warmup",
+              "ops": [
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "warmup",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "scl": 5,
+                        "mag": 0.1
+                      },
+                      {
+                        "op": "add",
+                        "amount": 0.9
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
           }
         ]
       }

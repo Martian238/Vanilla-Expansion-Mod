@@ -17,7 +17,6 @@
   "group": "walls",
   "crushDamageMultiplier": 0,
   "baseShake": 32,
-  "destroySound": "explosionbig",
   "rebuildable": false,
   "destroyBullet": {
     "instantDisappear": true,
@@ -40,6 +39,6 @@
   "allowRectanglePlacement": true,
   "shownPlanets": [ "maress","thavina" ],
   "destroySound": "blockExplode3",
-  "research": "silicide-ferrum-wall-huge",
+  "research": "tantalum-wall",
   "destroySoundVolume": 3
 }
