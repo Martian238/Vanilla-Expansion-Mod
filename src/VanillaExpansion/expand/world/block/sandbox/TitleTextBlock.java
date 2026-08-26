@@ -110,7 +110,7 @@ public class TitleTextBlock extends Block {
                 float w = Core.camera.width;
                 float x = Core.camera.position.x;
                 float y = Core.camera.position.y;
-
+                Draw.rect(region, x, y, w, w * scale, 0f);
             }else{
                 soundPlayed = false;
             }
