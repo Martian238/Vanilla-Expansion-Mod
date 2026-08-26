@@ -14,16 +14,15 @@ import mindustry.ui.Fonts;
 
 import java.util.Arrays;
 
+import static mindustry.Vars.tree;
+
 public class VEFonts {
     public static Font novo;
     public static void loadFonts(){
 
-
-
-        Fi modRoot = Vars.mods.getMod(VanillaExpansionMod.class).root;
-        Log.info(modRoot);
-        Fi fi = modRoot.child("novo.ttf");
-        Log.info(fi);
+        Vars.tree.get("fonts/" + "novo.ttf");
+        Fi fi = Core.files.internal("fonts/" + "novo.ttf");
+        Log.info("font file " + fi.path() + " " + fi.exists());
         if(fi.exists()) {
             gen(fi);
             Log.info("Font loaded");
