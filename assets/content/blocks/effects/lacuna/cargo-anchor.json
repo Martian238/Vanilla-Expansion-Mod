@@ -8,11 +8,21 @@
   "hasPower": false,
   "shownPlanets": [ "maress" ],
   "recipe": [
-    //trade 1-4
+    //trade 1-5
     {
       "inputItems": [ "silver/10" ],
       "craftTime": 120,
-      "outputItems": [ "graphite/10","silicon/10" ],
+      "outputItems": [ "silicon/10" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-trade-idle",
+        "layer": 99.99
+      }
+    },
+    {
+      "inputItems": [ "silver/10" ],
+      "craftTime": 120,
+      "outputItems": [ "graphite/20" ],
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-trade-idle",
@@ -40,16 +50,30 @@
       }
     },
     {
-      "inputItems": [ "silver/2" ],
+      "inputItems": [ "silver/10" ],
       "craftTime": 120,
-      "outputItems": [ "scrap/40" ],
+      "outputItems": [ "scrap/10" ],
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-trade-idle",
         "layer": 99.99
       }
     },
-    //industry 5-6
+    {
+      "inputItems": [ "silver/5" ],
+      "craftTime": 120,
+      "outputItems": [ "acid-pod/1" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-trade-idle",
+        "layer": 99.99
+      },
+      "objectives": [
+        "tantalum"
+      ],
+      "alwaysUnlocked": false
+    },
+    //industry 7-8
     {
       "inputItems": [ "silver/20","red-soil/100" ],
       "craftTime": 240,
@@ -64,7 +88,8 @@
           "type": "SectorComplete",
           "preset": "icy-boundary"
         }
-      ]
+      ],
+      "alwaysUnlocked": false
     },
     {
       "inputItems": [ "silver/20","red-soil/100" ],
@@ -80,9 +105,10 @@
           "type": "SectorComplete",
           "preset": "icy-boundary"
         }
-      ]
-    }
-    //protocol 7-8
+      ],
+      "alwaysUnlocked": false
+    },
+    //protocol 9-10
     {
       "inputItems": [ "aluminium/100","tantalum/100","silver/20" ],
       "craftTime": 300,
@@ -98,7 +124,8 @@
           "type": "SectorComplete",
           "preset": "icy-boundary"
         }
-      ]
+      ],
+      "alwaysUnlocked": false
     },
     {
       "inputItems": [ "silver/100","tantalum/40","silicon/80" ],
@@ -115,7 +142,8 @@
           "type": "SectorComplete",
           "preset": "icy-boundary"
         }
-      ]
+      ],
+      "alwaysUnlocked": false
     }
   ],
   "squareSprite": false,

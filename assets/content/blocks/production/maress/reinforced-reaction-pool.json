@@ -405,6 +405,7 @@
       "outputItems": [  ],
       "outputHeat": 50,
       "craftTime": 60,
+      "ignoreLiquidFullness": true,
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -483,6 +484,7 @@
       "outputItems": [ "tantalum/1" ],
       "outputHeat": 50,
       "craftTime": 240,
+      "ignoreLiquidFullness": true,
       "visual": {
         "type": "DrawMulti",
         "drawers": [

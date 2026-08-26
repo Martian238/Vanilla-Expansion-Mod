@@ -1,13 +1,14 @@
 {
   //"type": "VanillaExpansion.expand.world.block.liquid.LiquidSorter",
-  "requirements": [ "chromium/20","silicon/20" ],
-  "shownPlanets": [ "cyclant","maress","thavina" ],
+  "requirements": [ "silver/20","silicon/20","silicide/5" ],
+  "shownPlanets": [ "sitrullus","maress","thavina" ],
   "category": "liquid",
   "enableDrawStatus": false,
   "hasLiquids": true,
   "conductivePower": false,
   "underBullets": true,
   "health": 160,
+  "armor": 8,
   "rotate": false,
   "research": {
     "parent": "core-singularity-root",

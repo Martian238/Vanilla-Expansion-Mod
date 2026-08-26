@@ -1,17 +1,21 @@
 package VanillaExpansion.expand.world.block.crux;
 
 import VanillaExpansion.content.CustomFx;
+import VanillaExpansion.ui.VEFonts;
 import arc.Core;
 import arc.audio.Sound;
 import arc.func.Cons;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Fill;
+import arc.graphics.g2d.Font;
+import arc.graphics.g2d.GlyphLayout;
 import arc.graphics.g2d.Lines;
 import arc.math.Angles;
 import arc.math.Interp;
 import arc.math.Mathf;
 import arc.math.geom.Vec2;
+import arc.util.Align;
 import arc.util.Log;
 import arc.util.Nullable;
 import arc.util.Time;
@@ -28,12 +32,14 @@ import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
+import mindustry.ui.Fonts;
 import mindustry.world.blocks.LaunchAnimator;
 import mindustry.world.blocks.defense.BaseShield;
 import mindustry.world.blocks.environment.Floor;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.draw.DrawBlock;
 import mindustry.world.draw.DrawDefault;
+
 
 import java.util.Arrays;
 
@@ -140,7 +146,7 @@ public class ShockwaveCoreBlock extends CoreBlock {
             colorTo = Color.valueOf("f25555a0");
             layer = Layer.flyingUnit + 4f;
             interp = Interp.pow2In;
-            lifetime = shockwaveDuration;
+            lifetime = shockwaveDuration * 1.414f;
             clip = 8000;
         }};
 
@@ -518,6 +524,7 @@ public class ShockwaveCoreBlock extends CoreBlock {
             Draw.alpha(1f);
             Draw.z(Layer.end - 10f);
             float w = Core.camera.width * 0.5f;
+            float fs = Core.camera.width * 0.0001f;
             float h = Core.camera.height * 0.0246f;
             float dy = Core.camera.height * 0.425f;
             float thick = Core.camera.width * 0.005f;
@@ -534,6 +541,9 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 Draw.z(Layer.end - 9.8f);
                 Fill.rect(Core.camera.position.x, Core.camera.position.y + dy, w, h);
             }
+            //Font font = VEFonts.novo;
+
+            //font.draw("TEST", Core.camera.position.x,  Core.camera.position.y + dy, Color.white, fs, true, 1);
         }
     }
 }

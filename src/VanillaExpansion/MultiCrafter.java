@@ -21,6 +21,7 @@ import arc.util.io.Writes;
 import mindustry.Vars;
 import mindustry.ai.UnitCommand;
 import mindustry.content.Fx;
+import mindustry.content.Liquids;
 import mindustry.content.TechTree;
 import mindustry.ctype.ContentType;
 import mindustry.ctype.UnlockableContent;
@@ -46,18 +47,17 @@ import mindustry.world.blocks.heat.HeatBlock;
 import mindustry.world.blocks.heat.HeatConductor;
 import mindustry.world.blocks.liquid.Conduit;
 import mindustry.world.blocks.payloads.*;
+import mindustry.world.blocks.production.GenericCrafter;
 import mindustry.world.blocks.production.HeatCrafter;
 import mindustry.world.consumers.ConsumePower;
 import mindustry.world.draw.DrawBlock;
 import mindustry.world.meta.*;
-import mindustry.mod.Mods.*;
 
 import static VanillaExpansion.MultiCrafter.MultiCrafterBuild.allPayloadTypes;
 import static mindustry.Vars.*;
 
 
 import static mindustry.Vars.content;
-import static mindustry.graphics.Pal.command;
 
 /**
  * 多配方厂
@@ -78,6 +78,12 @@ public class MultiCrafter extends HeatCrafter {
     public Recipe[] recipe;
     protected boolean hasItemOutput = false;
     protected boolean hasLiquidOutput = false;
+
+    public boolean requireFluxGeneral = false;
+    public Liquid fluxLiquidGeneral = Liquids.hydrogen;
+    public float minFluxGeneral = 0.1f;
+    public boolean fluxOverconsumptionGeneral = true;
+
 
     public MultiCrafter(String name) {
         super(name);
@@ -514,9 +520,22 @@ public class MultiCrafter extends HeatCrafter {
         if (hasLiquids) stats.add(Stat.liquidCapacity, liquidCapacity, StatUnit.liquidUnits);
         if (hasItems && itemCapacity > 0) stats.add(Stat.itemCapacity, itemCapacity, StatUnit.items);
 
+
+
         stats.add(Stat.output, table -> {
             table.clearChildren();
             table.left();
+
+            if(requireFluxGeneral && fluxLiquidGeneral != null){
+                table.table(Styles.grayPanelDark, t -> {
+                    t.left().defaults().left().padLeft(4).height(40f);
+                    t.add("[lightgray]" + Core.bundle.get("stat.multicrafter.flux") + ":[]").padRight(8);
+                    t.add(StatValues.displayLiquid(fluxLiquidGeneral, minFluxGeneral * 60f, true)).padRight(8);
+                    //t.row();
+                });
+                table.row();
+            }
+
             for (int i = 0; i < recipes.size; i++) {
                 Recipe rec = recipes.get(i);
                 rec.ensureArrays();
@@ -540,7 +559,7 @@ public class MultiCrafter extends HeatCrafter {
                         return;  // 只显示锁
                     }
 
-                    String title = "[accent]Recipe " + (idx + 1) + "[]";
+                    String title = Core.bundle.format("stat.multicrafter.recipe", (idx + 1));
                     t.add(title).padTop(4).padBottom(4);
                     t.row();
                     boolean hasInput = rec.inputItems.length > 0 || rec.inputLiquids.length > 0
@@ -592,6 +611,11 @@ public class MultiCrafter extends HeatCrafter {
                             }
                         }
                     }
+                    if(recipes.contains(r -> r.requireFlux && r.fluxLiquid != null)){
+                        t.row();
+                        t.add("[lightgray]" + Core.bundle.get("stat.multicrafter.flux") + ":[]").padRight(8);
+                        t.add(StatValues.displayLiquid(rec.fluxLiquid, rec.minFlux * 60f, true)).padRight(8);
+                    }
                     t.row();
                     t.add("[lightgray]" + Core.bundle.get("stat.productiontime") + ":[] " + Strings.autoFixed(rec.craftTime / 60f, 3) + " " + Core.bundle.get("unit.seconds")).padTop(4);
                     if (rec.inputHeat > 0)
@@ -640,7 +664,7 @@ public class MultiCrafter extends HeatCrafter {
                 float need = rec != null && rec.inputHeat > 0 ? rec.inputHeat :
                         recipes.find(r2 -> r2.inputHeat > 0) != null ? recipes.find(r2 -> r2.inputHeat > 0).inputHeat : 1f;
                 return new Bar(
-                        () -> "热量输入：" + (int)(entity.heatInput + 0.01f) + " (" + (int)(entity.heatEfficiencyScale() * 100 + 0.01f) + "%)",
+                        () -> Core.bundle.format( "bar.multicrafter.heatinput",(int)(entity.heatInput + 0.01f), (int)(entity.heatEfficiencyScale() * 100 + 0.01f)),
                         () -> Pal.lightOrange,
                         () -> need > 0 ? Mathf.clamp(entity.heatInput / need) : 0f
                 );
@@ -652,7 +676,7 @@ public class MultiCrafter extends HeatCrafter {
                 float max = rec != null && rec.outputHeat > 0 ? rec.outputHeat :
                         recipes.find(r2 -> r2.outputHeat > 0) != null ? recipes.find(r2 -> r2.outputHeat > 0).outputHeat : 1f;
                 return new Bar(
-                        () -> "热量输出：" + (int)(entity.heatOutput + 0.01f) + " (" + (int)(entity.heatOutput / max * 100 + 0.01f) + "%)",
+                        () -> Core.bundle.format( "bar.multicrafter.heatoutput", (int)(entity.heatOutput + 0.01f) , (int)(entity.heatOutput / max * 100 + 0.01f) ),
                         () -> Pal.lightOrange,
                         () -> max > 0 ? Mathf.clamp(entity.heatOutput / max) : 0f
                 );
@@ -667,6 +691,36 @@ public class MultiCrafter extends HeatCrafter {
                     entity::efficiencyMultiplier
             );
         });
+
+        //TODO 标记
+        if (recipes.contains(r -> r.requireFlux && r.fluxLiquid != null)){
+            addBar("flux", (MultiCrafterBuild entity) -> {
+                Recipe rec = entity.getCurrentRecipe();
+                if (rec == null){
+                    return new Bar(
+                            () -> Core.bundle.format("bar.multicrafter.liquidflux","", 0, 0),
+                            () -> Pal.gray,
+                            () -> Mathf.clamp(0)
+                    );
+                }
+
+                return new Bar(
+                        () -> Core.bundle.format("bar.multicrafter.liquidflux",rec.fluxLiquid.localizedName, entity.fluxResult, rec.minFlux * 60),
+                        rec.fluxLiquid::barColor,
+                        () -> Mathf.clamp(entity.fluxResult / (rec.minFlux * 60))
+                );
+            });
+        }
+        if (requireFluxGeneral && fluxLiquidGeneral != null){
+            addBar("fluxgeneral", (MultiCrafterBuild entity) -> {
+                return new Bar(
+                        () -> Core.bundle.format("bar.multicrafter.liquidflux",fluxLiquidGeneral.localizedName, entity.fluxResultGeneral, minFluxGeneral * 60),
+                        fluxLiquidGeneral::barColor,
+                        () -> Mathf.clamp(entity.fluxResultGeneral / (minFluxGeneral * 60))
+                );
+            });
+        }
+
 
         // 单位上限条
         ObjectSet<UnitType> allUnitOutputs = new ObjectSet<>();
@@ -767,6 +821,10 @@ public class MultiCrafter extends HeatCrafter {
         public float attrsum; //环境加成
         public int seed;  //分离器模式种子
 
+        private float fluxMultiplier = 1f;
+        private float fluxResult = 0f;
+        private float fluxMultiplierGeneral = 1f;
+        private float fluxResultGeneral = 0f;
 
 
 
@@ -1108,6 +1166,7 @@ public class MultiCrafter extends HeatCrafter {
             for (ItemStack stack : rec.inputItems) if (items.get(stack.item) < stack.amount) return false;
             for (PayloadStack stack : rec.cachedInputPayloads) if (getPayloadCount(stack.item) < stack.amount) return false;
             for (LiquidStack stack : rec.inputLiquids) if (liquids.get(stack.liquid) <= 0.001f) return false;
+            //if (rec.requireFlux && rec.fluxLiquid != null && rec.minFlux > 0) if (liquids.get(rec.fluxLiquid) <= 0.001f) return false;
             return true;
         }
 
@@ -1115,6 +1174,12 @@ public class MultiCrafter extends HeatCrafter {
 
             for (ItemStack stack : rec.outputItems) {
                 if (items.get(stack.item) + stack.amount > itemCapacity) {
+                    if(rec.incinerateOverproducedItems){
+                        for(int i = 0; items.get(stack.item) + stack.amount > itemCapacity; i++) {
+                            Fx.incinerateSlag.at(x + Mathf.range(tilesize * size / 2), y + Mathf.range(tilesize * size / 2));
+                            items.remove(stack.item, 1);
+                        }
+                    }
                     return false;
                 }
             }
@@ -1414,11 +1479,68 @@ public class MultiCrafter extends HeatCrafter {
             float targetHeat = canProduce && active.outputHeat > 0 ? active.outputHeat * efficiencyScale() : 0f;
             heatOutput = Mathf.approachDelta(heatOutput, targetHeat, warmupRate * delta());
 
+            //通量一直消耗 //TODO 放个定位
+            if (active != null && active.requireFlux && active.fluxLiquid != null && enabled) {
+                boolean outputSame = false;
+                float flow = liquids.getFlowRate(active.fluxLiquid);
+                if(active.outputLiquids != null){
+                    float outputRate = 0f;
+                    for(LiquidStack l : active.outputLiquids){
+                        if(l.liquid == active.fluxLiquid) outputSame = true; outputRate += l.amount;
+                    }
+                    if (outputSame && outputRate > 0) flow -= outputRate * 60f * efficiencyScale();
+                }
+                fluxResult = flow >= 0 ? flow : fluxResult;
+
+                if (liquids.get(active.fluxLiquid) > 0) {
+                    if((active.fluxOverconsumption || !canProduce) && !(outputSame && canProduce)) {
+
+                        if(liquids.get(active.fluxLiquid) > Math.min(60f * active.minFlux, 0.1f * liquidCapacity)) {
+                            liquids.remove(active.fluxLiquid, Math.min(liquids.get(active.fluxLiquid), Math.max(active.minFlux, liquids.get(active.fluxLiquid) - active.minFlux * 2f)));
+                            fluxMultiplier = 0.5f;
+                        }else{
+                            liquids.remove(active.fluxLiquid, Math.min(liquids.get(active.fluxLiquid), Math.max(active.minFlux * fluxMultiplier, liquids.get(active.fluxLiquid) - active.minFlux * 10f)));
+                            fluxMultiplier = Mathf.approach(fluxMultiplier, 1f, 1f);
+                        }
+                    }else{
+                        liquids.remove(active.fluxLiquid, active.minFlux);
+                    }
+                }
+            }
+            if (requireFluxGeneral && fluxLiquidGeneral != null && enabled){
+                boolean outputSame = false;
+                float flow = liquids.getFlowRate(fluxLiquidGeneral);
+                if(active != null && active.outputLiquids != null){
+                    float outputRate = 0f;
+                    for(LiquidStack l : active.outputLiquids){
+                        if(l.liquid == fluxLiquidGeneral) outputSame = true; outputRate += l.amount;
+                    }
+                    if (outputSame && outputRate > 0) flow -= outputRate * 60f * efficiencyScale();
+                }
+                fluxResultGeneral = flow >= 0 ? flow : fluxResultGeneral;
+
+                if (liquids.get(fluxLiquidGeneral) > 0) {
+                    if((fluxOverconsumptionGeneral || !canProduce) && !(outputSame && canProduce)) {
+
+                        if(liquids.get(fluxLiquidGeneral) > Math.min(60f * minFluxGeneral, 0.1f * liquidCapacity)) {
+                            liquids.remove(fluxLiquidGeneral, Math.min(liquids.get(fluxLiquidGeneral), Math.max(minFluxGeneral, liquids.get(fluxLiquidGeneral) - minFluxGeneral * 2f)));
+                            fluxMultiplierGeneral = 0.5f;
+                        }else{
+                            liquids.remove(fluxLiquidGeneral, Math.min(liquids.get(fluxLiquidGeneral), Math.max(minFluxGeneral * fluxMultiplierGeneral, liquids.get(fluxLiquidGeneral) - minFluxGeneral * 10f)));
+                            fluxMultiplierGeneral = Mathf.approach(fluxMultiplierGeneral, 1f, 1f);
+                        }
+                    }else{
+                        liquids.remove(fluxLiquidGeneral, minFluxGeneral);
+                    }
+                }
+            }
+
             if (canProduce) {
                 for (LiquidStack stack : active.inputLiquids) {
                     float consume = stack.amount * delta() * totalRatio;
                     if (active != null && active.scaleLiquidConsumption) consume *= efficiencyMultiplier();
                     if (consume > 0) liquids.remove(stack.liquid, consume);
+
                 }
                 progress += delta() / active.craftTime * totalRatio;
                 warmup = Mathf.lerpDelta(warmup, warmupTarget(), warmupRate);
@@ -1608,6 +1730,16 @@ public class MultiCrafter extends HeatCrafter {
                 float have = liquids.get(stack.liquid), need = stack.amount * delta() * scale;
                 if (need > 0) scale *= Math.min(have/need, 1f);
             }
+            //TODO 定位
+            if(rec.requireFlux && rec.fluxLiquid != null){
+                float have = liquids.get(rec.fluxLiquid), need = rec.minFlux;
+                if (need > 0) scale *= Math.min(have/need, 1f);
+            }
+            if(requireFluxGeneral && fluxLiquidGeneral != null){
+                float have = liquids.get(fluxLiquidGeneral), need = minFluxGeneral;
+                if (need > 0) scale *= Math.min(have/need, 1f);
+            }
+
             for (ItemStack stack : rec.inputItems) if (items.get(stack.item) < stack.amount) return 0f;
             for (PayloadStack stack : rec.cachedInputPayloads) if (getPayloadCount(stack.item) < stack.amount) return 0f;
             scale *= efficiencyMultiplier();
@@ -1659,7 +1791,7 @@ public class MultiCrafter extends HeatCrafter {
             return recipes.contains(r -> { for (ItemStack s : r.inputItems) if (s.item == item) return true; return false; });
         }
         @Override public boolean acceptLiquid(Building source, Liquid liquid) {
-            return recipes.contains(r -> { for (LiquidStack s : r.inputLiquids) if (s.liquid == liquid) return true; return false; });
+            return (recipes.contains(r -> { if (r.requireFlux && r.fluxLiquid != null) return true; for (LiquidStack s : r.inputLiquids) if (s.liquid == liquid) return true; return false; }));
         }
         @Override public void handleItem(Building source, Item item) { items.add(item, 1); }
         @Override public int acceptStack(Item item, int amount, Teamc source) { return Math.min(amount, itemCapacity - items.get(item)); }
@@ -1842,6 +1974,15 @@ public class MultiCrafter extends HeatCrafter {
         public boolean scaleLiquidConsumption = false;
         public boolean displayEfficiency = true;
         public boolean floating = false;
+
+        //流体通量需求
+        public boolean requireFlux = false;
+        public Liquid fluxLiquid = Liquids.hydrogen;
+        public float minFlux = 0.1f;
+        public boolean fluxOverconsumption = true;
+
+        //多余产物焚化
+        public boolean incinerateOverproducedItems = false;
 
         public @Nullable String parent;
         public Seq<Objectives.Objective> objectives = new Seq<>();

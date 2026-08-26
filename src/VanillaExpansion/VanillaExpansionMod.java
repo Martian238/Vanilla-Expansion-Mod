@@ -3,10 +3,13 @@ package VanillaExpansion;
 import VanillaExpansion.content.*;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
+import VanillaExpansion.ui.VEFonts;
 import arc.Events;
+import arc.files.Fi;
 import arc.math.Mathf;
 import arc.scene.ui.layout.Table;
 import arc.struct.Seq;
+import arc.util.Log;
 import arc.util.Time;
 import mindustry.Vars;
 import mindustry.content.Blocks;
@@ -22,6 +25,8 @@ import mindustry.world.Block;
 import mindustry.world.blocks.liquid.LiquidBlock;
 import mindustry.world.blocks.liquid.LiquidBridge;
 import mindustry.world.meta.Env;
+
+import java.util.Arrays;
 
 import static mindustry.Vars.control;
 import static mindustry.Vars.state;
@@ -39,7 +44,7 @@ public class VanillaExpansionMod extends Mod {
 
             "ve-silicide-fluid-source","ve-silicide-fluid-void",
             "ve-silver-conduit","ve-silver-conduit-armored","ve-valve-fluid-cross","ve-valve-fluid-distribute",
-            "ve-silver-bridge","ve-chained-pump"
+            "ve-silver-bridge","ve-chained-pump","ve-fluid-sorter"
     );
     public static Seq<String> erekirBlockWhitelist = Seq.with(
             "reinforced-conduit","reinforced-bridge-conduit","reinforced-liquid-junction",
@@ -132,6 +137,10 @@ public class VanillaExpansionMod extends Mod {
         VEEnvironBlocks.load();
         VEPlanets.load();
         VETechTree.load();
+        VEFonts.loadFonts();
+
+        Fi root = Vars.mods.getMod(VanillaExpansionMod.class).root;
+        Log.info("Mod assets: " + Arrays.toString(root.list()));
     }
 
 

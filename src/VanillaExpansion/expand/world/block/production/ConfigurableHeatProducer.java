@@ -107,7 +107,7 @@ public class ConfigurableHeatProducer extends HeatProducer {
             font.getData().setScale(1 / 4f / Scl.scl(1f));
             font.setUseIntegerPositions(false);
 
-            String text = message == null || message.length() == 0 ? "[lightgray]" + Core.bundle.get("empty") : UI.formatIcons(message.toString());
+            String text = message == null || message.length() == 0 ? Core.bundle.format("showheater", defaultHeat) : (crazyMode? "[red]" : "") + (Core.bundle.format("showheater", UI.formatIcons(message.toString())));
 
             l.setText(font, text, Color.white, 90f, Align.left, true);
             float offset = 1f;
@@ -129,52 +129,57 @@ public class ConfigurableHeatProducer extends HeatProducer {
             return accessible();
         }
 
+        //Icon.settings, Styles.cleari,
         @Override
         public void buildConfiguration(Table table){
-            table.button(Icon.settings, Styles.cleari, () -> {
-                if(mobile){
-                    var contents = message;
-                    Core.input.getTextInput(new TextInput(){{
-                        text = contents.toString();
-                        multiline = true;
-                        maxLength = maxTextLength;
-                        accepted = str -> {
-                            if(!str.contentEquals(contents)) configure(str);
-                        };
-                    }});
-                }else{
-                    BaseDialog dialog = new BaseDialog("@editheater");
-                    dialog.setFillParent(false);
-                    TextArea a = dialog.cont.add(new TextArea(message.toString().replace("\r", "\n"))).size(380f, 160f).get();
-                    a.setFilter((textField, c) -> {
-                        if(c == '\n'){
-                            int count = 0;
-                            for(int i = 0; i < textField.getText().length(); i++){
-                                if(textField.getText().charAt(i) == '\n'){
-                                    count++;
+            TextButton heatButton = new TextButton(Core.bundle.format("editheater"), Styles.flatTogglet);
+            heatButton.changed(() -> {
+                        if (mobile) {
+                            var contents = message;
+                            Core.input.getTextInput(new Input.TextInput() {{
+                                text = contents.toString();
+                                multiline = true;
+                                maxLength = maxTextLength;
+                                accepted = str -> {
+                                    if (!str.contentEquals(contents)) configure(str);
+                                };
+                            }});
+                        } else {
+                            BaseDialog dialog = new BaseDialog("@editheater");
+                            dialog.setFillParent(false);
+                            TextArea a = dialog.cont.add(new TextArea(message.toString().replace("\r", "\n"))).size(380f, 160f).get();
+                            a.setFilter((textField, c) -> {
+                                if (c == '\n') {
+                                    int count = 0;
+                                    for (int i = 0; i < textField.getText().length(); i++) {
+                                        if (textField.getText().charAt(i) == '\n') {
+                                            count++;
+                                        }
+                                    }
+                                    return count < maxNewlines;
                                 }
-                            }
-                            return count < maxNewlines;
+                                return true;
+                            });
+                            a.setMaxLength(maxTextLength);
+                            dialog.cont.row();
+                            dialog.cont.label(() -> a.getText().length() + " / " + maxTextLength).color(Color.lightGray);
+                            dialog.buttons.button("@ok", () -> {
+                                if (!a.getText().contentEquals(message)) configure(a.getText());
+                                dialog.hide();
+                            }).size(130f, 60f);
+                            dialog.update(() -> {
+                                if (tile.build != this) {
+                                    dialog.hide();
+                                }
+                            });
+                            dialog.closeOnBack();
+                            dialog.show();
                         }
-                        return true;
-                    });
-                    a.setMaxLength(maxTextLength);
-                    dialog.cont.row();
-                    dialog.cont.label(() -> a.getText().length() + " / " + maxTextLength).color(Color.lightGray);
-                    dialog.buttons.button("@ok", () -> {
-                        if(!a.getText().contentEquals(message)) configure(a.getText());
-                        dialog.hide();
-                    }).size(130f, 60f);
-                    dialog.update(() -> {
-                        if(tile.build != this){
-                            dialog.hide();
-                        }
-                    });
-                    dialog.closeOnBack();
-                    dialog.show();
-                }
-                deselect();
-            }).size(40f);
+                        deselect();
+                        heatButton.setChecked(false);
+                    }
+            );
+            table.add(heatButton).height(40f).width(160f);
         }
 
         @Override
@@ -219,7 +224,7 @@ public class ConfigurableHeatProducer extends HeatProducer {
 
         @Override
         public boolean canPickup(){
-            return false;
+            return !crazyMode;
         }
 
         @Override
@@ -232,13 +237,13 @@ public class ConfigurableHeatProducer extends HeatProducer {
             message.setLength(0);
             message.append(value);
         }
-
+/*
         @Override
         public void updateTableAlign(Table table){
             Vec2 pos = Core.input.mouseScreen(x, y + size * tilesize / 2f + 1);
             table.setPosition(pos.x, pos.y, Align.bottom);
         }
-
+*/
         @Override
         public String config(){
             return message.toString();

@@ -38,7 +38,8 @@
       "inputLiquids": [ "hydrogen/0.05" ],
       "craftTime": 120,
       "outputHeat": 20,
-      "outputLiquids": [ "water/0.08333333333" ]
+      "outputLiquids": [ "water/0.08333333333" ],
+      "ignoreLiquidFullness": true
     },
     {
       "inputItems": [ "sodium/1" ],

@@ -433,6 +433,7 @@
       "inputItems": [ "ve-quartz/9" ],
       "inputPower": 5.5,
       "outputLiquids": [ "water/0.33333333" ],
+      "ignoreLiquidFullness": true,
       "outputItems": [ "silicon/18" ],
       "craftTime": 90,
       "visual": {
@@ -475,6 +476,8 @@
       "outputItems": [ "sand/8" ],
       "outputHeat": 30,
       "craftTime": 60,
+      "incinerateOverproducedItems": true,
+      "ignoreLiquidFullness": true,
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -523,6 +526,8 @@
       "outputItems": [ "sand/8" ],
       "outputHeat": 60,
       "craftTime": 30,
+      "incinerateOverproducedItems": true,
+      "ignoreLiquidFullness": true,
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -571,6 +576,7 @@
       "outputLiquids": [ "hydrogen/0.2" ],
       "outputHeat": 20,
       "craftTime": 60,
+      "incinerateOverproducedItems": true,
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -697,6 +703,7 @@
       "outputLiquids": [ "water/0.3333333333" ],
       "outputItems": [ "ve-ferrum/12","silicon/9" ],
       "craftTime": 90,
+      "ignoreLiquidFullness": true,
       "visual": {
             "type": "DrawBlockParts",
             "parts": [
@@ -737,6 +744,8 @@
       "outputItems": [ "scrap/30" ],
       "outputHeat": 50,
       "craftTime": 120,
+      "incinerateOverproducedItems": true,
+      "ignoreLiquidFullness": true,
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -785,6 +794,8 @@
       "outputItems": [ "scrap/30" ],
       "outputHeat": 100,
       "craftTime": 60,
+      "ignoreLiquidFullness": true,
+      "incinerateOverproducedItems": true,
       "visual": {
         "type": "DrawMulti",
         "drawers": [

@@ -1,0 +1,43 @@
+{
+  "type": "VanillaExpansion.MultiCrafter",//Java
+
+  "buildVisibility": "sandboxOnly",
+  "category": "crafting",
+  "size": 3,
+  "liquidCapacity": 120,
+  "itemCapacity": 20,
+  "recipe": [
+    {
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.1,
+      "inputLiquids": [ "melon-water/0.2" ],
+      "outputItems": [ "melon-dirt/1" ],
+      "inputPower": 0.5
+    },
+    {
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.1,
+      "outputLiquids": [ "melon-water/0.2" ],
+      "inputItems": [ "melon-dirt/1" ],
+      "inputPower": 0.5
+    },
+    {
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.1,
+      "inputLiquids": [ "hydrogen/0.3" ],
+      "outputItems": [ "fusion-fuel/1" ],
+      "inputPower": 0.5
+    },
+    {
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.1,
+      "outputLiquids": [ "hydrogen/0.3" ],
+      "inputItems": [ "fusion-fuel/1" ],
+      "inputPower": 0.5
+    }
+  ]
+}
