@@ -14,21 +14,36 @@ import mindustry.ui.Fonts;
 
 import java.util.Arrays;
 
-import static mindustry.Vars.tree;
-
 public class VEFonts {
     public static Font novo;
     public static void loadFonts(){
-
-        Vars.tree.get("fonts/" + "novo.ttf");
-        Fi fi = Core.files.internal("fonts/" + "novo.ttf");
-        Log.info("font file " + fi.path() + " " + fi.exists());
-        if(fi.exists()) {
+        Fi root = Vars.mods.getMod(VanillaExpansionMod.class).root;
+        Log.info("mod root: " + root.path() + " exists=" + root.exists());
+        Fi fi = findFont(root);
+        if(fi == null){
+            fi = Core.files.internal("fonts/novo.ttf");
+            Log.info("fallback internal font path: " + fi.path() + " exists=" + fi.exists());
+        }
+        if(fi != null && fi.exists()) {
             gen(fi);
-            Log.info("Font loaded");
+            Log.info("Font loaded from " + fi.path());
         }else{
             Log.info("Font not found");
         }
+    }
+
+    private static Fi findFont(Fi dir){
+        if(dir == null || !dir.exists() || !dir.isDirectory()) return null;
+        for(Fi f : dir.list()){
+            if(f.isDirectory()){
+                Fi found = findFont(f);
+                if(found != null) return found;
+            }else if(f.name().equals("novo.ttf")){
+                Log.info("found font: " + f.path());
+                return f;
+            }
+        }
+        return null;
     }
 
     public static void gen(Fi fi){
@@ -40,7 +55,7 @@ public class VEFonts {
 
     static FreeTypeFontGenerator.FreeTypeFontParameter fontParameter(){
         return new FreeTypeFontGenerator.FreeTypeFontParameter(){{
-            size = 128;
+            size = 32;
             shadowColor = Color.white;
             shadowOffsetY = 0;
             incremental = true;
