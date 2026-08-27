@@ -21,6 +21,7 @@ import VanillaExpansion.expand.world.block.power.*;
 import VanillaExpansion.expand.world.block.production.CoolantDrill;
 import VanillaExpansion.expand.world.block.production.RockCoreDrill;
 import VanillaExpansion.expand.world.block.production.RotatableCrafter;
+import VanillaExpansion.expand.world.block.sandbox.TitleTextBlock;
 import arc.struct.*;
 import arc.graphics.Color;
 import arc.math.Mathf;
@@ -48,6 +49,7 @@ import mindustry.world.meta.Stat;
 import VanillaExpansion.expand.world.block.*;
 
 import static mindustry.Vars.tilesize;
+import static mindustry.world.meta.BuildVisibility.worldProcessorOnly;
 
 public class VEBlocks {
     public static Block oreIron, oreUranium, oreManganese, oreQuartz;
@@ -107,6 +109,7 @@ public class VEBlocks {
 
     //测试玩意
     public static Block testCoolantDrill;
+    public static Block TitleTextBlock;
 
 
 
@@ -506,6 +509,12 @@ public class VEBlocks {
             expFields = new EField[]{
                 new EField.ELinear(v -> damageReduction = v, 0.1f, 0.02f, Stat.armor, f -> Strings.autoFixed(Mathf.roundPositive(f * 10000f) / 100f, 2) + "%")
             };
+        }};
+        TitleTextBlock = new TitleTextBlock("TitleTextBlock"){{
+            requirements(Category.defense, ItemStack.with(Items.titanium, 1));
+            size = 2;
+            health = 3240;
+            buildVisibility = BuildVisibility.shown;
         }};
     }
 }
