@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.type.unit;
 
+import arc.func.Cons;
 import arc.struct.Seq;
 import arc.util.Log;
 import mindustry.Vars;
@@ -22,25 +23,42 @@ public class HyperUnit extends PayloadUnit {
         return new HyperUnit();
     }
 
-    private void findMods(){
+    private void findOtherModEnemies(){
         multiMod = false;
-        Seq<Mods.LoadedMod> mods = Vars.mods.getMods();
-        Seq<String> multiModList = new Seq<>();
-        multiModList.clear();
-        if(mods != null){
-            for(Mods.LoadedMod mod : mods){
-                if(mod.name.equals("ve") || mod.dependencies.contains(m -> m.name.equals("ve")) || mod.softDependencies.contains(m -> m.name.equals("ve"))){
-                    continue;
-                }else if(!mod.meta.hidden && mod.enabled()) {
-                    multiMod = true;
-                    multiModList.add(mod.name);
-                }
+        for(Unit u : Groups.unit){
+            if (!u.type.name.startsWith("ve-") && !u.type.isVanilla() && u.team != team){
+                multiMod = true;
             }
         }
-        if(multiMod) {
-            Log.info("Other mods found: " + multiModList);
-        }else{
-            Log.info("Other mods not found");
+        for(Building b : Groups.build){
+            if (!b.block.name.startsWith("ve-") && !b.block.isVanilla() && b.team != team){
+                multiMod = true;
+            }
+        }
+    }
+
+    private void findMods(){
+        multiMod = false;
+        if(!Vars.mobile) {
+            Seq<Mods.LoadedMod> mods = Vars.mods.getMods();
+            Seq<String> multiModList = new Seq<>();
+            multiModList.clear();
+            if (mods != null) {
+                for (Mods.LoadedMod mod : mods) {
+                    if (mod.name.equals("ve") || mod.dependencies.contains(m -> m.name.equals("ve")) || mod.softDependencies.contains(m -> m.name.equals("ve"))) {
+                        continue;
+                    } else if (!mod.meta.hidden && mod.enabled()) {
+                        multiMod = true;
+                        multiModList.add(mod.name);
+                    }
+                }
+            }
+            if (multiMod) {
+                Log.info("Other mods found: " + multiModList);
+            } else {
+                Log.info("Other mods not found");
+            }
+
         }
         modFound = true;
     }
@@ -85,8 +103,11 @@ public class HyperUnit extends PayloadUnit {
                 statuses.clear();
                 apply(StatusEffects.boss);
             }
-            if(statTimer >= 6) {
+            if(statTimer >= 30) {
                 keepStats();
+                if(Vars.mobile) {
+                    findOtherModEnemies();
+                }
                 statTimer = 0f;
                 if(!statuses.contains(s -> s.effect == StatusEffects.boss)){
                     apply(StatusEffects.boss);
