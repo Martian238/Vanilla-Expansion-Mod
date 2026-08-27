@@ -2120,7 +2120,7 @@
       "type": "VanillaExpansion.expand.units.AttackOnlyStrongerWeapon",
       "targetNonVe": true,
       "leastHealth": 200000,
-      "exceptHealth": 1000001,
+      "exceptHealth": 1,
       "mirror": false,
       "x": 0,
       "y": 0,
@@ -2271,7 +2271,7 @@
         "shootEffect": "none",
         "smokeEffect": "none",
         "lifetime": 1,
-        "speed": 1600,
+        "speed": 8000,
         "rangeOverride": 8000,
         "trailEffect": [
           {

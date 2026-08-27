@@ -119,4 +119,4 @@ newUnit("quake",TankUnit);
 
 newUnit("thorium-eradicator",LegsUnit);
 newUnit("huge-dagger",MechUnit);
-newUnit("hyper",PayloadUnit);
+//newUnit("hyper",PayloadUnit);
