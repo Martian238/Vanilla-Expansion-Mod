@@ -57,6 +57,8 @@ public class VanillaExpansionMod extends Mod {
     );
     public static boolean hasCorrosive;
 
+    private final boolean textTest = false; //字体测试开关
+
     public static MultiCrafterPayloadFragment payloadFragment;
     @Override
     public void init() {
@@ -68,15 +70,17 @@ public class VanillaExpansionMod extends Mod {
             if(!Vars.mobile){
                 control.setInput(new VEInputHandler());
             }
-            // 延迟10秒后显示VEFonts测试UI
-            Time.runTask(10f, () -> {
-                BaseDialog dialog = new BaseDialog("VEFonts测试");
-                Font veFont = VEFonts.novo != null ? VEFonts.novo : Fonts.def;
-                Label veFontLabel = new Label("VEFonts测试文本 - Novo Custom Font", new Label.LabelStyle(veFont, Color.white));
-                dialog.cont.add(veFontLabel).row();
-                dialog.cont.button("关闭", dialog::hide).size(100f, 50f);
-                dialog.show();
-            });
+            if(textTest) {
+                // 延迟10秒后显示VEFonts测试UI
+                Time.runTask(10f, () -> {
+                    BaseDialog dialog = new BaseDialog("VEFonts测试");
+                    Font veFont = VEFonts.novo != null ? VEFonts.novo : Fonts.def;
+                    Label veFontLabel = new Label("VEFonts Test Text - Novo Custom Font", new Label.LabelStyle(veFont, Color.white));
+                    dialog.cont.add(veFontLabel).row();
+                    dialog.cont.button("关闭", dialog::hide).size(100f, 50f);
+                    dialog.show();
+                });
+            }
         });
 
         // 等待 UI 就绪
