@@ -46,6 +46,7 @@
         "instantDisappear": true,
         "killShooter": true,
         "shootEffect": "none",
+        "drawSize": 1600,
         "smokeEffect": {
           "particles": 1,
           "cone": 0,
@@ -60,7 +61,7 @@
           "baseLength": 0,
           "lightColor": "ffffff",
           "layer": 120,
-          "clip": 800
+          "clip": 1600
         }
       }
     }

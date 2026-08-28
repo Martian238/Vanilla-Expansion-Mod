@@ -1,0 +1,14 @@
+{
+  "color": "e44646",
+  "gas": true,
+  "barColor": "e44646",
+  "explosiveness": 0.2,
+  "status": "watermelon",
+  "research": "crystallon",
+  "shownPlanets": [ "sitrullus" ],
+  "databaseTag": "gas-fluid",
+
+  //Java
+  "frames": 12,
+  "frameTime": 6
+}

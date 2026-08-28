@@ -169,6 +169,7 @@ public class LiquidSorter extends LiquidRouter {
                                 float transfer = Math.min(dirOutput, target.block.liquidCapacity - accepted);
                                 target.liquids.add(l, transfer);
                                 toOutput -= transfer;
+                                liquids.remove(l,  transfer);
                             }
                         }
                         target = nearby(1);
@@ -178,6 +179,7 @@ public class LiquidSorter extends LiquidRouter {
                                 float transfer = Math.min(dirOutput, target.block.liquidCapacity - accepted);
                                 target.liquids.add(l, transfer);
                                 toOutput -= transfer;
+                                liquids.remove(l,  transfer);
                             }
                         }
                         target = nearby(2);
@@ -187,6 +189,7 @@ public class LiquidSorter extends LiquidRouter {
                                 float transfer = Math.min(dirOutput, target.block.liquidCapacity - accepted);
                                 target.liquids.add(l, transfer);
                                 toOutput -= transfer;
+                                liquids.remove(l,  transfer);
                             }
                         }
                         target = nearby(3);
@@ -196,6 +199,7 @@ public class LiquidSorter extends LiquidRouter {
                                 float transfer = Math.min(dirOutput, target.block.liquidCapacity - accepted);
                                 target.liquids.add(l, transfer);
                                 toOutput -= transfer;
+                                liquids.remove(l,  transfer);
                             }
                         }
                     }

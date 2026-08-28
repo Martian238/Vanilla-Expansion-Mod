@@ -2,12 +2,14 @@
   //"type": "PowerTurret",
   "requirements": [ "ferrum/500","crystallon/100","silicon/200" ],
   "category": "turret",
-  "size": 12,
+  "size": 4,
   "clipSize": 800,
   "lightColor": "ff5555",
   "emitLight": true,
   "lightRadius": 96,
   "targetHealing": true,
+  "outlineIcon": false,
+  "outlineRadius": 0,
   "shootType": {
   /*
   1 shockwave 0.15
@@ -588,7 +590,7 @@
     "parent": "double"
   },
   "shownPlanets": [ "sitrullus" ],
-  "elevation": 40,
+  "elevation": 0,
   "solid": false,
   "solidifes": false,
   "underBullets": true,
@@ -602,6 +604,28 @@
     "type": "DrawTurret",
     "parts": [
       {
+        "type": "RegionPart",
+        "suffix": "-shadowpillar",
+        "color": "ffffff40",
+        "colorTo": "ffffff40",
+        "x": -40,
+        "y": -40,
+        "layer": 115.1,
+        "outline": false
+      },
+      {
+        "type": "RegionPart",
+        "name": "ve-circle-soft",
+        "color": "000000ff",
+        "colorTo": "000000ff",
+        "x": 0,
+        "y": 0,
+        "xScl": 0.9,
+        "yScl": 0.9,
+        "layer": 89,
+        "outline": false
+      },
+      {
         "type": "ShapePart",
         "layer": 21,
         "color": "ff555510",
@@ -609,7 +633,7 @@
         "stroke": 1.5,
         "sides": 4,
         "rotation": 45,
-        "radius": 67.872,
+        "radius": 0,//67.872
         "hollow": true,
         "clampProgress": false,
         "progress": {

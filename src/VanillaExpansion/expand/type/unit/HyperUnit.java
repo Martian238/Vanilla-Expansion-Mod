@@ -72,6 +72,12 @@ public class HyperUnit extends PayloadUnit {
                         ebl.remove();
                     }
                 }
+                if(ebl.owner instanceof Building eb){
+                    if(eb.team != team && !eb.block.name.startsWith("ve-") && !eb.block.isVanilla()){
+                        eb.kill();eb.remove();
+                        ebl.remove();
+                    }
+                }
             }else if(ebl.team != team){
                 ebl.remove();
             }
@@ -176,6 +182,7 @@ public class HyperUnit extends PayloadUnit {
     public void dead(boolean d){
         if(multiMod){
             dead = false;
+            healthSet(maxHealth);
             return;
         }
         super.dead(d);
@@ -187,11 +194,23 @@ public class HyperUnit extends PayloadUnit {
 
     @Override
     public void kill(){
-        clearEnemy();
+        if(multiMod) {
+            clearEnemy();
+            dead = false;
+            healthSet(maxHealth);
+            return;
+        }
+        super.kill();
     }
     @Override
     public void remove(){
-        clearEnemy();
+        if(multiMod) {
+            clearEnemy();
+            dead = false;
+            healthSet(maxHealth);
+            return;
+        }
+        super.remove();
     }
     @Override
     public void team(Team t){
@@ -213,6 +232,11 @@ public class HyperUnit extends PayloadUnit {
     @Override
     public void damage(float d){
         if(multiMod){
+            if(health < 0.25f * maxHealth){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
             if(d >= 5000f || d >= health){
                 healthSet(maxHealth);
                 apply(StatusEffects.invincible, 60f);
@@ -224,6 +248,11 @@ public class HyperUnit extends PayloadUnit {
     @Override
     public void damage(float d, boolean withEffect){
         if(multiMod){
+            if(health < 0.25f * maxHealth){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
             if(d >= 5000f || d >= health){
                 healthSet(maxHealth);
                 apply(StatusEffects.invincible, 60f);

@@ -2,6 +2,7 @@ package VanillaExpansion.content;
 
 import VanillaExpansion.MultiCrafter;
 import VanillaExpansion.expand.graphics.VECacheLayer;
+import VanillaExpansion.expand.world.block.defense.MelonicArrayPillar;
 import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import VanillaExpansion.expand.world.block.power.ShakeGenerator;
@@ -456,7 +457,7 @@ public class VEJSBlocks {
         new PowerTurret("vector");
         new PowerTurret("guarden");
         new PowerTurret("incandescence");
-        new PowerTurret("melonic-array-pillar");
+        new MelonicArrayPillar("melonic-array-pillar");
 
         //group 31.1 钽炮布炮
         new LiquidTurret("stellar");

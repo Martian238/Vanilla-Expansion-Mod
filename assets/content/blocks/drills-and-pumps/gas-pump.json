@@ -38,7 +38,7 @@
   },
   "shownPlanets": [ "maress","sitrullus" ],
   "consumes": {
-    "power": 0.25
+    //"power": 0.25
   },
   "research": {
     "parent": "fluid-sorter",
