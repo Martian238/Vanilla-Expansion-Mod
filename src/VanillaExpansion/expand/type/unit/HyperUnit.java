@@ -135,6 +135,7 @@ public class HyperUnit extends PayloadUnit {
         type.flying = true;
         type.bounded = false;
     }
+    //a
 
     private boolean statusB(StatusEntry s){
         if (s.effect == StatusEffects.boss) {
