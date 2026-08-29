@@ -26,6 +26,7 @@ import mindustry.game.Team;
 import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
 import mindustry.graphics.Layer;
+import mindustry.mod.Mods;
 import mindustry.type.Planet;
 import mindustry.ui.Fonts;
 import mindustry.content.Liquids;
@@ -80,6 +81,9 @@ public class VanillaExpansionMod extends Mod {
     private float titleAlpha = 1f;
     private Sound titleSound = Sounds.none;
     private float titleFadeTime = 0f;
+    private Seq<Mods.LoadedMod> otherMods = new Seq<>();
+    private boolean hasCheat = false;
+    private boolean goDie = false;
 
 
 
@@ -157,6 +161,44 @@ public class VanillaExpansionMod extends Mod {
                 }
             });
 
+            //战役反作弊，烦死了
+        Events.run(EventType.WorldLoadEndEvent.class, () -> {
+            hasCheat = goDie = false;
+            String locale = Core.settings.getString("locale", "en");
+            if(state.isCampaign() && (locale.startsWith("zh_CN") || locale.startsWith("zh_TW")) && !state.getSector().isCaptured() && state.getPlanet().name.startsWith("ve-")) {
+                otherMods = Vars.mods.getMods();
+                if (otherMods != null) {
+                    for (Mods.LoadedMod mod : otherMods) {
+                        if (mod.name.startsWith("invincible-cheat") && mod.enabled()) {
+                            hasCheat = true;
+                        }
+                    }
+                }
+            }
+        });
+        Events.run(EventType.BlockBuildEndEvent.class, () -> {
+            if(hasCheat) {
+                if(goDie) Core.app.exit();
+                for (Building b : Groups.build) {
+                    if (b.block.name.startsWith("invincible-cheat")) {
+                        goDie = true;
+                        while (true) {}
+                    }
+                }
+            }
+        });
+        Events.run(EventType.UnitSpawnEvent.class, () -> {
+            if(hasCheat){
+                if(goDie) Core.app.exit();
+                for(Unit u : Groups.unit) {
+                    if (u.type.name.startsWith("invincible-cheat")) {
+                        goDie = true;
+                        while (true) {}
+                    }
+                }
+            }
+        });
+
             //雷霆大字检测
         Events.on(EventType.WorldLoadEndEvent.class, e -> {
             drawTitle = false;
@@ -174,7 +216,7 @@ public class VanillaExpansionMod extends Mod {
                 Log.info("Text trigger created");
                 for(Unit u : Groups.unit){
                     if(Objects.equals(u.type.name, "ve-meta") && u.team == Team.crux){
-                        displayTitle("hyper", 373f, 180f, 5f, false);
+                        displayTitle("hyper", 373f, 240f, 5f, false);
                         break;
                     }
                     if(Objects.equals(u.type.name, "ve-fungitron-mass1")){
@@ -186,7 +228,7 @@ public class VanillaExpansionMod extends Mod {
                         break;
                     }
                     if(Objects.equals(u.type.name, "ve-chiniun")){
-                        displayTitle("chiniun", 495f, 130f, 5f, false);
+                        displayTitle("chiniun", 495f, 140f, 5f, false);
                         break;
                     }
                 }
@@ -368,6 +410,9 @@ public class VanillaExpansionMod extends Mod {
 
     @Override
     public void loadContent(){
+
+        goDie = hasCheat = false;
+
         VEShaders.load();
         VECacheLayer.init();
         //VanillaExpansion.content.VEStuffTypes.load();
