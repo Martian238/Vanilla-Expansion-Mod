@@ -3,6 +3,8 @@ package VanillaExpansion;
 import VanillaExpansion.content.*;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
+import VanillaExpansion.expand.type.unit.IronGolemType;
+import VanillaExpansion.expand.type.unit.IronGolemUnit;
 import VanillaExpansion.ui.VEFonts;
 import arc.Core;
 import arc.Events;
@@ -20,8 +22,9 @@ import arc.struct.Seq;
 import arc.util.Log;
 import arc.util.Time;
 import mindustry.Vars;
-import mindustry.content.Blocks;
-import mindustry.content.SectorPresets;
+import mindustry.content.*;
+import mindustry.entities.Effect;
+import mindustry.entities.Units;
 import mindustry.game.Team;
 import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
@@ -29,8 +32,6 @@ import mindustry.graphics.Layer;
 import mindustry.mod.Mods;
 import mindustry.type.Planet;
 import mindustry.ui.Fonts;
-import mindustry.content.Liquids;
-import mindustry.content.Planets;
 import mindustry.game.EventType;
 import mindustry.gen.Building;
 import mindustry.gen.Groups;
@@ -39,8 +40,10 @@ import VanillaExpansion.expand.graphics.LensShockwaveFX;
 import VanillaExpansion.expand.input.VEInputHandler;
 import mindustry.ui.dialogs.BaseDialog;
 import mindustry.world.Block;
+import mindustry.world.Tile;
 import mindustry.world.blocks.defense.turrets.BaseTurret;
 import mindustry.world.blocks.distribution.Router;
+import mindustry.world.blocks.environment.Floor;
 import mindustry.world.blocks.liquid.LiquidBlock;
 import mindustry.world.blocks.liquid.LiquidBridge;
 import mindustry.world.blocks.storage.CoreBlock;
@@ -49,9 +52,7 @@ import mindustry.world.meta.Env;
 import java.util.Arrays;
 import java.util.Objects;
 
-import static mindustry.Vars.control;
-import static mindustry.Vars.state;
-import static mindustry.Vars.ui;
+import static mindustry.Vars.*;
 
 
 public class VanillaExpansionMod extends Mod {
@@ -259,6 +260,85 @@ public class VanillaExpansionMod extends Mod {
             }
         });
 
+        //铁堡垒生成
+        Events.on(EventType.BlockBuildEndEvent.class, e -> {
+            Log.info("build end");
+            if(Objects.equals(e.tile.block().name, "ve-watermelon")){
+                Log.info("watermelon");
+                int x = e.tile.x;
+                int y = e.tile.y;
+                if(checkFerrumWalls(x, y, -90, e.unit.team)){
+                    createFerricFortress(x, y, -90, e.unit, e.unit.team);
+                    return;
+                }
+                if(checkFerrumWalls(x, y, 0, e.unit.team)){
+                    createFerricFortress(x, y, 0, e.unit, e.unit.team);
+                    return;
+                }
+                if(checkFerrumWalls(x, y, 90, e.unit.team)){
+                    createFerricFortress(x, y, 90, e.unit, e.unit.team);
+                    return;
+                }
+                if(checkFerrumWalls(x, y, 180, e.unit.team)){
+                    createFerricFortress(x, y, 180, e.unit, e.unit.team);
+                }
+            }
+        });
+
+    }
+
+    public boolean checkFerrumWall(int x, int y, boolean mustNull, Team team){
+        Tile tile = Vars.world.tile(x, y);
+        if(tile == null || tile.block() instanceof Floor){
+            return mustNull;
+        }else{
+            return (Objects.equals(tile.block().name, "ve-ferrum-wall")) && !mustNull && tile.team() == team;
+        }
+    }
+
+    public boolean checkFerrumWalls(int x, int y, float rot, Team team){
+        return checkFerrumWall(x + (int) Mathf.cosDeg(rot), y + (int) Mathf.sinDeg(rot), false, team) &&
+        checkFerrumWall(x + 2 * (int) Mathf.cosDeg(rot), y + 2 * (int) Mathf.sinDeg(rot), false, team) &&
+        checkFerrumWall(x + (int) Mathf.cosDeg(rot) + (int) Mathf.cosDeg(rot + 90f),
+                y + (int) Mathf.sinDeg(rot) + (int) Mathf.sinDeg(rot + 90f), false, team) &&
+        checkFerrumWall(x + (int) Mathf.cosDeg(rot) + (int) Mathf.cosDeg(rot - 90f),
+                y + (int) Mathf.sinDeg(rot) + (int) Mathf.sinDeg(rot - 90f), false, team) &&
+                checkFerrumWall(x + 2 * (int) Mathf.cosDeg(rot) + (int) Mathf.cosDeg(rot + 90f),
+                        y + 2 * (int) Mathf.sinDeg(rot) + (int) Mathf.sinDeg(rot + 90f), true, team) &&
+                checkFerrumWall(x + 2 * (int) Mathf.cosDeg(rot) + (int) Mathf.cosDeg(rot - 90f),
+                        y + 2 * (int) Mathf.sinDeg(rot) + (int) Mathf.sinDeg(rot - 90f), true, team);
+    }
+
+    public void createFerricFortress(int x, int y, float rot, Unit owner, Team team){
+        removeFerrumWall(x, y);
+        removeFerrumWall(x + (int) Mathf.cosDeg(rot), y + (int) Mathf.sinDeg(rot));
+        removeFerrumWall(x + 2 * (int) Mathf.cosDeg(rot), y + 2 * (int) Mathf.sinDeg(rot));
+        removeFerrumWall(x + (int) Mathf.cosDeg(rot) + (int) Mathf.cosDeg(rot + 90f),
+                y + (int) Mathf.sinDeg(rot) + (int) Mathf.sinDeg(rot + 90f));
+        removeFerrumWall(x + (int) Mathf.cosDeg(rot) + (int) Mathf.cosDeg(rot - 90f),
+                y + (int) Mathf.sinDeg(rot) + (int) Mathf.sinDeg(rot - 90f));
+        Tile tile = Vars.world.tile(x, y);
+        if(tile != null) {
+            Unit fu = VEJSUnitTypes.ferricFortress.create(team);
+            fu.set(tile.worldy() + 2 * tilesize * Mathf.cosDeg(rot), tile.worldx() + 2 * tilesize * Mathf.sinDeg(rot));
+            Events.fire(new EventType.UnitCreateEvent(fu, null, owner));
+            if (!Vars.net.client()) {
+                fu.add();
+                Units.notifyUnitSpawn(fu);
+            }
+            fu.rotation = rot;
+            Sounds.unitCreateBig.at(tile.worldx(), tile.worldy(), 1f, 0.7f);
+            Effect.shake(4, 12, tile.worldx(), tile.worldy());
+            Log.info("golem");
+        }
+    }
+
+    public void removeFerrumWall(int x, int y){
+        Tile tile = Vars.world.tile(x, y);
+        if(tile != null && !(tile.block() instanceof Floor)){
+            tile.setAir();
+            Fx.dynamicExplosion.at(tile.worldx(), tile.worldy(), 1f);
+        }
     }
 
 

@@ -10,6 +10,8 @@ import VanillaExpansion.expand.world.block.production.ConfigurableHeatProducer;
 import VanillaExpansion.expand.world.block.production.CoolantDrill;
 import VanillaExpansion.expand.world.block.production.GasPump;
 import VanillaExpansion.expand.world.block.production.HeatButNoHeatCanStillWorkCrafter;
+import VanillaExpansion.expand.world.block.sandbox.SpawnEgg;
+import VanillaExpansion.expand.world.block.sandbox.SpawnerBlock;
 import arc.struct.EnumSet;
 import mindustry.world.blocks.campaign.*;
 import mindustry.world.blocks.distribution.*;
@@ -469,6 +471,8 @@ public class VEJSBlocks {
         new Reconstructor("light-refabricator");
         new PayloadConveyor("gigantic-payload-conveyor");
         new PayloadConveyor("world-payload-conveyor");
+        new SpawnEgg("spawn-egg");
+        new SpawnerBlock("spawner-block");
 
         // group 33 赛克单位
         new UnitFactory("ground-fabricator");

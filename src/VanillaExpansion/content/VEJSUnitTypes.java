@@ -1,6 +1,8 @@
 package VanillaExpansion.content;
 
 import VanillaExpansion.expand.type.unit.HyperUnit;
+import VanillaExpansion.expand.type.unit.IronGolemType;
+import VanillaExpansion.expand.type.unit.IronGolemUnit;
 import mindustry.content.Fx;
 import mindustry.gen.Sounds;
 import mindustry.gen.TimedKillUnit;
@@ -12,6 +14,8 @@ public class VEJSUnitTypes {
     //Boss
     public static UnitType hyper;
 
+    public static IronGolemType ferricFortress;
+
     //Internal
     public static UnitType textTrigger;
 
@@ -20,6 +24,10 @@ public class VEJSUnitTypes {
 
         hyper = new UnitType("hyper"){{
             constructor = HyperUnit::create;
+        }};
+
+        ferricFortress = new IronGolemType("ferricFortress"){{
+            constructor = IronGolemUnit::create;
         }};
 
         textTrigger = new UnitType("text-trigger"){{

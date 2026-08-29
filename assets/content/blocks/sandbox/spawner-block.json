@@ -1,0 +1,7 @@
+{
+  //Java
+  "size": 3,
+  "category": "units",
+  "buildVisibility": "sandboxOnly",
+  "health": 1000
+}

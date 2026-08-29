@@ -13,7 +13,7 @@
   },
   "mechSideSway": 0.55,
   "lightColor": "ffa665",
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
+  "shownPlanets": [ "sitrullus" ],
   "loopSoundVolume": 1,
   "stepSound": "mechStepSmall",
   "stepSoundPitch": 0.8,
