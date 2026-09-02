@@ -359,6 +359,7 @@ public class SentryUnit extends UnitEntity {
         }
     }
 
+
     private float bindTimer = 0f;
     private float bindTime = 60f;
     private boolean keyLoaded = false;

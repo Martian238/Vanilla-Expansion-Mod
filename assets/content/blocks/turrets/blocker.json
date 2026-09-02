@@ -18,8 +18,15 @@
   "armor": 4,
   "rotateSpeed": 8,
   "consumes": {
-    "power": 8
+    "power": 8,
+    "coolant": {
+      "amount": 0.2,
+      "booster": true,
+      "optional": true
+    }
   },
+  "liquidCapacity": 90,
+  "coolantMultiplier": 80,
   "reload": 60,
   "recoil": 0,
   "unitSort": "strongest",
@@ -46,7 +53,7 @@
   },
   "drawer": {
     "type": "DrawTurret",
-    "prefix": "phase-",
+    "basePrefix": "phase-",
     "parts": [
       {
         "type": "RegionPart",

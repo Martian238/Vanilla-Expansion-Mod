@@ -149,6 +149,7 @@
   "fogRadius": 1440,
   "shownPlanets": [ "cyclant","phoon" ],
   "abilities": [
+    {"type": "VanillaExpansion.expand.abilities.HyperAbility"},
     {
       "type": "ShieldRegenFieldAbility",
       "amount": 100,

@@ -1,6 +1,6 @@
 {
   //"type": "Wall",
-  "requirements": [ "silicon/500","fibralt/300","surge-alloy/200","warp-nucleus/10","silicide/75" ],
+  "requirements": [ "silicon/500","fibralt/300","surge-alloy/200","warp-nucleus/100","silicide/200" ],
   "health": 3600,
   "size": 2,
   "buildCostMultiplier": 0.1,

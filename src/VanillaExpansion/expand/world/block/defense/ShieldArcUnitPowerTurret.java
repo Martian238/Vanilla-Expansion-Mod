@@ -24,11 +24,13 @@ import mindustry.game.EventType;
 import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
 import mindustry.graphics.Pal;
+import mindustry.type.Liquid;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
 import mindustry.ui.Bar;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
+import mindustry.world.consumers.ConsumeLiquidFilter;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
 
@@ -115,7 +117,7 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
         super.setStats();
         stats.add(Stat.shieldHealth, shieldMax);
         stats.add(Stat.regenerationRate, shieldRegen * 60f, StatUnit.perSecond);
-        stats.add(Stat.cooldownTime, shieldCooldown * 60f, StatUnit.seconds);
+        stats.add(Stat.cooldownTime, shieldCooldown / 60f, StatUnit.seconds);
     }
 
     public class ShieldArcUnitPowerTurretBuild extends PowerTurretBuild{
@@ -130,7 +132,7 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
         @Override
         public void updateTile(){
             super.updateTile();
-            if(isShooting() && shieldUnit == null){
+            if(isShooting() && efficiency >= 0.1 && shieldUnit == null){
                 shieldUnit = shieldUnitType.create(team);
                 shieldUnit.set(x, y);
                 Events.fire(new EventType.UnitCreateEvent(shieldUnit, this, null));
@@ -143,15 +145,23 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
                     shieldUnit.abilities[0].data = currentShield;
                 }
             }
-            if(shieldUnit != null && shieldUnit.abilities[0] != null){
+            if(shieldUnit != null && shieldUnit.abilities[0] != null && shieldUnit.abilities[0] instanceof ShieldArcAbility sa){
                 shieldUnit.rotation(rotation);
                 shieldUnit.set(x, y);
                 shieldUnit.apply(StatusEffects.disarmed, 30f);
                 currentShield = shieldUnit.abilities[0].data;
-                //currentRadius = Mathf.lerp(0f, shieldRadius, warmup());
-                currentRadius = shieldRadius;
+                currentRadius = Mathf.lerp(0f, shieldRadius, warmup());
+                sa.radius = currentRadius;
+                Liquid l = liquids.current();
+                if(coolant != null && coolant instanceof ConsumeLiquidFilter f){
+                    l = f.getConsumed(this);
+                }
+                float cap = l != null? l.heatCapacity : 0.4f;
+                float amount = 0;
+                if(coolant != null) amount = coolant.amount * coolant.efficiency(this);
+                sa.regen = shieldRegen * (1f + amount * cap * coolantMultiplier);
                 lastRadius = currentRadius;
-                if((warmup() <= 0.1f && !isShooting() && !isControlled()) || (!isShooting() && isControlled())){
+                if(((warmup() <= 0.1f && efficiency < 0.1f) && !isShooting() && !isControlled()) || (!isShooting() && isControlled())){
                     Effect be = new Effect(40, e -> {
                         Lines.stroke(3 * e.fout(), e.color);
                                 Lines.arc(x, y, lastRadius + shieldWidth/2, shieldAngle / 360f, rotation - shieldAngle / 2f);
