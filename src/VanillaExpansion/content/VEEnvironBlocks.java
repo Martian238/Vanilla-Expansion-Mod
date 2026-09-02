@@ -148,8 +148,8 @@ public class VEEnvironBlocks {
         new StaticWall("melon-shell-wall");
         new Prop("watermelon");
         //西楚洛斯-孢染地形
-        new Floor("spore-melonwater-deep");
-        new Floor("spore-melonwater");
+        new Floor("spore-melonwater-deep"){{cacheLayer = VECacheLayer.lava;}};
+        new Floor("spore-melonwater"){{cacheLayer = VECacheLayer.lava;}};
         new Floor("spore-melondirt");
         new Floor("spore-melondirt-moss");
         new StaticWall("spore-melondirt-wall");

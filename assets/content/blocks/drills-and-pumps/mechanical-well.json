@@ -7,7 +7,7 @@
   "size": 2,
   "liquidCapacity": 40,
   "rotateSpeed": 2,
-  "attribute": "steam",
+  "attribute": "melon",
   "consumes": {
     "liquids": {
       "liquids": [ "melon-water/0" ],

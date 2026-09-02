@@ -7,7 +7,7 @@
   "isLiquid": true,
   "status": "wet",
   "statusDuration": 120,
-  "cacheLayer": "water",
+  //"cacheLayer": "water",
   "supportsOverlay": true,
   "drownTime": 600,
   "attributes": {

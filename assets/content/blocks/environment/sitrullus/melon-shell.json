@@ -3,8 +3,8 @@
   "variants": 6,
   "attributes": {
     "water": 1,
-    "spore": 0,
-    "steam": 0.25
+    "melon": 0.25,
+    "spore": 0
   },
   "mapColor": "70ae4c",
   "hasColor": true,

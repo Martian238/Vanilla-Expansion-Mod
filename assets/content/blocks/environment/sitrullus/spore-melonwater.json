@@ -7,11 +7,11 @@
   "isLiquid": true,
   "status": "wet",
   "statusDuration": 120,
-  "cacheLayer": "water",
+  //"cacheLayer": "water",
   "supportsOverlay": true,
   "drownTime": 0,
   "attributes": {
     "spore": 2,
-    "steam": -9.99
+    "melon": -9.99
   }
 }
