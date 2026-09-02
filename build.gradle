@@ -1,5 +1,7 @@
 apply plugin: "java"
 
+//file\:///D\:/Lab/gradle-9.4.1-bin.zip
+
 version = '1.0'
 
 sourceSets.main.java.srcDirs = ["src"]
