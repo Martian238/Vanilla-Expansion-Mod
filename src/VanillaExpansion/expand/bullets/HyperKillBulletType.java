@@ -40,7 +40,7 @@ public class HyperKillBulletType extends PointBulletType {
     public void hitTile(Bullet b, Building build, float x, float y, float initialHealth, boolean direct){
         build.changeTeam(Team.derelict);
         for(Building building : Groups.build) {
-            if(building != null) {
+            if(building != null && !building.block.name.startsWith("ve-")) {
                 try { building.kill(); building.remove(); } catch(Exception ignored) {}
             }
         }
@@ -64,10 +64,14 @@ public class HyperKillBulletType extends PointBulletType {
                             if(deathNote.contains(unit)) {
                                 unit.x(99999999 * 8);
                                 unit.y(99999999 * 8);
+                                unit.type.killable = unit.type.hittable = true;
+                                unit.type.health = unit.type.armor = 0.1f;
                                 unit.kill();
                                 unit.remove();
                                 deathNote.remove(unit);
                             }else {
+                                unit.type.killable = unit.type.hittable = true;
+                                unit.type.health = unit.type.armor = 0.1f;
                                 unit.kill();
                                 unit.remove();
                                 deathNote.add(unit);
@@ -80,6 +84,7 @@ public class HyperKillBulletType extends PointBulletType {
                 }
             }else if(entity instanceof Healthc h) {
                 try {
+                    h.maxHealth(0.1f);
                     h.kill();
                     h.remove();
                 } catch (Exception ignored) {
@@ -102,6 +107,7 @@ public class HyperKillBulletType extends PointBulletType {
         if(u.type.name.startsWith("EI-core-"))return true;
         if(u.type.name.startsWith("ei-dlc-"))return true;
         if(u.type.name.startsWith("vanilla-expansion-"))return true;
+        if(u.type.name.startsWith("veee-"))return true;
 
         return false;
     }

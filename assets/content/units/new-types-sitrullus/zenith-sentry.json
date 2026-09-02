@@ -1,19 +1,19 @@
 {
-  "type": "hover",
   "databaseTag": "14sitrullus-zenith-unit",
   "health": 700,
   "speed": 1.5,
-  "accel": 0.04,
-  "drag": 0.016,
-  //"flying": true,
+  "accel": 0.2,
+  "drag": 0.2,
   "hovering": true,
   "floorMultiplier": 0,
   "canDrown": false,
   "hitSize": 20,
+  "groundLayer": 90,
   "lowAltitude": true,
   "armor": 5,
   "engineOffset": 12,
-  "immunities": [ "sentry-alert","sentry-seen","disarmed" ],
+  "physics": false,
+  "immunities": [ "sentry-alert","sentry-seen" ],
   "targetable": true,
   "isEnemy": false,
   "hidden": false,
@@ -21,9 +21,16 @@
   "shadowElevation": 1,
   "singleTarget": true,
   "maxRange": 192,
-  "loopSound": "utyAxisFlashlight",//si2LightswitchActive
+  "loopSound": "utyAxisFlashlight",
   "loopSoundVolume": 0.1,
   "shownPlanets": [ "sitrullus" ],
+
+  //Java
+  "exclamationMarkUnit": "mgs-spot",
+  "suspectSound": [ "lbp3NewtonBot1","lbp3NewtonBot2","lbp3NewtonBot3","lbp3NewtonBot5","lbp3NewtonBot7" ],
+  "alertSound": [ "lbp3NewtonBot4","lbp3NewtonBot6","lbp3NewtonBot9" ],
+  "faceTarget": false,
+  /*
   "parts": [
     {
           "type": "RegionPart",
@@ -108,7 +115,9 @@
           "layer": 29.75
     }
   ],
+  */
   "weapons": [
+    /*
     {
       "x": 0,
       "y": 0,
@@ -170,6 +179,7 @@
         ]
       }
     },
+    */
     {
       "name": "zenith-tazer",
       "x": 7.5,
@@ -186,6 +196,7 @@
       "cooldownTime": 40,
       "heatColor": "ffa665",
       "ejectEffect": "casing2",
+      "minWarmup": 0.9,
       "shoot": {
         "firstShotDelay": 60,
         "shots": 6,

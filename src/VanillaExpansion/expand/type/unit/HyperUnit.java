@@ -264,6 +264,120 @@ public class HyperUnit extends PayloadUnit {
     }
 
     @Override
+    public void damagePierce(float d){
+        if(multiMod){
+            if(health < 0.25f * maxHealth){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+            if(d >= 5000f || d >= health){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+        }
+        super.damagePierce(d);
+    }
+    @Override
+    public void damagePierce(float d, boolean withEffect){
+        if(multiMod){
+            if(health < 0.25f * maxHealth){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+            if(d >= 5000f || d >= health){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+        }
+        super.damagePierce(d, withEffect);
+    }
+
+    @Override
+    public void damageArmorMult(float d, float m){
+        if(multiMod){
+            if(health < 0.25f * maxHealth){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+            if(d >= 5000f || d >= health){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+        }
+        super.damageArmorMult(d, m);
+    }
+    @Override
+    public void damageArmorMult(float d, float m, boolean withEffect){
+        if(multiMod){
+            if(health < 0.25f * maxHealth){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+            if(d >= 5000f || d >= health){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+        }
+        super.damageArmorMult(d, m, withEffect);
+    }
+    @Override
+    public void damageContinuous(float d){
+        if(multiMod){
+            if(health < 0.25f * maxHealth){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+            if(d >= 5000f || d >= health){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+        }
+        super.damageContinuous(d);
+    }
+    @Override
+    public void damageContinuousPierce(float d){
+        if(multiMod){
+            if(health < 0.25f * maxHealth){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+            if(d >= 5000f || d >= health){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+        }
+        super.damageContinuousPierce(d);
+    }
+    @Override
+    public void damageContinuousArmorMult(float d, float m){
+        if(multiMod){
+            if(health < 0.25f * maxHealth){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+            if(d >= 5000f || d >= health){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+        }
+        super.damageContinuousArmorMult(d, m);
+    }
+
+    @Override
     public void apply(StatusEffect s, float dur){
         if(multiMod && !s.isVanilla() && !s.name.startsWith("ve-") && s != StatusEffects.invincible && s != StatusEffects.boss){
             apply(StatusEffects.invincible, dur);

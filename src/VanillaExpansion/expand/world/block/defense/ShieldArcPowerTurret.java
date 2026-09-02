@@ -20,6 +20,8 @@ import mindustry.world.blocks.defense.turrets.PowerTurret;
 public class ShieldArcPowerTurret extends PowerTurret {
 
 
+    //THIS IS SB
+
     /** Shield radius. */
     public float shieldRadius = 60f;
     /** Shield regen speed in damage/tick. */

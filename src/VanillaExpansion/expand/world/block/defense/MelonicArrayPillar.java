@@ -80,7 +80,7 @@ public class MelonicArrayPillar extends PowerTurret {
     };
 
     protected static final Cons<Unit> unitConsumer = unit -> {
-        if(unit.isFlying() && paramBlock.blockAir) {
+        if(unit.isFlying() && paramBlock.blockAir && !unit.type.hidden) {
             float overlapDst = (unit.hitSize / 2f + paramBlock.size * tilesize / 2f) - unit.dst(paramBuild);
 
             if (overlapDst > 0) {

@@ -241,5 +241,11 @@
       }
     }
   ],
+  /*"abilities": [
+    {
+      "type": "VanillaExpansion.expand.abilities.EndermanAbility",
+      "teleportEffectUnit": "chiniun-teleport"
+    }
+  ],*/
   "shownPlanets": [ "serpulo","cyclant","sitrullus","maress","phoon","thavina" ]
 }

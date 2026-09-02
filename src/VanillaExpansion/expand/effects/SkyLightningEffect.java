@@ -41,6 +41,8 @@ public class SkyLightningEffect extends Effect{
     public float shake = 0f;
     public float shakeDuration = 40f;
 
+    public boolean surge = false;
+
     public SkyLightningEffect(){
         clip = pointClip;
     }
@@ -58,6 +60,11 @@ public class SkyLightningEffect extends Effect{
         float dr = 0f;
         float br = 0f;
         float b = 0f;
+        if(surge){
+            color1 = Color.valueOf("f3e979aa");
+            color2 = Color.valueOf("f3e97900");
+        }
+        Effect.shake(shake, shakeDuration, x, y);
         for(int i = 0; i < segments; i++) {
             Effect segPointEffect = new SkyLightningPointEffect(pointClip, color1, color2, color3, pointWidth, pointLife, delay);
             d = Math.abs(Mathf.range(segmentLengthMin, segmentLengthMax));

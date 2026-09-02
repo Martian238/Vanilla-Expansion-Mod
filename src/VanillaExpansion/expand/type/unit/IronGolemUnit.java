@@ -72,4 +72,54 @@ public class IronGolemUnit extends MechUnit {
             invincibleTimer = i.invincibleTime;
         }
     }
+
+    @Override
+    public void damageArmorMult(float damage, float m){
+        if(invincibleTimer > 0f) return;
+        super.damageArmorMult(damage, m);
+        if(type instanceof IronGolemType i) {
+            i.hurtSound.at(x, y, 1f + Mathf.range(i.hurtSoundRange), i.hurtSoundVolume);
+            invincibleTimer = i.invincibleTime;
+        }
+    }
+
+    @Override
+    public void damageArmorMult(float damage, float m, boolean e){
+        if(invincibleTimer > 0f) return;
+        super.damageArmorMult(damage, m, e);
+        if(type instanceof IronGolemType i) {
+            i.hurtSound.at(x, y, 1f + Mathf.range(i.hurtSoundRange), i.hurtSoundVolume);
+            invincibleTimer = i.invincibleTime;
+        }
+    }
+
+    @Override
+    public void damageContinuous(float damage){
+        if(invincibleTimer > 0f) return;
+        super.damageContinuous(damage);
+        if(type instanceof IronGolemType i) {
+            i.hurtSound.at(x, y, 1f + Mathf.range(i.hurtSoundRange), i.hurtSoundVolume);
+            invincibleTimer = i.invincibleTime;
+        }
+    }
+
+    @Override
+    public void damageContinuousPierce(float damage){
+        if(invincibleTimer > 0f) return;
+        super.damageContinuousPierce(damage);
+        if(type instanceof IronGolemType i) {
+            i.hurtSound.at(x, y, 1f + Mathf.range(i.hurtSoundRange), i.hurtSoundVolume);
+            invincibleTimer = i.invincibleTime;
+        }
+    }
+
+    @Override
+    public void damageContinuousArmorMult(float damage, float m){
+        if(invincibleTimer > 0f) return;
+        super.damageContinuousArmorMult(damage, m);
+        if(type instanceof IronGolemType i) {
+            i.hurtSound.at(x, y, 1f + Mathf.range(i.hurtSoundRange), i.hurtSoundVolume);
+            invincibleTimer = i.invincibleTime;
+        }
+    }
 }

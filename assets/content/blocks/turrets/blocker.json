@@ -1,5 +1,5 @@
 {
-  "requirements": [ "phase-fabric/120","silicon/400","silver/200" ],
+  "requirements": [ "phase-fabric/300","silicon/400","silver/200" ],
   "category": "turret",
   "hasPower": true,
   "size": 3,
@@ -34,6 +34,7 @@
   },
   "shootY": 0,
   "laserColor": "ffd37f",
+  "shieldCreateSound": "stShield",
   "research": {
     "parent": "asylum",
     "objectives": [

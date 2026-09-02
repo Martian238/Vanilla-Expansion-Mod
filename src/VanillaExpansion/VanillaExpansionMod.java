@@ -262,9 +262,9 @@ public class VanillaExpansionMod extends Mod {
 
         //铁堡垒生成
         Events.on(EventType.BlockBuildEndEvent.class, e -> {
-            Log.info("build end");
+            //Log.info("build end");
             if(Objects.equals(e.tile.block().name, "ve-watermelon")){
-                Log.info("watermelon");
+                //Log.info("watermelon");
                 int x = e.tile.x;
                 int y = e.tile.y;
                 if(checkFerrumWalls(x, y, -90, e.unit.team)){
@@ -320,7 +320,7 @@ public class VanillaExpansionMod extends Mod {
         Tile tile = Vars.world.tile(x, y);
         if(tile != null) {
             Unit fu = VEJSUnitTypes.ferricFortress.create(team);
-            fu.set(tile.worldy() + 2 * tilesize * Mathf.cosDeg(rot), tile.worldx() + 2 * tilesize * Mathf.sinDeg(rot));
+            fu.set(tile.worldx() + 2 * tilesize * Mathf.cosDeg(rot), tile.worldy() + 2 * tilesize * Mathf.sinDeg(rot));
             Events.fire(new EventType.UnitCreateEvent(fu, null, owner));
             if (!Vars.net.client()) {
                 fu.add();
@@ -329,7 +329,7 @@ public class VanillaExpansionMod extends Mod {
             fu.rotation = rot;
             Sounds.unitCreateBig.at(tile.worldx(), tile.worldy(), 1f, 0.7f);
             Effect.shake(4, 12, tile.worldx(), tile.worldy());
-            Log.info("golem");
+            //Log.info("golem");
         }
     }
 

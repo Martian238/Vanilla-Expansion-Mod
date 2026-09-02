@@ -41,6 +41,20 @@ public class SkyLightningPointEffect extends Effect {
         this.pointWidth = pointWidth;
         this.pointLife = pointLife;
         this.pointStartDelay = pointStartDelay;
+        pointEffect = new MultiEffect(
+                new ParticleEffect(){{
+                    particles = 1; clip = pointClip; length = 0f; interp = Interp.linear;
+                    sizeInterp = Interp.circleOut; colorFrom = color1; colorTo = color2;
+                    sizeFrom = pointWidth; sizeTo = 0f; lifetime = pointLife; layer = 109f;
+                    startDelay = pointStartDelay;
+                }},
+                new ParticleEffect(){{
+                    particles = 1; clip = pointClip; length = 0f; interp = Interp.linear;
+                    sizeInterp = Interp.circleOut; colorFrom = color3; colorTo = color3;
+                    sizeFrom = pointWidth * 0.3f; sizeTo = 0f; lifetime = pointLife * 1.07f; layer = 109.1f;
+                    startDelay = pointStartDelay;
+                }}
+        );
         clip = pointClip;
     }
 

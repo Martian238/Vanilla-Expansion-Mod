@@ -2,8 +2,10 @@ package VanillaExpansion.content;
 
 import VanillaExpansion.MultiCrafter;
 import VanillaExpansion.expand.graphics.VECacheLayer;
+import VanillaExpansion.expand.world.block.crux.SentryAlertStorer;
 import VanillaExpansion.expand.world.block.defense.MelonicArrayPillar;
 import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
+import VanillaExpansion.expand.world.block.defense.ShieldArcUnitPowerTurret;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import VanillaExpansion.expand.world.block.power.ShakeGenerator;
 import VanillaExpansion.expand.world.block.production.ConfigurableHeatProducer;
@@ -465,7 +467,7 @@ public class VEJSBlocks {
         new LiquidTurret("stellar");
         new TractorBeamTurret("disintegrate");
         new ItemTurret("asylum");
-        new ShieldArcPowerTurret("blocker");
+        new ShieldArcUnitPowerTurret("blocker");
 
         // group 32 原版单位载荷
         new Reconstructor("light-refabricator");
@@ -549,8 +551,8 @@ public class VEJSBlocks {
         new LogicBlock("quantum-processor");
         new MemoryBlock("quantum-memory-cell");
 
-        //group 37 环境块
-
+        //group 37 其他
+        new SentryAlertStorer("sentry-alert-storer");
 
     }
 }

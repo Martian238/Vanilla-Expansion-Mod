@@ -9,7 +9,7 @@
       "lifetime": 640,//600
       "damage": 500,
       "impact": true,
-      "knockback": 40,
+      "knockback": 120,
       "pierceArmor": true,
       "trailEffect": "instTrail",
       "shootEffect": "instShoot",
