@@ -1,5 +1,6 @@
 {
   "type": "payload",
+  "template": "VanillaExpansion.expand.type.unit.CutsceneUnitType",//Only this is Java
   "flying": true,
   "lowAltitude": false,
   "hitSize": 22,

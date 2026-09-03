@@ -483,6 +483,19 @@
         "reflectable": false,
         "absorbable": false
       }
+    },
+    {
+      "type": "VanillaExpansion.expand.units.ShieldBeamWeapon",//Java
+      "repairSpeed": 1.5,
+      "fractionRepairSpeed": 0.05,
+      "max": 1200,
+      "repairForceFields": true,
+      "mirror": true,
+      "x": 8,
+      "y": 6.25,
+      "shootY": 0,
+      "autoTarget": true,
+      "bullet": { "rangeOverride": 160 }
     }
   ]
 }

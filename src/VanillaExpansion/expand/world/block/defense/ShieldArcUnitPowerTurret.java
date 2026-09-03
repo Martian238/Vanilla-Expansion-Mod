@@ -37,6 +37,7 @@ import mindustry.world.meta.StatUnit;
 public class ShieldArcUnitPowerTurret extends PowerTurret {
     public ShieldArcUnitPowerTurret(String name){
         super(name);
+        suppressable = true;
     }
 
     public float shieldMax = 4000f;
@@ -87,6 +88,7 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
         deathSound = wreckSound = Sounds.none;
         shadowElevation = 9999;
         hitSize = 0.01f;
+        hidden = true;
         weapons.add(
                 new Weapon(){{
                     shootSound = Sounds.none;

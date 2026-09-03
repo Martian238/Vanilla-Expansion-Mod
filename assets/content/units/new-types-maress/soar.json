@@ -124,6 +124,18 @@
         "smokeEffect": "none",
         "hitSound": "shockBullet"
       }
+    },
+    {
+      "type": "VanillaExpansion.expand.units.ShieldBeamWeapon",//Java
+      "repairSpeed": 0.5,
+      "max": 300,
+      "repairForceFields": true,
+      "mirror": false,
+      "x": 0,
+      "y": 1,
+      "shootY": 0,
+      "autoTarget": true,
+      "bullet": { "rangeOverride": 160 }
     }
   ]
 }

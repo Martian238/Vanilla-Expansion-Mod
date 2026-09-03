@@ -1,18 +1,22 @@
 package VanillaExpansion.expand.type.unit;
 
 import arc.func.Cons;
+import arc.math.Mathf;
 import arc.struct.Seq;
 import arc.util.Log;
 import mindustry.Vars;
 import mindustry.content.StatusEffects;
+import mindustry.core.World;
 import mindustry.entities.units.StatusEntry;
 import mindustry.game.Team;
 import mindustry.gen.*;
+import mindustry.logic.LAccess;
 import mindustry.mod.Mods;
 import mindustry.type.StatusEffect;
 import mindustry.world.meta.Env;
 
 import static mindustry.Vars.state;
+import static mindustry.Vars.tilesize;
 
 public class HyperUnit extends PayloadUnit {
     private boolean multiMod = false, modFound = false;
@@ -40,6 +44,7 @@ public class HyperUnit extends PayloadUnit {
     private void findMods(){
         multiMod = false;
         if(!Vars.mobile) {
+            Log.info("Finding mods...");
             Seq<Mods.LoadedMod> mods = Vars.mods.getMods();
             Seq<String> multiModList = new Seq<>();
             multiModList.clear();
@@ -74,6 +79,7 @@ public class HyperUnit extends PayloadUnit {
                 }
                 if(ebl.owner instanceof Building eb){
                     if(eb.team != team && !eb.block.name.startsWith("ve-") && !eb.block.isVanilla()){
+                        eb.tile.remove();
                         eb.kill();eb.remove();
                         ebl.remove();
                     }
@@ -89,36 +95,44 @@ public class HyperUnit extends PayloadUnit {
         }
         for(Building eb : Groups.build){
             if(eb.team != team && !eb.block.name.startsWith("ve-") && !eb.block.isVanilla() && eb.team != Team.derelict){
+                eb.tile.remove();
                 eb.kill();eb.remove();
             }
         }
     }
 
 
+    private boolean mobile = false;
     @Override
     public void update(){
         if(!modFound){
-            findMods();
+            mobile = Vars.mobile;
+            try {
+                findMods();
+            } catch (Exception e) {
+                Log.info("Failed to find mods. Switching to mobile testing mode.");
+                mobile = true;
+            }
         }
         if(multiMod){
             if(dead){
                 dead = false;
                 healthSet(maxHealth);
             }
-            statTimer++;
             if(statuses.contains(s -> statusB(s))){
                 statuses.clear();
                 apply(StatusEffects.boss);
             }
-            if(statTimer >= 30) {
-                keepStats();
-                if(Vars.mobile) {
-                    findOtherModEnemies();
-                }
-                statTimer = 0f;
-                if(!statuses.contains(s -> s.effect == StatusEffects.boss)){
-                    apply(StatusEffects.boss);
-                }
+        }
+        statTimer++;
+        if(statTimer >= 30) {
+            keepStats();
+            if(mobile) {
+                findOtherModEnemies();
+            }
+            statTimer = 0f;
+            if(!statuses.contains(s -> s.effect == StatusEffects.boss) && multiMod){
+                apply(StatusEffects.boss);
             }
         }
         super.update();
@@ -205,6 +219,26 @@ public class HyperUnit extends PayloadUnit {
         super.kill();
     }
     @Override
+    public void killed(){
+        if(multiMod) {
+            clearEnemy();
+            dead = false;
+            healthSet(maxHealth);
+            return;
+        }
+        super.killed();
+    }
+    @Override
+    public void destroy(){
+        if(multiMod) {
+            clearEnemy();
+            dead = false;
+            healthSet(maxHealth);
+            return;
+        }
+        super.destroy();
+    }
+    @Override
     public void remove(){
         if(multiMod) {
             clearEnemy();
@@ -231,6 +265,22 @@ public class HyperUnit extends PayloadUnit {
         super.health(h);
     }
 
+    @Override
+    public void rawDamage(float d){
+        if(multiMod){
+            if(health < 0.25f * maxHealth){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+            if(d >= 5000f || d >= health){
+                healthSet(maxHealth);
+                apply(StatusEffects.invincible, 60f);
+                return;
+            }
+        }
+        super.rawDamage(d);
+    }
     @Override
     public void damage(float d){
         if(multiMod){

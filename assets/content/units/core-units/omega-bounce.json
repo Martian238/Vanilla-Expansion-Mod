@@ -1,6 +1,7 @@
 {
   "type": "payload",
   "databaseTag": "01core-unit",
+  "template": "VanillaExpansion.expand.type.unit.CutsceneUnitType",//Only this is Java
   "isEnemy": false,
   "lowAltitude": true,
   "fogRadius": 0,
