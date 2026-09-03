@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.type.unit;
 
+import VanillaExpansion.EntityRegister;
 import arc.Core;
 import arc.func.Func;
 import arc.graphics.Color;

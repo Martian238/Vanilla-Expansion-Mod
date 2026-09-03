@@ -4,7 +4,7 @@
   //若要参考，请到同一目录下的hyper-boss.json，它没有Java内容，且Json部分和此单位几乎一致
 
 
-  "type": "payload",
+  //"type": "payload",
   "databaseTag": "10special-unit",
   "research": {
     "parent": "huge-dagger",

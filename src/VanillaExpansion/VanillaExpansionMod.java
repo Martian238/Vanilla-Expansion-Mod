@@ -50,10 +50,13 @@ import mindustry.world.blocks.liquid.LiquidBlock;
 import mindustry.world.blocks.liquid.LiquidBridge;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.meta.Env;
+import rhino.ContextFactory;
+import rhino.Scriptable;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Set;
 
 import static mindustry.Vars.*;
 
@@ -288,7 +291,19 @@ public class VanillaExpansionMod extends Mod {
             }
         });
 
+        ContextFactory.initGlobal(new SecureContextFactory());
 
+        Events.on(EventType.ClientLoadEvent.class, e -> {
+            try{
+                java.lang.reflect.Field scopeField = mindustry.mod.Mods.class.getDeclaredField("scope");
+                scopeField.setAccessible(true);
+                Scriptable scope = (Scriptable) scopeField.get(Vars.mods);
+                if(scope != null){
+                    scope.delete("Packages");
+                    scope.delete("java");
+                }
+            }catch(Exception ignored){}
+        });
     }
 
 
@@ -493,11 +508,14 @@ public class VanillaExpansionMod extends Mod {
     }
 
 
+
+
     @Override
     public void loadContent(){
 
         goDie = hasCheat = false;
 
+        EntityRegister.load();
         VEShaders.load();
         VECacheLayer.init();
         //VanillaExpansion.content.VEStuffTypes.load();

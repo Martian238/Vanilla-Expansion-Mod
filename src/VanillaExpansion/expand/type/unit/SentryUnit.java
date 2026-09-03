@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.type.unit;
 
+import VanillaExpansion.EntityRegister;
 import VanillaExpansion.expand.world.block.crux.SentryAlertStorer;
 import arc.Events;
 import arc.audio.Sound;
@@ -367,6 +368,10 @@ public class SentryUnit extends UnitEntity {
     private float previousRot;
     private float stopRotTimer = 0f;
     private float stopTrackingTimer = 0f;
+    @Override
+    public int classId() {
+        return EntityRegister.getID(getClass());
+    }
     @Override
     public void update(){
         super.update();

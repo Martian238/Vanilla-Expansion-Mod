@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.type.unit;
 
+import VanillaExpansion.EntityRegister;
 import arc.math.Mathf;
 import arc.util.Tmp;
 import mindustry.gen.MechUnit;
@@ -14,6 +15,10 @@ public class IronGolemUnit extends MechUnit {
 
     private float invincibleTimer = 0f;
 
+    @Override
+    public int classId() {
+        return EntityRegister.getID(getClass());
+    }
     @Override
     public void update(){
         super.update();

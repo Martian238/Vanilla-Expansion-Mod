@@ -49,7 +49,7 @@ public class SpawnEgg extends PayloadBlock {
 
     public TextureRegion arrowRegion;
 
-
+    public @Nullable UnitType presetUnitType;
 
 
 
@@ -197,6 +197,9 @@ public class SpawnEgg extends PayloadBlock {
         @Override
         public void updateTile(){
 
+            if(presetUnitType != null){
+                unit = presetUnitType;
+            }
 
             if(unit != null && !state.isPaused() && !state.isEditor() && isValid() && enabled && !spawned){
                     UnitType spawnUnit = unit;

@@ -3,8 +3,10 @@ package VanillaExpansion.expand.abilities;
 import arc.Core;
 import arc.scene.ui.layout.Table;
 import mindustry.entities.abilities.Ability;
+import mindustry.gen.Groups;
 import mindustry.gen.Unit;
 import mindustry.graphics.Pal;
+import mindustry.type.ItemStack;
 import mindustry.ui.Bar;
 
 public class HyperAbility extends Ability {
@@ -19,10 +21,19 @@ public class HyperAbility extends Ability {
         unit.shield = 10000f;
     }
 
+    private ItemStack items = new ItemStack();
+    private boolean has = false;
+
+    @Override
+    public void update(Unit unit){
+        super.update(unit);
+        items = unit.stack();
+        has = unit.hasItem();
+    }
     @Override
     public void displayBars(Unit unit, Table bars){
-        if(unit.hasItem()){
-            bars.add(new Bar(Core.bundle.format("stat.unititem", unit.stack().item.localizedName, unit.stack().amount, unit.itemCapacity()), unit.stack().item.color, () -> (float) unit.stack().amount / unit.itemCapacity())).row();
+        if(has){
+            bars.add(new Bar(Core.bundle.format("stat.unititem", items.item.localizedName, items.amount, unit.itemCapacity()), items.item.color, () -> (float) items.amount / unit.itemCapacity())).row();
         }
     }
 }
