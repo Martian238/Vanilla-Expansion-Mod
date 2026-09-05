@@ -6,6 +6,7 @@ import VanillaExpansion.expand.world.block.crux.SentryAlertStorer;
 import VanillaExpansion.expand.world.block.defense.MelonicArrayPillar;
 import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
 import VanillaExpansion.expand.world.block.defense.ShieldArcUnitPowerTurret;
+import VanillaExpansion.expand.world.block.defense.TantalumWall;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import VanillaExpansion.expand.world.block.power.ShakeGenerator;
 import VanillaExpansion.expand.world.block.production.ConfigurableHeatProducer;
@@ -242,12 +243,12 @@ public class VEJSBlocks {
         new Wall("silicide-ferrum-wall");
         new Wall("silicide-ferrum-wall-large");
         new Wall("silicide-ferrum-wall-huge");
-        new Wall("tantalum-wall");
-        new Wall("tantalum-wall-large");
-        new Wall("tantalum-wall-huge");
-        new Wall("silicide-tantalum-wall");
-        new Wall("silicide-tantalum-wall-large");
-        new Wall("silicide-tantalum-wall-huge");
+        new TantalumWall("tantalum-wall");
+        new TantalumWall("tantalum-wall-large");
+        new TantalumWall("tantalum-wall-huge");
+        new TantalumWall("silicide-tantalum-wall");
+        new TantalumWall("silicide-tantalum-wall-large");
+        new TantalumWall("silicide-tantalum-wall-huge");
         new PowerTurret("crystallon-wall");
         new PowerTurret("crystallon-wall-large");
 

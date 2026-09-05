@@ -1,0 +1,153 @@
+{
+  "databaseTag": "11maress-newtype-unit",
+  "research": {
+    "parent": "termite",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "slate-guardpost"
+      },
+      "senior-reconstruct-pad"
+    ]
+  },
+  "health": 1500,
+  "armor": 12,
+  "immunities": [ "dusty","corroded" ],
+  "speed": 0.6,
+  "drag": 0.4,
+  "hitSize": 20,
+  "stepSound": "walkerStepSmall",
+  "stepSoundPitch": 0.5,
+  "stepSoundVolume": 0.4,
+  "stepSoundPitchRange": 0.025,
+  "legCount": 6,
+  "legLength": 20,
+  "legForwardScl": 0.8,
+  "legMoveSpace": 1.4,
+  "legBaseOffset": 2,
+  "legContinuousMove": true,
+  "hovering": true,
+  "rotateSpeed": 3,
+  "legSpeed": 0.25,
+  "stepShake": 1,
+  "rippleScale": 2,
+  "legSplashDamage": 24,
+  "legSplashRange": 16,
+  "shadowElevation": 0.4,
+  "groundLayer": 75,
+  "weapons": [
+    {
+      "name": "stinging-weapon",
+      "x": 8,
+      "shootY": 7.5,
+      "shootSound": "trBeam",
+      "soundPitchMin": 1,
+      "soundPitchMax": 1,
+      "recoil": 1,
+      "velocityRnd": 0.1,
+      "reload": 3,
+      "layerOffset": -0.01,
+      "shootCone": 60,
+      "rotate": true,
+      "rotateSpeed": 3,
+      "rotationLimit": 40,
+      "bullet": {
+        "speed": 20,
+        "lifetime": 20,
+        "bulletInterval": 1,
+        "intervalRandomSpread": 0,
+        "weaveMag": 5,
+        "weaveScl": 1,
+        "reflectable": false,
+        "hittable": false,
+        "intervalBullet": {
+          "damage": 0,
+          "collides": false,
+          "absorbable": false,
+          "reflectable": false,
+          "hittable": false,
+          "instantDisappear": true,
+          "despawnHit": true,
+          "despawnEffect": "none",
+          "hitEffect": [
+            {
+              "type": "ParticleEffect",
+              "colorFrom": "d0ff71",
+              "colorTo": "b5ed4700",
+              "sizeFrom": 4,
+              "sizeTo": 0,
+              "sizeInterp": "pow2In",
+              "interp": "pow2Out",
+              "lifetime": 30,
+              "length": 80,
+              "baseLength": 8,
+              "cone": 5,
+              "particles": 12
+            },
+            {
+              "type": "ParticleEffect",
+              "colorFrom": "d0ff7120",
+              "colorTo": "b5ed4700",
+              "sizeFrom": 5,
+              "sizeTo": 0,
+              "sizeInterp": "pow2In",
+              "interp": "pow4Out",
+              "lifetime": 60,
+              "length": 120,
+              "baseLength": 8,
+              "cone": 5,
+              "particles": 12
+            },
+            {
+              "type": "ParticleEffect",
+              "sizeFrom": 16,
+              "sizeTo": 20,
+              "baseLength": 32,
+              "length": 0,
+              "interp": "slope",
+              "colorFrom": "b5ed4700",
+              "colorTo": "d0ff7110",
+              "particles": 1,
+              "lifetime": 48,
+              "layer": 99.99
+            }
+          ]
+        },
+        "shootEffect": {
+          "type": "ParticleEffect",
+          "colorFrom": "d0ff71",
+          "colorTo": "b5ed4700",
+          "sizeFrom": 4,
+          "particles": 20,
+          "sizeTo": 0,
+          "sizeInterp": "pow2In",
+          "interp": "pow2Out",
+          "lifetime": 30,
+          "length": 120,
+          "baseLength": 8,
+          "cone": 5
+        },
+        "smokeEffect": "none",
+        "trailSpread": 8,
+        "knockback": 1.4,
+        "pierce": true,
+        "pierceCap": 5,
+        "pierceBuilding": false,
+        "hitSize": 16,
+        "frontColor": "00000000",
+        "backColor": "00000000",
+        "status": "corroded",
+        "statusDuration": 180,
+        "buildingDamageMultiplier": 5,
+        "damage": 40,
+        "pierceArmor": true,
+        "hitEffect": [
+          "vapor",
+          "hitLaserBlast"
+        ],
+        "hitColor": "d0ff71",
+        "despawnEffect": "none"
+      }
+    }
+  ]
+}

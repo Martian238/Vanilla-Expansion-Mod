@@ -7,7 +7,8 @@
   "size": 3,
   "upgrades": [
     [ "shimmer","daybreak" ],
-    [ "uprise","soar" ]
+    [ "uprise","soar" ],
+    [ "stink","termite" ]
   ],
   "consumes": {
     "power": 2,

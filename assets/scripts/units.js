@@ -107,6 +107,10 @@ newUnit("hover",UnitEntity);
 newUnit("ambush",UnitEntity);
 newUnit("dive",UnitEntity);
 
+newUnit("stink",MechUnit);
+newUnit("termite",LegsUnit);
+newUnit("stinging",LegsUnit);
+
 newUnit("sparkle",PayloadUnit);
 newUnit("plasm",PayloadUnit);
 newUnit("surge",PayloadUnit);

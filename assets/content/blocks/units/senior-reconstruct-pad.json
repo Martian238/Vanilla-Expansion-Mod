@@ -7,7 +7,8 @@
   "size": 3,
   "upgrades": [
     [ "daybreak","sunrise" ],
-    [ "soar","hover" ]
+    [ "soar","hover" ],
+    [ "termite","stinging" ]
   ],
   "consumes": {
     "power": 4,

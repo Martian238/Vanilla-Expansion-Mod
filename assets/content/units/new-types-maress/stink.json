@@ -1,0 +1,124 @@
+{
+  "databaseTag": "11maress-newtype-unit",
+  "research": {
+    "parent": "uprise",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "slate-guardpost"
+      }
+    ]
+  },
+  "health": 300,
+  "armor": 7,
+  "immunities": [ "dusty","corroded","disarmed" ],
+  "speed": 1,
+  "hitSize": 8,
+  "mechSideSway": 0.25,
+  "stepSound": "walkerStepTiny",
+  "stepSoundVolume": 0.2,
+  "faceTarget": false,
+  "targetAir": false,
+  "weapons": [
+    {
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "reload": 10,
+      "shootSound": "none",
+      "shootCone": 360,
+      "mirror": false,
+      "parentizeEffects": false,
+      "bullet": {
+        "hitColor": "f4c55a",
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "rangeOverride": 36,
+        "instantDisappear": true,
+        "splashDamage": 21,
+        "splashDamagePierce": true,
+        "splashDamageRadius": 32,
+        "pierceArmor": true,
+        "status": "corroded",
+        "statusDuration": 60,
+        "hittable": false,
+        "reflectable": false,
+        "collides": false,
+        "collidesAir": true,
+        "absorbable": false,
+        "despawnHit": true,
+        "despawnEffect": "none",
+        "hitEffect": [{
+          "type": "ParticleEffect",
+          "sizeFrom": 32,
+          "sizeTo": 40,
+          "baseLength": 32,
+          "length": 0,
+          "interp": "slope",
+          "colorFrom": "f4c55a00",
+          "colorTo": "f4c55a15",
+          "particles": 1,
+          "lifetime": 48,
+          "layer": 99.99
+        },"vapor"
+        ]
+      }
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "shootY": 0,
+      "shootSound": "none",
+      "shootOnDeath": true,
+      "shootCone": 360,
+      "controllable": false,
+      "useAttackRange": false,
+      "mirror": false,
+      "parentizeEffects": false,
+      "bullet": {
+        "speed": 0,
+        "lifetime": 240,
+        "collidesAir": false,
+        "hittable": false,
+        "absorbable": false,
+        "reflectable": false,
+        "collides": false,
+        "bulletInterval": 10,
+        "hitEffect": "none",
+        "despawnEffect": "none",
+        "damage": 0,
+        "width": 0,
+        "height": 0,
+        "intervalBullet": {
+          "instantDisappear": true,
+          "splashDamage": 21,
+          "splashDamagePierce": true,
+          "splashDamageRadius": 32,
+          "pierceArmor": true,
+          "status": "corroded",
+          "statusDuration": 60,
+          "hittable": false,
+          "reflectable": false,
+          "collides": false,
+          "collidesAir": false,
+          "absorbable": false,
+          "despawnHit": true,
+          "despawnEffect": "none",
+          "hitEffect": {
+            "type": "ParticleEffect",
+            "sizeFrom": 32,
+            "sizeTo": 40,
+            "baseLength": 32,
+            "length": 0,
+            "interp": "slope",
+            "colorFrom": "f4c55a00",
+            "colorTo": "f4c55a15",
+            "particles": 1,
+            "lifetime": 48,
+            "layer": 99.99
+          }
+        }
+      }
+    }
+  ]
+}
