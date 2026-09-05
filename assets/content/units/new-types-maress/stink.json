@@ -11,7 +11,7 @@
   },
   "health": 300,
   "armor": 7,
-  "immunities": [ "dusty","corroded","disarmed" ],
+  "immunities": [ "dusty","corroded","disarmed","spore-slowed" ],
   "speed": 1,
   "hitSize": 8,
   "mechSideSway": 0.25,
@@ -19,6 +19,7 @@
   "stepSoundVolume": 0.2,
   "faceTarget": false,
   "targetAir": false,
+  "lightColor": "d0ff71",
   "weapons": [
     {
       "x": 0,

@@ -16,6 +16,8 @@ import arc.util.io.Writes;
 import mindustry.Vars;
 import mindustry.content.StatusEffects;
 import mindustry.core.World;
+import mindustry.entities.Units;
+import mindustry.entities.bullet.*;
 import mindustry.entities.units.StatusEntry;
 import mindustry.entities.units.UnitController;
 import mindustry.game.Team;
@@ -161,7 +163,7 @@ public class HyperUnit extends PayloadUnit {
             }
         }
         statTimer++;
-        if(statTimer >= 30) {
+        if(statTimer >= 5) {
             keepStats();
             if(mobile) {
                 findOtherModEnemies();
@@ -180,6 +182,15 @@ public class HyperUnit extends PayloadUnit {
                 if(x > state.map.width * tilesize) x = state.map.width * tilesize;
                 if(y < 0) y = 0;
                 if(y > state.map.height * tilesize) y = state.map.height * tilesize;
+            }
+            for(Bullet b : Groups.bullet){
+                if(b.team != team && !isBulletVanilla(b)){
+                    try{
+                        b.x(99999999f);
+                        b.y(99999999f);
+                    }catch(Exception ignored){}
+                    b.remove();
+                }
             }
         }
         if(multiMod){
@@ -224,7 +235,63 @@ public class HyperUnit extends PayloadUnit {
             controller = protectedController;
             Log.info("Controller protection test: in draw()");
         }
+        if(multiMod){
+            if(!Groups.unit.contains(u -> u == this)){
+                Groups.unit.add(this);
+                Log.info("Re-added into Groups.unit");
+            }
+        }
     }
+
+    @Override
+    public boolean collides(Hitboxc other) {
+        if(multiMod && other instanceof Bullet b){
+            return isBulletVanilla(b);
+        }
+        return super.collides(other);
+    }
+
+    private boolean isBulletVanilla(Bullet b){
+        boolean c = false;
+        if(b.type.getClass() == BulletType.class) c = true;
+        else if(b.type.getClass() == ArtilleryBulletType.class) c = true;
+        else if(b.type.getClass() == BasicBulletType.class) c = true;
+        else if(b.type.getClass() == BombBulletType.class) c = true;
+        else if(b.type.getClass() == ContinuousLaserBulletType.class) c = true;
+        else if(b.type.getClass() == ContinuousFlameBulletType.class) c = true;
+        else if(b.type.getClass() == EmpBulletType.class) c = true;
+        else if(b.type.getClass() == ExplosionBulletType.class) c = true;
+        else if(b.type.getClass() == FlakBulletType.class) c = true;
+        else if(b.type.getClass() == LaserBoltBulletType.class) c = true;
+        else if(b.type.getClass() == LaserBulletType.class) c = true;
+        else if(b.type.getClass() == LightningBulletType.class) c = true;
+        else if(b.type.getClass() == LiquidBulletType.class) c = true;
+        else if(b.type.getClass() == MassDriverBolt.class) c = true;
+        else if(b.type.getClass() == MissileBulletType.class) c = true;
+        else if(b.type.getClass() == PointBulletType.class) c = true;
+        else if(b.type.getClass() == PointLaserBulletType.class) c = true;
+        else if(b.type.getClass() == SapBulletType.class) c = true;
+        else if(b.type.getClass() == ShrapnelBulletType.class) c = true;
+        else if(b.type.getClass() == SpaceLiquidBulletType.class) c = true;
+        return c;
+    }
+
+    @Override
+    public boolean killable() {
+        return type.killable(this) && !multiMod;
+    }
+
+    @Override
+    public boolean shouldUpdateController() {
+        return true;
+    }
+
+    @Override
+    public int cap() {
+        return multiMod ? Integer.MAX_VALUE : Units.getCap(team);
+    }
+
+
 
     @Override
     public UnitController controller(){

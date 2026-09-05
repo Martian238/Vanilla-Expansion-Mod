@@ -155,6 +155,7 @@ public class ShieldBeamWeapon extends Weapon {
             float baseAmount = repairSpeed * heal.strength * Time.delta + fractionRepairSpeed * heal.strength * Time.delta * u.maxHealth() / 100f;
             if(u.shield + baseAmount > max && u.shield < max) u.shield(max);
             else if(u.shield < max) u.shield(u.shield + baseAmount);
+            u.shieldAlpha = 1f;
             if(repairForceFields) {
                 for (int i = 0; i < u.abilities.length; i++) {
                     if (u.abilities[i] != null && u.abilities[i] instanceof ForceFieldAbility ab) {

@@ -12,7 +12,7 @@
   },
   "health": 1500,
   "armor": 12,
-  "immunities": [ "dusty","corroded" ],
+  "immunities": [ "dusty","corroded","spore-slowed" ],
   "speed": 0.6,
   "drag": 0.4,
   "hitSize": 20,
@@ -35,6 +35,7 @@
   "legSplashRange": 16,
   "shadowElevation": 0.4,
   "groundLayer": 75,
+  "lightColor": "d0ff71",
   "weapons": [
     {
       "name": "stinging-weapon",
@@ -51,7 +52,10 @@
       "rotate": true,
       "rotateSpeed": 3,
       "rotationLimit": 40,
+      "shootStatus": "slow",
+      "shootStatusDuration": 9,
       "bullet": {
+        "keepVelocity": false,
         "speed": 20,
         "lifetime": 20,
         "bulletInterval": 1,

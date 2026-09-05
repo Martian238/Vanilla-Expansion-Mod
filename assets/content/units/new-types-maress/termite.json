@@ -12,7 +12,7 @@
   },
   "health": 700,
   "armor": 8,
-  "immunities": [ "dusty","corroded" ],
+  "immunities": [ "dusty","corroded","spore-slowed" ],
   "speed": 0.7,
   "drag": 0.4,
   "hitSize": 14,
@@ -28,6 +28,7 @@
   "rotateSpeed": 3,
   "shadowElevation": 0.2,
   "groundLayer": 74,
+  "lightColor": "d0ff71",
   "weapons": [
     {
       "name": "termite-weapon",

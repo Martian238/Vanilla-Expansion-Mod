@@ -138,7 +138,6 @@ public class VanillaExpansionMod extends Mod {
             }
         });
 
-
         //全图酸腐蚀处理
 
             Events.run(EventType.Trigger.update, () -> {
@@ -291,6 +290,7 @@ public class VanillaExpansionMod extends Mod {
             }
         });
 
+        /*
         ContextFactory.initGlobal(new SecureContextFactory());
 
         Events.on(EventType.ClientLoadEvent.class, e -> {
@@ -304,6 +304,7 @@ public class VanillaExpansionMod extends Mod {
                 }
             }catch(Exception ignored){}
         });
+        */
     }
 
 

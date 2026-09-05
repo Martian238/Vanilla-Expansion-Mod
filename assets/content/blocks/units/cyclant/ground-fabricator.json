@@ -53,6 +53,11 @@
       "time": 1200,
       "requirements": [ "silicon/30","lead/20" ]
     },
+    {
+      "unit": "stink",
+      "time": 900,
+      "requirements": [ "silicon/10","acid-pod/20" ]
+    }
     /*{
       "unit": "nova",
       "time": 1500,
