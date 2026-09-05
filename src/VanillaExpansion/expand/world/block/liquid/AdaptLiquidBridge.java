@@ -80,6 +80,14 @@ public class AdaptLiquidBridge extends LiquidBridge {
         return Mathf.dst(x1, y1, x2, y2) <= range;
     }
 
+    public boolean linkValid(Tile tile, Tile other, boolean checkDouble) {
+        if (other == null || tile == null || !positionsValid(tile.x, tile.y, other.x, other.y)) return false;
+
+        return ((other.block() == tile.block() && tile.block() == this) || (!(tile.block() instanceof LiquidBridge) && other.block() == this))
+                && (other.team() == tile.team() || tile.block() != this)
+                && (!checkDouble || ((LiquidBridgeBuild) other.build).link != tile.pos());
+    }
+
     @Override
     public void drawPlace(int x, int y, int rotation, boolean valid) {
         Tile link = findLink(x, y);
