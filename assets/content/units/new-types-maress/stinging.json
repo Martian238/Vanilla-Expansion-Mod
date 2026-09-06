@@ -55,6 +55,7 @@
       "shootStatus": "slow",
       "shootStatusDuration": 9,
       "bullet": {
+        "type": "VanillaExpansion.expand.bullets.CorrosiveBulletType",//Java but only for 'don't damage tantalum walls'
         "keepVelocity": false,
         "speed": 20,
         "lifetime": 20,

@@ -53,6 +53,7 @@
       "rotateSpeed": 3,
       "rotationLimit": 40,
       "bullet": {
+        "type": "VanillaExpansion.expand.bullets.CorrosiveBulletType",//Java but only for 'don't damage tantalum walls'
         "rangeOverride": 224,
         "hitColor": "d0ff71",
         "shootEffect": "colorSpark",
@@ -133,9 +134,10 @@
         },
         "despawnShake": 2,
         "intervalBullet": {
+          "type": "VanillaExpansion.expand.bullets.CorrosiveBulletType",//Java but only for 'don't damage tantalum walls'
           "instantDisappear": true,
           "splashDamage": 12,
-          "splashDamagePierce": true,
+          "splashDamagePierce": false,
           "splashDamageRadius": 24,
           "pierceArmor": true,
           "status": "corroded",

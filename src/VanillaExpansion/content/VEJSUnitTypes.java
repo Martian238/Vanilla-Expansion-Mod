@@ -9,6 +9,8 @@ import mindustry.type.UnitType;
 
 public class VEJSUnitTypes {
 
+    //cyclant
+    public static DayunTankUnitType triumph;
     //Bosses
     public static UnitType hyper;
 
@@ -22,6 +24,9 @@ public class VEJSUnitTypes {
 
     public static void load(){
 
+        triumph = new DayunTankUnitType("triumph"){{
+            constructor = DayunTankUnit::create;
+        }};
 
         hyper = new UnitType("hyper"){{
             constructor = HyperUnit::create;

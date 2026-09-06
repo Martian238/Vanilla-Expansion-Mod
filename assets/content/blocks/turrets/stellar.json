@@ -217,6 +217,7 @@
         "width": 0,
         "height": 0,
         "intervalBullet": {
+          "type": "VanillaExpansion.expand.bullets.CorrosiveBulletType",//Java but only for 'don't damage tantalum walls'
           "instantDisappear": true,
           "splashDamage": 19,
           "buildingDamageMultiplier": 0.5,
@@ -460,6 +461,7 @@
         "width": 0,
         "height": 0,
         "intervalBullet": {
+          "type": "VanillaExpansion.expand.bullets.CorrosiveBulletType",//Java but only for 'don't damage tantalum walls'
           "instantDisappear": true,
           "splashDamage": 27,
           "buildingDamageMultiplier": 0.75,

@@ -31,13 +31,14 @@
       "mirror": false,
       "parentizeEffects": false,
       "bullet": {
+        "type": "VanillaExpansion.expand.bullets.CorrosiveBulletType",//Java but only for 'don't damage tantalum walls'
         "hitColor": "f4c55a",
         "shootEffect": "none",
         "smokeEffect": "none",
         "rangeOverride": 36,
         "instantDisappear": true,
         "splashDamage": 21,
-        "splashDamagePierce": true,
+        "splashDamagePierce": false,
         "splashDamageRadius": 32,
         "pierceArmor": true,
         "status": "corroded",
@@ -78,6 +79,7 @@
       "parentizeEffects": false,
       "bullet": {
         "speed": 0,
+        "keepVelocity": false,
         "lifetime": 240,
         "collidesAir": false,
         "hittable": false,
@@ -91,9 +93,10 @@
         "width": 0,
         "height": 0,
         "intervalBullet": {
+          "type": "VanillaExpansion.expand.bullets.CorrosiveBulletType",//Java but only for 'don't damage tantalum walls'
           "instantDisappear": true,
           "splashDamage": 21,
-          "splashDamagePierce": true,
+          "splashDamagePierce": false,
           "splashDamageRadius": 32,
           "pierceArmor": true,
           "status": "corroded",

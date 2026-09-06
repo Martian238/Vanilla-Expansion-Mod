@@ -25,7 +25,7 @@ newUnit("conscript",TankUnit);
 newUnit("arrange",TankUnit);
 newUnit("charge",TankUnit);
 newUnit("capture",TankUnit);
-newUnit("triumph",TankUnit);
+//newUnit("triumph",TankUnit);
 
 newUnit("dust",ElevationMoveUnit);
 newUnit("mist",ElevationMoveUnit);

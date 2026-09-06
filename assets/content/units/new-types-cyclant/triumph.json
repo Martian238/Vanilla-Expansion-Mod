@@ -1,6 +1,6 @@
 {
-  "type": "tank",
   "databaseTag": "08cyclant-newtype-unit",
+  "template": "VanillaExpansion.expand.type.unit.DayunTankUnitType",//Java
   "hitSize": 54,
   "speed": 1.1,
   "treadPullOffset": 14,
@@ -23,6 +23,7 @@
   "floorMultiplier": 0.3,
   "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
   "envDisabled": 0,
+  "truckMusic": "truckCompressed",
   "treadRects": [
     {
       "type": "Rect",
@@ -50,6 +51,7 @@
   "tankMoveSound": "lbp3TankTreadsSlower",
   "tankMoveVolume": 0.65,
   "researchCostMultiplier": 0.05,
+  "outlineColor": "565666",
   "weapons": [
     {
       "name": "triumph-sub",

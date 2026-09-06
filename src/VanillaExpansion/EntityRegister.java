@@ -1,5 +1,6 @@
 package VanillaExpansion;
 
+import VanillaExpansion.expand.type.unit.DayunTankUnit;
 import VanillaExpansion.expand.type.unit.HyperUnit;
 import VanillaExpansion.expand.type.unit.IronGolemUnit;
 import VanillaExpansion.expand.type.unit.SentryUnit;
@@ -28,6 +29,7 @@ public class EntityRegister {
         put(HyperUnit.class, HyperUnit::new);
         put(SentryUnit.class, SentryUnit::new);
         put(IronGolemUnit.class, IronGolemUnit::new);
+        put(DayunTankUnit.class, DayunTankUnit::new);
     }
 
     /**
