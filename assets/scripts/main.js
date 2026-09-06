@@ -3,11 +3,11 @@ MapResizeDialog.maxSize = 1000
 Vars.maxSchematicSize = 600
 require("sectorSize");
 //require("base/library");
-require("units");
+//require("units");
 require("items");
 Vars.renderer.maxZoom = 25;
 Vars.renderer.minZoom = 0.2;
-Vars.appName = "Mindustry: Vanilla Expansion";
+//Vars.appName = "Mindustry: Vanilla Expansion";
 //require("xfkjqjs");
 /*
 Team.green.color.set(Color.valueOf("00ffce"));
