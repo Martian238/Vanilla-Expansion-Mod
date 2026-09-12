@@ -64,7 +64,7 @@ public class HyperUnit extends PayloadUnit {
             multiModList.clear();
             if (mods != null) {
                 for (Mods.LoadedMod mod : mods) {
-                    if (mod.name.equals("ve") || mod.dependencies.contains(m -> m.name.equals("ve")) || mod.softDependencies.contains(m -> m.name.equals("ve"))) {
+                    if (mod.name.equals("ve") || mod.name.equals("vanilla-expansion") || mod.dependencies.contains(m -> m.name.equals("ve")) || mod.softDependencies.contains(m -> m.name.equals("ve"))) {
                         continue;
                     } else if (!mod.meta.hidden && mod.enabled()) {
                         multiMod = true;
@@ -134,6 +134,9 @@ public class HyperUnit extends PayloadUnit {
     private boolean mobile = false;
     private float updateTimer = 0;
     private boolean controllerGot = false;
+
+    public boolean publicMultiMod = false;
+    public boolean tryRecovery = false;
 
     @Override
     public int classId() {
@@ -216,6 +219,10 @@ public class HyperUnit extends PayloadUnit {
             controller = protectedController;
             Log.info("Controller protection test: in update()");
         }
+
+        if(tryRecovery){
+            tryRecovery = false;
+        }
     }
 
     @Override
@@ -241,12 +248,26 @@ public class HyperUnit extends PayloadUnit {
                 Log.info("Re-added into Groups.unit");
             }
         }
+        publicMultiMod = multiMod;
     }
 
     @Override
     public boolean collides(Hitboxc other) {
         if(multiMod && other instanceof Bullet b){
-            return isBulletVanilla(b);
+            if(isBulletVanilla(b)) {
+                if(b.damage() >= health * 0.25f){
+                    b.x(99999999f);
+                    b.y(99999999f);
+                    b.remove();
+                    healthSet(maxHealth);
+                    return false;
+                }
+            }else{
+                b.x(99999999f);
+                b.y(99999999f);
+                b.remove();
+                return false;
+            }
         }
         return super.collides(other);
     }
@@ -295,13 +316,13 @@ public class HyperUnit extends PayloadUnit {
 
     @Override
     public UnitController controller(){
-        return controllerGot? protectedController : controller;
+        return controllerGot && multiMod? protectedController : controller;
     }
 
     @Override
     public void controller(UnitController next){
         Log.info("Method: controller(next) with multiMod: "+multiMod);
-        if(multiMod){
+        if(multiMod && !tryRecovery){
             return;
         }
         super.controller(next);
@@ -310,7 +331,7 @@ public class HyperUnit extends PayloadUnit {
     @Override
     public void resetController(){
         Log.info("Method: resetController() with multiMod: "+multiMod);
-        if(protectedController != null){
+        if(protectedController != null && multiMod){
             controller = protectedController;
             return;
         }

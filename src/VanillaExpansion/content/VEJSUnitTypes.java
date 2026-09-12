@@ -157,7 +157,7 @@ public class VEJSUnitTypes {
 
         stink = new UnitType("stink"){{constructor = MechUnit::create;}};
         termite = new UnitType("termite"){{constructor = LegsUnit::create;}};
-        stinging = new UnitType("stinging"){{constructor = UnitEntity::create;}};
+        stinging = new UnitType("stinging"){{constructor = LegsUnit::create;}};
 
         sparkle = new UnitType("sparkle"){{constructor = PayloadUnit::create;}};
         plasm = new UnitType("plasm"){{constructor = PayloadUnit::create;}};

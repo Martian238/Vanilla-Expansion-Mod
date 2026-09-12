@@ -1,0 +1,12 @@
+{
+  //"type": "Wall",
+  "requirements": [ "dense-alloy/6" ],
+  "size": 1,
+  "health": 1000,
+  "armor": 14,
+  "category": "defense",
+  "research": {
+    "parent": "thorium-wall"
+  },
+  "shownPlanets": [ "serpulo","thavina" ]
+}

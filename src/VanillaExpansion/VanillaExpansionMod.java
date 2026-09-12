@@ -71,7 +71,7 @@ public class VanillaExpansionMod extends Mod {
     public static Seq<String> blockWhitelist2 = Seq.with(
             "ve-silicide-fluid-source","ve-silicide-fluid-void",
             "ve-silver-conduit","ve-silver-conduit-armored","ve-valve-fluid-cross","ve-valve-fluid-distribute",
-            "ve-silver-bridge","ve-chained-pump","ve-fluid-sorter"
+            "ve-silver-bridge","ve-chained-pump","ve-fluid-sorter","ve-acid-resistant-pump"
     );
     public static Seq<String> erekirBlockWhitelist = Seq.with(
             "reinforced-conduit","reinforced-bridge-conduit","reinforced-liquid-junction",

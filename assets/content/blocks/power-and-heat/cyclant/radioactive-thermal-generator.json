@@ -41,6 +41,8 @@
   "itemDurationMultipliers": {
     "phase-fabric": 15,
     "warp-nucleus": 20,
-    "fusion-fuel": 0.8
+    "fusion-fuel": 0.8,
+    "dense-alloy": 2.5,
+    "finallite": 10
   }
 }

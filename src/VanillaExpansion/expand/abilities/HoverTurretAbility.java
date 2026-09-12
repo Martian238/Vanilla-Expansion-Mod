@@ -261,7 +261,7 @@ public class HoverTurretAbility extends Ability {
                     ex = x + getOffset(rot, shootX, shootY + innerBeamLength, true),
                     ey = y + getOffset(rot, shootX, shootY + innerBeamLength, false);
             w = 2f + 10 * t;
-            color(Color.valueOf("2eeaea"), Color.white, t);
+            color(beamColor, Color.white, t);
             Drawf.tri(ex, ey, w, 35f * t, rot);
             Drawf.tri(ex, ey, w, 6f * t, rot + 180f);
             Drawf.tri(ex, ey, w * 0.8f, 25f * t, rot + 30f);

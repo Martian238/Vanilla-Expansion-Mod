@@ -8,6 +8,8 @@ function newCellLiquid(name) {
 	exports[name] = extend(CellLiquid, name, {});
 }
 
+newItem("dense-alloy");
+
 newItem("aluminium");
 newItem("quartz");
 newItem("catalyzon");

@@ -1,0 +1,10 @@
+{
+  "type": "VanillaExpansion.expand.world.block.crux.LargeTeamProjector",
+  "size": 2,
+  "consumes": {
+    "power": 2
+  },
+  "hasPower": true,
+  "buildVisibility": "sandboxOnly",
+  "category": "effect"
+}

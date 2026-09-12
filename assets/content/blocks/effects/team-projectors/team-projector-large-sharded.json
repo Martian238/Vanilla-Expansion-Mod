@@ -1,0 +1,47 @@
+{
+  //Java
+  "category": "effect",
+  "requirements": [ "silicon/500","quartz/200","phase-fabric/80" ],
+  "size": 3,
+  "health": 3000,
+  "priority": 10,
+  "consumes": {
+    "power": 1
+  },
+  "hasPower": true,
+  "ambientSound": "none",
+  "projectionColor": "ffd37f",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawRegion", "suffix": "" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-top",
+        "color": "ffd37f",
+        "alpha": 0.9,
+        "glowIntensity": 0.5,
+        "glowScale": 10
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "ffd37f00",
+        "flameRadius": 0,
+        "flameRadiusIn": 0,
+        "lightRadius": 128,
+        "lightAlpha": 0.8
+      }
+    ]
+  },
+  "buildCostMultiplier": 20,
+  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
+  "research": {
+    "parent": "team-projector-sharded",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "nuclear-powerplant"
+      }
+    ]
+  }
+}

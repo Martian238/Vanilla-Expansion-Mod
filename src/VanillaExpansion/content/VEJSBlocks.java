@@ -2,6 +2,7 @@ package VanillaExpansion.content;
 
 import VanillaExpansion.MultiCrafter;
 import VanillaExpansion.expand.graphics.VECacheLayer;
+import VanillaExpansion.expand.world.block.crux.LargeTeamProjector;
 import VanillaExpansion.expand.world.block.crux.SentryAlertStorer;
 import VanillaExpansion.expand.world.block.defense.MelonicArrayPillar;
 import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
@@ -108,6 +109,7 @@ public class VEJSBlocks {
 
         // group 6 原版新工厂
         new GenericCrafter("cryo-pool");
+        new GenericCrafter("dense-smelter");
         new GenericCrafter("quartz-extractor");
 
         // group 7 赛克碳硅系列
@@ -183,6 +185,7 @@ public class VEJSBlocks {
         new HeatConductor("heat-conduct-conductor-small");
         new HeatConductor("heat-conduct-distributor");
         new MultiCrafter("m-boiler");
+        new MultiCrafter("exothermic-heater");
         new HeatProducer("reactor-core");
         new ConfigurableHeatProducer("config-phase-heater");
 
@@ -198,6 +201,9 @@ public class VEJSBlocks {
         new Wall("copper-wall-huge");
         new Wall("titanium-wall-huge");
         new Wall("thorium-wall-huge");
+        new Wall("dense-wall");
+        new Wall("dense-wall-large");
+        new Wall("dense-wall-huge");
         new Wall("defensive-wall");
         new Wall("defensive-wall-large");
         new Wall("defensive-wall-huge");
@@ -258,8 +264,10 @@ public class VEJSBlocks {
         new MendProjector("mend-dome");
         new GenericCrafter("team-projector-sharded");
         new GenericCrafter("team-projector-alpha");
+        new LargeTeamProjector("team-projector-large-sharded");
         new GenericCrafter("team-projector-crux");
         new GenericCrafter("team-projector-omega");
+        new LargeTeamProjector("team-projector-large-crux");
         new GenericCrafter("team-projector-hyper");
         new GenericCrafter("team-projector-zenith");
         new GenericCrafter("team-projector-zenith-flipped");
@@ -323,6 +331,7 @@ public class VEJSBlocks {
         new Pump("pressure-pump");
         new Pump("platform-pump");
         new GasPump("gas-pump");
+        new Pump("acid-resistant-pump");
         new Pump("chained-pump");
         new Conduit("isomorphic-conduit");
         new LiquidRouter("fluid-router");

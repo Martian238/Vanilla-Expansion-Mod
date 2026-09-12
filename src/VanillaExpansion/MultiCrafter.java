@@ -83,6 +83,8 @@ public class MultiCrafter extends HeatCrafter {
     public Liquid fluxLiquidGeneral = Liquids.hydrogen;
     public float minFluxGeneral = 0.1f;
     public boolean fluxOverconsumptionGeneral = true;
+    public float minFluxGeneralDisplayed = -1;
+    public float fluxFixRangeGeneral = 0.2f / 60f;
 
 
     public MultiCrafter(String name) {
@@ -222,6 +224,8 @@ public class MultiCrafter extends HeatCrafter {
     @Override
     public void init() {
 
+        if(minFluxGeneralDisplayed < 0) minFluxGeneralDisplayed = minFluxGeneral;
+
         if (recipe != null && recipe.length > 0) {
             for (Recipe r : recipe) {
                 r.ensureArrays();
@@ -251,6 +255,8 @@ public class MultiCrafter extends HeatCrafter {
             rec.cachedSwitchEffect = findEffectByPath(rec.switchEffect);
             rec.cachedCraftSound = findSoundByPath(rec.craftSound);
             rec.cachedUpdateSound = findSoundByPath(rec.updateSound);
+
+            if(rec.minFluxDisplayed < 0) rec.minFluxDisplayed = rec.minFlux;
         }
 
 
@@ -530,7 +536,7 @@ public class MultiCrafter extends HeatCrafter {
                 table.table(Styles.grayPanelDark, t -> {
                     t.left().defaults().left().padLeft(4).height(40f);
                     t.add("[lightgray]" + Core.bundle.get("stat.multicrafter.flux") + ":[]").padRight(8);
-                    t.add(StatValues.displayLiquid(fluxLiquidGeneral, minFluxGeneral * 60f, true)).padRight(8);
+                    t.add(StatValues.displayLiquid(fluxLiquidGeneral, minFluxGeneralDisplayed * 60f, true)).padRight(8);
                     //t.row();
                 });
                 table.row();
@@ -614,7 +620,7 @@ public class MultiCrafter extends HeatCrafter {
                     if(recipes.contains(r -> r.requireFlux && r.fluxLiquid != null)){
                         t.row();
                         t.add("[lightgray]" + Core.bundle.get("stat.multicrafter.flux") + ":[]").padRight(8);
-                        t.add(StatValues.displayLiquid(rec.fluxLiquid, rec.minFlux * 60f, true)).padRight(8);
+                        t.add(StatValues.displayLiquid(rec.fluxLiquid, rec.minFluxDisplayed * 60f, true)).padRight(8);
                     }
                     t.row();
                     t.add("[lightgray]" + Core.bundle.get("stat.productiontime") + ":[] " + Strings.autoFixed(rec.craftTime / 60f, 3) + " " + Core.bundle.get("unit.seconds")).padTop(4);
@@ -705,18 +711,18 @@ public class MultiCrafter extends HeatCrafter {
                 }
 
                 return new Bar(
-                        () -> Core.bundle.format("bar.multicrafter.liquidflux",rec.fluxLiquid.localizedName, entity.fluxResult, rec.minFlux * 60),
+                        () -> Core.bundle.format("bar.multicrafter.liquidflux",rec.fluxLiquid.localizedName, entity.fluxOutputSame? entity.efficiencyScale() * rec.minFluxDisplayed * 60 : entity.fluxRate * 60, rec.minFluxDisplayed * 60),
                         rec.fluxLiquid::barColor,
-                        () -> Mathf.clamp(entity.fluxResult / (rec.minFlux * 60))
+                        () -> Mathf.clamp(entity.fluxOutputSame? entity.efficiencyScale() : entity.fluxRate / rec.minFluxDisplayed)
                 );
             });
         }
         if (requireFluxGeneral && fluxLiquidGeneral != null){
             addBar("fluxgeneral", (MultiCrafterBuild entity) -> {
                 return new Bar(
-                        () -> Core.bundle.format("bar.multicrafter.liquidflux",fluxLiquidGeneral.localizedName, entity.fluxResultGeneral, minFluxGeneral * 60),
+                        () -> Core.bundle.format("bar.multicrafter.liquidflux",fluxLiquidGeneral.localizedName, entity.fluxOutputSameGeneral? entity.efficiencyScale() * minFluxGeneralDisplayed * 60 : entity.fluxRateGeneral * 60, minFluxGeneralDisplayed * 60),
                         fluxLiquidGeneral::barColor,
-                        () -> Mathf.clamp(entity.fluxResultGeneral / (minFluxGeneral * 60))
+                        () -> Mathf.clamp(entity.fluxOutputSameGeneral? entity.efficiencyScale() : entity.fluxRateGeneral / minFluxGeneralDisplayed)
                 );
             });
         }
@@ -821,7 +827,6 @@ public class MultiCrafter extends HeatCrafter {
         public float attrsum; //环境加成
         public int seed;  //分离器模式种子
 
-        private float fluxMultiplier = 1f;
         private float fluxResult = 0f;
         private float fluxMultiplierGeneral = 1f;
         private float fluxResultGeneral = 0f;
@@ -936,14 +941,20 @@ public class MultiCrafter extends HeatCrafter {
                     content.add("[accent]" + recipeNum + "[]").padLeft(6f).padRight(8f).width(24f);
 
                     Table inputTable = new Table().left();
+                    boolean flux = rec.requireFlux && rec.fluxLiquid != null && rec.minFlux > 0;
                     if (rec.inputItems.length > 0 || rec.inputLiquids.length > 0
-                            || rec.cachedInputPayloads.length > 0 || rec.inputPower > 0 || rec.inputHeat > 0) {
+                            || rec.cachedInputPayloads.length > 0 || rec.inputPower > 0 || rec.inputHeat > 0 || flux) {
                         for (ItemStack s : rec.inputItems) inputTable.image(s.item.uiIcon).size(24f).padRight(2f);
                         for (LiquidStack s : rec.inputLiquids) inputTable.image(s.liquid.uiIcon).size(24f).padRight(2f);
                         for (PayloadStack s : rec.cachedInputPayloads) inputTable.image(s.item.uiIcon).size(24f).padRight(2f);
                         if (rec.inputPower > 0) inputTable.add("[accent]" + Iconc.power + "[]").padRight(2f);
                         if (rec.inputHeat > 0) inputTable.add("[red]" + Iconc.waves + "[]").padRight(2f);
-                    } else inputTable.add("[darkGray]-[]");
+                        if (flux){
+                            inputTable.add("(").padRight(2f);
+                            inputTable.image(rec.fluxLiquid.uiIcon).size(24f).padRight(2f);
+                            inputTable.add(")").padRight(2f);
+                        }
+                    } else inputTable.add("[gray]-[]");
                     content.add(inputTable).padRight(8f);
                     content.add("[accent]" + Iconc.right + "[]").padRight(8f).padLeft(4f);
 
@@ -1433,9 +1444,27 @@ public class MultiCrafter extends HeatCrafter {
             }
         }
 
+        private float fluxRate = 0f;
+        private int fluxListNum = 0;
+        private float[] fluxList = new float[60];
+        private float fluxRest = 0f;
+        private boolean fluxInputSame = false;
+        private float fluxInputTotal = 0f;
+        private boolean fluxOutputSame = false;
+
+        private float fluxRateGeneral = 0f;
+        private float[] fluxListGeneral = new float[60];
+        private float fluxRestGeneral = 0f;
+        private boolean fluxInputSameGeneral = false;
+        private float fluxInputTotalGeneral = 0f;
+        private boolean fluxOutputSameGeneral = false;
+
         @Override
         public void updateTile() {
             if (payload != null) { payload.update(null, this); moveInPayload(); }
+
+            if(fluxListNum < 60)fluxListNum++;
+            if(fluxListNum >= 60)fluxListNum = 0;
 
             heat = calculateHeat(sideHeat);
             heatInput = heat;
@@ -1480,67 +1509,142 @@ public class MultiCrafter extends HeatCrafter {
             heatOutput = Mathf.approachDelta(heatOutput, targetHeat, warmupRate * delta());
 
             //通量一直消耗 //TODO 放个定位
+            fluxInputSame = false;
+            fluxInputTotal = 0f;
+            fluxOutputSame = false;
+            fluxInputSameGeneral = false;
+            fluxInputTotalGeneral = 0f;
+            fluxOutputSameGeneral = false;
             if (active != null && active.requireFlux && active.fluxLiquid != null && enabled) {
                 boolean outputSame = false;
-                float flow = liquids.getFlowRate(active.fluxLiquid);
+                float outputRate = 0f;
+                float inputRate = 0f;
                 if(active.outputLiquids != null){
-                    float outputRate = 0f;
-                    for(LiquidStack l : active.outputLiquids){
-                        if(l.liquid == active.fluxLiquid) outputSame = true; outputRate += l.amount;
-                    }
-                    if (outputSame && outputRate > 0) flow -= outputRate * 60f * efficiencyScale();
-                }
-                fluxResult = flow >= 0 ? flow : fluxResult;
-
-                if (liquids.get(active.fluxLiquid) > 0) {
-                    if((active.fluxOverconsumption || !canProduce) && !(outputSame && canProduce)) {
-
-                        if(liquids.get(active.fluxLiquid) > Math.min(60f * active.minFlux, 0.1f * liquidCapacity)) {
-                            liquids.remove(active.fluxLiquid, Math.min(liquids.get(active.fluxLiquid), Math.max(active.minFlux, liquids.get(active.fluxLiquid) - active.minFlux * 2f)));
-                            fluxMultiplier = 0.5f;
-                        }else{
-                            liquids.remove(active.fluxLiquid, Math.min(liquids.get(active.fluxLiquid), Math.max(active.minFlux * fluxMultiplier, liquids.get(active.fluxLiquid) - active.minFlux * 10f)));
-                            fluxMultiplier = Mathf.approach(fluxMultiplier, 1f, 1f);
+                    for(LiquidStack l : active.outputLiquids) {
+                        if (l.liquid == active.fluxLiquid) {
+                            outputSame = true;
+                            outputRate += l.amount;
                         }
-                    }else{
-                        liquids.remove(active.fluxLiquid, active.minFlux);
                     }
                 }
+                if(active.inputLiquids != null){
+                    for(LiquidStack l : active.inputLiquids) {
+                        if (l.liquid == active.fluxLiquid) {
+                            fluxInputSame = true;
+                            inputRate += l.amount;
+                        }
+                    }
+                }
+
+                Liquid fl = active.fluxLiquid;
+                float fa = liquids.get(fl);
+                float fr = active.minFlux + inputRate;
+                fluxInputTotal += fr;
+                boolean o = (!active.fluxOverconsumption && canProduce) || (outputSame);
+                float threshold = liquidCapacity * 0.1f;
+                float removed = 0;
+                float multiplier = Mathf.lerp(0.25f, 1f, fa / liquidCapacity);
+                if(fa >= threshold) {
+                    if (o) {
+                        removed += Math.min(Mathf.clamp(fa - threshold) * multiplier, fr);
+                    } else {
+                        removed += Mathf.clamp(fa - threshold) * multiplier;
+                    }
+                }
+
+                fluxList[fluxListNum] = fa - fluxRest;
+                fluxList[fluxListNum] /= delta();
+                removed += Math.min(0.01f, Math.max(0.001f, fa * 0.2f * multiplier));
+                removed = Math.min(fa, removed * delta());
+                if(!outputSame)liquids.remove(fl, removed);
+
+                fluxRest = fa - removed - inputRate * efficiencyScale() * delta();
+                if(fluxRest < 0)fluxRest = 0;
+
+                float avg = 0f;
+                for(int i = 0; i < 60; i++){
+                    avg += fluxList[i];
+                }
+                avg /= 60;
+
+                if(!outputSame)fluxRate = Mathf.approachDelta(fluxRate, avg, 0.1f * Math.max(fluxRate - avg, 0.1f));
+                if(fluxRate < 0)fluxRate = 0;
+                if(outputSame){
+                    fluxRate = fr * efficiencyScale();
+                    fluxOutputSame = true;
+                    //Log.info("o");
+                }
+
+                //Log.info("fa: "+fa+", rest: "+fluxRest+", rate: "+fluxRate+", removed: "+removed);
+                //Log.info(fluxListNum+"-list: "+fluxList[fluxListNum]+", rate: "+fluxRate+", fr: "+fr+", outputSame: "+outputSame+", e: "+efficiencyScale());
             }
             if (requireFluxGeneral && fluxLiquidGeneral != null && enabled){
                 boolean outputSame = false;
-                float flow = liquids.getFlowRate(fluxLiquidGeneral);
-                if(active != null && active.outputLiquids != null){
-                    float outputRate = 0f;
-                    for(LiquidStack l : active.outputLiquids){
-                        if(l.liquid == fluxLiquidGeneral) outputSame = true; outputRate += l.amount;
-                    }
-                    if (outputSame && outputRate > 0) flow -= outputRate * 60f * efficiencyScale();
-                }
-                fluxResultGeneral = flow >= 0 ? flow : fluxResultGeneral;
-
-                if (liquids.get(fluxLiquidGeneral) > 0) {
-                    if((fluxOverconsumptionGeneral || !canProduce) && !(outputSame && canProduce)) {
-
-                        if(liquids.get(fluxLiquidGeneral) > Math.min(60f * minFluxGeneral, 0.1f * liquidCapacity)) {
-                            liquids.remove(fluxLiquidGeneral, Math.min(liquids.get(fluxLiquidGeneral), Math.max(minFluxGeneral, liquids.get(fluxLiquidGeneral) - minFluxGeneral * 2f)));
-                            fluxMultiplierGeneral = 0.5f;
-                        }else{
-                            liquids.remove(fluxLiquidGeneral, Math.min(liquids.get(fluxLiquidGeneral), Math.max(minFluxGeneral * fluxMultiplierGeneral, liquids.get(fluxLiquidGeneral) - minFluxGeneral * 10f)));
-                            fluxMultiplierGeneral = Mathf.approach(fluxMultiplierGeneral, 1f, 1f);
+                float outputRate = 0f;
+                float inputRate = 0f;
+                if(active.outputLiquids != null){
+                    for(LiquidStack l : active.outputLiquids) {
+                        if (l.liquid == fluxLiquidGeneral) {
+                            outputSame = true;
+                            outputRate += l.amount;
                         }
-                    }else{
-                        liquids.remove(fluxLiquidGeneral, minFluxGeneral);
                     }
+                }
+                if(active.inputLiquids != null){
+                    for(LiquidStack l : active.inputLiquids) {
+                        if (l.liquid == fluxLiquidGeneral) {
+                            fluxInputSameGeneral = true;
+                            inputRate += l.amount;
+                        }
+                    }
+                }
+
+                Liquid fl = fluxLiquidGeneral;
+                float fa = liquids.get(fl);
+                float fr = minFluxGeneral + inputRate;
+                fluxInputTotalGeneral += fr;
+                boolean o = (!fluxOverconsumptionGeneral && canProduce) || (outputSame);
+                float threshold = liquidCapacity * 0.1f;
+                float removed = 0;
+                float multiplier = Mathf.lerp(0.25f, 1f, fa / liquidCapacity);
+                if(fa >= threshold) {
+                    if (o) {
+                        removed += Math.min(Mathf.clamp(fa - threshold) * multiplier, fr);
+                    } else {
+                        removed += Mathf.clamp(fa - threshold) * multiplier;
+                    }
+                }
+
+                fluxListGeneral[fluxListNum] = fa - fluxRestGeneral;
+                fluxListGeneral[fluxListNum] /= delta();
+                removed += Math.min(0.01f, Math.max(0.001f, fa * 0.2f * multiplier));
+                removed = Math.min(fa, removed * delta());
+                if(!outputSame)liquids.remove(fl, removed);
+
+                fluxRestGeneral = fa - removed - inputRate * efficiencyScale() * delta();
+                if(fluxRestGeneral < 0)fluxRestGeneral = 0;
+
+                float avg = 0f;
+                for(int i = 0; i < 60; i++){
+                    avg += fluxListGeneral[i];
+                }
+                avg /= 60;
+
+                if(!outputSame)fluxRateGeneral = Mathf.approachDelta(fluxRateGeneral, avg, 0.1f * Math.max(fluxRateGeneral - avg, 0.1f));
+                if(fluxRateGeneral < 0)fluxRateGeneral = 0;
+                if(outputSame){
+                    fluxRateGeneral = fr * efficiencyScale();
+                    fluxOutputSameGeneral = true;
                 }
             }
 
             if (canProduce) {
                 for (LiquidStack stack : active.inputLiquids) {
                     float consume = stack.amount * delta() * totalRatio;
+                    boolean inputSame = (active.requireFlux && active.fluxLiquid == stack.liquid && active.minFlux > 0)
+                            || (requireFluxGeneral && fluxLiquidGeneral == stack.liquid && minFluxGeneral > 0);
                     if (active != null && active.scaleLiquidConsumption) consume *= efficiencyMultiplier();
-                    if (consume > 0) liquids.remove(stack.liquid, consume);
-
+                    if (consume > 0 && !inputSame) liquids.remove(stack.liquid, consume);
                 }
                 progress += delta() / active.craftTime * totalRatio;
                 warmup = Mathf.lerpDelta(warmup, warmupTarget(), warmupRate);
@@ -1548,6 +1652,14 @@ public class MultiCrafter extends HeatCrafter {
                     float inc = delta() * totalRatio;
                     for (LiquidStack out : active.outputLiquids) {
                         float amt = out.amount * inc;
+                        if(active.requireFlux && fluxOutputSame && out.liquid == active.fluxLiquid) {
+                            amt -= active.minFlux * inc;
+                            //Log.info("flux -");
+                        }
+                        if(requireFluxGeneral && fluxOutputSameGeneral && out.liquid == fluxLiquidGeneral) {
+                            amt -= minFluxGeneral * inc;
+                            //Log.info("flux general -");
+                        }
                         if (amt > 0) {
                             float canAdd = Math.min(amt, liquidCapacity - liquids.get(out.liquid));
                             if (canAdd > 0) { handleLiquid(this, out.liquid, canAdd); outputLiquidsSet.add(out.liquid); }
@@ -1665,11 +1777,13 @@ public class MultiCrafter extends HeatCrafter {
             for (Liquid liquid : liquidsToDump) {
                 if (liquids.get(liquid) > 0.001f) {
                     int dir = -1;
+                    //boolean same = (activeRecipe != null && activeRecipe.requireFlux && activeRecipe.fluxLiquid == liquid) || (requireFluxGeneral && fluxLiquidGeneral == liquid);
+                    float scaling = 2f;
                     if (activeRecipe != null && activeRecipe.outputLiquids.length > 0)
                         for (int i = 0; i < activeRecipe.outputLiquids.length; i++)
                             if (activeRecipe.outputLiquids[i].liquid == liquid && i < activeRecipe.liquidOutputDirections.length)
                             { dir = activeRecipe.liquidOutputDirections[i]; break; }
-                    dumpLiquid(liquid, 2f, dir);
+                    dumpLiquid(liquid,scaling,dir);
                 }
             }
             if (selectRecipe == 0) {
@@ -1696,6 +1810,23 @@ public class MultiCrafter extends HeatCrafter {
             }
         }
 
+        public void dumpLiquidFlux(Liquid liquid, float scaling, int outputDir) {
+            int dump = this.cdump;
+            if (liquids.get(liquid) <= 1.0E-4F) return;
+            if (!net.client() && state.isCampaign() && team == state.rules.defaultTeam) liquid.unlock();
+            for (int i = 0; i < proximity.size; i++) {
+                incrementDump(proximity.size);
+                Building other = proximity.get((i + dump) % proximity.size);
+                if (outputDir != -1 && (outputDir + rotation) % 4 != relativeTo(other)) continue;
+                other = other.getLiquidDestination(this, liquid);
+                if (other != null && other.block.hasLiquids && canDumpLiquid(other, liquid) && other.liquids != null) {
+                    float ofract = other.liquids.get(liquid) / other.block.liquidCapacity;
+                    float fract = liquids.get(liquid) / block.liquidCapacity;
+                    if (ofract < fract) transferLiquid(other, (fract - ofract) * block.liquidCapacity / scaling, liquid);
+                }
+            }
+        }
+
         private Payload createPayload(UnlockableContent c) {
             if (c instanceof Block b) return new BuildPayload(b, team);
             else if (c instanceof UnitType u) return new UnitPayload(u.create(team));
@@ -1712,8 +1843,11 @@ public class MultiCrafter extends HeatCrafter {
 
         @Override public float warmupTarget() {
             Recipe rec = getCurrentRecipe();
-            if (rec != null && rec.inputHeat > 0) { if (heatRequirement() <= 0) return 1f; return Mathf.clamp(heatInput / heatRequirement()); }
-            return 1f;
+            float w = 1f;
+            if (rec != null && rec.inputHeat > 0) {
+                if (heatRequirement() > 0) w *= Mathf.clamp(heatInput / heatRequirement());
+            }
+            return w;
         }
 
         @Override public float efficiencyScale() {
@@ -1731,13 +1865,18 @@ public class MultiCrafter extends HeatCrafter {
                 if (need > 0) scale *= Math.min(have/need, 1f);
             }
             //TODO 定位
-            if(rec.requireFlux && rec.fluxLiquid != null){
-                float have = liquids.get(rec.fluxLiquid), need = rec.minFlux;
-                if (need > 0) scale *= Math.min(have/need, 1f);
+            if(rec.requireFlux && rec.fluxLiquid != null && !fluxOutputSame){
+                float range = rec.fluxFixRange;
+                float need = fluxInputSame ? fluxInputTotal : rec.minFlux;
+                float have = fluxRate + (Math.abs(fluxRate - need) <= range ? range * (fluxRate >= need? Mathf.lerp(1, 0, Mathf.clamp((fluxRate - need) / range)) : 1f) : 0f);
+                if (need > 0) scale *= Mathf.clamp(have/need, 0f, 1f);
+                //Log.info("range:" +range+" need:"+need+"have:"+have);
             }
-            if(requireFluxGeneral && fluxLiquidGeneral != null){
-                float have = liquids.get(fluxLiquidGeneral), need = minFluxGeneral;
-                if (need > 0) scale *= Math.min(have/need, 1f);
+            if(requireFluxGeneral && fluxLiquidGeneral != null && !fluxOutputSameGeneral){
+                float range = fluxFixRangeGeneral;
+                float need = fluxInputSameGeneral ? fluxInputTotalGeneral : minFluxGeneral;
+                float have = fluxRateGeneral + (Math.abs(fluxRateGeneral - need) <= range ? range * (fluxRateGeneral >= need? Mathf.lerp(1, 0, Mathf.clamp((fluxRateGeneral - need) / range)) : 1f) : 0f);
+                if (need > 0) scale *= Mathf.clamp(have/need, 0f, 1f);
             }
 
             for (ItemStack stack : rec.inputItems) if (items.get(stack.item) < stack.amount) return 0f;
@@ -1980,6 +2119,8 @@ public class MultiCrafter extends HeatCrafter {
         public Liquid fluxLiquid = Liquids.hydrogen;
         public float minFlux = 0.1f;
         public boolean fluxOverconsumption = true;
+        public float minFluxDisplayed = -1;
+        public float fluxFixRange = 0.2f / 60f;
 
         //多余产物焚化
         public boolean incinerateOverproducedItems = false;

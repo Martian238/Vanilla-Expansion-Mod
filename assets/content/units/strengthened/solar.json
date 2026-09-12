@@ -56,7 +56,7 @@
         "trailWidth": 4,
         "trailLength": 8,
         "despawnEffect": "massiveExplosion",
-        "splashDamageRadius": 48,
+        "splashDamageRadius": 68,
         "splashDamage": 57,
         "hitShake": 4,
         "despawnShake": 4,

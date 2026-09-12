@@ -52,9 +52,9 @@ public class WarpAbility extends Ability {
         width = warpTrailWidth;
         laserEffect = Fx.chainLightning;
         sideLength = 0f;
-        colors[0].set(warpTrailColor.a(0.5f));
-        colors[1].set(warpTrailColor);
-        colors[2].set(Color.white);
+        //colors[0].set(warpTrailColor.a(0.5f));
+        //colors[1].set(warpTrailColor);
+        //colors[2].set(Color.white);
         hitColor = warpTrailColor;
     }};
 

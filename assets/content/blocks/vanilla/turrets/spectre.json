@@ -1,5 +1,30 @@
 {
   "soundPitchMax": 1.02,
   "soundPitchMin": 0.98,
-  "shownPlanets": { "add": [ "thavina" ] }
+  "shownPlanets": { "add": [ "thavina" ] },
+  "ammoTypes": {
+    "add": true,
+    "dense-alloy": {
+      "speed": 8,
+      "damage": 80,
+      "pierceArmor": true,
+      "buildingDamageMultiplier": 0.3,
+      "backColor": "f9a3b0",
+      "pierceCap": 3,
+      "pierce": true,
+      "pierceBuilding": false,
+      "shootEffect": "shootBig",
+      "smokeEffect": "shootBigSmoke",
+      "frontColor": "ffffff",
+      "width": 16,
+      "height": 23,
+      "hitSize": 5,
+      "knockback": 1,
+      "hitEffect": "hitBulletColor",
+      "despawnEffect": "hitBulletColor",
+      "hitColor": "f9a3b0",
+      "ammoMultiplier": 3,
+      "trailColor": "f9a3b0"
+    }
+  }
 }

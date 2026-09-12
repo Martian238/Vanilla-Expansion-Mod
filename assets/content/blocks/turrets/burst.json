@@ -403,6 +403,7 @@
   "recoil": 4,
   "ammoPerShot": 4,
   "shootSound": "shootRipple",
+  "unitSort": "grouped",
   "shootX": 0,
   "shootY": 11.25,
   "reload": 80,

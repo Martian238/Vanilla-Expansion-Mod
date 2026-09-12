@@ -29,7 +29,7 @@
   "coolantMultiplier": 80,
   "reload": 60,
   "recoil": 0,
-  "unitSort": "strongest",
+  "unitSort": "grouped",
   "shootSound": "none",
   "targetUnderBlocks": false,
   "shootType": {

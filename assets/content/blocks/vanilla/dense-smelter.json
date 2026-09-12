@@ -1,0 +1,85 @@
+{
+  //"type": "GenericCrafter",
+  "requirements": [
+    "lead/100","thorium/60","graphite/70","silicon/40"
+  ],
+  "researchCost": [ "aluminium/75","graphite/50","lead/40","ferrum/20" ],
+  "category": "crafting",
+  "research": {
+    "parent": "surge-smelter",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "nuclearComplex"
+      }
+    ]
+  },
+  "shownPlanets": [ "serpulo","thavina" ],
+  "size": 3,
+  "craftTime": 120,
+  "itemCapacity": 20,
+  "liquidCapacity": 60,
+  "hasItems": true,
+  "hasLiquids": true,
+  "hasPower": true,
+  "consumes": {
+    "items": {
+      "items": [ "copper/5","thorium/2" ]
+    },
+    "liquids": {
+      "liquids": [ "water/0.1" ]
+    },
+    "power": 4
+  },
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.1,
+  "craftEffect": {
+    "type": "RadialEffect",
+    "effect": {
+      "type": "MultiEffect",
+      "effects": [ "heatReactorSmoke",
+        "smeltsmoke" ]
+    },
+    "rotationOffset": -45,
+    "rotationSpacing": 180,
+    "amount": 2,
+    "lengthOffset": 2.65
+  },
+  "outputItems": [ "dense-alloy/2" ],
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      { "type": "DrawDefault" },
+      {
+        "type": "DrawGlowRegion",
+        "suffix": "-flame",
+        "alpha": 0.9,
+        "color": "ffffff",
+        "blending": "normal",
+        "glowIntensity": 0,
+        "layer": -1
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "fbccd3",
+        "flameX": 1.875,
+        "flameY": -1.875,
+        "flameRadius": 4
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "fbccd3",
+        "flameX": -1.875,
+        "flameY": 1.875,
+        "flameRadius": 4
+      },
+      {
+        "type": "DrawFlame",
+        "flameColor": "fbccd300",
+        "flameX": 1.875,
+        "flameY": -1.875,
+        "flameRadius": 4
+      }
+    ]
+  }
+}

@@ -4,6 +4,7 @@
   "category": "turret",
   "size": 4,
   "outlineColor": "2d2f39",
+  "unitSort": "grouped",
   "ammoTypes": {
     "dense-melon-dirt": {
       "ammoMultiplier": 15,
@@ -3469,7 +3470,6 @@
   "minWarmup": 0.95,
   "coolantMultiplier": 2,
   "warmupMaintainTime": 120,
-  "unitSort": "strongest",
   "predictTarget": false,
   "consumes": {
     "coolant": {

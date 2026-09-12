@@ -1,0 +1,12 @@
+{
+  //"type": "Wall",
+  "requirements": [ "dense-alloy/24" ],
+  "size": 2,
+  "health": 4000,
+  "armor": 14,
+  "category": "defense",
+  "research": {
+    "parent": "dense-wall"
+  },
+  "shownPlanets": [ "serpulo","thavina" ]
+}

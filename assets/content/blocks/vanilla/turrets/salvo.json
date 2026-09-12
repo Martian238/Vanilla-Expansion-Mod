@@ -1,0 +1,25 @@
+{
+  "shownPlanets": { "add": [ "thavina" ] },
+  "ammoTypes": {
+    "add": true,
+    "dense-alloy": {
+      "speed": 4,
+      "damage": 28,
+      "pierceArmor": true,
+      "buildingDamageMultiplier": 0.5,
+      "backColor": "f9a3b0",
+      "shootEffect": "shootBig",
+      "smokeEffect": "shootBigSmoke",
+      "lifetime": 60,
+      "frontColor": "ffffff",
+      "width": 8,
+      "height": 13,
+      "hitSize": 5,
+      "knockback": 0.4,
+      "hitEffect": "hitBulletColor",
+      "despawnEffect": "hitBulletColor",
+      "hitColor": "f9a3b0",
+      "ammoMultiplier": 4
+    }
+  }
+}

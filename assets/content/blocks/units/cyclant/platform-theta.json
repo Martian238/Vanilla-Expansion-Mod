@@ -11,9 +11,11 @@
   "research": {
     "parent": "isomorphic-core-shard",
     "objectives": [
-      "isomorphic-core-shard",
-      "ground-factory",
-      "salt-electrolyzer"
+      "ground-fabricator",
+      {
+        "type": "OnSector",
+        "preset": "fort-port"
+      }
     ]
   },
   "itemCapacity": 1,

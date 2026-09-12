@@ -4,6 +4,7 @@
   "category": "turret",
   "outlineColor": "2d2f39",
   "size": 4,
+  "unitSort": "grouped",
   "ammoTypes": {
     "chlorine": {
       "ammoMultiplier": 0.0666667,

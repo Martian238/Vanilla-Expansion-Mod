@@ -1,0 +1,9 @@
+{
+  "color": "f9a3b0",
+  "healthScaling": 1,
+  "cost": 1.3,
+  "research": "thorium",
+  "radioactivity": 0.4,
+  "shownPlanets": [ "serpulo","thavina" ],
+  "databaseTag": "processed-item"
+}
