@@ -11,7 +11,7 @@
   "outlineColor": "505040",
   "engineSize": 0,
   "health": 18000,
-  "armor": 25,
+  "armor": 35,
   "targetFlags": [ "turret" ],
   "strafePenalty": 1,
   "itemCapacity": 300,

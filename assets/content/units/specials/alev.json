@@ -15,7 +15,7 @@
   "lowAltitude": true,
   "riseSpeed": 0.02,
   "health": 8200,
-  "armor": 9,
+  "armor": 16,
   "canBoost": true,
   "mechLandShake": 4,
   "immunities": [ "burning","interrupted","dusty","frozen" ],

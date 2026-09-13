@@ -105,9 +105,10 @@
       }
     },
     {
+      "type": "VanillaExpansion.expand.units.IotaFinalMissileWeapon",//Java. Only for key press to shoot.
       "name": "iota-final-missile-weapon",
       "top": true,
-      "x": 4,
+      "x": 0,
       "y": -4,
       "baseRotation": 180,
       "rotate": false,
@@ -116,15 +117,32 @@
       "recoil": 0,
       "reload": 240,
       "shootWarmupSpeed": 0.2,
+      "recoils": 2,
+      "recoilTime": 240,
+      "mirror": false,
+      "shoot": {
+        "type": "ShootAlternate",
+        "spread": 8
+      },
       "bullet": {
         "spawnUnit": "iota-final-missile",
-        "speed": 999,
-        "shootEffect": "none",
+        "speed": 99999,
+        "shootEffect": {
+          "type": "WaveEffect",
+          "colorFrom": "ffd37f",
+          "colorTo": "ffd37f",
+          "sides": 4,
+          "sizeFrom": 0,
+          "sizeTo": 8,
+          "strokeFrom": 2,
+          "strokeTo": 0,
+          "lifetime": 15
+        },
         "smokeEffect": "none",
         "angleOffset": 180
       },
       "parts": [
-        {
+        /*{
           "type": "RegionPart",
           "name": "ve-square-effect",
           "xScl": 0.1,
@@ -156,6 +174,23 @@
           "layer": 79.99,
           "colorTo": "d4816b",
           "progress": "warmup"
+        },*/
+        {
+          "type": "RegionPart",
+          "name": "ve-iota-final-missile-full",
+          "rotation": 180,
+          "outline": false,
+          "under": false,
+          "colorTo": "ffffff00",
+          "color": "ffffff",
+          "x": -4,
+          "recoilIndex": 0,
+          "progress": {
+            "type": "recoil",
+            "op": "compress",
+            "end": 0.1,
+            "start": 0
+          }
         },
         {
           "type": "RegionPart",
@@ -165,8 +200,10 @@
           "under": false,
           "colorTo": "ffffff00",
           "color": "ffffff",
+          "x": 4,
+          "recoilIndex": 1,
           "progress": {
-            "type": "reload",
+            "type": "recoil",
             "op": "compress",
             "end": 0.1,
             "start": 0

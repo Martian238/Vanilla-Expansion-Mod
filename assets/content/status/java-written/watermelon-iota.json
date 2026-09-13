@@ -1,0 +1,10 @@
+{
+  "effect": "none",
+  "color": "ff5555",
+  "damage": -5,
+  "permanent": false,
+  "buildSpeedMultiplier": 0.25,
+  "parentizeEffect": true,
+  "show": true,
+  "generateIcons": false
+}

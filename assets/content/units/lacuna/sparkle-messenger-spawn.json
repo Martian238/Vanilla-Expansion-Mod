@@ -12,7 +12,7 @@
   "wobble": false,
   "targetable": false,
   "health": 400,
-  "armor": 9,
+  "armor": 10,
   "rotateSpeed": 0,
   "speed": 0,
   "drag": 1,

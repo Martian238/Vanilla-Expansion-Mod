@@ -11,7 +11,7 @@
   "outlineColor": "505040",
   "engineSize": 0,
   "health": 900,
-  "armor": 13,
+  "armor": 15,
   "targetFlags": [ "storage","generator" ],
   "strafePenalty": 1,
   "itemCapacity": 30,

@@ -7,7 +7,7 @@
   "hitSize": 18,
   "rotateSpeed": 3.5,
   "health": 9000,
-  "armor": 11,
+  "armor": 18,
   "legStraightness": 0.3,
   "stepShake": 1,
   "legCount": 4,

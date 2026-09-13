@@ -4,7 +4,7 @@
       "type": "ParticleEffect",
       "sizeInterp": "slope",
       "sizeFrom": 0,
-      "sizeTo": 2,
+      "sizeTo": 3,
       "colorFrom": "ffa665",
       "colorTo": "ff3665",
       "length": 0,

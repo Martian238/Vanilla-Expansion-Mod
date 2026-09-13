@@ -7,7 +7,7 @@
   "treadFrames": 24,
   "rotateSpeed": 1.7,
   "health": 12000,
-  "armor": 22,
+  "armor": 30,
   "itemCapacity": 160,
   "omniMovement": false,
   "squareShape": true,

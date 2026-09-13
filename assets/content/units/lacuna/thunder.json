@@ -11,7 +11,7 @@
   "outlineColor": "505040",
   "engineSize": 0,
   "health": 32000,
-  "armor": 30,
+  "armor": 40,
   "targetFlags": [ "core" ],
   "strafePenalty": 1,
   "itemCapacity": 400,

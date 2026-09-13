@@ -20,7 +20,7 @@ import mindustry.world.blocks.production.GenericCrafter;
 public class LargeTeamProjector extends GenericCrafter {
     public LargeTeamProjector(String name){
         super(name);
-        clipSize = 8000f;
+        clipSize = 16000f;
         ambientSound = Sounds.none;
 
         configurable = true;

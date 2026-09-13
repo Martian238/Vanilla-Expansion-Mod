@@ -9,7 +9,7 @@
   "rotateSpeed": 1,
   "accel": 0.05,
   "health": 42000,//42000
-  "armor": 21,
+  "armor": 32,
   "engineOffset": 62,
   "engineSize": 0,
   "researchCostMultiplier": 0.03,

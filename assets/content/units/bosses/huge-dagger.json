@@ -2,7 +2,7 @@
   "type": "mech",
   "databaseTag": "10special-unit",
   "health": 97000,//71680
-  "armor": 36,
+  "armor": 40,
   "hitSize": 128,
   "speed": 0.6,
   "rotateSpeed": 0.8,

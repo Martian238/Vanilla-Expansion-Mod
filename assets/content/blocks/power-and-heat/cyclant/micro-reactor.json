@@ -20,6 +20,7 @@
     "item": "thorium"
   },
   "liquidCapacity": 20,
+  "explosionScorchSize": 4,
   "lightColor": "bf92f9",
   "flashThreshold": 0.01,
   "heatOutput": 6,

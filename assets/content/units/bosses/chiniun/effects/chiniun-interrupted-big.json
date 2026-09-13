@@ -144,7 +144,7 @@
           "particles": 5
         },
         "damage": -100,
-        "status": "watermelon",
+        "status": "watermelon-iota",
         "statusDuration": 180,
         "hittable": false,
         "absorbable": false,

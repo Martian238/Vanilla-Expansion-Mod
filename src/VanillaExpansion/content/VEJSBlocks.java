@@ -174,6 +174,7 @@ public class VEJSBlocks {
         // group 11.2 火星其他工厂
         new MultiCrafter("config-melter");
         new GenericCrafter("catalyzon-workshop");
+        new MultiCrafter("alchemer");
         new MultiCrafter("m-upgraded-reaction-pool");
         new HeatCrafter("thermoplastic-compressor");
         new HeatButNoHeatCanStillWorkCrafter("pickling-pool");

@@ -617,7 +617,7 @@ public class MultiCrafter extends HeatCrafter {
                             }
                         }
                     }
-                    if(recipes.contains(r -> r.requireFlux && r.fluxLiquid != null)){
+                    if(rec.requireFlux && rec.minFlux > 0 && rec.fluxLiquid != null){
                         t.row();
                         t.add("[lightgray]" + Core.bundle.get("stat.multicrafter.flux") + ":[]").padRight(8);
                         t.add(StatValues.displayLiquid(rec.fluxLiquid, rec.minFluxDisplayed * 60f, true)).padRight(8);
@@ -702,16 +702,15 @@ public class MultiCrafter extends HeatCrafter {
         if (recipes.contains(r -> r.requireFlux && r.fluxLiquid != null)){
             addBar("flux", (MultiCrafterBuild entity) -> {
                 Recipe rec = entity.getCurrentRecipe();
-                if (rec == null){
+                if (rec == null || !rec.requireFlux){
                     return new Bar(
-                            () -> Core.bundle.format("bar.multicrafter.liquidflux","", 0, 0),
+                            () -> Core.bundle.format("bar.multicrafter.liquidflux","", "-", "-"),
                             () -> Pal.gray,
                             () -> Mathf.clamp(0)
                     );
                 }
-
                 return new Bar(
-                        () -> Core.bundle.format("bar.multicrafter.liquidflux",rec.fluxLiquid.localizedName, entity.fluxOutputSame? entity.efficiencyScale() * rec.minFluxDisplayed * 60 : entity.fluxRate * 60, rec.minFluxDisplayed * 60),
+                        () -> Core.bundle.format("bar.multicrafter.liquidflux", rec.fluxLiquid.localizedName, entity.fluxOutputSame? entity.efficiencyScale() * rec.minFluxDisplayed * 60 : entity.fluxRate * 60, rec.minFluxDisplayed * 60),
                         rec.fluxLiquid::barColor,
                         () -> Mathf.clamp(entity.fluxOutputSame? entity.efficiencyScale() : entity.fluxRate / rec.minFluxDisplayed)
                 );
@@ -1582,16 +1581,16 @@ public class MultiCrafter extends HeatCrafter {
                 boolean outputSame = false;
                 float outputRate = 0f;
                 float inputRate = 0f;
-                if(active.outputLiquids != null){
-                    for(LiquidStack l : active.outputLiquids) {
+                if (active != null && active.outputLiquids != null) {
+                    for (LiquidStack l : active.outputLiquids) {
                         if (l.liquid == fluxLiquidGeneral) {
                             outputSame = true;
                             outputRate += l.amount;
                         }
                     }
                 }
-                if(active.inputLiquids != null){
-                    for(LiquidStack l : active.inputLiquids) {
+                if (active != null && active.inputLiquids != null) {
+                    for (LiquidStack l : active.inputLiquids) {
                         if (l.liquid == fluxLiquidGeneral) {
                             fluxInputSameGeneral = true;
                             inputRate += l.amount;

@@ -11,7 +11,7 @@
   "rotateSpeed": 12,
   "accel": 0.1,
   "health": 460,
-  "armor": 3,
+  "armor": 7,
   "engineOffset": 8,
   "engineSize": 3.25,
   "hitSize": 15,

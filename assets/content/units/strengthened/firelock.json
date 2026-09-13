@@ -4,7 +4,7 @@
   "speed": 0.52,
   "hitSize": 24,
   "health": 18000,//14000
-  "armor": 18,
+  "armor": 28,
   "mechFrontSway": 1.4,
   "mechSideSway": 0.7,
   "rotateSpeed": 1.7,

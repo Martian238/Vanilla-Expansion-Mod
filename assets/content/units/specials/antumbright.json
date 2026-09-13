@@ -7,7 +7,7 @@
   "flying": true,
   "lowAltitude": true,
   "health": 7200,
-  "armor": 9,
+  "armor": 17,
   "engineOffset": 21,
   "engineSize": 5.3,
   //"engineLayer": 100,

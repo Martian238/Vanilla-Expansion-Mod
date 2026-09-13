@@ -1,0 +1,1153 @@
+{
+  "requirements": [ "graphite/200","silicide/100","ferrum/150","thorium/75" ],
+  "category": "crafting",
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawDefault"
+      },
+      {
+        "type": "DrawBlockParts",
+        "parts": [
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "shading": false,
+            "invisible": true,
+            "rotation": 90,
+            "outline": false,
+            "moveRot": 45,
+            "progress": {
+              "type": "time",
+              "ops": [
+                {
+                  "op": "loop",
+                  "time": 180
+                },
+                {
+                  "op": "compress",
+                  "start": 0.1,
+                  "end": 0.333
+                },
+                {
+                  "op": "curve",
+                  "interp": "sine"
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow2Out"
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "warmup",
+                    "op": "curve",
+                    "interp": "sine"
+                  }
+                }
+              ]
+            },
+            "children": [
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "rotation": 0,
+                "outline": false,
+                "name": "ve-alchemer-piston",
+                "x": -1,
+                "layer": 30.03,
+                "moves": [
+                  {
+                    "x": 2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.2,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": -2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.7,
+                          "end": 0.8
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "rotation": 90,
+                "outline": false,
+                "name": "ve-alchemer-piston",
+                "y": -1,
+                "layer": 30.03,
+                "moves": [
+                  {
+                    "y": 2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.2,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.7,
+                          "end": 0.8
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "rotation": 180,
+                "outline": false,
+                "name": "ve-alchemer-piston",
+                "x": 1,
+                "layer": 30.03,
+                "moves": [
+                  {
+                    "x": -2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.2,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": 2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.7,
+                          "end": 0.8
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "rotation": -90,
+                "outline": false,
+                "name": "ve-alchemer-piston",
+                "y": 1,
+                "layer": 30.03,
+                "moves": [
+                  {
+                    "y": -2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.2,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.7,
+                          "end": 0.8
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+            "shading": false,
+            "invisible": true,
+            "rotation": 135,
+            "outline": false,
+            "moveRot": 45,
+            "progress": {
+              "type": "time",
+              "ops": [
+                {
+                  "op": "loop",
+                  "time": 180
+                },
+                {
+                  "op": "compress",
+                  "start": 0.1,
+                  "end": 0.333
+                },
+                {
+                  "op": "curve",
+                  "interp": "sine"
+                },
+                {
+                  "op": "curve",
+                  "interp": "pow2Out"
+                },
+                {
+                  "op": "mul",
+                  "other": {
+                    "type": "warmup",
+                    "op": "curve",
+                    "interp": "sine"
+                  }
+                }
+              ]
+            },
+            "children": [
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "rotation": 0,
+                "outline": false,
+                "name": "ve-alchemer-piston",
+                "x": -1,
+                "layer": 30.03,
+                "moves": [
+                  {
+                    "x": 2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.2,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": -2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.7,
+                          "end": 0.8
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "rotation": 90,
+                "outline": false,
+                "name": "ve-alchemer-piston",
+                "y": -1,
+                "layer": 30.03,
+                "moves": [
+                  {
+                    "y": 2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.2,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": -2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.7,
+                          "end": 0.8
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "rotation": 180,
+                "outline": false,
+                "name": "ve-alchemer-piston",
+                "x": 1,
+                "layer": 30.03,
+                "moves": [
+                  {
+                    "x": -2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.2,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "x": 2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.7,
+                          "end": 0.8
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+                "rotation": -90,
+                "outline": false,
+                "name": "ve-alchemer-piston",
+                "y": 1,
+                "layer": 30.03,
+                "moves": [
+                  {
+                    "y": -2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.2,
+                          "end": 0.3
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "y": 2,
+                    "progress": {
+                      "type": "time",
+                      "ops": [
+                        {
+                          "op": "loop",
+                          "time": 360
+                        },
+                        {
+                          "op": "compress",
+                          "start": 0.7,
+                          "end": 0.8
+                        },
+                        {
+                          "op": "curve",
+                          "interp": "pow2Out"
+                        },
+                        {
+                          "op": "mul",
+                          "other": {
+                            "type": "warmup",
+                            "op": "curve",
+                            "interp": "sine"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-shadow",
+        "layer": 30.05
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": "-body",
+        "layer": 30.15
+      }
+    ]
+  },
+  "armor": 12,
+  "size": 4,
+  "research": {
+    "parent": "config-melter",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "slate-guardpost"
+      }
+    ]
+  },
+  "researchCostMultiplier": 0.1,
+  "itemCapacity": 100,
+  "liquidCapacity": 60,
+  "hasItems": true,
+  "hasLiquids": true,
+  "rotate": true,
+  "rotateDraw": false,
+  "drawArrow": true,
+  "dumpTime": 1,
+  "ambientSound": "loopSmelter",
+  "ambientSoundVolume": 0.14,
+  "recipe": [
+    {
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.1,
+      "inputLiquids": [ "lava/0.53333333333" ],
+      "randomResults": [ "quartz/30","aluminium/35","ferrum/30","thorium/55" ],
+      "outputHeat": 40,
+      "inputPower": 2.5,
+      "craftTime": 3,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawHeatOutput"
+          },
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-alchemer-lights",
+                "color": "f25555",
+                "colorTo": "ffa665",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-alchemer-lights-glow",
+                "color": "f2555560",
+                "colorTo": "ffa66580",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "EffectSpawnerPart",
+                "width": 2,
+                "height": 2,
+                "effect": "vapor",
+                "effectColor": "feb380",
+                "effectRandRot": 360,
+                "effectInterval": 12,
+                "effectIntervalFrom": 216000,
+                "progress": "warmup"
+              },
+              {
+                "type": "RegionPart",
+                "xScl": 0.2,
+                "yScl": 0.2,
+                "blending": "additive",
+                "color": "feb38000",
+                "colorTo": "feb380",
+                "progress": {
+                  "type": "warmup",
+                  "op": "mul",
+                  "other": {
+                    "type": "warmup",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.1,
+                        "scl": 10
+                      },
+                      {
+                        "op": "add",
+                        "amount": 0.9
+                      }
+                    ]
+                  }
+                },
+                "outline": false,
+                "name": "ve-circle-soft",
+                "layer": 30.13
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "inputLiquids": [ "lava/1.6" ],
+      "outputItems": [ "quartz/10" ],
+      "requireFlux": false,
+      "outputHeat": 40,
+      "inputPower": 1.5,
+      "craftTime": 20,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawHeatOutput"
+          },
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-alchemer-lights",
+                "color": "f25555",
+                "colorTo": "ffa665",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-alchemer-lights-glow",
+                "color": "f2555560",
+                "colorTo": "ffa66580",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "EffectSpawnerPart",
+                "width": 2,
+                "height": 2,
+                "effect": "vapor",
+                "effectColor": "feb380",
+                "effectRandRot": 360,
+                "effectInterval": 12,
+                "effectIntervalFrom": 216000,
+                "progress": "warmup"
+              },
+              {
+                "type": "RegionPart",
+                "xScl": 0.2,
+                "yScl": 0.2,
+                "blending": "additive",
+                "color": "feb38000",
+                "colorTo": "feb380",
+                "progress": {
+                  "type": "warmup",
+                  "op": "mul",
+                  "other": {
+                    "type": "warmup",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.1,
+                        "scl": 10
+                      },
+                      {
+                        "op": "add",
+                        "amount": 0.9
+                      }
+                    ]
+                  }
+                },
+                "outline": false,
+                "name": "ve-circle-soft",
+                "layer": 30.13
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.1,
+      "inputLiquids": [ "lava/1.6" ],
+      "outputItems": [ "aluminium/6" ],
+      "outputHeat": 40,
+      "inputPower": 2,
+      "craftTime": 20,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawHeatOutput"
+          },
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-alchemer-lights",
+                "color": "f25555",
+                "colorTo": "eae3c3",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-alchemer-lights-glow",
+                "color": "f2555560",
+                "colorTo": "eae3c380",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "EffectSpawnerPart",
+                "width": 2,
+                "height": 2,
+                "effect": "vapor",
+                "effectColor": "eae3c3",
+                "effectRandRot": 360,
+                "effectInterval": 12,
+                "effectIntervalFrom": 216000,
+                "progress": "warmup"
+              },
+              {
+                "type": "RegionPart",
+                "xScl": 0.2,
+                "yScl": 0.2,
+                "blending": "additive",
+                "color": "eae3c300",
+                "colorTo": "eae3c3",
+                "progress": {
+                  "type": "warmup",
+                  "op": "mul",
+                  "other": {
+                    "type": "warmup",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.1,
+                        "scl": 10
+                      },
+                      {
+                        "op": "add",
+                        "amount": 0.9
+                      }
+                    ]
+                  }
+                },
+                "outline": false,
+                "name": "ve-circle-soft",
+                "layer": 30.13
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.1,
+      "inputLiquids": [ "lava/1.6" ],
+      "outputItems": [ "ferrum/5" ],
+      "outputHeat": 40,
+      "inputPower": 2.5,
+      "craftTime": 20,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawHeatOutput"
+          },
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-alchemer-lights",
+                "color": "f25555",
+                "colorTo": "edd1cb",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-alchemer-lights-glow",
+                "color": "f2555560",
+                "colorTo": "edd1cb80",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "EffectSpawnerPart",
+                "width": 2,
+                "height": 2,
+                "effect": "vapor",
+                "effectColor": "edd1cb",
+                "effectRandRot": 360,
+                "effectInterval": 12,
+                "effectIntervalFrom": 216000,
+                "progress": "warmup"
+              },
+              {
+                "type": "RegionPart",
+                "xScl": 0.2,
+                "yScl": 0.2,
+                "blending": "additive",
+                "color": "edd1cb00",
+                "colorTo": "edd1cb",
+                "progress": {
+                  "type": "warmup",
+                  "op": "mul",
+                  "other": {
+                    "type": "warmup",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.1,
+                        "scl": 10
+                      },
+                      {
+                        "op": "add",
+                        "amount": 0.9
+                      }
+                    ]
+                  }
+                },
+                "outline": false,
+                "name": "ve-circle-soft",
+                "layer": 30.13
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.1,
+      "inputLiquids": [ "lava/1.6" ],
+      "outputItems": [ "thorium/8" ],
+      "outputHeat": 40,
+      "inputPower": 3,
+      "craftTime": 20,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawHeatOutput"
+          },
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "RegionPart",
+                "name": "ve-alchemer-lights",
+                "color": "f25555",
+                "colorTo": "f9a3c7",
+                "outline": false,
+                "layer": 31.9,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "RegionPart",
+                "name": "ve-alchemer-lights-glow",
+                "color": "f2555560",
+                "colorTo": "f9a3c780",
+                "outline": false,
+                "blending": "additive",
+                "layer": 31.91,
+                "rotation": 90,
+                "progress": {
+                  "type": "warmup",
+                  "op": "curve",
+                  "interp": "sine"
+                }
+              },
+              {
+                "type": "EffectSpawnerPart",
+                "width": 2,
+                "height": 2,
+                "effect": "vapor",
+                "effectColor": "f9a3c7",
+                "effectRandRot": 360,
+                "effectInterval": 12,
+                "effectIntervalFrom": 216000,
+                "progress": "warmup"
+              },
+              {
+                "type": "RegionPart",
+                "xScl": 0.2,
+                "yScl": 0.2,
+                "blending": "additive",
+                "color": "f9a3c700",
+                "colorTo": "f9a3c7",
+                "progress": {
+                  "type": "warmup",
+                  "op": "mul",
+                  "other": {
+                    "type": "warmup",
+                    "ops": [
+                      {
+                        "op": "mul",
+                        "amount": 0
+                      },
+                      {
+                        "op": "sin",
+                        "mag": 0.1,
+                        "scl": 10
+                      },
+                      {
+                        "op": "add",
+                        "amount": 0.9
+                      }
+                    ]
+                  }
+                },
+                "outline": false,
+                "name": "ve-circle-soft",
+                "layer": 30.13
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
