@@ -1,0 +1,9 @@
+{
+  "type": "VanillaExpansion.expand.world.block.defense.HealthTransferBlock",
+  "size": 3,
+  "buildVisibility": "sandboxOnly",
+  "category": "effect",
+  "consumes": {
+    "power": 5
+  }
+}

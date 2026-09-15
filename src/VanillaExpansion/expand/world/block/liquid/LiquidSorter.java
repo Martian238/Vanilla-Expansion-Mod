@@ -35,6 +35,7 @@ import mindustry.world.blocks.liquid.LiquidRouter;
 import mindustry.world.blocks.sandbox.LiquidVoid;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import static mindustry.Vars.*;
 
@@ -50,25 +51,27 @@ public class LiquidSorter extends LiquidRouter {
         rotate = true;
         rotateDraw = false;
 
-        config(Liquid.class, (SortLiquidBuild tile, Liquid l) -> {
-            tile.sortLiquid = l;
-        });
-        config(String.class, (SortLiquidBuild tile, String text) -> {
-            if(text.length() > maxTextLength){
-                return; //no.
-            }
-            tile.message.ensureCapacity(text.length());
-            tile.message.setLength(0);
-            text = text.trim();
-            int count = 0;
-            for(int i = 0; i < text.length(); i++){
-                char c = text.charAt(i);
-                if(c == '\n'){
-                    if(count++ <= maxNewlines){
-                        tile.message.append('\n');
+
+        config(Object[].class, (SortLiquidBuild tile, Object[] arr) -> {
+            if(arr.length >= 1) tile.sortLiquid = arr[0] == null ? null : (Liquid) arr[0];
+            if(arr.length >= 3){
+                String text = arr[2] == null ? "" : arr[2].toString();
+                if (text.length() > maxTextLength) {
+                    return; //no.
+                }
+                tile.message.ensureCapacity(text.length());
+                tile.message.setLength(0);
+                text = text.trim();
+                int count = 0;
+                for (int i = 0; i < text.length(); i++) {
+                    char c = text.charAt(i);
+                    if (c == '\n') {
+                        if (count++ <= maxNewlines) {
+                            tile.message.append('\n');
+                        }
+                    } else {
+                        tile.message.append(c);
                     }
-                }else{
-                    tile.message.append(c);
                 }
             }
         });
@@ -85,7 +88,7 @@ public class LiquidSorter extends LiquidRouter {
 
             addBar("flux", (SortLiquidBuild entity) -> new Bar(
                     () -> !entity.hasMaxFlux? Core.bundle.format("noflux") : Core.bundle.format("showflux", entity.maxFlux),
-                    () -> !entity.hasMaxFlux? Color.black : (entity.liquids.current() != null? entity.liquids.current().barColor() : Color.lightGray),
+                    () -> !entity.hasMaxFlux? Color.black : (entity.sortLiquid != null? entity.sortLiquid.barColor() : (entity.liquids.current() != null? entity.liquids.current().barColor() : Color.lightGray)),
                     () -> entity.hasMaxFlux? 1f : 0f
             ));
 
@@ -108,6 +111,25 @@ public class LiquidSorter extends LiquidRouter {
     @Override
     public TextureRegion[] icons() {
         return new TextureRegion[]{bottomRegion, region, topRegion};
+    }
+
+
+    public static class SortConfig{
+        public Liquid liquid;
+        public float maxFlux;
+        public String message;
+
+        public SortConfig(Liquid liquid, float maxFlux, String message){
+            this.liquid = liquid;
+            this.maxFlux = maxFlux;
+            this.message = message;
+        }
+
+        public SortConfig(){
+            this.liquid = null;
+            this.maxFlux = 0;
+            this.message = "";
+        }
     }
 
 
@@ -280,9 +302,13 @@ public class LiquidSorter extends LiquidRouter {
             Pools.free(l);
         }
 
+        public void liquidConfig(Liquid l){
+            configure(configToObjects(new SortConfig(l, maxFlux, message.toString())));
+        }
+
         @Override
         public void buildConfiguration(Table table){
-            ItemSelection.buildTable(LiquidSorter.this, table, content.liquids(), () -> sortLiquid, this::configure);
+            ItemSelection.buildTable(LiquidSorter.this, table, content.liquids(), () -> sortLiquid, this::liquidConfig);
             table.row();
             table.image().color(Pal.gray).height(2f).growX().padBottom(4f).row();
             TextButton fluxButton = new TextButton(Core.bundle.format("editflux"), Styles.flatTogglet);
@@ -294,7 +320,7 @@ public class LiquidSorter extends LiquidRouter {
                                 multiline = true;
                                 maxLength = maxTextLength;
                                 accepted = str -> {
-                                    if (!str.contentEquals(contents)) configure(str);
+                                    if (!str.contentEquals(contents)) configure(configToObjects(new SortConfig(sortLiquid, maxFlux, str)));
                                 };
                             }});
                         } else {
@@ -317,7 +343,7 @@ public class LiquidSorter extends LiquidRouter {
                             dialog.cont.row();
                             dialog.cont.label(() -> a.getText().length() + " / " + maxTextLength).color(Color.lightGray);
                             dialog.buttons.button("@ok", () -> {
-                                if (!a.getText().contentEquals(message)) configure(a.getText());
+                                if (!a.getText().contentEquals(message)) configure(configToObjects(new SortConfig(sortLiquid, maxFlux, a.getText())));
                                 dialog.hide();
                             }).size(130f, 60f);
                             dialog.update(() -> {
@@ -335,9 +361,15 @@ public class LiquidSorter extends LiquidRouter {
             table.add(fluxButton).height(40f).growX();
         }
 
+
+
         @Override
-        public Liquid config(){
-            return sortLiquid;
+        public Object[] config(){
+            return configToObjects(new SortConfig(sortLiquid, maxFlux, message.toString()));
+        }
+
+        public Object[] configToObjects(SortConfig cfg){
+            return new Object[]{ cfg.liquid, cfg.maxFlux, cfg.message };
         }
 
         @Override
