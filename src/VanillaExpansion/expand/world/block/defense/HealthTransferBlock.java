@@ -106,14 +106,16 @@ public class HealthTransferBlock extends Block {
         Lines.stroke(1f);
         Draw.color(Pal.placing);
         Drawf.circles(x * tilesize + offset, y * tilesize + offset, linkRange * tilesize);
-        float sx1 = tile.x * tilesize;
-        float sy1 = tile.y * tilesize;
-        sx1 += offset;
-        sy1 += offset;
-        Drawf.dashSquare(healColor, sx1, sy1, healRange * tilesize);
-        indexer.eachBlock(player.team(), Tmp.r1.setCentered(sx1, sy1, healRange * tilesize), b -> true, t -> {
-            Drawf.selected(t, Tmp.c1.set(healColor).a(Mathf.absin(4f, 1f)));
-        });
+        if(tile != null) {
+            float sx1 = tile.x * tilesize;
+            float sy1 = tile.y * tilesize;
+            sx1 += offset;
+            sy1 += offset;
+            Drawf.dashSquare(healColor, sx1, sy1, healRange * tilesize);
+            indexer.eachBlock(player.team(), Tmp.r1.setCentered(sx1, sy1, healRange * tilesize), b -> true, t -> {
+                Drawf.selected(t, Tmp.c1.set(healColor).a(Mathf.absin(4f, 1f)));
+            });
+        }
     }
 
     @Override

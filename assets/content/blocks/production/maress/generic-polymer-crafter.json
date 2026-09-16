@@ -1,0 +1,485 @@
+{
+  "requirements": [ "ferrum/100","plastanium/130","silver/80","silicon/200","catalyzon/60" ],
+  "category": "crafting",
+  "research": {
+    "parent": "thermoplastic-compressor",
+    "objectives": [
+      {
+        "type": "OnSector",
+        "preset": "misty-valley"
+      }
+    ]
+  },
+  "shownPlanets": [ "maress" ],
+  "armor": 4,
+  "size": 4,
+  "researchCostMultiplier": 0.1,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "suffix": "-bottom"
+      },
+      {
+        "type": "DrawRegion",
+        "suffix": ""
+      }
+    ]
+  },
+  "itemCapacity": 120,
+  "liquidCapacity": 120,
+  "recipe": [
+    {
+      "inputItems": [ "ferrum/10","graphite/20" ],
+      "outputItems": [ "fibralt/10" ],
+      "inputPower": 8,
+      "craftTime": 240,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawRegion",
+            "suffix": "",
+            "layer": 30.05
+          },
+          {
+            "type": "VanillaExpansion.expand.world.block.draw.DrawRotatableGlowRegion",//Java but only for a base rotation
+            "layer": 31,
+            "suffix": "-glow",
+            "rotation": 180,
+            "color": "90dbff"
+          },
+          {
+            "type": "DrawRegion",
+            "suffix": "-beam",
+            "color": "90dbff",
+            "rotateSpeed": -5,
+            "layer": 30.02
+          },
+          {
+            "type": "DrawGlowRegion",
+            "suffix": "-beam-glow",
+            "rotateSpeed": -5,
+            "rotate": true,
+            "color": "90dbff",
+            "alpha": 0.7,
+            "glowIntensity": 0.35,
+            "glowScale": 4,
+            "layer": 30.03
+          },
+          {
+            "type": "DrawRegion",
+            "suffix": "-beam",
+            "color": "90dbff",
+            "rotateSpeed": -5,
+            "layer": 30.02,
+            "rotation": 45
+          },
+          {
+            "type": "VanillaExpansion.expand.world.block.draw.DrawRotatableGlowRegion",//Java but only for a base rotation
+            "suffix": "-beam-glow",
+            "rotateSpeed": -5,
+            "rotate": true,
+            "color": "90dbff",
+            "alpha": 0.7,
+            "glowIntensity": 0.35,
+            "glowScale": 4,
+            "layer": 30.03,
+            "rotation": 45
+          }
+        ]
+      },
+      "craftEffectEffect": {
+        "type": "SeqEffect",
+        "effects": [
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 30,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          },
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 24,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          },
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 18,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          },
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 12,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          }
+        ]
+      }
+    },
+    {
+      "inputItems": [ "ferrum/20","graphite/40" ],
+      "outputItems": [ "fibralt/20" ],
+      "inputPower": 4.5,
+      "craftTime": 240,
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.3,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawRegion",
+            "suffix": "",
+            "layer": 30.05
+          },
+          {
+            "type": "VanillaExpansion.expand.world.block.draw.DrawRotatableGlowRegion",//Java but only for a base rotation
+            "layer": 31,
+            "suffix": "-glow",
+            "rotation": 180,
+            "color": "90dbff"
+          },
+          {
+            "type": "DrawRegion",
+            "suffix": "-beam",
+            "color": "90dbff",
+            "rotateSpeed": -8,
+            "layer": 30.02
+          },
+          {
+            "type": "DrawGlowRegion",
+            "suffix": "-beam-glow",
+            "rotateSpeed": -8,
+            "rotate": true,
+            "color": "90dbff",
+            "alpha": 0.7,
+            "glowIntensity": 0.35,
+            "glowScale": 4,
+            "layer": 30.03
+          },
+          {
+            "type": "DrawRegion",
+            "suffix": "-beam",
+            "color": "90dbff",
+            "rotateSpeed": -8,
+            "layer": 30.02,
+            "rotation": 30
+          },
+          {
+            "type": "VanillaExpansion.expand.world.block.draw.DrawRotatableGlowRegion",//Java but only for a base rotation
+            "suffix": "-beam-glow",
+            "rotateSpeed": -8,
+            "rotate": true,
+            "color": "90dbff",
+            "alpha": 0.7,
+            "glowIntensity": 0.35,
+            "glowScale": 4,
+            "layer": 30.03,
+            "rotation": 30
+          },
+          {
+            "type": "DrawRegion",
+            "suffix": "-beam",
+            "color": "90dbff",
+            "rotateSpeed": -8,
+            "layer": 30.02,
+            "rotation": 60
+          },
+          {
+            "type": "VanillaExpansion.expand.world.block.draw.DrawRotatableGlowRegion",//Java but only for a base rotation
+            "suffix": "-beam-glow",
+            "rotateSpeed": -8,
+            "rotate": true,
+            "color": "90dbff",
+            "alpha": 0.7,
+            "glowIntensity": 0.35,
+            "glowScale": 4,
+            "layer": 30.03,
+            "rotation": 60
+          }
+        ]
+      },
+      "craftEffectEffect": {
+        "type": "SeqEffect",
+        "effects": [
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 30,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          },
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 24,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          },
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 18,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          },
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 12,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          }
+        ]
+      }
+    },
+    /*{
+      "inputItems": [ "cobalt/9","graphite/15" ],
+      "outputItems": [ "fibralt/9" ],
+      "inputPower": 7,
+      "craftTime": 180
+    },
+    {
+      "inputItems": [ "cobalt/15","graphite/25" ],
+      "outputItems": [ "fibralt/15" ],
+      "inputPower": 4,
+      "craftTime": 180,
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.2
+    },*/
+    {
+      "inputItems": [ "ferrum/15","graphite/9" ],
+      "outputItems": [ "plastanium/20" ],
+      "inputPower": 3,
+      "craftTime": 120,
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.9,
+      "craftEffectEffect": "formsmoke",
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawFade"
+          },
+          {
+            "type": "DrawGlowRegion",
+            "suffix": "-glow",
+            "color": "cbd97f"
+          },
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "EffectSpawnerPart",
+                "width": 32,
+                "height": 32,
+                "effect": "plasticburn",
+                "effectChance": 0.04
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "inputItems": [ "plastanium/20", "phase-fabric/1" ],
+      "outputItems": [ "fibralt/15" ],
+      "inputPower": 10,
+      "craftTime": 300,
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawRegion",
+            "suffix": "",
+            "layer": 30.05
+          },
+          {
+            "type": "DrawGlowRegion",
+            "layer": 31,
+            "suffix": "-glow",
+            "color": "cbd97f"
+          },
+          {
+            "type": "VanillaExpansion.expand.world.block.draw.DrawRotatableGlowRegion",//Java but only for a base rotation
+            "layer": 31,
+            "suffix": "-glow",
+            "rotation": 180,
+            "color": "90dbff"
+          },
+          {
+            "type": "DrawRegion",
+            "suffix": "-beam",
+            "color": "90dbff",
+            "rotateSpeed": -3,
+            "layer": 30.02
+          },
+          {
+            "type": "DrawGlowRegion",
+            "suffix": "-beam-glow",
+            "rotateSpeed": -3,
+            "rotate": true,
+            "color": "90dbff",
+            "alpha": 0.7,
+            "glowIntensity": 0.35,
+            "glowScale": 4,
+            "layer": 30.03
+          },
+          {
+            "type": "DrawRegion",
+            "suffix": "-beam",
+            "color": "90dbff",
+            "rotateSpeed": -3,
+            "layer": 30.02,
+            "rotation": 45
+          },
+          {
+            "type": "VanillaExpansion.expand.world.block.draw.DrawRotatableGlowRegion",//Java but only for a base rotation
+            "suffix": "-beam-glow",
+            "rotateSpeed": -3,
+            "rotate": true,
+            "color": "90dbff",
+            "alpha": 0.7,
+            "glowIntensity": 0.35,
+            "glowScale": 4,
+            "layer": 30.03,
+            "rotation": 45
+          }
+        ]
+      },
+      "craftEffectEffect": {
+        "type": "SeqEffect",
+        "effects": [
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 30,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          },
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 24,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          },
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 18,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          },
+          {
+            "type": "WaveEffect",
+            "colorFrom": "90dbff",
+            "colorTo": "90dbff",
+            "strokeFrom": 3,
+            "strokeTo": 0,
+            "sizeFrom": 0,
+            "sizeTo": 12,
+            "lightColor": "90dbff",
+            "lifetime": 5
+          }
+        ]
+      }
+    },
+    {
+      "inputItems": [ "fibralt/15", "phase-fabric/1" ],
+      "outputItems": [ "plastanium/20" ],
+      "inputPower": 10,
+      "craftTime": 300,
+      "requireFlux": true,
+      "fluxLiquid": "hydrogen",
+      "minFlux": 0.6,
+      "craftEffectEffect": "formsmoke",
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawFade"
+          },
+          {
+            "type": "VanillaExpansion.expand.world.block.draw.DrawRotatableGlowRegion",//Java but only for a base rotation
+            "suffix": "-glow",
+            "color": "90dbff",
+            "rotation": 180
+          },
+          {
+            "type": "DrawGlowRegion",
+            "suffix": "-glow",
+            "color": "cbd97f"
+          },
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "EffectSpawnerPart",
+                "width": 32,
+                "height": 32,
+                "effect": "plasticburn",
+                "effectChance": 0.02
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "ambientSoundVolume": 0.12
+}

@@ -177,6 +177,7 @@ public class VEJSBlocks {
         new MultiCrafter("alchemer");
         new MultiCrafter("m-upgraded-reaction-pool");
         new HeatCrafter("thermoplastic-compressor");
+        new MultiCrafter("generic-polymer-crafter");
         new HeatButNoHeatCanStillWorkCrafter("pickling-pool");
         new HeatCrafter("pickling-pool-large");
         new MultiCrafter("reinforced-reaction-pool");

@@ -1750,6 +1750,7 @@ public class MultiCrafter extends HeatCrafter {
             progress = 0f;
             if (wasVisible) {
                 Effect effect = rec.cachedCraftEffect != null && rec.cachedCraftEffect != Fx.none ? rec.cachedCraftEffect : craftEffect;
+                if(rec.craftEffectEffect != null && rec.craftEffectEffect != Fx.none) effect = rec.craftEffectEffect;
                 effect.at(x, y);
                 if (rec.cachedCraftSound != null && rec.cachedCraftSound != Sounds.none) rec.cachedCraftSound.at(x, y);
             }
@@ -2120,6 +2121,8 @@ public class MultiCrafter extends HeatCrafter {
         public boolean fluxOverconsumption = true;
         public float minFluxDisplayed = -1;
         public float fluxFixRange = 0.2f / 60f;
+
+        public Effect craftEffectEffect = Fx.none;
 
         //多余产物焚化
         public boolean incinerateOverproducedItems = false;
