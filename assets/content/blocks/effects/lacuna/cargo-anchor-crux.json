@@ -1,0 +1,52 @@
+{
+  //"type": "VanillaExpansion.MultiCrafter",
+  "requirements": [ "aluminium/400","silicon/500","silver/200" ],
+  "category": "effect",
+  "hasItems": true,
+  "itemCapacity": 200,
+  "conductivePower": false,
+  "hasPower": false,
+  "shownPlanets": [ "maress" ],
+  "recipe": [
+    {
+      "inputItems": [ "graphite/20" ],
+      "craftTime": 120,
+      "outputItems": [ "silver/10" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-trade-idle",
+        "layer": 99.99
+      }
+    },
+    {
+      "inputItems": [ "ferrum/30" ],
+      "craftTime": 120,
+      "outputItems": [ "silver/10" ],
+      "visual": {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor-trade-idle",
+        "layer": 99.99
+      }
+    }
+  ],
+  "squareSprite": false,
+  "canOverdrive": false,
+  "dumpTime": 1,
+  "drawer": {
+    "type": "DrawMulti",
+    "drawers": [
+      {
+        "type": "DrawRegion",
+        "name": "ve-cargo-anchor"
+      }
+    ]
+  },
+  "size": 3,
+  "armor": 0,
+  "ambientSound": "none",
+  "ambientSoundVolume": 0.08,
+  "updateEffect": "none",
+  "craftEffect": "none",
+  "buildVisibility": "editorOnly",
+  "allowDerelictRepair": false
+}

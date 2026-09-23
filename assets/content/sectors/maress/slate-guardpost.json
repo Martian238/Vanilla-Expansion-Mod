@@ -8,8 +8,7 @@
       {
         "type": "SectorComplete",
         "preset": "lower-pass"
-      },
-      "chiniun-shockwave"
+      }
     ]
   },
   "overrideLaunchDefaults": false,

@@ -9,6 +9,7 @@ import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
 import VanillaExpansion.expand.world.block.defense.ShieldArcUnitPowerTurret;
 import VanillaExpansion.expand.world.block.defense.TantalumWall;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
+import VanillaExpansion.expand.world.block.liquid.Pipe;
 import VanillaExpansion.expand.world.block.power.ShakeGenerator;
 import VanillaExpansion.expand.world.block.production.ConfigurableHeatProducer;
 import VanillaExpansion.expand.world.block.production.CoolantDrill;
@@ -297,6 +298,8 @@ public class VEJSBlocks {
         new PointDefenseTurret("warp-defender");
         new PowerTurret("spore-bomb");
         new MultiCrafter("cargo-anchor");
+        new GenericCrafter("cargo-anchor-gift-nitroalkoss");
+        new MultiCrafter("cargo-anchor-crux");
         new PowerTurret("nuke");
 
         // group 18 核心
@@ -353,6 +356,7 @@ public class VEJSBlocks {
         new LiquidBridge("silicide-bridge-conduit");
         new LiquidSource("silicide-fluid-source");
         new LiquidVoid("silicide-fluid-void");
+        new Pipe("acid-resistant-conduit");
         new Conduit("silver-conduit");
         new ArmoredConduit("silver-conduit-armored");
         new LiquidRouter("valve-fluid-distribute");
@@ -537,7 +541,8 @@ public class VEJSBlocks {
         // group 34.1 火星单位载荷
         new Reconstructor("junior-reconstruct-pad");
         new Reconstructor("senior-reconstruct-pad");
-
+        new UnitFactory("integrated-imitater");
+        
         // group 35 瓜星单位载荷
         new PayloadConveyor("general-payload-conveyor");
         new UnitFactory("small-unit-constructor");
@@ -548,11 +553,11 @@ public class VEJSBlocks {
         new Reconstructor("elite-upgrader-sharded");
         new RepairTower("melon-repair-bay");
         new Constructor("watermelon-printer");
-        new Constructor("element-printer");
-        new GenericCrafter("element-ferric");
-        new GenericCrafter("element-silver");
-        new GenericCrafter("element-melonic");
-        new GenericCrafter("element-effective");
+        //new Constructor("element-printer");
+        //new GenericCrafter("element-ferric");
+        //new GenericCrafter("element-silver");
+        //new GenericCrafter("element-melonic");
+        //new GenericCrafter("element-effective");
 
         // group 36 逻辑
         new MessageBlock("isomorphic-message");

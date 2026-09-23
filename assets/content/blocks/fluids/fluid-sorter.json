@@ -11,10 +11,7 @@
   "armor": 8,
   "rotate": false,
   "research": {
-    "parent": "core-singularity-root",
-    "objectives": [ 
-      "m-upgraded-reaction-pool"
-    ]
+    "parent": "ferric-rail"
   },
   "ambientSound": "none",
   "liquidCapacity": 80

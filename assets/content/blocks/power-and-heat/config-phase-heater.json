@@ -15,7 +15,7 @@
   "rebuildable": false,
   "hasItems": true,
   "research": {
-    "parent": "m-boiler",
+    "parent": "exothermic-heater",
     "objectives": [
       {
         "type": "OnSector",

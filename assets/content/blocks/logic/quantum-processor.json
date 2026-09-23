@@ -5,7 +5,7 @@
   "instructionsPerTick": 300,
   "size": 3,
   "research": {
-    "parent": "core-singularity-root"
+    "parent": "cargo-anchor"
   },
   "health": 3000,
   "armor": 32,

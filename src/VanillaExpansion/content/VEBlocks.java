@@ -52,6 +52,8 @@ import static mindustry.Vars.tilesize;
 import static mindustry.world.meta.BuildVisibility.worldProcessorOnly;
 
 public class VEBlocks {
+
+
     public static Block oreIron, oreUranium, oreManganese, oreQuartz;
     public static final Seq<Block> proximaOres = new Seq<>();
 
@@ -143,6 +145,8 @@ public class VEBlocks {
             health = 300;
 
             placeableLiquid = true;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // 分类流体桥
@@ -157,6 +161,8 @@ public class VEBlocks {
             hasPower = false;
             range = 6;
             health = 350;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         // 万用交叉器
         proximaJunction = new Junction("proxima-junction"){{
@@ -166,6 +172,8 @@ public class VEBlocks {
             ));
             speed = 8;
             displayedSpeed = 38;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         // 高速侧输出传送带
         fastSideOutputConveyor = new SideOutputConveyor("fast-side-output-conveyor"){{
@@ -176,6 +184,8 @@ public class VEBlocks {
             ));
             junctionReplacement = proximaJunction;
             bridgeReplacement = adaptItemBridge;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         // 侧向输出导管
         sideOutputConduit = new SideOutputConduit("side-output-conduit"){{
@@ -184,6 +194,8 @@ public class VEBlocks {
             ));
             bridgeReplacement = adaptLiquidBridge;
             junctionReplacement = proximaJunction;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         proximaDuctRouter = new DuctRouter("proxima-duct-router"){{
             requirements(Category.distribution, ItemStack.with(
@@ -192,6 +204,8 @@ public class VEBlocks {
             health = 50;
             speed = 2;
             solid = false;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         proximaInvertSorter = new Sorter("proxima-inverted-sorter"){{
             requirements(Category.distribution, ItemStack.with(
@@ -200,6 +214,8 @@ public class VEBlocks {
             ));
             invert = true;
             health =50;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         proximaSorter = new Sorter("proxima-sorter"){{
             requirements(Category.distribution, ItemStack.with(
@@ -208,6 +224,8 @@ public class VEBlocks {
             ));
             invert = false;
             health =50;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         // 流体溢流门
         liquidOverflowGate = new LiquidOverflowGate("liquid-overflow-gate"){{
@@ -219,6 +237,8 @@ public class VEBlocks {
             alwaysUnlocked = true;
             health = 45;
             invert = false;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         // 流体反向溢流门
         liquidUnderflowGate = new LiquidOverflowGate("liquid-underflow-gate"){{
@@ -230,6 +250,8 @@ public class VEBlocks {
             alwaysUnlocked = true;
             health = 45;
             invert = true;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         // 流体分类器
         liquidSorter = new LiquidSorter("liquid-sorter"){{
@@ -241,6 +263,8 @@ public class VEBlocks {
             alwaysUnlocked = true;
             health = 60;
             rotate = false;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         overflow = new OverflowGate("proxima-overflow-gate"){{
             requirements(Category.distribution, ItemStack.with(
@@ -248,6 +272,8 @@ public class VEBlocks {
             ));
             health = 45;
             invert = false;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         invertoverflow = new OverflowGate("proxima-underflow-gate"){{
             requirements(Category.distribution, ItemStack.with(
@@ -255,6 +281,8 @@ public class VEBlocks {
             ));
             health = 45;
             invert = true;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // 16方向测试方块
@@ -267,6 +295,8 @@ public class VEBlocks {
             health = 200;
             instantBuild = true;
             quickRotate = false;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         // 电线杆
         powerPole = new PowerPole("power-pole"){{
@@ -278,6 +308,8 @@ public class VEBlocks {
             alwaysUnlocked = true;
             size = 2;
             health = 120;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         // 岩芯钻机
         rockCoreDrill = new RockCoreDrill("rock-core-drill"){{
@@ -312,6 +344,8 @@ public class VEBlocks {
                 optional = true;   // 可选，不是必需的
                 booster = true;    // 标记为强化剂
             }}); // 6/秒，转换为每帧消耗
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         //测试
@@ -331,6 +365,8 @@ public class VEBlocks {
             liquidSeq.add(Liquids.water);
             liquidSeq.add(Liquids.cryofluid);
             coolants = liquidSeq.toArray(Liquid.class);
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // 注册 RBMK 燃料数据（依赖 VEItems.load() 已执行）
@@ -345,11 +381,15 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 400;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 熔毁残骸（仅在熔毁事件中生成，16向随机朝向）
         rbmkWreckage = new RBMKWreckage("rbmk-wreckage"){{
             size = 2;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 控制棒
@@ -361,6 +401,8 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 慢化控制棒
@@ -373,6 +415,8 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 380;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 自动控制棒
@@ -384,6 +428,8 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 慢化自动控制棒
@@ -396,6 +442,8 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 380;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 锅炉
@@ -407,6 +455,8 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 冷却器（应急散热：消耗冷 PFM，5×5 列范围每 tick 降温 200°C）
@@ -419,6 +469,8 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 反射器（把逃逸中子弹回源燃料柱）
@@ -431,6 +483,8 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 慢化剂（快中子变慢中子，增益下游 SLOW/ANY 燃料）
@@ -442,6 +496,8 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 吸收器（通量→热，完全/部分吸收中子流）
@@ -453,6 +509,8 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // RBMK 控制台（15×15 扫描 + 批控）
@@ -465,6 +523,8 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 500;
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // 经验激光炮塔（移植自 Project Unity 的 laser-turret 注册，简化去 powerUse/chargeTime）
@@ -496,6 +556,8 @@ public class VEBlocks {
                 fromColor = Pal.accent;
                 toColor = Pal.lancerLaser;
             }};
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
 
         // 经验墙（移植自 Project Unity 的 steel-wall 注册，基于简化 ExpWall）
@@ -509,12 +571,14 @@ public class VEBlocks {
             expFields = new EField[]{
                 new EField.ELinear(v -> damageReduction = v, 0.1f, 0.02f, Stat.armor, f -> Strings.autoFixed(Mathf.roundPositive(f * 10000f) / 100f, 2) + "%")
             };
+
+            shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         TitleTextBlock = new TitleTextBlock("TitleTextBlock"){{
             requirements(Category.defense, ItemStack.with(Items.titanium, 1));
             size = 2;
             health = 3240;
-            buildVisibility = BuildVisibility.shown;
+            buildVisibility = BuildVisibility.sandboxOnly;
         }};
     }
 }

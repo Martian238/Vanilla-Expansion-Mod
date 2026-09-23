@@ -5,7 +5,7 @@
   ],
   "category": "crafting",
   "research": {
-    "parent": "catalyzon-workshop",
+    "parent": "m-boiler",
     "objectives": [
       {
         "type": "OnSector",

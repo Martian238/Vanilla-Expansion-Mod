@@ -13,7 +13,7 @@
   "heatRequirement": 5,
   "maxEfficiency": 3,
   "research": {
-    "parent": "m-reduction-chamber",
+    "parent": "magnetic-separator",
     "objectives": [
       {
         "type": "OnSector",

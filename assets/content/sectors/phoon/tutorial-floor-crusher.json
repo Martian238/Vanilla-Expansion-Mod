@@ -5,7 +5,11 @@
   "research": {
     "parent": "phoon",
     "objectives": [
-      "floor-crusher"
+      "floor-crusher",
+      {
+        "type": "OnSector",
+        "preset": "community-entrance"
+      }
     ]
   },
   "overrideLaunchDefaults": true,
