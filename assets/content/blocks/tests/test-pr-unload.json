@@ -1,0 +1,5 @@
+{
+  "type": "VanillaExpansion.expand.world.block.distribution.PRDirectionalUnloader",
+  "buildVisibility": "sandboxOnly",
+  "speed": 0.1
+}
