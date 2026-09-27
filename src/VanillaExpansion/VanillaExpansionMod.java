@@ -536,9 +536,11 @@ public class VanillaExpansionMod extends Mod {
         VEBlocks.load();
         VEEnvironBlocks.load();
         VEJSUnitTypes.load();
+        //VEJSPlanets.load();
         VEPlanets.load();
         VETechTree.load();
         VEFonts.loadFonts();
+        //VEModifiedUnitTypes.load();
 
         Fi root = Vars.mods.getMod(VanillaExpansionMod.class).root;
         Log.info("Mod assets: " + Arrays.toString(root.list()));

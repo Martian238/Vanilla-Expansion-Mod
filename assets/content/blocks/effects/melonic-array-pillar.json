@@ -32,8 +32,8 @@
         "absorbable": false,
         "collides": false,
         "reflectable": false,
-        "lifetime": 30,
-        "parts": [
+        "lifetime": 126,
+        /*"parts": [
           {
             "type": "ShapePart",
             "hollow": true,
@@ -63,7 +63,7 @@
             },
             "layer": 109
           }
-        ],
+        ],*/
         "fragBullets": 360,
         "fragVelocityMin": 1,
         "fragRandomSpread": 0,
@@ -81,11 +81,24 @@
             "instantDisappear": true,
             "damage": 0,
             "hitEffect": "none",
-            "despawnEffect": "none",
+            "despawnEffect": {
+              "type": "WaveEffect",
+              "sizeFrom": 48,
+              "sizeTo": 0,
+              "strokeFrom": 4,
+              "colorFrom": "f25555",
+              "colorTo": "f25555",
+              "lightColor": "f25555",
+              "layer": 110,
+              "interp": "circleIn",
+              "lifetime": 30,
+              "startDelay": 96
+            },
             "collides": false,
             "hittable": false,
             "absorbable": false,
-            "despawnSound": "chargeVelaFast",
+            "despawnSound": "endfieldPillarCharge",
+            "hitSoundVolume": 0.5,
             "hitSoundPitchRange": 0
           }
         ],

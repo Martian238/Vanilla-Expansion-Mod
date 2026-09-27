@@ -36,6 +36,14 @@
   "stepSoundPitchRange": 0.1,
   "stepSoundVolume": 0.6,
   "shownPlanets": [ "cyclant","phoon","thavina" ],
+  /*"abilities": [
+    {
+      "type": "VanillaExpansion.expand.abilities.IceWalkAbility",
+      "replaces": {
+        "deep-water": "deepwater-ice"
+      }
+    }
+  ],*/
   "weapons": [
     {
       "name": "alev-weapon",

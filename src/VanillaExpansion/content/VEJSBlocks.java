@@ -35,6 +35,9 @@ import mindustry.world.blocks.sandbox.*;
 import mindustry.world.meta.BlockFlag;
 
 public class VEJSBlocks {
+
+    public static CoreBlock isoCore1, isoCore5, genCore;
+
     public static void load() {
 
         // group 0 原版普通新物流元件
@@ -307,12 +310,12 @@ public class VEJSBlocks {
         new CoreBlock("core-singularity-root");
         new CoreBlock("core-nucleus-root-sitrullus");
         new CoreBlock("core-nucleus-root-thavina");
-        new CoreBlock("isomorphic-core-shard");
+        isoCore1 = new CoreBlock("isomorphic-core-shard");
         new CoreBlock("isomorphic-core-foundation");
         new CoreBlock("isomorphic-core-nucleus");
         new CoreBlock("core-quark");
-        new CoreBlock("core-singularity");
-        new CoreBlock("core-general");
+        isoCore5 = new CoreBlock("core-singularity");
+        genCore = new CoreBlock("core-general");
 
         // group 19 储存
         new StorageBlock("shelf");

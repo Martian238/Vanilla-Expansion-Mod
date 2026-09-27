@@ -3,7 +3,6 @@
   "requirements": [
     "lead/100","thorium/60","graphite/70","silicon/40"
   ],
-  "researchCost": [ "aluminium/75","graphite/50","lead/40","ferrum/20" ],
   "category": "crafting",
   "research": {
     "parent": "surge-smelter",
