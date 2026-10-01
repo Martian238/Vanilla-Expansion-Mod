@@ -4,6 +4,8 @@ import VanillaExpansion.expand.type.unit.DayunTankUnit;
 import VanillaExpansion.expand.type.unit.HyperUnit;
 import VanillaExpansion.expand.type.unit.IronGolemUnit;
 import VanillaExpansion.expand.type.unit.SentryUnit;
+import VanillaExpansion.expand.type.unit.annihilate.AnnihilateMainUnit;
+import VanillaExpansion.expand.type.unit.annihilate.AnnihilatePartUnit;
 import arc.func.Prov;
 import arc.struct.ObjectMap;
 import arc.struct.Seq;
@@ -30,6 +32,8 @@ public class EntityRegister {
         put(SentryUnit.class, SentryUnit::new);
         put(IronGolemUnit.class, IronGolemUnit::new);
         put(DayunTankUnit.class, DayunTankUnit::new);
+        put(AnnihilatePartUnit.class, AnnihilatePartUnit::new);
+        put(AnnihilateMainUnit.class, AnnihilateMainUnit::new);
     }
 
     /**

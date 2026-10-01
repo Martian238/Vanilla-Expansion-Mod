@@ -1,13 +1,16 @@
 package VanillaExpansion.expand.type.unit.annihilate;
 
+import arc.Core;
 import arc.Events;
 import arc.graphics.Blending;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.TextureRegion;
+import arc.input.KeyCode;
 import arc.math.Angles;
 import arc.math.Mathf;
 import arc.struct.Seq;
+import arc.util.Log;
 import arc.util.Time;
 import arc.util.Tmp;
 import arc.util.io.Reads;
@@ -17,6 +20,7 @@ import mindustry.entities.Effect;
 import mindustry.entities.Units;
 import mindustry.entities.effect.WaveEffect;
 import mindustry.game.EventType;
+import mindustry.gen.Groups;
 import mindustry.gen.Unit;
 import mindustry.gen.UnitEntity;
 import mindustry.graphics.Layer;
@@ -64,7 +68,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public int emoji = 3;
     public Color emojiLightColor = Color.valueOf("f25555");
 
-    private final boolean debug = true;
+    protected final boolean debug = true;
     private boolean updateInitialized = false;
 
     public Seq<AnniPart> anniParts = new Seq<>();
@@ -89,6 +93,8 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         public float dfRot;
         /** Whether the part is playing idle animation */
         public boolean idle;
+        /** PartID of the unit */
+        public int id;
     }
 
     public AnnihilatePartUnitType partTypeCap = AnnihilateUnitTypes.anniCap;
@@ -107,6 +113,23 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         return anniParts.find(p -> p.name.equals(name));
     }
     public void generalInitialize(){
+        /* Apply an id number for this boss */
+        ownerID = Mathf.floor(Math.abs(Mathf.range(10000000, 99999999)));
+        boolean idNotSame = false;
+        for(int i = 0; !idNotSame; i++){
+            boolean findSame = false;
+            for(Unit u : Groups.unit){
+                if(u instanceof AnnihilateMainUnit mu && u != this){
+                    if(mu.ownerID == ownerID) findSame = true;
+                }
+            }
+            if(!findSame){
+                idNotSame = true;
+            }else{
+                ownerID = Mathf.floor(Math.abs(Mathf.range(10000000, 99999999)));
+            }
+        }
+        if(debug) Log.info("Annihilate spawned with id: " + ownerID);
         summonParts();
         setPartsData();
     }
@@ -182,6 +205,24 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
                 unitSpawn.add();
                 Units.notifyUnitSpawn(unitSpawn);
             }
+            /* Apply an id number for the new part unit */
+            unitSpawn.partID = Mathf.floor(Math.abs(Mathf.range(10000000, 99999999)));
+            boolean idNotSame = false;
+            for(int i = 0; !idNotSame; i++){
+                boolean findSame = false;
+                for(Unit u : Groups.unit){
+                    if(u instanceof AnnihilatePartUnit pu && u != unitSpawn){
+                        if(pu.partID == unitSpawn.partID) findSame = true;
+                    }
+                }
+                if(!findSame){
+                    idNotSame = true;
+                }else{
+                    unitSpawn.partID = Mathf.floor(Math.abs(Mathf.range(10000000, 99999999)));
+                }
+            }
+            if(debug) Log.info("Applied id: " + unitSpawn.partID + " to new part: " + name);
+            unitSpawn.ownerID = ownerID;
             unitSpawn.owner = this;
             unitSpawn.rotation(rotation);
             unitSpawn.targetable = unitSpawn.vulnerable = unitSpawn.ownerDead = false;
@@ -198,6 +239,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
                 dfy = defaultY;
                 dfRot = defaultRot;
                 idle = true;
+                id = unitSpawn.partID;
             }});
         }
     }
@@ -216,11 +258,42 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
 
     /** Update methods */
     @Override
+    public void updateAfterRead(){
+        /* Find part units by id numbers */
+        afterReadUpdated = true;
+        for(AnniPart p : anniParts){
+            boolean found = false;
+            for(Unit u : Groups.unit){
+                if(u instanceof AnnihilatePartUnit pu && !(u instanceof AnnihilateMainUnit)){
+                    if(pu.partID == p.id) {
+                        p.unit = pu;
+                        found = true;
+                        if (debug) {
+                            Log.info("Part unit as " + p.name + " found: " + pu.type.name + " by id: " + p.id);
+                        }
+                        break;
+                    }
+                }
+            }
+            if(!found && debug) Log.err("Part unit as " + p.name + " not found, id: " + p.id);
+        }
+    }
+    @Override
     public void update(){
         super.update();
         if(!updateInitialized){
             updateInitialized = true;
             generalInitialize();
+        }
+
+        if(debug && Core.input.keyTap(KeyCode.z)){
+            for(AnniPart p : anniParts){
+                if(p.unit != null) {
+                    Log.info("Got AnniPart: " + p.name + ", " + p.unit.type + ", " + p.id);
+                }else{
+                    Log.err("Got AnniPart: " + p.name + ", unit not found with id: " + p.id);
+                }
+            }
         }
 
         partsUpdate();
@@ -452,14 +525,17 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         write.f(armRingProgress);
         write.bool(targetable);
         write.bool(vulnerable);
+        write.f(partLayer);
+        write.f(partLayerOffset);
+        write.f(elevationScl);
 
         write.bool(updateInitialized);
         write.i(emoji);
+        write.i(ownerID);
 
         write.s(anniParts.size);
         for(AnniPart p : anniParts){
             write.str(p.name);
-            mindustry.io.TypeIO.writeUnit(write, p.unit);
             write.f(p.wx);
             write.f(p.wy);
             write.f(p.wRot);
@@ -471,6 +547,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             write.f(p.dfy);
             write.f(p.dfRot);
             write.bool(p.idle);
+            write.i(p.id);
         }
     }
     @Override
@@ -491,15 +568,18 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             armRingProgress = read.f();
             targetable = read.bool();
             vulnerable = read.bool();
+            partLayer = read.f();
+            partLayerOffset = read.f();
+            elevationScl = read.f();
 
             updateInitialized = read.bool();
             emoji = read.i();
+            ownerID = read.i();
 
             anniParts.clear();
             short anniPartsCount = read.s();
             for(int i = 0; i < anniPartsCount; i++){
                 anniParts.add(new AnniPart(read.str()){{
-                    unit = (AnnihilatePartUnit) mindustry.io.TypeIO.readUnit(read);
                     wx = read.f();
                     wy = read.f();
                     wRot = read.f();
@@ -511,6 +591,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
                     dfy = read.f();
                     dfRot = read.f();
                     idle = read.bool();
+                    id = read.i();
                 }});
             }
         }

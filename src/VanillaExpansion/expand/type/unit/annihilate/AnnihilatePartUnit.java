@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.type.unit.annihilate;
 
+import VanillaExpansion.EntityRegister;
 import arc.graphics.Blending;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
@@ -7,9 +8,11 @@ import arc.graphics.g2d.Fill;
 import arc.graphics.g2d.Lines;
 import arc.graphics.g2d.TextureRegion;
 import arc.math.Mathf;
+import arc.util.Log;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
 import mindustry.game.Team;
+import mindustry.gen.Groups;
 import mindustry.gen.Unit;
 import mindustry.gen.UnitEntity;
 import mindustry.graphics.Layer;
@@ -31,6 +34,8 @@ public class AnnihilatePartUnit extends UnitEntity {
     public boolean targetable = false; // automatically targetable
     public boolean vulnerable = false; // when true, there's no damage reduction
     public boolean flip = false;
+    protected int partID = 0;
+    protected int ownerID = 0;
 
     /** (-infinite, 0.25]: below building, (0.25, 0.5]: above ground,
      * (0.5, 0.75]: fly low, (0.75, +infinite): fly high */
@@ -88,8 +93,20 @@ public class AnnihilatePartUnit extends UnitEntity {
     private float armRot = 0f;
     private float regionWidth, regionHeight;
 
+    protected boolean afterReadUpdated = false;
+    public void updateAfterRead(){
+        afterReadUpdated = true;
+        owner = Groups.unit.find(u -> u instanceof AnnihilateMainUnit au && au.ownerID == ownerID);
+        if(owner != null && owner instanceof AnnihilateMainUnit mu && mu.debug){
+            Log.info("Part " + type.name + " found owner with id: " + ownerID);
+        }else{
+            Log.err("Part " + type.name + " owner not found, id: " + ownerID);
+        }
+    }
+
     @Override
     public void update(){
+        if(!afterReadUpdated) updateAfterRead();
         super.update();
         chargeUpdate();
         if(isArm){
@@ -425,7 +442,12 @@ public class AnnihilatePartUnit extends UnitEntity {
         write.bool(vulnerable);
         write.bool(flip);
         write.bool(ownerDead);
-        mindustry.io.TypeIO.writeUnit(write, owner);
+        write.i(partID);
+        write.i(ownerID);
+        write.bool(isArm);
+        write.f(partLayer);
+        write.f(partLayerOffset);
+        write.f(elevationScl);
     }
     public void anniRead(Reads read){
         short anniVer = read.s();
@@ -446,7 +468,12 @@ public class AnnihilatePartUnit extends UnitEntity {
             vulnerable = read.bool();
             flip = read.bool();
             ownerDead = read.bool();
-            owner = mindustry.io.TypeIO.readUnit(read);
+            partID = read.i();
+            ownerID = read.i();
+            isArm = read.bool();
+            partLayer = read.f();
+            partLayerOffset = read.f();
+            elevationScl = read.f();
         }
     }
     @Override
@@ -458,5 +485,9 @@ public class AnnihilatePartUnit extends UnitEntity {
     public void read(Reads read){
         super.read(read);
         anniRead(read);
+    }
+    @Override
+    public int classId() {
+        return EntityRegister.getID(getClass());
     }
 }
