@@ -37,7 +37,7 @@ public class AnnihilatePartUnit extends UnitEntity {
     public float partLayer = 0.75f;
     public float partLayerOffset = 0f;
     public float elevationScl = 1f;
-    public float defaultElevation = 3.5f;
+    public float defaultElevation = 2f;
 
     public float chargeDelay = 0f;
     public float chargeTime = 0f;
@@ -59,7 +59,7 @@ public class AnnihilatePartUnit extends UnitEntity {
     public boolean isArm = false;
     public float armLength = 368f / 4f;
     public float armWidth = 138f / 4f;
-    public float armOffset = 60f / 4f;
+    public float armOffset = 63f / 4f;
     public float armRotSpeed = 1f;
     public float armRotSpeedTarget = 1f;
     public boolean armLight = false;
@@ -75,7 +75,7 @@ public class AnnihilatePartUnit extends UnitEntity {
     public float armRingWidth = 24f;
     public TextureRegion armRegion1 = new TextureRegion();
     public TextureRegion armRegion2 = new TextureRegion();
-    public float armC = Color.white.toFloatBits();
+    //public float armC = Color.white.toFloatBits();
 
     protected boolean drawInitialized = false;
     protected float interruptCooldownTimer = 0f;
@@ -103,7 +103,7 @@ public class AnnihilatePartUnit extends UnitEntity {
     }
 
     public void armUpdate(){
-        armRot += armRotSpeed;
+        armRot += armRotSpeed * (flip ? -1 : 1);
         if(armRot >= 90f) armRot -= 60f;
         if(armRot < 30f) armRot += 60f;
         armRotSpeed = Mathf.approach(armRotSpeed, armRotSpeedTarget, 0.2f + 0.1f * Math.abs(armRotSpeed - armRotSpeedTarget));
@@ -186,6 +186,21 @@ public class AnnihilatePartUnit extends UnitEntity {
         Draw.rect(region, x + shadowTX * e, y + shadowTY * e, regionWidth, regionHeight, rotation - 90);
         Draw.color();
     }
+    public void partArmShadow(float xl, float xr){
+        float e = elevationScl * defaultElevation;
+        float x = 2f * shadowTX * e, y = 2f * shadowTY * e;
+        Floor floor = world.floorWorld(x + this.x, y + this.y);
+        float dest = floor.canShadow ? 1f : 0f;
+        shadowAlpha = shadowAlpha < 0 ? dest : Mathf.approachDelta(shadowAlpha, dest, 0.11f);
+        Draw.color(Pal.shadow, Pal.shadow.a * shadowAlpha);
+        float scale = Math.abs(armLength / xr);
+        float dx = armOutlineWidth / scale;
+        Fill.quad(x + armNodeX(xl - armOutlineWidth, 0f), y + armNodeY(xl - armOutlineWidth, 0f),
+                x + armNodeX(-armOutlineWidth - dx, armLength + armOutlineWidth), y + armNodeY(-armOutlineWidth - dx, armLength + armOutlineWidth),
+                x + armNodeX(armOutlineWidth + dx, armLength + armOutlineWidth), y + armNodeY(armOutlineWidth + dx, armLength + armOutlineWidth),
+                x + armNodeX(xr + armOutlineWidth, 0f), y + armNodeY(xr + armOutlineWidth, 0f));
+        Draw.color();
+    }
 
     public void partSoftShadow(float ax, float ay){
         float sx = ax, sy = ay;
@@ -195,10 +210,10 @@ public class AnnihilatePartUnit extends UnitEntity {
             sy += d * Mathf.sinDeg(rotation);
         }
         Draw.color(0, 0, 0, 0.4f);
-        float rad = 1.6f;
+        float rad = 1.4f;
         Draw.rect(shadowRegion, sx, sy,
-                region.width * region.scl() * rad * Draw.xscl,
-                (region.height + (isArm ? armLength : 0f)) * region.scl() * rad * Draw.yscl, rotation - 90);
+                region.width * region.scl() * rad * 1f,
+                (region.height + (isArm ? armLength * 4f : 0f)) * region.scl() * rad * 1f, rotation - 90);
         Draw.color();
     }
 
@@ -213,21 +228,22 @@ public class AnnihilatePartUnit extends UnitEntity {
         Draw.color();
         type.applyColor(this);
         Draw.rect(region, ax, ay, regionWidth, regionHeight, rotation - 90f);
-        partArm();
+        if(isArm) partArm();
         Draw.reset();
     }
 
     public void partArm(){
-        float x1 = armWidth * Mathf.cosDeg(armRot - 60f);
-        float x2 = armWidth * Mathf.cosDeg(armRot);
-        float x3 = armWidth * Mathf.cosDeg(armRot + 60f);
-        float x4 = armWidth * Mathf.cosDeg(armRot + 120f);
-        float a1 = Mathf.clamp(Math.abs(x1 - x2) / (armWidth * 0.5f));
-        float a2 = Mathf.clamp(Math.abs(x2 - x3) / (armWidth * 0.5f));
-        float a3 = Mathf.clamp(Math.abs(x3 - x4) / (armWidth * 0.5f));
+        float x1 = 0.5f * armWidth * Mathf.cosDeg(armRot - 60f);
+        float x2 = 0.5f * armWidth * Mathf.cosDeg(armRot);
+        float x3 = 0.5f * armWidth * Mathf.cosDeg(armRot + 60f);
+        float x4 = 0.5f * armWidth * Mathf.cosDeg(armRot + 120f);
+        float a1 = Mathf.clamp(Math.abs(Mathf.cosDeg(armRot - 60f) - Mathf.cosDeg(armRot)));
+        float a2 = Mathf.clamp(Math.abs(Mathf.cosDeg(armRot) - Mathf.cosDeg(armRot + 60f)));
+        float a3 = Mathf.clamp(Math.abs(Mathf.cosDeg(armRot + 60f) - Mathf.cosDeg(armRot + 120f)));
         Draw.color(armOutlineColor);
         armQuadOutline(x4, x1);
         Draw.color();
+        type.applyColor(this);
         armQuad(x2, x1, armRegion2);
         armQuad(x3, x2, armRegion2);
         armQuad(x4, x3, armRegion2);
@@ -237,14 +253,16 @@ public class AnnihilatePartUnit extends UnitEntity {
         armQuad(x3, x2, armRegion1);
         Draw.alpha(a3);
         armQuad(x4, x3, armRegion1);
-        Draw.alpha(armLightProgress);
-        Draw.blend(Blending.additive);
-        Draw.color(armLightColor);
-        armQuad(x2, x1);
-        armQuad(x3, x2);
-        armQuad(x4, x3);
-        Draw.blend();
+        if(armLightProgress > 0) {
+            Draw.blend(Blending.additive);
+            Draw.color(armLightColor, armLightProgress);
+            armQuad(x2, x1);
+            armQuad(x3, x2);
+            armQuad(x4, x3);
+            Draw.blend();
+        }
         if(armRingProgress > 0){
+            Draw.alpha(1f);
             Draw.color(armRingColor);
             Draw.z(Layer.effect);
             float rx1 = armRingRadius * Mathf.cosDeg(armRot - 60f + armRingGapAngle);
@@ -258,14 +276,17 @@ public class AnnihilatePartUnit extends UnitEntity {
             armRing(rx4, rx3, w);
             armRing(rx6, rx5, w);
         }
+        Draw.z(getPartLayer(Math.max(partLayerOffset, 0f) - (partLayer <= 0.25f ? 0.01f : 0.9f)));
+        partArmShadow(x4, x1);
         Draw.color();
     }
 
     public void armQuad(float xl, float xr, TextureRegion region){
-        Draw.quad(region, armNodeX(xl, 0f), armNodeY(xl, 0f), armC,
-                armNodeX(0f, armLength), armNodeY(0f, armLength), armC,
-                armNodeX(0f, armLength), armNodeY(0f, armLength), armC,
-                armNodeX(xr, 0f), armNodeY(xr, 0f), armC);
+        float armBit = Color.toFloatBits(Draw.getColor().r, Draw.getColor().g, Draw.getColor().b, Draw.getColor().a);
+        Draw.quad(region, armNodeX(xl, 0f), armNodeY(xl, 0f), armBit,
+                armNodeX(0f, armLength), armNodeY(0f, armLength), armBit,
+                armNodeX(0f, armLength), armNodeY(0f, armLength), armBit,
+                armNodeX(xr, 0f), armNodeY(xr, 0f), armBit);
     }
     public void armQuad(float xl, float xr){
         Fill.quad(armNodeX(xl, 0f), armNodeY(xl, 0f),
@@ -274,11 +295,11 @@ public class AnnihilatePartUnit extends UnitEntity {
                 armNodeX(xr, 0f), armNodeY(xr, 0f));
     }
     public void armQuadOutline(float xl, float xr){
-        float scale = Math.abs(xr / armLength);
+        float scale = Math.abs(armLength / xr);
         float dx = armOutlineWidth / scale;
         Fill.quad(armNodeX(xl - armOutlineWidth, 0f), armNodeY(xl - armOutlineWidth, 0f),
-                armNodeX(-armOutlineWidth + dx, armLength + armOutlineWidth), armNodeY(-armOutlineWidth + dx, armLength + armOutlineWidth),
-                armNodeX(armOutlineWidth - dx, armLength + armOutlineWidth), armNodeY(armOutlineWidth - dx, armLength + armOutlineWidth),
+                armNodeX(-armOutlineWidth - dx, armLength + armOutlineWidth), armNodeY(-armOutlineWidth - dx, armLength + armOutlineWidth),
+                armNodeX(armOutlineWidth + dx, armLength + armOutlineWidth), armNodeY(armOutlineWidth + dx, armLength + armOutlineWidth),
                 armNodeX(xr + armOutlineWidth, 0f), armNodeY(xr + armOutlineWidth, 0f));
     }
     public void armRing(float xl, float xr, float w){
@@ -386,9 +407,8 @@ public class AnnihilatePartUnit extends UnitEntity {
         return (float) ((2 - Math.pow(Math.E, 2 - 2 * scale)) * threshold);
     }
 
-    @Override
-    public void write(Writes write){
-        super.write(write);
+    public void anniWrite(Writes write){
+        write.s(1);
         write.i(charges);
         write.f(chargeTime);
         write.f(chargeTimeMax);
@@ -407,26 +427,36 @@ public class AnnihilatePartUnit extends UnitEntity {
         write.bool(ownerDead);
         mindustry.io.TypeIO.writeUnit(write, owner);
     }
-
+    public void anniRead(Reads read){
+        short anniVer = read.s();
+        if(anniVer >= 1) {
+            charges = read.i();
+            chargeTime = read.f();
+            chargeTimeMax = read.f();
+            chargeDelay = read.f();
+            chargeDelayMax = read.f();
+            interrupts = read.i();
+            interrupted = read.bool();
+            interruptCooldownTimer = read.f();
+            armLight = read.bool();
+            armLightProgress = read.f();
+            armRing = read.bool();
+            armRingProgress = read.f();
+            targetable = read.bool();
+            vulnerable = read.bool();
+            flip = read.bool();
+            ownerDead = read.bool();
+            owner = mindustry.io.TypeIO.readUnit(read);
+        }
+    }
+    @Override
+    public void write(Writes write){
+        super.write(write);
+        anniWrite(write);
+    }
     @Override
     public void read(Reads read){
         super.read(read);
-        charges = read.i();
-        chargeTime = read.f();
-        chargeTimeMax = read.f();
-        chargeDelay = read.f();
-        chargeDelayMax = read.f();
-        interrupts = read.i();
-        interrupted = read.bool();
-        interruptCooldownTimer = read.f();
-        armLight = read.bool();
-        armLightProgress = read.f();
-        armRing = read.bool();
-        armRingProgress = read.f();
-        targetable = read.bool();
-        vulnerable = read.bool();
-        flip = read.bool();
-        ownerDead = read.bool();
-        owner = mindustry.io.TypeIO.readUnit(read);
+        anniRead(read);
     }
 }

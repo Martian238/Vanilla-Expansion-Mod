@@ -21,28 +21,28 @@ public class AnnihilateUnitTypes {
         anniSideR = new AnnihilatePartUnitType("annihilate-part-side-r"){{
             health = partHealth;
             armor = partArmor;
-            spriteX = -32f;
+            spriteX = 32f;
             hitSize = 50f;
             sprite = "ve-annihilate-side-region";
         }};
         anniSideL = new AnnihilatePartUnitType("annihilate-part-side-l"){{
             health = partHealth;
             armor = partArmor;
-            spriteX = 32f;
+            spriteX = -32f;
             hitSize = 50f;
             sprite = "ve-annihilate-side-region";
         }};
         anniFrontR = new AnnihilatePartUnitType("annihilate-part-front-r"){{
             health = partHealth;
             armor = partArmor;
-            spriteX = -28f;
+            spriteX = 28f;
             hitSize = 32f;
             sprite = "ve-annihilate-front-region";
         }};
         anniFrontL = new AnnihilatePartUnitType("annihilate-part-front-l"){{
             health = partHealth;
             armor = partArmor;
-            spriteX = 28f;
+            spriteX = -28f;
             hitSize = 32f;
             sprite = "ve-annihilate-front-region";
         }};
@@ -83,12 +83,14 @@ public class AnnihilateUnitTypes {
             armor = partArmor;
             hitSize = 48f;
             sprite = "ve-annihilate-shield-region";
+            physics = false;
         }};
         anniShieldL = new AnnihilatePartUnitType("annihilate-part-shield-l"){{
             health = partHealth;
             armor = partArmor;
             hitSize = 48f;
             sprite = "ve-annihilate-shield-region";
+            physics = false;
         }};
 
         anni = new AnnihilateMainUnitType("annihilate"){{
@@ -96,6 +98,7 @@ public class AnnihilateUnitTypes {
             armor = partArmor;
             hitSize = 100f;
             databaseTag = "10special-unit";
+            rotateSpeed = 4f;
         }};
     }
 }

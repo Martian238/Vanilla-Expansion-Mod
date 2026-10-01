@@ -2,6 +2,7 @@ package VanillaExpansion.expand.type.unit.annihilate;
 
 import arc.Core;
 import arc.graphics.g2d.TextureRegion;
+import mindustry.ai.types.CommandAI;
 import mindustry.gen.Unit;
 import mindustry.type.UnitType;
 
@@ -13,6 +14,10 @@ public class AnnihilatePartUnitType extends UnitType {
         engineSize = 0;
         hidden = true;
         wobble = isEnemy = false;
+        playerControllable = false;
+        controller = u -> new CommandAI();
+        flying = true;
+        clipSize = 8000f;
     }
 
     public String sprite = "error";
@@ -20,7 +25,7 @@ public class AnnihilatePartUnitType extends UnitType {
     public String armSprite2 = "error";
     public float spriteX = 0;
     public float spriteY = 0;
-    public float defaultElevation = 3.5f;
+    public float defaultElevation = 2f;
     public float chargeRingRadius = 80f;
     public float chargeRingStroke = 16f;
 

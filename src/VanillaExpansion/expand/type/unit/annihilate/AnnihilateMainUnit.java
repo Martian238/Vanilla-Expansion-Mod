@@ -1,14 +1,25 @@
 package VanillaExpansion.expand.type.unit.annihilate;
 
 import arc.Events;
+import arc.graphics.Blending;
+import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.TextureRegion;
+import arc.math.Angles;
 import arc.math.Mathf;
 import arc.struct.Seq;
+import arc.util.Time;
+import arc.util.Tmp;
+import arc.util.io.Reads;
+import arc.util.io.Writes;
 import mindustry.Vars;
+import mindustry.entities.Effect;
 import mindustry.entities.Units;
+import mindustry.entities.effect.WaveEffect;
 import mindustry.game.EventType;
+import mindustry.gen.Unit;
 import mindustry.gen.UnitEntity;
+import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.world.blocks.environment.Floor;
 
@@ -24,9 +35,37 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
 
     public TextureRegion ringRegion = new TextureRegion();
     public TextureRegion ringTopRegion = new TextureRegion();
+    public TextureRegion emojiBaseRegion = new TextureRegion();
+    public TextureRegion emojiNormalRegion = new TextureRegion();
+    public TextureRegion emojiIdleRegion = new TextureRegion();
+    public TextureRegion emojiPauseRegion = new TextureRegion();
+    public TextureRegion emojiPuzzledRegion = new TextureRegion();
+    public TextureRegion emojiHurtRegion = new TextureRegion();
 
-    public float ringRotSpeed = 5f;
+    public float ringRotSpeed = 2f;
     private float ringRot = 0f;
+    public Effect ringEffect = new WaveEffect(){{
+        sizeFrom = sizeTo = 62.5f;
+        strokeFrom = 5f;
+        strokeTo = 0f;
+        layer = 100f;
+        colorFrom = Color.valueOf("f2555500");
+        colorTo = Color.valueOf("f25555").mul(1.3f);
+        lifetime = 20f;
+        followParent = true;
+        sides = 64;
+    }};
+    public float ringEffectRand = 6.5f;
+    public float ringEffectInterval = 5f;
+    private float ringEffectIntervalTime = 0f;
+
+    /** Emoji
+     * 0: Empty, 1: Base only, 2: Idle, 3: Normal, 4: Hurt, 5: Pause, 6: Puzzled */
+    public int emoji = 3;
+    public Color emojiLightColor = Color.valueOf("f25555");
+
+    private final boolean debug = true;
+    private boolean updateInitialized = false;
 
     public Seq<AnniPart> anniParts = new Seq<>();
     public static class AnniPart {
@@ -48,6 +87,8 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         public float dfx;
         public float dfy;
         public float dfRot;
+        /** Whether the part is playing idle animation */
+        public boolean idle;
     }
 
     public AnnihilatePartUnitType partTypeCap = AnnihilateUnitTypes.anniCap;
@@ -70,8 +111,11 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         setPartsData();
     }
     public void setPartsData(){
-        getPart("sideR").unit.flip = true;
-        getPart("frontR").unit.flip = true;
+        getPart("sideL").unit.flip = true;
+        getPart("frontL").unit.flip = true;
+        getPart("armFL").unit.flip = true;
+        getPart("armBL").unit.flip = true;
+        getPart("shieldL").unit.flip = true;
         getPart("armFR").unit.isArm = true;
         getPart("armFL").unit.isArm = true;
         getPart("armBR").unit.isArm = true;
@@ -117,17 +161,17 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         }
     }
     public void summonParts(){
-        summonPart(partTypeCap, "cap", 0, -92, 0);
-        summonPart(partTypeSideR, "sideR", 70, 0, 0);
-        summonPart(partTypeSideL, "sideL", -70, 0, 0);
+        summonPart(partTypeCap, "cap", 0, -80, 0);
+        summonPart(partTypeSideR, "sideR", 60, 0, 0);
+        summonPart(partTypeSideL, "sideL", -60, 0, 0);
         summonPart(partTypeFrontR, "frontR", 0, 90, 0);
         summonPart(partTypeFrontL, "frontL", 0, 90, 0);
-        summonPart(partTypeShieldR, "shieldR", 100, 65, 60);
-        summonPart(partTypeShieldL, "shieldL", -100, 65, -60);
-        summonPart(partTypeArmFR, "armFR", 135, 93, 60);
-        summonPart(partTypeArmFL, "armFL", -135, 93, -60);
-        summonPart(partTypeArmBR, "armBR", 125, -93, 120);
-        summonPart(partTypeArmBL, "armBL", -125, -93, -120);
+        summonPart(partTypeShieldR, "shieldR", 105, 60, -50);
+        summonPart(partTypeShieldL, "shieldL", -105, 60, 50);
+        summonPart(partTypeArmFR, "armFR", 145, 83, -65);
+        summonPart(partTypeArmFL, "armFL", -145, 83, 65);
+        summonPart(partTypeArmBR, "armBR", 105, -83, -125);
+        summonPart(partTypeArmBL, "armBL", -105, -83, 125);
     }
     public void summonPart(AnnihilatePartUnitType type, String name, float defaultX, float defaultY, float defaultRot){
         if(!anniParts.contains(p -> p.name.equals(name) && p.unit != null)) {
@@ -153,6 +197,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
                 dfx = defaultX;
                 dfy = defaultY;
                 dfRot = defaultRot;
+                idle = true;
             }});
         }
     }
@@ -161,11 +206,22 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public boolean killable(){
         return false;
     }
+    @Override
+    public void remove(){
+        for(AnniPart p : anniParts){
+            if(p.unit != null) p.unit.remove();
+        }
+        super.remove();
+    }
 
     /** Update methods */
     @Override
     public void update(){
         super.update();
+        if(!updateInitialized){
+            updateInitialized = true;
+            generalInitialize();
+        }
 
         partsUpdate();
         ringUpdate();
@@ -175,6 +231,18 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         ringRot += ringRotSpeed;
         if(ringRot >= 90) ringRot -= 90f;
         if(ringRot < 0) ringRot += 90f;
+        if(!Vars.headless) {
+            ringEffectIntervalTime += Math.abs(ringRotSpeed / 4f);
+            if (ringEffectIntervalTime >= ringEffectInterval) {
+                ringEffectIntervalTime = 0;
+                float a = Mathf.range(90f);
+                float d = Mathf.range(ringEffectRand);
+                Tmp.v1.trns(rotation - 90f,
+                        d * Mathf.cosDeg(a),
+                        d * Mathf.sinDeg(a));
+                ringEffect.at(x + Tmp.v1.x, y + Tmp.v1.y, rotation, Color.white, this);
+            }
+        }
     }
 
 
@@ -182,9 +250,19 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         for(AnniPart p : anniParts){
             if(p.unit != null){
                 if(p.following){
-                    p.unit.x(x + p.x * xCos() + p.y * yCos());
-                    p.unit.y(y + p.x * xSin() + p.y * ySin());
-                    p.unit.rotation(p.rot);
+                    if(p.idle && p.unit.isArm) {
+                        if(p.name.contains("F")){
+                            partFloatingIdle(p, this, 45f, 0f, 6f);
+                        }else{
+                            partFloatingIdle(p, this, 45f, 0.7f, 6f);
+                        }
+                    }else if(p.idle && p.name.contains("shield")) {
+                        partFloatingIdle(p, this, 45f, 1.1f, 3f);
+                    }else{
+                        p.unit.x(x + p.x * xCos() + p.y * yCos());
+                        p.unit.y(y + p.x * xSin() + p.y * ySin());
+                        p.unit.rotation(p.rot + rotation);
+                    }
                 }else{
                     p.unit.x(p.wx);
                     p.unit.y(p.wy);
@@ -193,7 +271,35 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             }
         }
     }
+    public void partFloatingIdle(AnniPart p, Unit u, float scale, float offset, float mag){
+        float d = mag * Mathf.sin(Time.time / scale + offset);
+        p.unit.x(powMove(p.unit.x,
+                u.x + p.dfx * xCos() + p.dfy * yCos() + d * Mathf.cosDeg(u.rotation + p.dfRot),
+                10f));
+        p.unit.y(powMove(p.unit.y,
+                u.y + p.dfx * xSin() + p.dfy * ySin() + d * Mathf.sinDeg(u.rotation + p.dfRot),
+                10f));
+        float da = -7.5f * (Angles.angleDist(p.unit.rotation, u.vel().angle()) / 180f) * (u.vel().len2() / u.speed()) * (p.unit.flip ? -1f : 1f);
+        p.unit.rotation(powRot(p.unit.rotation, u.rotation + p.dfRot + da, 15f));
+    }
 
+    /** Chiniun Kun part move method */
+    public float powMove(float current, float target, float scale){
+        return (current * scale + target)/(scale + 1f);
+    }
+    public float powRot(float current, float target, float scale){
+        if(Math.abs(current - target) >= 180f){
+            float a = Angles.angleDist(current, target);
+            if(a < 180f){
+                if(Mathf.sinDeg(target - current) > 0){
+                    return (current * scale + (current + a))/(scale + 1f);
+                }else{
+                    return (current * scale + (current - a))/(scale + 1f);
+                }
+            }
+        }
+        return (current * scale + target)/(scale + 1f);
+    }
     /** Converts follow position to world position */
     public void setToWorld(AnniPart p){
         p.wx = xToWorld(p.x, p.y);
@@ -245,6 +351,12 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
                 chargeRingRadius = am.chargeRingRadius;
                 chargeRingStroke = am.chargeRingStroke;
                 shadowRegion = am.softShadowRegion;
+                emojiBaseRegion = am.emojiBaseRegion;
+                emojiNormalRegion = am.emojiNormalRegion;
+                emojiIdleRegion = am.emojiIdleRegion;
+                emojiPauseRegion = am.emojiPauseRegion;
+                emojiPuzzledRegion = am.emojiPuzzledRegion;
+                emojiHurtRegion = am.emojiHurtRegion;
             }
         }
 
@@ -253,6 +365,26 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         }
         partBody();
         partCharge();
+        drawEmoji();
+    }
+    public void drawEmoji(){
+        if(emoji >= 1){
+            Draw.z(Layer.fogOfWar + 1f);
+            Draw.color();
+            Draw.blend(Blending.additive);
+            Draw.rect(emojiBaseRegion, x, y, rotation + 90f);
+            if(emoji == 2) Draw.rect(emojiIdleRegion, x, y, rotation + 90f);
+            if(emoji == 3) Draw.rect(emojiNormalRegion, x, y, rotation + 90f);
+            if(emoji == 4) Draw.rect(emojiHurtRegion, x, y, rotation + 90f);
+            if(emoji == 5) Draw.rect(emojiPauseRegion, x, y, rotation + 90f);
+            if(emoji == 6) Draw.rect(emojiPuzzledRegion, x, y, rotation + 90f);
+            Draw.color(emojiLightColor, 0.5f);
+            Draw.rect(shadowRegion, x + 120f, y, 240f, 4f, 0f);
+            Draw.rect(shadowRegion, x + 60f, y, 120f, 8f, 0f);
+            Draw.rect(shadowRegion, x - 120f, y, 240f, 4f, 0f);
+            Draw.rect(shadowRegion, x - 60f, y, 120f, 8f, 0f);
+            Draw.blend();
+        }
     }
     @Override
     public void partShadow(float ax, float ay){
@@ -294,8 +426,93 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         Draw.rect(ringRegion, ax, ay, rotation - 90f + ringRot);
         Draw.alpha(Mathf.lerp(0f, 1f, ringRot / 90f));
         Draw.rect(ringRegion, ax, ay, rotation - 180f + ringRot);
+        Draw.color(Color.black, 0.4f);
+        Draw.rect(shadowRegion, x, y, 180f, 90f, rotation - 90f);
+        Draw.color();
         Draw.alpha(1f);
         Draw.rect(ringTopRegion, ax, ay, rotation - 90f);
         Draw.reset();
+    }
+
+    /** Save and load */
+    @Override
+    public void anniWrite(Writes write){
+        write.s(2);
+        write.i(charges);
+        write.f(chargeTime);
+        write.f(chargeTimeMax);
+        write.f(chargeDelay);
+        write.f(chargeDelayMax);
+        write.i(interrupts);
+        write.bool(interrupted);
+        write.f(interruptCooldownTimer);
+        write.bool(armLight);
+        write.f(armLightProgress);
+        write.bool(armRing);
+        write.f(armRingProgress);
+        write.bool(targetable);
+        write.bool(vulnerable);
+
+        write.bool(updateInitialized);
+        write.i(emoji);
+
+        write.s(anniParts.size);
+        for(AnniPart p : anniParts){
+            write.str(p.name);
+            mindustry.io.TypeIO.writeUnit(write, p.unit);
+            write.f(p.wx);
+            write.f(p.wy);
+            write.f(p.wRot);
+            write.bool(p.following);
+            write.f(p.x);
+            write.f(p.y);
+            write.f(p.rot);
+            write.f(p.dfx);
+            write.f(p.dfy);
+            write.f(p.dfRot);
+            write.bool(p.idle);
+        }
+    }
+    @Override
+    public void anniRead(Reads read){
+        short anniVer = read.s();
+        if(anniVer >= 2) {
+            charges = read.i();
+            chargeTime = read.f();
+            chargeTimeMax = read.f();
+            chargeDelay = read.f();
+            chargeDelayMax = read.f();
+            interrupts = read.i();
+            interrupted = read.bool();
+            interruptCooldownTimer = read.f();
+            armLight = read.bool();
+            armLightProgress = read.f();
+            armRing = read.bool();
+            armRingProgress = read.f();
+            targetable = read.bool();
+            vulnerable = read.bool();
+
+            updateInitialized = read.bool();
+            emoji = read.i();
+
+            anniParts.clear();
+            short anniPartsCount = read.s();
+            for(int i = 0; i < anniPartsCount; i++){
+                anniParts.add(new AnniPart(read.str()){{
+                    unit = (AnnihilatePartUnit) mindustry.io.TypeIO.readUnit(read);
+                    wx = read.f();
+                    wy = read.f();
+                    wRot = read.f();
+                    following = read.bool();
+                    x = read.f();
+                    y = read.f();
+                    rot = read.f();
+                    dfx = read.f();
+                    dfy = read.f();
+                    dfRot = read.f();
+                    idle = read.bool();
+                }});
+            }
+        }
     }
 }
