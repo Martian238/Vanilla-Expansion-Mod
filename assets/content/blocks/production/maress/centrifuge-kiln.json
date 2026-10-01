@@ -43,7 +43,7 @@
   },
   "warmupSpeed": 0.005,
   "research": {
-    "parent": "blast-furnace"
+    "parent": "multi-furnace"
   },
   "researchCostMultiplier": 0.1,
   "shownPlanets": [ "maress" ]

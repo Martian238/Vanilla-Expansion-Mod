@@ -1,9 +1,13 @@
 package VanillaExpansion.expand.type.unit;
 
 import arc.audio.Sound;
+import arc.func.Func;
 import arc.graphics.Color;
+import mindustry.ai.types.CommandAI;
+import mindustry.entities.units.UnitController;
 import mindustry.game.Team;
 import mindustry.gen.Sounds;
+import mindustry.gen.Unit;
 import mindustry.type.UnitType;
 
 import static mindustry.Vars.tilesize;
@@ -12,6 +16,8 @@ public class SentryUnitType extends UnitType {
     public SentryUnitType(String name){
         super(name);
         constructor = SentryUnit::create;
+        playerControllable = false;
+        controller = u -> new CommandAI();
     }
 
     public float visionRadius = 80f;
@@ -38,5 +44,13 @@ public class SentryUnitType extends UnitType {
     public UnitType exclamationMarkUnit;
     public float exclamationMarkOffset = 3.75f * tilesize;
     public float confirmTime = 300f;
+
+
+    public Func<Unit, ? extends UnitController> controller2 = u -> new CommandAI();
+
+    @Override
+    public UnitController createController(Unit unit){
+        return controller2.get(unit);
+    }
 
 }

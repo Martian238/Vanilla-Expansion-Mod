@@ -1,8 +1,10 @@
 package VanillaExpansion.content;
 
 import VanillaExpansion.expand.graphics.VECacheLayer;
+import VanillaExpansion.expand.world.block.environment.IceWalkIce;
 import VanillaExpansion.expand.world.block.environment.MantleTunnel;
 import VanillaExpansion.expand.world.block.environment.NitroalkossProp;
+import mindustry.content.Blocks;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.meta.BuildVisibility;
 
@@ -32,6 +34,7 @@ public class VEEnvironBlocks {
         new Floor("metal-tiles-14ve");
         new Floor("metal-tiles-15ve");
         new Floor("metal-tiles-16ve");
+        new IceWalkIce("deepwater-ice");
 
 
 

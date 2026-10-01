@@ -5,7 +5,7 @@
   ],
   "category": "crafting",
   "research": {
-    "parent": "m-upgraded-reaction-pool",
+    "parent": "catalyzon-workshop",
     "objectives": [ 
       {
         "type": "SectorComplete",

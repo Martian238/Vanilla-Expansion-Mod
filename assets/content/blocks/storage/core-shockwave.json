@@ -1,6 +1,7 @@
 {
   "type": "VanillaExpansion.expand.world.block.crux.ShockwaveCoreBlock",//Java
   "chargeSound": "coreShockwaveCharge",
+  "subChargeSound": "lbp3AirSuction",
   "size": 5,
   "category": "effect",
   "buildVisibility": "sandboxOnly",
@@ -43,15 +44,17 @@
       "clip": 4000,
       "layer": 110,
       "interp": "circleIn",
-      "lifetime": 30
+      "lifetime": 30,
+      "startDelay": 96
     },
-    "sound": "chargeVelaFast",
+    "sound": "endfieldPillarCharge",
     "maxPitch": 1,
     "minPitch": 1,
     "maxVolume": 2,
     "minVolume": 2
   },
-  "finalCharge": 30,
+  "finalCharge": 126,
+  "startChargeSound": ["endfieldChargeShort1","endfieldChargeShort2"],
   "chargeEffect1": [
     {
       "type": "ParticleEffect",

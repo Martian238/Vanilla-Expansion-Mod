@@ -1,0 +1,8 @@
+{
+  "albedo": 0.65,
+  "attributes": {
+    "water": 0.4
+  },
+  "speedMultiplier": 0.9,
+  "dragMultiplier": 0.35
+}

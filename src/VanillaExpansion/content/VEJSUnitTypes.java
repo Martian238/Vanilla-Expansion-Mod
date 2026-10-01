@@ -1,6 +1,7 @@
 package VanillaExpansion.content;
 
 import VanillaExpansion.expand.type.unit.*;
+import VanillaExpansion.expand.type.unit.annihilate.AnnihilateUnitTypes;
 import mindustry.content.Fx;
 import mindustry.gen.*;
 import mindustry.type.UnitType;
@@ -172,6 +173,7 @@ public class VEJSUnitTypes {
         thoriumEradicator = new UnitType("thorium-eradicator"){{constructor = LegsUnit::create;}};
         hugeDagger = new UnitType("huge-dagger"){{constructor = MechUnit::create;}};
         hyper = new UnitType("hyper"){{constructor = HyperUnit::create;}};
+        AnnihilateUnitTypes.load();
 
         textTrigger = new UnitType("text-trigger"){{
             constructor = TimedKillUnit::create;

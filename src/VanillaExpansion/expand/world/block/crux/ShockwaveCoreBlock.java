@@ -64,6 +64,16 @@ public class ShockwaveCoreBlock extends CoreBlock {
     public float chargeVolumeTo = 1f;
     public float chargeVolumeGlobalFrom = 0f;
     public float chargeVolumeGlobalTo = 0.2f;
+    public Sound subChargeSound = Sounds.none;
+    public float subChargeSoundDuration = 420f;
+    public float subChargeVolumeFrom = 0f;
+    public float subChargeVolumeTo = 0.1f;
+    public float subChargeVolumeGlobalFrom = 0f;
+    public float subChargeVolumeGlobalTo = 0f;
+    public boolean subChargeSlope = true;
+    public Sound startChargeSound = Sounds.none;
+    public float startChargeVolume = 0.7f;
+
 
     public Sound shockwaveSound = Sounds.drillImpact;
     public Effect shockwaveEffect = Fx.none;
@@ -85,7 +95,7 @@ public class ShockwaveCoreBlock extends CoreBlock {
     );
     public @Nullable Color genericColor;
     public Effect finalChargeEffect = Fx.none;
-    public float finalCharge = 30f;
+    public float finalCharge = 126f;
 
     public Effect chargeEffect1 = Fx.none;
     public float chargeEffect1ChanceBase = 0.25f;
@@ -176,6 +186,8 @@ public class ShockwaveCoreBlock extends CoreBlock {
         private static ShockwaveCoreBlock coreBlock;
         private Vec2 corePos = new Vec2(x, y);
 
+        private boolean finalCharged = false, startCharged = false;
+
 
         @Override
         public void updateTile(){
@@ -184,19 +196,25 @@ public class ShockwaveCoreBlock extends CoreBlock {
 
             if(enabled && !state.isEditor() && !(thrusterTime > 0)){
                 if(shockwaveWarmup < maxWarmup) {
-                    shockwaveWarmup += 1;
+                    shockwaveWarmup += delta();
                     if(shockwaveWarmup < 0) shockwaveWarmup = 0;
                 }
 
-                shockwaveCharge += 1;
-                if(finalCharge > 0 && shockwaveCharge == chargeDuration - finalCharge){
+                shockwaveCharge += delta();
+                if(shockwaveCharge >= 1f && !startCharged){
+                    startChargeSound.at(corePos, 1f, startChargeVolume);
+                    startCharged = true;
+                }
+                if(finalCharge > 0 && shockwaveCharge >= (chargeDuration - finalCharge) && !finalCharged){
                     finalChargeEffect.at(x, y);
+                    finalCharged = true;
                 }
                 if(shockwaveCharge >= chargeDuration) {
                     shockwaveRadius = 3200f;//tilesize * getDistance(0, 0, (float) state.map.width,  (float) state.map.height);
                     //Log.info("Shockwave radius: " + shockwaveRadius);
                     shockwaveRelease();
                     shockwaveCharge = - shockwaveDuration;
+                    finalCharged = startCharged = false;
                 }else if(shockwaveCharge > 0){
                     if(shockwaveCharge < chargeDuration - chargeEffect1End) {
                         if (Mathf.chance(Mathf.lerp(chargeEffect1ChanceBase, 1f, shockwaveCharge / chargeDuration))) {
@@ -216,10 +234,14 @@ public class ShockwaveCoreBlock extends CoreBlock {
                     corePos.y = y;
                     Vars.control.sound.loop(chargeSound, corePos, Mathf.lerp(chargeVolumeFrom, chargeVolumeTo, Mathf.clamp((shockwaveCharge - chargeDuration + chargeSoundDuration) / chargeSoundDuration)));
                     Vars.control.sound.loop(chargeSound, Mathf.lerp(chargeVolumeGlobalFrom, chargeVolumeGlobalTo, Mathf.clamp((shockwaveCharge - chargeDuration + chargeSoundDuration) / chargeSoundDuration) * Mathf.clamp((shockwaveCharge - chargeDuration + chargeSoundDuration) / chargeSoundDuration) * Mathf.clamp((shockwaveCharge - chargeDuration + chargeSoundDuration) / chargeSoundDuration)));
+                    float subProgress = Mathf.clamp((shockwaveCharge - chargeDuration + subChargeSoundDuration) / subChargeSoundDuration);
+                    float subProgressGlobal = Mathf.clamp((shockwaveCharge - chargeDuration + subChargeSoundDuration) / subChargeSoundDuration) * Mathf.clamp((shockwaveCharge - chargeDuration + subChargeSoundDuration) / subChargeSoundDuration) * Mathf.clamp((shockwaveCharge - chargeDuration + subChargeSoundDuration) / subChargeSoundDuration);
+                    Vars.control.sound.loop(subChargeSound, corePos, Mathf.lerp(subChargeVolumeFrom, subChargeVolumeTo, subProgress * (subChargeSlope ? 4f * (1f - subProgress) : 1f)));
+                    Vars.control.sound.loop(subChargeSound, Mathf.lerp(subChargeVolumeGlobalFrom, subChargeVolumeGlobalTo, subProgressGlobal * (subChargeSlope ? 4f * (1f - subProgressGlobal) : 1f)));
                 }
             }else{
                 if(shockwaveWarmup > 0) {
-                    shockwaveWarmup -= 1;
+                    shockwaveWarmup -= delta();
                     if(shockwaveWarmup > maxWarmup) shockwaveWarmup = maxWarmup;
                 }
 

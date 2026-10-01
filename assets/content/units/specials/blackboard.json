@@ -1,0 +1,38 @@
+{
+  "flying": true,
+  "hidden": true,
+  "drawMinimap": false,
+  "drawCell": false,
+  "targetable": false,
+  "hittable": false,
+  "deathSound": "none",
+  "deathExplosionEffect": "none",
+  "deathShake": 0,
+  "rotateSpeed": 0,
+  "speed": 0,
+  "lowAltitude": true,
+  "flyingLayer": 88,
+  "hitSize": 40,
+  "createWreck": false,
+  "physics": false,
+  "createScorch": false,
+  "lightRadius": 0,
+  "fogRadius": 0,
+  "engineSize": 0,
+  "engines": [
+    {
+      "x": 38,
+      "y": 0,
+      "radius": 5,
+      "rotation": 0
+    },
+    {
+      "x": -38,
+      "y": 0,
+      "radius": 5,
+      "rotation": 180
+    }
+  ],
+  "isEnemy": false,
+  "trailLength": 0
+}

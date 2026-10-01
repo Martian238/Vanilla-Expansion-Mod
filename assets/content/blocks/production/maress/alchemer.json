@@ -651,7 +651,7 @@
   "armor": 12,
   "size": 4,
   "research": {
-    "parent": "config-melter",
+    "parent": "exothermic-heater",
     "objectives": [
       {
         "type": "OnSector",

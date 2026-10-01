@@ -1,0 +1,15 @@
+{
+  "requirements": [ "tantalum/1" ],
+  "health": 200,
+  "armor": 24,
+  "category": "liquid",
+  "research": {
+    "parent": "fluid-sorter"
+  },
+  "junctionReplacement": "valve-fluid-cross",
+  "bridgeReplacement": "silver-bridge",
+  "drawTeamOverlay": false,
+  "shownPlanets": [ "maress","thavina" ],
+  "liquidCapacity": 80,
+  "floating": true
+}

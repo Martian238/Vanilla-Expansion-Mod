@@ -21,6 +21,7 @@ import mindustry.entities.Units;
 import mindustry.entities.abilities.ShieldArcAbility;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.game.EventType;
+import mindustry.gen.Groups;
 import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
 import mindustry.graphics.Pal;
@@ -29,10 +30,13 @@ import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.type.unit.MissileUnitType;
 import mindustry.ui.Bar;
+import mindustry.world.Tile;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
 import mindustry.world.consumers.ConsumeLiquidFilter;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
+
+import static mindustry.Vars.world;
 
 public class ShieldArcUnitPowerTurret extends PowerTurret {
     public ShieldArcUnitPowerTurret(String name){
@@ -82,7 +86,7 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
                 = createScorch = createWreck = physics = useUnitCap = false;
         region = sbcnm;
         flying = true;
-        health = 9999999;
+        health = 9999997;
         engineSize = wreckSoundVolume = deathShake = 0;
         deathExplosionEffect = fallEffect = fallEngineEffect = Fx.none;
         deathSound = wreckSound = Sounds.none;

@@ -6,7 +6,7 @@
   "category": "production",
   "requirements": [ "surge-alloy/50","silicon/120","silicide/80","silver/100" ],
   "research": {
-    "parent": "core-singularity-root",
+    "parent": "blast-furnace",
     "objectives": [
       {
         "type": "OnSector",

@@ -40,6 +40,8 @@ public class CutsceneUnitType extends UnitType {
         return controller2.get(unit);
     }
 
+
+
     @Override
     public Unit create(Team team){
         Unit unit = constructor.get();

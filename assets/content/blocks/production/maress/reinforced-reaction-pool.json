@@ -17,11 +17,7 @@
   "warmupSpeed": 0.05,
   "dumpTime": 1,
   "research": {
-    "parent": "m-upgraded-reaction-pool",
-    "objectives": [
-      "m-upgraded-reaction-pool",
-      "pickling-pool-large"
-    ]
+    "parent": "pickling-pool-large"
   },
   "researchCostMultiplier": 0.2,
   "drawer": {

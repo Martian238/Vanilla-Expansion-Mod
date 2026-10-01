@@ -8,7 +8,7 @@ function newCellLiquid(name) {
 	exports[name] = extend(CellLiquid, name, {});
 }
 
-newItem("dense-alloy");
+
 
 newItem("aluminium");
 newItem("quartz");
@@ -44,6 +44,7 @@ newItem("watermelon-alcohol");
 newItem("crystallon");
 newItem("mect-complex");
 
+newItem("dense-alloy");
 newItem("motiphite");
 newItem("technolite");
 newItem("chrysopite");

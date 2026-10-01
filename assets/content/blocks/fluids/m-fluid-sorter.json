@@ -1,4 +1,6 @@
 {
+
+  //DISCARDED
   "type": "VanillaExpansion.MultiCrafter",
   "requirements": [ "chromium/20","silicon/20" ],
   "shownPlanets": [],
