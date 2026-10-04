@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.abilities;
 
+import VanillaExpansion.expand.type.unit.annihilate.AnnihilatePartUnit;
 import arc.Core;
 import arc.audio.*;
 import arc.func.*;
@@ -110,7 +111,7 @@ public class RotatingShieldArcAbility extends Ability {
                 paramField.data -= unit.health() * paramField.missileUnitMultiplier * Vars.state.rules.unitDamage(unit.team);
                 paramField.alpha = 1f;
 
-            }else if(paramField.pushUnits && !(!unit.isFlying() && paramUnit.isFlying())){
+            }else if(paramField.pushUnits && !(unit instanceof AnnihilatePartUnit) && !(!unit.isFlying() && paramUnit.isFlying())){
 
                 float reach = paramField.actualRadius + paramField.width;
                 float overlapDst = reach - unit.dst(paramPos.x, paramPos.y);

@@ -1,0 +1,7 @@
+{
+  "loopSound": "si2TeleporterActive",
+  "loopSoundVolume": 0.1,
+  "interruptSound": [ "endfieldInterrupt1", "endfieldInterrupt2" ],
+
+  "chargeSound1": "endfieldTriaggeloisCharge1"
+}

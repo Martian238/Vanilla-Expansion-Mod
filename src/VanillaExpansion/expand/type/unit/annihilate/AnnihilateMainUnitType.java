@@ -1,6 +1,7 @@
 package VanillaExpansion.expand.type.unit.annihilate;
 
 import arc.Core;
+import arc.audio.Sound;
 import arc.graphics.g2d.TextureRegion;
 
 public class AnnihilateMainUnitType extends AnnihilatePartUnitType{
@@ -11,7 +12,7 @@ public class AnnihilateMainUnitType extends AnnihilatePartUnitType{
         hidden = false;
         isEnemy = true;
         chargeRingRadius = 200f;
-        chargeRingStroke = 24f;
+        chargeRingStroke = 48f;
         speed = 4f;
         drag = 0.04f;
         accel = 0.2f;
@@ -43,6 +44,8 @@ public class AnnihilateMainUnitType extends AnnihilatePartUnitType{
     public TextureRegion emojiPauseRegion = new TextureRegion();
     public TextureRegion emojiPuzzledRegion = new TextureRegion();
     public TextureRegion emojiHurtRegion = new TextureRegion();
+
+    public Sound chargeSound1;
 
     @Override
     public void load(){

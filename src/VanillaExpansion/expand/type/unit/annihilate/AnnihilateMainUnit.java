@@ -2,6 +2,7 @@ package VanillaExpansion.expand.type.unit.annihilate;
 
 import arc.Core;
 import arc.Events;
+import arc.audio.Sound;
 import arc.graphics.Blending;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
@@ -9,6 +10,8 @@ import arc.graphics.g2d.TextureRegion;
 import arc.input.KeyCode;
 import arc.math.Angles;
 import arc.math.Mathf;
+import arc.math.geom.Vec2;
+import arc.scene.ui.TextArea;
 import arc.struct.Seq;
 import arc.util.Log;
 import arc.util.Time;
@@ -20,14 +23,14 @@ import mindustry.entities.Effect;
 import mindustry.entities.Units;
 import mindustry.entities.effect.WaveEffect;
 import mindustry.game.EventType;
-import mindustry.gen.Groups;
-import mindustry.gen.Unit;
-import mindustry.gen.UnitEntity;
+import mindustry.game.Team;
+import mindustry.gen.*;
 import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
+import mindustry.ui.dialogs.BaseDialog;
 import mindustry.world.blocks.environment.Floor;
 
-import static mindustry.Vars.world;
+import static mindustry.Vars.*;
 import static mindustry.type.UnitType.shadowTX;
 import static mindustry.type.UnitType.shadowTY;
 
@@ -67,6 +70,9 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
      * 0: Empty, 1: Base only, 2: Idle, 3: Normal, 4: Hurt, 5: Pause, 6: Puzzled */
     public int emoji = 3;
     public Color emojiLightColor = Color.valueOf("f25555");
+
+    /** Whether the boss is not commandable */
+    public boolean auto = false;
 
     protected final boolean debug = true;
     private boolean updateInitialized = false;
@@ -255,8 +261,19 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         }
         super.remove();
     }
+    @Override
+    public boolean isCommandable(){
+        return !auto;
+    }
+    @Override
+    public boolean allowCommand(){
+        return !auto;
+    }
+    /* —————————————————————————————————————————————————————————————————————————————————— */
+    /* —————————————————————————————————————————————————————————————————————————————————— */
+    /* —————————————————————————————————————————————————————————————————————————————————— */
 
-    /** Update methods */
+    /** Update methods (P.S. update() is not here) */
     @Override
     public void updateAfterRead(){
         /* Find part units by id numbers */
@@ -278,30 +295,10 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             if(!found && debug) Log.err("Part unit as " + p.name + " not found, id: " + p.id);
         }
     }
-    @Override
-    public void update(){
-        super.update();
-        if(!updateInitialized){
-            updateInitialized = true;
-            generalInitialize();
-        }
 
-        if(debug && Core.input.keyTap(KeyCode.z)){
-            for(AnniPart p : anniParts){
-                if(p.unit != null) {
-                    Log.info("Got AnniPart: " + p.name + ", " + p.unit.type + ", " + p.id);
-                }else{
-                    Log.err("Got AnniPart: " + p.name + ", unit not found with id: " + p.id);
-                }
-            }
-        }
-
-        partsUpdate();
-        ringUpdate();
-    }
 
     public void ringUpdate(){
-        ringRot += ringRotSpeed;
+        ringRot += ringRotSpeed * delta();
         if(ringRot >= 90) ringRot -= 90f;
         if(ringRot < 0) ringRot += 90f;
         if(!Vars.headless) {
@@ -439,6 +436,9 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         partBody();
         partCharge();
         drawEmoji();
+        if(type.buildSpeed > 0f){
+            drawBuilding();
+        }
     }
     public void drawEmoji(){
         if(emoji >= 1){
@@ -456,7 +456,10 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             Draw.rect(shadowRegion, x + 60f, y, 120f, 8f, 0f);
             Draw.rect(shadowRegion, x - 120f, y, 240f, 4f, 0f);
             Draw.rect(shadowRegion, x - 60f, y, 120f, 8f, 0f);
+            Draw.color(emojiLightColor, 0.25f);
+            Draw.rect(shadowRegion, x, y, 120f, 60f, 0f);
             Draw.blend();
+            Draw.color();
         }
     }
     @Override
@@ -487,6 +490,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     }
     @Override
     public void partBody(){
+        if(inFogTo(Vars.player.team())) return;
         float ax = x;
         float ay = y;
         Draw.z(getPartLayer(Math.max(partLayerOffset, 0f) - (partLayer <= 0.25f ? 0.01f : 0.9f)));
@@ -510,7 +514,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     /** Save and load */
     @Override
     public void anniWrite(Writes write){
-        write.s(2);
+        write.s(3);
         write.i(charges);
         write.f(chargeTime);
         write.f(chargeTimeMax);
@@ -549,6 +553,9 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             write.bool(p.idle);
             write.i(p.id);
         }
+
+        write.str(animation);
+        write.f(actualFrame);
     }
     @Override
     public void anniRead(Reads read){
@@ -595,5 +602,166 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
                 }});
             }
         }
+        if(anniVer >= 3){
+            animation = read.str();
+            actualFrame = read.f();
+        }
+    }
+
+
+
+
+    /** Boss actions including updates, animations and attacks */
+    @Override
+    public void update(){
+        super.update();
+        if(!updateInitialized){
+            updateInitialized = true;
+            generalInitialize();
+        }
+        if(!soundLoaded){
+            soundLoaded = true;
+            loadSounds();
+        }
+
+        if(debug){
+            if(Core.input.keyTap(KeyCode.z)) {
+                for (AnniPart p : anniParts) {
+                    if (p.unit != null) {
+                        Log.info("Got AnniPart: " + p.name + ", " + p.unit.type + ", " + p.id);
+                    } else {
+                        Log.err("Got AnniPart: " + p.name + ", unit not found with id: " + p.id);
+                    }
+                }
+            }
+            if(Core.input.keyDown(KeyCode.x) && !state.isPaused() && !animationDebugging){
+                animationDebugging = true;
+                animationDebug();
+            }
+        }
+
+        centerPos.x = x;
+        centerPos.y = y;
+        animationUpdate();
+        partsUpdate();
+        ringUpdate();
+    }
+
+    private boolean animationDebugging = false;
+    public StringBuilder message = new StringBuilder();
+    public void animationDebug(){
+        BaseDialog dialog = new BaseDialog("@edit");
+        dialog.setFillParent(false);
+        TextArea a = dialog.cont.add(new TextArea(message.toString().replace("\r", "\n"))).size(380f, 160f).get();
+        dialog.cont.row();
+        dialog.cont.label(() -> a.getText().length() + " / " + 999).color(Color.lightGray);
+        dialog.buttons.button("@ok", () -> {
+            message = new StringBuilder(a.getText());
+            animation = message.toString();
+            actualFrame = -1;
+            Log.info("Set animation: " + message);
+            animationDebugging = false;
+            dialog.hide();
+        }).size(130f, 60f);
+        dialog.closeOnBack();
+        dialog.show();
+    }
+
+    /** Sounds */
+    public void loadSounds(){
+        if(type instanceof AnnihilateMainUnitType am){
+            chargeSound1 = am.chargeSound1;
+        }
+    }
+    public Vec2 centerPos = new Vec2(0, 0);
+    private boolean soundLoaded = false;
+    public Sound chargeSound1;
+
+    public Team thisTeam = Team.sharded; // Team of the boss itself.
+    public Team targetTeam = Team.sharded; // Team of targeting as enemy.
+    public boolean targetAll = false; // When true, all teams except for its team will be targeted.
+    public Team damageTeam = Team.crux; // Team of being damaged.
+    public boolean damageAll = false; // When true, all teams except for its team will be damaged.
+
+    public int frame = -1;
+    public float actualFrame = -1f;
+    public String animation = "none"; // An animation includes part animations and damaging enemies.
+
+    /** Team booleans */
+    public boolean isTarget(Unit t){
+        return (t.team != thisTeam && targetAll) || (t.team == targetTeam && !targetAll);
+    }
+    public boolean isTarget(Building t){
+        return (t.team != thisTeam && targetAll) || (t.team == targetTeam && !targetAll);
+    }
+    public boolean shouldDamage(Unit t){
+        return (t.team != thisTeam && damageAll) || (t.team == damageTeam && !damageAll);
+    }
+    public boolean shouldDamage(Building t){
+        return (t.team != thisTeam && damageAll) || (t.team == damageTeam && !damageAll);
+    }
+    /** Animation booleans */
+    public boolean frameWithin(float min, float max){
+        return (min <= actualFrame) && (actualFrame <= max);
+    }
+    public boolean frame(int f){
+        return frame == f;
+    }
+    /** Animation method */
+    public void setCharge(int count, float time, float delay){
+        chargeTime = time;
+        chargeDelay = delay;
+        charges = count;
+    }
+    public void endAnimation(int f){
+        if(frame(f)){
+            animation = "none";
+            actualFrame = -1;
+        }
+    }
+    public void setArmRotSpeed(String name, float speed){
+        if(getPart(name) == null) return;
+        getPart(name).unit.armRotSpeedTarget = speed;
+    }
+    public void setArmLight(String name, boolean light, boolean ring){
+        if(getPart(name) == null) return;
+        getPart(name).unit.armLight = light;
+        getPart(name).unit.armRing = ring;
+    }
+
+    /** Generic animation update method */
+    public void animationUpdate(){
+        /* Action frame begins at 0. Charge calculation starts in the next frame. */
+        if(!animation.equals("none")){
+            actualFrame += delta();
+        }
+        frame = Mathf.floor(actualFrame);
+
+        /* Test actions */
+        actionTestCharge();
+    }
+
+    /** Actions */
+    public void actionTestCharge(){
+        if(!animation.equals("testCharge")) return;
+        if(frame(0)){
+            setCharge(3, 162f, 60f);
+        }
+        if(frame(60)){
+            setArmRotSpeed("armBL", 10f);
+            setArmRotSpeed("armBR", 10f);
+            setArmLight("armBL", true, true);
+            setArmLight("armBR", true, true);
+        }
+        if(frameWithin(60, 222)){
+            control.sound.loop(chargeSound1, centerPos, 1.5f);
+        }
+        if(frame(222)){
+            setArmRotSpeed("armBL", 1f);
+            setArmRotSpeed("armBR", 1f);
+            setArmLight("armBL", false, false);
+            setArmLight("armBR", false, false);
+        }
+        endAnimation(222);
     }
 }

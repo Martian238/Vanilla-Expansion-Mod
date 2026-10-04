@@ -1,29 +1,16 @@
 package VanillaExpansion.expand.units;
 
+import mindustry.audio.SoundLoop;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
-import arc.*;
-import arc.audio.*;
-import arc.func.*;
-import arc.graphics.*;
-import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.math.geom.*;
-import arc.scene.ui.layout.*;
-import arc.struct.*;
 import arc.util.*;
 import mindustry.*;
-import mindustry.ai.types.*;
-import mindustry.audio.*;
-import mindustry.content.*;
 import mindustry.entities.*;
 import mindustry.entities.bullet.*;
-import mindustry.entities.part.*;
-import mindustry.entities.pattern.*;
 import mindustry.entities.units.*;
 import mindustry.gen.*;
-import mindustry.graphics.*;
-import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
 

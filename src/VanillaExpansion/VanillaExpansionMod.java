@@ -536,7 +536,7 @@ public class VanillaExpansionMod extends Mod {
         VEBlocks.load();
         VEEnvironBlocks.load();
         VEJSUnitTypes.load();
-        //VEJSPlanets.load();
+        VEJSPlanets.load();
         VEPlanets.load();
         VETechTree.load();
         VEFonts.loadFonts();

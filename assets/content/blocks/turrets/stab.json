@@ -5,17 +5,15 @@
   "size": 4,
   "ammoTypes": {
     "silicide": {
-      "type": "PointBulletType",
+      "type": "VanillaExpansion.expand.bullets.StabPointBulletType",
       "lifetime": 640,//600
       "damage": 500,
       "impact": true,
       "knockback": 120,
       "pierceArmor": true,
-      "trailEffect": "instTrail",
-      "shootEffect": "instShoot",
+      "hitColor": "ffa665",
+      "trailColor": "ffa665",
       "smokeEffect": "smokeCloud",
-      "hitEffect": "instHit",
-      "despawnEffect": "instBomb",
       "buildingDamageMultiplier": 5,
       "shieldDamageMultiplier": 5,
       "reloadMultiplier": 1.2,
@@ -45,15 +43,13 @@
       "rangeChange": 120
     },
     "fibralt": {
-      "type": "PointBulletType",
+      "type": "VanillaExpansion.expand.bullets.StabPointBulletType",
       "lifetime": 640,//600
       "damage": 100,
       "armorMultiplier": -80,
-      "trailEffect": "instTrail",
-      "shootEffect": "instShoot",
       "smokeEffect": "smokeCloud",
-      "hitEffect": "instHit",
-      "despawnEffect": "instBomb",
+      "hitColor": "90dbff",
+      "trailColor": "90dbff",
       "buildingDamageMultiplier": 0.2,
       "buildingArmorMultiplier": 0,
       "hitShake": 6,
@@ -63,32 +59,18 @@
       "rangeChange": 40
     },
     "fusion-fuel": {
-      "type": "PointBulletType",
+      "type": "VanillaExpansion.expand.bullets.StabPointBulletType",
       "lifetime": 600,
       "damage": 100,
-      "trailEffect": {
-        "type": "MultiEffect",
-        "effects": [ "instTrail",
-          {
-            "type": "ParticleEffect",
-            "particles": 1,
-            "length": 20,
-            "interp": "circleOut",
-            "sizeInterp": "circleIn",
-            "colorFrom": "9eabf788",
-            "colorTo": "9eabf7",
-            "sizeFrom": 4,
-            "lifetime": 60,
-            "sizeTo": 0,
-            "layer": 100
-          }
-        ]
-      },
-      "shootEffect": "instShoot",
+      "hitColor": "9eabf7",
+      "trailColor": "9eabf7",
+      "overwriteHit": false,
+      "withHydrogen": true,
       "smokeEffect": "smokeCloud",
+      "unitSort": "grouped",
       "hitEffect": {
         "type": "MultiEffect",
-        "effects": [ "instBomb",
+        "effects": [
           {
             "type": "ExplosionEffect",
             "waveColor": "9eabf7",
@@ -244,13 +226,15 @@
       "despawnEffect": "none"
     },
     "capacitor": {
-      "type": "PointBulletType",
+      "type": "VanillaExpansion.expand.bullets.StabPointBulletType",
       "lifetime": 600,
       "damage": 810,
       "trailEffect": "instTrail",
       "shootEffect": "instShoot",
       "smokeEffect": "smokeCloud",
       "buildingDamageMultiplier": 0.2,
+      "withLightning": true,
+      "overwrite": false,
       "ammoMultiplier": 10,
       "trailSpacing": 20,
         "hitEffect": {
@@ -299,7 +283,7 @@
     }
   },
   "recoil": 5,
-  "shootSound": "shootForeshadow",
+  "shootSound": "shootStab",
   "shootX": 0,
   "shootY": 3,
   "reload": 200,
@@ -550,139 +534,689 @@
             }
           ]
         }
-      },
-      
-      
-      {
-        "type": "ShapePart",
-        "radius": 7.2,
-        "stroke": 0,
-        "strokeTo": 1.2,
-        "layer": 110,
-        "y": -8,
-        "hollow": true,
-        "circle": true,
-        "progress": "warmup",
-        "color": "ffd37f"
-      },
-      {
-        "type": "ShapePart",
-        "radius": 0,
-        "radiusTo": 4.8,
-        "layer": 110,
-        "stroke": 0,
-        "strokeTo": 1.2,
-        "y": -8,
-        "hollow": true,
-        "sides": 6,
-        "rotateSpeed": -2,
-        "progress": {
-          "type": "reload",
-          "ops": [
-            {
-              "op": "mul",
-              "amount": -1
-            },
-            {
-              "op": "add",
-              "other": "warmup"
-            }
-          ]
-        },
-        "color": "ffd37f"
-      },
-      {
-        "type": "HaloPart",
-        "progress": "warmup",
-        "color": "ffd37f",
-        "layer": 110,
-        "shapes": 2,
-        "haloRotation": 90,
-        "haloRadius": 12,
-        "triLength": 0,
-        "triLengthTo": 15,
-        "radius": 3.5,
-        "y": -8,
-        "tri": true
-      },
-      {
-        "type": "HaloPart",
-        "progress": "warmup",
-        "color": "ffd37f",
-        "layer": 110,
-        "shapes": 2,
-        "haloRotation": 90,
-        "haloRadius": 12,
-        "triLength": 0,
-        "triLengthTo": 2.4,
-        "radius": 3.5,
-        "y": -8,
-        "tri": true,
-        "shapeRotation": 180
-      },
-      {
-        "type": "HaloPart",
-        "progress": "warmup",
-        "color": "ffd37f",
-        "layer": 110,
-        "shapes": 2,
-        "haloRotation": 60,
-        "haloRadius": 13,
-        "triLength": 0,
-        "triLengthTo": 3.6,
-        "radius": 5,
-        "y": -8,
-        "tri": true,
-        "haloRotateSpeed": -1
-      },
-      {
-        "type": "HaloPart",
-        "progress": "warmup",
-        "color": "ffd37f",
-        "layer": 110,
-        "shapes": 2,
-        "haloRotation": 60,
-        "haloRadius": 13,
-        "triLength": 0,
-        "triLengthTo": 1.8,
-        "radius": 5,
-        "y": -8,
-        "tri": true,
-        "shapeRotation": 180,
-        "haloRotateSpeed": -1
-      },
-      {
-        "type": "HaloPart",
-        "progress": "warmup",
-        "color": "ffd37f",
-        "layer": 110,
-        "shapes": 2,
-        "haloRotation": 120,
-        "haloRadius": 13,
-        "triLength": 0,
-        "triLengthTo": 3.6,
-        "radius": 5,
-        "y": -8,
-        "tri": true,
-        "haloRotateSpeed": 1
-      },
-      {
-        "type": "HaloPart",
-        "progress": "warmup",
-        "color": "ffd37f",
-        "layer": 110,
-        "shapes": 2,
-        "haloRotation": 120,
-        "haloRadius": 13,
-        "triLength": 0,
-        "triLengthTo": 1.8,
-        "radius": 5,
-        "y": -8,
-        "tri": true,
-        "shapeRotation": 180,
-        "haloRotateSpeed": 1
       }
-    ]
+    ],
+    "ammoParts": {
+      "surge-alloy": [
+        {
+          "type": "ShapePart",
+          "radius": 7.2,
+          "stroke": 0,
+          "strokeTo": 1.2,
+          "layer": 110,
+          "y": -8,
+          "hollow": true,
+          "circle": true,
+          "progress": "warmup",
+          "color": "ffd37f"
+        },
+        {
+          "type": "ShapePart",
+          "radius": 0,
+          "radiusTo": 4.8,
+          "layer": 110,
+          "stroke": 0,
+          "strokeTo": 1.2,
+          "y": -8,
+          "hollow": true,
+          "sides": 6,
+          "rotateSpeed": -2,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              {
+                "op": "mul",
+                "amount": -1
+              },
+              {
+                "op": "add",
+                "other": "warmup"
+              }
+            ]
+          },
+          "color": "ffd37f"
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 90,
+          "haloRadius": 12,
+          "triLength": 0,
+          "triLengthTo": 15,
+          "radius": 3.5,
+          "y": -8,
+          "tri": true
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 90,
+          "haloRadius": 12,
+          "triLength": 0,
+          "triLengthTo": 2.4,
+          "radius": 3.5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 60,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 3.6,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "haloRotateSpeed": -1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 60,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 1.8,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180,
+          "haloRotateSpeed": -1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 120,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 3.6,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "haloRotateSpeed": 1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 120,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 1.8,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180,
+          "haloRotateSpeed": 1
+        }
+      ],
+      "fibralt": [
+        {
+          "type": "ShapePart",
+          "radius": 7.2,
+          "stroke": 0,
+          "strokeTo": 1.2,
+          "layer": 110,
+          "y": -8,
+          "hollow": true,
+          "circle": true,
+          "progress": "warmup",
+          "color": "90dbff"
+        },
+        {
+          "type": "ShapePart",
+          "radius": 0,
+          "radiusTo": 4.8,
+          "layer": 110,
+          "stroke": 0,
+          "strokeTo": 1.2,
+          "y": -8,
+          "hollow": true,
+          "sides": 6,
+          "rotateSpeed": -2,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              {
+                "op": "mul",
+                "amount": -1
+              },
+              {
+                "op": "add",
+                "other": "warmup"
+              }
+            ]
+          },
+          "color": "90dbff"
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "90dbff",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 90,
+          "haloRadius": 12,
+          "triLength": 0,
+          "triLengthTo": 15,
+          "radius": 3.5,
+          "y": -8,
+          "tri": true
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "90dbff",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 90,
+          "haloRadius": 12,
+          "triLength": 0,
+          "triLengthTo": 2.4,
+          "radius": 3.5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "90dbff",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 60,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 3.6,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "haloRotateSpeed": -1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "90dbff",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 60,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 1.8,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180,
+          "haloRotateSpeed": -1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "90dbff",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 120,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 3.6,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "haloRotateSpeed": 1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "90dbff",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 120,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 1.8,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180,
+          "haloRotateSpeed": 1
+        }
+      ],
+      "silicide": [
+        {
+          "type": "ShapePart",
+          "radius": 7.2,
+          "stroke": 0,
+          "strokeTo": 1.2,
+          "layer": 110,
+          "y": -8,
+          "hollow": true,
+          "circle": true,
+          "progress": "warmup",
+          "color": "ffa665"
+        },
+        {
+          "type": "ShapePart",
+          "radius": 0,
+          "radiusTo": 4.8,
+          "layer": 110,
+          "stroke": 0,
+          "strokeTo": 1.2,
+          "y": -8,
+          "hollow": true,
+          "sides": 6,
+          "rotateSpeed": -2,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              {
+                "op": "mul",
+                "amount": -1
+              },
+              {
+                "op": "add",
+                "other": "warmup"
+              }
+            ]
+          },
+          "color": "ffa665"
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffa665",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 90,
+          "haloRadius": 12,
+          "triLength": 0,
+          "triLengthTo": 15,
+          "radius": 3.5,
+          "y": -8,
+          "tri": true
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffa665",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 90,
+          "haloRadius": 12,
+          "triLength": 0,
+          "triLengthTo": 2.4,
+          "radius": 3.5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffa665",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 60,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 3.6,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "haloRotateSpeed": -1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffa665",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 60,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 1.8,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180,
+          "haloRotateSpeed": -1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffa665",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 120,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 3.6,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "haloRotateSpeed": 1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffa665",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 120,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 1.8,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180,
+          "haloRotateSpeed": 1
+        }
+      ],
+      "capacitor": [
+        {
+          "type": "ShapePart",
+          "radius": 7.2,
+          "stroke": 0,
+          "strokeTo": 1.6,
+          "layer": 110,
+          "y": -8,
+          "hollow": true,
+          "circle": true,
+          "progress": "warmup",
+          "color": "ffd37f"
+        },
+        {
+          "type": "ShapePart",
+          "radius": 10,
+          "stroke": 0,
+          "strokeTo": 0.6,
+          "layer": 110,
+          "y": -8,
+          "hollow": true,
+          "circle": true,
+          "progress": "warmup",
+          "color": "ffd37f"
+        },
+        {
+          "type": "ShapePart",
+          "radius": 0,
+          "radiusTo": 4.8,
+          "layer": 110,
+          "stroke": 0,
+          "strokeTo": 1.2,
+          "y": -8,
+          "hollow": true,
+          "sides": 6,
+          "rotateSpeed": -2,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              {
+                "op": "mul",
+                "amount": -1
+              },
+              {
+                "op": "add",
+                "other": "warmup"
+              }
+            ]
+          },
+          "color": "ffd37f"
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 90,
+          "haloRadius": 13.2,
+          "triLength": 0,
+          "triLengthTo": 25,
+          "radius": 4,
+          "y": -8,
+          "tri": true
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 90,
+          "haloRadius": 13.2,
+          "triLength": 0,
+          "triLengthTo": 3.6,
+          "radius": 4,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 60,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 7.2,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "haloRotateSpeed": -1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 60,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 2.4,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180,
+          "haloRotateSpeed": -1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 120,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 7.2,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "haloRotateSpeed": 1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "ffd37f",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 120,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 2.4,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180,
+          "haloRotateSpeed": 1
+        }
+      ],
+      "fusion-fuel": [
+        {
+          "type": "ShapePart",
+          "radius": 7.2,
+          "stroke": 0,
+          "strokeTo": 1.6,
+          "layer": 110,
+          "y": -8,
+          "hollow": true,
+          "circle": true,
+          "progress": "warmup",
+          "color": "9eabf7"
+        },
+        {
+          "type": "ShapePart",
+          "radius": 10,
+          "stroke": 0,
+          "strokeTo": 0.6,
+          "layer": 110,
+          "y": -8,
+          "hollow": true,
+          "circle": true,
+          "progress": "warmup",
+          "color": "9eabf7"
+        },
+        {
+          "type": "ShapePart",
+          "radius": 0,
+          "radiusTo": 4.8,
+          "layer": 110,
+          "stroke": 0,
+          "strokeTo": 1.2,
+          "y": -8,
+          "hollow": true,
+          "sides": 6,
+          "rotateSpeed": -2,
+          "progress": {
+            "type": "reload",
+            "ops": [
+              {
+                "op": "mul",
+                "amount": -1
+              },
+              {
+                "op": "add",
+                "other": "warmup"
+              }
+            ]
+          },
+          "color": "9eabf7"
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "9eabf7",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 90,
+          "haloRadius": 13.2,
+          "triLength": 0,
+          "triLengthTo": 25,
+          "radius": 4,
+          "y": -8,
+          "tri": true
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "9eabf7",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 90,
+          "haloRadius": 13.2,
+          "triLength": 0,
+          "triLengthTo": 3.6,
+          "radius": 4,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "9eabf7",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 60,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 7.2,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "haloRotateSpeed": -1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "9eabf7",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 60,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 2.4,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180,
+          "haloRotateSpeed": -1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "9eabf7",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 120,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 7.2,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "haloRotateSpeed": 1
+        },
+        {
+          "type": "HaloPart",
+          "progress": "warmup",
+          "color": "9eabf7",
+          "layer": 110,
+          "shapes": 2,
+          "haloRotation": 120,
+          "haloRadius": 10,
+          "triLength": 0,
+          "triLengthTo": 2.4,
+          "radius": 5,
+          "y": -8,
+          "tri": true,
+          "shapeRotation": 180,
+          "haloRotateSpeed": 1
+        }
+      ]
+    }
   },
   "research": {
     "parent": "chain",

@@ -12,9 +12,12 @@ import VanillaExpansion.expand.maps.NeutronStarPlanetGenerator;
 import VanillaExpansion.expand.maps.ProximaPlanetGenerator;
 import arc.graphics.Color;
 import mindustry.Vars;
+import mindustry.content.Blocks;
 import mindustry.content.Planets;
+import mindustry.gen.Musics;
 import mindustry.graphics.g3d.*;
 import mindustry.graphics.g3d.PlanetGrid.Ptile;
+import mindustry.maps.generators.BlankPlanetGenerator;
 import mindustry.type.Planet;
 import mindustry.type.Sector;
 import mindustry.world.meta.Attribute;
@@ -30,7 +33,7 @@ import static mindustry.gen.Musics.game8;
 public class VEPlanets {
 
     /** 星球实例 */
-    public static Planet proxima, neutronStar;
+    public static Planet thavina, proxima, neutronStar;
     /** 加载行星定义 */
     public static void load() {
         neutronStar = new Planet("sol4b", Planets.sun, 0.9f, 0) {{
@@ -78,6 +81,80 @@ public class VEPlanets {
             allowLegacyLaunchPads = false;
         }};
         neutronStar.solarSystem = neutronStar;
+
+        thavina = new Planet("thavina", neutronStar, 0.85f, 2){{
+            generator = new BlankPlanetGenerator();
+            solarSystem = neutronStar;
+            iconColor = Color.valueOf("ff3a73");
+            orbitRadius = 40f;
+            orbitTime = 12000f;
+            rotateTime = 600f;
+            hasAtmosphere = true;
+            updateLighting = true;
+            lightSrcFrom = 0.5f;
+            lightSrcTo = 0.8f;
+            lightDstFrom = 0.5f;
+            lightDstTo = 0.8f;
+            atmosphereRadIn = 0.02f;
+            atmosphereRadOut = 0.1f;
+            atmosphereColor = Color.valueOf("c46164");
+            lightColor = Color.valueOf("ff3a7344");
+            landCloudColor = Color.valueOf("a3838400");
+            drawOrbit = true;
+            tidalLock = false;
+            bloom = true;
+            visible = true;
+            minZoom = 0.1f;
+            maxZoom = 10f;
+
+            accessible = true;
+            allowSelfSectorLaunch = false;
+            defaultAttributes.set(Attribute.spores, -1f);
+            defaultAttributes.set(Attribute.light, -0.2f);
+            ruleSetter = rules -> {
+                rules.coreDestroyClear = true;
+                rules.worldProcessorPlayerLink = true;
+                rules.unitPayloadsExplode = true;
+                rules.hideSpawns = true;
+                rules.logicUnitDeconstruct = true;
+                rules.randomWaveAI = true;
+                rules.planet = thavina;
+            };
+            defaultCore = Blocks.coreShard;
+            sectorSeed = 0;
+            alwaysUnlocked = true;
+            startSector = 0;
+            clearSectorOnLose = true;
+            allowSectorInvasion = false;
+            allowLaunchToNumbered = false;
+            allowCampaignRules = false;
+            showRtsAIRule = false;
+            enemyCoreSpawnReplace = true;
+            allowLaunchSchematics = true;
+            launchMusic = Musics.game4;
+            allowLaunchLoadout = true;
+            launchCapacityMultiplier = 0.5f;
+            prebuildBase = true;
+            defaultEnv = Env.terrestrial;
+
+            meshLoader = () -> new MultiMesh(
+                    new NoiseMesh(this,
+                            995, 5, 0.784f, 6, 0.5f, 0.1f, 0.5f,
+                            Color.valueOf("d1efff00"), Color.valueOf("1b161b00"),
+                            1, 0.5f, 1f, 0.5f),
+                    new NoiseMesh(this,
+                            995, 5, 0.77f, 6, 0.5f, 2f, 1f,
+                            Color.valueOf("1b161b00"), Color.valueOf("392f2d00"),
+                            1, 0.5f, 1f, 0.5f),
+                    new NoiseMesh(this,
+                            325, 5, 0.7f, 6, 0.5f, 10f, 2f,
+                            Color.valueOf("1b161b00"), Color.valueOf("2d2f3900"),
+                            1, 0.5f, 1f, 0.5f),
+                    new SunMesh(this,
+                            2, 6, 0.3, 1.5, 1.2, 1, 1.1f,
+                            Color.valueOf("ff3a73"), Color.valueOf("c71f50"))
+            );
+        }};
 
         proxima = new Planet("proxima", neutronStar, 1f, 3) {{
             generator = new ProximaPlanetGenerator();

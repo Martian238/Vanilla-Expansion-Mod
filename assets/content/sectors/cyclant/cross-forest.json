@@ -1,6 +1,6 @@
 {
   "planet": "cyclant",
-  "sector": 39,
+  "sector": 216,//39
   "difficulty": 7,
   "research": {
     "parent": "ruins",

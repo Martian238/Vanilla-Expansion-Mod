@@ -1,6 +1,8 @@
 package VanillaExpansion.expand.type.unit.annihilate;
 
 import VanillaExpansion.EntityRegister;
+import VanillaExpansion.content.CustomFx;
+import arc.audio.Sound;
 import arc.graphics.Blending;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
@@ -9,10 +11,15 @@ import arc.graphics.g2d.Lines;
 import arc.graphics.g2d.TextureRegion;
 import arc.math.Mathf;
 import arc.util.Log;
+import arc.util.Time;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
+import mindustry.Vars;
+import mindustry.content.Fx;
+import mindustry.entities.Effect;
 import mindustry.game.Team;
 import mindustry.gen.Groups;
+import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
 import mindustry.gen.UnitEntity;
 import mindustry.graphics.Layer;
@@ -70,14 +77,14 @@ public class AnnihilatePartUnit extends UnitEntity {
     public boolean armLight = false;
     public boolean armRing = false;
     public Color armOutlineColor = Color.valueOf("16161c");
-    public Color armLightColor = chargeRingColor3.cpy();
+    public Color armLightColor = chargeRingColor1.cpy();
     public Color armRingColor = chargeRingColor1.cpy();
     public float armLightProgress = 0f;
     public float armRingProgress = 0f;
     public float armOutlineWidth = 0.75f;
-    public float armRingRadius = armWidth * 1.5f;
+    public float armRingRadius = armWidth;
     public float armRingGapAngle = 5f;
-    public float armRingWidth = 24f;
+    public float armRingWidth = 16f;
     public TextureRegion armRegion1 = new TextureRegion();
     public TextureRegion armRegion2 = new TextureRegion();
     //public float armC = Color.white.toFloatBits();
@@ -112,6 +119,14 @@ public class AnnihilatePartUnit extends UnitEntity {
         if(isArm){
             armUpdate();
         }
+        if(!vulnerable && !statuses.isEmpty()){
+            statuses.clear();
+        }
+    }
+
+    /** Time.delta */
+    public float delta(){
+        return Time.delta;
     }
 
     @Override
@@ -120,12 +135,12 @@ public class AnnihilatePartUnit extends UnitEntity {
     }
 
     public void armUpdate(){
-        armRot += armRotSpeed * (flip ? -1 : 1);
+        armRot += armRotSpeed * (flip ? -1 : 1) * delta();
         if(armRot >= 90f) armRot -= 60f;
         if(armRot < 30f) armRot += 60f;
-        armRotSpeed = Mathf.approach(armRotSpeed, armRotSpeedTarget, 0.2f + 0.1f * Math.abs(armRotSpeed - armRotSpeedTarget));
-        armLightProgress = Mathf.approach(armLightProgress, armLight ? 1f : 0f, 0.03f);
-        armRingProgress = Mathf.approach(armRingProgress, armRing ? 1f : 0f, 0.03f);
+        armRotSpeed = Mathf.approachDelta(armRotSpeed, armRotSpeedTarget, 0.2f + 0.1f * Math.abs(armRotSpeed - armRotSpeedTarget));
+        armLightProgress = Mathf.approachDelta(armLightProgress, armLight ? 1f : 0f, 0.03f);
+        armRingProgress = Mathf.approachDelta(armRingProgress, armRing ? 1f : 0f, 0.03f);
     }
 
     public void chargeUpdate(){
@@ -139,13 +154,13 @@ public class AnnihilatePartUnit extends UnitEntity {
         }
         if(interruptCooldownTimer > 0) interruptCooldownTimer--;
         if(chargeTime > 0 && chargeDelay <= 0){
-            chargeTime--;
-            chargeRot++;
+            chargeTime -= delta();
+            chargeRot += delta();
             if(chargeRot >= 360f) chargeRot -= 360f;
         }
         if(chargeDelay > 0 || chargeTime <= 0) chargeBright = 1f;
-        if(chargeBright > 0 && chargeDelay <= 0) chargeBright -= 1f / 20f;
-        if(chargeDelay > 0) chargeDelay--;
+        if(chargeBright > 0 && chargeDelay <= 0) chargeBright -= Math.max(1f / 40f, chargeBright / 20f) * delta();
+        if(chargeDelay > 0) chargeDelay -= delta();
         if((chargeTime <= 0 || interrupts >= charges) && charges > 0){
             if(interrupts >= charges) interrupted = true;
             charges = 0;
@@ -154,7 +169,14 @@ public class AnnihilatePartUnit extends UnitEntity {
     }
 
     public void interruptEffect(){
-
+        if(type instanceof AnnihilatePartUnitType ap){
+            ap.interruptEffect.at(x, y, Mathf.range(5f), chargeRingRadius / 50f);
+            if(interrupts >= charges){
+                ap.chargeStopEffect.at(x, y, 0f, chargeRingColor1, chargeRingRadius * (chargeTime / chargeTimeMax));
+            }
+            ap.interruptSound.at(x, y, 1f, 0.7f);
+            Effect.shake(ap.interruptShake, ap.interruptShake * 2f, x, y);
+        }
     }
 
     public void dealInterrupt(float damage){
@@ -235,6 +257,7 @@ public class AnnihilatePartUnit extends UnitEntity {
     }
 
     public void partBody(){
+        if(inFogTo(Vars.player.team())) return;
         float ax = x + regionOffsetX * Mathf.cosDeg(rotation - 90f) + regionOffsetY * Mathf.cosDeg(rotation);
         float ay = y + regionOffsetX * Mathf.sinDeg(rotation - 90f) + regionOffsetY * Mathf.sinDeg(rotation);
         Draw.z(getPartLayer(Math.max(partLayerOffset, 0f) - (partLayer <= 0.25f ? 0.01f : 0.9f)));
@@ -276,6 +299,8 @@ public class AnnihilatePartUnit extends UnitEntity {
             armQuad(x2, x1);
             armQuad(x3, x2);
             armQuad(x4, x3);
+            Draw.color(chargeRingColor1, armLightProgress);
+            armQuadOutline(x4, x1);
             Draw.blend();
         }
         if(armRingProgress > 0){
@@ -344,31 +369,31 @@ public class AnnihilatePartUnit extends UnitEntity {
             Draw.z(Layer.effect - 1f);
             if(chargeDelay > 0 && chargeDelayMax > 0){
                 Draw.color(chargeRingDelayColor);
-                Lines.stroke(0.5f * chargeRingStroke);
+                Lines.stroke(0.2f * chargeRingStroke);
                 if(charges > 1) {
                     for(int i = 0; i < charges; i++){
-                        Lines.arc(x, y, chargeRingRadius, (chargeDelay / chargeDelayMax) / charges, 360f * ((float) i / charges));
+                        Lines.arc(x, y, chargeRingRadius, (1 - (chargeDelay / chargeDelayMax)) / charges, 360f * ((float) i / charges));
                     }
-                }else Lines.arc(x, y, chargeRingRadius, chargeDelay / chargeDelayMax, 0f);
+                }else Lines.arc(x, y, chargeRingRadius, 1 - chargeDelay / chargeDelayMax, 0f);
             }else{
                 Draw.color(chargeRingColor1);
-                Lines.stroke(0.2f * chargeRingStroke);
+                Lines.stroke(0.15f * chargeRingStroke);
                 if(charges > 1){
                     for(int i = 0; i < charges - interrupts; i++){
-                        Lines.arc(x, y, chargeRingRadius * (chargeTime / chargeTimeMax) + chargeRingStroke,
-                                0.75f / charges, 360f * ((float) i / charges));
+                        Lines.arc(x, y, (chargeRingRadius + chargeRingStroke * 0.5f) * (chargeTime / chargeTimeMax) + chargeRingStroke * 0.15f,
+                                0.75f / charges, 360f * ((float) i / charges) + chargeRot * 2.5f);
                     }
                 }
-                addChargeArc(6, 1f, 0.25f, -10f);
-                addChargeArc(4, 0.8f, 0.5f, 5f);
+                addChargeArc(6, 1f, 0.4f, -10f);
+                addChargeArc(4, 0.7f, 0.6f, 5f);
                 Draw.color(chargeRingColor2);
-                addChargeArc(3, 0.6f, 0.5f, 2.5f);
+                addChargeArc(3, 0.4f, 0.8f, -2.5f);
                 Draw.color(chargeRingColor3);
-                Lines.stroke(0.4f * chargeRingStroke);
+                Lines.stroke(0.2f * chargeRingStroke);
                 Lines.circle(x, y, chargeRingRadius * (chargeTime / chargeTimeMax));
                 if(chargeBright > 0){
                     Draw.color(chargeRingColor1.cpy().lerp(Color.white, chargeBright));
-                    Lines.stroke(chargeBright * chargeRingStroke);
+                    Lines.stroke(chargeBright * chargeRingStroke * 0.65f);
                     Lines.circle(x, y, chargeRingRadius * (chargeTime / chargeTimeMax));
                 }
             }
@@ -397,6 +422,15 @@ public class AnnihilatePartUnit extends UnitEntity {
     public void kill(){
         if(!killable()) return;
         super.kill();
+    }
+
+    @Override
+    public boolean isCommandable(){
+        return false;
+    }
+    @Override
+    public boolean allowCommand(){
+        return false;
     }
 
     @Override
