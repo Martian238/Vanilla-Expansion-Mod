@@ -45,7 +45,8 @@ public class AnnihilateMainUnitType extends AnnihilatePartUnitType{
     public TextureRegion emojiPuzzledRegion = new TextureRegion();
     public TextureRegion emojiHurtRegion = new TextureRegion();
 
-    public Sound chargeSound1;
+    public Sound chargeSound1, chargeSound2,
+            voice1;
 
     @Override
     public void load(){
