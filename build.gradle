@@ -1,107 +1,186 @@
 apply plugin: "java"
 
-//file\:///D\:/Lab/gradle-9.4.1-bin.zip
-
 version = '1.0'
 
 sourceSets.main.java.srcDirs = ["src"]
 
-repositories{
+repositories {
     mavenCentral()
-    maven{ url = "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
-    maven{ url = 'https://www.jitpack.io' }
+    maven { url = "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
+    maven { url = 'https://www.jitpack.io' }
 }
 
-java{
+java {
     targetCompatibility = 17
     sourceCompatibility = JavaVersion.VERSION_17
 }
 
-ext{
-    //the build number that this mod is made for
-    mindustryVersion = 'v160'
+ext {
+    mindustryVersion = 'v160.6'
     jabelVersion = "93fde537c7"
     isWindows = System.getProperty("os.name").toLowerCase().contains("windows")
     sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
+
+    // 游戏 jar 项目根/game
+    gameDir = file("$projectDir/game")
+    gameJarFile = {
+        def dir = gameDir
+        if (!dir.exists() || !dir.isDirectory()) {
+            throw new GradleException(
+                    "Game directory not found: ${dir}\n" +
+                            "Please create it and put the official Mindustry desktop jar inside.\n" +
+                            "Download: https://github.com/Anuken/Mindustry/releases/tag/${mindustryVersion}"
+            )
+        }
+        def preferredNames = ['Mindustry.jar', 'desktop-release.jar', 'Mindustry-Desktop.jar']
+        for (name in preferredNames) {
+            def f = new File(dir, name)
+            if (f.exists() && f.isFile()) return f
+        }
+        def anyJar = dir.listFiles({ f -> f.isFile() && f.name.toLowerCase().endsWith('.jar') } as FileFilter)
+        if (anyJar == null || anyJar.length == 0) {
+            throw new GradleException(
+                    "No .jar found in ${dir}\n" +
+                            "Please put the official Mindustry desktop jar there.\n" +
+                            "Download: https://github.com/Anuken/Mindustry/releases/tag/${mindustryVersion}"
+            )
+        }
+        return anyJar.sort { it.name }.first()
+    }
 }
 
-//java 8 backwards compatibility flag
-allprojects{
-    tasks.withType(JavaCompile).tap{
-        configureEach{
+allprojects {
+    tasks.withType(JavaCompile).tap {
+        configureEach {
             options.compilerArgs.addAll(['--release', '17'])
             options.encoding = 'UTF-8'
         }
     }
 }
 
-// Set UTF-8 encoding for all tasks
 System.setProperty("file.encoding", "UTF-8")
 System.setProperty("sun.jnu.encoding", "UTF-8")
 
-dependencies{
+dependencies {
     compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
     compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
 
     annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
 }
 
-//force arc version
-configurations.configureEach{
+configurations.configureEach {
     resolutionStrategy.eachDependency { details ->
-        if(details.requested.group == 'com.github.Anuken.Arc'){
+        if (details.requested.group == 'com.github.Anuken.Arc') {
             details.useVersion "$mindustryVersion"
         }
     }
 }
 
-tasks.register('jarAndroid'){
+tasks.register('jarAndroid') {
     dependsOn "jar"
 
-    doLast{
-        if(!sdkRoot || !new File(sdkRoot).exists()) throw new GradleException("No valid Android SDK found. Ensure that ANDROID_HOME is set to your Android SDK directory.")
+    doLast {
+        if (!sdkRoot || !new File(sdkRoot).exists()) throw new GradleException("No valid Android SDK found. Ensure that ANDROID_HOME is set to your Android SDK directory.")
 
-        def platformRoot = new File("$sdkRoot/platforms/").listFiles().sort().reverse().find{ f -> new File(f, "android.jar").exists() }
+        def platformRoot = new File("$sdkRoot/platforms/").listFiles().sort().reverse().find { f -> new File(f, "android.jar").exists() }
 
-        if(!platformRoot) throw new GradleException("No android.jar found. Ensure that you have an Android platform installed.")
+        if (!platformRoot) throw new GradleException("No android.jar found. Ensure that you have an Android platform installed.")
 
-        //collect dependencies needed for desugaring
-        def dependencies = (configurations.compileClasspath.asList() + configurations.runtimeClasspath.asList() + [new File(platformRoot, "android.jar")]).collect{ "--classpath $it.path" }.join(" ")
+        def dependencies = (configurations.compileClasspath.asList() + configurations.runtimeClasspath.asList() + [new File(platformRoot, "android.jar")]).collect { "--classpath $it.path" }.join(" ")
 
         def d8 = isWindows ? "d8.bat" : "d8"
 
-        //dex and desugar files - this requires d8 in your PATH
         "$d8 $dependencies --min-api 14 --output ${project.name}Android.jar ${project.name}Desktop.jar"
                 .execute(null, new File("build/libs")).waitForProcessOutput(System.out, System.err)
     }
 }
 
-jar{
+jar {
     archiveFileName = "${project.name}Desktop.jar"
 
-    from{
-        configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 
-    from(projectDir){
+    from(projectDir) {
         include "mod.hjson"
     }
 
-    from("assets/"){
+    from("assets/") {
         include "**"
     }
 }
 
-tasks.register('deploy', Jar){
+tasks.register('deploy', Jar) {
     dependsOn jarAndroid
     dependsOn jar
     archiveFileName = "${project.name}.jar"
 
-    from{ [zipTree("build/libs/${project.name}Desktop.jar"), zipTree("build/libs/${project.name}Android.jar")] }
+    from { [zipTree("build/libs/${project.name}Desktop.jar"), zipTree("build/libs/${project.name}Android.jar")] }
 
-    doLast{
-        delete{
+    doLast {
+        delete {
             delete "build/libs/${project.name}Android.jar"
+        }
+    }
+}
+//记得关闭游戏启动崩溃后禁用模组，否则会导致游戏崩溃后再次进入MOD被禁用
+tasks.register('run', JavaExec) {
+    group = 'mindustry'
+    description = 'Build the mod and launch Mindustry from ./game with it loaded.'
+
+    dependsOn tasks.named('jar')
+
+    def gameJar = project.ext.gameJarFile()
+
+    classpath = files(
+            gameJar,
+            sourceSets.main.output.classesDirs,
+            sourceSets.main.output.resourcesDir
+    )
+
+    mainClass = 'mindustry.desktop.DesktopLauncher'
+    standardInput = System.in
+    workingDir = projectDir
+
+    def runDataDir = layout.buildDirectory.dir("mindustry-run-data").get().asFile
+    environment "APPDATA", runDataDir.absolutePath
+
+    def actualDataDir = new File(runDataDir, "Mindustry")
+    def devZip = new File(actualDataDir, "mods/${project.name}-dev.zip")
+
+    doFirst {
+        runDataDir.mkdirs()
+        actualDataDir.mkdirs()
+
+        def modsDir = new File(actualDataDir, "mods")
+        modsDir.mkdirs()
+
+        def devModDir = new File(modsDir, "${project.name}-dev")
+        if (devModDir.exists()) devModDir.deleteDir()
+        if (devZip.exists()) devZip.delete()
+
+        def builtJar = file("build/libs/${project.name}Desktop.jar")
+        if (!builtJar.exists()) {
+            throw new GradleException("Mod jar not found: ${builtJar}")
+        }
+
+        copy {
+            from builtJar
+            into modsDir
+            rename { "${project.name}-dev.zip" }
+        }
+
+        logger.lifecycle("==> Using game jar: ${gameJar}")
+        logger.lifecycle("==> Isolated APPDATA: ${runDataDir}")
+        logger.lifecycle("==> Actual data dir: ${actualDataDir}")
+        logger.lifecycle("==> Mod deployed as zip: ${devZip} (${devZip.length()} bytes)")
+    }
+
+    doLast {
+        if (devZip.exists()) {
+            devZip.delete()
+            logger.lifecycle("==> Removed dev mod zip: ${devZip}")
         }
     }
 }
