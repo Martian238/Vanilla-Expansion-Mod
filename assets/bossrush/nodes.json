@@ -1,0 +1,39 @@
+{
+  "nodes": [
+    {
+      "id": "root",
+      "title": "bossrush.node.root.title",
+      "description": "bossrush.node.root.desc",
+      "imagePath": "ui/bossrush/root",
+      "type": "GALLERY",
+      "prerequisites": []
+    },
+    {
+      "id": "boss_fungitron",
+      "title": "sector.ve-boss-fungitron.name",
+      "description": "sector.ve-boss-fungitron.description",
+      "imagePath": "ui/bossrush/boss-fungitron",
+      "type": "LEVEL",
+      "mapPath": "boss-fungitron.msav",
+      "prerequisites": ["root"]
+    },
+    {
+      "id": "boss_zentack",
+      "title": "sector.ve-boss-zentack.name",
+      "description": "sector.ve-boss-zentack.description",
+      "imagePath": "ui/bossrush/boss-zentack",
+      "type": "LEVEL",
+      "mapPath": "boss-zentack.msav",
+      "prerequisites": ["boss_fungitron"]
+    },
+    {
+      "id": "boss_chiniun",
+      "title": "sector.ve-boss-chiniun.name",
+      "description": "sector.ve-boss-chiniun.description",
+      "imagePath": "ui/bossrush/boss-chiniun",
+      "type": "LEVEL",
+      "mapPath": "boss-chiniun.msav",
+      "prerequisites": ["boss_zentack"]
+    }
+  ]
+}

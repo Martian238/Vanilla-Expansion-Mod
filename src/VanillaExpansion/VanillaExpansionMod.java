@@ -4,6 +4,7 @@ import VanillaExpansion.content.*;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
 import VanillaExpansion.ui.VEFonts;
+import VanillaExpansion.ui.bossrush.BossRushRegistry;
 import arc.Core;
 import arc.Events;
 import arc.files.Fi;
@@ -74,7 +75,20 @@ public class VanillaExpansionMod extends Mod {
                     dialog.show();
                 });
             }
+            BossRushRegistry.register();
+            //Core.app.post(() -> {
+                //BossRushTreeDialog dialog = new BossRushTreeDialog();
+                //dialog.show();
+            //});
         });
+        //boss rush
+        //Events.on(EventType.WinEvent.class, e -> {
+            //if(BossRushRegistry.currentNode != null && BossRushRegistry.dialog != null){
+                //BossRushRegistry.dialog.data.complete(BossRushRegistry.currentNode);
+                //BossRushRegistry.dialog.rebuild();
+                //BossRushRegistry.currentNode = null;
+            //}
+        //});
 
         // 等待 UI 就绪
         Events.run(EventType.Trigger.uiDrawBegin, () -> {
