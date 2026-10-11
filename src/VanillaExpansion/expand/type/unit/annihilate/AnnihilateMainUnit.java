@@ -30,6 +30,8 @@ import mindustry.graphics.Pal;
 import mindustry.ui.dialogs.BaseDialog;
 import mindustry.world.blocks.environment.Floor;
 
+import java.util.Arrays;
+
 import static mindustry.Vars.*;
 import static mindustry.type.UnitType.shadowTX;
 import static mindustry.type.UnitType.shadowTY;
@@ -183,10 +185,10 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             getPart("armFL").unit.armLight = false;
             getPart("armBR").unit.armLight = false;
             getPart("armBL").unit.armLight = false;
-            getPart("armFR").unit.armRotSpeed = 2f;
-            getPart("armFL").unit.armRotSpeed = -2f;
-            getPart("armBR").unit.armRotSpeed = -2f;
-            getPart("armBL").unit.armRotSpeed = 2f;
+            getPart("armFR").unit.armRotSpeedTarget = 1f;
+            getPart("armFL").unit.armRotSpeedTarget = 1f;
+            getPart("armBR").unit.armRotSpeedTarget = 1f;
+            getPart("armBL").unit.armRotSpeedTarget = 1f;
         }
     }
     public void summonParts(){
@@ -667,15 +669,52 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         dialog.show();
     }
 
-    /** Sounds */
+    /** Check interruption and switch animation */
+    public boolean charging(AnnihilatePartUnit u){
+        return u.charges > 0 && u.chargeTime > 0 && u.chargeTimeMax > 0;
+    }
+    public void checkInterrupt(String switchTo, boolean yowl){
+        if(charging(this) && interrupts < charges) return;
+        for(AnniPart p : anniParts){
+            if(p.unit != null && charging(p.unit) && p.unit.interrupts < p.unit.charges) return;
+        }
+        animation = switchTo;
+        actualFrame = -1;
+        if(animation.equals("none")){
+            animationInit();
+        }
+        if(yowl){
+            voice1.at(x, y, 0.925f + Mathf.range(0.175f), 1f);
+            emoji = 4;
+            Time.run(120f, () -> {
+                if(emoji == 4) emoji = 3;
+            });
+        }
+    }
+    public void animationInit(){
+        partsBackToDefault(true);
+    }
+
+    /* Targets used when attacking */
+    public Building[] targetedBuildings = new Building[10];
+    public Unit[] targetedUnits = new Unit[10];
+    public void targetedClear(){
+        Arrays.fill(targetedUnits, null);
+        Arrays.fill(targetedBuildings, null);
+    }
+
+    /* Sounds */
     public void loadSounds(){
         if(type instanceof AnnihilateMainUnitType am){
             chargeSound1 = am.chargeSound1;
+            chargeSound2 = am.chargeSound2;
+            voice1 = am.voice1;
         }
     }
     public Vec2 centerPos = new Vec2(0, 0);
     private boolean soundLoaded = false;
-    public Sound chargeSound1;
+    public Sound chargeSound1, chargeSound2,
+            voice1;
 
     public Team thisTeam = Team.sharded; // Team of the boss itself.
     public Team targetTeam = Team.sharded; // Team of targeting as enemy.
@@ -687,7 +726,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public float actualFrame = -1f;
     public String animation = "none"; // An animation includes part animations and damaging enemies.
 
-    /** Team booleans */
+    /* Team booleans */
     public boolean isTarget(Unit t){
         return (t.team != thisTeam && targetAll) || (t.team == targetTeam && !targetAll);
     }
@@ -700,14 +739,14 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public boolean shouldDamage(Building t){
         return (t.team != thisTeam && damageAll) || (t.team == damageTeam && !damageAll);
     }
-    /** Animation booleans */
+    /* Animation booleans */
     public boolean frameWithin(float min, float max){
         return (min <= actualFrame) && (actualFrame <= max);
     }
     public boolean frame(int f){
         return frame == f;
     }
-    /** Animation method */
+    /* Animation methods */
     public void setCharge(int count, float time, float delay){
         chargeTime = time;
         chargeDelay = delay;
@@ -717,6 +756,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         if(frame(f)){
             animation = "none";
             actualFrame = -1;
+            animationInit();
         }
     }
     public void setArmRotSpeed(String name, float speed){
@@ -727,6 +767,28 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         if(getPart(name) == null) return;
         getPart(name).unit.armLight = light;
         getPart(name).unit.armRing = ring;
+    }
+    /** Move a part to a followed position with Mathf.lerpDelta. */
+    public void movePartLerp(String name, float tx, float ty, float progress){
+        getPart(name).x = Mathf.lerpDelta(getPart(name).x, tx, progress);
+        getPart(name).y = Mathf.lerpDelta(getPart(name).y, ty, progress);
+    }
+    /** Rotate a part to a followed rotation with Mathf.lerpDelta, can lock a unit or a building. */
+    public void rotPartLerp(String name, float r, Unit u, Building b, float progress){
+        float ar = r;
+        if(u != null){
+            ar = Mathf.atan2(u.x - xToWorld(getPart(name).x, getPart(name).y),
+                    u.y - yToWorld(getPart(name).x, getPart(name).y)) - rotation;
+        }else if(b != null){
+            ar = Mathf.atan2(b.x - xToWorld(getPart(name).x, getPart(name).y),
+                    b.y - yToWorld(getPart(name).x, getPart(name).y)) - rotation;
+        }
+        getPart(name).rot = Mathf.lerpDelta(getPart(name).rot, ar, progress);
+    }
+
+    /** Frame progress */
+    public float fp(float start, float end){
+        return Mathf.clamp((actualFrame - start) / (end - start), 0, 1);
     }
 
     /** Generic animation update method */
@@ -741,7 +803,10 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         actionTestCharge();
     }
 
-    /** Actions */
+    /* Actions ///////////////////////////////////////////////// */
+
+    /* Test actions */
+
     public void actionTestCharge(){
         if(!animation.equals("testCharge")) return;
         if(frame(0)){
@@ -755,6 +820,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         }
         if(frameWithin(60, 222)){
             control.sound.loop(chargeSound1, centerPos, 1.5f);
+            checkInterrupt("none", false);
         }
         if(frame(222)){
             setArmRotSpeed("armBL", 1f);
@@ -763,5 +829,61 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             setArmLight("armBR", false, false);
         }
         endAnimation(222);
+    }
+
+    /* Attacks: melee */
+    /** Attack one or two unit(s) by arm sticking */
+    public void actionCrossSweep(){
+        if(!animation.equals("crossSweep")) return;
+        if(frame(0)){
+            chargeSound2.at(x, y);
+            setArmRotSpeed("armFR", 4f);
+            setArmRotSpeed("armFL", 4f);
+            setArmLight("armFR", false, true);
+            setArmLight("armFL", false, true);
+            setCharge(1, 90f, 0f);
+        }
+        if(frameWithin(0, 90)){
+            checkInterrupt("none", false);
+            getPart("armFR").idle = false;
+            getPart("armFL").idle = false;
+            // raise right arm
+            movePartLerp("armFR", -200f, 25f, fp(0, 60));
+            if(targetedUnits[0] != null && targetedUnits[1] == null){
+                rotPartLerp("armFR", -45f, targetedUnits[0], null, fp(0, 75));
+            }else{
+                rotPartLerp("armFR", -45f, targetedUnits[1], null, fp(0, 75));
+            }
+            // raise left arm
+            movePartLerp("armFL", 200f, 25f, fp(0, 60));
+            rotPartLerp("armFL", 45f, targetedUnits[0], null, fp(0, 75));
+        }
+        if(frame(91)){
+            setToWorld(getPart("armFR"));
+            setToWorld(getPart("armFL"));
+        }
+        animation = "crossSweepNext1";
+        actualFrame = 91;
+    }
+    public void actionCrossSweepNext1(){
+        if(!animation.equals("crossSweepNext1")) return;
+        if(frameWithin(91, 120)){
+            getPart("armFL").wx += 50 * (1 - 0.75f * fp(91, 120));
+            getPart("armFL").wy += 50 * (1 - 0.75f * fp(91, 120));
+        }
+        if(frameWithin(121, 200)){
+            float tr = Mathf.atan2(xToWorld(getPart("armFL").dfx + 20f, getPart("armFL").dfy) - getPart("armFL").wx,
+                    yToWorld(getPart("armFL").dfx + 20f, getPart("armFL").dfy) - getPart("armFL").wy);
+            boolean b = Mathf.sinDeg(getPart("armFL").wRot - tr) > 0;
+            float d = Angles.angleDist(getPart("armFL").wRot, tr);
+            float m = Mathf.clamp(Mathf.dst2(getPart("armFL").wx, getPart("armFL").wy,
+                    xToWorld(getPart("armFL").dfx + 20f, getPart("armFL").dfy),
+                    yToWorld(getPart("armFL").dfx + 20f, getPart("armFL").dfy)) / 400f);
+            if(b || d > 5f) {
+                getPart("armFL").wRot += 4f * (b ? 1f : Mathf.clamp(d / 5));
+                getPart("armFL").wx += 12.5f * Mathf.cosDeg(getPart("armFL").wRot * m);
+                getPart("armFL").wy += 12.5f * Mathf.sinDeg(getPart("armFL").wRot * m);
+            }
+        }
     }
 }
