@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.world.block.sandbox;
 
+import VanillaExpansion.VESettings;
 import VanillaExpansion.content.VEJSStatuses;
 import VanillaExpansion.expand.abilities.BossBarAbility;
 import arc.Core;
@@ -62,6 +63,8 @@ public class AutoBossBarBlock extends Block {
     public float scale = 1778f / 3072f;
     public boolean shake = true;
 
+
+
     /** Use the maximum maxHealth sum value as the constant bar max value during one multi-bosses battle */
     public boolean useMaxMax = true;
 
@@ -73,6 +76,8 @@ public class AutoBossBarBlock extends Block {
         public float maxLast = 0;
         public float maxMax = 0;
         public float currentMaxResult = 0;
+
+
 
         public static class DecreaseRec {
             public float fullness;
@@ -94,6 +99,9 @@ public class AutoBossBarBlock extends Block {
         public String text = "";
         public float shakeTimer = 0;
         public float shakeMag = 0;
+
+        /** Can be edited in settings */
+        public static float barScale = 1;
 
         //Build
         public static class BarUnit {
@@ -132,7 +140,7 @@ public class AutoBossBarBlock extends Block {
         public void update() {
 
             drawBar = false;
-            if(Vars.state.enemies <= 0 || !enabled || Vars.state.isEditor()) {
+            if(!VESettings.getBool(VESettings.endfieldHealthBar, true) || Vars.state.enemies <= 0 || !enabled || Vars.state.isEditor()) {
                 initBar();
                 return;
             }
@@ -266,15 +274,15 @@ public class AutoBossBarBlock extends Block {
         }
 
         public void drawBar(){
-            float camW = Core.camera.width;
+            float camW = Core.camera.width * barScale;
             float camH = Core.camera.height;
             float camX = Core.camera.position.x;
             float camY = Core.camera.position.y;
             float x = camX;
             float w = camW * 0.5f * (smoothAppear ? lengthMultiplier : 1f);
-            float y = camY + Core.camera.height * (0.425f - (Vars.state.isPaused() ? 0.02f : 0f));
+            float y = camY + camH * (0.425f - (Vars.state.isPaused() ? 0.02f : 0f));
             float h = camW * scale * 0.0246f; //camH * 0.0246f;
-            float thick = Core.camera.width * 0.0025f;
+            float thick = camW * 0.0025f;
             if(shake && !Vars.state.isPaused()){
                 float shakeMagBase = h * 4f;
                 if(shakeTimer > 0f){
@@ -339,7 +347,7 @@ public class AutoBossBarBlock extends Block {
                 Font font = Fonts.def;
                 GlyphLayout l = Pools.obtain(GlyphLayout.class, GlyphLayout::new);
                 boolean ints = font.usesIntegerPositions();
-                font.getData().setScale(Core.camera.width * 0.02f / font.getData().lineHeight);
+                font.getData().setScale(camW * 0.02f / font.getData().lineHeight);
                 font.setUseIntegerPositions(false);
 
                 text = getBarText();
