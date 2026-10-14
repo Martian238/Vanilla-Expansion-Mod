@@ -72,6 +72,7 @@ public class AutoBossBarBlock extends Block {
         public float currentFullnessLast = 0;
         public float maxLast = 0;
         public float maxMax = 0;
+        public float currentMaxResult = 0;
 
         public static class DecreaseRec {
             public float fullness;
@@ -214,6 +215,7 @@ public class AutoBossBarBlock extends Block {
                     current += b.unit.health;
                 }
             }
+            currentMaxResult = currentMax;
             if(useMaxMax && maxMax < currentMax){
                 maxMax = currentMax;
             }
@@ -290,7 +292,20 @@ public class AutoBossBarBlock extends Block {
             //main
             Draw.color(black);
             Draw.alpha(0.33f);
-            Fill.rect(x, y, w, h);
+            if(useMaxMax){
+                Fill.rect(x - 0.5f * w * (1 - currentMaxResult / maxMax), y, w * currentMaxResult / maxMax, h);
+                Draw.alpha(0.1f);
+                Fill.rect(x + 0.5f * w * (currentMaxResult / maxMax), y, w * (1 - currentMaxResult / maxMax), h);
+                if(maxMax > currentMaxResult){
+                    Draw.alpha(1f);
+                    Draw.color(white);
+                    Lines.stroke(thick * 0.5f);
+                    Lines.line(x + w * (currentMaxResult / maxMax - 0.5f), y - h * 0.5f,
+                            x + w * (currentMaxResult / maxMax - 0.5f), y + h * 0.5f);
+                }
+            }else {
+                Fill.rect(x, y, w, h);
+            }
             Draw.alpha(1f);
             for(DecreaseRec d : mainDecreases){
                 if(d.fullness <= 0) return;
