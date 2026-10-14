@@ -843,7 +843,7 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             setArmLight("armFL", false, true);
             setCharge(1, 90f, 0f);
         }
-        if(frameWithin(0, 90)){
+        if(frameWithin(0, 75)){
             checkInterrupt("none", false);
             getPart("armFR").idle = false;
             getPart("armFL").idle = false;
@@ -854,6 +854,8 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             }else{
                 rotPartLerp("armFR", -45f, targetedUnits[1], null, fp(0, 75));
             }
+        }
+        if(frameWithin(15, 90)){
             // raise left arm
             movePartLerp("armFL", 200f, 25f, fp(0, 60));
             rotPartLerp("armFL", 45f, targetedUnits[0], null, fp(0, 75));
@@ -867,10 +869,38 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     }
     public void actionCrossSweepNext1(){
         if(!animation.equals("crossSweepNext1")) return;
-        if(frameWithin(91, 120)){
-            getPart("armFL").wx += 50 * (1 - 0.75f * fp(91, 120));
-            getPart("armFL").wy += 50 * (1 - 0.75f * fp(91, 120));
+        if(frameWithin(91, 105)){
+            getPart("armFL").wx += 50 * (1 - 0.75f * fp(91, 105));
+            getPart("armFL").wy += 50 * (1 - 0.75f * fp(91, 105));
         }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /** Trashcan */
+    public void trashcan(){
+        // actionCrossSweepNext1 waste
         if(frameWithin(121, 200)){
             float tr = Mathf.atan2(xToWorld(getPart("armFL").dfx + 20f, getPart("armFL").dfy) - getPart("armFL").wx,
                     yToWorld(getPart("armFL").dfx + 20f, getPart("armFL").dfy) - getPart("armFL").wy);

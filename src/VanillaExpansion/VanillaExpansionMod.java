@@ -142,6 +142,7 @@ public class VanillaExpansionMod extends Mod {
         VEItems.load();
         VEJSLiquids.load();
         VELiquids.load();
+        VEJSStatuses.load();
         //VanillaExpansion.content.VEUnitTypes.load();
         VEJSBlocks.load();
         VEBlocks.load();

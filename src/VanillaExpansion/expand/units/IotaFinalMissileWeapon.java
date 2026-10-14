@@ -53,7 +53,7 @@ public class IotaFinalMissileWeapon extends Weapon {
     public void update(Unit unit, WeaponMount mount) {
         boolean keyPressed = false;
         for(KeyCode keyCode : fireKeys) {
-            if (unit.isPlayer() && Core.input.keyDown(keyCode)) {
+            if (unit.isPlayer() && Core.input.keyDown(keyCode) && !unit.isBuilding()) {
                 keyPressed = true;
                 //Log.info(keyCode);
                 mount.shoot = true;
