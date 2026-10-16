@@ -99,6 +99,9 @@ public class AnnihilateUnitTypes {
             hitSize = 100f;
             databaseTag = "10special-unit";
             rotateSpeed = 4f;
+            buildSpeed = 1f;
+            buildRange = 400f;
+            buildBeamOffset = 24f;
         }};
     }
 }

@@ -9,6 +9,7 @@ import arc.math.*;
 import arc.math.geom.*;
 import arc.struct.*;
 import arc.util.*;
+import mindustry.Vars;
 import mindustry.entities.*;
 import mindustry.entities.abilities.*;
 import mindustry.game.Team;
@@ -30,12 +31,11 @@ public class CustomFx{
     public static final Vec2 v = new Vec2();
 
     public static final
-        Effect instHit2 = new Effect(20f, 200f, e -> {
-            color(VEPal.cyclant);
-
+        Effect instHitColor = new Effect(20f, 200f, e -> {
+            Color c2 = e.color;
+            color(c2);
             for (int i = 0; i < 2; i++) {
-                color(i == 0 ? VEPal.cyclant : VEPal.cyclant);
-
+                color(c2);
                 float m = i == 0 ? 1f : 0.5f;
 
                 for (int j = 0; j < 5; j++) {
@@ -47,18 +47,109 @@ public class CustomFx{
             }
 
             e.scaled(10f, c -> {
-                color(VEPal.cyclant);
+                color(c2);
                 stroke(c.fout() * 2f + 0.2f);
                 circle(e.x, e.y, c.fin() * 30f);
             });
-
             e.scaled(12f, c -> {
-                color(VEPal.cyclant);
+                color(c2);
                 randLenVectors(e.id, 25, 5f + e.fin() * 80f, e.rotation, 60f, (x, y) -> {
                     Fill.square(e.x + x, e.y + y, c.fout() * 3f, 45f);
                 });
             });
         }),
+
+    instBombColor = new Effect(15f, 100f, e -> {
+        Color c2 = e.color;
+        if(e.data instanceof Color ce){
+            c2 = ce;
+        }
+        color(c2);
+        stroke(e.fout() * 4f);
+        Lines.circle(e.x, e.y, 4f + e.finpow() * 20f);
+
+        for(int i = 0; i < 4; i++){
+            Drawf.tri(e.x, e.y, 6f, 80f * e.fout(), i*90 + 45);
+        }
+
+        color();
+        for(int i = 0; i < 4; i++){
+            Drawf.tri(e.x, e.y, 3f, 30f * e.fout(), i*90 + 45);
+        }
+
+        Drawf.light(e.x, e.y, 150f, c2, 0.9f * e.fout());
+    }),
+
+    instTrailColor = new Effect(30, e -> {
+        Color c2 = e.color;
+        for(int i = 0; i < 2; i++){
+            color(c2);
+
+            float m = i == 0 ? 1f : 0.5f;
+
+            float rot = e.rotation + 180f;
+            float w = 15f * e.fout() * m;
+            Drawf.tri(e.x, e.y, w, (30f + Mathf.randomSeedRange(e.id, 15f)) * m, rot);
+            Drawf.tri(e.x, e.y, w, 10f * m, rot + 180f);
+        }
+
+        Drawf.light(e.x, e.y, 60f, c2, 0.6f * e.fout());
+    }),
+
+    instShootColor = new Effect(24f, e -> {
+        Color c2 = e.color;
+        e.scaled(10f, b -> {
+            color(Color.white, c2, b.fin());
+            stroke(b.fout() * 3f + 0.2f);
+            Lines.circle(b.x, b.y, b.fin() * 50f);
+        });
+
+        color(c2);
+
+        for(int i : Mathf.signs){
+            Drawf.tri(e.x, e.y, 13f * e.fout(), 85f, e.rotation + 90f * i);
+            Drawf.tri(e.x, e.y, 13f * e.fout(), 50f, e.rotation + 20f * i);
+        }
+
+        Drawf.light(e.x, e.y, 180f, c2, 0.9f * e.fout());
+    }),
+
+    chainLightningBig = new Effect(30f, 808f, e -> {
+        if(!(e.data instanceof Position p)) return;
+        float tx = p.getX(), ty = p.getY(), dst = Mathf.dst(e.x, e.y, tx, ty);
+        Tmp.v1.set(p).sub(e.x, e.y).nor();
+
+        float normx = Tmp.v1.x, normy = Tmp.v1.y;
+        float range = 18f;
+        int links = Mathf.ceil(dst / range);
+        float spacing = dst / links;
+
+        Lines.stroke(3.5f * e.fout());
+        Draw.color(Color.white, e.color, e.fin());
+
+        Lines.beginLine();
+
+        Lines.linePoint(e.x, e.y);
+
+        rand.setSeed(e.id);
+
+        for(int i = 0; i < links; i++){
+            float nx, ny;
+            if(i == links - 1){
+                nx = tx;
+                ny = ty;
+            }else{
+                float len = (i + 1) * spacing;
+                Tmp.v1.setToRandomDirection(rand).scl(range/2f);
+                nx = e.x + normx * len + Tmp.v1.x;
+                ny = e.y + normy * len + Tmp.v1.y;
+            }
+
+            Lines.linePoint(nx, ny);
+        }
+
+        Lines.endLine();
+    }).followParent(false).rotWithParent(false),
 
         shieldBreakProjector = new Effect(40, e -> {
             color(e.color);
@@ -139,9 +230,39 @@ public class CustomFx{
         Drawf.tri(e.x, e.y, w * 0.8f, 6f * e.fout(), e.rotation + 210f);
         Drawf.tri(e.x, e.y, w * 0.8f, 25f * e.fout(), e.rotation - 30f);
         Drawf.tri(e.x, e.y, w * 0.8f, 6f * e.fout(), e.rotation + 150f);
-    });
+    }),
 
-                ;
-    }
+    annihilateInterrupt = new Effect(40f, e -> {
+        color(Team.sharded.color.cpy().mul(1.5f), Team.sharded.color.cpy(), e.fin());
+        float w = 8f * e.fout();
+        float l = 80f * (0.25f * e.fout() + 0.75f);
+        float a = 20f;
+        if(e.data instanceof Float f){
+            w *= f;
+            l *= f;
+        }
+        Drawf.tri(e.x, e.y, w, l, e.rotation + a);
+        Drawf.tri(e.x, e.y, w, l, e.rotation - a);
+        Drawf.tri(e.x, e.y, w, l, e.rotation + a + 180f);
+        Drawf.tri(e.x, e.y, w, l, e.rotation - a + 180f);
+    }),
+
+    annihilateChargeStop = new Effect(60, e -> {
+        float radius = e.data instanceof Float f ? f : 160f;
+
+        e.scaled(20f, c -> {
+            color(e.color, 0.9f);
+            stroke(c.fout() * 12f + 0.1f);
+
+            randLenVectors(e.id, (int)(radius * 1.2f), radius/2f + c.finpow() * radius*1.25f, (x, y) -> {
+                lineAngle(c.x + x, c.y + y, Mathf.angle(x, y), c.fout() * 5 + 1f);
+            });
+        });
+
+        color(e.color, e.fout() * 0.9f);
+        stroke(e.fout() * 6f);
+        Lines.circle(e.x, e.y, radius);
+    });
+}
 
 
