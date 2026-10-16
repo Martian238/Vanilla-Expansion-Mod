@@ -173,6 +173,4 @@ public class VanillaExpansionMod extends Mod {
         Log.info("Locale : " + locale);
     }
 
-
-
 }
