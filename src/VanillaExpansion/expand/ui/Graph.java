@@ -7,6 +7,7 @@ import arc.input.*;
 import arc.math.*;
 import arc.scene.*;
 import arc.scene.event.*;
+import arc.util.Log;
 import mindustry.graphics.*;
 
 public class Graph extends Element {
@@ -33,13 +34,12 @@ public class Graph extends Element {
         addListener(new InputListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, KeyCode button){
-                select(x, y); //for mobile users
-                return true;
+                Log.info("BossRush: dialog touchDown x=@ y=@", x, y);
+                return false;
             }
-
             @Override
-            public boolean mouseMoved(InputEvent event, float x, float y){
-                select(x, y);
+            public boolean scrolled(InputEvent event, float x, float y, float amountX, float amountY){
+                Log.info("BossRush: dialog scrolled @", amountY);
                 return false;
             }
         });

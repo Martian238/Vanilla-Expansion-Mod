@@ -15,6 +15,7 @@ import mindustry.Vars;
 import mindustry.content.Blocks;
 import mindustry.content.Planets;
 import mindustry.gen.Musics;
+import mindustry.graphics.Shaders;
 import mindustry.graphics.g3d.*;
 import mindustry.graphics.g3d.PlanetGrid.Ptile;
 import mindustry.maps.generators.BlankPlanetGenerator;
@@ -33,7 +34,7 @@ import static mindustry.gen.Musics.game8;
 public class VEPlanets {
 
     /** 星球实例 */
-    public static Planet thavina, proxima, neutronStar;
+    public static Planet thavina, proxima, neutronStar, bossRush;
     /** 加载行星定义 */
     public static void load() {
         neutronStar = new Planet("sol4b", Planets.sun, 0.9f, 0) {{
@@ -191,5 +192,49 @@ public class VEPlanets {
             landCloudColor = Color.valueOf("87CEEB").a(0.5f);
         }};
         proxima.solarSystem = neutronStar;
+
+        bossRush = new Planet("boss-rush", null, 0.5f, 1){{
+            parent = null;
+            solarSystem = this;
+            children.clear();
+            generator = null;
+            meshLoader = () -> new ShaderSphereMesh(this, Shaders.unlit, 2);
+            cloudMeshLoader = () -> null;
+            gridMeshLoader = () -> null;
+            visible = true;
+            accessible = true;
+            alwaysUnlocked = true;
+            hasAtmosphere = false;
+            bloom = false;
+            drawOrbit = false;
+            orbitRadius = 0f;
+            orbitTime = 0f;
+            orbitOffset = 0f;
+            rotateTime = 600f;
+            tidalLock = false;
+            iconColor = Color.valueOf("ffaa00");
+            atmosphereColor = Color.valueOf("000000");
+            lightColor = Color.valueOf("ffaa00");
+            landCloudColor = Color.valueOf("00000000");
+            minZoom = 0.5f;
+            maxZoom = 2f;
+            camRadius = 1.5f;
+            clipRadius = 1f;
+            startSector = 0;
+            sectorSeed = 0;
+            ruleSetter = r -> {
+                r.waves = false;
+                r.attackMode = false;
+                r.planet = bossRush;
+            };
+            allowWaves = false;
+            allowSectorInvasion = false;
+            allowLaunchToNumbered = false;
+            allowLaunchSchematics = false;
+            allowLaunchLoadout = false;
+            allowLegacyLaunchPads = false;
+            allowCampaignRules = false;
+            defaultCore = Blocks.coreShard;
+        }};
     }
 }
