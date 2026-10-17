@@ -107,6 +107,7 @@ public class BossBarAbility extends Ability {
         }
         float current = Mathf.clamp(unit.health / unit.maxHealth);
         currentFullness = current;
+        barScale = Core.settings.getFloat("ve-endfield-health-bar-scale", 1);
         if(currentFullness < currentFullnessLast){
             mainDecreases.add(new DecreaseRec(currentFullnessLast - currentFullness,
                     mainDecreaseOrder, current));
@@ -184,7 +185,7 @@ public class BossBarAbility extends Ability {
         float camY = Core.camera.position.y;
         float x = camX;
         float w = camW * 0.5f * (smoothAppear ? lengthMultiplier : 1f);
-        float y = camY + camH * (0.425f - (Vars.state.isPaused() ? 0.02f : 0f));
+        float y = camY + camH * (0.425f - (Vars.state.isPaused() ? 0.02f : 0f) - Mathf.clamp(barScale - 1f) * 0.025f);
         float h = camW * scale * 0.0246f; //camH * 0.0246f;
         float thick = camW * 0.0025f;
         if(shake && !Vars.state.isPaused()){

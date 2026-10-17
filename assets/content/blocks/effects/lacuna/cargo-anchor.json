@@ -13,6 +13,7 @@
       "inputItems": [ "silver/10" ],
       "craftTime": 120,
       "outputItems": [ "silicon/10" ],
+      "shownProduct": "silicon",
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-trade-idle",
@@ -23,6 +24,7 @@
       "inputItems": [ "silver/10" ],
       "craftTime": 120,
       "outputItems": [ "graphite/20" ],
+      "shownProduct": "graphite",
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-trade-idle",
@@ -33,6 +35,7 @@
       "inputItems": [ "silver/1" ],
       "craftTime": 120,
       "outputItems": [ "reflector-matter/100" ],
+      "shownProduct": "ve-reflector-matter",
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-trade-idle",
@@ -43,6 +46,7 @@
       "inputItems": [ "silver/10" ],
       "craftTime": 120,
       "outputItems": [ "ferrum/30" ],
+      "shownProduct": "ve-ferrum",
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-trade-idle",
@@ -53,6 +57,7 @@
       "inputItems": [ "silver/10" ],
       "craftTime": 120,
       "outputItems": [ "scrap/10" ],
+      "shownProduct": "scrap",
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-trade-idle",
@@ -63,6 +68,7 @@
       "inputItems": [ "silver/5" ],
       "craftTime": 120,
       "outputItems": [ "acid-pod/1" ],
+      "shownProduct": "ve-acid-pod",
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-trade-idle",
@@ -78,6 +84,7 @@
       "inputItems": [ "silver/20","red-soil/100" ],
       "craftTime": 240,
       "outputItems": [ "ferrum/80","quartz/30" ],
+      "shownProduct": "ve-ferrum",
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-industry-idle",
@@ -95,6 +102,7 @@
       "inputItems": [ "silver/20","red-soil/100" ],
       "craftTime": 240,
       "outputItems": [ "ferrum/80","silicon/60" ],
+      "shownProduct": "ve-ferrum",
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-industry-idle",
@@ -113,6 +121,7 @@
       "inputItems": [ "aluminium/100","tantalum/100","silver/20" ],
       "craftTime": 300,
       "outputItems": [ "astro-plate/100" ],
+      "shownProduct": "ve-astro-plate",
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-protocol-idle",
@@ -131,6 +140,7 @@
       "inputItems": [ "silver/100","tantalum/40","silicon/80" ],
       "craftTime": 600,
       "outputItems": [ "phecteel/10" ],
+      "shownProduct": "ve-phecteel",
       "visual": {
         "type": "DrawRegion",
         "name": "ve-cargo-anchor-protocol-idle",

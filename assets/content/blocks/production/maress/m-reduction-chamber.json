@@ -23,6 +23,7 @@
   "hasHeat": true,
   "liquidCapacity": 60,
   "dumpTime": 1,
+  "sleep": true,
   /*"consumes": {
     "items": {
       "items": [ "red-soil/15" ]
@@ -38,6 +39,7 @@
       "outputItems": [ "ve-ferrum/12","silicon/9" ],
       "outputLiquids": [ "water/0.3333333333" ],
       "craftTime": 90,
+      "shownProduct": "silicon",
       "visual": {
         "type": "DrawFlame",
         "flameColor": "d1efff",
@@ -55,6 +57,7 @@
       "outputItems": [ "ve-ferrum/12","silicon/9" ],
       "outputLiquids": [ "water/0.3333333333" ],
       "craftTime": 90,
+      "shownProduct": "silicon",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -80,6 +83,7 @@
       "inputPower": 9,
       "outputItems": [ "ve-ferrum/8","pyratite/4","sand/5" ],
       "craftTime": 120,
+      "shownProduct": "pyratite",
       "visual": {
         "type": "DrawFlame",
         "flameRadius": 5,
@@ -94,6 +98,7 @@
       "maxEfficiency": 2,
       "outputItems": [ "ve-ferrum/8","pyratite/4","sand/5" ],
       "craftTime": 120,
+      "shownProduct": "pyratite",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -122,6 +127,7 @@
       "outputItems": [ "ve-ferrum/12","ve-quartz/6" ],
       "outputLiquids": [ "water/0.333333333333" ],
       "craftTime": 120,
+      "shownProduct": "ve-quartz",
       "visual": {
         "type": "DrawMulti",
         "drawers": [

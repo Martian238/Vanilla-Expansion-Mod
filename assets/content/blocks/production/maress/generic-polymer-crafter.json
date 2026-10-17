@@ -29,12 +29,14 @@
   },
   "itemCapacity": 120,
   "liquidCapacity": 120,
+  "sleep": true,
   "recipe": [
     {
       "inputItems": [ "ferrum/10","graphite/20" ],
       "outputItems": [ "fibralt/10" ],
       "inputPower": 8,
       "craftTime": 240,
+      "shownProduct": "ve-fibralt",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -148,6 +150,7 @@
       "requireFlux": true,
       "fluxLiquid": "hydrogen",
       "minFlux": 0.3,
+      "shownProduct": "ve-fibralt",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -297,6 +300,7 @@
       "fluxLiquid": "hydrogen",
       "minFlux": 0.9,
       "craftEffectEffect": "formsmoke",
+      "shownProduct": "plastanium",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -328,6 +332,7 @@
       "outputItems": [ "fibralt/15" ],
       "inputPower": 10,
       "craftTime": 300,
+      "shownProduct": "ve-fibralt",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -448,6 +453,7 @@
       "fluxLiquid": "hydrogen",
       "minFlux": 0.6,
       "craftEffectEffect": "formsmoke",
+      "shownProduct": "plastanium",
       "visual": {
         "type": "DrawMulti",
         "drawers": [

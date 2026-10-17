@@ -1,4 +1,4 @@
 {
-  "shownPlanets": [ "serpulo","thavina" ],
+  "shownPlanets":  {"add": [ "thavina" ]},
   "databaseTag": "basic-item"
 }

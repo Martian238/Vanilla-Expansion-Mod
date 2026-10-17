@@ -1,4 +1,4 @@
 {
-  "shownPlanets": [ "erekir","cyclant","maress","phoon","sitrullus","thavina" ],
+  "shownPlanets":  {"add": [ "cyclant","maress","phoon","sitrullus","thavina" ]},
   "databaseTag": "gas-fluid"
 }

@@ -22,6 +22,7 @@
   "liquidCapacity": 60,
   "dumpTime": 1,
   "armor": 4,
+  "showProducts": false,
   /*"consumes": {
     "items": {
       "items": [ "red-soil/15" ]

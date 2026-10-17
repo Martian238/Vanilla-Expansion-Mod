@@ -17,6 +17,7 @@ import mindustry.Vars;
 import mindustry.content.StatusEffects;
 import mindustry.content.UnitTypes;
 import mindustry.gen.Building;
+import mindustry.gen.Bullet;
 import mindustry.gen.Groups;
 import mindustry.gen.Unit;
 import mindustry.graphics.Layer;
@@ -45,6 +46,11 @@ public class AutoBossBarBlock extends Block {
         targetable = false;
         canOverdrive = false;
         size = 1;
+        underBullets = true;
+        rebuildable = false;
+        createRubble = false;
+        drawCracks = false;
+        destructible = false;
     }
 
     //Bar configs
@@ -77,6 +83,20 @@ public class AutoBossBarBlock extends Block {
         public float maxMax = 0;
         public float currentMaxResult = 0;
 
+        @Override
+        public boolean collide(Bullet other){
+            return !privileged || destructible;
+        }
+        @Override
+        public void damage(float damage){
+            if(!privileged || destructible){
+                super.damage(damage);
+            }
+        }
+        @Override
+        public boolean canPickup(){
+            return false;
+        }
 
 
         public static class DecreaseRec {
@@ -124,6 +144,7 @@ public class AutoBossBarBlock extends Block {
 
         public boolean drawBar = false;
         public boolean hasBoss = false;
+        public float bossReapplyTimer = 0;
 
         public Seq<Unit> resultBossUnits = new Seq<>();
 
@@ -134,13 +155,34 @@ public class AutoBossBarBlock extends Block {
         public void initBar(){
             lengthMultiplier = 0;
             maxMax = 0;
+            shakeTimer = 0;
+            mainDecreases.clear();
+        }
+
+        public void reapplyBoss(){
+            if(Vars.state.enemies <= 0) return;
+            for(Unit u : Groups.unit){
+                if(u.hasEffect(VEJSStatuses.fakeBoss)){
+                    u.unapply(VEJSStatuses.fakeBoss);
+                    u.apply(StatusEffects.boss);
+                }
+            }
         }
 
         @Override
         public void update() {
 
             drawBar = false;
-            if(!VESettings.getBool(VESettings.endfieldHealthBar, true) || Vars.state.enemies <= 0 || !enabled || Vars.state.isEditor()) {
+            if(!VESettings.getBool(VESettings.endfieldHealthBar, true)){
+                initBar();
+                bossReapplyTimer ++;
+                if(bossReapplyTimer >= 60){
+                    bossReapplyTimer = 0;
+                    reapplyBoss();
+                }
+                return;
+            }
+            if(Vars.state.enemies <= 0 || !enabled || Vars.state.isEditor()) {
                 initBar();
                 return;
             }
@@ -190,20 +232,6 @@ public class AutoBossBarBlock extends Block {
             resultBossUnits = bossUnits;
             drawBar = true;
             barUpdate();
-
-            if(Core.input.keyDown(KeyCode.z)){
-                StringBuilder log = new StringBuilder();
-                log.append("bossUnits: [");
-                for(Unit u : bossUnits){
-                    log.append(" ").append(u.type.name).append(" ");
-                }
-                log.append("], scannedUnits: ");
-                for(Unit u : scannedUnits){
-                    log.append(" ").append(u.type.name).append(" ");
-                }
-                log.append("], bars count: ").append(bars.count(b -> true));
-                Log.info(log.toString());
-            }
         }
 
         public void barUpdate(){
@@ -211,6 +239,7 @@ public class AutoBossBarBlock extends Block {
                 lengthMultiplier = Mathf.lerpDelta(lengthMultiplier, 1f, 0.1f);
                 if(lengthMultiplier >= 0.999f) lengthMultiplier = 1f;
             }
+            barScale = Core.settings.getFloat("ve-endfield-health-bar-scale", 1);
             float current = 0, currentMax = 0;
             for(BarUnit b : bars){
                 if(b.multi) {
@@ -280,7 +309,7 @@ public class AutoBossBarBlock extends Block {
             float camY = Core.camera.position.y;
             float x = camX;
             float w = camW * 0.5f * (smoothAppear ? lengthMultiplier : 1f);
-            float y = camY + camH * (0.425f - (Vars.state.isPaused() ? 0.02f : 0f));
+            float y = camY + camH * (0.425f - (Vars.state.isPaused() ? 0.02f : 0f) - Mathf.clamp(barScale - 1f) * 0.025f);
             float h = camW * scale * 0.0246f; //camH * 0.0246f;
             float thick = camW * 0.0025f;
             if(shake && !Vars.state.isPaused()){

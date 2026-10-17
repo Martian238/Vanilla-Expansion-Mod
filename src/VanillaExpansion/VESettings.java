@@ -4,7 +4,9 @@ import VanillaExpansion.expand.abilities.BossBarAbility;
 import VanillaExpansion.expand.world.block.sandbox.AutoBossBarBlock;
 import arc.Core;
 import arc.func.Cons;
+import arc.graphics.g2d.TextureRegion;
 import arc.scene.actions.RunnableAction;
+import arc.scene.style.TextureRegionDrawable;
 import arc.scene.ui.CheckBox;
 import arc.scene.ui.Dialog;
 import arc.scene.ui.Label;
@@ -12,6 +14,8 @@ import arc.scene.ui.layout.Table;
 import arc.struct.OrderedMap;
 import arc.struct.Seq;
 import mindustry.Vars;
+import mindustry.graphics.Pal;
+import mindustry.ui.dialogs.BaseDialog;
 
 import static arc.Core.settings;
 import static mindustry.Vars.ui;
@@ -22,27 +26,57 @@ public class VESettings {
 
     public static final String
             endfieldHealthBar = "ve-endfield-health-bar",
-            endfieldHealthBarScale = "ve-endfield-health-scale",
+            endfieldHealthBarScale = "ve-endfield-health-bar-scale",
             endfieldPlanetTitle = "ve-endfield-planet-title",
-            endfieldBossTitle = "ve-endfield-boss-title";
+            endfieldBossTitle = "ve-endfield-boss-title",
+            multicrafterSleep = "ve-multicrafter-sleep",
+            multicrafterShowOutput = "ve-multicrafter-show-output",
+            placeholder = "ve-placeholder";
 
     public static OrderedMap<String, Seq<SettingKey<?>>> allSettings = new OrderedMap<>();
 
     public static boolean changed = false;
 
     public static void load(){
-        allSettings.put("graphite", Seq.with(
+        allSettings.put("graphics", Seq.with(
                 new BoolSetting(endfieldHealthBar, true, false),
-                new SliderSetting(endfieldHealthBarScale, 1, 0.2f, 1.8f, 0.1f, false)
-                        .onChange(value -> {
-                            BossBarAbility.barScale = value;
-                            AutoBossBarBlock.AutoBossBarBuild.barScale = value;
-                        }),
+                new SliderSetting(endfieldHealthBarScale, 1, 0.2f, 1.8f, 0.1f, false),
                 new BoolSetting(endfieldPlanetTitle, true, false),
-                new BoolSetting(endfieldBossTitle, true, false)
+                new BoolSetting(endfieldBossTitle, true, false),
+                new BoolSetting(multicrafterSleep, true, false),
+                new BoolSetting(multicrafterShowOutput, true, false)
         ));
 
         allSettings.each((name, seq) -> seq.each(SettingKey::setDefault));
+    }
+
+    public static TextureRegionDrawable buttonIcon = new TextureRegionDrawable();
+    public static TextureRegion buttonIconRegion = new TextureRegion();
+    public static void loadUI() {
+        buttonIconRegion = Core.atlas.find("ve-team-projector-crux-glow");
+        buttonIcon = new TextureRegionDrawable(buttonIconRegion);
+        ui.settings.addCategory("@setting.ve", buttonIcon, VESettings::buildTable);
+    }
+
+    public static void buildTable(Table table) {
+        table.pane(t -> allSettings.each((category, settings) -> {
+            t.label(() -> Core.bundle.get("setting.ve-" + category)).row();
+            t.image().color(Pal.accent).size(0, 4).growX().pad(4f).row();
+            settings.each(settingKey -> settingKey.buildTable(t));
+        })).margin(60f).get().setForceScroll(false, true);
+    }
+
+    public static void showDialog() {
+        BaseDialog dialog = new BaseDialog("@setting") {
+            @Override
+            public void hide() {
+                super.hide();
+                if (changed) ui.showConfirm("@mods.reloadexit", () -> Core.app.exit());
+            }
+        };
+        buildTable(dialog.cont);
+        dialog.addCloseButton();
+        dialog.show();
     }
 
     public static boolean getBool(String key) {
@@ -51,6 +85,14 @@ public class VESettings {
 
     public static boolean getBool(String key, boolean def) {
         return settings.getBool(key, def);
+    }
+
+    public static float getFloat(String key) {
+        return Core.settings.getFloat(key);
+    }
+
+    public static float getFloat(String key, float def) {
+        return Core.settings.getFloat(key, def);
     }
 
     public static abstract class SettingKey<T> {

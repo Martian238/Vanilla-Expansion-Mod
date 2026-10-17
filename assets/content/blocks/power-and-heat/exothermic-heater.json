@@ -11,14 +11,16 @@
       "fluxLiquid": "lava",
       "minFlux": 0.13333333333,
       "minFluxDisplayed": 0.13333333333,
-      "outputHeat": 40
+      "outputHeat": 40,
+      "showHeat": true
     },
     {
       "requireFlux": true,
       "fluxLiquid": "slag",
       "minFlux": 0.25,
       "minFluxDisplayed": 0.25,
-      "outputHeat": 30
+      "outputHeat": 30,
+      "showHeat": true
     }
   ],
   "research": {

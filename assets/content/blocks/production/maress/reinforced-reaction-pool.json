@@ -20,6 +20,7 @@
     "parent": "pickling-pool-large"
   },
   "researchCostMultiplier": 0.2,
+  "sleep": true,
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
@@ -92,6 +93,7 @@
       "outputLiquids": [ "acid/0" ],
       "outputItems": [ "sand/9" ],
       "craftTime": 24,
+      "shownProduct": "sand",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -169,6 +171,7 @@
       "outputLiquids": [  ],
       "outputItems": [ "sand/45","tantalum/1" ],
       "craftTime": 120,
+      "shownProduct": "sand",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -246,6 +249,7 @@
       "outputLiquids": [ "acid/0" ],
       "outputItems": [ "sand/60" ],
       "craftTime": 120,
+      "shownProduct": "sand",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -323,6 +327,7 @@
       "outputLiquids": [  ],
       "outputItems": [ "sand/60","tantalum/2" ],
       "craftTime": 120,
+      "shownProduct": "sand",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -402,6 +407,7 @@
       "outputHeat": 50,
       "craftTime": 60,
       "ignoreLiquidFullness": true,
+      "showHeat": true,
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -481,6 +487,7 @@
       "outputHeat": 50,
       "craftTime": 240,
       "ignoreLiquidFullness": true,
+      "showHeat": true,
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -558,6 +565,7 @@
       "outputLiquids": [ "acid/0" ],
       "outputItems": [ "acid-pod/3" ],
       "craftTime": 60,
+      "shownProduct": "ve-acid-pod",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -635,6 +643,7 @@
       "outputLiquids": [ "acid/3" ],
       "outputItems": [ "tantalum/3" ],
       "craftTime": 60,
+      "shownProduct": "ve-acid",
       "visual": {
         "type": "DrawMulti",
         "drawers": [

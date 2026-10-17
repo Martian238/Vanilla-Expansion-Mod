@@ -1,11 +1,12 @@
 package VanillaExpansion;
 
+import VanillaExpansion.ui.VEFonts;
 import arc.Core;
 import arc.Events;
 import arc.audio.Sound;
+import arc.graphics.Blending;
 import arc.graphics.Color;
-import arc.graphics.g2d.Draw;
-import arc.graphics.g2d.Fill;
+import arc.graphics.g2d.*;
 import arc.math.Angles;
 import arc.math.Mathf;
 import arc.math.geom.Vec2;
@@ -18,9 +19,11 @@ import arc.struct.*;
 import arc.util.*;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
+import arc.util.pooling.Pools;
 import mindustry.Vars;
 import mindustry.ai.UnitCommand;
 import mindustry.content.Fx;
+import mindustry.content.Items;
 import mindustry.content.Liquids;
 import mindustry.content.TechTree;
 import mindustry.ctype.ContentType;
@@ -85,6 +88,15 @@ public class MultiCrafter extends HeatCrafter {
     public boolean fluxOverconsumptionGeneral = true;
     public float minFluxGeneralDisplayed = -1;
     public float fluxFixRangeGeneral = 0.2f / 60f;
+
+    public boolean sleep = false;
+    public float sleepMinTime = 240f;
+    public TextureRegion sleepEffectRegion = new TextureRegion();
+
+    public boolean showProducts = true;
+    public float productOffset = tilesize;
+    public TextureRegion productPowerRegion = new TextureRegion();
+    public TextureRegion productHeatRegion = new TextureRegion();
 
 
     public MultiCrafter(String name) {
@@ -223,6 +235,10 @@ public class MultiCrafter extends HeatCrafter {
 
     @Override
     public void init() {
+
+        sleepEffectRegion = Core.atlas.find("ve-sleep-z");
+        productPowerRegion = Core.atlas.find("ve-power-icon");
+        productHeatRegion = Core.atlas.find("ve-heat-icon");
 
         if(minFluxGeneralDisplayed < 0) minFluxGeneralDisplayed = minFluxGeneral;
 
@@ -829,6 +845,8 @@ public class MultiCrafter extends HeatCrafter {
         private float fluxResult = 0f;
         private float fluxMultiplierGeneral = 1f;
         private float fluxResultGeneral = 0f;
+
+        public float sleepTimer = 0;
 
 
 
@@ -1458,8 +1476,54 @@ public class MultiCrafter extends HeatCrafter {
         private float fluxInputTotalGeneral = 0f;
         private boolean fluxOutputSameGeneral = false;
 
+        private int sleepEffects = 0;
+        private float sleepIntervalTimer = 0;
+        private float sleepInterval = 45;
+
+        private Recipe lastRunningRecipe;
+
+        public void sleepUpdate(){
+            if(!sleep || !VESettings.getBool("ve-multicrafter-sleep")) return;
+            if(status() == BlockStatus.noInput) {
+                sleepTimer += delta();
+                if(sleepTimer >= sleepMinTime){
+                    sleepEffects = Math.abs(Mathf.random(3) + 1);
+                    sleepTimer -= (sleepEffects + 2) * sleepInterval + Math.abs(Mathf.random(120f));
+                }
+                if(sleepEffects > 0){
+                    sleepIntervalTimer += delta();
+                    if(sleepIntervalTimer >= sleepInterval){
+                        sleepEffects --;
+                        sleepIntervalTimer = 0;
+                        float weaveRand = Mathf.range(180f);
+                        float weaveSpeed = 2f + Mathf.range(0.25f);
+                        float weaveW = (0.6f + Mathf.range(0.2f)) * tilesize;
+                        Effect sleepZ = new Effect(180f, 80f, e -> {
+                            float size = 3.5f * e.fin() * e.fout() * tilesize;
+                            float dx = 2f * tilesize * e.fin();
+                            float dy = 4f * tilesize * e.fin();
+                            Draw.rect(sleepEffectRegion,
+                                    e.x + dx + weaveW * Mathf.sinDeg(Time.time * weaveSpeed + weaveRand),
+                                    e.y + dy, size, size);
+                        });
+                        sleepZ.at(x + size * tilesize / 8f, y + size * tilesize / 4f);
+                    }
+                }
+            }else{
+                sleepTimer = 0;
+                sleepEffects = 0;
+                sleepIntervalTimer = 0;
+            }
+        }
+
         @Override
         public void updateTile() {
+            sleepUpdate();
+
+            if(status() == BlockStatus.active){
+                lastRunningRecipe = getCurrentRecipe();
+            }
+
             if (payload != null) { payload.update(null, this); moveInPayload(); }
 
             if(fluxListNum < 60)fluxListNum++;
@@ -1956,12 +2020,91 @@ public class MultiCrafter extends HeatCrafter {
             }
 
             drawStatus();
+            drawProduct();
+        }
+
+        public void drawProduct(){
+            if( !showProducts || !isVisible() ||
+                    !VESettings.getBool("ve-multicrafter-show-output") || lastRunningRecipe == null ||
+                    !Vars.ui.hudfrag.shown || team != Vars.player.team() || headless ||
+                    (!lastRunningRecipe.showProduct && !(lastRunningRecipe.showPower || lastRunningRecipe.showHeat)) ){
+                return;
+            }
+            float camSize = Math.max(Core.camera.width, Core.camera.height);
+            float iconSize = Math.min(2f * tilesize, camSize * (194f / 3072f) * (Vars.mobile ? 2f : 1f));
+            float iconRingThick = iconSize * (12f / 194f);
+            float iconY = y - productOffset;
+            Color iconColor = team.color;
+            float iconRegionSize = (iconSize - 1.25f * iconRingThick) / 1.415f;
+            if(lastRunningRecipe.shownProduct != null && lastRunningRecipe.showProduct){
+                TextureRegion icon = lastRunningRecipe.shownProduct.uiIcon;
+                if(lastRunningRecipe.shownProduct instanceof Item i){
+                    iconColor = i.color;
+                }else if(lastRunningRecipe.shownProduct instanceof Liquid l){
+                    iconColor = l.barColor();
+                }
+
+                Draw.z(Layer.overlayUI - 0.01f);
+                Draw.alpha(1f);
+                Draw.color(Pal.darkestGray);
+                Fill.circle(x, iconY, iconSize / 2f);
+                Lines.stroke(iconRingThick * 0.75f);
+                Draw.color(iconColor);
+                Lines.poly(x, iconY, 24, (iconSize - 1.75f * iconRingThick) / 2f, 0f);
+                Draw.color();
+                Draw.rect(icon, x, iconY, iconRegionSize, iconRegionSize);
+            }else if(lastRunningRecipe.showPower || lastRunningRecipe.showHeat){
+                String text = "";
+                if(lastRunningRecipe.showPower){
+                    text = String.valueOf(Mathf.round(getPowerProduction() * 60f * timeScale()));
+                    iconColor = Pal.surge;
+                }else{
+                    text = String.valueOf(Mathf.round(heatOutput));
+                    iconColor = Color.red;
+                }
+                Draw.z(Layer.overlayUI - 0.01f);
+                Draw.alpha(1f);
+                Draw.color(Pal.darkestGray);
+                Fill.circle(x, iconY, iconSize / 2f);
+                Lines.stroke(iconRingThick * 0.75f);
+                Draw.color(iconColor);
+                Lines.poly(x, iconY, 24, (iconSize - 1.75f * iconRingThick) / 2f, 0f);
+                if(lastRunningRecipe.showHeat){
+                    float timer = (Time.time % 60f) / 60f;
+                    Draw.color(Color.red.cpy().lerp(Color.white.cpy(), timer));
+                    Lines.arc(x, iconY, (iconSize - 1.75f * iconRingThick) / 2f, 1f - timer, rotation * 90f - (1f - timer) * 180f);
+                    Draw.color(Color.red);
+                    Draw.alpha(0.5f);
+                    Draw.rect(productHeatRegion, x, iconY, iconRegionSize, iconRegionSize);
+                }else{
+                    Draw.color(Pal.surge);
+                    Draw.alpha(0.5f);
+                    Draw.rect(productPowerRegion, x, iconY, iconRegionSize, iconRegionSize);
+                }
+                Draw.alpha(1f);
+                Draw.color();
+                Font font = VEFonts.novo;
+                GlyphLayout l = Pools.obtain(GlyphLayout.class, GlyphLayout::new);
+                boolean ints = font.usesIntegerPositions();
+                l.setText(font, text, iconColor, 1000000f, Align.left, false);
+                font.getData().setScale(Math.min(iconSize * 0.5f / font.getData().lineHeight, iconSize * 0.75f / l.width));
+                boolean b = iconSize * 0.5f / font.getData().lineHeight < iconSize * 0.75f / l.width;
+                font.setUseIntegerPositions(false);
+                font.setColor(iconColor);
+                font.draw(text, x - 0.35f * l.width * (b ? 1f : iconSize * 0.75f / l.width) * 0.5f * (text.length()) * (text.length() >= 4 ? (1 - (text.length() - 3f) / text.length()) : 1f),
+                        iconY + 0.33f * font.getData().lineHeight * (b ? iconSize * 0.5f / font.getData().lineHeight : 1f),
+                        1000000f, Align.left, false);
+                font.setUseIntegerPositions(ints);
+                font.getData().setScale(1f);
+                Pools.free(l);
+                Draw.color();
+            }
         }
 
         public void drawPayload() { if (payload != null) { updatePayload(); Draw.z(Layer.blockOver); payload.draw(); } }
 
         @Override public void drawStatus() {
-            if (block.enableDrawStatus) {
+            if (block.enableDrawStatus && team == player.team()) {
                 float m = block.size > 1 ? 1f : 0.64f;
                 float bx = x + block.size*8f/2f - 8f*m/2f, by = y - block.size*8f/2f + 8f*m/2f;
                 Draw.z(71f); Draw.color(Pal.gray); Fill.square(bx, by, 2.5f*m, 45f);
@@ -2135,6 +2278,12 @@ public class MultiCrafter extends HeatCrafter {
 
         public transient @Nullable Block unlockBlock;
         public @Nullable Boolean alwaysUnlocked;
+
+        //运行时显示的产物图标
+        public @Nullable UnlockableContent shownProduct = null;
+        public boolean showProduct = true;
+        public boolean showPower = false;
+        public boolean showHeat = false;
 
 
 

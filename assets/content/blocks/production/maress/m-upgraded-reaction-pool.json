@@ -15,6 +15,7 @@
   "drawArrow": true,
   "warmupSpeed": 0.05,
   "dumpTime": 1,
+  "sleep": true,
   "research": {
     "parent": "reflector-thermolyzer",
     "objectives": [
@@ -357,6 +358,7 @@
       "inputPower": 3,
       "outputLiquids": [ "hydrogen/0.9","ve-chlorine/0.9" ],
       "craftTime": 60,
+      "shownProduct": "ve-chlorine",
       "visual": {
             "type": "DrawBlockParts",
             "parts": [
@@ -395,6 +397,7 @@
       "inputPower": 3,
       "outputLiquids": [ "hydrogen/0.9" ],
       "craftTime": 60,
+      "shownProduct": "hydrogen",
       "visual": {
             "type": "DrawBlockParts",
             "parts": [
@@ -436,6 +439,7 @@
       "ignoreLiquidFullness": true,
       "outputItems": [ "silicon/18" ],
       "craftTime": 90,
+      "shownProduct": "silicon",
       "visual": {
             "type": "DrawBlockParts",
             "parts": [
@@ -478,6 +482,7 @@
       "craftTime": 60,
       "incinerateOverproducedItems": true,
       "ignoreLiquidFullness": true,
+      "shownProduct": "sand",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -528,6 +533,7 @@
       "craftTime": 30,
       "incinerateOverproducedItems": true,
       "ignoreLiquidFullness": true,
+      "shownProduct": "sand",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -577,6 +583,7 @@
       "outputHeat": 20,
       "craftTime": 60,
       "incinerateOverproducedItems": true,
+      "shownProduct": "sand",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -624,6 +631,7 @@
       "inputPower": 3,
       "outputLiquids": [ "cryofluid/1" ],
       "craftTime": 120,
+      "shownProduct": "cryofluid",
       "visual": {
             "type": "DrawBlockParts",
             "parts": [
@@ -663,6 +671,7 @@
       "inputPower": 4,
       "outputLiquids": [ "cryofluid/1.5" ],
       "craftTime": 180,
+      "shownProduct": "cryofluid",
       "visual": {
             "type": "DrawBlockParts",
             "parts": [
@@ -704,6 +713,7 @@
       "outputItems": [ "ve-ferrum/12","silicon/9" ],
       "craftTime": 90,
       "ignoreLiquidFullness": true,
+      "shownProduct": "ve-ferrum",
       "visual": {
             "type": "DrawBlockParts",
             "parts": [
@@ -746,6 +756,7 @@
       "craftTime": 120,
       "incinerateOverproducedItems": true,
       "ignoreLiquidFullness": true,
+      "shownProduct": "scrap",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -796,6 +807,7 @@
       "craftTime": 60,
       "ignoreLiquidFullness": true,
       "incinerateOverproducedItems": true,
+      "shownProduct": "scrap",
       "visual": {
         "type": "DrawMulti",
         "drawers": [

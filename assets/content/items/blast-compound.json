@@ -1,4 +1,4 @@
 {
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
+  "shownPlanets": {"add": [ "cyclant","phoon","maress","thavina" ]},
   "databaseTag": "processed-item"
 }

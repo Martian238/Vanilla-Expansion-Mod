@@ -9,20 +9,23 @@
   "liquidCapacity": 60,
   "outputsPower": true,
   "shownPlanets": [ "maress","thavina" ],
+  "productOffset": 4,
   "recipe": [
     {
       "inputLiquids": [ "water/0.0666666667" ],
       "craftTime": 180,
       "inputHeat": 10,
       "outputPower": 5,
-      "maxEfficiency": 4
+      "maxEfficiency": 4,
+      "showPower": true
     },
     {
       "inputLiquids": [ "cryofluid/0.033333333" ],
       "craftTime": 180,
       "inputHeat": 10,
       "outputPower": 8,
-      "maxEfficiency": 6
+      "maxEfficiency": 6,
+      "showPower": true
     }
   ],
   "drawer": {
