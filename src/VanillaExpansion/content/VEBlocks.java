@@ -133,11 +133,11 @@ public class VEBlocks {
 
         // 分类物品桥
         adaptItemBridge = new AdaptItemBridge("adapt-item-bridge"){{
-            requirements(Category.distribution, ItemStack.with(
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 13,
                 VEItems.manganese, 13
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
 
             hasPower = false;
@@ -151,11 +151,11 @@ public class VEBlocks {
 
         // 分类流体桥
         adaptLiquidBridge = new AdaptLiquidBridge("adapt-liquid-bridge"){{
-            requirements(Category.liquid, ItemStack.with(
+            requirements(Category.liquid, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 15,
                 VEItems.manganese, 15
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
 
             hasPower = false;
@@ -166,7 +166,7 @@ public class VEBlocks {
         }};
         // 万用交叉器
         proximaJunction = new Junction("proxima-junction"){{
-            requirements(Category.distribution,ItemStack.with(
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 5,
                 VEItems.manganese, 5
             ));
@@ -179,7 +179,7 @@ public class VEBlocks {
         fastSideOutputConveyor = new SideOutputConveyor("fast-side-output-conveyor"){{
             speed = 0.15f;
             displayedSpeed = 20f;
-            requirements(Category.distribution, ItemStack.with(
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 1
             ));
             junctionReplacement = proximaJunction;
@@ -189,7 +189,7 @@ public class VEBlocks {
         }};
         // 侧向输出导管
         sideOutputConduit = new SideOutputConduit("side-output-conduit"){{
-            requirements(Category.liquid, ItemStack.with(
+            requirements(Category.liquid, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.manganese, 1
             ));
             bridgeReplacement = adaptLiquidBridge;
@@ -198,7 +198,7 @@ public class VEBlocks {
             shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         proximaDuctRouter = new DuctRouter("proxima-duct-router"){{
-            requirements(Category.distribution, ItemStack.with(
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.with(
                     VEItems.iron, 5
             ));
             health = 50;
@@ -208,7 +208,7 @@ public class VEBlocks {
             shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         proximaInvertSorter = new Sorter("proxima-inverted-sorter"){{
-            requirements(Category.distribution, ItemStack.with(
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.with(
                     VEItems.iron, 2,
                     VEItems.manganese, 2
             ));
@@ -218,7 +218,7 @@ public class VEBlocks {
             shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         proximaSorter = new Sorter("proxima-sorter"){{
-            requirements(Category.distribution, ItemStack.with(
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.with(
                     VEItems.iron, 2,
                     VEItems.manganese, 2
             ));
@@ -229,11 +229,11 @@ public class VEBlocks {
         }};
         // 流体溢流门
         liquidOverflowGate = new LiquidOverflowGate("liquid-overflow-gate"){{
-            requirements(Category.liquid, ItemStack.with(
+            requirements(Category.liquid, BuildVisibility.sandboxOnly, ItemStack.with(
                     VEItems.iron, 2,
                     VEItems.manganese, 2
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 45;
             invert = false;
@@ -242,11 +242,11 @@ public class VEBlocks {
         }};
         // 流体反向溢流门
         liquidUnderflowGate = new LiquidOverflowGate("liquid-underflow-gate"){{
-            requirements(Category.liquid, ItemStack.with(
+            requirements(Category.liquid, BuildVisibility.sandboxOnly, ItemStack.with(
                     VEItems.iron, 2,
                     VEItems.manganese, 2
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 45;
             invert = true;
@@ -255,11 +255,11 @@ public class VEBlocks {
         }};
         // 流体分类器
         liquidSorter = new LiquidSorter("liquid-sorter"){{
-            requirements(Category.liquid, ItemStack.with(
+            requirements(Category.liquid, BuildVisibility.sandboxOnly, ItemStack.with(
                     VEItems.iron, 4,
                     VEItems.manganese, 10
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 60;
             rotate = false;
@@ -267,7 +267,7 @@ public class VEBlocks {
             shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         overflow = new OverflowGate("proxima-overflow-gate"){{
-            requirements(Category.distribution, ItemStack.with(
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.with(
                     VEItems.iron, 1
             ));
             health = 45;
@@ -276,7 +276,7 @@ public class VEBlocks {
             shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         invertoverflow = new OverflowGate("proxima-underflow-gate"){{
-            requirements(Category.distribution, ItemStack.with(
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.with(
                     VEItems.iron, 1
             ));
             health = 45;
@@ -287,7 +287,8 @@ public class VEBlocks {
 
         // 16方向测试方块
         test16Dir = new SixteenDirectionBlock("test-16dir"){{
-            requirements(Category.distribution, ItemStack.with(Items.copper, 1));
+            // requirements(Category.distribution, ItemStack.with(Items.copper, 1));
+            requirements(Category.distribution, BuildVisibility.sandboxOnly, ItemStack.with(Items.copper, 1)); // Momiji
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             size = 1;
@@ -300,7 +301,7 @@ public class VEBlocks {
         }};
         // 电线杆
         powerPole = new PowerPole("power-pole"){{
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 5,
                 VEItems.manganese, 5
             ));
@@ -313,7 +314,7 @@ public class VEBlocks {
         }};
         // 岩芯钻机
         rockCoreDrill = new RockCoreDrill("rock-core-drill"){{
-            requirements(Category.production, ItemStack.with(
+            requirements(Category.production, BuildVisibility.sandboxOnly, ItemStack.with(
                     VEItems.iron, 20
             ));
             // 基础属性
@@ -374,11 +375,11 @@ public class VEBlocks {
 
         // RBMK 燃料柱
         rbmkRod = new RBMKRod("rbmk-rod"){{
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 50,
                 VEItems.uranium, 25
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 400;
 
@@ -394,11 +395,11 @@ public class VEBlocks {
 
         // RBMK 控制棒
         rbmkControl = new RBMKControl("rbmk-control"){{
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 30,
                 VEItems.uranium, 10
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
 
@@ -408,11 +409,11 @@ public class VEBlocks {
         // RBMK 慢化控制棒
         rbmkControlModerated = new RBMKControl("rbmk-control-moderated"){{
             moderated = true;
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 40,
                 VEItems.uranium, 15
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 380;
 
@@ -421,11 +422,11 @@ public class VEBlocks {
 
         // RBMK 自动控制棒
         rbmkControlAuto = new RBMKControlAuto("rbmk-control-auto"){{
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 35,
                 VEItems.uranium, 12
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
 
@@ -435,11 +436,11 @@ public class VEBlocks {
         // RBMK 慢化自动控制棒
         rbmkControlAutoModerated = new RBMKControlAuto("rbmk-control-auto-moderated"){{
             moderated = true;
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 45,
                 VEItems.uranium, 17
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 380;
 
@@ -448,11 +449,11 @@ public class VEBlocks {
 
         // RBMK 锅炉
         rbmkBoiler = new RBMKBoiler("rbmk-boiler"){{
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 60,
                 VEItems.uranium, 10
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
 
@@ -461,12 +462,12 @@ public class VEBlocks {
 
         // RBMK 冷却器（应急散热：消耗冷 PFM，5×5 列范围每 tick 降温 200°C）
         rbmkCooler = new RBMKCooler("rbmk-cooler"){{
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 100,
                 Items.lead, 80,
                 Items.metaglass, 50
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
 
@@ -475,12 +476,12 @@ public class VEBlocks {
 
         // RBMK 反射器（把逃逸中子弹回源燃料柱）
         rbmkReflector = new RBMKReflector("rbmk-reflector"){{
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 40,
                 VEItems.uranium, 5,
                 Items.lead, 15
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
 
@@ -489,11 +490,11 @@ public class VEBlocks {
 
         // RBMK 慢化剂（快中子变慢中子，增益下游 SLOW/ANY 燃料）
         rbmkModerator = new RBMKModerator("rbmk-moderator"){{
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 30,
                 Items.graphite, 25
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
 
@@ -502,11 +503,11 @@ public class VEBlocks {
 
         // RBMK 吸收器（通量→热，完全/部分吸收中子流）
         rbmkAbsorber = new RBMKAbsorber("rbmk-absorber"){{
-            requirements(Category.power, ItemStack.with(
+            requirements(Category.power, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 30,
                 Items.lead, 20
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 360;
 
@@ -515,12 +516,12 @@ public class VEBlocks {
 
         // RBMK 控制台（15×15 扫描 + 批控）
         rbmkConsole = new RBMKConsole("rbmk-console"){{
-            requirements(Category.logic, ItemStack.with(
+            requirements(Category.logic, BuildVisibility.sandboxOnly, ItemStack.with(
                 VEItems.iron, 80,
                 VEItems.uranium, 10,
                 VEItems.manganese, 10
             ));
-            buildVisibility = BuildVisibility.shown;
+            // buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 500;
 
@@ -529,7 +530,7 @@ public class VEBlocks {
 
         // 经验激光炮塔（移植自 Project Unity 的 laser-turret 注册，简化去 powerUse/chargeTime）
         expTurret = new ExpTurret("exp-laser-turret"){{
-            requirements(Category.turret, ItemStack.with(Items.copper, 90, Items.silicon, 40, Items.titanium, 15));
+            requirements(Category.turret, BuildVisibility.sandboxOnly, ItemStack.with(Items.copper, 90, Items.silicon, 40, Items.titanium, 15));
             size = 2;
             health = 600;
 
@@ -562,7 +563,7 @@ public class VEBlocks {
 
         // 经验墙（移植自 Project Unity 的 steel-wall 注册，基于简化 ExpWall）
         expWall = new ExpWall("exp-wall"){{
-            requirements(Category.defense, ItemStack.with(Items.titanium, 24, Items.silicon, 24));
+            requirements(Category.defense, BuildVisibility.sandboxOnly, ItemStack.with(Items.titanium, 24, Items.silicon, 24));
             size = 2;
             health = 3240;
 
@@ -575,7 +576,7 @@ public class VEBlocks {
             shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         TitleTextBlock = new TitleTextBlock("TitleTextBlock"){{
-            requirements(Category.defense, ItemStack.with(Items.titanium, 1));
+            requirements(Category.defense, BuildVisibility.sandboxOnly, ItemStack.with(Items.titanium, 1));
             size = 2;
             health = 3240;
             buildVisibility = BuildVisibility.sandboxOnly;
