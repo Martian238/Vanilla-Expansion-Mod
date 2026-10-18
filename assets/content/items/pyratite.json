@@ -1,5 +1,5 @@
 {
   "hardness": 2,
-  "shownPlanets": [ "serpulo","cyclant","phoon","maress","thavina" ],
+  "shownPlanets":  {"add": [ "cyclant","phoon","maress","thavina" ]},
   "databaseTag": "natural-item"
 }

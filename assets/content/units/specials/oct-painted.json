@@ -24,6 +24,9 @@
       "reload": 120,
       "amount": 20,
       "range": 140
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.PaintedOctRingAbility"
     }
   ],
   "playerControllable": false,

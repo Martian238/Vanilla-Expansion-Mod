@@ -5,6 +5,7 @@ import VanillaExpansion.annotations.Annotations;
 import VanillaExpansion.content.VEJSUnitTypes;
 import VanillaExpansion.expand.world.block.sandbox.SpawnEgg;
 import arc.Core;
+import arc.Events;
 import arc.func.Cons;
 import arc.math.Mathf;
 import arc.math.geom.Position;
@@ -20,6 +21,7 @@ import mindustry.entities.Units;
 import mindustry.entities.bullet.*;
 import mindustry.entities.units.StatusEntry;
 import mindustry.entities.units.UnitController;
+import mindustry.game.EventType;
 import mindustry.game.Team;
 import mindustry.gen.*;
 import mindustry.logic.LAccess;
@@ -143,8 +145,14 @@ public class HyperUnit extends PayloadUnit {
         return EntityRegister.getID(getClass());
     }
 
+    private boolean switchToEventMode = false;
+
     @Override
     public void update(){
+        if(!switchToEventMode) actualUpdate();
+    }
+
+    protected void actualUpdate(){
         updateTimer = 0;
         if(!modFound){
             mobile = Vars.mobile;
@@ -162,7 +170,11 @@ public class HyperUnit extends PayloadUnit {
             }
             if(statuses.contains(s -> statusB(s))){
                 statuses.clear();
-                apply(StatusEffects.boss);
+            }
+            if(!switchToEventMode){
+                switchToEventMode = true;
+                UnitEventUpdateManager.add(this);
+                Log.info("Switched to event updating mode.");
             }
         }
         statTimer++;
@@ -172,20 +184,19 @@ public class HyperUnit extends PayloadUnit {
                 findOtherModEnemies();
             }
             statTimer = 0f;
-            if(!statuses.contains(s -> s.effect == StatusEffects.boss) && multiMod){
-                apply(StatusEffects.boss);
-            }
             if(protectedController == null){
                 protectedController = this.controller;
                 controllerGot = true;
                 Log.info("Controller saved: "+protectedController);
             }
+            /*
             if(!isShooting() && !isPlayer()){
                 if(x < 0) x = 0;
                 if(x > state.map.width * tilesize) x = state.map.width * tilesize;
                 if(y < 0) y = 0;
                 if(y > state.map.height * tilesize) y = state.map.height * tilesize;
             }
+            */
             for(Bullet b : Groups.bullet){
                 if(b.team != team && !isBulletVanilla(b)){
                     try{

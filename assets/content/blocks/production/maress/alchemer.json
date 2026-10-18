@@ -1,6 +1,7 @@
 {
   "requirements": [ "graphite/200","silicide/100","ferrum/150","thorium/75" ],
   "category": "crafting",
+  "sleep": true,
   "drawer": {
     "type": "DrawMulti",
     "drawers": [
@@ -680,6 +681,7 @@
       "outputHeat": 40,
       "inputPower": 2.5,
       "craftTime": 3,
+      "showProduct": false,
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -774,6 +776,7 @@
       "outputHeat": 40,
       "inputPower": 1.5,
       "craftTime": 20,
+      "shownProduct": "ve-quartz",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -870,6 +873,7 @@
       "outputHeat": 40,
       "inputPower": 2,
       "craftTime": 20,
+      "shownProduct": "ve-aluminium",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -966,6 +970,7 @@
       "outputHeat": 40,
       "inputPower": 2.5,
       "craftTime": 20,
+      "shownProduct": "ve-ferrum",
       "visual": {
         "type": "DrawMulti",
         "drawers": [
@@ -1062,6 +1067,7 @@
       "outputHeat": 40,
       "inputPower": 3,
       "craftTime": 20,
+      "shownProduct": "thorium",
       "visual": {
         "type": "DrawMulti",
         "drawers": [

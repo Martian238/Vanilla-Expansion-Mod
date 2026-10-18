@@ -23,6 +23,17 @@
   "loopSoundVolume": 0.2,
   "hidden": true,
   "immunities": [ "spore-slowed","electrified","dusty","interrupted","coordinate","overdrive","overclock" ],
+  "abilities": [
+    {
+      "type": "VanillaExpansion.expand.abilities.BossBarAbility",
+      "autoSetName": true,
+      "subBar": true,
+      "subFull": 4,
+      "drawStatuses": false,
+      "smoothAppear": false
+    }
+  ],
+  "clipSize": 8000,
   "parts": [
     {
       "type": "ShapePart",

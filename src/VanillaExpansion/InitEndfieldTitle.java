@@ -53,7 +53,7 @@ public class InitEndfieldTitle {
             testTitle("ve-thavina", 0, "thavina", 160f, 120f);
         });
         Events.on(EventType.UnitSpawnEvent.class, e -> {
-            if(e.unit.type == VEJSUnitTypes.textTrigger){
+            if(VESettings.getBool(VESettings.endfieldBossTitle, true) && e.unit.type == VEJSUnitTypes.textTrigger){
                 drawTitle = false;
                 Log.info("Text trigger created");
                 for(Unit u : Groups.unit){
@@ -103,7 +103,8 @@ public class InitEndfieldTitle {
     }
 
     public static void testTitle(Planet planet, String name, float delay, float duration){
-        if(state.map != null && state.isCampaign()){
+        if(VESettings.getBool(VESettings.endfieldPlanetTitle, true) &&
+                state.map != null && state.isCampaign()){
             if(state.getPlanet() == planet && state.getSector().id == planet.startSector){
                 for(Building b : Groups.build) {
                     if(b instanceof CoreBlock.CoreBuild && b.team == Team.sharded){
@@ -131,7 +132,8 @@ public class InitEndfieldTitle {
     }
 
     public static void testTitle(String planetName, int startSector, String name, float delay, float duration){
-        if(state.map != null && state.isCampaign()){
+        if(VESettings.getBool(VESettings.endfieldPlanetTitle, true) &&
+                state.map != null && state.isCampaign()){
             Log.info(state.getPlanet() + " " + state.getPlanet().name);
             if(Objects.equals(state.getPlanet().name, planetName)
                     && state.getSector().id == startSector){

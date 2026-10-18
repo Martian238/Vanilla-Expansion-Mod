@@ -3,6 +3,7 @@ package VanillaExpansion;
 import VanillaExpansion.content.*;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
+import VanillaExpansion.expand.type.unit.UnitEventUpdateManager;
 import VanillaExpansion.ui.VEFonts;
 import VanillaExpansion.ui.bossrush.BossRushRegistry;
 import arc.Core;
@@ -119,6 +120,18 @@ public class VanillaExpansionMod extends Mod {
         //简易反作弊
         InitAntiCheat.init();
 
+        //加载设置
+        if(!headless){
+            Events.on(EventType.ClientLoadEvent.class, e -> {
+                VESettings.loadUI();
+            });
+        }
+
+        //单位事件更新重置
+        Events.on(EventType.WorldLoadBeginEvent.class, e -> {
+            UnitEventUpdateManager.clear();
+        });
+
 
 
 
@@ -156,6 +169,7 @@ public class VanillaExpansionMod extends Mod {
         VEItems.load();
         VEJSLiquids.load();
         VELiquids.load();
+        VEJSStatuses.load();
         //VanillaExpansion.content.VEUnitTypes.load();
         VEJSBlocks.load();
         VEBlocks.load();
@@ -166,6 +180,9 @@ public class VanillaExpansionMod extends Mod {
         VETechTree.load();
         VEFonts.loadFonts();
         //VEModifiedUnitTypes.load();
+
+        VESettings.load();
+
 
         Fi root = Vars.mods.getMod(VanillaExpansionMod.class).root;
         Log.info("Mod assets: " + Arrays.toString(root.list()));

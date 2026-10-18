@@ -27,14 +27,15 @@
   "buildSpeed": 5,
   "hidden": true,
   "loopSound": "none",
-  "type": "missile",
   "lifetime": 120,//charge duration
-  "template": "MissileUnitType",
+  "template": "VanillaExpansion.expand.type.unit.internal.ChiniunChargeUnitType",
+  "startChargeSound": [ "endfieldChargeShort1", "endfieldChargeShort2" ],
   "logicControllable": true,
   "range": 0,
   "trailLength": 0,
   "targetAir": false,
   "targetGround": false,
+  /*
   "parts": [
     {
       "type": "ShapePart",
@@ -48,4 +49,5 @@
       "layer": 99.99
     }
   ]
+  */
 }

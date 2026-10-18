@@ -1,5 +1,6 @@
 {
   "color": "f4c55a",
+  "barColor": "f4c55a",
   "heatCapacity": 0.3,
   "effect": "corroded",
   "boilPoint": 0.9,
