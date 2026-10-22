@@ -120,9 +120,7 @@
       "laserLoopSound": "si2OverchargedLaserLoop"
     },
 
-    {
-      "type": "VanillaExpansion.expand.abilities.WarpAbility"
-    }
+
   ],
   "parts": [
     {

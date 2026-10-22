@@ -223,7 +223,7 @@ public class AttackOnlyStrongerWeapon extends Weapon {
                     }catch(Exception ignored){}
                 }
                 // 2. 检查血量阈值
-                return (u.maxHealth >= leastHealth) && (u.maxHealth != exceptHealth) || (targetNonVe && !u.type.name.startsWith("ve-") && (u.type.health >= 25000f));
+                return (u.maxHealth >= leastHealth) && (u.maxHealth != exceptHealth) || (targetNonVe && !u.type.name.startsWith("ve-") && (u.type.health >= 25000f) && !u.type.name.startsWith("veee-"));
             },
             // 建筑筛选器
             t -> {

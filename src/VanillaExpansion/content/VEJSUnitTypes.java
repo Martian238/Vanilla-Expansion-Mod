@@ -11,6 +11,7 @@ public class VEJSUnitTypes {
     //Core units
     public static UnitType theta, lambda, sigma, deltaUnit, omega;
     public static UnitType zetaUnit, eta;
+    public static OmicronUnitType omicron;
     public static UnitType iota, iotaFungikiller, iotaStealth, iotaStg, iotaFinal;
 
     //Cyclant new types
@@ -64,6 +65,7 @@ public class VEJSUnitTypes {
 
         zetaUnit = new UnitType("zeta"){{constructor = LegsUnit::create;}};
         eta = new UnitType("eta"){{constructor = LegsUnit::create;}};
+        omicron = new OmicronUnitType("omicron"){{constructor = OmicronUnit::create;}};
 
         iota = new UnitType("iota"){{constructor = UnitEntity::create;}};
         iotaFungikiller = new UnitType("iota-fungikiller"){{constructor = UnitEntity::create;}};

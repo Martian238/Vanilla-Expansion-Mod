@@ -60,7 +60,8 @@
       },*/
       "amount": 50,
       "reload": 120,
-      "range": 64
+      "range": 64,
+      "healPercent": 2
     }
   ],
   "weapons": [

@@ -1,121 +1,175 @@
 package VanillaExpansion.expand.abilities;
 
+import VanillaExpansion.expand.effects.WarpParticleEffect;
 import arc.Core;
 import arc.audio.Sound;
 import arc.graphics.Color;
+import arc.graphics.g2d.Draw;
+import arc.graphics.g2d.Lines;
 import arc.input.KeyCode;
 import arc.math.Angles;
 import arc.math.Mathf;
+import arc.scene.ui.layout.Table;
+import arc.struct.ObjectMap;
+import arc.struct.Seq;
+import arc.util.Strings;
+import arc.util.Time;
+import mindustry.Vars;
 import mindustry.content.Fx;
+import mindustry.content.StatusEffects;
 import mindustry.entities.Effect;
 import mindustry.entities.abilities.Ability;
-import mindustry.entities.bullet.LaserBulletType;
+import mindustry.entities.part.DrawPart;
 import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
+import mindustry.graphics.Drawf;
+import mindustry.type.StatusEffect;
+
+import static mindustry.Vars.tilesize;
 
 public class WarpAbility extends Ability {
     public WarpAbility() {
 
     }
 
-    //TODO
+    public float warpMinWarmup = 15f;
+    public float warpMinWarmupDistance = 800f;
+    public float warpBaseWarmup = 15f;
+    public float warpCooldown = 30;
 
+    public Seq<DrawPart> warpEndParts = new Seq<>();
+    public Effect warpEndEffect = Fx.none;
+    public Effect warpBeginEffect = Fx.none;
     public Sound warpSound = Sounds.none;
-    public float warpSoundVolume = 1f;
-    public Effect warpStartEffect = Fx.shockwave;
-    public Effect warpEndEffect = Fx.shockwave;
-    public float warpShake = 16f;
-    public float warpShakeDuration = 48f;
-
-    public float warpTrailWidth = 20f;
+    public float warpSoundVolume = 2f;
+    public float warpShake = 12f;
+    public Color warpEffectColor = Color.valueOf("00ffce");
+    public Effect warpPrepareEffect = Fx.none;
+    public float warpPrepareEffectChance = 0.1f;
+    public float warpPrepareEffectSpread = 1f;
+    public Color warpTrailColor1 = Color.valueOf("00ffce").a(0.5f);
+    public Color warpTrailColor2 = warpTrailColor1.cpy().mul(1.2f);
+    public Color warpTrailColor3 = Color.white;
+    public float warpTrailStroke = 20f;
     public float warpTrailLife = 30f;
-    public Color warpTrailColor = Color.valueOf("00ffce");
-
-    public float warpWarmup = 60f;
-    public float warpCooldown = 30f;
-    public float warpDamage = 10000f;
-
-    public KeyCode warpKey = KeyCode.q;
-
-    private float timer;
-    private boolean ready;
-    private float cooldown;
-    private float warpLength;
-    private float wx, wy, angle;
-
-    private final LaserBulletType warpBeamBullet = new LaserBulletType(){{
-        damage = warpDamage / 2f;
-        absorbable = reflectable = hittable = false;
-        collidesGround = false;
-        collidesAir = false;
-        length = warpLength;
-        width = warpTrailWidth;
-        laserEffect = Fx.chainLightning;
-        sideLength = 0f;
-        //colors[0].set(warpTrailColor.a(0.5f));
-        //colors[1].set(warpTrailColor);
-        //colors[2].set(Color.white);
-        hitColor = warpTrailColor;
-    }};
-
+    public StatusEffect warpStatus = StatusEffects.none;
+    public boolean useAutoWarpEffect = true;
 
     @Override
-    public void created(Unit unit){
-        cooldown = timer = 0;
-        ready = false;
+    public void addStats(Table t){
+        super.addStats(t);
+        t.add(abilityStat("warpwarmup", Strings.autoFixed(warpMinWarmup / 60f, 2), Strings.autoFixed(warpMinWarmupDistance / tilesize, 2)));
+        t.row();
+        if(warpBaseWarmup > 0) {
+            t.add(abilityStat("warpbasewarmup", Strings.autoFixed(warpBaseWarmup / 60f, 2)));
+            t.row();
+        }
+        t.add(abilityStat("warpcooldown", Strings.autoFixed(warpCooldown / 60f, 2)));
     }
+
+    private final KeyCode warpKey = KeyCode.altLeft;
+    private final KeyCode warpBanKey = KeyCode.o;
+    private float warpWarmup = 0, warpCooldownTimer = 0;
+    private float wx, wy, wRot;
+    private boolean rotAllowWarp = false, warpCharging = true;
 
     @Override
     public void update(Unit unit) {
-        if(cooldown > 0 && !Core.input.keyDown(warpKey)){
-            cooldown -= 1;
-        }
-        if(Core.input.keyDown(warpKey) && unit.isPlayer() && !unit.dead() && unit.isFlying() && cooldown <= 0){
-            if(timer < 0){
-                timer = 0;
+        if(unit.isPlayer() && (Core.input.keyDown(warpKey) && !Core.input.keyDown(warpBanKey)) && !unit.isShooting() && warpCooldownTimer <= 0) {
+            warpCharging = true;
+            warpWarmup += Time.delta;
+            wx = Math.min(Math.max(Core.input.mouseWorldX(), 0), Vars.state.map.width * tilesize);
+            wy = Math.min(Math.max(Core.input.mouseWorldY(), 0), Vars.state.map.height * tilesize);
+            wRot = Mathf.atan2(wx - unit.x, wy - unit.y) * Mathf.radiansToDegrees;
+            if(Mathf.chanceDelta(warpPrepareEffectChance)) {
+                warpPrepareEffect.at(unit.x + Mathf.range(warpPrepareEffectSpread), unit.y + Mathf.range(warpPrepareEffectSpread));
             }
-            timer++;
-            wx = unit.aimX;
-            wy = unit.aimY;
-            angle = Mathf.radiansToDegrees * Mathf.atan2(wx - unit.x, wy - unit.y);
-            float sin = Mathf.sinDeg(angle - unit.rotation);
-            if(sin > 0){
-                unit.rotation(unit.rotation + unit.type.rotateSpeed);
-
-            }else if(sin < 0){
-                unit.rotation(unit.rotation - unit.type.rotateSpeed);
+            rotateToWarp(unit);
+            if(warpStatus != StatusEffects.none){
+                unit.apply(warpStatus, 2f);
             }
-            if(Angles.angleDist(unit.rotation, angle) <= unit.type.rotateSpeed){
-                unit.rotation(angle);
-                if(cooldown <= 0 && timer >= warpWarmup){
-                    ready = true;
-                }
-            }else{
-                ready = false;
-            }
-
-            if(ready){
+            float d = Mathf.dst(unit.x, unit.y, wx, wy);
+            if(rotAllowWarp && warpWarmup >= warpMinWarmup * (d / warpMinWarmupDistance) + (warpBaseWarmup > 0 ? warpBaseWarmup : 0f)) {
                 warp(unit);
             }
-
-        }else if (timer > 0){
-            timer -= 1;
+        }else{
+            warpWarmup = 0;
+            warpCharging = false;
+        }
+        if(warpCooldownTimer > 0){
+            warpCooldownTimer -= Time.delta;
+            warpCharging = false;
         }
     }
 
     public void warp(Unit unit){
-        cooldown = warpCooldown;
-        timer = 0;
-        warpBeamBullet.create(unit, unit.team, unit.x, unit.y, angle);
-        warpBeamBullet.create(unit, unit.team, wx, wy, angle + 180f);
-        warpStartEffect.at(unit.x, unit.y, angle);
-        warpEndEffect.at(wx, wy, angle + 180f);
-        Effect.shake(warpShake, warpShakeDuration, unit.x, unit.y);
-        Effect.shake(warpShake, warpShakeDuration, wx, wy);
-        warpSound.at(unit.x, unit.y, 1f, warpSoundVolume);
-        warpSound.at(wx, wy, 1f, warpSoundVolume);
-        unit.x(wx);
-        unit.y(wy);
+        warpCooldownTimer = warpCooldown;
+        float x1 = unit.x, y1 = unit.y;
+        float x2 = wx, y2 = wy;
+        float r = wRot;
+        float d = Mathf.dst(x1, y1, x2, y2);
+        unit.x(x2);
+        unit.y(y2);
+        warpBeginEffect.at(x1, y1, r, warpEffectColor);
+        warpEndEffect.at(x2, y2, r, warpEffectColor);
+        Effect line = new Effect(warpTrailLife, 80000f, e -> {
+            Drawf.light(x1, y1, x2, y2, warpTrailStroke * e.fout(), warpEffectColor, 1f);
+            Lines.stroke(warpTrailStroke * e.fout());
+            Draw.color(warpTrailColor1);
+            Lines.line(x1, y1, x2, y2);
+            Lines.stroke(warpTrailStroke * e.fout() * 0.6f);
+            Draw.color(warpTrailColor2);
+            Lines.line(x1, y1, x2, y2);
+            Lines.stroke(warpTrailStroke * e.fout() * 0.3f);
+            Draw.color(warpTrailColor3);
+            Lines.line(x1, y1, x2, y2);
+        });
+        line.at(x1, y1);
+        if(useAutoWarpEffect){
+            WarpParticleEffect wp = new WarpParticleEffect(){{
+                generalLength = d;
+                lengthFrom = Math.min(20f, d / 36f);
+                lengthTo = Math.min(5f, d / 144f);
+                stroke = 2f;
+                colorFrom = warpEffectColor;
+                colorTo = warpEffectColor;
+                lifetime = 60f;
+                particles = Mathf.ceil(d / 14.4f);
+                width = unit.hitSize() * 0.8f;
+            }};
+            wp.at(x1, y1, r);
+        }
+        warpSound.at(x1, y1, 1f, warpSoundVolume * Math.max(0.33f, d / warpMinWarmupDistance));
+        warpSound.at(x2, y2, 1f, warpSoundVolume * Math.max(0.33f, d / warpMinWarmupDistance));
+        Effect.shake(warpShake, warpShake * 2f, x1, y1);
+        Effect.shake(warpShake, warpShake * 2f, x2, y2);
     }
 
+    public void rotateToWarp(Unit unit){
+        rotAllowWarp = false;
+        if(Angles.angleDist(wRot, unit.rotation()) < unit.type.rotateSpeed * unit.speedMultiplier() * Time.delta){
+            unit.rotation(wRot);
+            rotAllowWarp = true;
+            return;
+        }
+        if(Mathf.sinDeg(wRot - unit.rotation()) > 0){
+            unit.rotation(unit.rotation() + unit.type.rotateSpeed * unit.speedMultiplier() * Time.delta);
+        }else{
+            unit.rotation(unit.rotation() - unit.type.rotateSpeed * unit.speedMultiplier() * Time.delta);
+        }
+    }
+
+    @Override
+    public void draw(Unit unit){
+        if(warpCharging){
+            if(warpEndParts.size > 0){
+                float prog = Mathf.clamp(warpWarmup / warpMinWarmup);
+                DrawPart.params.set(prog, prog, prog, prog, prog, prog, wx, wy, wRot);
+                DrawPart.params.life = prog;
+                for(DrawPart p : warpEndParts){
+                    p.draw(DrawPart.params);
+                }
+            }
+        }
+    }
 }

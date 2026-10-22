@@ -1,9 +1,6 @@
 package VanillaExpansion;
 
-import VanillaExpansion.expand.type.unit.DayunTankUnit;
-import VanillaExpansion.expand.type.unit.HyperUnit;
-import VanillaExpansion.expand.type.unit.IronGolemUnit;
-import VanillaExpansion.expand.type.unit.SentryUnit;
+import VanillaExpansion.expand.type.unit.*;
 import VanillaExpansion.expand.type.unit.annihilate.AnnihilateMainUnit;
 import VanillaExpansion.expand.type.unit.annihilate.AnnihilatePartUnit;
 import VanillaExpansion.expand.type.unit.internal.ChiniunChargeUnit;
@@ -36,6 +33,7 @@ public class EntityRegister {
         put(AnnihilatePartUnit.class, AnnihilatePartUnit::new);
         put(AnnihilateMainUnit.class, AnnihilateMainUnit::new);
         put(ChiniunChargeUnit.class, ChiniunChargeUnit::new);
+        put(OmicronUnit.class, OmicronUnit::new);
     }
 
     /**

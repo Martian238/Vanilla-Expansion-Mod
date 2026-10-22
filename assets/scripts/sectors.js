@@ -60,6 +60,7 @@ newSector("community-lieguqianshao", Planets.tantros, 0);
 newSector("community-leimingliegu", Planets.tantros, 0);
 newSector("community-xingyunpendi", Planets.tantros, 0);
 newSector("community-xingyunxueshan", Planets.tantros, 0);
+newSector("community-bingjihuangyuan", Planets.tantros, 0);
 newSector("community-yunshikeng", Planets.tantros, 0);
 newSector("community-chenshaheigu", Planets.tantros, 0);
 newSector("community-furaowadi", Planets.tantros, 0);

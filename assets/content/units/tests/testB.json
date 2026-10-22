@@ -47,6 +47,19 @@
     }
   ],
   "weapons": [
+    {
+      "type": "VanillaExpansion.expand.units.ChainWeapon",
+      "chainPointsAdd": [
+        {
+          "x": 16,
+          "order": 0
+        },
+        {
+          "x": -16,
+          "order": 1
+        }
+      ]
+    },
     /*{
       "name": "testB-tractor",
       "rotate": false,

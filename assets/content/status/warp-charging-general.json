@@ -1,0 +1,9 @@
+{
+  "color": "00ffce",
+  "show": false,
+  "applyEffect": "none",
+  "reloadMultiplier": 4,
+  "effectChance": 0.3,
+  "dragMultiplier": 10,
+  "generateIcons": false
+}

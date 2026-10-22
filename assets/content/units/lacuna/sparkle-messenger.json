@@ -360,7 +360,7 @@
     },
     {
       "reload": 1,
-      "shootStatus": "thunder-charging",
+      "shootStatus": "warp-charging-general",
       "shootStatusDuration": 30,
       "shootSound": "none",
       "bullet": {

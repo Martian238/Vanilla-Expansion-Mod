@@ -63,7 +63,26 @@
         "makeFire": true,
         "damage": 24,
         "hitShake": 3,
-        "despawnShake": 3
+        "despawnShake": 3,
+        "fragBullets": 1,
+        "fragRandomSpread": 0,
+        "fragBullet": {
+          "type": "VanillaExpansion.expand.bullets.DarkSlashBulletType",
+          "buildingDamageMultiplier": 0.25,
+          "damage": 100,
+          "pierceArmor": true,
+          "frontColor": "80ffde",
+          "backColor": "00ffce",
+          "knockback": -1,
+          "status": "plasma-status",
+          "lifetime": 22,
+          "statusDuration": 120,
+          "slashWidth": 12,
+          "slashLength": 160,
+          "slashAngleOffset": 0,
+          "slashAngleRand": 60,
+          "slashStroke": 2.75
+        }
       }
     }
   ]

@@ -1,4 +1,34 @@
 {
   "databaseTag": "06erekir-ship-unit",
-  "shownPlanets": [ "erekir" ]
+  "shownPlanets": [ "erekir" ],
+  "weapons": [
+      {
+        "type": "VanillaExpansion.expand.units.ChainWeapon",
+        "maxLength": 480,
+        "catchLength": 80,
+        "extendSound": "lbp3BigCogsLoop",
+        "releaseSound": [ "lbp3BigCogsStart1", "lbp3BigCogsStart2", "lbp3BigCogsStart3" ],
+        "releaseVolume": 0.6,
+        "catchSound": [ "lbp3BigCogsStop1", "lbp3BigCogsStop2" ],
+        "catchVolume": 0.6,
+        "backSpeedMultiplier": 0.4,
+        "chainPointsAdd": [
+          {
+            "x": 24,
+            "y": 8,
+            "order": 0
+          },
+          {
+            "x": 0,
+            "y": -12,
+            "order": 1
+          },
+          {
+            "x": -24,
+            "y": 8,
+            "order": 2
+          }
+        ]
+      }
+  ]
 }
