@@ -4,6 +4,7 @@ import VanillaExpansion.content.*;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
 import VanillaExpansion.expand.type.unit.UnitEventUpdateManager;
+import VanillaExpansion.ui.VEFontIcons;
 import VanillaExpansion.ui.VEFonts;
 import VanillaExpansion.ui.bossrush.BossRushRegistry;
 import arc.Core;
@@ -182,6 +183,7 @@ public class VanillaExpansionMod extends Mod {
         //VEModifiedUnitTypes.load();
 
         VESettings.load();
+        //VEFontIcons.load();
 
 
         Fi root = Vars.mods.getMod(VanillaExpansionMod.class).root;

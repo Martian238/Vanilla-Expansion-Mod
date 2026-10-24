@@ -1,6 +1,7 @@
 {
   "databaseTag": "06erekir-ship-unit",
-  "shownPlanets": [ "erekir" ],
+  "shownPlanets": [ "erekir" ]
+  /*
   "weapons": [
       {
         "type": "VanillaExpansion.expand.units.ChainWeapon",
@@ -31,4 +32,5 @@
         ]
       }
   ]
+  */
 }

@@ -10,11 +10,14 @@ import arc.input.KeyCode;
 import arc.math.Angles;
 import arc.math.Mathf;
 import arc.scene.ui.layout.Table;
-import arc.struct.ObjectMap;
 import arc.struct.Seq;
 import arc.util.Strings;
 import arc.util.Time;
 import mindustry.Vars;
+import mindustry.ai.UnitCommand;
+import mindustry.ai.UnitStance;
+import mindustry.ai.types.CommandAI;
+import mindustry.ai.types.MinerAI;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
 import mindustry.entities.Effect;
@@ -55,6 +58,29 @@ public class WarpAbility extends Ability {
     public StatusEffect warpStatus = StatusEffects.none;
     public boolean useAutoWarpEffect = true;
 
+    /** 被指挥时是否自动跃迁 */
+    public boolean commandAutoWarp = true;
+    /** 任何情况下移动目标超过此距离自动使用跃迁 */
+    public float commandAutoWarpDistance = 480f;
+    /** 能否用助推姿态触发指挥跃迁 */
+    public boolean commandAutoWarpBoost = true;
+    /** 助推姿态下，移动目标超过此距离自动使用跃迁 */
+    public float commandAutoWarpBoostDistance = 160f;
+    /** 能否用载荷指令触发指挥跃迁 */
+    public boolean commandAutoWarpPayload = true;
+    /** 载荷指令下，移动目标超过此距离自动使用跃迁 */
+    public float commandAutoWarpPayloadDistance = 80f;
+    /** 能否用辅助指令触发指挥跃迁 */
+    public boolean commandAutoWarpSupport = true;
+    /** 辅助指令下，移动目标超过此距离自动使用跃迁 */
+    public float commandAutoWarpSupportDistance = 120f;
+    /** 移动端是否自动跃迁 */
+    public boolean mobileAutoWarp = true;
+    /** 在移动端，作为玩家的单位离镜头超过此距离自动使用跃迁 */
+    public float mobileAutoWarpDistance = 240f;
+    /** 在移动端，镜头停止移动超过此时间才能使用跃迁 */
+    public float mobileAutoWarpTime = 30f;
+
     @Override
     public void addStats(Table t){
         super.addStats(t);
@@ -71,15 +97,75 @@ public class WarpAbility extends Ability {
     private final KeyCode warpBanKey = KeyCode.o;
     private float warpWarmup = 0, warpCooldownTimer = 0;
     private float wx, wy, wRot;
-    private boolean rotAllowWarp = false, warpCharging = true;
+    private boolean rotAllowWarp = false, warpCharging = true, autoWarping = false;
+    private float mobileAutoWarpTimer, mobileCamXLast, mobileCamYLast;
+
+    public boolean tryingWarp(Unit unit){
+        autoWarping = false;
+        if(Vars.mobile && mobileAutoWarp && unit.isPlayer() && mobileAutoWarpTimer >= mobileAutoWarpTime){
+            if(Mathf.dst2(unit.x, unit.y, Core.camera.position.x, Core.camera.position.y) >= mobileAutoWarpDistance * mobileAutoWarpDistance){
+                wx = Core.camera.position.x;
+                wy = Core.camera.position.y;
+                autoWarping = true;
+                return true;
+            }
+        }
+        if(!unit.isPlayer() && commandAutoWarp && unit.command().targetPos != null){
+            CommandAI c = unit.command();
+            boolean boosting = commandAutoWarpBoost && c.hasStance(UnitStance.boost);
+            boolean payloadActing = commandAutoWarpPayload &&
+                    c.command == UnitCommand.loopPayloadCommand ||
+                    c.command == UnitCommand.loadUnitsCommand ||
+                    c.command == UnitCommand.loadBlocksCommand ||
+                    c.command == UnitCommand.unloadPayloadCommand;
+            boolean supportActing = commandAutoWarpSupport &&
+                    c.command == UnitCommand.mineCommand ||
+                    c.command == UnitCommand.rebuildCommand ||
+                    c.command == UnitCommand.assistCommand ||
+                    c.command == UnitCommand.repairCommand;
+            float d = Mathf.dst(unit.command().targetPos.getX(), unit.command().targetPos.getY(), unit.x, unit.y);
+            boolean shouldWarp = (boosting && d > commandAutoWarpBoostDistance) ||
+                    (payloadActing && d > commandAutoWarpPayloadDistance) ||
+                    (supportActing && d > commandAutoWarpSupportDistance) ||
+                    (d > commandAutoWarpDistance);
+            //useless for now
+            if(unit.controller() instanceof MinerAI m){
+                if(m.ore != null){
+                    wx = m.ore.worldx();
+                    wy = m.ore.worldy();
+                    autoWarping = true;
+                    return true;
+                }
+            }
+            if(shouldWarp){
+                wx = unit.command().targetPos.getX();
+                wy = unit.command().targetPos.getY();
+                autoWarping = true;
+                return true;
+            }
+        }
+        return unit.isPlayer() && (Core.input.keyDown(warpKey) && !Core.input.keyDown(warpBanKey)) && !unit.isShooting() && warpCooldownTimer <= 0;
+    }
 
     @Override
     public void update(Unit unit) {
-        if(unit.isPlayer() && (Core.input.keyDown(warpKey) && !Core.input.keyDown(warpBanKey)) && !unit.isShooting() && warpCooldownTimer <= 0) {
+        if(commandAutoWarpBoost && !unit.type.stances.contains(UnitStance.boost)) unit.type.stances.add(UnitStance.boost);
+        if(Vars.mobile && mobileAutoWarp){
+            if(mobileCamXLast != Core.camera.position.x || mobileCamYLast != Core.camera.position.y){
+                mobileAutoWarpTimer = 0;
+            }else{
+                mobileAutoWarpTimer += Time.delta;
+            }
+            mobileCamXLast = Core.camera.position.x;
+            mobileCamYLast = Core.camera.position.y;
+        }
+        if(tryingWarp(unit)) {
             warpCharging = true;
             warpWarmup += Time.delta;
-            wx = Math.min(Math.max(Core.input.mouseWorldX(), 0), Vars.state.map.width * tilesize);
-            wy = Math.min(Math.max(Core.input.mouseWorldY(), 0), Vars.state.map.height * tilesize);
+            if(!autoWarping) {
+                wx = Math.min(Math.max(Core.input.mouseWorldX(), 0), Vars.state.map.width * tilesize);
+                wy = Math.min(Math.max(Core.input.mouseWorldY(), 0), Vars.state.map.height * tilesize);
+            }
             wRot = Mathf.atan2(wx - unit.x, wy - unit.y) * Mathf.radiansToDegrees;
             if(Mathf.chanceDelta(warpPrepareEffectChance)) {
                 warpPrepareEffect.at(unit.x + Mathf.range(warpPrepareEffectSpread), unit.y + Mathf.range(warpPrepareEffectSpread));

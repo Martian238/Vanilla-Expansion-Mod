@@ -25,6 +25,7 @@ import static mindustry.Vars.ui;
 public class VESettings {
 
     public static final String
+            mobileAutoWarp = "ve-mobile-auto-warp",
             endfieldHealthBar = "ve-endfield-health-bar",
             endfieldHealthBarScale = "ve-endfield-health-bar-scale",
             endfieldPlanetTitle = "ve-endfield-planet-title",
@@ -38,6 +39,9 @@ public class VESettings {
     public static boolean changed = false;
 
     public static void load(){
+        allSettings.put("mechanism", Seq.with(
+                new BoolSetting(mobileAutoWarp, true, false)
+        ));
         allSettings.put("graphics", Seq.with(
                 new BoolSetting(endfieldHealthBar, true, false),
                 new SliderSetting(endfieldHealthBarScale, 1, 0.2f, 1.8f, 0.1f, false),
