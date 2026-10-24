@@ -132,6 +132,11 @@
   "fogRadius": 800,
   "abilities": [
     {
+      "type": "VanillaExpansion.expand.abilities.BossBarAbility",
+      "nameBundle": "unit.ve-hyper-boss.name",
+      "iconSprite": "ve-bar-hyper"
+    },
+    {
       "type": "ShieldRegenFieldAbility",
       "amount": 100,
       "reload": 30,

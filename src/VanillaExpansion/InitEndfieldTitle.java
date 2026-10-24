@@ -58,7 +58,7 @@ public class InitEndfieldTitle {
                 Log.info("Text trigger created");
                 for(Unit u : Groups.unit){
                     if(Objects.equals(u.type.name, "ve-meta") && u.team == Team.crux){
-                        displayTitle("hyper", 373f, 240f, 5f, false);
+                        displayTitle("hyper", 373f, 240f, 5f, true);
                         break;
                     }
                     if(Objects.equals(u.type.name, "ve-fungitron-mass1")){
@@ -66,11 +66,11 @@ public class InitEndfieldTitle {
                         break;
                     }
                     if(Objects.equals(u.type.name, "ve-zentack-body")){
-                        displayTitle("zentack", 120f, 150f, 0f, false);
+                        displayTitle("zentack", 120f, 150f, 0f, true);
                         break;
                     }
                     if(Objects.equals(u.type.name, "ve-chiniun")){
-                        displayTitle("chiniun", 495f, 140f, 5f, false);
+                        displayTitle("chiniun", 495f, 140f, 5f, true);
                         break;
                     }
                 }
@@ -189,7 +189,7 @@ public class InitEndfieldTitle {
         }
         Time.run(delay, () -> {
             drawTitle = true;
-            titleSound.at(Core.camera.position, 1f, 1f);
+            titleSound.play(2f);
             Time.run(duration, () -> {
                 drawTitle = false;
                 Vars.ui.hudfrag.shown = uiShown;

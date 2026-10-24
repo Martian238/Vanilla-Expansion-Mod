@@ -149,7 +149,7 @@ public class AutoBossBarBlock extends Block {
         public Seq<Unit> resultBossUnits = new Seq<>();
 
         public boolean isBoss(Unit u) {
-            return u.type.isEnemy && (u.hasEffect(StatusEffects.boss) || u.hasEffect(VEJSStatuses.fakeBoss)) && u.team != Vars.player.team();
+            return u.type.isEnemy && (u.hasEffect(StatusEffects.boss) || u.hasEffect(VEJSStatuses.fakeBoss)) && (u.team != Vars.player.team());
         }
 
         public void initBar(){

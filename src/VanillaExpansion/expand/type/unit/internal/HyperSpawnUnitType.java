@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.type.unit.internal;
 
+import VanillaExpansion.content.VEJSUnitTypes;
 import mindustry.type.UnitType;
 
 public class HyperSpawnUnitType extends UnitType {
@@ -12,7 +13,7 @@ public class HyperSpawnUnitType extends UnitType {
     public UnitType magnetic;
     public UnitType meta;
     public UnitType hyper, hyperBoss;
-    public UnitType text;
+    public UnitType text = VEJSUnitTypes.textTrigger;
 
 
 }

@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.abilities;
 
+import VanillaExpansion.VESettings;
 import VanillaExpansion.expand.effects.WarpParticleEffect;
 import arc.Core;
 import arc.audio.Sound;
@@ -79,7 +80,7 @@ public class WarpAbility extends Ability {
     /** 在移动端，作为玩家的单位离镜头超过此距离自动使用跃迁 */
     public float mobileAutoWarpDistance = 240f;
     /** 在移动端，镜头停止移动超过此时间才能使用跃迁 */
-    public float mobileAutoWarpTime = 30f;
+    public float mobileAutoWarpTime = 20f;
 
     @Override
     public void addStats(Table t){
@@ -102,7 +103,7 @@ public class WarpAbility extends Ability {
 
     public boolean tryingWarp(Unit unit){
         autoWarping = false;
-        if(Vars.mobile && mobileAutoWarp && unit.isPlayer() && mobileAutoWarpTimer >= mobileAutoWarpTime){
+        if(Vars.mobile && mobileAutoWarp && VESettings.getBool("ve-mobile-auto-warp") && unit.isPlayer() && mobileAutoWarpTimer >= mobileAutoWarpTime){
             if(Mathf.dst2(unit.x, unit.y, Core.camera.position.x, Core.camera.position.y) >= mobileAutoWarpDistance * mobileAutoWarpDistance){
                 wx = Core.camera.position.x;
                 wy = Core.camera.position.y;
@@ -110,7 +111,7 @@ public class WarpAbility extends Ability {
                 return true;
             }
         }
-        if(!unit.isPlayer() && commandAutoWarp && unit.command().targetPos != null){
+        if(!unit.isPlayer() && commandAutoWarp && unit.isCommandable() && unit.command().targetPos != null){
             CommandAI c = unit.command();
             boolean boosting = commandAutoWarpBoost && c.hasStance(UnitStance.boost);
             boolean payloadActing = commandAutoWarpPayload &&
@@ -150,7 +151,7 @@ public class WarpAbility extends Ability {
     @Override
     public void update(Unit unit) {
         if(commandAutoWarpBoost && !unit.type.stances.contains(UnitStance.boost)) unit.type.stances.add(UnitStance.boost);
-        if(Vars.mobile && mobileAutoWarp){
+        if(Vars.mobile && mobileAutoWarp && VESettings.getBool("ve-mobile-auto-warp")){
             if(mobileCamXLast != Core.camera.position.x || mobileCamYLast != Core.camera.position.y){
                 mobileAutoWarpTimer = 0;
             }else{
