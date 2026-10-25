@@ -47,7 +47,7 @@ public class VEJSUnitTypes {
     public static UnitType vibrate, shakeUnit, quake;
 
     //Bosses
-    public static UnitType thoriumEradicator, hugeDagger, hyper;
+    public static UnitType thoriumEradicator, hugeDagger, hyper, hyperBoss;
 
     //Minigame elements
     public static SentryUnitType zenithSentry;
@@ -175,6 +175,7 @@ public class VEJSUnitTypes {
         thoriumEradicator = new UnitType("thorium-eradicator"){{constructor = LegsUnit::create;}};
         hugeDagger = new UnitType("huge-dagger"){{constructor = MechUnit::create;}};
         hyper = new UnitType("hyper"){{constructor = HyperUnit::create;}};
+        hyperBoss = new UnitType("hyper-boss"){{constructor = PayloadUnit::create;}};
         AnnihilateUnitTypes.load();
 
         textTrigger = new UnitType("text-trigger"){{

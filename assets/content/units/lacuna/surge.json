@@ -149,7 +149,7 @@
         "sizeFrom": 12.5,
         "sizeTo": 12.5,
         "colorFrom": "80ffde00",
-        "colorTo": "ffd37f",
+        "colorTo": "00ffce",
         "interp": "linear",
         "lifetime": 20,
         "followParent": true,

@@ -62,6 +62,236 @@
   ],
   "lightColor": "00ffce",
   "alwaysShootWhenMoving": true,
+  "abilities": [
+    {
+      "type": "VanillaExpansion.expand.abilities.WarpAbility",
+      "warpMinWarmup": 60,
+      "warpMinWarmupDistance": 25600,
+      "warpBaseWarmup": 45,
+      "warpCooldown": 30,
+      "warpTrailColor1": "00ffce40",
+      "warpTrailColor2": "80ffde",
+      "warpEffectColor": "00ffce",
+      "warpTrailStroke": 15,
+      "warpEndParts": [
+        {
+          "type": "EffectSpawnerPart",
+          "effect": [{
+            "type": "WaveEffect",
+            "strokeFrom": 1.5,
+            "strokeTo": 0,
+            "sizeFrom": 8.5,
+            "sizeTo": 8.5,
+            "colorFrom": "00ffce00",
+            "colorTo": "00ffce",
+            "interp": "linear",
+            "lifetime": 10,
+            "followParent": true,
+            "sides": 24
+            },
+            {
+              "type": "WaveEffect",
+              "strokeFrom": 1.5,
+              "strokeTo": 0,
+              "sizeFrom": 21.5,
+              "sizeTo": 21.5,
+              "colorFrom": "00ffce00",
+              "colorTo": "00ffce",
+              "interp": "linear",
+              "lifetime": 10,
+              "followParent": true,
+              "sides": 24,
+              "layer": 89.99
+            }
+          ],
+          "progress": "life",
+          "width": 3,
+          "height": 3,
+          "effectChance": 0.4
+        },
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "radius": 0,
+          "x": 0,
+          "y": 0,
+          "color": "00ffce",
+          "colorTo": "ffffff",
+          "layer": 110,
+          "progress": {
+            "type": "life",
+            "op": "sin",
+            "scl": 0.5,
+            "mag": 0.2,
+            "offset": 0
+          },
+          "radiusTo": 3
+        },
+        {
+          "type": "FlarePart",
+          "sides": 2,
+          "radius": 0,
+          "radiusTo": 60,
+          "x": 0,
+          "y": 0,
+          "color1": "00ffcecc",
+          "color2": "ffffff",
+          "followRotation": false,
+          "layer": 109.9,
+          "spinSpeed": 0,
+          "stroke": 2,
+          "progress": {
+            "type": "life",
+            "op": "sin",
+            "scl": 0.5,
+            "mag": 0.5,
+            "offset": 1
+          }
+        },
+        {
+          "type": "FlarePart",
+          "sides": 2,
+          "radius": 0,
+          "radiusTo": 15,
+          "rotation": 90,
+          "x": 0,
+          "y": 0,
+          "color1": "00ffcecc",
+          "color2": "ffffff",
+          "followRotation": false,
+          "layer": 109.9,
+          "spinSpeed": 0,
+          "stroke": 2,
+          "progress": {
+            "type": "life",
+            "op": "sin",
+            "scl": 0.5,
+            "mag": 0.4,
+            "offset": 2
+          }
+        }
+      ],
+      "warpPrepareEffect": [
+        {
+        "type": "WaveEffect",
+        "strokeFrom": 1.5,
+        "strokeTo": 0,
+        "sizeFrom": 8.5,
+        "sizeTo": 8.5,
+        "colorFrom": "80ffde00",
+        "colorTo": "00ffce",
+        "interp": "linear",
+        "lifetime": 20,
+        "followParent": true,
+        "sides": 24
+        },
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 1.5,
+          "strokeTo": 0,
+          "sizeFrom": 21.5,
+          "sizeTo": 21.5,
+          "colorFrom": "80ffde00",
+          "colorTo": "00ffce",
+          "interp": "linear",
+          "lifetime": 20,
+          "followParent": true,
+          "sides": 24,
+          "layer": 89.99
+        }
+      ],
+      "warpPrepareEffectChance": 0.2,
+      "warpPrepareEffectSpread": 2,
+      "warpSound": [ "si2Teleporter1Echo","si2Teleporter2Echo","si2Teleporter3Echo","si2Teleporter4Echo" ],
+      "warpShake": 24,
+      "warpStatus": "warp-charging-general",
+      "warpEndEffect": [
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 1.25,
+          "strokeTo": 3.5,
+          "sizeFrom": 8.5,
+          "sizeTo": 80,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce00",
+          "interp": "linear",
+          "lifetime": 15,
+          "sides": 48
+        },
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 1.25,
+          "strokeTo": 3.5,
+          "sizeFrom": 21.5,
+          "sizeTo": 120,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce00",
+          "interp": "linear",
+          "lifetime": 15,
+          "sides": 48
+        },
+        {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 192,
+          "sizeTo": 192,
+          "colorFrom": "ffffff60",
+          "colorTo": "ffffff00",
+          "lifetime": 15,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightScl": 0,
+          "layer": 120
+        }
+      ],
+      "warpBeginEffect": [
+        {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 192,
+          "sizeTo": 192,
+          "colorFrom": "ffffffcc",
+          "colorTo": "ffffff00",
+          "lifetime": 10,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "ffffff",
+          "layer": 120
+        },
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 1.25,
+          "strokeTo": 3.5,
+          "sizeFrom": 8.5,
+          "sizeTo": 80,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce00",
+          "interp": "linear",
+          "lifetime": 15,
+          "sides": 48
+        },
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 1.25,
+          "strokeTo": 3.5,
+          "sizeFrom": 21.5,
+          "sizeTo": 120,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce00",
+          "interp": "linear",
+          "lifetime": 15,
+          "sides": 48
+        }
+      ],
+      "commandAutoWarpDistance": 640,
+      "commandAutoWarpPayloadDistance": 400,
+      "commandAutoWarpSupportDistance": 400
+    }
+  ],
   "weapons": [
     {
       "name": "tide-laser",

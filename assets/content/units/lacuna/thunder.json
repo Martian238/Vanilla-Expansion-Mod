@@ -100,6 +100,235 @@
     }
   ],
   "lightColor": "00ffce",
+  "abilities": [
+    {
+      "type": "VanillaExpansion.expand.abilities.WarpAbility",
+      "warpMinWarmup": 60,
+      "warpMinWarmupDistance": 102400,
+      "warpBaseWarmup": 120,
+      "warpCooldown": 90,
+      "warpTrailColor1": "00ffce40",
+      "warpTrailColor2": "80ffde",
+      "warpEffectColor": "00ffce",
+      "warpTrailStroke": 22.5,
+      "warpEndParts": [
+        {
+          "type": "EffectSpawnerPart",
+          "effect": [{
+            "type": "WaveEffect",
+            "strokeFrom": 2,
+            "strokeTo": 0,
+            "sizeFrom": 10,
+            "sizeTo": 10,
+            "colorFrom": "00ffce00",
+            "colorTo": "00ffce",
+            "interp": "linear",
+            "lifetime": 10,
+            "followParent": true,
+            "sides": 24
+          },
+            {
+              "type": "WaveEffect",
+              "strokeFrom": 2,
+              "strokeTo": 0,
+              "sizeFrom": 30,
+              "sizeTo": 32,
+              "colorFrom": "00ffce00",
+              "colorTo": "00ffce",
+              "interp": "linear",
+              "lifetime": 10,
+              "followParent": true,
+              "sides": 24
+            }
+          ],
+          "progress": "life",
+          "width": 3,
+          "height": 3,
+          "effectChance": 0.4
+        },
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "radius": 0,
+          "x": 0,
+          "y": 0,
+          "color": "00ffce",
+          "colorTo": "ffffff",
+          "layer": 110,
+          "progress": {
+            "type": "life",
+            "op": "sin",
+            "scl": 0.5,
+            "mag": 0.2,
+            "offset": 0
+          },
+          "radiusTo": 6
+        },
+        {
+          "type": "FlarePart",
+          "sides": 2,
+          "radius": 0,
+          "radiusTo": 120,
+          "x": 0,
+          "y": 0,
+          "color1": "00ffcecc",
+          "color2": "ffffff",
+          "followRotation": false,
+          "layer": 109.9,
+          "spinSpeed": 0,
+          "stroke": 4,
+          "progress": {
+            "type": "life",
+            "op": "sin",
+            "scl": 0.5,
+            "mag": 0.5,
+            "offset": 1
+          }
+        },
+        {
+          "type": "FlarePart",
+          "sides": 2,
+          "radius": 0,
+          "radiusTo": 30,
+          "rotation": 90,
+          "x": 0,
+          "y": 0,
+          "color1": "00ffcecc",
+          "color2": "ffffff",
+          "followRotation": false,
+          "layer": 109.9,
+          "spinSpeed": 0,
+          "stroke": 4,
+          "progress": {
+            "type": "life",
+            "op": "sin",
+            "scl": 0.5,
+            "mag": 0.4,
+            "offset": 2
+          }
+        }
+      ],
+      "warpPrepareEffect": [
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 2,
+          "strokeTo": 0,
+          "sizeFrom": 10,
+          "sizeTo": 10,
+          "colorFrom": "80ffde00",
+          "colorTo": "00ffce",
+          "interp": "linear",
+          "lifetime": 20,
+          "followParent": true,
+          "sides": 24
+        },
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 2,
+          "strokeTo": 0,
+          "sizeFrom": 30,
+          "sizeTo": 32,
+          "colorFrom": "80ffde00",
+          "colorTo": "00ffce",
+          "interp": "linear",
+          "lifetime": 20,
+          "followParent": true,
+          "sides": 24
+        }
+      ],
+      "warpPrepareEffectChance": 0.3,
+      "warpPrepareEffectSpread": 2.5,
+      "warpSound": [ "si2Teleporter1Echo","si2Teleporter2Echo","si2Teleporter3Echo","si2Teleporter4Echo" ],
+      "warpSoundVolume": 3,
+      "warpShake": 36,
+      "warpStatus": "warp-charging-general",
+      "warpEndEffect": [
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 2,
+          "strokeTo": 5,
+          "sizeFrom": 10,
+          "sizeTo": 160,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce00",
+          "interp": "linear",
+          "lifetime": 15,
+          "sides": 48
+        },
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 2,
+          "strokeTo": 5,
+          "sizeFrom": 30,
+          "sizeTo": 320,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce00",
+          "interp": "linear",
+          "lifetime": 15,
+          "sides": 48
+        },
+        {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 256,
+          "sizeTo": 256,
+          "colorFrom": "ffffff60",
+          "colorTo": "ffffff00",
+          "lifetime": 15,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightScl": 0,
+          "layer": 120
+        }
+      ],
+      "warpBeginEffect": [
+        {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 256,
+          "sizeTo": 256,
+          "colorFrom": "ffffffcc",
+          "colorTo": "ffffff00",
+          "lifetime": 10,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "ffffff",
+          "layer": 120
+        },
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 2,
+          "strokeTo": 5,
+          "sizeFrom": 10,
+          "sizeTo": 160,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce00",
+          "interp": "linear",
+          "lifetime": 15,
+          "sides": 48
+        },
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 2,
+          "strokeTo": 5,
+          "sizeFrom": 30,
+          "sizeTo": 320,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce00",
+          "interp": "linear",
+          "lifetime": 15,
+          "sides": 48
+        }
+      ],
+      "commandAutoWarpDistance": 800,
+      "commandAutoWarpPayloadDistance": 400,
+      "commandAutoWarpSupportDistance": 400
+    }
+  ],
   "weapons": [
     {
       "x": 0,

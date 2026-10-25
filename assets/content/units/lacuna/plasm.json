@@ -49,6 +49,176 @@
       "parentizeEffects": true,
       "rangeX": 1,
       "rangeY": 1
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.WarpAbility",
+      "warpMinWarmup": 60,
+      "warpMinWarmupDistance": 9600,
+      "warpBaseWarmup": 15,
+      "warpCooldown": 15,
+      "warpTrailColor1": "00ffce40",
+      "warpTrailColor2": "80ffde",
+      "warpEffectColor": "00ffce",
+      "warpTrailStroke": 8,
+      "warpEndParts": [
+        {
+          "type": "EffectSpawnerPart",
+          "effect": {
+            "type": "WaveEffect",
+            "strokeFrom": 1,
+            "strokeTo": 0,
+            "sizeFrom": 10,
+            "sizeTo": 10,
+            "colorFrom": "00ffce00",
+            "colorTo": "00ffce",
+            "interp": "linear",
+            "lifetime": 10,
+            "followParent": true,
+            "sides": 24
+          },
+          "progress": "life",
+          "width": 2,
+          "height": 2,
+          "effectChance": 0.4
+        },
+        {
+          "type": "ShapePart",
+          "circle": true,
+          "radius": 0,
+          "x": 0,
+          "y": 0,
+          "color": "00ffce",
+          "colorTo": "ffffff",
+          "layer": 110,
+          "progress": {
+            "type": "life",
+            "op": "sin",
+            "scl": 0.5,
+            "mag": 0.2,
+            "offset": 0
+          },
+          "radiusTo": 1.5
+        },
+        {
+          "type": "FlarePart",
+          "sides": 2,
+          "radius": 0,
+          "radiusTo": 25,
+          "x": 0,
+          "y": 0,
+          "color1": "00ffcecc",
+          "color2": "ffffff",
+          "followRotation": false,
+          "layer": 109.9,
+          "spinSpeed": 0,
+          "stroke": 1,
+          "progress": {
+            "type": "life",
+            "op": "sin",
+            "scl": 0.5,
+            "mag": 0.5,
+            "offset": 1
+          }
+        },
+        {
+          "type": "FlarePart",
+          "sides": 2,
+          "radius": 0,
+          "radiusTo": 6.5,
+          "rotation": 90,
+          "x": 0,
+          "y": 0,
+          "color1": "00ffcecc",
+          "color2": "ffffff",
+          "followRotation": false,
+          "layer": 109.9,
+          "spinSpeed": 0,
+          "stroke": 1,
+          "progress": {
+            "type": "life",
+            "op": "sin",
+            "scl": 0.5,
+            "mag": 0.4,
+            "offset": 2
+          }
+        }
+      ],
+      "warpPrepareEffect": {
+        "type": "WaveEffect",
+        "strokeFrom": 1,
+        "strokeTo": 0,
+        "sizeFrom": 9.5,
+        "sizeTo": 9.5,
+        "colorFrom": "80ffde00",
+        "colorTo": "00ffce",
+        "interp": "linear",
+        "lifetime": 20,
+        "followParent": true,
+        "sides": 24
+      },
+      "warpPrepareEffectChance": 0.2,
+      "warpSound": [ "si2Teleporter1Echo","si2Teleporter2Echo","si2Teleporter3Echo","si2Teleporter4Echo" ],
+      "warpSoundVolume": 1.5,
+      "warpShake": 9,
+      "warpStatus": "warp-charging-general",
+      "warpEndEffect": [
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 1.25,
+          "strokeTo": 3.5,
+          "sizeFrom": 9.5,
+          "sizeTo": 60,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce00",
+          "interp": "linear",
+          "lifetime": 15,
+          "sides": 48
+        },
+        {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 96,
+          "sizeTo": 96,
+          "colorFrom": "ffffff60",
+          "colorTo": "ffffff00",
+          "lifetime": 15,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightScl": 0,
+          "layer": 120
+        }
+      ],
+      "warpBeginEffect": [
+        {
+          "particles": 1,
+          "cone": 0,
+          "region": "ve-circle-soft",
+          "sizeFrom": 96,
+          "sizeTo": 96,
+          "colorFrom": "ffffffcc",
+          "colorTo": "ffffff00",
+          "lifetime": 10,
+          "interp": "linear",
+          "length": 0,
+          "baseLength": 0,
+          "lightColor": "ffffff",
+          "layer": 120
+        },
+        {
+          "type": "WaveEffect",
+          "strokeFrom": 1.25,
+          "strokeTo": 3.5,
+          "sizeFrom": 9.5,
+          "sizeTo": 60,
+          "colorFrom": "00ffce",
+          "colorTo": "00ffce00",
+          "interp": "linear",
+          "lifetime": 15,
+          "sides": 48
+        }
+      ]
     }
   ],
   "fallEffect": {

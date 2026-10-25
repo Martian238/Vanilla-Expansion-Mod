@@ -1,5 +1,5 @@
 {
-  "type": "CanvasBlock",
+  //"type": "CanvasBlock",
   "size": 16,
   "buildVisibility": "sandboxOnly",
   "alwaysUnlocked": true,

@@ -4,6 +4,7 @@ import VanillaExpansion.expand.type.unit.*;
 import VanillaExpansion.expand.type.unit.annihilate.AnnihilateMainUnit;
 import VanillaExpansion.expand.type.unit.annihilate.AnnihilatePartUnit;
 import VanillaExpansion.expand.type.unit.internal.ChiniunChargeUnit;
+import VanillaExpansion.expand.type.unit.internal.HyperSpawnUnit;
 import arc.func.Prov;
 import arc.struct.ObjectMap;
 import arc.struct.Seq;
@@ -34,6 +35,7 @@ public class EntityRegister {
         put(AnnihilateMainUnit.class, AnnihilateMainUnit::new);
         put(ChiniunChargeUnit.class, ChiniunChargeUnit::new);
         put(OmicronUnit.class, OmicronUnit::new);
+        put(HyperSpawnUnit.class, HyperSpawnUnit::new);
     }
 
     /**

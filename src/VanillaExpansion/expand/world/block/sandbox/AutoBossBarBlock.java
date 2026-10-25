@@ -2,6 +2,7 @@ package VanillaExpansion.expand.world.block.sandbox;
 
 import VanillaExpansion.VESettings;
 import VanillaExpansion.content.VEJSStatuses;
+import VanillaExpansion.content.VEJSUnitTypes;
 import VanillaExpansion.expand.abilities.BossBarAbility;
 import arc.Core;
 import arc.graphics.Color;
@@ -69,10 +70,18 @@ public class AutoBossBarBlock extends Block {
     public float scale = 1778f / 3072f;
     public boolean shake = true;
 
+    public TextureRegion hyperIcon = new TextureRegion();
+
 
 
     /** Use the maximum maxHealth sum value as the constant bar max value during one multi-bosses battle */
     public boolean useMaxMax = true;
+
+    @Override
+    public void load(){
+        super.load();
+        hyperIcon = Core.atlas.find("ve-bar-hyper");
+    }
 
     public class AutoBossBarBuild extends Building {
 
@@ -373,6 +382,7 @@ public class AutoBossBarBlock extends Block {
             Lines.line(x2, y2, x2 - thick, y2);
 
             //name
+            float nameLen = 0;
                 Font font = Fonts.def;
                 GlyphLayout l = Pools.obtain(GlyphLayout.class, GlyphLayout::new);
                 boolean ints = font.usesIntegerPositions();
@@ -389,10 +399,28 @@ public class AutoBossBarBlock extends Block {
                 font.draw(text, x - l.width / 2f, y + offset, 1000000f, Align.left, false);
                 font.setUseIntegerPositions(ints);
                 font.getData().setScale(1f);
+                nameLen = l.width;
 
                 Pools.free(l);
                 Draw.color();
                 Draw.alpha(1f);
+
+                //hyper icon
+            if(resultBossUnits.contains(u -> u.type == VEJSUnitTypes.hyper || u.type == VEJSUnitTypes.hyperBoss) && hyperIcon != null) {
+                Draw.color(black);
+                Draw.alpha(0.25f);
+                float iconSize = h * 1.75f;
+                float pix = iconSize / 64f;
+                float iconX = x - (nameLen > 0 ? nameLen * 0.5f + 0.6f * iconSize : 0f);
+                Draw.rect(hyperIcon, iconX,
+                        y + h * 2f - pix * 6f - iconSize * 0.3f, iconSize, iconSize);
+                Draw.rect(hyperIcon, iconX,
+                        y + h * 2f - pix * 4f - iconSize * 0.3f, iconSize, iconSize);
+                Draw.color();
+                Draw.alpha(1f);
+                Draw.rect(hyperIcon, iconX,
+                        y + h * 2f - iconSize * 0.3f, iconSize, iconSize);
+            }
 
             //statuses
             if(drawStatuses){

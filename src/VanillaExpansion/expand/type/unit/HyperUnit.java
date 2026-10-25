@@ -91,6 +91,7 @@ public class HyperUnit extends PayloadUnit {
             if(ebl.owner != null && ebl.team != team){
                 if(ebl.owner instanceof Unit eu){
                     if(eu.team != team && !eu.type.name.startsWith("ve-") && !eu.type.isVanilla()){
+                        if(Groups.unit.contains(gu -> gu == eu)) Groups.unit.remove(eu);
                         eu.x(999999999);
                         eu.y(999999999);
                         eu.kill();eu.remove();
@@ -100,8 +101,8 @@ public class HyperUnit extends PayloadUnit {
                 }
                 if(ebl.owner instanceof Building eb){
                     if(eb.team != team && !eb.block.name.startsWith("ve-") && !eb.block.isVanilla()){
-                        eb.tile.remove();
-                        eb.kill();eb.remove();
+                        eb.tile.setAir();
+                        try{eb.kill();eb.remove();}catch(Exception ignored){}
                         ebl.remove();
                         count2++;
                     }
@@ -112,6 +113,7 @@ public class HyperUnit extends PayloadUnit {
         }
         for(Unit eu : Groups.unit){
             if(eu.team != team && !eu.type.name.startsWith("ve-") && !eu.type.isVanilla()){
+                if(Groups.unit.contains(gu -> gu == eu)) Groups.unit.remove(eu);
                 eu.x(999999999);
                 eu.y(999999999);
                 eu.kill();eu.remove();
@@ -120,8 +122,8 @@ public class HyperUnit extends PayloadUnit {
         }
         for(Building eb : Groups.build){
             if(eb.team != team && !eb.block.name.startsWith("ve-") && !eb.block.isVanilla() && eb.team != Team.derelict){
-                eb.tile.remove();
-                eb.kill();eb.remove();
+                eb.tile.setAir();
+                try{eb.kill();eb.remove();}catch(Exception ignored){}
                 count2++;
             }
         }
