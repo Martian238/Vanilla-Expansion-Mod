@@ -1,4 +1,5 @@
 # Vanilla Expansion
+![preview.png](assets/preview.png)
 ## INFO
 A Json mod with a few Java contents, extends Serpulo's story and campaign with 4 new planets and their own contents.\
 \
