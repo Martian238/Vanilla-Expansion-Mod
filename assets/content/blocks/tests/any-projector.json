@@ -9,9 +9,10 @@
     "items": [ "metaglass/1" ]
   },
   "outputItem": "metaglass/1",
+  "requirements": [ "metaglass/1" ],
   "hasPower": true,
   "ambientSound": "none",
-  "buildVisibility": "sandboxOnly",
+  "shownPlanets": [ "phoon" ],
   "alwaysUnlocked": true,
   "craftTime": 24,
   "itemCapacity": 100,

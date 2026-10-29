@@ -25,14 +25,15 @@ import static mindustry.Vars.ui;
 public class VESettings {
 
     public static final String
-            mobileAutoWarp = "ve-mobile-auto-warp",
-            endfieldHealthBar = "ve-endfield-health-bar",
-            endfieldHealthBarScale = "ve-endfield-health-bar-scale",
-            endfieldPlanetTitle = "ve-endfield-planet-title",
-            endfieldBossTitle = "ve-endfield-boss-title",
-            multicrafterSleep = "ve-multicrafter-sleep",
-            multicrafterShowOutput = "ve-multicrafter-show-output",
-            placeholder = "ve-placeholder";
+    mobileAutoWarp = "ve-mobile-auto-warp",
+    skipCutscene = "ve-skip-cutscene",
+    endfieldHealthBar = "ve-endfield-health-bar",
+    endfieldHealthBarScale = "ve-endfield-health-bar-scale",
+    endfieldPlanetTitle = "ve-endfield-planet-title",
+    endfieldBossTitle = "ve-endfield-boss-title",
+    multicrafterSleep = "ve-multicrafter-sleep",
+    multicrafterShowOutput = "ve-multicrafter-show-output",
+    placeholder = "ve-placeholder";
 
     public static OrderedMap<String, Seq<SettingKey<?>>> allSettings = new OrderedMap<>();
 
@@ -40,7 +41,8 @@ public class VESettings {
 
     public static void load(){
         allSettings.put("mechanism", Seq.with(
-                new BoolSetting(mobileAutoWarp, true, false)
+                new BoolSetting(mobileAutoWarp, true, false),
+                new BoolSetting(skipCutscene, false, false)
         ));
         allSettings.put("graphics", Seq.with(
                 new BoolSetting(endfieldHealthBar, true, false),

@@ -8,5 +8,6 @@
   "flammability": 0,
   "charge": 0.1,
   "radioactivity": 1.4,
-  "explosiveness": 1.2
+  "explosiveness": 1.2,
+  "research": "technolite"
 }

@@ -1,0 +1,17 @@
+{
+  "type": "CellLiquid",
+  "color": "00fbff",
+  "lightColor": "00fbff",
+  "effect": "resonant",
+  "boilPoint": 2,
+  "temperature": 0.4,
+  "viscosity": 0.85,
+  "canStayOn": [ "water","oil","slag","arkycite","cryofluid","neoplasm","dysharmony-fluid" ],
+  "gasColor": "ff3a73",
+  "heatCapacity": 0,
+  "incinerable": false,
+  "databaseTag": "liquid-fluid",
+  "coolant": false,
+  "shownPlanets": [ "thavina" ],
+  "research": "dysharmony-fluid"
+}

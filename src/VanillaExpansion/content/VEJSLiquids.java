@@ -6,7 +6,7 @@ import mindustry.type.CellLiquid;
 import mindustry.type.Liquid;
 
 public class VEJSLiquids {
-    public static Liquid lava, chlorine, melonWater, melonine;
+    public static Liquid lava, chlorine, melonWater, melonine, resonantFluid;
     public static CellLiquid melonWaterCorrupted, dysharmonyFluid;
     public static CorrosiveLiquid acid;
     public static void load(){
@@ -17,5 +17,6 @@ public class VEJSLiquids {
         melonWaterCorrupted = new CellLiquid("melon-water-corrupted");
         melonine = new AnimationLiquid("melonine");
         dysharmonyFluid = new CellLiquid("dysharmony-fluid");
+        resonantFluid = new Liquid("resonant-fluid");
     }
 }

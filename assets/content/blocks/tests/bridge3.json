@@ -12,6 +12,8 @@
   "arrowSpacing": 6,
   "buildCostMultiplier": 3,
   "itemDrop": "lead",
+  "shownPlanets": [ "phoon" ],
+  "alwaysUnlocked": true,
   "attributes": {
     "sand": 1,
     "spores": 1,

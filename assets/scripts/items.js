@@ -49,6 +49,8 @@ newItem("motiphite");
 newItem("technolite");
 newItem("chrysopite");
 newItem("finallite");
+newItem("resonant-crystal");
+newItem("dysharmony-crystal");
 
 /*
 newLiquid("lava");

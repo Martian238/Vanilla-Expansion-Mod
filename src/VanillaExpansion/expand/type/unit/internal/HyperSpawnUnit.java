@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.type.unit.internal;
 
+import VanillaExpansion.VESettings;
 import VanillaExpansion.content.VEJSStatuses;
 import VanillaExpansion.content.VEJSUnitTypes;
 import VanillaExpansion.expand.abilities.BossBarAbility;
@@ -63,7 +64,7 @@ public class HyperSpawnUnit extends UnitEntity {
             if(debug) Log.info("horizontal:"+horizontal+",length:"+length+",gap:"+gap);
         }
         timer += Time.delta;
-        if(controlCamera) {
+        if(controlCamera && !VESettings.getBool("ve-skip-cutscene")) {
             control.input.logicCutscene = true;
             control.input.logicCamPan = new Vec2(camX, camY);
             control.input.logicCamSpeed = camSpeed;
@@ -130,7 +131,7 @@ public class HyperSpawnUnit extends UnitEntity {
                                 -40f * tilesize * Mathf.cosDeg(rotation - 90f),
                         y + -15f * tilesize * Mathf.sinDeg(rotation) +
                                 -40f * tilesize * Mathf.sinDeg(rotation - 90f));
-                spawn(h.text, 1f, 1f);
+                if(!VESettings.getBool("ve-skip-cutscene")) spawn(h.text, 1f, 1f);
             }
             if(metaStep == 3 && timer >= 540f + 72f + 30f){
                 metaStep++;

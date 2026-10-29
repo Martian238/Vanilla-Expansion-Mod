@@ -16,6 +16,7 @@ import VanillaExpansion.expand.world.block.production.CoolantDrill;
 import VanillaExpansion.expand.world.block.production.GasPump;
 import VanillaExpansion.expand.world.block.production.HeatButNoHeatCanStillWorkCrafter;
 import VanillaExpansion.expand.world.block.sandbox.AutoBossBarBlock;
+import VanillaExpansion.expand.world.block.sandbox.CutsceneSwitchBlock;
 import VanillaExpansion.expand.world.block.sandbox.SpawnEgg;
 import VanillaExpansion.expand.world.block.sandbox.SpawnerBlock;
 import arc.struct.EnumSet;
@@ -565,6 +566,7 @@ public class VEJSBlocks {
 
         // group 36 逻辑
         new AutoBossBarBlock("auto-boss-bar-block");
+        new CutsceneSwitchBlock("cutscene-switch");
         new MessageBlock("isomorphic-message");
         new SwitchBlock("isomorphic-switch");
         new LogicBlock("isomorphic-processor");

@@ -1,7 +1,8 @@
 {
   //"type": "CanvasBlock",
   "size": 16,
-  "buildVisibility": "sandboxOnly",
+  "requirements": [ "silicon/325" ],
+  "shownPlanets": [ "phoon" ],
   "alwaysUnlocked": true,
   "category": "logic",
   "canvasSize": 256

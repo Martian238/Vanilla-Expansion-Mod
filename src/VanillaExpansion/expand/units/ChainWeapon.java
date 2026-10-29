@@ -42,8 +42,12 @@ public class ChainWeapon extends Weapon {
     public float lifetime = -1f;
     /** 发射速度 */
     public float speed = 8f;
-    /** 牵引力度 */
+    /** 位移牵引力度倍率 */
     public float force = 0.5f;
+    /** 旋转牵引力度倍率 */
+    public float torqueForce = 0.4f * Mathf.pi;
+    /** 旋转牵引阻力倍率 */
+    public float torqueDragMultiplier = 0.25f;
     /** 额外抓取半径 */
     public float baseCatchRadius = 8f;
     /** 抓取单位后锁链改变长度时的速度倍率 */
@@ -143,6 +147,7 @@ public class ChainWeapon extends Weapon {
         public float length = maxLength;
         public boolean caught = false;
         public float pointX, pointY, pointRot, pointD;
+        public float torque, torqueVel, torqueMass, torqueDrag;
         public OutChain(int number, float rot, float x, float y){
             this.number = number;
             this.rot = rot;
@@ -204,6 +209,9 @@ public class ChainWeapon extends Weapon {
                     catchEffect.at(c.x, c.y, c.rot, effectColor(u));
                     catchSound.at(c.x, c.y, 1f, catchVolume);
                     Effect.shake(catchShake, catchShake * 2, c.x, c.y);
+                    c.torque = c.torqueDrag = 0;
+                    c.torqueMass = u2.mass();
+                    c.torqueDrag = u2.drag();
                     if(debug) Log.info("unit caught: " + u2.type.name + " by order: " + c.number);
                     break;
                 }
@@ -310,8 +318,9 @@ public class ChainWeapon extends Weapon {
                         continue;
                     }
                 }
-                c.x = c.unit.x() + c.catchD * Mathf.cosDeg(c.catchRot + c.unit.rotation());
-                c.y = c.unit.y() + c.catchD * Mathf.sinDeg(c.catchRot + c.unit.rotation());
+                float catchRotTotal = c.catchRot + c.unit.rotation();
+                c.x = c.unit.x() + c.catchD * Mathf.cosDeg(catchRotTotal);
+                c.y = c.unit.y() + c.catchD * Mathf.sinDeg(catchRotTotal);
                 c.rot = c.catchVisualRot + c.unit.rotation();
                 float d = c.pointD;
                 if(d > catchLength && d < c.length){
@@ -326,6 +335,18 @@ public class ChainWeapon extends Weapon {
                     c.unit.impulse(Tmp.v3);
                     Tmp.v3.setAngle(rot + 180f);
                     u.impulse(Tmp.v3);
+                    //torque calculation
+                    if(torqueForce != 0) {
+                        float torqueForceRot = c.pointRot + 180f;
+                        float torqueForceX = extra * Mathf.cosDeg(torqueForceRot);
+                        float torqueForceY = extra * Mathf.sinDeg(torqueForceRot);
+                        float torqueX = -torqueForceX * c.catchD * Mathf.sinDeg(catchRotTotal);
+                        float torqueY = torqueForceY * c.catchD * Mathf.cosDeg(catchRotTotal);
+                        c.torque = torqueForce * (torqueX + torqueY);
+                        c.torqueVel += c.torque / c.torqueMass * Time.delta;
+                        c.unit.rotation(c.unit.rotation() + c.torqueVel * Time.delta);
+                        c.torqueVel *= Mathf.clamp(1 - c.torqueDrag * Time.delta * torqueDragMultiplier);
+                    }
                 }
             }
         }

@@ -27,11 +27,13 @@ import mindustry.type.StatusEffect;
 import mindustry.type.UnitType;
 import mindustry.ui.Fonts;
 import mindustry.world.Block;
+import mindustry.world.Tile;
 import mindustry.world.meta.BuildVisibility;
 
 import java.util.Objects;
 
 import static mindustry.Vars.content;
+import static mindustry.Vars.state;
 
 public class AutoBossBarBlock extends Block {
     public AutoBossBarBlock(String name) {
@@ -81,6 +83,14 @@ public class AutoBossBarBlock extends Block {
     public void load(){
         super.load();
         hyperIcon = Core.atlas.find("ve-bar-hyper");
+    }
+
+    @Override
+    public boolean checkForceDark(Tile tile){
+        return !accessible();
+    }
+    public boolean accessible(){
+        return !privileged || state.rules.editor || state.playtestingMap != null || state.rules.allowEditWorldProcessors;
     }
 
     public class AutoBossBarBuild extends Building {
@@ -169,7 +179,7 @@ public class AutoBossBarBlock extends Block {
         }
 
         public void reapplyBoss(){
-            if(Vars.state.enemies <= 0) return;
+            if(state.enemies <= 0) return;
             for(Unit u : Groups.unit){
                 if(u.hasEffect(VEJSStatuses.fakeBoss)){
                     u.unapply(VEJSStatuses.fakeBoss);
@@ -191,7 +201,7 @@ public class AutoBossBarBlock extends Block {
                 }
                 return;
             }
-            if(Vars.state.enemies <= 0 || !enabled || Vars.state.isEditor()) {
+            if(state.enemies <= 0 || !enabled || state.isEditor()) {
                 initBar();
                 return;
             }
@@ -318,10 +328,10 @@ public class AutoBossBarBlock extends Block {
             float camY = Core.camera.position.y;
             float x = camX;
             float w = camW * 0.5f * (smoothAppear ? lengthMultiplier : 1f);
-            float y = camY + camH * (0.425f - (Vars.state.isPaused() ? 0.02f : 0f) - Mathf.clamp(barScale - 1f) * 0.025f);
+            float y = camY + camH * (0.425f - (state.isPaused() ? 0.02f : 0f) - Mathf.clamp(barScale - 1f) * 0.025f);
             float h = camW * scale * 0.0246f; //camH * 0.0246f;
             float thick = camW * 0.0025f;
-            if(shake && !Vars.state.isPaused()){
+            if(shake && !state.isPaused()){
                 float shakeMagBase = h * 4f;
                 if(shakeTimer > 0f){
                     x += shakeMagBase * (shakeTimer / 20f) * shakeMag * Mathf.range(1f);

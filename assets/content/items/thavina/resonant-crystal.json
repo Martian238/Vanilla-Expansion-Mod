@@ -1,0 +1,12 @@
+{
+  "shownPlanets": [ "thavina" ],
+  "databaseTag": "processed-item",
+  "color": "00fbff",
+  "healthScaling": 0,
+  "cost": 1.8,
+  "explosiveness": 0.1,
+  "charge": 0.4,
+  "flammability": 0,
+  "radioactivity": 0.2,
+  "research": "resonant-fluid"
+}

@@ -1,0 +1,12 @@
+{
+  "shownPlanets": [ "thavina" ],
+  "databaseTag": "processed-item",
+  "color": "a52149",
+  "hardness": 8,
+  "healthScaling": 1.2,
+  "cost": 1.6,
+  "explosiveness": 0.75,
+  "flammability": -0.5,
+  "radioactivity": 0,
+  "research": "dysharmony-fluid"
+}
