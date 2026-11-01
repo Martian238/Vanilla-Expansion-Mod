@@ -2,10 +2,10 @@
   "type": "tank",
   "databaseTag": "12lacuna-unit",
   "hitSize": 22,
-  "speed": -2,
+  "speed": 2,
   "treadPullOffset": 6,
   "treadFrames": 12,
-  "rotateSpeed": -3.5,
+  "rotateSpeed": 3.5,
   "health": 3500,
   "armor": 20,
   "itemCapacity": 80,
@@ -25,98 +25,106 @@
   "shownPlanets": [ "maress","thavina" ],
   "abilities": [
     {
-      "type": "ForceFieldAbility",
-      "radius": 64,
+      "type": "VanillaExpansion.expand.abilities.RotatingShieldArcAbility",
+      "radius": 20,
       "regen": 1,
       "max": 1000,
       "cooldown": 180,
-      "sides": 6,
-      "rotation": 0,
-      "breakSound": "trMartianHit"
+      "width": 8,
+      "angle": 390,
+      "breakSound": "trMartianHit",
+      "radiusChange": true,
+      "detectRadius": 64,
+      "maxRadius": 64,
+      "extraDetectRadius": 16,
+      "angleRelated": false,
+      "rotateSpeed": 0,
+      "color": "00ffce",
+      "whenShooting": false
     }
   ],
   "treadRects": [
     {
       "type": "Rect",
       "x": -44,
-      "y": 7,
+      "y": -37,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -43,
-      "y": 8,
+      "y": -38,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -42,
-      "y": 9,
+      "y": -39,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -41,
-      "y": 10,
+      "y": -40,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -40,
-      "y": 11,
+      "y": -41,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -39,
-      "y": 12,
+      "y": -42,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -38,
-      "y": 13,
+      "y": -43,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -37,
-      "y": 14,
+      "y": -44,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -36,
-      "y": 15,
+      "y": -45,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -35,
-      "y": 16,
+      "y": -46,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -34,
-      "y": 17,
+      "y": -47,
       "width": 1,
       "height": 30
     },
     {
       "type": "Rect",
       "x": -33,
-      "y": 18,
+      "y": -48,
       "width": 2,
       "height": 30
     },
@@ -124,35 +132,35 @@
     {
       "type": "Rect",
       "x": -44,
-      "y": -28,
+      "y": 10,
       "width": 1,
       "height": 18
     },
     {
       "type": "Rect",
       "x": -43,
-      "y": -27,
+      "y": 9,
       "width": 1,
       "height": 18
     },
     {
       "type": "Rect",
       "x": -42,
-      "y": -26,
+      "y": 8,
       "width": 1,
       "height": 18
     },
     {
       "type": "Rect",
       "x": -41,
-      "y": -25,
+      "y": 7,
       "width": 1,
       "height": 18
     },
     {
       "type": "Rect",
       "x": -40,
-      "y": -24,
+      "y": 6,
       "width": 1,
       "height": 18
     },
@@ -160,63 +168,63 @@
     {
       "type": "Rect",
       "x": -28,
-      "y": -37,
+      "y": -5,
       "width": 1,
       "height": 42
     },
     {
       "type": "Rect",
       "x": -27,
-      "y": -36,
+      "y": -6,
       "width": 1,
       "height": 42
     },
     {
       "type": "Rect",
       "x": -26,
-      "y": -35,
+      "y": -7,
       "width": 1,
       "height": 42
     },
     {
       "type": "Rect",
       "x": -25,
-      "y": -34,
+      "y": -8,
       "width": 1,
       "height": 42
     },
     {
       "type": "Rect",
       "x": -24,
-      "y": -33,
+      "y": -9,
       "width": 1,
       "height": 42
     },
     {
       "type": "Rect",
       "x": -23,
-      "y": -32,
+      "y": -10,
       "width": 1,
       "height": 42
     },
     {
       "type": "Rect",
       "x": -22,
-      "y": -31,
+      "y": -11,
       "width": 1,
       "height": 42
     },
     {
       "type": "Rect",
       "x": -21,
-      "y": -30,
+      "y": -12,
       "width": 1,
       "height": 42
     },
     {
       "type": "Rect",
       "x": -29,
-      "y": 3,
+      "y": -13,
       "width": 1,
       "height": 42
     }
@@ -242,7 +250,7 @@
   "tankMoveVolume": 0.9,
   "weapons": [
     {
-      "y": 4.75,
+      "y": -4.75,
       "rotate": true,
       "rotateSpeed": 360,
       "x": 0,
@@ -250,7 +258,6 @@
       "ejectEffect": "none",
       "shootSound": [ "lbp3ScifiLaserFire1","lbp3ScifiLaserFire2","lbp3ScifiLaserFire3" ],
       "shootY": 0,
-      "baseRotation": 180,
       "recoil": 0,
       "reload": 120,
       "bullet": {
@@ -880,8 +887,8 @@
     },
     {
       "name": "plasm-weapon",
-      "x": -8,
-      "y": 1.75,
+      "x": 8,
+      "y": -1.75,
       "rotate": true,
       "rotateSpeed": 7,
       "recoil": 2,
@@ -894,7 +901,6 @@
       "shake": 2,
       "alternate": true,
       "shootY": 6.5,
-      "baseRotation": 180,
       "shoot": {
         "shots": 2,
         "shotDelay": 12

@@ -1,0 +1,28 @@
+{
+  "flying": false,
+  "drag": 0.02,
+  "speed": 0,
+  "rotateSpeed": 0,
+  "health": 1000,
+  "targetable": false,
+  "isEnemy": false,
+  "useUnitCap": false,
+  "hitSize": 20,
+  "drownTimeMultiplier": 5,
+  "immunities": [ "frozen","dusty" ],
+  "drawShield": false,
+  "createScorch": false,
+  "createWreck": false,
+  "abilities": [
+    {
+      "type": "RegenAbility",
+      "amount": 0.0833333333
+    }
+  ],
+  "parts": [
+    {
+      "type": "VanillaExpansion.expand.parts.AutoShadingPart",
+      "name": "ve-orbit-strike-beacon-shading"
+    }
+  ]
+}

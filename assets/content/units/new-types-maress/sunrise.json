@@ -19,8 +19,14 @@
   },
   "lightColor": "ff835e",
   "immunities": [ "disarmed","dusty","wet" ],
-  "loopSound": "lbp3FlyingMachine",
-  "loopSoundVolume": 0.25,
+  "flyingLayer": 90.1,
+  "abilities": [
+    {
+      "type": "VanillaExpansion.expand.abilities.PropedroneLoopSoundAbility",
+      "loopSound": "lbp3FlyingMachine",
+      "loopSoundVolume": 0.07
+    }
+  ],
   "research": {
     "parent": "daybreak",
     "objectives": [
@@ -51,6 +57,7 @@
       "rotateSpeed": 4,
       "rotationLimit": 60,
       "mirror": false,
+      "minWarmup": 0.6,
       "bullet": {
         "recoil": 1,
         "shootEffect": "shootTitan",
@@ -151,6 +158,7 @@
       "shootY": 6.75,
       "shootSound": "shootDuo",
       "inaccuracy": 4,
+      "minWarmup": 0.6,
       "shoot": {
         "shots": 2,
         "shotDelay": 6
@@ -176,6 +184,25 @@
         "status": "blasted",
         "statusDuration": 60
       }
+    },
+    {
+      "type": "VanillaExpansion.expand.units.ChainWeapon",
+      "chainPointsAdd": [
+        {
+          "x": -15.5,
+          "y": 4.25,
+          "order": 0
+        },
+        {
+          "x": 15.5,
+          "y": 4.25,
+          "order": 1
+        }
+      ],
+      "chainLaser": true,
+      "maxLength": 280,
+      "catchLength": 96,
+      "extendSound": "none"
     }
   ],
   "parts": [
@@ -212,8 +239,8 @@
     {
       "type": "RegionPart",
       "name": "ve-daybreak-rotator1",
-      "color": "ffffff00",
-      "colorTo": "ffffff80",
+      "color": "ffffff80",
+      "colorTo": "ffffff00",
       "growX": 1,
       "growY": 1,
       "xScl": 0,
@@ -297,8 +324,8 @@
     {
       "type": "RegionPart",
       "name": "ve-shimmer-rotator1",
-      "color": "ffffff00",
-      "colorTo": "ffffff70",
+      "color": "ffffff70",
+      "colorTo": "ffffff00",
       "growX": 1,
       "growY": 1,
       "xScl": 0,

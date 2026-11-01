@@ -1,0 +1,23 @@
+{
+  "planet": "phoon",
+  "sector": 18,
+  "difficulty": 8,
+  "research": {
+    "parent": "community-furaowadi",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "fungus-factory"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

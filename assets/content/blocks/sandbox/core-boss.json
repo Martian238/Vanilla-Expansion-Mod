@@ -2,7 +2,7 @@
   "type": "CoreBlock",
   "health": 2147483247,
   "size": 1,
-  "unitType": "fungus-factory-die",
+  "unitType": "gunmu",
   "itemCapacity": 0,
   "unitCapModifier": 8,
   "category": "effect",

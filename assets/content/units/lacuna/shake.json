@@ -2,10 +2,10 @@
   "type": "tank",
   "databaseTag": "12lacuna-unit",
   "hitSize": 16,
-  "speed": -1.8,
+  "speed": 1.8,
   "treadPullOffset": 10,
   "treadFrames": 10,
-  "rotateSpeed": -4,
+  "rotateSpeed": 4,
   "health": 1300,
   "armor": 15,
   "itemCapacity": 50,
@@ -27,63 +27,63 @@
     {
       "type": "Rect",
       "x": -36,
-      "y": -13,
+      "y": -28,
       "width": 1,
       "height": 41
     },
     {
       "type": "Rect",
       "x": -35,
-      "y": -12,
+      "y": -29,
       "width": 1,
       "height": 41
     },
     {
       "type": "Rect",
       "x": -34,
-      "y": -11,
+      "y": -30,
       "width": 1,
       "height": 41
     },
     {
       "type": "Rect",
       "x": -33,
-      "y": -10,
+      "y": -31,
       "width": 1,
       "height": 41
     },
     {
       "type": "Rect",
       "x": -32,
-      "y": -9,
+      "y": -32,
       "width": 1,
       "height": 41
     },
     {
       "type": "Rect",
       "x": -31,
-      "y": -8,
+      "y": -33,
       "width": 1,
       "height": 41
     },
     {
       "type": "Rect",
       "x": -30,
-      "y": -7,
+      "y": -34,
       "width": 1,
       "height": 41
     },
     {
       "type": "Rect",
       "x": -29,
-      "y": -6,
+      "y": -35,
       "width": 1,
       "height": 41
     },
     {
       "type": "Rect",
       "x": -28,
-      "y": -5,
+      "y": -36,
       "width": 2,
       "height": 41
     }
@@ -99,18 +99,16 @@
   "weapons": [
     {
       "name": "shake-turret",
-      "recoil": 1,
       "mirror": false,
       "reload": 60,
       "recoilTime": 20,
       "x": 0,
-      "y": 2,
+      "y": -2,
       "layerOffset": 0.001,
       "shootY": 8,
       "recoil": 1.5,
       "rotate": true,
       "rotateSpeed": 6,
-      "baseRotation": 180,
       "shootSound": "shootCleroi",
       "soundPitchMax": 1,
       "soundPitchMin": 1,

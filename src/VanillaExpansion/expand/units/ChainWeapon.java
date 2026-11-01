@@ -4,6 +4,8 @@ import arc.Core;
 import arc.audio.Sound;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
+import arc.graphics.g2d.Fill;
+import arc.graphics.g2d.Lines;
 import arc.graphics.g2d.TextureRegion;
 import arc.input.KeyCode;
 import arc.math.Mathf;
@@ -104,9 +106,9 @@ public class ChainWeapon extends Weapon {
     public float breakShake = 2f;
 
     /** 贴图所在图层 */
-    public float layer = Layer.flyingUnit;
-    public String headSprite = "phase-wall";
-    public String rootSprite = "titanium-wall-large";
+    public float layer = Layer.flyingUnitLow;
+    public String headSprite = "ve-chain-claw-head";
+    public String rootSprite = "ve-chain-claw-root";
     public String chainSprite = "router";
     /** 锁链贴图宽度 */
     public float chainSpriteWidth = 4f;
@@ -116,17 +118,38 @@ public class ChainWeapon extends Weapon {
     public boolean chainShrink = false;
     /** chainShrink为false时，启用后，最靠近根部的一张锁链贴图会被压缩以防反方向超出根部贴图 */
     public boolean chainRootShrink = false;
+    /** 启用后，锁链会被替换为一道激光束 */
+    public boolean chainLaser = false;
+    public float chainLaserWidth = 1.5f;
+    public float chainLaserRootOffset = 31f / 4f;
+    public float chainLaserHeadOffset = -3f / 4f;
+    public float chainLaserLayer = Layer.bullet - 0.01f;
+    public float chainLaserEndOrbRadius = 1.5f;
+    /** 为空自动使用队伍颜色 */
+    public @Nullable Color chainLaserColor;
     /** 启用后，锁链抓住单位时头部切换为另一贴图 */
     public boolean headChange = true;
-    public String headCaughtSprite = "surge-wall";
+    public String headCaughtSprite = "ve-chain-claw-head-caught";
     /** 启用后，锁链发射出去时根部切换为另一贴图 */
     public boolean rootChange = true;
-    public String rootReleasedSprite = "plastanium-wall-large";
+    public String rootReleasedSprite = "ve-chain-claw-root-released";
 
     @Override
     public void addStats(UnitType u, Table t){
         t.row();
-        t.add("test chain weapon");
+        t.add(Core.bundle.get("chainweapon.name"));
+        if(chainPointsAdd.count(p -> true) > 1) {
+            t.row();
+            t.add(Core.bundle.format("chainweapon.count", chainPointsAdd.count(p -> true)));
+        }
+        t.row();
+        t.add(Core.bundle.format("chainweapon.maxlength", maxLength / tilesize));
+        t.row();
+        t.add(Core.bundle.format("chainweapon.catchlength", catchLength / tilesize));
+        if(lifetime > 0){
+            t.row();
+            t.add(Core.bundle.format("chainweapon.lifetime", lifetime / 60f));
+        }
     }
 
     public TextureRegion headRegion = new TextureRegion();
@@ -360,27 +383,45 @@ public class ChainWeapon extends Weapon {
         Draw.z(layer);
         Draw.color();
         for(OutChain c : m.chains){
-            if(chainShrink){
-                Draw.rect(chainRegion, (c.pointX + c.x) * 0.5f, (c.pointY + c.y) * 0.5f,
-                        chainSpriteWidth, c.pointD, c.pointRot - 90f);
+            if(!chainLaser) {
+                if (chainShrink) {
+                    Draw.rect(chainRegion, (c.pointX + c.x) * 0.5f, (c.pointY + c.y) * 0.5f,
+                            chainSpriteWidth, c.pointD, c.pointRot - 90f);
+                } else {
+                    float dd = 0;
+                    while (dd < c.pointD - chainSpriteLength) {
+                        Draw.rect(chainRegion, c.x - (dd + 0.5f * chainSpriteLength) * Mathf.cosDeg(c.pointRot),
+                                c.y - (dd + 0.5f * chainSpriteLength) * Mathf.sinDeg(c.pointRot),
+                                chainSpriteWidth, chainSpriteLength, c.pointRot - 90f);
+                        dd += chainSpriteLength;
+                    }
+                    if (!chainRootShrink) {
+                        Draw.rect(chainRegion, c.x - (dd + 0.5f * chainSpriteLength) * Mathf.cosDeg(c.pointRot),
+                                c.y - (dd + 0.5f * chainSpriteLength) * Mathf.sinDeg(c.pointRot),
+                                chainSpriteWidth, chainSpriteLength, c.pointRot - 90f);
+                    } else {
+                        float restLen = dd - c.pointD;
+                        Draw.rect(chainRegion, c.x - (dd + 0.5f * restLen) * Mathf.cosDeg(c.pointRot),
+                                c.y - (dd + 0.5f * restLen) * Mathf.sinDeg(c.pointRot),
+                                chainSpriteWidth, restLen, c.pointRot - 90f);
+                    }
+                }
             }else{
-                float dd = 0;
-                while(dd < c.pointD - chainSpriteLength){
-                    Draw.rect(chainRegion, c.x - (dd + 0.5f * chainSpriteLength) * Mathf.cosDeg(c.pointRot),
-                            c.y - (dd + 0.5f * chainSpriteLength) * Mathf.sinDeg(c.pointRot),
-                            chainSpriteWidth, chainSpriteLength, c.pointRot - 90f);
-                    dd += chainSpriteLength;
+                Draw.z(chainLaserLayer);
+                Draw.color(chainLaserColor == null ? u.team.color : chainLaserColor);
+                Lines.stroke(chainLaserWidth);
+                float o = chainLaserRootOffset + chainLaserWidth / 2f;
+                float px = c.pointX + o * Mathf.cosDeg(c.pointRot);
+                float py = c.pointY + o * Mathf.sinDeg(c.pointRot);
+                float d = c.pointD + (c.caught ? 0f : speed) + chainLaserHeadOffset - o;
+                if(Math.abs(d) > 0){
+                    Lines.lineAngle(px, py, c.pointRot, d);
+                    if(chainLaserEndOrbRadius > 0){
+                        Fill.circle(px + d * Mathf.cosDeg(c.pointRot), py + d * Mathf.sinDeg(c.pointRot), chainLaserEndOrbRadius);
+                    }
                 }
-                if(!chainRootShrink){
-                    Draw.rect(chainRegion, c.x - (dd + 0.5f * chainSpriteLength) * Mathf.cosDeg(c.pointRot),
-                            c.y - (dd + 0.5f * chainSpriteLength) * Mathf.sinDeg(c.pointRot),
-                            chainSpriteWidth, chainSpriteLength, c.pointRot - 90f);
-                }else{
-                    float restLen = dd - c.pointD;
-                    Draw.rect(chainRegion, c.x - (dd + 0.5f * restLen) * Mathf.cosDeg(c.pointRot),
-                            c.y - (dd + 0.5f * restLen) * Mathf.sinDeg(c.pointRot),
-                            chainSpriteWidth, restLen, c.pointRot - 90f);
-                }
+                Draw.color();
+                Draw.z(layer);
             }
             Draw.rect(headChange && c.caught ? headCaughtRegion : headRegion, c.x, c.y, c.rot - 90f);
             Draw.rect(rootChange ? rootReleasedRegion : rootRegion, c.pointX, c.pointY, c.pointRot - 90f);

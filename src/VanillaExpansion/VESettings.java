@@ -33,6 +33,7 @@ public class VESettings {
     endfieldBossTitle = "ve-endfield-boss-title",
     multicrafterSleep = "ve-multicrafter-sleep",
     multicrafterShowOutput = "ve-multicrafter-show-output",
+    propedroneQuiet = "ve-propedrone-quiet",
     placeholder = "ve-placeholder";
 
     public static OrderedMap<String, Seq<SettingKey<?>>> allSettings = new OrderedMap<>();
@@ -50,7 +51,8 @@ public class VESettings {
                 new BoolSetting(endfieldPlanetTitle, true, false),
                 new BoolSetting(endfieldBossTitle, true, false),
                 new BoolSetting(multicrafterSleep, true, false),
-                new BoolSetting(multicrafterShowOutput, true, false)
+                new BoolSetting(multicrafterShowOutput, true, false),
+                new BoolSetting(propedroneQuiet, false, false)
         ));
 
         allSettings.each((name, seq) -> seq.each(SettingKey::setDefault));
@@ -195,7 +197,7 @@ public class VESettings {
         public void buildTable(Table table) {
             table.table(t -> {
                 t.add(new Label(() -> Core.bundle.format("setting." + key + ".name", getValue()))).padRight(6f).left();
-                t.row().slider(min, max, step, def, f -> {
+                t.row().slider(min, max, step, def != settings.getFloat(key) ? settings.getFloat(key) : def, f -> {
                     settings.put(key, f);
                     onChange.get(f);
                 }).growX();

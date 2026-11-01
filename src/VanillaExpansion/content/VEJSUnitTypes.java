@@ -38,7 +38,7 @@ public class VEJSUnitTypes {
     public static UnitType fireBee, octPainted;
 
     //Maress new types
-    public static UnitType shimmer, daybreak, sunrise;
+    public static UnitType shimmer, daybreak, sunrise, twilight;
     public static UnitType uprise, soar, hover, ambush, dive;
     public static UnitType stink, termite, stinging;
 
@@ -128,7 +128,7 @@ public class VEJSUnitTypes {
         assemblyDroneHyper = new UnitType("assembly-drone-hyper"){{constructor = BuildingTetherPayloadUnit::create;}};
         skibidiBryde = new UnitType("skibidi-bryde"){{constructor = TankUnit::create;}};
         flyLaserDrill = new UnitType("fly-laser-drill"){{constructor = UnitEntity::create;}};
-        egnarra = new UnitType("egnarra"){{constructor = TankUnit::create;}};
+        egnarra = new InvertedTankUnitType("egnarra"){{constructor = TankUnit::create;}};
         wideFortress = new UnitType("wide-fortress"){{constructor = MechUnit::create;}};
         magneticSmall = new UnitType("magnetic-small"){{constructor = UnitEntity::create;}};
         thoriumBlaster = new UnitType("thorium-blaster"){{constructor = LegsUnit::create;}};
@@ -151,6 +151,7 @@ public class VEJSUnitTypes {
         shimmer = new UnitType("shimmer"){{constructor = UnitEntity::create;}};
         daybreak = new UnitType("daybreak"){{constructor = UnitEntity::create;}};
         sunrise = new UnitType("sunrise"){{constructor = UnitEntity::create;}};
+        twilight = new UnitType("twilight"){{constructor = PayloadUnit::create;}};
 
         uprise = new UnitType("uprise"){{constructor = UnitEntity::create;}};
         soar = new UnitType("soar"){{constructor = UnitEntity::create;}};
@@ -168,9 +169,9 @@ public class VEJSUnitTypes {
         tide = new UnitType("tide"){{constructor = PayloadUnit::create;}};
         thunder = new UnitType("thunder"){{constructor = PayloadUnit::create;}};
 
-        vibrate = new UnitType("vibrate"){{constructor = TankUnit::create;}};
-        shakeUnit = new UnitType("shake"){{constructor = TankUnit::create;}};
-        quake = new UnitType("quake"){{constructor = TankUnit::create;}};
+        vibrate = new InvertedTankUnitType("vibrate"){{constructor = TankUnit::create;}};
+        shakeUnit = new InvertedTankUnitType("shake"){{constructor = TankUnit::create;}};
+        quake = new InvertedTankUnitType("quake"){{constructor = TankUnit::create;}};
 
         thoriumEradicator = new UnitType("thorium-eradicator"){{constructor = LegsUnit::create;}};
         hugeDagger = new UnitType("huge-dagger"){{constructor = MechUnit::create;}};

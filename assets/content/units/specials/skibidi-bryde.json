@@ -44,6 +44,12 @@
       "max": 40,
       "reload": 240,
       "range": 60
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.PropedroneLoopSoundAbility",
+      "toilet": true,
+      "loopSound": "toiletSong",
+      "loopSoundVolume": 0.5
     }
   ],
   "weapons": [

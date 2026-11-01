@@ -18,6 +18,7 @@ import mindustry.entities.abilities.Ability;
 import mindustry.gen.Groups;
 import mindustry.gen.Unit;
 import mindustry.graphics.Layer;
+import mindustry.type.Item;
 import mindustry.type.StatusEffect;
 import mindustry.type.UnitType;
 import mindustry.ui.Fonts;
@@ -25,6 +26,7 @@ import mindustry.ui.Fonts;
 import java.util.Objects;
 
 import static mindustry.Vars.*;
+import static mindustry.logic.FetchType.core;
 
 public class BossBarAbility extends Ability {
 
@@ -176,7 +178,18 @@ public class BossBarAbility extends Ability {
                 subColorChange = false;
             }
         }
+
+        if(Core.settings.getBool("coreitems")) {
+            coreItemRows = 0;
+            for (Item item : Vars.content.items()) {
+                if (Vars.player.team().core().items.get(item) > 0) {
+                    coreItemRows++;
+                }
+            }
+        }
     }
+
+    private int coreItemRows = 0;
 
     public void drawBar(Unit unit){
         float camW = Core.camera.width * barScale;
@@ -185,7 +198,11 @@ public class BossBarAbility extends Ability {
         float camY = Core.camera.position.y;
         float x = camX;
         float w = camW * 0.5f * (smoothAppear ? lengthMultiplier : 1f);
-        float y = camY + camH * (0.425f - (Vars.state.isPaused() ? 0.02f : 0f) - Mathf.clamp(barScale - 1f) * 0.025f);
+        float uiScale = Core.settings.getInt("uiscale", 100) / 100f;
+        float y = camY + camH * (0.425f - (Vars.state.isPaused() ? 0.04f * uiScale : 0f) - Mathf.clamp(barScale - 1f) * 0.025f);
+        if(Core.settings.getBool("coreitems")){
+            y -= camH * 0.0275f * coreItemRows * uiScale;
+        }
         float h = camW * scale * 0.0246f; //camH * 0.0246f;
         float thick = camW * 0.0025f;
         if(shake && !Vars.state.isPaused()){

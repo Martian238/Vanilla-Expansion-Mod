@@ -19,8 +19,13 @@
   },
   "lightColor": "ff835e",
   "immunities": [ "disarmed","dusty","wet" ],
-  "loopSound": "lbp3FlyingMachine",
-  "loopSoundVolume": 0.15,
+  "abilities": [
+    {
+      "type": "VanillaExpansion.expand.abilities.PropedroneLoopSoundAbility",
+      "loopSound": "lbp3FlyingMachine",
+      "loopSoundVolume": 0.05
+    }
+  ],
   "research": {
     "parent": "shimmer",
     "objectives": [ 
@@ -124,8 +129,8 @@
     {
       "type": "RegionPart",
       "suffix": "-rotator1",
-      "color": "ffffff00",
-      "colorTo": "ffffff80",
+      "color": "ffffff80",
+      "colorTo": "ffffff00",
       "growX": 1,
       "growY": 1,
       "xScl": 0,

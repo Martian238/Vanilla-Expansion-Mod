@@ -348,7 +348,7 @@ public class RotatingShieldArcAbility extends Ability {
 
 
         if(distanceTestTotal.get() - radius > 0){
-            additionalRadius = distanceTestTotal.get() - radius;
+            additionalRadius = Math.min(distanceTestTotal.get(), maxRadius) - radius;
         }
         float sameUnitBoostMultiplier = 0f;
         if(sameUnitCount[0] > 0) {

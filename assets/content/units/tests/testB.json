@@ -58,7 +58,8 @@
           "x": -16,
           "order": 1
         }
-      ]
+      ],
+      "chainLaser": true
     },
     /*{
       "name": "testB-tractor",
