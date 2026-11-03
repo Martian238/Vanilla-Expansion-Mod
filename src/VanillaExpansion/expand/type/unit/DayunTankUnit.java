@@ -34,14 +34,14 @@ import static mindustry.Vars.*;
 public class DayunTankUnit extends TankUnit {
 
     public float crushEnergy = 0f;
-    public float crushEnergyMax = 600f;
-    public float crushEnergyEach = 60f;
+    public float crushEnergyMax;
+    public float crushEnergyEach;
 
-    public float healFraction = 0.5f;
+    public float healFraction;
     public @Nullable Color ringColor;
     public float ringRadius = -1;
-    public float fullHealthMultiplier = 2.5f;
-    public float fullSpeedMultiplier = 2.5f;
+    public float fullHealthMultiplier;
+    public float fullSpeedMultiplier;
     public boolean strengthenAfterStart = true;
     public Seq<String> whitelistBlockNames = new Seq<>();
 

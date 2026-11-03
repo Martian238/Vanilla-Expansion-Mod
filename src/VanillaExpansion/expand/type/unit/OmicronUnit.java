@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.type.unit;
 
+import VanillaExpansion.EntityRegister;
 import arc.Core;
 import arc.input.KeyCode;
 import arc.util.Log;
@@ -37,5 +38,10 @@ public class OmicronUnit extends PayloadUnit {
     @Override
     public boolean hittable() {
         return type.hittable(this) || vulnerable();
+    }
+
+    @Override
+    public int classId() {
+        return EntityRegister.getID(getClass());
     }
 }

@@ -2,6 +2,8 @@ package VanillaExpansion.content;
 
 import VanillaExpansion.expand.type.unit.*;
 import VanillaExpansion.expand.type.unit.annihilate.AnnihilateUnitTypes;
+import VanillaExpansion.expand.type.unit.internal.OrbitStrikeBeaconUnit;
+import VanillaExpansion.expand.type.unit.internal.OrbitStrikeBeaconUnitType;
 import mindustry.content.Fx;
 import mindustry.gen.*;
 import mindustry.type.UnitType;
@@ -53,7 +55,7 @@ public class VEJSUnitTypes {
     public static SentryUnitType zenithSentry;
 
     //Internal
-    public static UnitType textTrigger;
+    public static UnitType textTrigger, orbitStrikeBeacon;
 
     public static void load(){
 
@@ -191,6 +193,9 @@ public class VEJSUnitTypes {
             createWreck = createScorch = false;
             deathExplosionEffect = fallEffect = fallEngineEffect = Fx.none;
             wreckSound = Sounds.none;
+        }};
+        orbitStrikeBeacon = new OrbitStrikeBeaconUnitType("orbit-strike-beacon"){{
+            constructor = OrbitStrikeBeaconUnit::new;
         }};
 
         zenithSentry = new SentryUnitType("zenith-sentry"){{constructor = SentryUnit::create;}};

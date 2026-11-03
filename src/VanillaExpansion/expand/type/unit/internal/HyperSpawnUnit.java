@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.type.unit.internal;
 
+import VanillaExpansion.EntityRegister;
 import VanillaExpansion.VESettings;
 import VanillaExpansion.content.VEJSStatuses;
 import VanillaExpansion.content.VEJSUnitTypes;
@@ -203,5 +204,9 @@ public class HyperSpawnUnit extends UnitEntity {
             Units.notifyUnitSpawn(su);
         }
         su.rotation = rotation;
+    }
+    @Override
+    public int classId() {
+        return EntityRegister.getID(getClass());
     }
 }

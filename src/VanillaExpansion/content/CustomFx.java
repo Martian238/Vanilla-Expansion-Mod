@@ -30,6 +30,12 @@ public class CustomFx{
     public static final Rand rand = new Rand();
     public static final Vec2 v = new Vec2();
 
+    public static TextureRegion circleSoft = new TextureRegion();
+
+    public static void loadCircleSoft(){
+        circleSoft = Core.atlas.find("ve-circle-soft");
+    }
+
     public static final
         Effect instHitColor = new Effect(20f, 200f, e -> {
             Color c2 = e.color;
@@ -262,6 +268,62 @@ public class CustomFx{
         color(e.color, e.fout() * 0.9f);
         stroke(e.fout() * 6f);
         Lines.circle(e.x, e.y, radius);
+    }),
+
+    orbitStrikeSparks = new Effect(240, 8000f, e -> {
+        float radius = e.data instanceof Float f ? f : 40f;
+
+        e.scaled(radius * 0.5f + 120f, c -> {
+            color(e.color.cpy().lerp(Color.white, e.fout()), 1f);
+            stroke(c.fout() * 12f * (80 / radius) + 0.1f);
+
+            randLenVectors(e.id, (int)(radius * 0.3), radius/2f + c.finpow() * radius*4f, (x, y) -> {
+                lineAngle(c.x + x, c.y + y, Mathf.angle(x, y), c.fout() * 20f + 1f);
+                Drawf.light(c.x + x, c.y + y, c.fout() * 40f, e.color, c.fout());
+            });
+        });
+
+        //color(e.color, e.fout());
+        //stroke(e.fout() * 6f);
+        //Lines.circle(e.x, e.y, radius);
+    }),
+
+    orbitStrikeScorch = new Effect(600, 8000f, e -> {
+        float radius = e.data instanceof Float f ? f : 120f;
+        Draw.blend();
+        Draw.color(Color.black);
+        Draw.z(Layer.floor + 0.1f);
+        Draw.alpha(Mathf.clamp(e.fout() * 5f));
+        Draw.rect(circleSoft, e.x, e.y, radius * 4f, radius * 4f);
+
+        float cs = Core.camera.height;
+        float cx = Core.camera.position.x;
+        float cy = Core.camera.position.y;
+        float cz = cs * 0.5f * 1f;
+        for(int i = 0; i < 4; i++) {
+            float r = radius - i * tilesize * 1.75f;
+            float h = - i * tilesize - tilesize;
+            float px = (cx / cz - e.x / h) / (1 / cz - 1 / h);
+            float py = (cy / cz - e.y / h) / (1 / cz - 1 / h);
+            float ar = cz * (r / (cz - h));
+            Draw.blend(Blending.additive);
+            Draw.color(e.color);
+            Draw.alpha((4 - i) / 4f * e.fout() + (Vars.state.isPaused() ? 0f : Mathf.range(0.05f)));
+            Lines.stroke(ar * 0.033f);
+            Lines.circle(px, py, ar);
+        }
+        float r = radius - 5 * tilesize * 1.75f;
+        float h = - 6 * tilesize;
+        float px = (cx / cz - e.x / h) / (1 / cz - 1 / h);
+        float py = (cy / cz - e.y / h) / (1 / cz - 1 / h);
+        float ar = cz * (r / (cz - h));
+        Draw.color(e.color);
+        Draw.alpha(Mathf.clamp(e.fout() * 3f) * 0.2f);
+        Draw.rect(circleSoft, px, py, ar * 4, ar * 4);
+        Draw.blend();
+        Draw.color(Color.black);
+        Draw.alpha(Mathf.clamp(e.fout() * 5f));
+        Draw.rect(circleSoft, px, py, ar * 2, ar * 2);
     });
 }
 

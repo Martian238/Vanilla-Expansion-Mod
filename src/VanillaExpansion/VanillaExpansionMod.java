@@ -1,6 +1,7 @@
 package VanillaExpansion;
 
 import VanillaExpansion.content.*;
+import VanillaExpansion.effects.OneBitRenderer;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
 import VanillaExpansion.expand.type.unit.UnitEventUpdateManager;
@@ -120,6 +121,8 @@ public class VanillaExpansionMod extends Mod {
         InitFerricFortress.init();
         //简易反作弊
         InitAntiCheat.init();
+        //黑白闪屏渲染
+        OneBitRenderer.init();
 
         //加载设置
         if(!headless){
@@ -184,6 +187,8 @@ public class VanillaExpansionMod extends Mod {
 
         VESettings.load();
         //VEFontIcons.load();
+
+
 
 
         Fi root = Vars.mods.getMod(VanillaExpansionMod.class).root;

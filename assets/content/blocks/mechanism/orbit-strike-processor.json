@@ -1,0 +1,4 @@
+{
+  "strikeSound": [ "endfieldShockwave1","endfieldShockwave2","endfieldShockwave3" ],
+  "strikeSoundGlobal": [ "endfieldShockwaveFar1","endfieldShockwaveFar2" ]
+}

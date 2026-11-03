@@ -1,5 +1,6 @@
 {
   "flying": false,
+  "databaseTag": "13other-unit",
   "drag": 0.02,
   "speed": 0,
   "rotateSpeed": 0,
@@ -8,7 +9,7 @@
   "isEnemy": false,
   "useUnitCap": false,
   "hitSize": 20,
-  "drownTimeMultiplier": 5,
+  "drownTimeMultiplier": 1.25,
   "immunities": [ "frozen","dusty" ],
   "drawShield": false,
   "createScorch": false,
@@ -19,6 +20,8 @@
       "amount": 0.0833333333
     }
   ],
+  "activateSound": "rlDarkSentryBlink",
+  "drownSound": "pvzZombaquariumDie",
   "parts": [
     {
       "type": "VanillaExpansion.expand.parts.AutoShadingPart",

@@ -17,9 +17,9 @@ public class DayunTankUnitType extends TankUnitType {
     public Sound truckMusic = Sounds.none;
     public float truckMusicVolume = 2f;
     public float crushEnergy = 0f;
-    public float crushEnergyMax = 600f;
-    public float crushEnergyEach = 60f;
-    public float healFraction = 0.25f;
+    public float crushEnergyMax = 1200f;
+    public float crushEnergyEach = 30f;
+    public float healFraction = 0.025f;
     public @Nullable Color ringColor;
     public float ringRadius = -1;
     public float fullHealthMultiplier = 1.5f;
