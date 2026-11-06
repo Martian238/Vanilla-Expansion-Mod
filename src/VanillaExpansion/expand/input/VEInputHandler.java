@@ -17,7 +17,7 @@ import static mindustry.Vars.*;
 
 /**
  * 扩展输入处理，支持16方向方块以22.5°步进旋转。
- * 
+ *
  * 交互设计：
  *   R键/滚动 → currentFullDir ± 1（步进 22.5°）
  *   Shift+鼠标 → 根据鼠标角度计算（drawPlace 中处理）
@@ -67,15 +67,15 @@ public class VEInputHandler extends DesktopInput {
             Draw.color(!valid ? Pal.removeBack : Pal.accentBack);
             TextureRegion arrow = Core.atlas.find("place-arrow");
             Draw.rect(arrow, ox, oy - 1,
-                arrow.width * arrow.scl(),
-                arrow.height * arrow.scl(),
-                angle - 90);
+                    arrow.width * arrow.scl(),
+                    arrow.height * arrow.scl(),
+                    angle - 90);
 
             Draw.color(!valid ? Pal.remove : Pal.accent);
             Draw.rect(arrow, ox, oy,
-                arrow.width * arrow.scl(),
-                arrow.height * arrow.scl(),
-                angle - 90);
+                    arrow.width * arrow.scl(),
+                    arrow.height * arrow.scl(),
+                    angle - 90);
             Draw.reset();
             return;
         }
@@ -91,10 +91,10 @@ public class VEInputHandler extends DesktopInput {
             for (var plan : plans) {
                 Tile tile = world.tile(plan.x, plan.y);
                 if (tile != null && tile.build != null && tile.block() == plan.block && tile.team() == player.team()
-                    && plan.rotation == tile.build.rotation) {
+                        && plan.rotation == tile.build.rotation) {
                     // 16方向专属检查：同 config 才禁建，不同 config 才绕开
                     if (tile.build instanceof SixteenDirectionBlock.SixteenDirectionBuild sdBuild
-                        && plan.config instanceof Integer cfg) {
+                            && plan.config instanceof Integer cfg) {
                         if (sdBuild.getFullRotation() == Mathf.mod(cfg, 16)) {
                             continue; // 同 config → 让原版旋转检查拦住
                         }

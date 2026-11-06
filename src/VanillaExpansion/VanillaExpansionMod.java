@@ -5,63 +5,37 @@ import VanillaExpansion.effects.OneBitRenderer;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
 import VanillaExpansion.expand.type.unit.UnitEventUpdateManager;
-import VanillaExpansion.ui.VEFontIcons;
+import VanillaExpansion.expand.ui.HotbarUI;
 import VanillaExpansion.ui.VEFonts;
 import VanillaExpansion.ui.bossrush.BossRushRegistry;
 import arc.Core;
 import arc.Events;
 import arc.files.Fi;
 import arc.graphics.Color;
-import arc.math.Mathf;
 import arc.scene.ui.Label;
 import arc.scene.ui.layout.Table;
 import arc.graphics.g2d.Font;
-import arc.struct.Seq;
 import arc.util.Log;
 import arc.util.Time;
 import mindustry.Vars;
-import mindustry.content.*;
-import mindustry.entities.Effect;
-import mindustry.entities.Units;
-import mindustry.game.Team;
-import mindustry.gen.Sounds;
-import mindustry.gen.Unit;
-import mindustry.mod.Mods;
 import mindustry.ui.Fonts;
 import mindustry.game.EventType;
-import mindustry.gen.Building;
-import mindustry.gen.Groups;
 import mindustry.mod.Mod;
 import VanillaExpansion.expand.graphics.LensShockwaveFX;
 import VanillaExpansion.expand.input.VEInputHandler;
 import mindustry.ui.dialogs.BaseDialog;
-import mindustry.world.Tile;
-import mindustry.world.blocks.environment.Floor;
-import mindustry.world.blocks.liquid.LiquidBlock;
-import mindustry.world.blocks.liquid.LiquidBridge;
-import mindustry.world.meta.Env;
-
 import java.util.Arrays;
-import java.util.Objects;
-
 import static mindustry.Vars.*;
-
-
 public class VanillaExpansionMod extends Mod {
-
-
-
     private final boolean textTest = false; //字体测试开关
-
-
-
-
+    public static HotbarUI HotbarUI = new HotbarUI();
     public static MultiCrafterPayloadFragment payloadFragment;
     @Override
     public void init() {
         ContentOrderGuard.init();
         LensShockwaveFX.init();
-
+        HotbarUI.init();
+        //Time.runTask(10f, () -> {HotbarUI.init();});
         // 替换输入处理器并测试VEFonts（仅客户端，移动端除外）
         Events.on(EventType.ClientLoadEvent.class, e -> {
             if(!Vars.mobile){
@@ -78,21 +52,9 @@ public class VanillaExpansionMod extends Mod {
                     dialog.show();
                 });
             }
+            //new HotbarDebugUI().init();//狗屎调试UI,会导致内存疯涨
             BossRushRegistry.register();
-            //Core.app.post(() -> {
-                //BossRushTreeDialog dialog = new BossRushTreeDialog();
-                //dialog.show();
-            //});
         });
-        //boss rush
-        //Events.on(EventType.WinEvent.class, e -> {
-            //if(BossRushRegistry.currentNode != null && BossRushRegistry.dialog != null){
-                //BossRushRegistry.dialog.data.complete(BossRushRegistry.currentNode);
-                //BossRushRegistry.dialog.rebuild();
-                //BossRushRegistry.currentNode = null;
-            //}
-        //});
-
         // 等待 UI 就绪
         Events.run(EventType.Trigger.uiDrawBegin, () -> {
             if (payloadFragment == null) {
@@ -103,13 +65,16 @@ public class VanillaExpansionMod extends Mod {
                 }
             }
         });
-
         // 每帧更新
         Events.run(EventType.Trigger.update, () -> {
+            //VEDebugHook.register();//狗屎调试UI,会导致内存疯涨
             if (payloadFragment != null) {
                 Table itemInv = ui.hudGroup.find("inventory");
                 payloadFragment.table.visible = itemInv != null && itemInv.visible && !state.isMenu();
                 payloadFragment.rebuild();
+            }
+            if (VanillaExpansion.expand.ui.HotbarUI.instance != null) {
+                VanillaExpansion.expand.ui.HotbarUI.instance.updateVisibility();
             }
         });
 
@@ -130,18 +95,10 @@ public class VanillaExpansionMod extends Mod {
                 VESettings.loadUI();
             });
         }
-
         //单位事件更新重置
         Events.on(EventType.WorldLoadBeginEvent.class, e -> {
             UnitEventUpdateManager.clear();
         });
-
-
-
-
-
-
-
         /*
         ContextFactory.initGlobal(new SecureContextFactory());
 
@@ -158,23 +115,18 @@ public class VanillaExpansionMod extends Mod {
         });
         */
     }
-
-
-
     @Override
     public void loadContent(){
-
         EntityRegister.load();
         VEShaders.load();
         VECacheLayer.init();
-        //VanillaExpansion.content.VEStuffTypes.load();
         //VanillaExpansion.effects.SpecialDeathEffects.load();
         //VanillaExpansion.expand.special.SpecialContent.load();
         VEItems.load();
         VEJSLiquids.load();
         VELiquids.load();
         VEJSStatuses.load();
-        //VanillaExpansion.content.VEUnitTypes.load();
+        VanillaExpansion.content.VEUnitTypes.load();
         VEJSBlocks.load();
         VEBlocks.load();
         VEEnvironBlocks.load();
@@ -184,19 +136,12 @@ public class VanillaExpansionMod extends Mod {
         VETechTree.load();
         VEFonts.loadFonts();
         //VEModifiedUnitTypes.load();
-
         VESettings.load();
         //VEFontIcons.load();
-
-
-
 
         Fi root = Vars.mods.getMod(VanillaExpansionMod.class).root;
         Log.info("Mod assets: " + Arrays.toString(root.list()));
         String locale = Core.settings.getString("locale", "en");
         Log.info("Locale : " + locale);
     }
-
-
-
 }
