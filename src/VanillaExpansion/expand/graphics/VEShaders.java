@@ -9,6 +9,7 @@ import arc.math.geom.*;
 import arc.struct.*;
 import arc.util.Time;
 import VanillaExpansion.*;
+import mindustry.Vars;
 import mindustry.graphics.Shaders;
 
 import static mindustry.Vars.*;
@@ -46,6 +47,7 @@ public class VEShaders {
                     }""";
 
     public static void load(){
+        if (Vars.headless) return;
         harshShadow = new HarshShadowShader();
         alphaCut = new AlphaCut();
         chainShader = new ChainShader();

@@ -235,10 +235,11 @@ public class MultiCrafter extends HeatCrafter {
 
     @Override
     public void init() {
-
-        sleepEffectRegion = Core.atlas.find("ve-sleep-z");
-        productPowerRegion = Core.atlas.find("ve-power-icon");
-        productHeatRegion = Core.atlas.find("ve-heat-icon");
+        if (!Vars.headless) {
+            sleepEffectRegion = Core.atlas.find("ve-sleep-z");
+            productPowerRegion = Core.atlas.find("ve-power-icon");
+            productHeatRegion = Core.atlas.find("ve-heat-icon");
+        }
 
         if(minFluxGeneralDisplayed < 0) minFluxGeneralDisplayed = minFluxGeneral;
 

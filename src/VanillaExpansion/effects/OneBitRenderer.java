@@ -17,7 +17,9 @@ public class OneBitRenderer {
     private final static boolean debug = true;
 
     public static void init() {
-        shader = new OneBitShader();
+        if (!Vars.headless) {
+            shader = new OneBitShader();
+        }
         // 监听渲染完成后的阶段
         Events.run(EventType.Trigger.drawOver, () -> {
             if (!enabled) return;

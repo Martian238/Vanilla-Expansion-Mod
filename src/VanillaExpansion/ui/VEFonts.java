@@ -17,6 +17,7 @@ import java.util.Arrays;
 public class VEFonts {
     public static Font novo;
     public static void loadFonts(){
+        if (Vars.headless) return;
         Fi root = Vars.mods.getMod(VanillaExpansionMod.class).root;
         Log.info("mod root: " + root.path() + " exists=" + root.exists());
         Fi fi = findFont(root);

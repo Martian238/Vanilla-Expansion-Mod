@@ -35,8 +35,6 @@ public class VanillaExpansionMod extends Mod {
     public void init() {
         ContentOrderGuard.init();
         LensShockwaveFX.init();
-        HotbarUI.init();
-        //Time.runTask(10f, () -> {HotbarUI.init();});
         // 替换输入处理器并测试VEFonts（仅客户端，移动端除外）
         Events.on(EventType.ClientLoadEvent.class, e -> {
             if(!Vars.mobile){
@@ -53,6 +51,7 @@ public class VanillaExpansionMod extends Mod {
                     dialog.show();
                 });
             }
+            HotbarUI.init();
             //new HotbarDebugUI().init();//狗屎调试UI,会导致内存疯涨
             BossRushRegistry.register();
         });

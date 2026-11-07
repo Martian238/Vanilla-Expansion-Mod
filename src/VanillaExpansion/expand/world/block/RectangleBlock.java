@@ -62,6 +62,7 @@ public class RectangleBlock extends Block {
 
         @Override
         public void load(){
+            if (Vars.headless) return;
             super.load();
             region = Core.atlas.find("clear");
         }
@@ -170,7 +171,9 @@ public class RectangleBlock extends Block {
 
     public static void registerRectangleTile(){
         rectTile = new RectangleTile("rect-tile");
-        rectTile.load();
+        if (!Vars.headless) {
+            rectTile.load();
+        }
     }
 
     public class RectangleBuild extends Building {
