@@ -307,7 +307,7 @@ public class ChainWeapon extends Weapon {
             c.pointY = py;
             c.pointRot = Mathf.atan2(c.x - px, c.y - py) * Mathf.radiansToDegrees;
             c.pointD = Mathf.dst(c.x, c.y, px, py);
-            if(c.unit == null){
+            if(c.unit == null || c.unit.dead()){
                 if(c.caught || c.pointD > maxLength || (rightClickCancel && Core.input.keyDown(KeyCode.mouseRight) && u.isPlayer() && !Vars.control.input.commandMode)){
                     m.chainBreak(c, u);
                     continue;

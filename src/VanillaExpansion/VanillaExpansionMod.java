@@ -5,6 +5,7 @@ import VanillaExpansion.effects.OneBitRenderer;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
 import VanillaExpansion.expand.type.unit.UnitEventUpdateManager;
+import VanillaExpansion.expand.world.block.RectangleBlock;
 import VanillaExpansion.ui.VEFontIcons;
 import VanillaExpansion.ui.VEFonts;
 import VanillaExpansion.ui.bossrush.BossRushRegistry;
@@ -165,6 +166,7 @@ public class VanillaExpansionMod extends Mod {
     public void loadContent(){
 
         EntityRegister.load();
+        RectangleBlock.registerRectangleTile();
         VEShaders.load();
         VECacheLayer.init();
         //VanillaExpansion.content.VEStuffTypes.load();

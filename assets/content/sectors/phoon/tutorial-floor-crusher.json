@@ -3,7 +3,7 @@
   "sector": 3,
   "difficulty": 1,
   "research": {
-    "parent": "phoon",
+    "parent": "community-entrance",
     "objectives": [
       "floor-crusher",
       {

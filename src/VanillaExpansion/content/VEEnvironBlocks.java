@@ -1,6 +1,7 @@
 package VanillaExpansion.content;
 
 import VanillaExpansion.expand.graphics.VECacheLayer;
+import VanillaExpansion.expand.world.block.environment.EffectFloor;
 import VanillaExpansion.expand.world.block.environment.IceWalkIce;
 import VanillaExpansion.expand.world.block.environment.MantleTunnel;
 import VanillaExpansion.expand.world.block.environment.NitroalkossProp;
@@ -100,18 +101,20 @@ public class VEEnvironBlocks {
         new Floor("hard-snow-cold-water");
         new Floor("hard-snow-salty-water");
         new Floor("hard-snow-molten-water");
-        new Floor("red-soil-frozen");
-        new StaticWall("red-soil-frozen-wall");
         new Floor("hard-ice");
         new Floor("hard-ice-cracked");
-        new Floor("hard-snow");
-        new Floor("hard-snow-molten");
         new Floor("fiber-snow");
         new Floor("frostone");
+        new Floor("frostone-pebbles");
         new Floor("frostone-radioactive");
         new StaticWall("frostone-wall");
         new Prop("frostone-boulder");
+        new EffectFloor("frostone-hydrogen");
         new SteamVent("hydrogen-vent");
+        new Floor("red-soil-frozen");
+        new StaticWall("red-soil-frozen-wall");
+        new Floor("hard-snow");
+        new Floor("hard-snow-molten");
         //玛瑞斯-峡谷
         new Floor("gravel-ferric");
         new Floor("ferric-shale");

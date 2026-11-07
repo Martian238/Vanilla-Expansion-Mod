@@ -3,7 +3,7 @@
   "sector": 1,
   "difficulty": 5,
   "research": {
-    "parent": "phoon",
+    "parent": "community-entrance",
     "objectives": [
       {
         "type": "SectorComplete",

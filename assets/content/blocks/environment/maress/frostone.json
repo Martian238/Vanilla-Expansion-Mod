@@ -6,5 +6,6 @@
     "heat": -0.2
   },
   "wall": "frostone-wall",
+  "blendGroup": "frostone",
   "decoration": "frostone-boulder"
 }
