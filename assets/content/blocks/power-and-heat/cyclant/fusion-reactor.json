@@ -57,7 +57,7 @@
   "liquidCapacity": 0,
   "warmupSpeed": 0.0005,
   "itemDuration": 125,
-  "powerProduction": 5500,
+  "powerProduction": 5516.6666666667,
   "explosionShake": 32,
   "explosionShakeDuration": 60,
   "explosionDamage": 50000,

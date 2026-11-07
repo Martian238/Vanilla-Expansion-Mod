@@ -1,0 +1,11 @@
+{
+  //"type": "Floor",
+  "variants": 4,
+  "attributes": {
+    "water": 0.1,
+    "heat": -0.2
+  },
+  "wall": "frostone-wall",
+  "blendGroup": "frostone",
+  "decoration": "frostone-boulder"
+}

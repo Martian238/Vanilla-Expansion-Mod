@@ -3,7 +3,7 @@
   "sector": 0,
   "difficulty": 1,
   "research": {
-    "parent": "phoon",
+    "parent": "intervalley",
     "objectives": [
       "isomorphic-core-foundation",
       {

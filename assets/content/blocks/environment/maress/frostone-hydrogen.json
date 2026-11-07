@@ -1,0 +1,22 @@
+{
+  "variants": 5,
+  "attributes": {
+    "water": 0.1,
+    "heat": -0.2
+  },
+  "wall": "frostone-wall",
+  "blendGroup": "frostone",
+  "decoration": "frostone-boulder",
+  "effect": {
+    "type": "ParticleEffect",
+    "layer": 29.75,
+    "colorFrom": "9eabf700",
+    "colorTo": "9eabf710",
+    "region": "ve-circle-soft",
+    "sizeFrom": 16,
+    "sizeTo": 16,
+    "colorInterp": "slope",
+    "length": 4,
+    "lifetime": 120
+  }
+}

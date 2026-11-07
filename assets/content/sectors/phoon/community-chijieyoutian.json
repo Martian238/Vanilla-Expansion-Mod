@@ -1,0 +1,23 @@
+{
+  "planet": "phoon",
+  "sector": 10,
+  "difficulty": 8,
+  "research": {
+    "parent": "community-chisexingqiong",
+    "objectives": [
+      {
+        "type": "SectorComplete",
+        "preset": "prime-route"
+      }
+    ]
+  },
+  "overrideLaunchDefaults": false,
+  "captureWave": 0,
+  "addStartingItems": false,
+  "isLastSector": false,
+  "allowLaunchSchematics": true,
+  "allowLaunchLoadout": true
+}
+
+
+

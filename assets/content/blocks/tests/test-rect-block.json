@@ -1,0 +1,8 @@
+{
+  "type": "VanillaExpansion.expand.world.block.RectangleBlock",
+  "update": true,
+  "buildVisibility": "sandboxOnly",
+  "width": 2,
+  "height": 4,
+  "size": 2
+}
