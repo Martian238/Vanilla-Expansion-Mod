@@ -6,6 +6,7 @@ import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
 import VanillaExpansion.expand.type.unit.UnitEventUpdateManager;
 import VanillaExpansion.expand.ui.HotbarUI;
+import VanillaExpansion.expand.world.block.RectangleBlock;
 import VanillaExpansion.ui.VEFonts;
 import VanillaExpansion.ui.bossrush.BossRushRegistry;
 import arc.Core;
@@ -118,6 +119,7 @@ public class VanillaExpansionMod extends Mod {
     @Override
     public void loadContent(){
         EntityRegister.load();
+        RectangleBlock.registerRectangleTile();
         VEShaders.load();
         VECacheLayer.init();
         //VanillaExpansion.effects.SpecialDeathEffects.load();
