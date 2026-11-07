@@ -46,7 +46,10 @@ public class PowerPole extends PowerBlock {
 
     public int lineCount = 4;
     public float lineSpacing = 8f;
-    public float lineRadius = 8f;
+    //线轴大小
+    public float lineRadius = 2f;
+    //实际激光绘制线轴大小
+    public int laserRadius = (int)lineRadius -1;
     public float laserRange = 20f;
     public float areaRange = 10f;
     public int maxNodes = 12;
@@ -522,7 +525,7 @@ public class PowerPole extends PowerBlock {
                     float startY = getLineY(lineId);
                     float endX = pole.getLineX(lineId);
                     float endY = pole.getLineY(lineId);
-                    drawLaser(startX, startY, endX, endY, size, other.block.size);
+                    drawLaser(startX, startY, endX, endY, laserRadius, laserRadius);
                 }
             }
             Draw.reset();
@@ -540,7 +543,7 @@ public class PowerPole extends PowerBlock {
                 float lx = getLineX(i);
                 float ly = getLineY(i);
                 Draw.color(Pal.accent);
-                Drawf.circles(lx, ly, 4f);
+                Drawf.circles(lx, ly, lineRadius - 1f);
                 Draw.color(Color.white);
                 Fonts.outline.getData().setScale(1f / 6f);
                 Fonts.outline.draw(String.valueOf(i + 1), lx, ly);
@@ -574,7 +577,7 @@ public class PowerPole extends PowerBlock {
                 float lx = getLineX(i);
                 float ly = getLineY(i);
                 Draw.color(Pal.place);
-                Drawf.circles(lx, ly, 5f);
+                Drawf.circles(lx, ly, lineRadius);
                 Draw.color(Color.white);
                 Fonts.outline.getData().setScale(1f / 6f);
                 Fonts.outline.draw(String.valueOf(i + 1), lx, ly);
