@@ -311,7 +311,7 @@ public class AutoBossBarBlock extends Block {
                 }
             }
 
-            if(Core.settings.getBool("coreitems")) {
+            if(Core.settings.getBool("coreitems") && Vars.player.team().core() != null) {
                 coreItemRows = 0;
                 for (Item item : Vars.content.items()) {
                     if (Vars.player.team().core().items.get(item) > 0) {
