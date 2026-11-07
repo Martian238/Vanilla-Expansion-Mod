@@ -5,8 +5,10 @@ require("sectorSize");
 //require("base/library");
 //require("units");
 require("items");
+if (!Vars.headless) {
 Vars.renderer.maxZoom = 25;
 Vars.renderer.minZoom = 0.2;
+}
 //Vars.appName = "Mindustry: Vanilla Expansion";
 //require("xfkjqjs");
 /*
