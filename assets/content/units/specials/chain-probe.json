@@ -23,6 +23,7 @@
   "shootVulnerableTime": 60,
   "payloadCapacity": 0,
   "databaseTag": "10special-unit",
+  "shownPlanets": [ "maress","cyclant","phoon","thavina" ],
   "weapons": [
     {
       "type": "VanillaExpansion.expand.units.ChainWeapon",
