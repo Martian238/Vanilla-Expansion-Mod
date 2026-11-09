@@ -26,7 +26,7 @@
   "loopSoundVolume": 0.5,
   "envDisabled": 0,
   "deathExplosionEffect": "none",
-  "immunities": [ "freezing","sapped" ],
+  "immunities": [ "freezing","sapped","frozen" ],
   "targetPriority": 10,
   "trailLength": 30,
   "drawCell": true,

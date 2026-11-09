@@ -67,6 +67,7 @@ newSector("community-furaowadi", Planets.tantros, 0);
 newSector("community-chisexingqiong", Planets.tantros, 0);
 newSector("community-zhangbaosiqu", Planets.tantros, 0);
 newSector("community-chijieyoutian", Planets.tantros, 0);
+newSector("community-baoleigang", Planets.tantros, 0);
 
 log("mar0");
 newSector("negotiation", Planets.tantros, 0);

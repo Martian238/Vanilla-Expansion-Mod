@@ -1,19 +1,18 @@
 {
   "planet": "maress",
   "sector": 152,
-  "difficulty": 6,
+  "difficulty": 8,
   "research": {
     "parent": "icy-boundary",
     "objectives": [
       {
         "type": "SectorComplete",
         "preset": "icy-boundary"
-      },
-      "chiniun-shockwave"
+      }
     ]
   },
   "overrideLaunchDefaults": false,
-  "captureWave": 50,
+  "captureWave": 40,
   "addStartingItems": false,
   "isLastSector": false,
   "allowLaunchSchematics": true,

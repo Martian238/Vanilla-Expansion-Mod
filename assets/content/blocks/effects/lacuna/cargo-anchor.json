@@ -65,7 +65,7 @@
       }
     },
     {
-      "inputItems": [ "silver/5" ],
+      "inputItems": [ "silver/5","tantalum/1" ],
       "craftTime": 120,
       "outputItems": [ "acid-pod/1" ],
       "shownProduct": "ve-acid-pod",

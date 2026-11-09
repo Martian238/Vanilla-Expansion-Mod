@@ -26,7 +26,7 @@
   "lightColor": "ff8a67",
   "drawCell": true,
   "deathSound": "none",
-  "immunities": [ "blown","disarmed","sapped","electrified" ],
+  "immunities": [ "blown","disarmed","sapped","electrified","frozen" ],
   "abilities": [
     {
       "type": "MoveEffectAbility",

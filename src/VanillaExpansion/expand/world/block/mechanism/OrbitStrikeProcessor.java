@@ -288,7 +288,13 @@ public class OrbitStrikeProcessor extends Block {
             }
         }
 
-        public static Cons<Unit> unitConsumer = Unitc::kill;
+        public static Cons<Unit> unitConsumer = u -> {
+            if(u instanceof OrbitStrikeBeaconUnit b){
+                b.striked();
+            }else{
+                u.kill();
+            }
+        };
 
         @Override
         public void draw(){

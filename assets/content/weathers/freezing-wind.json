@@ -1,0 +1,27 @@
+{
+  "type": "ParticleWeather",
+  "color": "ece4ff",
+  "noiseColor": "ece4ff20",
+  "particleRegion": "particle",
+  "drawNoise": false,
+  "useWindVector": false,
+  "sizeMax": 640,
+  "sizeMin": 60,
+  "yspeed": 0,
+  "xspeed": -6,
+  "minAlpha": 0.005,
+  "maxAlpha": 0.04,
+  "density": 3000,
+  "baseSpeed": 5,
+  "attrs": {
+    "heat": -0.2,
+    "steam": 0.5
+  },
+  "opacityMultiplier": 0.95,
+  "force": 0,
+  "sound": "windHowl",
+  "soundVol": 0.02,
+  "duration": 36000,
+  "statusGround": true,
+  "status": "frozen"
+}

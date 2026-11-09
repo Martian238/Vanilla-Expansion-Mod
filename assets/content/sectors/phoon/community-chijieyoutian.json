@@ -12,7 +12,7 @@
     ]
   },
   "overrideLaunchDefaults": false,
-  "captureWave": 0,
+  "captureWave": 60,
   "addStartingItems": false,
   "isLastSector": false,
   "allowLaunchSchematics": true,

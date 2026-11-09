@@ -26,6 +26,7 @@ public class LargeTeamProjector extends GenericCrafter {
         configurable = true;
         consumesTap = true;
         clearOnDoubleTap = true;
+        saveConfig = true;
 
         config(Object.class, (LargeTeamProjectorBuild tile, Object f) -> {
             if(tile.configuring == 1) {

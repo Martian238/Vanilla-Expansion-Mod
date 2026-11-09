@@ -138,6 +138,15 @@ public class VEEnvironBlocks {
         new NitroalkossProp("nitroalkoss-plant");
         //玛瑞斯-设施
         new MantleTunnel("mantle-tunnel");
+        new Floor("fersteel-floor-1-");
+        new Floor("fersteel-floor-2");
+        new Floor("fersteel-floor-3");
+        new Floor("fersteel-floor-4");
+        new Floor("fersteel-floor-5");
+        new Floor("fersteel-floor-6");
+        new Floor("fersteel-floor-7");
+        new Floor("fersteel-floor-8");
+        new StaticWall("fersteel-wall-1-");
 
 
 

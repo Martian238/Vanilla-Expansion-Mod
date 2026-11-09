@@ -1,0 +1,47 @@
+{
+  "flying": true,
+  "lowAltitude": true,
+  "hitSize": 12,
+  "rotateSpeed": 5,
+  "speed": 3,
+  "immunities": [ "frozen","disarmed" ],
+  "health": 200,
+  "targetable": false,
+  "drag": 0.05,
+  "accel": 0.12,
+  "engineSize": 3,
+  "engineOffset": 7.5,
+  "buildSpeed": 0.4,
+  "buildBeamOffset": 5,
+  "range": 320,
+  "flyingLayer": 90.02,
+  "research": {
+    "parent": "sunrise"
+  },
+  "template": "VanillaExpansion.expand.type.unit.OmicronUnitType",
+  "targetPriority": -3,
+  "shootVulnerableTime": 60,
+  "payloadCapacity": 0,
+  "databaseTag": "10special-unit",
+  "weapons": [
+    {
+      "type": "VanillaExpansion.expand.units.ChainWeapon",
+      "chainPointsAdd": [
+        {
+          "x": -7.75,
+          "y": -3.25,
+          "order": 0
+        },
+        {
+          "x": 7.75,
+          "y": -3.25,
+          "order": 1
+        }
+      ],
+      "chainLaser": true,
+      "maxLength": 320,
+      "catchLength": 12,
+      "extendSound": "none"
+    }
+  ]
+}

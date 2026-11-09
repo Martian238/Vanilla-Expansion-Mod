@@ -348,6 +348,8 @@ public class AutoBossBarBlock extends Block {
             }
             float h = camW * scale * 0.0246f; //camH * 0.0246f;
             float thick = camW * 0.0025f;
+            float b1w = w - thick * 1.5f;
+            float b1h = h - thick * 1.5f;
             if(shake && !state.isPaused()){
                 float shakeMagBase = h * 4f;
                 if(shakeTimer > 0f){
@@ -373,8 +375,8 @@ public class AutoBossBarBlock extends Block {
                     Draw.alpha(1f);
                     Draw.color(white);
                     Lines.stroke(thick * 0.5f);
-                    Lines.line(x + w * (currentMaxResult / maxMax - 0.5f), y - h * 0.5f,
-                            x + w * (currentMaxResult / maxMax - 0.5f), y + h * 0.5f);
+                    Lines.line(x + b1w * (currentMaxResult / maxMax - 0.5f), y - h * 0.5f,
+                            x + b1w * (currentMaxResult / maxMax - 0.5f), y + h * 0.5f);
                 }
             }else {
                 Fill.rect(x, y, w, h);
@@ -382,16 +384,16 @@ public class AutoBossBarBlock extends Block {
             Draw.alpha(1f);
             for(DecreaseRec d : mainDecreases){
                 if(d.fullness <= 0) return;
-                float dx = x + w * (d.start - 0.5f);
+                float dx = x + b1w * (d.start - 0.5f);
                 Draw.color(white);
-                Fill.rect(dx + 0.5f * w * d.fullness, y, w * d.fullness, h);
-                Fill.quad(dx, y + 0.5f * h, mainDecreaseColor.toFloatBits(),
-                        dx, y + 2.5f * h, mainDecreaseColorTo.toFloatBits(),
-                        dx + w * d.fullness, y + 2.5f * h, mainDecreaseColorTo.toFloatBits(),
-                        dx + w * d.fullness, y + 0.5f * h, mainDecreaseColor.toFloatBits());
+                Fill.rect(dx + 0.5f * b1w * d.fullness, y, b1w * d.fullness, b1h);
+                Fill.quad(dx, y + 0.5f * b1h, mainDecreaseColor.toFloatBits(),
+                        dx, y + 4.5f * b1h, mainDecreaseColorTo.toFloatBits(),
+                        dx + b1w * d.fullness, y + 4.5f * b1h, mainDecreaseColorTo.toFloatBits(),
+                        dx + b1w * d.fullness, y + 0.5f * b1h, mainDecreaseColor.toFloatBits());
             }
             Draw.color(mainColor);
-            Fill.rect(x - 0.5f * w * (1 - currentFullness), y, w * currentFullness, h);
+            Fill.rect(x - 0.5f * b1w * (1 - currentFullness), y, b1w * currentFullness, b1h);
 
             //frame
             Draw.color(white);

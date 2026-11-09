@@ -205,6 +205,8 @@ public class BossBarAbility extends Ability {
         }
         float h = camW * scale * 0.0246f; //camH * 0.0246f;
         float thick = camW * 0.0025f;
+        float b1w = w - thick * 1.5f;
+        float b1h = h - thick * 1.5f;
         if(shake && !Vars.state.isPaused()){
             float shakeMagBase = h * 4f;
             if(shakeTimer > 0f){
@@ -226,16 +228,16 @@ public class BossBarAbility extends Ability {
         Draw.alpha(1f);
         for(DecreaseRec d : mainDecreases){
             if(d.fullness <= 0) return;
-            float dx = x + w * (d.start - 0.5f);
+            float dx = x + b1w * (d.start - 0.5f);
             Draw.color(white);
-            Fill.rect(dx + 0.5f * w * d.fullness, y, w * d.fullness, h);
-            Fill.quad(dx, y + 0.5f * h, mainDecreaseColor.toFloatBits(),
-                    dx, y + 2.5f * h, mainDecreaseColorTo.toFloatBits(),
-                    dx + w * d.fullness, y + 2.5f * h, mainDecreaseColorTo.toFloatBits(),
-                    dx + w * d.fullness, y + 0.5f * h, mainDecreaseColor.toFloatBits());
+            Fill.rect(dx + 0.5f * b1w * d.fullness, y, b1w * d.fullness, b1h);
+            Fill.quad(dx, y + 0.5f * b1h, mainDecreaseColor.toFloatBits(),
+                    dx, y + 4.5f * b1h, mainDecreaseColorTo.toFloatBits(),
+                    dx + b1w * d.fullness, y + 4.5f * b1h, mainDecreaseColorTo.toFloatBits(),
+                    dx + b1w * d.fullness, y + 0.5f * b1h, mainDecreaseColor.toFloatBits());
         }
         Draw.color(mainColor);
-        Fill.rect(x - 0.5f * w * (1 - currentFullness), y, w * currentFullness, h);
+        Fill.rect(x - 0.5f * b1w * (1 - currentFullness), y, b1w * currentFullness, b1h);
 
         //frame
         Draw.color(white);
@@ -258,46 +260,50 @@ public class BossBarAbility extends Ability {
 
         //sub
         if(subBar){
+            float b2dy = h;
+            float b2fh = h * 0.45f;
+            float b2h = h * 0.45f - thick * 1.5f;
+            float b2w = w - thick * 1.5f;
             Draw.color(black);
             Draw.alpha(0.5f);
-            Fill.rect(x, y - h, w, h * 0.35f);
+            Fill.rect(x, y - b2dy, w, b2fh);
             Draw.alpha(1f);
             if(subColorChange) {
                 Draw.color(subChangeColor);
-                Fill.rect(x - 0.5f * w * (1 - currentSubFullness), y - h, w * currentSubFullness, h * 0.25f);
+                Fill.rect(x - 0.5f * b2w * (1 - currentSubFullness), y - b2dy, w * currentSubFullness, b2h);
             }else{
                 Draw.color(white);
                 float endColorBits = subColor.cpy().lerp(subColorTo, 1 - currentSubFullness).toFloatBits();
-                Fill.quad(x - 0.5f * w, y - 1.175f * h, endColorBits,
-                        x - 0.5f * w, y - 0.825f * h, endColorBits,
-                        x + w * (currentSubFullness - 0.5f), y - 0.825f * h, subColorTo.toFloatBits(),
-                        x + w * (currentSubFullness - 0.5f), y - 1.175f * h, subColorTo.toFloatBits());
+                Fill.quad(x - 0.5f * b2w, y - b2dy - 0.5f * b2h, endColorBits,
+                        x - 0.5f * b2w, y - b2dy + 0.5f * b2h, endColorBits,
+                        x + b2w * (currentSubFullness - 0.5f), y - b2dy + 0.5f * b2h, subColorTo.toFloatBits(),
+                        x + b2w * (currentSubFullness - 0.5f), y - b2dy - 0.5f * b2h, subColorTo.toFloatBits());
             }
             if(!subColorChange){
                 for(DecreaseRec d : subIncreases){
                     if(d.fullness <= 0) return;
-                    float dx2 = x + w * (d.start - 0.5f);
-                    Fill.quad(dx2, y - 2.175f * h, subIncreaseColorTo.toFloatBits(),
-                            dx2, y - 1.175f * h, subIncreaseColor.toFloatBits(),
-                            dx2 - w * d.fullness, y - 1.175f * h, subIncreaseColor.toFloatBits(),
-                            dx2 - w * d.fullness, y - 2.175f * h, subIncreaseColorTo.toFloatBits());
+                    float dx2 = x + b2w * (d.start - 0.5f);
+                    Fill.quad(dx2, y - b2dy - 0.5f * b2h - 4 * b1h, subIncreaseColorTo.toFloatBits(),
+                            dx2, y - b2dy - 0.5f * b2h, subIncreaseColor.toFloatBits(),
+                            dx2 - b2w * d.fullness, y - b2dy - 0.5f * b2h, subIncreaseColor.toFloatBits(),
+                            dx2 - b2w * d.fullness, y - b2dy - 0.5f * b2h - 4 * b1h, subIncreaseColorTo.toFloatBits());
                 }
             }
             if(subShineTimer > 0){
                 Draw.color(white);
                 Draw.alpha(subShineTimer / 40f);
-                Fill.rect(x, y - h, w, h * 0.35f);
+                Fill.rect(x, y - b2dy, b2w, b2h);
                 Draw.alpha(1f);
                 float colorBits1 = white.cpy().a(subShineTimer / 40f).toFloatBits();
                 float colorBits2 = white.cpy().a(0f).toFloatBits();
-                Fill.quad(x - w * 0.7f, y - 1.175f * h, colorBits2,
-                        x - w * 0.7f, y - 0.825f * h, colorBits2,
-                        x - w * 0.5f, y - 0.825f * h, colorBits1,
-                        x - w * 0.5f, y - 1.175f * h, colorBits1);
-                Fill.quad(x + w * 0.5f, y - 1.175f * h, colorBits1,
-                        x + w * 0.5f, y - 0.825f * h, colorBits1,
-                        x + w * 0.7f, y - 0.825f * h, colorBits2,
-                        x + w * 0.7f, y - 1.175f * h, colorBits2);
+                Fill.quad(x - b2w * 0.8f, y - b2dy - 0.5f * b2h, colorBits2,
+                        x - b2w * 0.8f, y - b2dy + 0.5f * b2h, colorBits2,
+                        x - b2w * 0.5f, y - b2dy + 0.5f * b2h, colorBits1,
+                        x - b2w * 0.5f, y - b2dy - 0.5f * b2h, colorBits1);
+                Fill.quad(x + b2w * 0.5f, y - b2dy - 0.5f * b2h, colorBits1,
+                        x + b2w * 0.5f, y - b2dy + 0.5f * b2h, colorBits1,
+                        x + b2w * 0.8f, y - b2dy + 0.5f * b2h, colorBits2,
+                        x + b2w * 0.8f, y - b2dy - 0.5f * b2h, colorBits2);
             }
         }
 

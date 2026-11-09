@@ -11,6 +11,7 @@ import mindustry.gen.PayloadUnit;
 public class OmicronUnit extends PayloadUnit {
 
     private float vulnerableTimer = 0;
+    private boolean alwaysUntargetable = false;
 
     public static PayloadUnit create(){
         return new OmicronUnit();
@@ -21,6 +22,7 @@ public class OmicronUnit extends PayloadUnit {
         super.update();
         if(type instanceof OmicronUnitType o && (isShooting() || (o.buildVulnerable && isBuilding()))) {
             vulnerableTimer = o.shootVulnerableTime;
+            alwaysUntargetable = o.alwaysUntargetable;
         }else{
             vulnerableTimer = Math.max(vulnerableTimer - Time.delta, 0f);
         }
@@ -32,6 +34,7 @@ public class OmicronUnit extends PayloadUnit {
 
     @Override
     public boolean targetable(Team targeter){
+        if(alwaysUntargetable) return false;
         return type.targetable(this, targeter) || vulnerable();
     }
 

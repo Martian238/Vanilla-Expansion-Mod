@@ -10,6 +10,7 @@ import VanillaExpansion.expand.world.block.defense.ShieldArcUnitPowerTurret;
 import VanillaExpansion.expand.world.block.defense.TantalumWall;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import VanillaExpansion.expand.world.block.liquid.Pipe;
+import VanillaExpansion.expand.world.block.mechanism.OrbitStrikeBeaconSpawner;
 import VanillaExpansion.expand.world.block.mechanism.OrbitStrikeProcessor;
 import VanillaExpansion.expand.world.block.power.ShakeGenerator;
 import VanillaExpansion.expand.world.block.production.ConfigurableHeatProducer;
@@ -569,6 +570,7 @@ public class VEJSBlocks {
         new AutoBossBarBlock("auto-boss-bar-block");
         new CutsceneSwitchBlock("cutscene-switch");
         new OrbitStrikeProcessor("orbit-strike-processor");
+        new OrbitStrikeBeaconSpawner("orbit-strike-beacon-spawner");
         new MessageBlock("isomorphic-message");
         new SwitchBlock("isomorphic-switch");
         new LogicBlock("isomorphic-processor");

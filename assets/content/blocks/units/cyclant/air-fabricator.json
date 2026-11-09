@@ -12,7 +12,6 @@
       }
     ]
   },
-  "researchCostMultiplier": 0.03,
   "plans": [
     {
       "unit": "flare",
@@ -53,12 +52,17 @@
       "unit": "uprise",
       "time": 900,
       "requirements": [ "silicon/20","ferrum/10" ]
+    },
+    {
+      "unit": "chain-probe",
+      "time": 1800,
+      "requirements": [ "silicon/30","aluminium/40" ]
     }
   ],
   "consumes": {
     "power": 1.6
   },
   //"regionSuffix": "-rail"
-  "researchCostMultiplier": 0.1,
+  "researchCostMultiplier": 0.03,
   "shownPlanets": [ "cyclant","maress","phoon","thavina" ]
 }

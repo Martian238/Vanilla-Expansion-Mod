@@ -35,6 +35,7 @@ public class VEJSUnitTypes {
             flyLaserDrill, egnarra, wideFortress, magneticSmall,
             thoriumBlaster, thoriumBomber, thoriumRocketeer,
             duplicator, alev, antumbright, eclire, toxorpion;
+    public static OmicronUnitType chainProbe;
     public static UnitType frostFortress;
     public static IronGolemType ferricFortress;
     public static UnitType fireBee, octPainted;
@@ -142,6 +143,7 @@ public class VEJSUnitTypes {
         eclire = new UnitType("eclire"){{constructor = UnitEntity::create;}};
         toxorpion = new UnitType("toxorpion"){{constructor = LegsUnit::create;}};
 
+        chainProbe = new OmicronUnitType("chain-probe"){{constructor = OmicronUnit::create;}};
         frostFortress = new UnitType("frost-fortress"){{constructor = MechUnit::create;}};
         ferricFortress = new IronGolemType("ferric-fortress"){{
             constructor = IronGolemUnit::create;

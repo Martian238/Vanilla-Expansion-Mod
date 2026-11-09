@@ -395,7 +395,7 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 Time.run((float) (Math.sqrt(d / core.shockwaveRadius) * (coreBlock.shockwaveDuration)),
                         () -> {
                     coreBlock.hitUnitSound.at(u.x, u.y, 1f, Mathf.clamp(u.hitSize / 40));
-                    Effect.shake(coreBlock.hitUnitShakeBase * u.hitSize / tilesize, u.hitSize * 2, u.x, u.y);
+                    Effect.shake(coreBlock.hitUnitShakeBase * u.hitSize / tilesize, Math.min(30f, u.hitSize * 2), u.x, u.y);
                     if(u.type.killable) {
                         u.damage(1f);
                         u.vel.x = u.vel.x + ((u.x - core.x) / d) * Mathf.clamp(128 / u.hitSize) * 6f;
@@ -475,7 +475,7 @@ public class ShockwaveCoreBlock extends CoreBlock {
                         }
                         Time.run((float) (Math.sqrt(d / core.shockwaveRadius) * (coreBlock.shockwaveDuration)), () -> {
                             coreBlock.hitBlockSound.at(b.x, b.y, 1f, 0.67f * b.block.size);
-                            Effect.shake(coreBlock.hitBlockShakeBase * b.block.size * Mathf.clamp(1 - d / shockwaveRadius + 0.125f), coreBlock.hitBlockShakeBase * b.block.size * 2, b.x, b.y);
+                            Effect.shake(coreBlock.hitBlockShakeBase * b.block.size * Mathf.clamp(1 - d / shockwaveRadius + 0.125f), Math.min(30f, coreBlock.hitBlockShakeBase * b.block.size * 2), b.x, b.y);
                             if(b.block instanceof BaseShield bs && b.efficiency > 0.1f) {
                                 b.damagePierce(Math.min(b.block.health * 0.5f, b.block.health * 0.1f + 5000f * Mathf.clamp(1 - d / shockwaveRadius)));
                                 WaveEffect blockEffect = new WaveEffect(){{

@@ -13,4 +13,5 @@ public class OrbitStrikeBeaconUnitType extends UnitType {
     public Sound drownSound = Sounds.none;
     public Sound activateSound = Sounds.none;
     public float activateTime = 60f * 120f;
+    public Sound beepSound = Sounds.none;
 }

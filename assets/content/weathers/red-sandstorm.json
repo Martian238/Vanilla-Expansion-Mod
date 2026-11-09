@@ -1,7 +1,7 @@
 {
   "type": "ParticleWeather",
-  "color": "ba754e",
-  "noiseColor": "ba754e",
+  "color": "ba754ea0",
+  "noiseColor": "ba754ea0",
   "particleRegion": "particle",
   "drawNoise": true,
   "useWindVector": true,

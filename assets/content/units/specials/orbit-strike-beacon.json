@@ -9,7 +9,7 @@
   "isEnemy": false,
   "useUnitCap": false,
   "hitSize": 20,
-  "drownTimeMultiplier": 1.25,
+  "drownTimeMultiplier": 15,
   "immunities": [ "frozen","dusty" ],
   "drawShield": false,
   "createScorch": false,
@@ -22,6 +22,7 @@
   ],
   "activateSound": "rlDarkSentryBlink",
   "drownSound": "pvzZombaquariumDie",
+  "beepSound": "beaconBeep",
   "parts": [
     {
       "type": "VanillaExpansion.expand.parts.AutoShadingPart",

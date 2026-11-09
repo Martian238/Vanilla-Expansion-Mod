@@ -8,7 +8,7 @@
   "engineOffset": 0,
   "engineSize": 0,
   "hidden": true,
-  "immunities": [ "freezing","sapped" ],
+  "immunities": [ "freezing","sapped","frozen" ],
   "engines": [
     {
       "x": 4.5,
