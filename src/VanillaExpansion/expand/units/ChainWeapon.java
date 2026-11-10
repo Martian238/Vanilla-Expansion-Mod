@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.units;
 
+import VanillaExpansion.content.VEJSStatuses;
 import arc.Core;
 import arc.audio.Sound;
 import arc.graphics.Color;
@@ -19,6 +20,7 @@ import arc.util.Tmp;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.Effect;
+import mindustry.entities.Units;
 import mindustry.entities.units.WeaponMount;
 import mindustry.gen.Groups;
 import mindustry.gen.Sounds;
@@ -54,6 +56,8 @@ public class ChainWeapon extends Weapon {
     public float baseCatchRadius = 8f;
     /** 抓取单位后锁链改变长度时的速度倍率 */
     public float backSpeedMultiplier = 0.2f;
+    /** 不是玩家时自动抓取的检测范围边长 */
+    public float autoCatchRange = 24f;
 
     /** 启用后，电脑端按右键可切断所有锁链 */
     public boolean rightClickCancel = true;
@@ -243,6 +247,11 @@ public class ChainWeapon extends Weapon {
     }
 
 
+    public boolean shooting(Unit u){
+        if(u.isPlayer())return u.isShooting();
+        return u.isShooting() && Units.any(u.aimX - autoCatchRange * 0.5f, u.aimY - autoCatchRange * 0.5f,
+                autoCatchRange, autoCatchRange, unit -> (unit.team != u.team || catchSameTeam));
+    }
 
 
     @Override
@@ -262,7 +271,7 @@ public class ChainWeapon extends Weapon {
             if(debug) Log.info("chain init complete");
         }
         chainUpdate(u, m);
-        if(!m.shootingLast && u.isShooting()){
+        if(!m.shootingLast && shooting(u)){
             for(int i = 0; i < m.chainPoints.size; i++){
                 int finalI = i;
                 ChainPoint p = m.chainPoints.find(pf -> pf.order == finalI);
@@ -290,7 +299,7 @@ public class ChainWeapon extends Weapon {
                 break;
             }
         }
-        m.shootingLast = u.isShooting();
+        m.shootingLast = shooting(u);
     }
 
     private float extendEffectTimer = 0;
@@ -331,7 +340,7 @@ public class ChainWeapon extends Weapon {
                 }
                 m.catchUnit(c, u);
             }else{
-                if(c.caught && (c.unit.dead() || (rightClickCancel && Core.input.keyDown(KeyCode.mouseRight) && u.isPlayer() && !Vars.control.input.commandMode))){
+                if(c.caught && (c.unit.dead() || !c.unit.isAdded() || (rightClickCancel && Core.input.keyDown(KeyCode.mouseRight) && u.isPlayer() && !Vars.control.input.commandMode))){
                     m.chainBreak(c, u);
                 }
                 if(lifetime > 0){
@@ -341,6 +350,7 @@ public class ChainWeapon extends Weapon {
                         continue;
                     }
                 }
+                c.unit.apply(VEJSStatuses.caught, Time.delta * 3f);
                 float catchRotTotal = c.catchRot + c.unit.rotation();
                 c.x = c.unit.x() + c.catchD * Mathf.cosDeg(catchRotTotal);
                 c.y = c.unit.y() + c.catchD * Mathf.sinDeg(catchRotTotal);

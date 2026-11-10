@@ -13,7 +13,7 @@
   "engineOffset": 7.5,
   "buildSpeed": 0.4,
   "buildBeamOffset": 5,
-  "range": 320,
+  "range": 560,
   "flyingLayer": 90.02,
   "research": {
     "parent": "sunrise"
@@ -40,9 +40,10 @@
         }
       ],
       "chainLaser": true,
-      "maxLength": 320,
+      "maxLength": 560,
       "catchLength": 12,
-      "extendSound": "none"
+      "extendSound": "none",
+      "speed": 12
     }
   ]
 }

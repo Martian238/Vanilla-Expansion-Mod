@@ -1,6 +1,7 @@
 package VanillaExpansion.expand.type.unit.internal;
 
 import VanillaExpansion.EntityRegister;
+import VanillaExpansion.content.VEJSStatuses;
 import VanillaExpansion.expand.world.block.mechanism.OrbitStrikeProcessor;
 import arc.Core;
 import arc.Events;
@@ -64,6 +65,9 @@ public class OrbitStrikeBeaconUnit extends ElevationMoveUnit {
             if(processor != null){
                 processor.activatedBeacons.add(this);
             }
+        }
+        if(drownTime() > 0.25f && hasEffect(VEJSStatuses.caught)){
+            drownTime(0.25f);
         }
         if(drownTime() <= 0 && processor != null) {
             if(!headless && (circleSoft == null || !circleSoft.found()) && processor.block instanceof OrbitStrikeProcessor osp) {

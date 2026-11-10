@@ -9,7 +9,7 @@
   "isEnemy": false,
   "useUnitCap": false,
   "hitSize": 20,
-  "drownTimeMultiplier": 15,
+  "drownTimeMultiplier": 2,
   "immunities": [ "frozen","dusty" ],
   "drawShield": false,
   "createScorch": false,
