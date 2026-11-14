@@ -30,6 +30,15 @@
   "suspectSound": [ "lbp3NewtonBot1","lbp3NewtonBot2","lbp3NewtonBot3","lbp3NewtonBot5","lbp3NewtonBot7" ],
   "alertSound": [ "lbp3NewtonBot4","lbp3NewtonBot6","lbp3NewtonBot9" ],
   "faceTarget": false,
+  "parts": [
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "b": 13,
+      "opacity": 1,
+      "opacityPow": 4,
+      "drawInterval": 8
+    }
+  ],
   /*
   "parts": [
     {
@@ -289,9 +298,56 @@
       }
     },
         {
-          "type": "RegionPart",
+          "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
           "x": -2.25,
           "y": -2.25,
+          "b": 2,
+          "opacity": 1,
+          "opacityPow": 2,
+          "drawInterval": 8,
+          "times": 20,
+          "color": "0000ff60",
+          "colorTo": "ff000060",
+          "extra": true,
+          "useProgress": true,
+          "extraDrawIntervalMultiplier": 0.25,
+          "colorProgress": {
+            "type": "warmup",
+            "ops": [
+              {
+                "op": "mul",
+                "amount": 0
+              },
+              {
+                "op": "add",
+                "amount": 0.5
+              },
+              {
+                "op": "sin",
+                "offset": 0,
+                "mag": 0.5,
+                "scl": 0.05
+              }
+            ]
+          },
+          "progress": {
+            "type": "warmup",
+            "ops": [
+              {
+                "op": "add",
+                "other": "charge"
+              },
+              {
+                "op": "add",
+                "other": "heat"
+              }
+            ]
+          }
+        },
+        /*
+        {
+          "type": "RegionPart",
+          "x": -2.25,
           "yScl": 3,
           "xScl": 0,
           "suffix": "-beam",
@@ -339,6 +395,7 @@
             }
           ]
         }
+        */
       ],
       "bullet": {
         "type": "MultiBulletType",

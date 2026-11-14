@@ -34,6 +34,7 @@ public class VESettings {
     multicrafterSleep = "ve-multicrafter-sleep",
     multicrafterShowOutput = "ve-multicrafter-show-output",
     propedroneQuiet = "ve-propedrone-quiet",
+    coreUnitLight = "ve-core-unit-light",
     placeholder = "ve-placeholder";
 
     public static OrderedMap<String, Seq<SettingKey<?>>> allSettings = new OrderedMap<>();
@@ -52,7 +53,8 @@ public class VESettings {
                 new BoolSetting(endfieldBossTitle, true, false),
                 new BoolSetting(multicrafterSleep, true, false),
                 new BoolSetting(multicrafterShowOutput, true, false),
-                new BoolSetting(propedroneQuiet, false, false)
+                new BoolSetting(propedroneQuiet, false, false),
+                new BoolSetting(coreUnitLight, true, false)
         ));
 
         allSettings.each((name, seq) -> seq.each(SettingKey::setDefault));

@@ -30,6 +30,15 @@
   "shownPlanets": [ "sitrullus" ],
   "parts": [
     {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 8,
+      "b": 16,
+      "color": "ffffff",
+      "times": 14,
+      "drawInterval": 8,
+      "settingOnly": true
+    },
+    {
       "type": "HoverPart",
       "x": 0,
       "y": 3.5,

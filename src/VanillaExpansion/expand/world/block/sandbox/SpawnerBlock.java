@@ -27,6 +27,7 @@ import mindustry.entities.Units;
 import mindustry.game.EventType;
 import mindustry.game.Team;
 import mindustry.gen.*;
+import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.io.TypeIO;
@@ -98,6 +99,8 @@ public class SpawnerBlock extends SpawnEgg{
     public Effect spawnSmokeEffect = Fx.smokeCloud;
     public Effect spawnEffect = Fx.spawn;
     public Effect FireEffect = Fx.fireHit;
+
+    public boolean glow = true;
 
     public TextureRegion bottomRegion, shadowRegion;
 
@@ -335,7 +338,7 @@ public class SpawnerBlock extends SpawnEgg{
             Draw.color(Color.black);
             Draw.alpha(0.3f);
             Draw.rect(shadowRegion, x, y, size * tilesize, size * tilesize);
-            if(unit != null){
+            if(unit != null && !headless){
                 Draw.alpha(1f);
                 Draw.color(Color.white);
                 Draw.z(Layer.blockUnder);
@@ -347,6 +350,9 @@ public class SpawnerBlock extends SpawnEgg{
                     float height = Math.min(size * tilesize * 0.5f, unit.fullIcon.height / 4f);
                     float scale = (float) unit.fullIcon.width / unit.fullIcon.height;
                     Draw.rect(unit.fullIcon, x, y, height * scale, height, currentRotation);
+                }
+                if(glow){
+                    Drawf.light(x, y, size * tilesize, team.color, 1f);
                 }
             }
             Draw.alpha(1f);

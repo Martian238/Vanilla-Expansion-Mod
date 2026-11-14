@@ -14,5 +14,18 @@
     }
   ]*/
   "shownPlanets": [ "serpulo","thavina" ],
-  "engineLayer": 89.99
+  "engineLayer": 89.99,
+  "parts": {
+    "add": [
+      {
+        "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+        "a": 8,
+        "b": 16,
+        "color": "ffffff",
+        "times": 7,
+        "drawInterval": 8,
+        "settingOnly": true
+      }
+    ]
+  }
 }

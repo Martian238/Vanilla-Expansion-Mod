@@ -52,9 +52,9 @@ public class VEJSPlanets {
             rotateTime = 1200f;
             hasAtmosphere = true;
             updateLighting = true;
-            lightSrcFrom = 0f;
+            lightSrcFrom = 0.2f;
             lightSrcTo = 0.8f;
-            lightDstFrom = 0.25f;
+            lightDstFrom = 0.35f;
             lightDstTo = 0.85f;
             atmosphereRadIn = 0.02f;
             atmosphereRadOut = 0.4f;

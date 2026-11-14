@@ -1,11 +1,13 @@
 package VanillaExpansion.expand.type.unit.internal;
 
+import VanillaExpansion.expand.methods.Drawve;
 import arc.audio.Sound;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Lines;
 import arc.math.Mathf;
 import arc.util.Time;
+import mindustry.gen.Sounds;
 import mindustry.gen.TimedKillUnit;
 import mindustry.gen.TimedKillc;
 import mindustry.gen.Unit;
@@ -18,7 +20,7 @@ public class ChiniunChargeUnitType extends MissileUnitType {
         constructor = ChiniunChargeUnit::new;
     }
 
-    public Sound startChargeSound;
+    public Sound startChargeSound = Sounds.none;
 
     public float chargeRingRadius = 40f;
     public float chargeRingStroke = 16f;
@@ -40,6 +42,10 @@ public class ChiniunChargeUnitType extends MissileUnitType {
         float x = unit.x, y = unit.y;
         float chargeRot = Time.time;
         float chargeBright = unit instanceof TimedKillUnit u ? Mathf.pow(Mathf.clamp((20f - u.time()) / 20f), 1.5f) : 0f;
+        Drawve.chargeRing(charges, chargeTime, chargeTimeMax, chargeDelay, chargeDelayMax,
+                chargeRingColor1, chargeRingColor2, chargeRingColor3, chargeRingDelayColor,
+                x, y, chargeRingRadius, chargeRingStroke, chargeBright, chargeRot, interrupts);
+        /*
         if(charges > 0 && chargeTime > 0 && chargeTimeMax > 0){
             Draw.z(Layer.effect - 1f);
             if(chargeDelay > 0 && chargeDelayMax > 0){
@@ -74,8 +80,10 @@ public class ChiniunChargeUnitType extends MissileUnitType {
             }
             Draw.reset();
         }
+         */
     }
 
+    /*
     public void addChargeArc(Unit unit, float chargeTime, float chargeRot, int amount, float stroke, float alpha, float rotSpeed){
         Draw.alpha(alpha);
         Lines.stroke(stroke * chargeRingStroke);
@@ -83,4 +91,5 @@ public class ChiniunChargeUnitType extends MissileUnitType {
             Lines.arc(unit.x, unit.y, chargeRingRadius * (chargeTime / chargeTimeMax), 0.5f / amount, 360f * ((float) i / amount) + chargeRot * rotSpeed);
         }
     }
+     */
 }

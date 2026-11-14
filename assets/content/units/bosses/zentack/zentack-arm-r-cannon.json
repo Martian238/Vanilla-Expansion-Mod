@@ -24,12 +24,13 @@
     {
       "x": 0,
       "y": 0,
-      "minWarmup": 2,
+      "minWarmup": 0.99,
       "linearWarmup": true,
       "shootWarmupSpeed": 0.007497376,//2.223
       "mirror": false,
       "shootCone": 361,
       "parts": [
+        /*
         {
           "type": "RegionPart",
           "suffix": "zentack-beam",
@@ -42,11 +43,58 @@
           "xScl": 0.1,
           "yScl": 2,
           "growX": 0.25,
-          "progress": "warmup",
+          "progress": {
+            "type": "warmup",
+            "op": "add",
+            "other": {
+              "type": "recoil",
+              "op": "curve",
+              "interp": "pow10Out"
+            }
+          },
           "outline": false
+        },
+        */
+        {
+          "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+          "a": 200,
+          "b": 30,
+          "opacity": 1,
+          "opacityPow": 2,
+          "drawInterval": 8,
+          "times": 80,
+          "color": "ffa665",
+          "extra": true,
+          "useProgress": true,
+          "extraDrawIntervalMultiplier": 0.25,
+          "extraAlpha": 0.2,
+          "extraAlphaPow": 3,
+          "x": 27,
+          "y": 20,
+          "linear": true,
+          "c": 16,
+          "d": 0.075,
+          "progress": {
+            "type": "warmup",
+            "op": "add",
+            "other": {
+              "type": "recoil",
+              "op": "curve",
+              "interp": "pow10Out"
+            }
+          }
         }
       ],
-      "bullet": { "maxRange": 2000 }
+      "shootSound": "none",
+      "recoil": 0,
+      "recoilTime": 240,
+      "bullet": { "maxRange": 2000,
+        "instantDisappear": true,
+        "despawnEffect": "none",
+        "hitEffect": "none",
+        "shootEffect": "none",
+        "smokeEffect": "none",
+        "damage": 0}
     },
     {
       "x": 0,

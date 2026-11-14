@@ -58,6 +58,7 @@
       "rotationLimit": 60,
       "mirror": false,
       "minWarmup": 0.6,
+      "predictTarget": false,
       "bullet": {
         "recoil": 1,
         "shootEffect": "shootTitan",
@@ -159,6 +160,7 @@
       "shootSound": "shootDuo",
       "inaccuracy": 4,
       "minWarmup": 0.6,
+      "predictTarget": false,
       "shoot": {
         "shots": 2,
         "shotDelay": 6

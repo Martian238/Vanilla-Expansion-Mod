@@ -15,6 +15,7 @@
         "glowIntensity": 1.5,
         "glowScale": 8
       },
+      /*
       {
         "type": "DrawGlowRegion",
         "suffix": "-glow-lights",
@@ -34,9 +35,48 @@
         "glowScale": 8,
         "rotateSpeed": 10
       },
+      */
+      {
+        "type": "DrawBlockParts",
+        "parts": [
+          {
+            "type": "RegionPart",
+            "name": "ve-lamp-alarm-glow-lights",
+            "color": "ffa66500",
+            "colorTo": "ffa665",
+            "outline": false,
+            "blending": "additive",
+            "progress": "warmup",
+            "moves": [
+              {
+                "progress": "reload",
+                "rot": -360
+              }
+            ],
+            "children": [
+              {
+                "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+                "a": 12,
+                "b": 24,
+                "rotation": 90,
+                "opacity": 1,
+                "opacityPow": 2,
+                "drawInterval": 8,
+                "times": 15,
+                "color": "ffa665",
+                "extra": true,
+                "useProgress": true,
+                "extraDrawIntervalMultiplier": 0.5,
+                "extraAlpha": 0.2,
+                "mirror": true
+              }
+            ]
+          }
+        ]
+      },
       {
         "type": "DrawFlame",
-        "flameColor": "ffd37f00",
+        "flameColor": "ffa66500",
         "flameRadius": 0,
         "flameRadiusIn": 0,
         "lightRadius": 96,
@@ -46,6 +86,8 @@
       }
     ]
   },
+  "clipSize": 800,
+  "craftTime": 36,
   "warmupSpeed": 0.15,
   //"lightColor": "ffd37f",
   "research": "lamp",

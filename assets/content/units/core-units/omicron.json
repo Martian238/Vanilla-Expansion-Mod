@@ -30,6 +30,17 @@
   "drawBody": false,
   "wobble": false,
   "strafePenalty": 1,
+  "parts": [
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 8,
+      "b": 16,
+      "color": "ffffff",
+      "times": 20,
+      "drawInterval": 8,
+      "settingOnly": true
+    }
+  ],
   "abilities": [
     {
       "type": "MoveEffectAbility",

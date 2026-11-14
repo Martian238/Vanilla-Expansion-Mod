@@ -27,10 +27,10 @@ public class SentryUnitType extends UnitType {
     public float movingWarmupTime = 60f;
     public float suspectTime = 120f;
 
-    public float areaWaveTime = 20f;
-    public float areaWaveInterval = 40f;
-    public float areaWaveMultiplierSuspect = 2f;
-    public float areaWaveMultiplierAlert = 4f;
+    public float areaWaveTime = 30f;
+    public float areaWaveInterval = 80f;
+    public float areaWaveMultiplierSuspect = 3f;
+    public float areaWaveMultiplierAlert = 6f;
     public Color areaColorDefault = Color.valueOf("98ffa9");
     public Color areaColorSuspect = Color.valueOf("ffd37f");
     public Color areaColorAlert = Color.valueOf("f25555");

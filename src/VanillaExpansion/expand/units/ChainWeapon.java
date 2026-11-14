@@ -21,6 +21,7 @@ import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.Effect;
 import mindustry.entities.Units;
+import mindustry.entities.bullet.BulletType;
 import mindustry.entities.units.WeaponMount;
 import mindustry.gen.Groups;
 import mindustry.gen.Sounds;
@@ -36,6 +37,8 @@ public class ChainWeapon extends Weapon {
         useAttackRange = false;
         mirror = false;
         mountType = ChainWeaponMount::new;
+        predictTarget = false;
+        bullet = new BulletType(){{ speed = 99999; rangeOverride = 0; damage = 0; }};
     }
 
     /** 发射时的锁链最大长度 */
@@ -247,10 +250,18 @@ public class ChainWeapon extends Weapon {
     }
 
 
-    public boolean shooting(Unit u){
+    public boolean shooting(Unit u, ChainWeaponMount m){
         if(u.isPlayer())return u.isShooting();
         return u.isShooting() && Units.any(u.aimX - autoCatchRange * 0.5f, u.aimY - autoCatchRange * 0.5f,
-                autoCatchRange, autoCatchRange, unit -> (unit.team != u.team || catchSameTeam));
+                autoCatchRange, autoCatchRange, unit -> checkNoFlyingChain(m) && !checkCaught(unit, m) && (unit.team != u.team || catchSameTeam));
+    }
+
+    public boolean checkCaught(Unit u, ChainWeaponMount m){
+        return m.chains.contains(o -> o.caught && o.unit == u);
+    }
+
+    public boolean checkNoFlyingChain(ChainWeaponMount m){
+        return m.chains.isEmpty() || !m.chains.contains(o -> !o.caught);
     }
 
 
@@ -271,7 +282,7 @@ public class ChainWeapon extends Weapon {
             if(debug) Log.info("chain init complete");
         }
         chainUpdate(u, m);
-        if(!m.shootingLast && shooting(u)){
+        if(!m.shootingLast && shooting(u, m)){
             for(int i = 0; i < m.chainPoints.size; i++){
                 int finalI = i;
                 ChainPoint p = m.chainPoints.find(pf -> pf.order == finalI);
@@ -299,7 +310,7 @@ public class ChainWeapon extends Weapon {
                 break;
             }
         }
-        m.shootingLast = shooting(u);
+        m.shootingLast = shooting(u, m);
     }
 
     private float extendEffectTimer = 0;

@@ -19,6 +19,17 @@
   "buildRange": 280,
   "createWreck": false,
   "shownPlanets": [ "sitrullus" ],
+  "parts": [
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 8,
+      "b": 16,
+      "color": "ffffff",
+      "times": 14,
+      "drawInterval": 8,
+      "settingOnly": true
+    }
+  ],
   "weapons": [
     {
       "name": "iota-fungikiller-weapon",

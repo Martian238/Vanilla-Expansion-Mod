@@ -39,6 +39,17 @@
   "hidden": true,
   "engineColor": "f25555",
   "immunities": [ "frozen","blown","freezing" ],
+  "parts": [
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 8,
+      "b": 16,
+      "color": "ffffff",
+      "times": 15,
+      "drawInterval": 8
+    }
+  ],
+  "clipSize": 8000,
   "weapons": [
      {
       "type": "BuildWeapon",

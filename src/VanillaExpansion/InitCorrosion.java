@@ -30,7 +30,8 @@ public class InitCorrosion {
     public static Seq<String> acidBlockWhitelist2 = Seq.with(
             "ve-silicide-fluid-source","ve-silicide-fluid-void",
             "ve-silver-conduit","ve-silver-conduit-armored","ve-valve-fluid-cross","ve-valve-fluid-distribute",
-            "ve-silver-bridge","ve-chained-pump","ve-fluid-sorter","ve-acid-resistant-pump","ve-acid-resistant-conduit"
+            "ve-silver-bridge","ve-chained-pump","ve-fluid-sorter","ve-acid-resistant-pump","ve-acid-resistant-conduit",
+            "veee-tantalum-bridge-conduit"
     );
     /** 仅在非灼热环境下免疫沉积酸腐蚀的建筑 */
     public static Seq<String> acidErekirBlockWhitelist = Seq.with(

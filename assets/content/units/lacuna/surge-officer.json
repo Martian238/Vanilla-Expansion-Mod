@@ -109,6 +109,14 @@
       "width": 2.5,
       "effectChance": 0.5,
       "effectColor": "00ffce"
+    },
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 24,
+      "b": 48,
+      "color": "ffffff",
+      "times": 20,
+      "drawInterval": 8
     }
   ],
   "lightColor": "00ffce",

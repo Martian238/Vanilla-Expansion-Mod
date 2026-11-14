@@ -16,6 +16,7 @@
   "physics": false,
   "lightRadius": 48,
   "lightColor": "7457ce",
+  "lightOpacity": 1,
   "hittable": false,
   "createWreck": false,
   "createScorch": false,
@@ -158,6 +159,7 @@
       },
       "shootCone": 361,
       "parts": [
+        /*
         {
           "type": "RegionPart",
           "progress": "warmup",
@@ -170,6 +172,21 @@
           "growX": 1,
           "yScl": 6,
           "blending": "additive"
+        },
+        */
+        {
+          "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+          "b": 1.5,
+          "opacity": 1,
+          "opacityPow": 2,
+          "drawInterval": 8,
+          "times": 80,
+          "color": "ffffff",
+          "colorTo": "7457ce",
+          "extra": true,
+          "useProgress": true,
+          "extraDrawIntervalMultiplier": 0.5,
+          "extraAlpha": 0.35
         }
       ]
     }

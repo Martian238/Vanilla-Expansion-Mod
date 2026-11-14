@@ -24,6 +24,13 @@
       "color": "f25555",
       "under": false,
       "outline": false
+    },
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "b": 13,
+      "opacity": 1,
+      "opacityPow": 4,
+      "drawInterval": 8
     }
   ],
   "weapons": [

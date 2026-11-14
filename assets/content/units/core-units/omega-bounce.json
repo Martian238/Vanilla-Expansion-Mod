@@ -192,8 +192,17 @@
       "growY": -0.35,
       "growX": 0.35,
       "outline": false
+    },
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 8,
+      "b": 16,
+      "color": "ffffff",
+      "times": 15,
+      "drawInterval": 8
     }
   ],
+  "clipSize": 8000,
   "weapons": [
     {
       "mirror": false,

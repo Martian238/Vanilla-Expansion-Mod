@@ -32,6 +32,17 @@
   ],
   "immunities": [ "frozen" ],
   "shownPlanets": [ "cyclant","phoon","thavina" ],
+  "parts": [
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 8,
+      "b": 16,
+      "color": "ffffff",
+      "times": 17,
+      "drawInterval": 8,
+      "settingOnly": true
+    }
+  ],
   "weapons": [
     {
       "type": "BuildWeapon",

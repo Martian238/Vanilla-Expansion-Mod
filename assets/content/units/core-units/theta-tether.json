@@ -41,6 +41,17 @@
   },
   "immunities": [ "frozen" ],
   "shownPlanets": [ "cyclant","phoon","maress","thavina" ],
+  "parts": [
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 8,
+      "b": 16,
+      "color": "ffffff",
+      "times": 9,
+      "drawInterval": 8,
+      "settingOnly": true
+    }
+  ],
   "weapons": [
     {
       "name": "theta-weapon",

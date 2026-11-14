@@ -19,6 +19,7 @@ import mindustry.entities.Units;
 import mindustry.game.EventType;
 import mindustry.game.Team;
 import mindustry.gen.*;
+import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.type.UnitType;
 import mindustry.world.Tile;
@@ -27,32 +28,31 @@ import mindustry.world.blocks.production.GenericCrafter;
 
 import java.util.Objects;
 
-import static mindustry.Vars.tilesize;
-import static mindustry.Vars.world;
+import static mindustry.Vars.*;
 
 public class SentryUnit extends UnitEntity {
     public static UnitEntity create(){
         return new SentryUnit();
     }
 
-    public float visionRadius = 80f;
+    public float visionRadius;
     /** An additional arc area in where a player can make the unit suspecting */
-    public float suspectRadius = 60f;
-    public float visionAngle = 80f;
+    public float suspectRadius;
+    public float visionAngle;
     /** Time before the unit back to patrol from default status */
-    public float safeTime = 90f;
+    public float safeTime;
     /** Time before the unit starts moving toward a suspected player */
-    public float movingWarmupTime = 60f;
+    public float movingWarmupTime;
     /** Time before the unit arrives at the last position or misses the target and back to default status */
-    public float suspectTime = 120f;
+    public float suspectTime;
 
     /** Default duration of an arc wave effect */
-    public float areaWaveTime = 20f;
-    public float areaWaveInterval = 40f;
+    public float areaWaveTime;
+    public float areaWaveInterval;
     /** Default speed multiplier of the arc wave effect in suspect status */
-    public float areaWaveMultiplierSuspect = 2f;
+    public float areaWaveMultiplierSuspect;
     /** Default speed multiplier of the arc wave effect in alert status */
-    public float areaWaveMultiplierAlert = 4f;
+    public float areaWaveMultiplierAlert;
     public Color areaColorDefault = Color.valueOf("98ffa9");
     public Color areaColorSuspect = Color.valueOf("ffd37f");
     public Color areaColorAlert = Color.valueOf("f25555");
@@ -69,9 +69,9 @@ public class SentryUnit extends UnitEntity {
     public Sound alertSound = Sounds.none;
     /** Metal Gear Solid exclamation mark effect unit */
     public UnitType exclamationMarkUnit;
-    public float exclamationMarkOffset = 3.75f * tilesize;
+    public float exclamationMarkOffset;
     /** Time before directly starting attack when a player is suspected but the unit cannot move towards it */
-    public float confirmTime = 300f;
+    public float confirmTime;
 
     public Vec2 defaultPos = new Vec2();
     public float defaultRotation = 0f;
@@ -428,6 +428,9 @@ public class SentryUnit extends UnitEntity {
 
         if(exclamationMarkUnitSpawned != null){
             exclamationMarkUnitSpawned.set(x, y + exclamationMarkOffset);
+            if(exclamationMarkUnitSpawned.dead() || !exclamationMarkUnitSpawned.isAdded()){
+                exclamationMarkUnitSpawned = null;
+            }
         }
 
         patrol();
@@ -445,7 +448,7 @@ public class SentryUnit extends UnitEntity {
         visionAngleActual = Mathf.approachDelta(visionAngleActual, visionEnabled ? visionAngle : 0,  2f + 0.3f * Math.abs(visionAngleActual - (visionEnabled ? visionAngle : 0)));
         if(Float.isNaN(visionAngleActual)) visionAngleActual = visionAngle;
         if(!visionEnabled){
-            if(previousRot != rotation){
+            if(previousRot != rotation && (vel().len2() > 0.1f || status < 1)){
                 previousRot = rotation;
             }else{
                 stopRotTimer++;
@@ -472,6 +475,7 @@ public class SentryUnit extends UnitEntity {
     }
 
     public void drawArea(){
+        if(headless) return;
         float fraction = (float) Math.sqrt(Mathf.clamp(visionAngleActual / visionAngle));
         Draw.z(Layer.blockUnder + 0.1f);
         Draw.color(areaColorDefault, areaColorSuspect, areaColorAlert, areaColorProgress);
@@ -499,8 +503,20 @@ public class SentryUnit extends UnitEntity {
             Lines.stroke(2f);
             Draw.z(Layer.bullet - 0.01f);
             Draw.color(areaColorDefault, areaColorSuspect, areaColorAlert, ringColorProgress);
-            Lines.arc(x, y, type.hitSize, 0.2f, -36f);
-            Lines.arc(x, y, type.hitSize, 0.2f, 180f - 36f);
+            float sideR = type.hitSize;
+            Lines.arc(x, y, sideR, 0.2f, -36f);
+            Lines.arc(x, y, sideR, 0.2f, 180f - 36f);
+            for(int i = 0; i <= 10; i++) {
+                float rot = 36f - 72f * i / 10;
+                Drawf.light(x + sideR * Mathf.cosDeg(rot), y + sideR * Mathf.sinDeg(rot),
+                        8f, Draw.getColor(), 0.25f);
+                Drawf.light(x - sideR * Mathf.cosDeg(rot), y - sideR * Mathf.sinDeg(rot),
+                        8f, Draw.getColor(), 0.25f);
+            }
+        }
+        Drawf.light(x, y, type.hitSize * 0.6f, team.color, type.lightOpacity);
+        if(exclamationMarkUnitSpawned != null){
+            Drawf.light(x, y + exclamationMarkOffset, tilesize * 2f, Color.red, 0.75f);
         }
         if(debug){
             Draw.z(Layer.blockUnder + 0.1f);

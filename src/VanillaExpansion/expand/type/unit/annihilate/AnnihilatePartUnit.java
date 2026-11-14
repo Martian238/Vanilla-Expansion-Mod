@@ -2,6 +2,7 @@ package VanillaExpansion.expand.type.unit.annihilate;
 
 import VanillaExpansion.EntityRegister;
 import VanillaExpansion.content.CustomFx;
+import VanillaExpansion.expand.methods.Drawve;
 import arc.audio.Sound;
 import arc.graphics.Blending;
 import arc.graphics.Color;
@@ -365,6 +366,10 @@ public class AnnihilatePartUnit extends UnitEntity {
     }
 
     public void partCharge(){
+        Drawve.chargeRing(charges, chargeTime, chargeTimeMax, chargeDelay, chargeDelayMax,
+                chargeRingColor1, chargeRingColor2, chargeRingColor3, chargeRingDelayColor,
+                x, y, chargeRingRadius, chargeRingStroke, chargeBright, chargeRot, interrupts);
+        /*
         if(charges > 0 && chargeTime > 0 && chargeTimeMax > 0){
             Draw.z(Layer.effect - 1f);
             if(chargeDelay > 0 && chargeDelayMax > 0){
@@ -399,8 +404,10 @@ public class AnnihilatePartUnit extends UnitEntity {
             }
             Draw.reset();
         }
+         */
     }
 
+    /*
     public void addChargeArc(int amount, float stroke, float alpha, float rotSpeed){
         Draw.alpha(alpha);
         Lines.stroke(stroke * chargeRingStroke);
@@ -408,6 +415,7 @@ public class AnnihilatePartUnit extends UnitEntity {
             Lines.arc(x, y, chargeRingRadius * (chargeTime / chargeTimeMax), 0.5f / amount, 360f * ((float) i / amount) + chargeRot * rotSpeed);
         }
     }
+     */
 
     @Override
     public boolean targetable(Team targeter){

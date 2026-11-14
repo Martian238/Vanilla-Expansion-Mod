@@ -33,6 +33,17 @@
   "stepSoundPitchRange": 0.1,
   "stepSoundVolume": 0.15,
   "shownPlanets": [ "maress","thavina" ],
+  "parts": [
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 8,
+      "b": 16,
+      "color": "ffffff",
+      "times": 15,
+      "drawInterval": 8,
+      "settingOnly": true
+    }
+  ],
   "abilities": [
     {
       "type": "RepairFieldAbility",

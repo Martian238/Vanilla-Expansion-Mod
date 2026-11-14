@@ -90,6 +90,14 @@
       "radius": 2.75,
       "color": "ffffff",
       "circle": true
+    },
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 24,
+      "b": 48,
+      "color": "ffffff",
+      "times": 20,
+      "drawInterval": 8
     }
   ],
   "lightColor": "00ffce",

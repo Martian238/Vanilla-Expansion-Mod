@@ -20,7 +20,6 @@
   "lockLegBase": false,
   "rotateSpeed": 5,
   "buildSpeed": 1.9,
-  "buildRange": 280,
   "mineSpeed": 12,
   "mineTier": 3,
   "hitSize": 16,
@@ -37,6 +36,17 @@
   "stepSoundPitchRange": 0.1,
   "stepSoundVolume": 0.15,
   "shownPlanets": [ "maress","thavina" ],
+  "parts": [
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "a": 8,
+      "b": 16,
+      "color": "ffffff",
+      "times": 17,
+      "drawInterval": 8,
+      "settingOnly": true
+    }
+  ],
   "abilities": [
     {
       "type": "RepairFieldAbility",

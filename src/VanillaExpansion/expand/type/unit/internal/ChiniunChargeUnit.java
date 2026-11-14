@@ -1,5 +1,6 @@
 package VanillaExpansion.expand.type.unit.internal;
 
+import VanillaExpansion.EntityRegister;
 import mindustry.gen.TimedKillUnit;
 
 public class ChiniunChargeUnit extends TimedKillUnit {
@@ -25,5 +26,10 @@ public class ChiniunChargeUnit extends TimedKillUnit {
             return;
         }
         super.draw();
+    }
+
+    @Override
+    public int classId() {
+        return EntityRegister.getID(getClass());
     }
 }

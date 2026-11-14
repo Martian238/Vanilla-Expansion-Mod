@@ -51,6 +51,22 @@
       "x": 0,
       "y": 0,
       "mirror": false,
+      "minWarmup": 2,
+      "display": false,
+      "useAttackRange": false,
+      "rotate": true,
+      "rotateSpeed": 90,
+      "bullet": {
+        "rangeOverride": 440,
+        "collidesTiles": false,
+        "collidesGround": false,
+        "speed": 99999
+      }
+    },
+    {
+      "x": 0,
+      "y": 0,
+      "mirror": false,
       "reload": 180,
       "shootSound": "shootQuad",
       "shoot": {

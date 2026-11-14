@@ -420,5 +420,14 @@
         "reflectable": false
       }
     }*/
+  ],
+  "parts": [
+    {
+      "type": "VanillaExpansion.expand.parts.HyperbolaLightPart",
+      "b": 13,
+      "opacity": 1,
+      "opacityPow": 4,
+      "drawInterval": 8
+    }
   ]
 }

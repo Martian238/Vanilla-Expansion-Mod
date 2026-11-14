@@ -9,7 +9,7 @@
     "items": {
       "items": [ "fusion-fuel/1" ]
     },
-    "power": 100
+    "power": 103.35
   },
   "hasLiquids": false,
   "flammabilityScale": 0,
@@ -57,7 +57,7 @@
   "liquidCapacity": 0,
   "warmupSpeed": 0.0005,
   "itemDuration": 125,
-  "powerProduction": 5516.6666666667,
+  "powerProduction": 5533.333333333,
   "explosionShake": 32,
   "explosionShakeDuration": 60,
   "explosionDamage": 50000,
