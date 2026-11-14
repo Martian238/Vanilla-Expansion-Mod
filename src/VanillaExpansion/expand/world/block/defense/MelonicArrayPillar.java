@@ -9,6 +9,7 @@ import arc.graphics.g2d.TextureRegion;
 import arc.math.Mathf;
 import arc.util.Time;
 import arc.util.Tmp;
+import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.entities.Units;
 import mindustry.game.Team;
@@ -53,7 +54,9 @@ public class MelonicArrayPillar extends PowerTurret {
         boolean bo = false;
         for(Building b : Groups.build){
             if(Objects.equals(b.block.name, this.name)){
-                Draw.z(Layer.buildBeam);
+                if (!Vars.headless) {
+                    Draw.z(Layer.buildBeam);
+                }
                 Draw.color(Color.valueOf("e44646"));
                 Draw.alpha(0.5f);
                 Lines.stroke(2f);
@@ -123,8 +126,9 @@ public class MelonicArrayPillar extends PowerTurret {
                 //paramEffect = absorbEffect;
                 Groups.bullet.intersect(x - rad, y - rad, rad * 2f, rad * 2f, bulletConsumer);
                 Units.nearby(team, x, y, rad + 10f, unitConsumer);
-
-            Draw.z(Layer.flyingUnitLow - 1f);
+            if (!Vars.headless) {
+                Draw.z(Layer.flyingUnitLow - 1f);
+            }
             float elevation = 40f;
             if(shadowRegionPillar != null) Drawf.shadow(shadowRegionPillar, x - elevation, y - elevation, 0f);
         }

@@ -7,6 +7,7 @@ import VanillaExpansion.expand.graphics.VEShaders;
 import VanillaExpansion.expand.type.unit.UnitEventUpdateManager;
 import VanillaExpansion.expand.ui.HotbarUI;
 import VanillaExpansion.expand.world.block.RectangleBlock;
+import VanillaExpansion.expand.world.block.defense.ShieldArcUnitPowerTurret;
 import VanillaExpansion.ui.VEFonts;
 import VanillaExpansion.ui.bossrush.BossRushRegistry;
 import arc.Core;
@@ -25,6 +26,8 @@ import mindustry.mod.Mod;
 import VanillaExpansion.expand.graphics.LensShockwaveFX;
 import VanillaExpansion.expand.input.VEInputHandler;
 import mindustry.ui.dialogs.BaseDialog;
+import mindustry.world.Block;
+
 import java.util.Arrays;
 import static mindustry.Vars.*;
 public class VanillaExpansionMod extends Mod {
@@ -77,7 +80,14 @@ public class VanillaExpansionMod extends Mod {
                 VanillaExpansion.expand.ui.HotbarUI.instance.updateVisibility();
             }
         });
-
+        //加载你屏障炮台的abilities
+        if (content != null) {
+            for (Block b : Vars.content.blocks()) {
+                if (b instanceof ShieldArcUnitPowerTurret t) {
+                    t.setupShieldUnitAbilities();
+                }
+            }
+        }
         //加载一次轨道打击的纹理
         if (!Vars.headless) {
             CustomFx.load();

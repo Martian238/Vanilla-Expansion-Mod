@@ -10,6 +10,7 @@ import arc.math.Angles;
 import arc.math.Mathf;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
+import arc.util.Log;
 import arc.util.Structs;
 import arc.util.Time;
 import arc.util.Tmp;
@@ -60,11 +61,31 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
     @Override
     public void load(){
         super.load();
-        sbcnm = Core.atlas.find("temporary-shield-unit");
-        if(sbcnm == null){
-            sbcnm = Core.atlas.find("error");
+        if (Core.atlas != null) {
+            sbcnm = Core.atlas.find("temporary-shield-unit");
+            if (sbcnm == null) sbcnm = Core.atlas.find("error");
+            shieldUnitType.region = sbcnm;
         }
-        shieldUnitType.region = sbcnm;
+//        if (shieldUnitType.abilities.isEmpty()) {
+//            shieldUnitType.abilities = Seq.with(
+//                    new ShieldArcAbility(){{
+//                        max = shieldMax;
+//                        radius = shieldRadius;
+//                        angle = shieldAngle;
+//                        x = shieldX;
+//                        y = shieldY;
+//                        missileUnitMultiplier = shieldMissileUnitMultiplier;
+//                        width = shieldWidth;
+//                        regen = shieldRegen;
+//                        cooldown = shieldCooldown;
+//                        pushUnits = true;
+//                        whenShooting = false;
+//                    }}
+//            );
+//        }
+    }
+    public void setupShieldUnitAbilities(){
+        if (!shieldUnitType.abilities.isEmpty()) return;
         shieldUnitType.abilities = Seq.with(
                 new ShieldArcAbility(){{
                     max = shieldMax;
@@ -80,6 +101,7 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
                     whenShooting = false;
                 }}
         );
+        shieldUnitType.init();
     }
     private UnitType shieldUnitType = new UnitType("temporary-shield-unit"){{
         hittable = drawBody = drawShields = drawCell = drawSoftShadow = wobble = targetable
@@ -151,7 +173,7 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
                     shieldUnit.abilities[0].data = currentShield;
                 }
             }
-            if(shieldUnit != null && shieldUnit.abilities[0] != null && shieldUnit.abilities[0] instanceof ShieldArcAbility sa){
+            if (shieldUnit != null && shieldUnit.abilities.length > 0 && shieldUnit.abilities[0] instanceof ShieldArcAbility sa) {
                 shieldUnit.rotation(rotation);
                 shieldUnit.set(x, y);
                 shieldUnit.apply(StatusEffects.disarmed, 30f);
@@ -200,6 +222,10 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
             if(shieldUnit == null){
                 currentRadius = 0f;
             }
+//            if (shieldUnit != null) {
+//                Log.info("shieldUnit abilities.length = @, abilities = @",
+//                        shieldUnit.abilities.length, shieldUnit.abilities);
+//            }
         }
 
         @Override

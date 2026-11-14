@@ -28,7 +28,7 @@ public class Fragmentation{
     int width, height;
     public float drawWidth, drawHeight;
     public Seq<IntSeq> islands = new Seq<>();
-    TextureRegion region = new TextureRegion();
+    static TextureRegion region = new TextureRegion();
     public Cons<FragmentEntity> onDeath;
     public Effect trailEffect = VEFX.debrisSmoke, explosionEffect = VEFX.fragmentExplosion;
     public Color effectColor = Color.white, drawnColor = Color.white.cpy(), goreColor = Color.white.cpy();
@@ -60,7 +60,9 @@ public class Fragmentation{
         this.width = width;
         this.height = height;
         //this.region = region;
-        this.region.set(region);
+        if(region != null && region.texture != null){
+            this.region.set(region);
+        }
 
         drawWidth = width * Draw.scl;
         drawHeight = height * Draw.scl;
@@ -291,6 +293,7 @@ public class Fragmentation{
     }
 
     public void draw(){
+        if(region == null || region.texture == null) return;
         Rand r = Utils.rand;
         r.setSeed(462 + (int)(Time.time / 120f));
         float lz = Draw.z();
@@ -435,6 +438,7 @@ public class Fragmentation{
             int size = is.size;
 
             TextureRegion region = main.region;
+            if(region == null || region.texture == null) return;
             float[] xs = main.xs;
             float[] ys = main.ys;
 
@@ -470,6 +474,7 @@ public class Fragmentation{
 
         @Override
         public void draw(){
+            if(region == null || region.texture == null) return;
             float zl = goreLines == null ? Mathf.clamp(Mathf.lerp(Math.min(Layer.groundUnit, main.layer), main.layer, z), Layer.blockUnder, Layer.flyingUnit + 1f) : main.layer;
             if(zl > Layer.bullet - 0.021f){
                 zl = Math.max(Layer.effect + 0.021f, zl);
@@ -528,6 +533,7 @@ public class Fragmentation{
         @Override
         public float clipSize(){
             if(goreLines != null) return 9999999f;
+            if(main.region == null || main.region.texture == null) return 64f;
             int max = Math.max(main.region.width, main.region.height);
             return max * Draw.scl * 1.5f;
         }
