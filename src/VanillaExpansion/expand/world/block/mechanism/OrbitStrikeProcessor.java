@@ -149,7 +149,15 @@ public class OrbitStrikeProcessor extends Block {
         public boolean strikeDamaged = false;
 
         public boolean working(){
-            return !(!enabled || (autoBan && Vars.state.getSector() != null && Vars.state.getSector().isCaptured() && Vars.player.team() != team()));
+            if (!enabled) return false;
+            if (autoBan) {
+                var sector = Vars.state.getSector();
+                if (sector != null && sector.isCaptured()) {
+                    var playerTeam = Vars.player != null ? Vars.player.team() : Vars.state.rules.defaultTeam;
+                    if (playerTeam != team()) return false;
+                }
+            }
+            return true;
         }
 
         public void orbitStrikeUpdate(){
@@ -240,10 +248,13 @@ public class OrbitStrikeProcessor extends Block {
         public void strikeDamage(){
             Units.nearbyEnemies(team(), strikeX, strikeY, strikeRadius, unitConsumer);
             indexer.eachBlock(null, strikeX, strikeY, strikeRadius, other -> other.team() != team(), Building::kill);
-            float d = Mathf.dst(strikeX, strikeY, Core.camera.position.x,  Core.camera.position.y);
-            Effect.shake(120, 6f, Core.camera.position.x, Core.camera.position.y);
-            Effect.shake(30f * (float)Math.sqrt(Mathf.clamp(200f / d)), strikeBeamTime * 1.5f, Core.camera.position.x, Core.camera.position.y);
-            strikeSound.at(strikeX, strikeY, 1f, Mathf.clamp(200f / d));
+            if (!Vars.headless && Core.camera != null) {
+                float d = Mathf.dst(strikeX, strikeY, Core.camera.position.x, Core.camera.position.y);
+                Effect.shake(120, 6f, Core.camera.position.x, Core.camera.position.y);
+                Effect.shake(30f * (float) Math.sqrt(Mathf.clamp(200f / d)), strikeBeamTime * 1.5f, Core.camera.position.x, Core.camera.position.y);
+                strikeSound.at(strikeX, strikeY, 1f, Mathf.clamp(200f / d));
+            }
+
             strikeSoundGlobal.play();
             CustomFx.loadCircleSoft();
             CustomFx.orbitStrikeSparks.at(strikeX, strikeY, 0f, color1, strikeRadius * 0.5f);

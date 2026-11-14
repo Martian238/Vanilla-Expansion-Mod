@@ -81,7 +81,9 @@ public class VanillaExpansionMod extends Mod {
         //全图腐蚀处理
         InitCorrosion.init();
         //雷霆大字系统
-        InitEndfieldTitle.init();
+        if (!Vars.headless) {
+            InitEndfieldTitle.init();
+        }
         //铁堡垒生成
         InitFerricFortress.init();
         //简易反作弊

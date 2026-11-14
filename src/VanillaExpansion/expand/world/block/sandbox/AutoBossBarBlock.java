@@ -169,7 +169,11 @@ public class AutoBossBarBlock extends Block {
         public Seq<Unit> resultBossUnits = new Seq<>();
 
         public boolean isBoss(Unit u) {
-            return u.type.isEnemy && (u.hasEffect(StatusEffects.boss) || u.hasEffect(VEJSStatuses.fakeBoss)) && (u.team != Vars.player.team());
+            if (u.type.isEnemy && (u.hasEffect(StatusEffects.boss) || u.hasEffect(VEJSStatuses.fakeBoss))) {
+                var playerTeam = Vars.player != null ? Vars.player.team() : state.rules.defaultTeam;
+                return u.team != playerTeam;
+            }
+            return false;
         }
 
         public void initBar(){
@@ -193,6 +197,9 @@ public class AutoBossBarBlock extends Block {
         public void update() {
 
             drawBar = false;
+            if (Vars.headless) {
+                return;
+            }
             if(!VESettings.getBool(VESettings.endfieldHealthBar, true)){
                 initBar();
                 bossReapplyTimer ++;
