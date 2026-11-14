@@ -97,12 +97,14 @@ public class BossBarAbility extends Ability {
 
     @Override
     public void draw(Unit unit){
+        if (Vars.headless || Vars.ui == null || Core.camera == null) return;
         if(!Vars.ui.hudfrag.shown) return;
         drawBar(unit);
     }
 
     @Override
     public void update(Unit unit){
+        if (Vars.headless || Vars.ui == null) return;
         if(lengthMultiplier < 1 && Vars.ui.hudfrag.shown){
             lengthMultiplier = Mathf.lerpDelta(lengthMultiplier, 1f, 0.1f);
             if(lengthMultiplier >= 0.999f) lengthMultiplier = 1f;
@@ -388,6 +390,7 @@ public class BossBarAbility extends Ability {
     }
 
     public void loadRegion(){
+        if (Core.atlas == null) return;
         if(autoSetName){
             iconRegion = autoLoadRegion();
         }else if(!iconSprite.isEmpty()){

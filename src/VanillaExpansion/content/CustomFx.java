@@ -31,9 +31,17 @@ public class CustomFx{
     public static final Vec2 v = new Vec2();
 
     public static TextureRegion circleSoft = new TextureRegion();
+    private static boolean circleSoftLoaded = false;
 
     public static void loadCircleSoft(){
+        if (circleSoftLoaded || Core.atlas == null) return;
         circleSoft = Core.atlas.find("ve-circle-soft");
+        circleSoftLoaded = true;
+    }
+
+    public static void load(){
+        if (Vars.headless) return;
+        loadCircleSoft();
     }
 
     public static final

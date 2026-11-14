@@ -256,7 +256,7 @@ public class OrbitStrikeProcessor extends Block {
             }
 
             strikeSoundGlobal.play();
-            CustomFx.loadCircleSoft();
+            //CustomFx.loadCircleSoft();
             CustomFx.orbitStrikeSparks.at(strikeX, strikeY, 0f, color1, strikeRadius * 0.5f);
             CustomFx.orbitStrikeSparks.at(strikeX, strikeY, 0f, color1, strikeRadius);
             CustomFx.orbitStrikeSparks.at(strikeX, strikeY, 0f, color1, strikeRadius * 1.5f);

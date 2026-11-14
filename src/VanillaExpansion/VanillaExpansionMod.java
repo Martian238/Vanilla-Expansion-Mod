@@ -78,6 +78,10 @@ public class VanillaExpansionMod extends Mod {
             }
         });
 
+        //加载一次轨道打击的纹理
+        if (!Vars.headless) {
+            CustomFx.load();
+        }
         //全图腐蚀处理
         InitCorrosion.init();
         //雷霆大字系统

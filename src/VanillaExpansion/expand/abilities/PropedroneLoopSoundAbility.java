@@ -1,9 +1,11 @@
 package VanillaExpansion.expand.abilities;
 
 import VanillaExpansion.VESettings;
+import arc.Core;
 import arc.audio.Sound;
 import arc.math.geom.Vec2;
 import arc.util.Time;
+import mindustry.Vars;
 import mindustry.content.Items;
 import mindustry.entities.abilities.Ability;
 import mindustry.gen.Sounds;
@@ -23,6 +25,7 @@ public class PropedroneLoopSoundAbility extends Ability {
 
     @Override
     public void update(Unit u){
+        if (Vars.headless || Vars.control == null) return;
         if(!toilet) {
             if (!VESettings.getBool("ve-propedrone-quiet")) {
                 control.sound.loop(loopSound, new Vec2(u.x(), u.y()), loopSoundVolume);

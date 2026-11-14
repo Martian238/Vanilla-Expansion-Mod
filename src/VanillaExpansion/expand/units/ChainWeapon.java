@@ -269,6 +269,7 @@ public class ChainWeapon extends Weapon {
     public void update(Unit u, WeaponMount wm){
         if(!(wm instanceof ChainWeaponMount m)) return;
         if(!m.init){
+            if (Vars.headless || Core.atlas == null) return;
             headRegion = Core.atlas.find(headSprite);
             rootRegion = Core.atlas.find(rootSprite);
             chainRegion = Core.atlas.find(chainSprite);
