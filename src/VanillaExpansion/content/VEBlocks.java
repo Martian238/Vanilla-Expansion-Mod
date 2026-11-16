@@ -1,5 +1,7 @@
 package VanillaExpansion.content;
 
+import VanillaExpansion.expand.world.block.debug.DebugBlock;
+import VanillaExpansion.expand.world.block.debug.Module.DebugModules;
 import VanillaExpansion.expand.world.block.defense.DrawerTractorBeamTurret;
 import VanillaExpansion.expand.world.block.distribution.AdaptItemBridge;
 import VanillaExpansion.expand.world.block.distribution.Junction;
@@ -112,6 +114,8 @@ public class VEBlocks {
     //测试玩意
     public static Block testCoolantDrill;
     public static Block TitleTextBlock;
+    // 调试方块
+    public static DebugBlock debug;
 
 
 
@@ -580,5 +584,13 @@ public class VEBlocks {
             health = 3240;
             buildVisibility = BuildVisibility.sandboxOnly;
         }};
+        // 调试方块
+        debug = new DebugBlock("debug"){{
+            requirements(Category.logic, ItemStack.with());
+            buildVisibility = BuildVisibility.sandboxOnly;
+            alwaysUnlocked = true;
+        }};
+        // 注册调试模块
+        DebugModules.register();
     }
 }
