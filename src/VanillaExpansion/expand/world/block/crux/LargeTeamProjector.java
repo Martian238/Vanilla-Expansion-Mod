@@ -88,8 +88,6 @@ public class LargeTeamProjector extends GenericCrafter {
         private float timer;
         private float currentHeightFraction = defaultHeightFraction;
         private int currentRadiusConfig = (int) (10 * defaultRadiusFraction);
-        private Slider slider = new Slider(0, 2, 0.1f, false);
-        private Slider slider2 = new Slider(1, 20, 1, false);
         private int configuring = 1;
 
         @Override
@@ -173,6 +171,10 @@ public class LargeTeamProjector extends GenericCrafter {
 
         @Override
         public void buildConfiguration(Table table){
+
+            Slider slider = new Slider(0, 2, 0.1f, false);
+            Slider slider2 = new Slider(1, 20, 1, false);
+
             slider.changed(() -> {
                 currentHeightFraction = slider.getValue();
                 configuring = 1;
