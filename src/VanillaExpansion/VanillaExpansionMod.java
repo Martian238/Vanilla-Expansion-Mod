@@ -5,6 +5,7 @@ import VanillaExpansion.effects.OneBitRenderer;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
 import VanillaExpansion.expand.type.unit.UnitEventUpdateManager;
+import VanillaExpansion.expand.ui.AchievementUI;
 import VanillaExpansion.expand.ui.HotbarUI;
 import VanillaExpansion.expand.world.block.RectangleBlock;
 import VanillaExpansion.expand.world.block.defense.ShieldArcUnitPowerTurret;
@@ -55,6 +56,8 @@ public class VanillaExpansionMod extends Mod {
                 });
             }
             HotbarUI.init();
+            AchievementUI.init();
+            //AchievementTestUI.init();成就测试UI
             //new HotbarDebugUI().init();//狗屎调试UI,会导致内存疯涨
             BossRushRegistry.register();
         });
@@ -79,6 +82,7 @@ public class VanillaExpansionMod extends Mod {
             if (VanillaExpansion.expand.ui.HotbarUI.instance != null) {
                 VanillaExpansion.expand.ui.HotbarUI.instance.updateVisibility();
             }
+            AchievementUI.update();
         });
         //加载你屏障炮台的abilities
         if (content != null) {
