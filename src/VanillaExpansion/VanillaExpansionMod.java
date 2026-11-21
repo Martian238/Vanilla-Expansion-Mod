@@ -5,11 +5,14 @@ import VanillaExpansion.effects.OneBitRenderer;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
 import VanillaExpansion.expand.type.unit.UnitEventUpdateManager;
+import VanillaExpansion.expand.ui.AchievementRegistry;
+import VanillaExpansion.expand.ui.AchievementTestUI;
 import VanillaExpansion.expand.ui.AchievementUI;
 import VanillaExpansion.expand.ui.HotbarUI;
 import VanillaExpansion.expand.world.block.RectangleBlock;
 import VanillaExpansion.expand.world.block.defense.ShieldArcUnitPowerTurret;
 import VanillaExpansion.ui.VEFonts;
+import VanillaExpansion.ui.VEStyles;
 import VanillaExpansion.ui.bossrush.BossRushRegistry;
 import arc.Core;
 import arc.Events;
@@ -57,7 +60,7 @@ public class VanillaExpansionMod extends Mod {
             }
             HotbarUI.init();
             AchievementUI.init();
-            //AchievementTestUI.init();成就测试UI
+            //AchievementTestUI.init();//成就测试UI
             //new HotbarDebugUI().init();//狗屎调试UI,会导致内存疯涨
             BossRushRegistry.register();
         });
@@ -83,6 +86,7 @@ public class VanillaExpansionMod extends Mod {
                 VanillaExpansion.expand.ui.HotbarUI.instance.updateVisibility();
             }
             AchievementUI.update();
+            AchievementTestUI.update();
         });
         //加载你屏障炮台的abilities
         if (content != null) {
@@ -113,11 +117,27 @@ public class VanillaExpansionMod extends Mod {
         if(!headless){
             Events.on(EventType.ClientLoadEvent.class, e -> {
                 VESettings.loadUI();
+                VEStyles.load();
             });
         }
         //单位事件更新重置
         Events.on(EventType.WorldLoadBeginEvent.class, e -> {
             UnitEventUpdateManager.clear();
+        });
+
+        Events.on(EventType.ClientLoadEvent.class, e -> {
+            Time.runTask(50f, () -> {
+                // 神秘启动成就
+                AchievementRegistry.register(
+                        "first-launch",// 存档 id
+                        "achievement.first-launch.name",// 名称key
+                        "achievement.first-launch.desc",// 描述key
+                        new arc.scene.style.TextureRegionDrawable(Core.atlas.find("ve-team-projector-crux-glow")),
+                        3
+                );
+                // 启动即解锁
+                AchievementRegistry.unlock("first-launch");
+            });
         });
         /*
         ContextFactory.initGlobal(new SecureContextFactory());
