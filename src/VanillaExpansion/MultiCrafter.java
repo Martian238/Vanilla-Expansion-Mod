@@ -1484,15 +1484,15 @@ public class MultiCrafter extends HeatCrafter {
         private Recipe lastRunningRecipe;
 
         public void sleepUpdate(){
-            if(!sleep || !VESettings.getBool("ve-multicrafter-sleep")) return;
+            if(!sleep || !VESettings.getBool("ve-multicrafter-sleep") || headless || state.isEditor()) return;
             if(status() == BlockStatus.noInput) {
-                sleepTimer += delta();
+                sleepTimer += delta() / timeScale();
                 if(sleepTimer >= sleepMinTime){
                     sleepEffects = Math.abs(Mathf.random(3) + 1);
                     sleepTimer -= (sleepEffects + 2) * sleepInterval + Math.abs(Mathf.random(120f));
                 }
                 if(sleepEffects > 0){
-                    sleepIntervalTimer += delta();
+                    sleepIntervalTimer += delta() / timeScale();
                     if(sleepIntervalTimer >= sleepInterval){
                         sleepEffects --;
                         sleepIntervalTimer = 0;

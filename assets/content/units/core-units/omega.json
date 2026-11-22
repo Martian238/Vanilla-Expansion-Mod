@@ -57,6 +57,10 @@
       "whenShooting": true,
       "width": 9,
       "pushUnits": false
+    },
+    {
+      "type": "VanillaExpansion.expand.abilities.ConditionalImmuneAbility",
+      "immunities": [ "blown" ]
     }
   ],
   "weapons": [

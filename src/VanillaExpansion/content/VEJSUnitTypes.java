@@ -196,9 +196,12 @@ public class VEJSUnitTypes {
             deathExplosionEffect = fallEffect = fallEngineEffect = Fx.none;
             wreckSound = Sounds.none;
         }};
+
         orbitStrikeBeacon = new OrbitStrikeBeaconUnitType("orbit-strike-beacon"){{
             constructor = OrbitStrikeBeaconUnit::new;
         }};
+
+
 
         zenithSentry = new SentryUnitType("zenith-sentry"){{constructor = SentryUnit::create;}};
     }

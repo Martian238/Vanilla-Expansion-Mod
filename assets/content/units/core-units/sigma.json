@@ -44,6 +44,12 @@
       "settingOnly": true
     }
   ],
+  "abilities": [
+    {
+      "type": "VanillaExpansion.expand.abilities.ConditionalImmuneAbility",
+      "immunities": [ "blown" ]
+    }
+  ],
   "weapons": [
     {
       "name": "sigma-weapon",

@@ -28,13 +28,13 @@ public class AchievementArchive {
     private static final float ICON_SIZE = 48f;
 
     // 注册（转发到 AchievementRegistry）
-    public static void register(String id, String nameKey, String descKey, arc.scene.style.Drawable icon, int rarity) {
+    public static void register(String id, String nameKey, String descKey, arc.scene.style.Drawable icon, int rarity, int maxLevel) {
         // 由 AchievementRegistry 统一管理
     }
 
     // 是否已解锁
     public static boolean isUnlocked(String id) {
-        return Core.settings.getBool(SAVE_PREFIX + id, false);
+        return Core.settings.getInt(SAVE_PREFIX + id, 0) > 0;
     }
 
     // 已解锁数量

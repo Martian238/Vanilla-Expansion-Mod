@@ -128,6 +128,7 @@ public class VanillaExpansionMod extends Mod {
         Events.on(EventType.ClientLoadEvent.class, e -> {
             Time.runTask(50f, () -> {
                 // 神秘启动成就
+                /*
                 AchievementRegistry.register(
                         "first-launch",// 存档 id
                         "achievement.first-launch.name",// 名称key
@@ -135,8 +136,10 @@ public class VanillaExpansionMod extends Mod {
                         new arc.scene.style.TextureRegionDrawable(Core.atlas.find("ve-team-projector-crux-glow")),
                         3
                 );
+                 */
                 // 启动即解锁
-                AchievementRegistry.unlock("first-launch");
+                //AchievementRegistry.unlock("first-launch");
+                VEAchievements.load();
             });
         });
         /*

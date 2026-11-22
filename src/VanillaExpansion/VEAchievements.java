@@ -1,24 +1,26 @@
 package VanillaExpansion;
 
+import VanillaExpansion.expand.ui.AchievementRegistry;
+import arc.Core;
+import arc.scene.style.TextureRegionDrawable;
+
 public class VEAchievements {
 
+    public static void load(){
 
 
 
+    }
 
-    public static final String
-    placeholder1 = "ve-placeholder1",
-    planetSerpulo = "ve-achi-serpulo",
-    planetCyclant = "ve-achi-cyclant",
-    planetMaress = "ve-achi-maress",
-    planetSitrullus = "ve-achi-sitrullus",
-    planetThavina = "ve-achi-thavina",
-    bossHyper = "ve-achi-hyper",
-    bossAnnihilate = "ve-achi-annihilate",
-    bossMelevour = "ve-achi-melevour",
-    bossFungitron = "ve-achi-fungitron",
-    bossZentack = "ve-achi-zentack",
-    bossChiniun = "ve-achi-chiniun",
-    bossCruxframe = "ve-achi-cruxframe",
-    placeholder2 = "ve-placeholder2";
+    public static void register(String id, String name, String tex, int rarity, int maxLevel){
+        AchievementRegistry.register(
+                id,// 存档 id
+                "achievement.ve-" + name + ".name",// 名称key
+                "achievement.ve-" + name + ".desc",// 描述key
+                new arc.scene.style.TextureRegionDrawable(Core.atlas.find(tex)),
+                rarity,
+                maxLevel
+        );
+        //new arc.scene.style.TextureRegionDrawable(Core.atlas.find("ve-team-projector-crux-glow"))
+    }
 }
