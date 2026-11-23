@@ -14,16 +14,16 @@ public class AchievementRegistry {
     private static final String SAVE_PREFIX = "ve-achievement-";
 
     // 注册成就（key 用于本地化，id 用于存档）
-    public static void register(String id, String nameKey, String descKey, Drawable icon, int rarity, int maxLevel) {
+    public static void register(String id, String nameKey, String descKey, Drawable icon, int rarity, int maxLevel, String levelKey) {
         if (find(id) != null) return;
-        Entry e = new Entry(id, nameKey, descKey, icon, rarity, maxLevel);
+        Entry e = new Entry(id, nameKey, descKey, icon, rarity, maxLevel, levelKey);
         ENTRIES.add(e);
-        AchievementArchive.register(id, nameKey, descKey, icon, rarity, maxLevel);
+        AchievementArchive.register(id, nameKey, descKey, icon, rarity, maxLevel, levelKey);
     }
 
     // 注册成就（使用 id 推导本地化 key）
     public static void register(String id, Drawable icon, int rarity, int maxLevel) {
-        register(id, "achievement." + id + ".name", "achievement." + id + ".desc", icon, rarity, maxLevel);
+        register(id, "achievement." + id + ".name", "achievement." + id + ".desc", icon, rarity, maxLevel, "achievement." + id + ".level");
     }
 
     // 注册后立即尝试解锁（用于启动即得成就）
@@ -41,10 +41,12 @@ public class AchievementRegistry {
         if (isUnlocked(id)) return;
         Core.settings.put(SAVE_PREFIX + id, level);
         AchievementUI.add(
+                id,
                 Core.bundle.get(e.nameKey, e.nameKey),
-                Core.bundle.get(e.descKey, e.descKey),
                 e.icon,
-                e.rarity
+                e.rarity,
+                e.maxLevel,
+                getLevel(id)
         );
     }
 
@@ -88,15 +90,18 @@ public class AchievementRegistry {
         public final int rarity;
         // 最大等级
         public final int maxLevel;
+        // 各等级条件前缀
+        public final String levelKey;
 
         // 构造
-        public Entry(String id, String nameKey, String descKey, Drawable icon, int rarity, int maxLevel) {
+        public Entry(String id, String nameKey, String descKey, Drawable icon, int rarity, int maxLevel, String levelKey) {
             this.id = id;
             this.nameKey = nameKey;
             this.descKey = descKey;
             this.icon = icon;
             this.rarity = rarity;
             this.maxLevel = maxLevel;
+            this.levelKey = levelKey;
         }
     }
 }

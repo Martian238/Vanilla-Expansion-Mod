@@ -147,7 +147,8 @@ public class AchievementTestUI {
         buttons.button("测试金色", Icon.star, () -> trigger("金色成就", "默认稀有度3", 3)).size(120f, buttonHeight).padRight(4f);
         buttons.button("批量5连", Icon.list, () -> {
             for (int i = 1; i <= 5; i++) {
-                AchievementUI.add("批量成就 #" + i, "第 " + i + " 个批量测试", Icon.star, i % 4);
+                // TODO 暂时先这样
+                AchievementUI.add("批量成就 #" + i, "批量成就 #" + i, Icon.star, i % 4, 1);
             }
         }).size(120f, buttonHeight).row();
         buttons.button("隐藏面板", Icon.eyeOff, AchievementTestUI::toggle).size(120f, buttonHeight).padRight(4f);
@@ -206,7 +207,8 @@ public class AchievementTestUI {
         trigger(name, desc, rarity);
     }
     private void trigger(String name, String desc, int rarity) {
-        AchievementUI.add(name, desc, Icon.star, rarity);
+        // TODO
+        AchievementUI.add(name, desc, Icon.star, rarity, 1, 0);
     }
     private int parseRarity(String s) {
         try {

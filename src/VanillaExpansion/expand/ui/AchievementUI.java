@@ -45,10 +45,12 @@ public class AchievementUI {
     private final Color bgColor = Color.valueOf("1b1b1bee");
     // 稀有度颜色数组
     private final Color[] rarityColors = {
-            Color.valueOf("4ea1ff"),
+            Color.valueOf("ffffff"),
+            Color.valueOf("4dff65"),
             Color.valueOf("4ea1ff"),
             Color.valueOf("a335ee"),
-            Color.valueOf("ffd700")
+            Color.valueOf("ffd700"),
+            Color.valueOf("ff4200")
     };
     // 当前目标X
     private float targetX = 0f;
@@ -141,20 +143,20 @@ public class AchievementUI {
         }
     }
 
-    // 添加成就(名称, 描述, 图标)
-    public static void add(String name, String desc, Drawable icon) {
-        add(name, desc, icon, 1);
+    // 添加成就
+    public static void add(String id, String name, Drawable icon, int maxLevel, int current) {
+        add(id, name, icon, maxLevel, current);
     }
 
-    // 添加成就(名称, 描述, 图标, 稀有度)
-    public static void add(String name, String desc, Drawable icon, int rarity) {
+    // 添加成就
+    public static void add(String id, String name, Drawable icon, int rarity, int maxLevel, int current) {
         if (instance == null) return;
-        instance.addAchievement(name, desc, icon, rarity);
+        instance.addAchievement(id, name, icon, rarity, maxLevel, current);
     }
 
     // 内部添加
-    private void addAchievement(String name, String desc, Drawable icon, int rarity) {
-        queue.addLast(new Achievement(name, desc, icon, rarity));
+    private void addAchievement(String id, String name, Drawable icon, int rarity, int maxLevel, int current) {
+        queue.addLast(new Achievement(id, name, icon, rarity, maxLevel, current));
         if (!showing) next();
     }
 
@@ -198,10 +200,11 @@ public class AchievementUI {
         textTable.left();
 
         Label title = new Label(a.name, new Label.LabelStyle(Fonts.def, rarityColor(a.rarity)));
-        title.setFontScale(0.9f);
+        title.setFontScale(1f);
         textTable.add(title).left().row();
 
-        Label desc = new Label(a.desc, new Label.LabelStyle(Fonts.def, Color.white));
+
+        Label desc = new Label("", new Label.LabelStyle(Fonts.def, Color.white));
         desc.setFontScale(0.75f);
         desc.setWrap(true);
         textTable.add(desc).left().growX().row();
@@ -270,21 +273,26 @@ public class AchievementUI {
 
     // 成就数据类
     public static class Achievement {
+
+        public String id;
         // 名称
         public String name;
-        // 描述
-        public String desc;
         // 图标
         public Drawable icon;
         // 稀有度
         public int rarity;
 
+        public int maxLevel;
+
+        public int current;
+
         // 构造
-        public Achievement(String name, String desc, Drawable icon, int rarity) {
+        public Achievement(String id, String name, Drawable icon, int rarity, int maxLevel, int current) {
             this.name = name;
-            this.desc = desc;
             this.icon = icon;
             this.rarity = rarity;
+            this.maxLevel = maxLevel;
+            this.current = current;
         }
     }
 }
