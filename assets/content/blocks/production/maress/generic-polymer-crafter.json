@@ -28,7 +28,7 @@
     ]
   },
   "itemCapacity": 120,
-  "liquidCapacity": 120,
+  "liquidCapacity": 240,
   "sleep": true,
   "recipe": [
     {
@@ -480,6 +480,43 @@
                 "height": 32,
                 "effect": "plasticburn",
                 "effectChance": 0.02
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "inputItems": [ "ferrum/30" ],
+      "inputLiquids": [ "oil/2.4" ],
+      "outputItems": [ "plastanium/40" ],
+      "inputPower": 6,
+      "craftTime": 120,
+      "requireFlux": true,
+      "fluxLiquid": "chlorine",
+      "minFlux": 0.15,
+      "craftEffectEffect": "formsmoke",
+      "shownProduct": "plastanium",
+      "visual": {
+        "type": "DrawMulti",
+        "drawers": [
+          {
+            "type": "DrawFade"
+          },
+          {
+            "type": "DrawGlowRegion",
+            "suffix": "-glow",
+            "color": "cbd97f"
+          },
+          {
+            "type": "DrawBlockParts",
+            "parts": [
+              {
+                "type": "EffectSpawnerPart",
+                "width": 32,
+                "height": 32,
+                "effect": "plasticburn",
+                "effectChance": 0.04
               }
             ]
           }
