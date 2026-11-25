@@ -74,10 +74,6 @@ public class InitAntiCheat {
                     }
                 }
             }
-            if(hasCheat){
-                Sounds.uiNotify.play();
-                Vars.ui.hudfrag.showToast("[accent]反作弊执行中[]");
-            }
         }
     }
 
@@ -103,6 +99,10 @@ public class InitAntiCheat {
         //战役反作弊，烦死了
         Events.run(EventType.WorldLoadEndEvent.class, () -> {
             scanCheatMods(true);
+            if(hasCheat){
+                Sounds.uiNotify.play();
+                Vars.ui.hudfrag.showToast("[accent]反作弊执行中[]");
+            }
         });
         Events.run(EventType.BlockBuildEndEvent.class, () -> {
             if(hasCheat) {
