@@ -7,10 +7,10 @@ import mindustry.game.EventType;
 import mindustry.gen.Unit;
 
 public class UnitEventUpdateManager {
-    private static final Seq<Unit> eventUnits = new Seq<>();
+    private static Seq<Unit> eventUnits = new Seq<>();
     private static boolean registered = false;
 
-    public static void add(Unit unit) {
+    protected static void add(Unit unit) {
         if (!eventUnits.contains(unit)) {
             eventUnits.add(unit);
             if (!registered) {
@@ -18,23 +18,43 @@ public class UnitEventUpdateManager {
                 Events.run(EventType.Trigger.update, () -> {
                     updateUnits();
                 });
+                Events.run(EventType.Trigger.draw, () -> {
+                    drawUnits();
+                });
             }
         }
     }
 
-    public static void remove(Unit unit) {
+    protected static void remove(Unit unit) {
         eventUnits.remove(unit);
     }
 
-    public static void clear(){
+    protected static void clear(){
         eventUnits.clear();
     }
 
     private static void updateUnits(){
-        if(eventUnits.isEmpty() || !Vars.state.isGame() || Vars.state.isPaused()) return;
+        if(eventUnits.isEmpty() || !Vars.state.isGame() || Vars.state.isPaused()){
+            return;
+        }
         for(Unit unit : eventUnits){
             if(unit instanceof HyperUnit h){
-                h.actualUpdate();
+                try{
+                    h.actualUpdate();
+                }catch(Exception e){}
+            }
+        }
+    }
+
+    private static void drawUnits(){
+        if(eventUnits.isEmpty() || !Vars.state.isGame()){
+            return;
+        }
+        for(Unit unit : eventUnits){
+            if(unit instanceof HyperUnit h){
+                try{
+                    h.actualDraw();
+                }catch(Exception e){}
             }
         }
     }

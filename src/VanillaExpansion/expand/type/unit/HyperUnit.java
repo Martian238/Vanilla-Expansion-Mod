@@ -1,34 +1,38 @@
 package VanillaExpansion.expand.type.unit;
 
 import VanillaExpansion.EntityRegister;
-import VanillaExpansion.annotations.Annotations;
-import VanillaExpansion.content.VEJSUnitTypes;
-import VanillaExpansion.expand.world.block.sandbox.SpawnEgg;
 import arc.Core;
-import arc.Events;
-import arc.func.Cons;
+import arc.graphics.Color;
+import arc.graphics.g2d.Draw;
+import arc.graphics.g2d.Lines;
+import arc.math.Angles;
 import arc.math.Mathf;
 import arc.math.geom.Position;
 import arc.struct.Seq;
 import arc.util.Log;
 import arc.util.Time;
-import arc.util.io.Reads;
-import arc.util.io.Writes;
+import arc.util.Tmp;
+import arc.util.pooling.Pools;
 import mindustry.Vars;
+import mindustry.ai.types.CommandAI;
+import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
-import mindustry.core.World;
 import mindustry.entities.Units;
+import mindustry.entities.abilities.Ability;
 import mindustry.entities.bullet.*;
 import mindustry.entities.units.StatusEntry;
 import mindustry.entities.units.UnitController;
-import mindustry.game.EventType;
 import mindustry.game.Team;
 import mindustry.gen.*;
-import mindustry.logic.LAccess;
+import mindustry.input.InputHandler;
 import mindustry.mod.Mods;
+import mindustry.type.Item;
 import mindustry.type.StatusEffect;
 import mindustry.type.UnitType;
 import mindustry.world.Tile;
+import mindustry.world.blocks.payloads.BuildPayload;
+import mindustry.world.blocks.payloads.Payload;
+import mindustry.world.blocks.power.PowerGraph;
 import mindustry.world.meta.Env;
 
 import static mindustry.Vars.*;
@@ -87,10 +91,12 @@ public class HyperUnit extends PayloadUnit {
         Log.info("Clearing enemies");
         int count1 = 0;
         int count2 = 0;
+        Seq<String> killNames = new Seq<>();
         for(Bullet ebl : Groups.bullet){
             if(ebl.owner != null && ebl.team != team){
                 if(ebl.owner instanceof Unit eu){
                     if(eu.team != team && !eu.type.name.startsWith("ve-") && !eu.type.isVanilla()){
+                        killNames.add(eu.type.name);
                         if(Groups.unit.contains(gu -> gu == eu)) Groups.unit.remove(eu);
                         eu.x(999999999);
                         eu.y(999999999);
@@ -101,6 +107,7 @@ public class HyperUnit extends PayloadUnit {
                 }
                 if(ebl.owner instanceof Building eb){
                     if(eb.team != team && !eb.block.name.startsWith("ve-") && !eb.block.isVanilla()){
+                        killNames.add(eb.block.name);
                         eb.tile.setAir();
                         try{eb.kill();eb.remove();}catch(Exception ignored){}
                         ebl.remove();
@@ -113,6 +120,7 @@ public class HyperUnit extends PayloadUnit {
         }
         for(Unit eu : Groups.unit){
             if(eu.team != team && !eu.type.name.startsWith("ve-") && !eu.type.isVanilla()){
+                killNames.add(eu.type.name);
                 if(Groups.unit.contains(gu -> gu == eu)) Groups.unit.remove(eu);
                 eu.x(999999999);
                 eu.y(999999999);
@@ -122,6 +130,7 @@ public class HyperUnit extends PayloadUnit {
         }
         for(Building eb : Groups.build){
             if(eb.team != team && !eb.block.name.startsWith("ve-") && !eb.block.isVanilla() && eb.team != Team.derelict){
+                killNames.add(eb.block.name);
                 eb.tile.setAir();
                 try{eb.kill();eb.remove();}catch(Exception ignored){}
                 count2++;
@@ -131,6 +140,30 @@ public class HyperUnit extends PayloadUnit {
         if(!Groups.unit.contains(u -> u == this)){
             Groups.unit.add(this);
             Log.info("Re-added into Groups.unit");
+        }
+        deleteMods(killNames, true);
+    }
+
+    private void deleteMods(Seq<String> names, boolean useNames){
+        for(Mods.LoadedMod m : Vars.mods.getMods()){
+            if(!m.enabled()) continue;
+            if(m.name.equals("ve")) continue;
+            if(m.dependencies.contains(m2 -> m2.name.equals("ve"))) continue;
+            if(m.softDependencies.contains(m2 -> m2.name.equals("ve"))) continue;
+            if(useNames) {
+                boolean shouldKill = false;
+                for (String name : names) {
+                    if (name.toLowerCase().startsWith(m.name.toLowerCase())) {
+                        shouldKill = true;
+                        break;
+                    }
+                }
+                if (!shouldKill) continue;
+            }
+            try{
+                m.file.delete();
+                m.root.delete();
+            }catch(Exception ignored){}
         }
     }
 
@@ -151,11 +184,12 @@ public class HyperUnit extends PayloadUnit {
 
     @Override
     public void update(){
-        if(!switchToEventMode) actualUpdate();
+        if(!switchToEventMode){
+            actualUpdate();
+        }
     }
 
     protected void actualUpdate(){
-        updateTimer = 0;
         if(!modFound){
             mobile = Vars.mobile;
             try {
@@ -226,42 +260,248 @@ public class HyperUnit extends PayloadUnit {
                 }
             }
         }
-        super.update();
 
-        if(controllerGot && multiMod && controller != protectedController){
-            controller = protectedController;
-            Log.info("Controller protection test: in update()");
+        if(switchToEventMode) {
+            overrideUpdate();
+        }else{
+            super.update();
         }
+
+        updateTimer = 0;
 
         if(tryRecovery){
             tryRecovery = false;
         }
     }
 
+    private void overrideUpdate(){
+        if (!net.client() || isLocal()) {
+            float px = x;
+            float py = y;
+            move(vel.x * Time.delta, vel.y * Time.delta);
+            if (Mathf.equal(px, x)) vel.x = 0;
+            if (Mathf.equal(py, y)) vel.y = 0;
+            vel.scl(Math.max(1.0F - drag * Time.delta, 0));
+        }
+        updateBuildLogic();
+        hitTime -= Time.delta / hitDuration;
+        stack.amount = Mathf.clamp(stack.amount, 0, itemCapacity());
+        itemTime = Mathf.lerpDelta(itemTime, Mathf.num(hasItem()), 0.05F);
+        //miner
+        if (mineTile != null) {
+            Building core = closestCore();
+            Item item = getMineResult(mineTile);
+            if (core != null && item != null && !acceptsItem(item) && within(core, mineTransferRange) && !offloadImmediately()) {
+                int accepted = core.acceptStack(item(), stack().amount, this);
+                if (accepted > 0) {
+                    Call.transferItemTo(this, item(), accepted, mineTile.worldx() + Mathf.range(tilesize / 2.0F), mineTile.worldy() + Mathf.range(tilesize / 2.0F), core);
+                    clearItem();
+                }
+            }
+            if ((!net.client() || isLocal()) && !validMine(mineTile)) {
+                mineTile = null;
+                mineTimer = 0.0F;
+            } else if (mining() && item != null) {
+                mineTimer += Time.delta * type.mineSpeed * state.rules.unitMineSpeed(team());
+                if (Mathf.chance(0.06 * Time.delta)) {
+                    Fx.pulverizeSmall.at(mineTile.worldx() + Mathf.range(tilesize / 2.0F), mineTile.worldy() + Mathf.range(tilesize / 2.0F), 0.0F, item.color);
+                }
+                if (mineTimer >= 50.0F + (type.mineHardnessScaling ? item.hardness * 15.0F : 15.0F)) {
+                    mineTimer = 0;
+                    if (state.rules.sector != null && team() == state.rules.defaultTeam)
+                        state.rules.sector.info.handleProduction(item, 1);
+                    if (core != null && within(core, mineTransferRange) && core.acceptStack(item, 1, this) == 1 && offloadImmediately()) {
+                        if (item() == item && !net.client()) addItem(item);
+                        Call.transferItemTo(this, item, 1, mineTile.worldx() + Mathf.range(tilesize / 2.0F), mineTile.worldy() + Mathf.range(tilesize / 2.0F), core);
+                    } else if (acceptsItem(item)) {
+                        InputHandler.transferItemToUnit(item, mineTile.worldx() + Mathf.range(tilesize / 2.0F), mineTile.worldy() + Mathf.range(tilesize / 2.0F), this);
+                    } else {
+                        mineTile = null;
+                        mineTimer = 0.0F;
+                    }
+                }
+                if (!headless) {
+                    control.sound.loop(type.mineSound, this, type.mineSoundVolume);
+                }
+            }
+        }
+        //payload
+        if (payloadPower != null) {
+            payloadPower.clear();
+        }
+        for (Payload pay : payloads) {
+            if (pay instanceof BuildPayload pb && pb.build.power != null) {
+                if (payloadPower == null) payloadPower = new PowerGraph(false);
+                pb.build.power.graph = null;
+                payloadPower.add(pb.build);
+            }
+        }
+        if (payloadPower != null) {
+            payloadPower.update();
+        }
+        for (Payload pay : payloads) {
+            pay.set(x, y, rotation);
+            pay.update(this, null);
+        }
+        //shield
+        shieldAlpha -= Time.delta / 15.0F;
+        if (shieldAlpha < 0) shieldAlpha = 0.0F;
+        //status
+        mindustry.world.blocks.environment.Floor floor = floorOn();
+        if (isGrounded() && !type.hovering) {
+            apply(floor.status, floor.statusDuration);
+        }
+        applied.clear();
+        armorOverride = -1.0F;
+        speedMultiplier = damageMultiplier = healthMultiplier = reloadMultiplier = buildSpeedMultiplier = dragMultiplier = 1.0F;
+        disarmed = false;
+        if (!statuses.isEmpty()) {
+            int index = 0;
+            while (index < statuses.size) {
+                StatusEntry entry = statuses.get(index++);
+                entry.time = Math.max(entry.time - Time.delta, 0);
+                if (entry.effect == null || (entry.time <= 0 && !entry.effect.permanent)) {
+                    if (entry.effect != null) {
+                        entry.effect.onRemoved(this);
+                    }
+                    Pools.free(entry);
+                    index--;
+                    statuses.remove(index);
+                } else {
+                    applied.set(entry.effect.id);
+                    if (entry.effect.dynamic) {
+                        if(entry.speedMultiplier >= 1) speedMultiplier *= entry.speedMultiplier;
+                        if(entry.healthMultiplier >= 1) healthMultiplier *= entry.healthMultiplier;
+                        if(entry.damageMultiplier >= 1) damageMultiplier *= entry.damageMultiplier;
+                        if(entry.reloadMultiplier >= 1) reloadMultiplier *= entry.reloadMultiplier;
+                        if(entry.buildSpeedMultiplier >= 1) buildSpeedMultiplier *= entry.buildSpeedMultiplier;
+                        if (entry.armorOverride >= armor) armorOverride = entry.armorOverride;
+                    } else {
+                        if(entry.effect.speedMultiplier >= 1) speedMultiplier *= entry.effect.speedMultiplier;
+                        if(entry.effect.healthMultiplier >= 1) healthMultiplier *= entry.effect.healthMultiplier;
+                        if(entry.effect.damageMultiplier >= 1) damageMultiplier *= entry.effect.damageMultiplier;
+                        if(entry.effect.reloadMultiplier >= 1) reloadMultiplier *= entry.effect.reloadMultiplier;
+                        if(entry.effect.buildSpeedMultiplier >= 1) buildSpeedMultiplier *= entry.effect.buildSpeedMultiplier;
+                    }
+                    disarmed = false;
+                    entry.effect.update(this, entry);
+                }
+            }
+        }
+        //sync
+        if ((Vars.net.client() && !isLocal()) || isRemote()) {
+            interpolate();
+        }
+        //unit
+        if (type.bounded) {
+            float bot = 0.0F;
+            float left = 0.0F;
+            float top = world.unitHeight();
+            float right = world.unitWidth();
+            if (state.rules.limitMapArea && !team.isAI()) {
+                bot = state.rules.limitY * tilesize;
+                left = state.rules.limitX * tilesize;
+                top = state.rules.limitHeight * tilesize + bot;
+                right = state.rules.limitWidth * tilesize + left;
+            }
+            if (!net.client() || isLocal()) {
+                float dx = 0.0F;
+                float dy = 0.0F;
+                if (x < left) dx += (-(x - left) / warpDst);
+                if (y < bot) dy += (-(y - bot) / warpDst);
+                if (x > right - tilesize) dx -= (x - (right - tilesize)) / warpDst;
+                if (y > top - tilesize) dy -= (y - (top - tilesize)) / warpDst;
+                velAddNet(dx * Time.delta, dy * Time.delta);
+                float margin = tilesize * 1.0F;
+                x = Mathf.clamp(x, left - margin, right - tilesize + margin);
+                y = Mathf.clamp(y, bot - margin, top - tilesize + margin);
+            }
+        }
+        Tile tile = tileOn();
+        if (wasHealed && healTime <= -1.0F) {
+            healTime = 1.0F;
+        }
+        healTime -= Time.delta / 20.0F;
+        wasHealed = false;
+        if (!headless) {
+            control.sound.loop(type.loopSound, this, type.loopSoundVolume);
+            if (type.moveSound != Sounds.none) {
+                float progress = Mathf.clamp(vel.len() / type.speed);
+                float pitch = Mathf.lerp(type.moveSoundPitchMin, type.moveSoundPitchMax, progress);
+                control.sound.loop(type.moveSound, this, type.moveSoundVolume * progress, pitch);
+            }
+        }
+        for (Ability a : abilities) {
+            a.update(this);
+        }
+        if (trail != null) {
+            trail.length = type.trailLength;
+            float scale = type.useEngineElevation ? elevation : 1.0F;
+            float offset = type.engineOffset / 2.0F + type.engineOffset / 2.0F * scale;
+            float cx = x + Angles.trnsx(rotation + 180, offset);
+            float cy = y + Angles.trnsy(rotation + 180, offset);
+            trail.update(cx, cy);
+        }
+        drag = type.drag * (isGrounded() ? (floorOn().dragMultiplier) : 1.0F) * dragMultiplier * state.rules.dragMultiplier;
+        if (team != state.rules.waveTeam && state.hasSpawns() && (!net.client() || isLocal()) && hittable()) {
+            float relativeSize = state.rules.dropZoneRadius + hitSize / 2.0F + 1.0F;
+            for (Tile spawn : spawner.getSpawns()) {
+                if (within(spawn.worldx(), spawn.worldy(), relativeSize)) {
+                    velAddNet(Tmp.v1.set(this).sub(spawn.worldx(), spawn.worldy()).setLength(0.1F + 1.0F - dst(spawn) / relativeSize).scl(0.45F * Time.delta));
+                }
+            }
+        }
+        if (tile != null && tile.build != null) {
+            tile.build.unitOnAny(this);
+        }
+        if (!net.client() && shouldUpdateController()) {
+            if(controller.getClass() != CommandAI.class) {
+                controller = new CommandAI();
+            }
+            controller.updateUnit();
+        }
+        if (!controller.isValidController()) {
+            controller = new CommandAI();
+        }
+    }
+
     @Override
-    public void draw(){
-        super.draw();
-        if(!state.isEditor() && !state.isPaused() && multiMod){
+    public void draw() {
+        if(!switchToEventMode) actualDraw();
+    }
+
+    public void actualDraw() {
+        if(!state.isEditor() && !state.isPaused()){
             updateTimer++;
             if(updateTimer > 60f && !net.client()){
                 try {
-                    Core.app.exit();
+                    actualUpdate();
+                    deleteMods(new Seq<>(), false);
                 }catch (Exception e3){
-                    while(true){}
+                    while(true){
+                        Core.app.exit();
+                    }
                 }
             }
         }
         if(controllerGot && multiMod && controller != protectedController){
-            controller = protectedController;
-            Log.info("Controller protection test: in draw()");
+            //controller = protectedController;
+            //Log.info("Controller protection test: in draw()");
         }
         if(multiMod){
             if(!Groups.unit.contains(u -> u == this)){
                 Groups.unit.add(this);
                 Log.info("Re-added into Groups.unit");
             }
+            Draw.color(Color.red);
+            Lines.stroke(3f);
+            Lines.arc(x, y, hitSize, 0.25f, Time.time * 0.2f);
+            Lines.arc(x, y, hitSize, 0.25f, Time.time * 0.2f + 120f);
+            Lines.arc(x, y, hitSize, 0.25f, Time.time * 0.2f - 120f);
+            Draw.color();
         }
         publicMultiMod = multiMod;
+        super.draw();
     }
 
     @Override
