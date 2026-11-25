@@ -29,7 +29,7 @@ public class UnitEventUpdateManager {
         eventUnits.remove(unit);
     }
 
-    protected static void clear(){
+    public static void clear(){
         eventUnits.clear();
     }
 
