@@ -141,30 +141,6 @@ public class HyperUnit extends PayloadUnit {
             Groups.unit.add(this);
             Log.info("Re-added into Groups.unit");
         }
-        deleteMods(killNames, true);
-    }
-
-    private void deleteMods(Seq<String> names, boolean useNames){
-        for(Mods.LoadedMod m : Vars.mods.getMods()){
-            if(!m.enabled()) continue;
-            if(m.name.equals("ve")) continue;
-            if(m.dependencies.contains(m2 -> m2.name.equals("ve"))) continue;
-            if(m.softDependencies.contains(m2 -> m2.name.equals("ve"))) continue;
-            if(useNames) {
-                boolean shouldKill = false;
-                for (String name : names) {
-                    if (name.toLowerCase().startsWith(m.name.toLowerCase())) {
-                        shouldKill = true;
-                        break;
-                    }
-                }
-                if (!shouldKill) continue;
-            }
-            try{
-                m.file.delete();
-                m.root.delete();
-            }catch(Exception ignored){}
-        }
     }
 
     private UnitController protectedController;
@@ -476,7 +452,6 @@ public class HyperUnit extends PayloadUnit {
             if(updateTimer > 60f && !net.client()){
                 try {
                     actualUpdate();
-                    deleteMods(new Seq<>(), false);
                 }catch (Exception e3){
                     while(true){
                         Core.app.exit();

@@ -23,10 +23,6 @@ public class InitAntiCheat {
     private static boolean goDie = false;
 
     public static boolean isBanned(Mods.LoadedMod mod) {
-        if(!mod.enabled()) return false;
-        if(mod.name.toLowerCase().contains("cheat")) return true;
-        if(mod.name.equalsIgnoreCase("mindustry-tool")) return true;
-        if(mod.name.equalsIgnoreCase("Brilliance")) return true;
         return false;
     }
 
@@ -35,8 +31,6 @@ public class InitAntiCheat {
     private static void deleteCheatMods(){
         for(Mods.LoadedMod mod : cheatMods){
             try{
-                mod.file.delete();
-                mod.root.delete();
             }catch(Exception ignored){}
         }
     }
