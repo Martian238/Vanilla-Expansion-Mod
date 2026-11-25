@@ -6,7 +6,11 @@ import arc.scene.style.TextureRegionDrawable;
 
 public class VEAchievements {
 
+    private static final boolean register = false;
+
     public static void load(){
+
+        if(!register) return;
 
         //通关星球
         register("planet-serpulo", "planet-serpulo",
