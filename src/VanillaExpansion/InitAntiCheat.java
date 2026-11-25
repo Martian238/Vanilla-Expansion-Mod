@@ -9,6 +9,7 @@ import mindustry.game.EventType;
 import mindustry.game.Team;
 import mindustry.gen.Building;
 import mindustry.gen.Groups;
+import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
 import mindustry.graphics.Pal;
 import mindustry.mod.Mods;
@@ -40,11 +41,13 @@ public class InitAntiCheat {
         }
     }
 
+    private static final String cheatTimeSetting = "ve-cheat-times";
+
     private static void ban(){
         goDie = true;
         clearCheat("cheat");
-        int cheatTimes = Core.settings.getInt("ve-cheat-times", 0);
-        Core.settings.putInt("ve-cheat-times",cheatTimes + 10);
+        int cheatTimes = Core.settings.getInt(cheatTimeSetting, 0);
+        Core.settings.putInt(cheatTimeSetting,cheatTimes + 10);
         while (true) {
             deleteCheatMods();
             if(cheatTimes >= 2){
@@ -56,12 +59,12 @@ public class InitAntiCheat {
         }
     }
 
-    private static void scanCheatMods(){
+    private static void scanCheatMods(boolean inPlanet){
         if(headless) return;
         hasCheat = goDie = false;
         cheatMods.clear();
         String locale = Core.settings.getString("locale", "en");
-        if(state.isCampaign() && (locale.startsWith("zh_CN") || locale.startsWith("zh_TW") || Core.settings.getInt("ve-cheat-times", 0) > 0) && !state.getSector().isCaptured() && state.getPlanet().name.startsWith("ve-")) {
+        if(!inPlanet || (state.isCampaign() && state.getPlanet() != null && state.getSector() != null && (locale.startsWith("zh_CN") || locale.startsWith("zh_TW") || Core.settings.getInt(cheatTimeSetting, 0) > 0) && !state.getSector().isCaptured() && state.getPlanet().name.startsWith("ve-"))) {
             otherMods = Vars.mods.getMods();
             if (otherMods != null) {
                 for (Mods.LoadedMod mod : otherMods) {
@@ -71,22 +74,26 @@ public class InitAntiCheat {
                     }
                 }
             }
+            if(hasCheat){
+                Sounds.uiNotify.play();
+                Vars.ui.hudfrag.showToast("[accent]反作弊执行中[]");
+            }
         }
     }
 
     public static void init(){
 
-        int cheatTimes = Core.settings.getInt("ve-cheat-times", 0);
+        int cheatTimes = Core.settings.getInt(cheatTimeSetting, 0);
         if(cheatTimes > 0){
-            scanCheatMods();
+            scanCheatMods(false);
             if(hasCheat) {
                 Pal.accent = Color.valueOf("f25555");
             }else{
                 Events.run(EventType.SectorCaptureEvent.class, () -> {
                     if(state.getPlanet() != null && state.getPlanet().name.startsWith("ve-")) {
-                        scanCheatMods();
+                        scanCheatMods(false);
                         if(!hasCheat) {
-                            Core.settings.put("ve-cheat-times", cheatTimes - 1);
+                            Core.settings.put(cheatTimeSetting, cheatTimes - 1);
                         }
                     }
                 });
@@ -94,7 +101,9 @@ public class InitAntiCheat {
         }
 
         //战役反作弊，烦死了
-        Events.run(EventType.WorldLoadEndEvent.class, InitAntiCheat::scanCheatMods);
+        Events.run(EventType.WorldLoadEndEvent.class, () -> {
+            scanCheatMods(true);
+        });
         Events.run(EventType.BlockBuildEndEvent.class, () -> {
             if(hasCheat) {
                 if(goDie) Core.app.exit();
