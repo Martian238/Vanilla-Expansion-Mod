@@ -1,0 +1,20 @@
+{
+  "type": "VanillaExpansion.expand.world.block.defense.ImmuneFieldProjector",
+  "consumes": {
+    "power": 2
+  },
+  "plans": {
+    "copper-wall": [ "wet","freezing" ],
+    "titanium-wall": [ "tarred","burning" ],
+    "thorium-wall": [ "ve-blown" ],
+    "surge-wall": [ "ve-dusty","ve-frozen" ]
+  },
+  "buildVisibility": "sandboxOnly",
+  "category": "effect",
+  "activateSound": "si2LightswitchActivate",
+  "deactivateSound": "si2LightswitchDeactivate",
+  "inputSound": "si2LightswitchAddLight",
+  "outputSound": "si2LightswitchRemoveLight",
+  "activeSound": "si2LightswitchActive",
+  "nonactiveSound": "si2LightswitchNonactive"
+}
