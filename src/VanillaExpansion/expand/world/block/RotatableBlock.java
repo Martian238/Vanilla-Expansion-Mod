@@ -13,23 +13,10 @@ import mindustry.ui.dialogs.*;
 import mindustry.world.*;
 import mindustry.world.blocks.*;
 
-/**
- * 旋转方块基类
- * 作为一个简单的RotBlock，支持自动转向目标角度
- * 可通过UI调整方向
- */
 public class RotatableBlock extends Block {
-
-    /** 转向速度 */
     public float rotateSpeed = 5f;
-
-    /** 是否启用自动转向 */
     public boolean autoRotate = true;
-
-    /** 是否显示UI配置 */
     public boolean showConfigUI = true;
-
-    /** 方向箭头图标 */
     public TextureRegion rotateArrowRegion;
 
     public RotatableBlock(String name) {
@@ -58,16 +45,12 @@ public class RotatableBlock extends Block {
     }
 
     public class RotatableBuild extends Building implements RotBlock {
-        /** 当前旋转角度（度数） */
         public float rotation = 90f;
-
-        /** 目标旋转角度（度数） */
         protected float targetRotation = 90f;
 
         @Override
         public void placed() {
             super.placed();
-            // 初始化旋转角度，配置会在之后被应用
             if (rotation == 0f && targetRotation == 0f) {
                 rotation = 90f;
                 targetRotation = 90f;

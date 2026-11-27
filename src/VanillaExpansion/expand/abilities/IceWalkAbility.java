@@ -1,26 +1,19 @@
 package VanillaExpansion.expand.abilities;
-
 import arc.struct.ObjectMap;
 import arc.struct.OrderedMap;
-import arc.util.Time;
 import mindustry.Vars;
 import mindustry.entities.abilities.Ability;
 import mindustry.gen.Unit;
-import mindustry.graphics.BlockRenderer;
 import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.blocks.environment.Floor;
-
 import static mindustry.Vars.tilesize;
 import static mindustry.Vars.world;
-
 public class IceWalkAbility extends Ability {
     public IceWalkAbility() {}
-
     public ObjectMap<Block, Block> replaces = new OrderedMap<>();
     public int replaceRange = 5;
     public boolean flyAllow = false;
-
     @Override
     public void update(Unit unit){
         if(unit.moving() && !replaces.isEmpty() && (!unit.isFlying() || flyAllow)){

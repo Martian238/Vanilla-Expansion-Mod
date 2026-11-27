@@ -11,8 +11,6 @@ import VanillaExpansion.VEPal;
 
 import static arc.Core.atlas;
 import static mindustry.Vars.*;
-
-/** Exp 墙：受击获得经验并升级。Ported from Project Unity's LevelLimitWall (simplified onto {@link ExpBase}). */
 public class ExpWall extends ExpBase {
     public TextureRegion[] levelRegions; //level top regions
     public TextureRegion edgeRegion, edgeMaxRegion;

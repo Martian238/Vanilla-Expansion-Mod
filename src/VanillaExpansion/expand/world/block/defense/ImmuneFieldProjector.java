@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.defense;
-
 import arc.audio.Sound;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Lines;
@@ -21,13 +20,10 @@ import mindustry.world.Block;
 import mindustry.world.blocks.payloads.Payload;
 import mindustry.world.blocks.payloads.PayloadBlock;
 import mindustry.world.meta.BlockStatus;
-
 import static mindustry.Vars.*;
-
 public class ImmuneFieldProjector extends PayloadBlock {
     public ImmuneFieldProjector(String name) {
         super(name);
-
         outputsPayload = false;
         acceptsPayload = true;
         update = true;
@@ -39,13 +35,11 @@ public class ImmuneFieldProjector extends PayloadBlock {
         lightColor = Pal.powerLight;
         canOverdrive = true;
     }
-
     public float radius = 10 * tilesize;
     public float baseCheckInterval = 20f;
     public boolean lighting = true;
     public boolean topSprite = false;
     public float maxRadiusMultiplier = 3;
-
     public Sound activateSound = Sounds.none;
     public Sound deactivateSound = Sounds.none;
     public Sound inputSound = Sounds.none;
@@ -54,9 +48,7 @@ public class ImmuneFieldProjector extends PayloadBlock {
     public float activeSoundVolume = 0.1f;
     public Sound nonactiveSound = Sounds.none;
     public float nonactiveSoundVolume = 0.1f;
-
     public ObjectMap<Block, Seq<StatusEffect>> plans = new ObjectMap<>();
-
     public class ImmuneFieldProjectorBuild extends PayloadBlockBuild<Payload> {
         public float actualRad = 0;
         public boolean wasActive = false;
@@ -65,7 +57,6 @@ public class ImmuneFieldProjector extends PayloadBlock {
         public Seq<StatusEffect> currentImmunities = new Seq<>();
         public boolean hadPayload = false;
         public Seq<Unit> affectUnits = new Seq<>();
-
         public boolean fieldActive(){
             if(efficiency <= 0.1){
                 return false;
@@ -75,7 +66,6 @@ public class ImmuneFieldProjector extends PayloadBlock {
             }
             return enabled;
         }
-
         public Seq<StatusEffect> getImmunities(){
             for(ObjectMap.Entry<Block, Seq<StatusEffect>> entry : plans.entries()){
                 if(payload != null && payload.content() instanceof Block b && b == entry.key){
@@ -84,17 +74,14 @@ public class ImmuneFieldProjector extends PayloadBlock {
             }
             return new Seq<>();
         }
-
         @Override
         public void updateTile() {
             super.updateTile();
-
             if (fieldActive()) {
                 if (!wasActive && !headless) {
                     activateSound.at(x, y);
                 }
                 wasActive = true;
-
                 timer += Time.delta;
                 if (timer >= baseCheckInterval) {
                     foundUnits = false;
@@ -131,7 +118,6 @@ public class ImmuneFieldProjector extends PayloadBlock {
                     deactivateSound.at(x, y);
                 }
                 wasActive = false;
-
                 actualRad = Mathf.approachDelta(actualRad, 0, 0.1f + 0.1f * Math.abs(actualRad));
                 if(Float.isNaN(actualRad) || actualRad < 0){
                     actualRad = 0;
@@ -140,7 +126,6 @@ public class ImmuneFieldProjector extends PayloadBlock {
                     control.sound.loop(nonactiveSound, new Vec2(x, y), nonactiveSoundVolume);
                 }
             }
-
             if(payload != null && !hadPayload){
                 if(!headless){
                     inputSound.at(x, y);
@@ -154,14 +139,12 @@ public class ImmuneFieldProjector extends PayloadBlock {
                 hadPayload = false;
             }
         }
-
         @Override
         public BlockStatus status(){
             if(!enabled) return BlockStatus.logicDisable;
             if(payload == null) return BlockStatus.noOutput;
             return wasActive ? BlockStatus.active : BlockStatus.noInput;
         }
-
         @Override
         public void draw() {
             if(headless) return;
@@ -189,12 +172,10 @@ public class ImmuneFieldProjector extends PayloadBlock {
             }
             Draw.color();
         }
-
         @Override
         public boolean acceptUnitPayload(Unit unit){
             return false;
         }
-
         @Override
         public boolean acceptPayload(Building source, Payload payload){
             return this.payload == null && super.acceptPayload(source, payload) && payload.fits(size);

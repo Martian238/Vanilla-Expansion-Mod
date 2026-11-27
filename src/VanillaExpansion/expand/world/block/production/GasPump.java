@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.production;
-
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
@@ -9,12 +8,9 @@ import arc.util.Time;
 import mindustry.game.Team;
 import mindustry.logic.LAccess;
 import mindustry.type.Liquid;
-import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.blocks.production.Pump;
-
 import static mindustry.Vars.*;
-
 public class GasPump extends Pump {
     public GasPump(String name) {
         super(name);
@@ -25,7 +21,6 @@ public class GasPump extends Pump {
     public boolean banLiquid = true;
     public boolean ignoreMultiplier = true;
     public int leastTiles = 9;
-
     @Override
     public boolean canPlaceOn(Tile tile, Team team, int rotation){
         if(isMultiblock()){
@@ -65,8 +60,6 @@ public class GasPump extends Pump {
     @Override
     public void setBars(){
         super.setBars();
-
-        //replace dynamic output bar with own custom bar
         addLiquidBar((GasPumpBuild build) -> build.liquidDrop);
     }
 

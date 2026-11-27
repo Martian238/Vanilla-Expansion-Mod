@@ -1,15 +1,9 @@
 package VanillaExpansion.ui;
 
-import arc.Core;
-import arc.graphics.g2d.TextureAtlas;
 import arc.graphics.g2d.TextureRegion;
 import mindustry.Vars;
 import mindustry.ctype.ContentType;
 import mindustry.ctype.UnlockableContent;
-import mindustry.gen.Unit;
-import mindustry.type.Item;
-import mindustry.type.UnitType;
-import mindustry.world.Block;
 
 import static mindustry.ui.Fonts.registerIcon;
 

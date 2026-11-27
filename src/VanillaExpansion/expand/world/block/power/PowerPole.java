@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.power;
-
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.*;
@@ -22,28 +21,16 @@ import mindustry.world.meta.*;
 import mindustry.world.modules.PowerModule;
 
 import static mindustry.Vars.*;
-
 public class PowerPole extends PowerBlock {
     public static final int DIRECTIONS = 16;
     public static final float DEG_PER_DIR = 360f / DIRECTIONS;
-
     private static final float[] ANGLE_MAP = new float[16];
     static {
         for (int i = 0; i < 16; i++) ANGLE_MAP[i] = i * DEG_PER_DIR;
     }
-
     public static float angleFrom(int fullRot) {
         return ANGLE_MAP[Mathf.mod(fullRot, 16)];
     }
-
-    public static int angleToFullRotation(float angleDeg) {
-        return Mathf.round(angleDeg / DEG_PER_DIR) % DIRECTIONS;
-    }
-
-    public static boolean isCardinal(int fullRot) {
-        return fullRot % 4 == 0;
-    }
-
     public int lineCount = 4;
     public float lineSpacing = 8f;
     //线轴大小

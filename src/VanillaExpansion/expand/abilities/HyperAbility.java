@@ -1,12 +1,10 @@
 package VanillaExpansion.expand.abilities;
-
 import VanillaExpansion.content.VEJSUnitTypes;
 import VanillaExpansion.expand.type.unit.HyperUnit;
 import arc.Core;
 import arc.Events;
 import arc.func.Cons;
 import arc.scene.ui.layout.Table;
-import arc.util.Time;
 import mindustry.Vars;
 import mindustry.ai.types.CommandAI;
 import mindustry.entities.Units;
@@ -16,29 +14,21 @@ import mindustry.game.EventType;
 import mindustry.gen.Bullet;
 import mindustry.gen.Groups;
 import mindustry.gen.Unit;
-import mindustry.graphics.Pal;
 import mindustry.type.ItemStack;
 import mindustry.ui.Bar;
-
 public class HyperAbility extends Ability {
     public HyperAbility() {
         display = false;
     }
-
-    //Just some special things for Hyper.
-
     @Override
     public void created(Unit unit){
         unit.shield = 10000f;
         recoveryTimer = cantRecoveryTimer = 0f;
     }
-
     private ItemStack items = new ItemStack();
     private boolean has = false;
-
     private float recoveryTimer = 0f;
     private float cantRecoveryTimer = 0f;
-
     @Override
     public void update(Unit unit){
         super.update(unit);
@@ -78,9 +68,7 @@ public class HyperAbility extends Ability {
             }
         }
     }
-
     private static Unit paramUnit;
-
     private static Cons<Bullet> bulletConsumer = b -> {
         if(!isBulletVanilla(b) && b.team != paramUnit.team){
             b.x(99999999f);
@@ -93,7 +81,6 @@ public class HyperAbility extends Ability {
             b.remove();
         }
     };
-
     private static Cons<Unit> unitConsumer = u -> {
         if(u.team != paramUnit.team){
             if(!u.type.isVanilla() && !u.type.name.startsWith("ve-")
@@ -106,14 +93,12 @@ public class HyperAbility extends Ability {
             }
         }
     };
-
     @Override
     public void displayBars(Unit unit, Table bars){
         if(has){
             bars.add(new Bar(Core.bundle.format("stat.unititem", items.item.localizedName, items.amount, unit.itemCapacity()), items.item.color, () -> (float) items.amount / unit.itemCapacity())).row();
         }
     }
-
     private static boolean isBulletVanilla(Bullet b){
         boolean c = false;
         if(b.type.getClass() == BulletType.class) c = true;

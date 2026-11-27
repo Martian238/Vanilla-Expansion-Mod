@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.crux;
-
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
@@ -10,28 +9,20 @@ import arc.math.Mathf;
 import arc.math.geom.Vec2;
 import arc.scene.ui.layout.Scl;
 import arc.util.Align;
-import arc.util.Log;
 import arc.util.Time;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
 import arc.util.pooling.Pools;
-import mindustry.gen.Building;
 import mindustry.gen.Bullet;
 import mindustry.graphics.Layer;
 import mindustry.type.Category;
 import mindustry.ui.Fonts;
-import mindustry.world.Block;
 import mindustry.world.Tile;
-import mindustry.world.blocks.logic.MemoryBlock;
 import mindustry.world.blocks.logic.SwitchBlock;
 import mindustry.world.meta.BuildVisibility;
 import mindustry.world.meta.Env;
-
 import java.text.DecimalFormat;
-
 import static mindustry.Vars.*;
-import static mindustry.Vars.tilesize;
-
 public class SentryAlertStorer extends SwitchBlock {
     public SentryAlertStorer(String name) {
         super(name);
@@ -43,27 +34,20 @@ public class SentryAlertStorer extends SwitchBlock {
         clipSize = 80000f;
         update = true;
     }
-
     @Override
     public boolean checkForceDark(Tile tile){
         return true;
     }
-
-
     public float maxTime = 99.99f * 60f; //Max time of alert and caution phase
     public float suspectTime = 5.00f * 60f; //Time of suspect phase
     public float cooldownTime = 120f;
     public float speed = 1f;
-
     public class SentryAlertStorerBuild extends SwitchBuild {
-
         @Override
         public boolean collision(Bullet b){
             return false;
         }
-
         public int status = 0; //Global status for all sentries. 0:safe, 1:suspect, 2:caution, 3:alert
-
         private float alertTimer = 0;
         private double cautionTimer = 0;
         private float suspectTimer = 0;
@@ -76,9 +60,7 @@ public class SentryAlertStorer extends SwitchBlock {
         private boolean displaying;
         private String text;
         public Vec2 lastPos = new Vec2(0, 0);
-
         private float cooldownTimer = 0; //Timer before a timer starts to decrease
-
         public void alert(){
             alertTimer = maxTime;
             cautionTimer = maxTime;
@@ -97,7 +79,6 @@ public class SentryAlertStorer extends SwitchBlock {
             }
             cooldownTimer = cooldownTime;
         }
-
         @Override
         public void update(){
             if(cooldownTimer > 0) cooldownTimer--; //Log.info(cooldownTimer);
@@ -127,7 +108,6 @@ public class SentryAlertStorer extends SwitchBlock {
                 status = 0;
             }
         }
-
         private Color c1 = Color.valueOf("ffd37f");
         private Color c2 = Color.valueOf("ffa665");
         private Color c3 = Color.valueOf("f25555");
@@ -144,12 +124,8 @@ public class SentryAlertStorer extends SwitchBlock {
             boolean ints = font.usesIntegerPositions();
             font.getData().setScale(1 / 4f / Scl.scl(drawScale));
             font.setUseIntegerPositions(false);
-
-
-
             Draw.z(Layer.max - 0.1f);
             l.setText(font, text, Color.white, drawSize, Align.center, true);
-
             Draw.color(0f, 0f, 0f, 0.2f);
             Fill.rect(drawX, drawY - l.height * 0.5f, l.width, l.height);
             Draw.color();
@@ -168,17 +144,13 @@ public class SentryAlertStorer extends SwitchBlock {
             }
             font.draw(text, drawX, drawY, drawSize, Align.center, true);
             font.setUseIntegerPositions(ints);
-
             font.getData().setScale(drawScale);
-
             Pools.free(l);
         }
-
         @Override
         public byte version(){
             return 1;
         }
-
         @Override
         public void write(Writes write){
             super.write(write);
@@ -186,7 +158,6 @@ public class SentryAlertStorer extends SwitchBlock {
             write.f(alertTimer);
             write.d(cautionTimer);
         }
-
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);

@@ -1,6 +1,4 @@
 package VanillaExpansion.expand.abilities;
-
-import VanillaExpansion.content.CustomFx;
 import arc.Core;
 import arc.audio.Sound;
 import arc.graphics.Color;
@@ -15,7 +13,6 @@ import mindustry.entities.Effect;
 import mindustry.entities.abilities.Ability;
 import mindustry.entities.bullet.ArtilleryBulletType;
 import mindustry.entities.bullet.BulletType;
-import mindustry.entities.bullet.LaserBulletType;
 import mindustry.entities.part.DrawPart;
 import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
@@ -23,18 +20,12 @@ import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.world.blocks.environment.Floor;
-
 import static arc.graphics.g2d.Draw.color;
 import static mindustry.Vars.world;
 import static mindustry.type.UnitType.shadowTX;
 import static mindustry.type.UnitType.shadowTY;
-
 public class HoverTurretAbility extends Ability {
-    public HoverTurretAbility() {
-    }
-
-    //TODO
-
+    public HoverTurretAbility() {}
     public float airResistance = 0.07f;
     public float shootingResistance = 0.1f;
     public boolean idleLock = false;
@@ -44,19 +35,16 @@ public class HoverTurretAbility extends Ability {
     public float maxSpeed = 30f;
     public float maxRange = 400f;
     public float minRotateSpeedThreshold = 0f;
-
     public float layer = 90f;
     public float offsetX = 0f;
     public float offsetY = -12f;
     public float shootingOffsetX = 30f;
     public float shootingOffsetY = 8f;
     public float shadowElevation = 1f;
-
     public String sprite = "hail";
     public TextureRegion region;
     public float regionRotation = -90f;
     public Seq<DrawPart> parts = new Seq<>();
-
     public float reload = 60f / 1.2f;
     public float recoil = 2f;
     public float cooldown = 15f;
@@ -83,7 +71,6 @@ public class HoverTurretAbility extends Ability {
     public float volume = 1f;
     public float minPitch = 0.9f;
     public float maxPitch = 1.1f;
-
     public boolean drawBeam = false;
     public Color beamColor = Color.valueOf("2eeaea");
     public float beamWidth = 8f;
@@ -91,23 +78,19 @@ public class HoverTurretAbility extends Ability {
     public float beamTime = 15f;
     public float innerBeamWidth = 2f;
     public float innerBeamLength = 39f;
-
     private float x, y, vx, vy, ax, ay, rot;
     private float targetX, targetY, targetRot;
     private float reloadTimer, warmupTimer, heatTimer, beamTimer;
-
     @Override
     public void update(Unit unit) {
         setTargets(unit);
         calculatePhysics(unit);
         calculateShoot(unit);
     }
-
     @Override
     public void draw(Unit unit){
         drawTurret(unit);
     }
-
     public void calculatePhysics(Unit unit) {
         ax = accelerationMultiplier * getDistance(targetX, targetY, x, y) * Mathf.cosDeg(getAngle(targetX - x, targetY - y));
         ay = accelerationMultiplier * getDistance(targetX, targetY, x, y) * Mathf.sinDeg(getAngle(targetX - x, targetY - y));
@@ -139,7 +122,6 @@ public class HoverTurretAbility extends Ability {
             vx = vy = ax = ay = 0;
         }
     }
-
     public void setTargets(Unit unit){
         if(unit.isShooting() || heatTimer > 0f){
             targetX = unit.x + getOffset(unit.rotation, shootingOffsetX, shootingOffsetY, true);
@@ -155,7 +137,6 @@ public class HoverTurretAbility extends Ability {
             }
         }
     }
-
     public void shoot(Unit unit){
         float bx = x + getOffset(rot, shootX, shootY, true);
         float by = y + getOffset(rot, shootX, shootY, false);
@@ -167,7 +148,6 @@ public class HoverTurretAbility extends Ability {
         vx += recoil * Mathf.cosDeg(rot + 180f);
         vy += recoil * Mathf.sinDeg(rot + 180f);
     }
-
     public void calculateShoot(Unit unit){
         if(unit.isShooting()){
             if(warmupTimer < warmup) {
@@ -197,14 +177,12 @@ public class HoverTurretAbility extends Ability {
         if(heatTimer < 0f) heatTimer = 0f;
         if(beamTimer < 0f) beamTimer = 0f;
     }
-
     @Override
     public void created(Unit unit){
         x = targetX = unit.x + getOffset(unit.rotation, offsetX, offsetY, true);;
         y = targetY = unit.y + getOffset(unit.rotation, offsetX, offsetY, false);;
         vx = vy = ax = ay = rot = targetRot = 0;
     }
-
     public void drawTurret(Unit unit){
         load(unit);
 
@@ -270,7 +248,6 @@ public class HoverTurretAbility extends Ability {
             Drawf.tri(ex, ey, w * 0.8f, 6f * t, rot + 150f);
         }
     }
-
     public void load(Unit unit){
         region = Core.atlas.find(sprite);
         if(parts.size > 0) {
@@ -279,7 +256,6 @@ public class HoverTurretAbility extends Ability {
             }
         }
     }
-
     public float getDistance(float ax, float ay, float bx, float by){
         return Mathf.sqrt(Math.abs((ax - bx) * (ax - bx) + (ay - by) * (ay - by)));
     }

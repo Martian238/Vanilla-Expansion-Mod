@@ -13,10 +13,9 @@ import mindustry.type.Item;
 public class HotbarDebugUI {
     private final String[] lastTexts = new String[7];
     public static HotbarDebugUI instance;
-    //显示调试开关
     public static boolean alwaysVisible = true;
     private Table root;
-    private Table wrapper;   // 外层容器，固定宽度 280
+    private Table wrapper;
     private Label titleLabel, unitLabel, slotLabel, itemLabel,
             weaponLabel, healthLabel, speedLabel, statusLabel;
     private boolean initialized = false;
@@ -84,13 +83,10 @@ public class HotbarDebugUI {
             if (!root.visible) root.visible = true;
         }
         if (root == null || !root.visible) return;
-        // 节流
         if (++refreshTimer < REFRESH_INTERVAL) return;
         refreshTimer = 0f;
         refresh();
     }
-
-    // 刷新
     private void refresh() {
         Unit unit = Vars.player != null ? Vars.player.unit() : null;
         if (unit == null) {
@@ -104,7 +100,6 @@ public class HotbarDebugUI {
             return;
         }
         setIfChanged(0, unitLabel, "[gray]单位:[] [white]" + unit.type.name + "[]");
-
         HotbarUI ui = HotbarUI.instance;
         if (ui == null) {
             setIfChanged(2, itemLabel, "[gray]物品栏:[] [red]未初始化[]");
@@ -117,7 +112,6 @@ public class HotbarDebugUI {
         setIfChanged(2, itemLabel, item == null
                 ? "[gray]物品:[] [red]空[]"
                 : "[gray]物品:[] [white]" + item.name + "[]");
-        // 找 HotbarAbility
         HotbarAbility hab = null;
         for (var ab : unit.abilities) {
             if (ab instanceof HotbarAbility h) { hab = h; break; }
@@ -131,7 +125,6 @@ public class HotbarDebugUI {
             setIfChanged(6, statusLabel, "");
             return;
         }
-        // 武器
         HotbarWeaponSlot slot = hab.getActiveSlot();
         if (slot == null) {
             setIfChanged(3, weaponLabel, "[gray]武器:[] [gray]无槽[]");
@@ -144,15 +137,12 @@ public class HotbarDebugUI {
                     + "[] [gray]reload=[]" + Strings.autoFixed(slot.reloadTimer, 1)
                     + "[]/" + Strings.autoFixed(slot.reload, 1));
         }
-        // 血量
         setIfChanged(4, healthLabel, "[gray]血量:[] [white]" + (int) unit.health
                 + "[] / [white]" + (int) unit.maxHealth
                 + "[] [gray](+[]" + (int) hab.getBonusHealth() + "[])[gray]");
-        // 速度
         setIfChanged(5, speedLabel, "[gray]速度乘数:[] [white]"
                 + Strings.autoFixed(unit.speedMultiplier(), 2)
                 + "[] [gray](+[]" + Strings.autoFixed(hab.getSpeedMul() - 1f, 2) + "[])[gray]");
-        // 状态
         if (hab.getBonusStatus() != null) {
             setIfChanged(6, statusLabel, "[gray]状态:[] [orange]" + hab.getBonusStatus().name + "[]");
         } else {

@@ -1,17 +1,13 @@
 package VanillaExpansion.expand.world.block.liquid;
-
 import arc.Core;
 import arc.Input;
 import arc.graphics.Color;
 import arc.graphics.g2d.*;
 import arc.math.Mathf;
-import arc.math.geom.Vec2;
-import arc.scene.style.Drawable;
 import arc.scene.ui.TextArea;
 import arc.scene.ui.TextButton;
 import arc.scene.ui.layout.Scl;
 import arc.scene.ui.layout.Table;
-import arc.struct.Seq;
 import arc.util.Align;
 import arc.util.Eachable;
 import arc.util.Strings;
@@ -19,10 +15,8 @@ import arc.util.Time;
 import arc.util.io.*;
 import arc.util.pooling.Pools;
 import mindustry.core.UI;
-import mindustry.entities.Effect;
 import mindustry.entities.units.BuildPlan;
 import mindustry.gen.Building;
-import mindustry.gen.Icon;
 import mindustry.graphics.Pal;
 import mindustry.type.Liquid;
 import mindustry.ui.Bar;
@@ -33,16 +27,11 @@ import mindustry.world.Edges;
 import mindustry.world.blocks.ItemSelection;
 import mindustry.world.blocks.liquid.LiquidRouter;
 import mindustry.world.blocks.sandbox.LiquidVoid;
-
 import java.util.Arrays;
-import java.util.Objects;
-
 import static mindustry.Vars.*;
-
 public class LiquidSorter extends LiquidRouter {
     public int maxTextLength = 20;
     public int maxNewlines = 1;
-
     public LiquidSorter(String name) {
         super(name);
         configurable = true;

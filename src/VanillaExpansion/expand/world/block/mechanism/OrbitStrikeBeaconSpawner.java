@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.mechanism;
-
 import VanillaExpansion.content.VEJSUnitTypes;
 import VanillaExpansion.expand.world.block.crux.LargeTeamProjector;
 import arc.Core;
@@ -30,7 +29,6 @@ import mindustry.world.meta.BuildVisibility;
 
 import static mindustry.Vars.*;
 import static mindustry.Vars.state;
-
 public class OrbitStrikeBeaconSpawner extends Block {
     public OrbitStrikeBeaconSpawner(String name) {
         super(name);
@@ -51,13 +49,11 @@ public class OrbitStrikeBeaconSpawner extends Block {
         drawCracks = false;
         destructible = false;
     }
-
     public float interval = 90f * 60f;
     public float intervalRand = 30f * 60f;
     public int checkBuildingRange = 15;
     public float checkProjectorInterval = 300f;
     public int projectorRange = 19;
-
     @Override
     public boolean checkForceDark(Tile tile){
         return !accessible();
@@ -65,7 +61,6 @@ public class OrbitStrikeBeaconSpawner extends Block {
     public boolean accessible(){
         return !privileged || state.rules.editor || state.playtestingMap != null || state.rules.allowEditWorldProcessors;
     }
-
     public class OrbitStrikeBeaconSpawnerBuild extends Building {
 
         @Override

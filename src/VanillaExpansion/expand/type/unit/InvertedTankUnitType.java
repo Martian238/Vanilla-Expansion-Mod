@@ -1,22 +1,18 @@
 package VanillaExpansion.expand.type.unit;
-
 import arc.graphics.g2d.Draw;
 import arc.math.Mathf;
 import arc.util.Tmp;
 import mindustry.gen.Tankc;
 import mindustry.gen.Unit;
 import mindustry.type.UnitType;
-
 public class InvertedTankUnitType extends UnitType {
     public InvertedTankUnitType(String name) {
         super(name);
     }
-
     @Override
     public <T extends Unit & Tankc> void drawTank(T unit){
         applyColor(unit);
         Draw.rect(treadRegion, unit.x, unit.y, unit.rotation - 90);
-
         if(treadRegion.found()){
             int frame = treadFrames - (int)(unit.treadTime()) % treadFrames - 1;
             for(int i = 0; i < treadRects.length; i ++){

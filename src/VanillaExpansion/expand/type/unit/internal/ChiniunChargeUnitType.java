@@ -1,41 +1,30 @@
 package VanillaExpansion.expand.type.unit.internal;
-
 import VanillaExpansion.expand.methods.Drawve;
 import arc.audio.Sound;
 import arc.graphics.Color;
-import arc.graphics.g2d.Draw;
-import arc.graphics.g2d.Lines;
 import arc.math.Mathf;
 import arc.util.Time;
 import mindustry.gen.Sounds;
 import mindustry.gen.TimedKillUnit;
-import mindustry.gen.TimedKillc;
 import mindustry.gen.Unit;
-import mindustry.graphics.Layer;
 import mindustry.type.unit.MissileUnitType;
-
 public class ChiniunChargeUnitType extends MissileUnitType {
     public ChiniunChargeUnitType(String name) {
         super(name);
         constructor = ChiniunChargeUnit::new;
     }
-
     public Sound startChargeSound = Sounds.none;
-
     public float chargeRingRadius = 40f;
     public float chargeRingStroke = 16f;
-
     public Color chargeRingColor1 = Color.valueOf("f25555");
     public Color chargeRingColor2 = chargeRingColor1.cpy().mul(1.25f);
     public Color chargeRingColor3 = chargeRingColor1.cpy().mul(1.5f);
     public Color chargeRingDelayColor = Color.valueOf("ffa665");
-
     public int charges = 1;
     public int interrupts = 0;
     public float chargeDelay = 0;
     public float chargeDelayMax = 0;
     public float chargeTimeMax = lifetime;
-
     @Override
     public void draw(Unit unit){
         float chargeTime = lifetime - (unit instanceof TimedKillUnit u ? u.time() : 0f);
@@ -82,7 +71,6 @@ public class ChiniunChargeUnitType extends MissileUnitType {
         }
          */
     }
-
     /*
     public void addChargeArc(Unit unit, float chargeTime, float chargeRot, int amount, float stroke, float alpha, float rotSpeed){
         Draw.alpha(alpha);

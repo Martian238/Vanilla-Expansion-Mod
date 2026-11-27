@@ -1,20 +1,14 @@
 package VanillaExpansion.expand.type.unit;
-
 import VanillaExpansion.EntityRegister;
 import arc.math.Mathf;
 import arc.util.Tmp;
 import mindustry.gen.MechUnit;
-
 import java.util.Objects;
-
 public class IronGolemUnit extends MechUnit {
-
     public static MechUnit create(){
         return new IronGolemUnit();
     }
-
     private float invincibleTimer = 0f;
-
     @Override
     public int classId() {
         return EntityRegister.getID(getClass());
@@ -34,10 +28,8 @@ public class IronGolemUnit extends MechUnit {
             }
         }
     }
-
     @Override
     public void impulse(float x, float y){}
-
     @Override
     public void damage(float damage){
         if(invincibleTimer > 0f) return;
@@ -47,7 +39,6 @@ public class IronGolemUnit extends MechUnit {
             invincibleTimer = i.invincibleTime;
         }
     }
-
     @Override
     public void damage(float damage, boolean e){
         if(invincibleTimer > 0f) return;
@@ -57,7 +48,6 @@ public class IronGolemUnit extends MechUnit {
             invincibleTimer = i.invincibleTime;
         }
     }
-
     @Override
     public void damagePierce(float damage){
         if(invincibleTimer > 0f) return;
@@ -67,7 +57,6 @@ public class IronGolemUnit extends MechUnit {
             invincibleTimer = i.invincibleTime;
         }
     }
-
     @Override
     public void damagePierce(float damage, boolean e){
         if(invincibleTimer > 0f) return;
@@ -77,7 +66,6 @@ public class IronGolemUnit extends MechUnit {
             invincibleTimer = i.invincibleTime;
         }
     }
-
     @Override
     public void damageArmorMult(float damage, float m){
         if(invincibleTimer > 0f) return;
@@ -87,7 +75,6 @@ public class IronGolemUnit extends MechUnit {
             invincibleTimer = i.invincibleTime;
         }
     }
-
     @Override
     public void damageArmorMult(float damage, float m, boolean e){
         if(invincibleTimer > 0f) return;
@@ -97,7 +84,6 @@ public class IronGolemUnit extends MechUnit {
             invincibleTimer = i.invincibleTime;
         }
     }
-
     @Override
     public void damageContinuous(float damage){
         if(invincibleTimer > 0f) return;
@@ -107,7 +93,6 @@ public class IronGolemUnit extends MechUnit {
             invincibleTimer = i.invincibleTime;
         }
     }
-
     @Override
     public void damageContinuousPierce(float damage){
         if(invincibleTimer > 0f) return;
@@ -117,7 +102,6 @@ public class IronGolemUnit extends MechUnit {
             invincibleTimer = i.invincibleTime;
         }
     }
-
     @Override
     public void damageContinuousArmorMult(float damage, float m){
         if(invincibleTimer > 0f) return;

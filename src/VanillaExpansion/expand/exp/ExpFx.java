@@ -12,8 +12,6 @@ import mindustry.graphics.*;
 import static arc.graphics.g2d.Draw.*;
 import static arc.graphics.g2d.Lines.*;
 import static arc.math.Angles.*;
-
-/** Exp 相关特效占位实现，后续随 ExpTurret 完整移植补充 */
 public class ExpFx{
     public static final Effect upgradeBlockFx = new Effect(90f, e -> {
         color(Color.white, Color.green, e.fin());

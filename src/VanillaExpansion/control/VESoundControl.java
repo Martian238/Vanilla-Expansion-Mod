@@ -1,5 +1,4 @@
 package VanillaExpansion.control;
-
 import arc.*;
 import arc.audio.*;
 import arc.audio.Filters.*;
@@ -10,55 +9,36 @@ import arc.struct.*;
 import arc.util.*;
 import mindustry.*;
 import mindustry.audio.AmbientSource;
-import mindustry.audio.MusicContainer;
 import mindustry.content.*;
 import mindustry.core.*;
 import mindustry.game.EventType.*;
 import mindustry.gen.*;
-
 import java.util.concurrent.*;
-
 import static mindustry.Vars.*;
-
-/** Controls playback of multiple audio tracks.*/
 public class VESoundControl{
     protected Interval timer = new Interval(4);
-
     protected @Nullable AudioThread ambientThread;
     protected Seq<SoundData> localData = new Seq<>();
-
     protected ObjectMap<Sound, SoundData> sounds = new ObjectMap<>();
-
     public VESoundControl(){
     }
-
-    /** Update and play the right music track.*/
     public void update(){
         updateLoops();
     }
-
-    //loop system
-
     public void loop(Sound sound, float volume){
         if(Vars.headless) return;
-
         loop(sound, Core.camera.position, volume);
     }
-
     public void loop(Sound sound, Position pos, float volume){
         loop(sound, pos, volume, 1f);
     }
-
     public void loop(Sound sound, Position pos, float volume, float pitch){
         if(Vars.headless || sound == Sounds.none || volume <= 0.00001f) return;
-
         loop(sounds.get(sound, SoundData::new), sound, pos, volume, pitch);
     }
-
     static void loop(SoundData data, Sound sound, Position pos, float volume, float pitch){
         float baseVol = sound.calcFalloff(pos.getX(), pos.getY());
         float vol = baseVol * volume;
-
         data.volume += vol;
         data.pitch += pitch * vol;
         data.volume = Mathf.clamp(data.volume, 0f, 1f);
@@ -67,21 +47,15 @@ public class VESoundControl{
         data.sumX += pos.getX() * baseVol;
         data.sumY += pos.getY() * baseVol;
     }
-
     protected void updateLoops(){
-        //clear loops when in menu
         if(!state.isGame()){
             sounds.clear();
             return;
         }
-
         if(state.isPaused()) return;
-
         float avol = Core.settings.getInt("ambientvol", 100) / 100f;
-
         sounds.each((sound, data) -> {
             data.curVolume = Mathf.lerpDelta(data.curVolume, data.volume * avol, 1f);
-
             boolean play = data.curVolume > 0.001f;
             float pan = Mathf.zero(data.total, 0.0001f) ? 0f : sound.calcPan(data.sumX / data.total, data.sumY / data.total);
             float pitch = Mathf.zero(data.totalVolume, 0.0001f) ? 1f : data.pitch / data.totalVolume;
@@ -101,7 +75,6 @@ public class VESoundControl{
                     Core.audio.setPitch(data.soundID, pitch);
                 }
             }
-
             data.pitch = 0f;
             data.volume = 0f;
             data.total = 0f;
@@ -109,16 +82,12 @@ public class VESoundControl{
             data.sumX = 0f;
             data.sumY = 0f;
         });
-
-        //grab data from ambient thread
         if(ambientThread != null){
             synchronized(ambientThread.outputData){
                 localData.set(ambientThread.outputData);
             }
-
             for(var data : localData){
                 var target = sounds.get(data.sound, SoundData::new);
-
                 target.pitch = data.pitch;
                 target.volume = data.volume;
                 target.total = data.total;
@@ -128,16 +97,13 @@ public class VESoundControl{
             }
         }
     }
-
     protected static class SoundData implements Cloneable{
         float volume, pitch;
         float total;
         float sumX, sumY;
-
         int soundID;
         float curVolume, totalVolume;
         Sound sound;
-
         @Override
         public SoundData clone(){
             try{
@@ -147,32 +113,23 @@ public class VESoundControl{
             }
         }
     }
-
     static class AudioThread extends Thread{
         static final int targetFps = 20;
         static final long targetNanos = Time.millisToNanos(1000) / targetFps;
-
         volatile boolean running = true;
         Seq<AmbientSource> sources = new Seq<>(false, 16, AmbientSource.class);
-
         LinkedBlockingQueue<AmbientSource> inputSources = new LinkedBlockingQueue<>();
         ObjectMap<Sound, SoundData> sounds = new ObjectMap<>();
-
-        //buffer that is built up on the audio thread
         final Seq<SoundData> localData = new Seq<>();
-        //buffer for output sound data
         final Seq<SoundData> outputData = new Seq<>();
-
         void doLoop(){
             var items = sources.items;
             int size = sources.size;
             localData.size = 0;
-
             AmbientSource source;
             while((source = inputSources.poll()) != null){
                 sources.add(source);
             }
-
             for(int i = 0; i < size; i++){
                 var item = items[i];
                 if(item.isValid()){
@@ -199,18 +156,13 @@ public class VESoundControl{
                     size --;
                 }
             }
-
-            //copy built-up data to output buffer
             synchronized(outputData){
                 outputData.size = 0;
                 for(var data : localData){
-
                     //this allocates, which is bad, but it only happens at 20fps with a few audio types at most
                     outputData.add(data.clone());
                 }
             }
-
-            //reset data for next iteration
             sounds.each((sound, data) -> {
                 data.pitch = 0f;
                 data.volume = 0f;
@@ -220,7 +172,6 @@ public class VESoundControl{
                 data.sumY = 0f;
             });
         }
-
         @Override
         public void run(){
             try{
@@ -231,7 +182,6 @@ public class VESoundControl{
                     if(state.isPlaying()){
                         doLoop();
                     }
-
                     long elapsed = Time.timeSinceNanos(nanos);
                     if(elapsed < targetNanos){
                         long remaining = targetNanos - elapsed;

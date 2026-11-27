@@ -1,7 +1,6 @@
 package VanillaExpansion.expand.abilities;
 import VanillaExpansion.content.CustomItem;
 import VanillaExpansion.expand.ui.HotbarUI;
-import arc.util.Log;
 import mindustry.entities.abilities.Ability;
 import mindustry.gen.Unit;
 import mindustry.type.Item;
@@ -17,7 +16,6 @@ public class HotbarAbility extends Ability {
     private float speedMul = 1f;
     private float bonusHealth = 0f;
     private StatusEffect bonusStatus = null;
-
     @Override
     public HotbarAbility copy() {
         HotbarAbility out = (HotbarAbility) super.copy();
@@ -33,19 +31,12 @@ public class HotbarAbility extends Ability {
     public void update(Unit unit) {
         HotbarUI ui = HotbarUI.instance;
         if (ui == null) return;
-
         Item current = ui.getItem(ui.getSelected());
         if (current != lastItem) {
             revoke(unit);
             lastItem = current;
             if (current != null) apply(unit, current);
-
-            // 子弹调试
-//            arc.util.Log.info("[HotbarAbility@" + System.identityHashCode(this) + "] unit="
-//                    + System.identityHashCode(unit) + " itemSlot=" + itemSlot
-//                    + " bullet=" + (itemSlot != null ? itemSlot.bullet : "null"));
         }
-
         if (itemSlot != null && itemSlot.bullet != null) {
             itemSlot.updateTimers();
             if (unit.isShooting() && itemSlot.readyToShoot(unit)) {
@@ -69,11 +60,8 @@ public class HotbarAbility extends Ability {
         }
         itemSlot = null;
     }
-
-    // 应用数据驱动
     private void apply(Unit unit, Item item) {
         if (!(item instanceof CustomItem ci)) {
-            //Log.info("[HotbarAbility] 物品 " + item.name + " 不是 CustomItem，忽略");
             return;
         }
         if (ci.weaponBullet != null) {
@@ -89,7 +77,6 @@ public class HotbarAbility extends Ability {
             pooledSlot.heatTimer = 0f;
             pooledSlot.warmupTimer = 0f;
             itemSlot = pooledSlot;
-            //Log.info("[HotbarAbility] 物品 " + ci.name + " -> 武器");
         }
         if (ci.bonusHealth > 0f) {
             bonusHealth = ci.bonusHealth;

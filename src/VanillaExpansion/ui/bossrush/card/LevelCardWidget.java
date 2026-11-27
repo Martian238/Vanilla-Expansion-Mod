@@ -1,16 +1,15 @@
 package VanillaExpansion.ui.bossrush.card;
 
-import arc.Core;
-import arc.scene.ui.Button;
-import arc.scene.ui.layout.Table;
-import arc.util.Log;
-import mindustry.Vars;
-import mindustry.gen.Icon;
-import mindustry.ui.dialogs.BaseDialog;
 import VanillaExpansion.ui.bossrush.BossRushNode;
 import VanillaExpansion.ui.bossrush.BossRushRegistry;
 import VanillaExpansion.ui.bossrush.BossRushView;
 import VanillaExpansion.ui.bossrush.map.BossRushSaveSelect;
+import arc.Core;
+import arc.scene.ui.Button;
+import arc.scene.ui.layout.Table;
+import mindustry.Vars;
+import mindustry.gen.Icon;
+import mindustry.ui.dialogs.BaseDialog;
 
 public class LevelCardWidget extends BossRushCardWidget{
     public LevelCardWidget(BossRushNode node, BossRushView parentView){

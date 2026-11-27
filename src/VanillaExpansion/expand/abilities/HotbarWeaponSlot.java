@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.abilities;
-
 import arc.audio.Sound;
 import arc.math.Mathf;
 import mindustry.entities.Effect;
@@ -9,9 +8,9 @@ import mindustry.gen.Unit;
 import mindustry.content.Fx;
 public class HotbarWeaponSlot {
     public BulletType bullet;
-    public float reload = 30f;          // 帧
-    public float shootCone = 10f;       // 允许发射的角度差
-    public float shootX = 0f, shootY = 0f;  // 相对单位的发射偏移（本地坐标）
+    public float reload = 30f;
+    public float shootCone = 10f;       //允许发射的角度差
+    public float shootX = 0f, shootY = 0f;  //相对单位的发射偏移
     public float recoil = 0f;
     public float shake = 0f;
     public Effect shootEffect = Fx.none;
@@ -20,14 +19,10 @@ public class HotbarWeaponSlot {
     public float reloadTimer = 0f;
     public float heatTimer = 0f;
     public float warmupTimer = 0f;
-    public float warmup = 0f;           // 预热帧数
-    public float heat = 0f;             // 发射后过热帧数
-    /** true = 从单位中心发射（shootX/shootY 忽略） */
+    public float warmup = 0f;           //预热帧数
+    public float heat = 0f;             //发射后过热帧数
     public boolean fromCenter = true;
-    /** true = 沿鼠标方向偏移 shootX（fromCenter=false 时生效） */
     public boolean alongAim = false;
-
-    //返回是否成功发射
     public boolean tryShoot(Unit unit, float aimX, float aimY) {
         if (reloadTimer > 0f) return false;
         float bx, by;
@@ -59,7 +54,6 @@ public class HotbarWeaponSlot {
         heatTimer = heat;
         return true;
     }
-    //计时
     public void updateTimers() {
         if (reloadTimer > 0f) reloadTimer--;
         if (heatTimer > 0f) heatTimer--;
@@ -74,35 +68,10 @@ public class HotbarWeaponSlot {
         }
         return reloadTimer <= 0f;
     }
-    //坐标偏移工具
     static float offsetX(float unitRot, float ox, float oy) {
         return ox * Mathf.cosDeg(unitRot - 90f) + oy * Mathf.cosDeg(unitRot);
     }
     static float offsetY(float unitRot, float ox, float oy) {
         return ox * Mathf.sinDeg(unitRot - 90f) + oy * Mathf.sinDeg(unitRot);
-    }
-    //弃用的方法
-    public HotbarWeaponSlot copy() {
-        HotbarWeaponSlot out = new HotbarWeaponSlot();
-        out.bullet = bullet;
-        out.reload = reload;
-        out.shootCone = shootCone;
-        out.shootX = shootX;
-        out.shootY = shootY;
-        out.recoil = recoil;
-        out.shake = shake;
-        out.shootEffect = shootEffect;
-        out.shootSound = shootSound;
-        out.volume = volume;
-        out.minPitch = minPitch;
-        out.maxPitch = maxPitch;
-        out.warmup = warmup;
-        out.heat = heat;
-        out.reloadTimer = 0f;
-        out.heatTimer = 0f;
-        out.warmupTimer = 0f;
-        out.fromCenter = fromCenter;
-        out.alongAim = alongAim;
-        return out;
     }
 }

@@ -3,15 +3,12 @@ package VanillaExpansion.expand.world.block.sandbox;
 import VanillaExpansion.VESettings;
 import VanillaExpansion.content.VEJSStatuses;
 import VanillaExpansion.content.VEJSUnitTypes;
-import VanillaExpansion.expand.abilities.BossBarAbility;
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.*;
-import arc.input.KeyCode;
 import arc.math.Mathf;
 import arc.struct.Seq;
 import arc.util.Align;
-import arc.util.Log;
 import arc.util.Time;
 import arc.util.pooling.Pools;
 import mindustry.Vars;
@@ -31,11 +28,8 @@ import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.meta.BuildVisibility;
 
-import java.util.Objects;
-
 import static mindustry.Vars.content;
 import static mindustry.Vars.state;
-
 public class AutoBossBarBlock extends Block {
     public AutoBossBarBlock(String name) {
         super(name);
@@ -56,8 +50,6 @@ public class AutoBossBarBlock extends Block {
         drawCracks = false;
         destructible = false;
     }
-
-    //Bar configs
     public boolean drawStatuses = true;
     public boolean smoothAppear = true;
 
@@ -74,10 +66,6 @@ public class AutoBossBarBlock extends Block {
     public boolean shake = true;
 
     public TextureRegion hyperIcon = new TextureRegion();
-
-
-
-    /** Use the maximum maxHealth sum value as the constant bar max value during one multi-bosses battle */
     public boolean useMaxMax = true;
 
     @Override
@@ -139,8 +127,6 @@ public class AutoBossBarBlock extends Block {
         public String text = "";
         public float shakeTimer = 0;
         public float shakeMag = 0;
-
-        /** Can be edited in settings */
         public static float barScale = 1;
 
         //Build

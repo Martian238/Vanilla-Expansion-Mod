@@ -1,13 +1,9 @@
 package VanillaExpansion.expand.methods;
-
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Lines;
 import mindustry.graphics.Layer;
-
 public class Drawve {
-
-    /** 通用蓄力光圈 */
     public static void chargeRing(
             int charges,
             float chargeTime,

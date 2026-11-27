@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.special;
-
 public abstract class SpecialState{
     public void update(){}
     public void draw(){}

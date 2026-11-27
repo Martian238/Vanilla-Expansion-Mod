@@ -1,5 +1,4 @@
 package VanillaExpansion.entities;
-
 import VanillaExpansion.expand.world.block.defense.TantalumWall;
 import arc.*;
 import arc.func.*;
@@ -23,10 +22,7 @@ import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.*;
 import mindustry.world.meta.*;
-
 import static mindustry.Vars.*;
-
-/** Utility class for damaging in an area. */
 public class CorrosiveDamage {
     private static final UnitDamageEvent bulletDamageEvent = new UnitDamageEvent();
     private static final Rect rect = new Rect();
@@ -38,12 +34,10 @@ public class CorrosiveDamage {
     private static final Pool<Collided> collidePool = Pools.get(Collided.class, Collided::new);
     private static final Seq<Building> builds = new Seq<>();
     private static final FloatSeq distances = new FloatSeq();
-
     private static Tile furthest;
     private static float maxDst = 0f;
     private static Building tmpBuilding;
     private static Unit tmpUnit;
-
     public static void applySuppression(Team team, float x, float y, float range, float reload, float maxDelay, float applyParticleChance, @Nullable Position source){
         applySuppression(team, x, y, range, reload, maxDelay, applyParticleChance, source, Pal.sapBullet);
     }

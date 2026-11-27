@@ -1,5 +1,8 @@
 package VanillaExpansion.ui.bossrush.card;
 
+import VanillaExpansion.VanillaExpansionMod;
+import VanillaExpansion.ui.bossrush.BossRushNode;
+import VanillaExpansion.ui.bossrush.BossRushView;
 import arc.Core;
 import arc.files.Fi;
 import arc.graphics.Color;
@@ -13,13 +16,9 @@ import arc.scene.ui.Label;
 import arc.scene.ui.layout.Table;
 import arc.struct.ObjectMap;
 import arc.util.Align;
-import arc.util.Log;
 import arc.util.Scaling;
 import mindustry.Vars;
 import mindustry.gen.Tex;
-import VanillaExpansion.VanillaExpansionMod;
-import VanillaExpansion.ui.bossrush.BossRushNode;
-import VanillaExpansion.ui.bossrush.BossRushView;
 
 public abstract class BossRushCardWidget extends Table{
     protected static final float BASE_WIDTH = 160f;

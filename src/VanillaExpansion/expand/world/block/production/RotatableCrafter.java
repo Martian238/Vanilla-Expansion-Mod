@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.production;
-
 import VanillaExpansion.expand.world.block.RotatableBlock;
 import arc.graphics.g2d.*;
 import arc.math.*;
@@ -19,7 +18,6 @@ import mindustry.world.draw.*;
 import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
-
 public class RotatableCrafter extends RotatableBlock {
 
     public @Nullable ItemStack outputItem;

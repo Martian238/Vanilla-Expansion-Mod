@@ -1,5 +1,4 @@
 package VanillaExpansion.entities;
-
 import arc.graphics.g2d.*;
 import arc.math.*;
 import arc.math.geom.*;
@@ -12,15 +11,12 @@ import mindustry.game.*;
 import mindustry.game.Teams.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
-
 public class DesShockWaveEntity extends DrawEntity{
     final static float range = 2000f;
     final static Circle c1 = new Circle();
-
     float time = 0f;
     Team team = Team.derelict;
     Teamc targeting;
-
     public static void create(Team team, Teamc target, float x, float y){
         DesShockWaveEntity w = new DesShockWaveEntity();
         w.x = x;

@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.liquid;
-
 import arc.math.*;
 import arc.util.*;
 import arc.util.io.*;
@@ -8,11 +7,9 @@ import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.liquid.*;
 import mindustry.world.meta.*;
-
 public class LiquidOverflowGate extends LiquidBlock{
     public float speed = 1f;
     public boolean invert = false;
-
     public LiquidOverflowGate(String name){
         super(name);
 
@@ -27,7 +24,6 @@ public class LiquidOverflowGate extends LiquidBlock{
         underBullets = true;
         regionRotated1 = 1;
     }
-
     @Override
     public boolean rotatedOutput(int x, int y){
         return false;

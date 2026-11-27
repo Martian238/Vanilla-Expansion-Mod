@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.debug.Module;
-
 import VanillaExpansion.expand.world.block.debug.DebugBlock;
 import VanillaExpansion.expand.world.block.debug.DebugModule;
 import arc.Core;
@@ -28,21 +27,17 @@ import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.ui.Bar;
 import mindustry.ui.Styles;
-
 public class ShieldProjectionModule implements DebugModule {
     public static final String ID = "shield-projection";
     public static final String CONFIG_PREFIX = "shield";
-
     public static final String KEY_MODE = "mode";
     public static final String KEY_RADIUS = "radius";
     public static final String KEY_SIDES = "sides";
     public static final String KEY_HEALTH = "health";
     public static final String KEY_REGEN = "regen";
     public static final String KEY_BROKEN_REGEN = "brokenregen";
-
     public static final String NAME_KEY = "debug.module.shield.name";
     public static final String NAME_DEFAULT = "护盾投影 / Shield Projection";
-
     public static final String KEY_RADIUS_LABEL = "debug.module.shield.radius";
     public static final String RADIUS_LABEL = "半径 / Radius";
     public static final String KEY_SIDES_LABEL = "debug.module.shield.sides";
@@ -57,55 +52,43 @@ public class ShieldProjectionModule implements DebugModule {
     public static final String STATUS_BASE = "[lightgray]BaseShield：护盾常开[]";
     public static final String KEY_STATUS_FORCE = "debug.module.shield.status.force";
     public static final String STATUS_FORCE = "[lightgray]ForceProjector：护盾[]";
-
     public static final String MODE_BASE_KEY = "debug.module.shield.mode.base";
     public static final String MODE_BASE = "BaseShield";
     public static final String MODE_FORCE_KEY = "debug.module.shield.mode.force";
     public static final String MODE_FORCE = "ForceProjector";
-
     public static final float MIN_RADIUS = 1f, MAX_RADIUS = 40f;
     public static final int MIN_SIDES = 3, MAX_SIDES = 32;
     public static final float MIN_HEALTH = 50f, MAX_HEALTH = 50000f;
     public static final float MIN_REGEN = 0f, MAX_REGEN = 20f;
     public static final float MIN_BROKEN_REGEN = 0f, MAX_BROKEN_REGEN = 20f;
     public static final float MODE_BUTTON_HEIGHT = 34f;
-
     public enum ShieldMode {
         base, force
     }
-
     public ShieldMode mode = ShieldMode.force;
     public float radius = 4f;
     public int sides = 6;
     public float shieldHealth = 700f;
     public float cooldownNormal = 1.75f;
     public float cooldownBrokenBase = 0.35f;
-
     public boolean broken = false;
     public float buildup = 0f;
     public float hit = 0f;
     public float smoothRadius = 0f;
     public float radscl = 0f;
     public float shieldRotation = 0f;
-
     private DebugBlock.DebugBuild activeBuild;
     private final Cons<Bullet> baseBulletConsumer = this::absorbBaseBullet;
     private final Cons<Unit> baseUnitConsumer = this::repelBaseUnit;
     private final Cons<Bullet> forceBulletConsumer = this::absorbForceBullet;
-
-    // 返回模块唯一标识
     @Override
     public String id() {
         return ID;
     }
-
-    // 返回模块显示名称
     @Override
     public String displayName() {
         return Core.bundle.get(NAME_KEY, NAME_DEFAULT);
     }
-
-    // 模块挂载到建筑
     @Override
     public void attach(DebugBlock.DebugBuild build) {
         activeBuild = build;
@@ -115,14 +98,10 @@ public class ShieldProjectionModule implements DebugModule {
         smoothRadius = 0f;
         radscl = 0f;
     }
-
-    // 模块从建筑卸载
     @Override
     public void detach(DebugBlock.DebugBuild build) {
         activeBuild = null;
     }
-
-    // 随建筑更新护盾
     @Override
     public void update(DebugBlock.DebugBuild build) {
         activeBuild = build;
@@ -132,16 +111,12 @@ public class ShieldProjectionModule implements DebugModule {
             updateForce(build);
         }
     }
-
-    // 随建筑绘制护盾
     @Override
     public void draw(DebugBlock.DebugBuild build) {
         float rad = mode == ShieldMode.base ? smoothRadius : realRadius();
         if (rad <= 0.001f || (mode == ShieldMode.force && broken)) return;
-
         Draw.z(Layer.shields);
         Draw.color(build.team.color, Color.white, Mathf.clamp(hit));
-
         if (Vars.renderer.animateShields) {
             Fill.poly(build.x, build.y, sides, rad, shieldRotation);
         } else {
@@ -153,8 +128,6 @@ public class ShieldProjectionModule implements DebugModule {
         }
         Draw.reset();
     }
-
-    // 鼠标悬停时绘制护盾范围与名称
     @Override
     public void drawSelect(DebugBlock.DebugBuild build) {
         float rad = radius * Vars.tilesize;
@@ -162,8 +135,6 @@ public class ShieldProjectionModule implements DebugModule {
         Drawf.dashCircle(build.x, build.y, rad, color);
         Drawf.text(displayName(), build.x, build.y + rad + 6f, color, 1f);
     }
-
-    // 处理卡片配置界面与指令
     @Override
     public void buildConfig(DebugBlock.DebugBuild build, Table table, Runnable rebuild) {
         table.add(modeRow(build, rebuild)).growX().padBottom(4f).row();
@@ -176,8 +147,6 @@ public class ShieldProjectionModule implements DebugModule {
         }
         table.label(this::status).left().padTop(2f).row();
     }
-
-    // 构建模块状态栏
     @Override
     public boolean buildBars(DebugBlock.DebugBuild build, Table table) {
         if (mode == ShieldMode.base) return false;
@@ -187,14 +156,11 @@ public class ShieldProjectionModule implements DebugModule {
                 .growX().height(18f).row();
         return true;
     }
-
-    // 接收配置指令
     @Override
     public boolean configure(DebugBlock.DebugBuild build, Object value) {
         if (!(value instanceof String command)) return false;
         String[] parts = command.split(":");
         if (parts.length != 3 || !parts[0].equals(CONFIG_PREFIX)) return false;
-
         if (parts[1].equals(KEY_MODE)) {
             mode = parts[2].equals(ShieldMode.force.name()) ? ShieldMode.force : ShieldMode.base;
             broken = false;
@@ -203,14 +169,12 @@ public class ShieldProjectionModule implements DebugModule {
             radscl = 0f;
             return true;
         }
-
         float amount;
         try {
             amount = Float.parseFloat(parts[2]);
         } catch (NumberFormatException e) {
             return false;
         }
-
         switch (parts[1]) {
             case KEY_RADIUS -> radius = Mathf.clamp(amount, MIN_RADIUS, MAX_RADIUS);
             case KEY_SIDES -> sides = Mathf.clamp((int) amount, MIN_SIDES, MAX_SIDES);
@@ -223,8 +187,6 @@ public class ShieldProjectionModule implements DebugModule {
         }
         return true;
     }
-
-    // 写入模块参数
     @Override
     public void write(DebugBlock.DebugBuild build, Writes write) {
         write.bool(mode == ShieldMode.force);
@@ -237,8 +199,6 @@ public class ShieldProjectionModule implements DebugModule {
         write.f(buildup);
         write.f(hit);
     }
-
-    // 读取模块参数
     @Override
     public void read(DebugBlock.DebugBuild build, Reads read, byte revision) {
         mode = read.bool() ? ShieldMode.force : ShieldMode.base;
@@ -259,8 +219,6 @@ public class ShieldProjectionModule implements DebugModule {
         smoothRadius = 0f;
         radscl = 0f;
     }
-
-    // 更新 BaseShield 模式
     private void updateBase(DebugBlock.DebugBuild build) {
         smoothRadius = Mathf.lerpDelta(smoothRadius, radius * Vars.tilesize, 0.05f);
         float rad = smoothRadius;
@@ -268,11 +226,8 @@ public class ShieldProjectionModule implements DebugModule {
         Groups.bullet.intersect(build.x - rad, build.y - rad, rad * 2f, rad * 2f, baseBulletConsumer);
         Units.nearbyEnemies(build.team, build.x, build.y, rad + 10f, baseUnitConsumer);
     }
-
-    // 更新 ForceProjector 模式
     private void updateForce(DebugBlock.DebugBuild build) {
         radscl = Mathf.lerpDelta(radscl, broken ? 0f : 1f, 0.05f);
-
         if (buildup > 0f) {
             float scale = !broken ? cooldownNormal : cooldownBrokenBase;
             buildup -= Time.delta * scale;
@@ -282,7 +237,6 @@ public class ShieldProjectionModule implements DebugModule {
             buildup = 0f;
         }
         if (hit > 0f) hit -= 1f / 5f * Time.delta;
-
         if (!broken) {
             float rad = realRadius();
             if (rad > 0.001f) {
@@ -294,8 +248,6 @@ public class ShieldProjectionModule implements DebugModule {
             buildup = shieldHealth;
         }
     }
-
-    // 吸收 BaseShield 范围内的子弹
     private void absorbBaseBullet(Bullet bullet) {
         if (activeBuild == null) return;
         if (bullet.team != activeBuild.team && bullet.type.absorbable && !bullet.absorbed &&
@@ -303,8 +255,6 @@ public class ShieldProjectionModule implements DebugModule {
             bullet.absorb();
         }
     }
-
-    // 推开或消灭 BaseShield 范围内的敌人
     private void repelBaseUnit(Unit unit) {
         if (activeBuild == null) return;
         float overlapDst = (unit.hitSize / 2f + smoothRadius) - unit.dst(activeBuild);
@@ -316,8 +266,6 @@ public class ShieldProjectionModule implements DebugModule {
             unit.move(Tmp.v1.set(unit).sub(activeBuild).setLength(overlapDst + 0.01f));
         }
     }
-
-    // 吸收 ForceProjector 范围内的子弹并累积护盾值
     private void absorbForceBullet(Bullet bullet) {
         if (activeBuild == null) return;
         if (bullet.team != activeBuild.team && bullet.type.absorbable && !bullet.absorbed &&
@@ -327,13 +275,9 @@ public class ShieldProjectionModule implements DebugModule {
             buildup += bullet.type.shieldDamage(bullet);
         }
     }
-
-    // 返回 ForceProjector 实际半径
     public float realRadius() {
         return radius * Vars.tilesize * radscl;
     }
-
-    // 切换护盾分支
     private void setMode(DebugBlock.DebugBuild build, ShieldMode value, Runnable rebuild) {
         if (mode == value) return;
         mode = value;
@@ -345,8 +289,6 @@ public class ShieldProjectionModule implements DebugModule {
         build.configure(CONFIG_PREFIX + ":" + KEY_MODE + ":" + value.name());
         if (rebuild != null) rebuild.run();
     }
-
-    // 构建分支选择行
     private Table modeRow(DebugBlock.DebugBuild build, Runnable rebuild) {
         Table row = new Table();
         row.left();
@@ -359,29 +301,22 @@ public class ShieldProjectionModule implements DebugModule {
                 .checked(b -> mode == ShieldMode.force);
         return row;
     }
-
-    // 构建参数滑条
     private void addSlider(DebugBlock.DebugBuild build, Table table, String label, String key,
                            float min, float max, float step, float value, boolean integer) {
         Table row = new Table();
         row.left();
         row.add(label).left().growX().color(Color.lightGray);
-
         Slider slider = new Slider(min, max, step, false);
         slider.setValue(value);
         Label amount = new Label(format(slider.getValue(), integer));
-
         slider.changed(() -> {
             amount.setText(format(slider.getValue(), integer));
             applyValue(build, key, slider.getValue(), integer);
         });
-
         row.add(slider).growX().padLeft(6f).padRight(6f);
         row.add(amount).right().width(70f);
         table.add(row).growX().pad(2f).row();
     }
-
-    // 应用滑条数值
     private void applyValue(DebugBlock.DebugBuild build, String key, float value, boolean integer) {
         switch (key) {
             case KEY_RADIUS -> radius = Mathf.clamp(value, MIN_RADIUS, MAX_RADIUS);
@@ -392,20 +327,14 @@ public class ShieldProjectionModule implements DebugModule {
         }
         build.configure(CONFIG_PREFIX + ":" + key + ":" + (integer ? Integer.toString((int) value) : Float.toString(value)));
     }
-
-    // 返回卡片状态文本
     private String status() {
         if (mode == ShieldMode.base) return Core.bundle.get(KEY_STATUS_BASE, STATUS_BASE);
         int current = Math.max(0, (int) (shieldHealth - buildup));
         return Core.bundle.get(KEY_STATUS_FORCE, STATUS_FORCE) + " [accent]" + current + "[] / " + (int) shieldHealth;
     }
-
-    // 格式化数值
     private String format(float value, boolean integer) {
         return integer ? Integer.toString((int) value) : Strings.fixed(value, 2);
     }
-
-    // 读取本地化文本
     private String label(String key, String fallback) {
         return Core.bundle.get(key, fallback);
     }

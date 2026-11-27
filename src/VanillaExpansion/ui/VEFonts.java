@@ -2,17 +2,12 @@ package VanillaExpansion.ui;
 
 import VanillaExpansion.VanillaExpansionMod;
 import arc.Core;
-import arc.assets.loaders.FontLoader;
 import arc.files.Fi;
 import arc.freetype.FreeTypeFontGenerator;
-import arc.freetype.FreetypeFontLoader;
 import arc.graphics.Color;
 import arc.graphics.g2d.Font;
 import arc.util.Log;
 import mindustry.Vars;
-import mindustry.ui.Fonts;
-
-import java.util.Arrays;
 
 public class VEFonts {
     public static Font novo;

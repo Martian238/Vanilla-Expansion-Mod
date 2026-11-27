@@ -71,9 +71,7 @@ public class HotbarUI {
         }
         initialized = false;
     }
-    // 显示时机
     protected boolean shouldShow() {
-        // 游戏内、非菜单、有被控单位
         if (mindustry.Vars.state == null
                 || !mindustry.Vars.state.isGame()
                 || mindustry.Vars.state.isMenu()
@@ -81,7 +79,6 @@ public class HotbarUI {
                 || mindustry.Vars.player.unit() == null) {
             return false;
         }
-        // 有 HotbarAbility
         return findHotbarAbility() != null;
     }
     public void updateVisibility() {
@@ -96,7 +93,6 @@ public class HotbarUI {
     public boolean isVisible() {
         return root != null && root.visible;
     }
-    // 位置
     public void placeAtLeftCenter() {
         if (root == null) return;
         root.pack();
@@ -110,7 +106,7 @@ public class HotbarUI {
     }
     public float getX() { return root == null ? 0 : root.x; }
     public float getY() { return root == null ? 0 : root.y; }
-    //设置某格的物品，弃用方法
+    //设置某格的物品
     public void setItem(int slot, mindustry.type.Item item) {
         if (slot < 0 || slot >= SLOT_COUNT) return;
         items[slot] = item;
@@ -154,7 +150,6 @@ public class HotbarUI {
                 return false;
             }
         };
-
         Core.scene.addListener(globalListener);
     }
     private int mapNumberKey(KeyCode k) {
@@ -217,7 +212,6 @@ public class HotbarUI {
                 }
             });
         }
-
         @Override
         public void draw() {
             float cx = x + width / 2f;

@@ -1,15 +1,12 @@
 package VanillaExpansion.expand.type.unit;
-
 import arc.Events;
 import arc.struct.Seq;
 import mindustry.Vars;
 import mindustry.game.EventType;
 import mindustry.gen.Unit;
-
 public class UnitEventUpdateManager {
     private static Seq<Unit> eventUnits = new Seq<>();
     private static boolean registered = false;
-
     protected static void add(Unit unit) {
         if (!eventUnits.contains(unit)) {
             eventUnits.add(unit);
@@ -24,7 +21,6 @@ public class UnitEventUpdateManager {
             }
         }
     }
-
     protected static void remove(Unit unit) {
         eventUnits.remove(unit);
     }
@@ -32,7 +28,6 @@ public class UnitEventUpdateManager {
     public static void clear(){
         eventUnits.clear();
     }
-
     private static void updateUnits(){
         if(eventUnits.isEmpty() || !Vars.state.isGame() || Vars.state.isPaused()){
             return;
@@ -45,7 +40,6 @@ public class UnitEventUpdateManager {
             }
         }
     }
-
     private static void drawUnits(){
         if(eventUnits.isEmpty() || !Vars.state.isGame()){
             return;

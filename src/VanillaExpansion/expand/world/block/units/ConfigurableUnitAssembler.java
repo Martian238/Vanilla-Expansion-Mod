@@ -60,7 +60,6 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
 
     public class ConfigurableUnitAssemblerBuild extends PayloadBlockBuild<Payload>{
         protected IntSeq readUnits = new IntSeq();
-        //holds drone IDs that have been sent, but not synced yet - add to list as soon as possible
         protected IntSeq whenSyncedUnits = new IntSeq();
 
         public @Nullable Vec2 commandPos;
@@ -133,7 +132,6 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
 
         @Override
         public boolean shouldConsume(){
-            //liquid is only consumed when building is being done
             return enabled && !wasOccupied && Units.canCreate(team, plan().unit) && consPayload.efficiency(this) > 0 && consItem.efficiency(this) > 0 && team.activateUnitFactories();
         }
 
@@ -191,8 +189,6 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
                 lastTier =
                         lastTier == -2 ? -1 : currentTier;
             }
-
-            //read newly synced drones on client end
             if(units.size < dronesCreated && whenSyncedUnits.size > 0){
                 whenSyncedUnits.each(id -> {
                     var unit = Groups.unit.getByID(id);
@@ -219,8 +215,6 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
             if(units.size < dronesCreated && enabled && (droneProgress += delta() * state.rules.unitBuildSpeed(team) * powerStatus / droneConstructTime) >= 1f){
                 if(!net.client()){
                     var unit = droneType.create(team);
-                    //If a unit isn't using AssemblerAI, it's bugged, likely because of an incorrect data patch or mod.
-                    //In that case, just ignore it and don't spawn anything
                     if(unit.controller() instanceof AssemblerAI){
                         if(unit instanceof BuildingTetherc bt){
                             bt.building(this);
@@ -246,8 +240,6 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
                 yeetPayload(payload);
                 payload = null;
             }
-
-            //arrange units around perimeter
             for(int i = 0; i < units.size; i++){
                 var unit = units.get(i);
                 var ai = (AssemblerAI)unit.controller();
@@ -264,8 +256,6 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
             invalidWarmup = Mathf.lerpDelta(invalidWarmup, visualOccupied ? 1f : 0f, 0.1f);
 
             var plan = plan();
-
-            //check if all requirements are met
             if(!wasOccupied && efficiency > 0 && Units.canCreate(team, plan.unit)){
                 warmup = Mathf.lerpDelta(warmup, efficiency, 0.1f);
 
@@ -297,7 +287,6 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
             unit.set(spawn.x + Mathf.range(0.001f), spawn.y + Mathf.range(0.001f));
             unit.rotation = rotdeg();
             var targetBuild = unit.buildOn();
-            //'source' is the target build instead of this building; this is because some blocks only accept things from certain angles, and this is a non-standard payload
             var payload = new UnitPayload(unit);
             if(targetBuild != null && targetBuild.team == team && targetBuild.acceptPayload(targetBuild, payload)){
                 targetBuild.handlePayload(targetBuild, payload);
@@ -318,8 +307,6 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
         @Override
         public void draw(){
             Draw.rect(region, x, y);
-
-            //draw input conveyors
             for(int i = 0; i < 4; i++){
                 if(blends(i) && i != rotation){
                     Draw.rect(inRegion, x, y, (i * 90) - 180);
@@ -338,8 +325,6 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
             Draw.rect(topRegion, x, y);
 
             if(isPayload()) return;
-
-            //draw drone construction
             if(droneWarmup > 0.001f){
                 Draw.draw(Layer.blockOver + 0.2f, () -> {
                     Drawf.construct(this, droneType.fullIcon, Pal.accent, 0f, droneProgress, droneWarmup, totalDroneProgress, 14f);
@@ -350,15 +335,12 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
             float sx = spawn.x, sy = spawn.y;
 
             var plan = plan();
-
-            //draw the unit construction as outline
             Draw.draw(Layer.blockBuilding, () -> {
                 Draw.color(Pal.accent, warmup);
 
                 Shaders.blockbuild.region = plan.unit.fullIcon;
                 Shaders.blockbuild.time = Time.time;
                 Shaders.blockbuild.alpha = warmup;
-                //margin due to units not taking up whole region
                 Shaders.blockbuild.progress = Mathf.clamp(progress + 0.05f);
 
                 Draw.rect(plan.unit.fullIcon, sx, sy, rotdeg() - 90f);
@@ -366,20 +348,12 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
                 Draw.color();
                 Shaders.blockbuild.alpha = 1f;
             });
-
             Draw.reset();
-
             Draw.z(Layer.buildBeam);
-
-            //draw unit silhouette
             Draw.mixcol(Tmp.c1.set(Pal.accent).lerp(Pal.remove, invalidWarmup), 1f);
             Draw.alpha(Math.min(powerWarmup, sameTypeWarmup));
             Draw.rect(plan.unit.fullIcon, spawn.x, spawn.y, rotdeg() - 90f);
-
-            //build beams do not draw when invalid
             Draw.alpha(Math.min(1f - invalidWarmup, warmup));
-
-            //draw build beams
             for(var unit : units){
                 if(!((AssemblerAI)unit.controller()).inPosition()) continue;
 
@@ -389,27 +363,16 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
 
                 Drawf.buildBeam(px, py, spawn.x, spawn.y, plan.unit.hitSize/2f);
             }
-
-            //fill square in middle
             Fill.square(spawn.x, spawn.y, plan.unit.hitSize/2f);
-
             Draw.reset();
-
             Draw.z(Layer.buildBeam);
-
             float fulls = areaSize * tilesize/2f;
-
-            //draw full area
             Lines.stroke(2f, Pal.accent);
             Draw.alpha(powerWarmup);
             Drawf.dashRectBasic(spawn.x - fulls, spawn.y - fulls, fulls*2f, fulls*2f);
-
             Draw.reset();
-
             float outSize = plan.unit.hitSize + 9f;
-
             if(invalidWarmup > 0){
-                //draw small square for area
                 Lines.stroke(2f, Tmp.c3.set(Pal.accent).lerp(Pal.remove, invalidWarmup).a(invalidWarmup));
                 Drawf.dashSquareBasic(spawn.x, spawn.y, outSize);
             }
@@ -424,8 +387,6 @@ public class ConfigurableUnitAssembler extends UnitAssembler {
                     Units.anyEntities(v.x - hsize/2f, v.y - hsize/2f, hsize, hsize, u -> (!same || u.type != output) && !u.spawnedByCore &&
                             ((u.type.allowLegStep && output.allowLegStep) || (output.flying && u.isFlying()) || (!output.flying && u.isGrounded()))));
         }
-
-        /** @return true if this block is ready to produce units, e.g. requirements met */
         public boolean ready(){
             return efficiency > 0 && !wasOccupied;
         }

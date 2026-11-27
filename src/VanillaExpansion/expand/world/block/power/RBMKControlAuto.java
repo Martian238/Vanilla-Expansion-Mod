@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.power;
-
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.*;
@@ -14,18 +13,8 @@ import mindustry.graphics.Pal;
 import mindustry.ui.Bar;
 import mindustry.ui.Fonts;
 import mindustry.ui.Styles;
-
 import static mindustry.Vars.*;
-
-/**
- * 算法与 HBM 完全一致：每个结算 tick 根据柱体温度 heat 与
- * (levelLower/levelUpper/heatLower/heatUpper) 四参数 + function 插值函数，
- * 计算出目标棒位后照常移动。与手动棒不同，自动棒 getMult 直接返回 level
- * （无插棒浪涌），对应 HBM 基类 TileEntityRBMKControl.getMult()。
- */
 public class RBMKControlAuto extends RBMKControl {
-
-    /** 插值函数（对应 HBM TileEntityRBMKControlAuto.RBMKFunction） */
     public static enum RBMKFunction {
         LINEAR, QUAD_UP, QUAD_DOWN
     }
@@ -50,19 +39,10 @@ public class RBMKControlAuto extends RBMKControl {
     public class RBMKControlAutoBuild extends RBMKControlBuild {
 
         public RBMKFunction function = RBMKFunction.LINEAR;
-        /** 阈值与对应棒位（HBM 字段名保持一致） */
         public double levelLower, levelUpper, heatLower, heatUpper;
-
-        /**
-         * HBM updateEntity：先根据温度算出目标棒位，再执行父类移动。
-         * heatLower/heatUpper 与 levelLower/levelUpper 均为 HBM GUI 原始单位
-         * （level 为百分数、heat 为 °C），目标棒位 = fauxLevel * 0.01。
-         */
         private void computeTarget() {
             targetLevel = Mathf.clamp(eval(function, heat, levelLower, levelUpper, heatLower, heatUpper) * 0.01D, 0D, 1D);
         }
-
-        /** 与 HBM 逐行一致的插值求值（界外取常数），返回棒位百分数 0..100 */
         static double eval(RBMKFunction function, double heat, double levelLower, double levelUpper, double heatLower, double heatUpper) {
             double fauxLevel = 0;
 
@@ -97,16 +77,10 @@ public class RBMKControlAuto extends RBMKControl {
             }
             super.updateTile();
         }
-
-        /** 自动棒无浪涌：直接返回当前棒位（对应 HBM 基类 getMult） */
         @Override
         public double getMult() {
             return this.level;
         }
-
-        // ---------- 配置（5 参数打包进 Long） ----------
-
-        /** 打包：function(2bit) + levelLower(7bit) + levelUpper(7bit) + heatLower(14bit) + heatUpper(14bit) */
         static long pack(int function, int levelLower, int levelUpper, int heatLower, int heatUpper) {
             long v = 0;
             v |= (long) (function & 3);
@@ -116,7 +90,6 @@ public class RBMKControlAuto extends RBMKControl {
             v |= (long) (Mathf.clamp(heatUpper, 0, 9999) & 0x3FFF) << 30;
             return v;
         }
-
         public void setPacked(long v) {
             function = RBMKFunction.values()[(int) (v & 3)];
             levelLower = (v >> 2) & 0x7F;
@@ -130,30 +103,22 @@ public class RBMKControlAuto extends RBMKControl {
             return pack(function.ordinal(), (int) levelLower, (int) levelUpper, (int) heatLower, (int) heatUpper);
         }
 
-        // ---------- 配置 UI ----------
-
         @Override
         public void buildConfiguration(Table table) {
             table.background(Styles.black6);
             table.top().left();
-
-            // 顶部一行：标题 + 实时状态
             table.add(Core.bundle.get("rbmk.ui.auto.title")).left().pad(4f);
             table.add(new Label(() ->
                 Core.bundle.format("rbmk.ui.auto.level", (int) (level * 100), (int) heat)
             )).right().growX().pad(4f).row();
-
-            // 左列：函数 + 参数
             Table left = new Table();
             left.top().left();
-
             left.add(Core.bundle.get("rbmk.ui.auto.function")).left().pad(3f).row();
             Table funcs = new Table();
             funcs.defaults().size(84f, 34f).pad(3f);
             ButtonGroup<TextButton> fgroup = new ButtonGroup<>();
             fgroup.setMinCheckCount(1);
             fgroup.setMaxCheckCount(1);
-
             String[] names = {"rbmk.ui.auto.func.linear", "rbmk.ui.auto.func.quadratic", "rbmk.ui.auto.func.invquad"};
             for (int i = 0; i < RBMKFunction.values().length; i++) {
                 final int fi = i;
@@ -167,8 +132,6 @@ public class RBMKControlAuto extends RBMKControl {
                 funcs.add(btn);
             }
             left.add(funcs).center().pad(3f).row();
-
-            // 数字输入（对应 HBM GUI 的四个文本域：levelUpper/levelLower/heatUpper/heatLower）
             TextField fLevelUpper = new TextField(String.valueOf((int) levelUpper), Styles.defaultField);
             TextField fLevelLower = new TextField(String.valueOf((int) levelLower), Styles.defaultField);
             TextField fHeatUpper = new TextField(String.valueOf((int) heatUpper), Styles.defaultField);
@@ -181,12 +144,10 @@ public class RBMKControlAuto extends RBMKControl {
             fLevelLower.setMaxLength(3);
             fHeatUpper.setMaxLength(4);
             fHeatLower.setMaxLength(4);
-
             numRow(left, Core.bundle.get("rbmk.ui.auto.levelmax"), fLevelUpper);
             numRow(left, Core.bundle.get("rbmk.ui.auto.levelmin"), fLevelLower);
             numRow(left, Core.bundle.get("rbmk.ui.auto.heatmax"), fHeatUpper);
             numRow(left, Core.bundle.get("rbmk.ui.auto.heatmin"), fHeatLower);
-
             TextButton save = new TextButton(Core.bundle.get("rbmk.ui.save"), Styles.defaultt);
             save.clicked(() -> configure(pack(function.ordinal(),
                 clampInt(fLevelLower.getText(), 100),
@@ -194,8 +155,6 @@ public class RBMKControlAuto extends RBMKControl {
                 clampInt(fHeatLower.getText(), 9999),
                 clampInt(fHeatUpper.getText(), 9999))));
             left.add(save).size(100f, 34f).center().pad(3f).row();
-
-            // 右列：温度→棒位函数图（实时读取输入框预览；紫线=曲线，橙点=当前柱体温度工作点）
             Table right = new Table();
             right.top().left();
             right.add(Core.bundle.get("rbmk.ui.auto.chart")).left().pad(3f).row();
@@ -204,46 +163,35 @@ public class RBMKControlAuto extends RBMKControl {
             table.add(left);
             table.add(right);
         }
-
         private void numRow(Table table, String label, TextField field) {
             table.add(label).left().pad(2f);
             table.add(field).width(80f).left().pad(2f, -3f, 2f, 2f).row();
         }
-
         private Element buildChart(TextField fLevelLower, TextField fLevelUpper, TextField fHeatLower, TextField fHeatUpper) {
             return new Element() {
                 @Override
                 public void draw() {
                     float w = getWidth(), h = getHeight();
-
                     int ll = parseInt(fLevelLower, (int) levelLower);
                     int lu = parseInt(fLevelUpper, (int) levelUpper);
                     int hl = parseInt(fHeatLower, (int) heatLower);
                     int hu = parseInt(fHeatUpper, (int) heatUpper);
-
                     double hmin = Math.min(hl, hu), hmax = Math.max(hl, hu);
                     float span = (float) (hmax - hmin);
                     float xmin = (float) hmin - span * 0.12f;
                     float xmax = (float) hmax + span * 0.12f;
                     if (xmax - xmin < 1f) { xmin -= 1f; xmax += 1f; }
-
-                    // 绘图区：左侧留 y 轴标签、底部留 x 轴标签
                     float padL = 24f, padB = 12f, padT = 4f, padR = 4f;
                     float gx = x + padL, gy = y + padB;
                     float gw = w - padL - padR, gh = h - padB - padT;
-
                     Draw.color(Pal.darkMetal);
                     Fill.rect(x + w / 2f, y + h / 2f, w, h);
-
-                    // 网格
                     Draw.color(Pal.gray);
                     Lines.stroke(1f);
                     for (int i = 0; i <= 4; i++) {
                         float yy = gy + gh * i / 4f;
                         Lines.line(gx, yy, gx + gw, yy);
                     }
-
-                    // 标签
                     Fonts.outline.setColor(Color.white);
                     Fonts.outline.draw("100", gx - 3f, gy + gh - 1f, Align.right);
                     Fonts.outline.draw("50", gx - 3f, gy + gh / 2f - 1f, Align.right);
@@ -252,8 +200,6 @@ public class RBMKControlAuto extends RBMKControl {
                     Fonts.outline.draw((int) hmax + "", gx + gw, gy - 1f, Align.center);
                     if (span > 0) Fonts.outline.draw((int) ((hmin + hmax) / 2) + "", gx + gw / 2f, gy - 1f, Align.center);
                     Fonts.outline.setColor(Color.white);
-
-                    // 曲线
                     Draw.color(Pal.reactorPurple);
                     Lines.stroke(2f);
                     int steps = 128;
@@ -268,8 +214,6 @@ public class RBMKControlAuto extends RBMKControl {
                         prevX = cx;
                         prevY = cy;
                     }
-
-                    // 当前工作点（真实柱体温度），x 轴 clamp 在图内、y 轴按 0-100 钳制
                     double cur = eval(function, heat, ll, lu, hl, hu);
                     float wx = Mathf.clamp(gx + (float) ((heat - xmin) / (xmax - xmin)) * gw, gx, gx + gw);
                     float wy = gy + (float) (Mathf.clamp(cur, 0, 100) / 100.0) * gh;
@@ -279,7 +223,6 @@ public class RBMKControlAuto extends RBMKControl {
                 }
             };
         }
-
         private static int clampInt(String text, int max) {
             try {
                 return Mathf.clamp(Integer.parseInt(text.trim()), 0, max);
@@ -287,7 +230,6 @@ public class RBMKControlAuto extends RBMKControl {
                 return 0;
             }
         }
-
         private static int parseInt(TextField field, int def) {
             try {
                 return Integer.parseInt(field.getText().trim());
@@ -295,8 +237,6 @@ public class RBMKControlAuto extends RBMKControl {
                 return def;
             }
         }
-
-        // ---------- 控制台 API ----------
 
         @Override
         public ColumnType getConsoleType() {
@@ -313,8 +253,6 @@ public class RBMKControlAuto extends RBMKControl {
             data.put("heatUpper", heatUpper);
             return data;
         }
-
-        // ---------- 序列化 ----------
 
         @Override
         public void write(Writes write) {

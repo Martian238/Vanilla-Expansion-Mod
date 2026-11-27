@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.type.unit.internal;
-
 import VanillaExpansion.EntityRegister;
 import VanillaExpansion.content.VEJSStatuses;
 import VanillaExpansion.expand.world.block.mechanism.OrbitStrikeProcessor;
@@ -29,29 +28,20 @@ import mindustry.gen.UnitEntity;
 import mindustry.graphics.Layer;
 import mindustry.ui.Fonts;
 import mindustry.world.blocks.environment.Floor;
-
 import java.util.Objects;
-
 import static mindustry.Vars.*;
-
 public class OrbitStrikeBeaconUnit extends ElevationMoveUnit {
-
-
     public OrbitStrikeProcessor.OrbitStrikeBuild processor = null;
-
     public float activateTimer = 0;
     public float activateTime = 0;
     public boolean activated = false;
-
     public Color redColor = Color.valueOf("f25555");
     public Color orangeColor = Color.valueOf("ffa665");
-
     private String lastText = "";
     private boolean beep = false;
     private Sound beepSound = Sounds.none;
     private boolean beep2 = false;
     private TextureRegion circleSoft = new TextureRegion();
-
     @Override
     public void update(){
         super.update();
@@ -85,11 +75,9 @@ public class OrbitStrikeBeaconUnit extends ElevationMoveUnit {
             }
         }
     }
-
     @Override
     public void draw(){
         super.draw();
-
         if(!activated && processor != null && !headless){
             Draw.z(Layer.blockOver + 0.1f);
             Draw.blend(Blending.additive);
@@ -120,9 +108,7 @@ public class OrbitStrikeBeaconUnit extends ElevationMoveUnit {
             */
             Draw.blend();
         }
-
         if(renderer.pixelate || processor == null) return;
-
         Draw.alpha(1f);
         Draw.z(Layer.overlayUI);
         Font font = Fonts.outline;
@@ -130,7 +116,6 @@ public class OrbitStrikeBeaconUnit extends ElevationMoveUnit {
         boolean ints = font.usesIntegerPositions();
         font.getData().setScale(1 / 4f / Scl.scl(1f));
         font.setUseIntegerPositions(false);
-
         boolean red = activateTime - activateTimer <= 600f * speedMultiplier() && drownTime <= 0;
         beep2 = red;
         float timer = Math.max(activateTime - activateTimer + 59.99f, 0f);
@@ -143,22 +128,17 @@ public class OrbitStrikeBeaconUnit extends ElevationMoveUnit {
             lastText = text;
         }
         Color col = drownTime() > 0 || activated ? Color.gray : (red ? redColor.cpy().lerp(orangeColor, 0.5f * Mathf.sin(Time.time / 5f)) : Color.white);
-
         l.setText(font, text, col, 90f, Align.left, true);
         float offset = 1f;
-
         Draw.color(0f, 0f, 0f, 0.2f);
         Fill.rect(x, y, l.width + offset*2f, l.height + offset*2f);
         Draw.color();
         font.setColor(col);
         font.draw(text, x - l.width/2f, y + l.height/2f, 90f, Align.left, true);
         font.setUseIntegerPositions(ints);
-
         font.getData().setScale(1f);
-
         Pools.free(l);
     }
-
     @Override
     public void kill(){
         if(type instanceof OrbitStrikeBeaconUnitType ot && !activated){
@@ -166,12 +146,10 @@ public class OrbitStrikeBeaconUnit extends ElevationMoveUnit {
         }
         super.kill();
     }
-
     public void striked(){
         if(processor != null) processor.safeRemovedBeacons.add(this);
         remove();
     }
-
     @Override
     public void updateDrowning() {
         Floor floor = drownFloor();
@@ -195,7 +173,6 @@ public class OrbitStrikeBeaconUnit extends ElevationMoveUnit {
         }
         drownTime = Mathf.clamp(drownTime);
     }
-
     public void beaconWrite(Writes write){
         write.f(activateTimer);
         write.bool(activated);

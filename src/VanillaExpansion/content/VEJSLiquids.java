@@ -1,10 +1,8 @@
 package VanillaExpansion.content;
-
 import VanillaExpansion.expand.type.fluids.AnimationLiquid;
 import VanillaExpansion.expand.type.fluids.CorrosiveLiquid;
 import mindustry.type.CellLiquid;
 import mindustry.type.Liquid;
-
 public class VEJSLiquids {
     public static Liquid lava, chlorine, melonWater, melonine, resonantFluid;
     public static CellLiquid melonWaterCorrupted, dysharmonyFluid;

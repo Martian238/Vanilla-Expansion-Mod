@@ -1,17 +1,13 @@
 package VanillaExpansion.content;
-
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.world.block.environment.EffectFloor;
 import VanillaExpansion.expand.world.block.environment.IceWalkIce;
 import VanillaExpansion.expand.world.block.environment.MantleTunnel;
 import VanillaExpansion.expand.world.block.environment.NitroalkossProp;
-import mindustry.content.Blocks;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.meta.BuildVisibility;
-
 public class VEEnvironBlocks {
     public static void load(){
-
         //没用玩意
         new Floor("core-zone-cyclant"){{
             buildVisibility = BuildVisibility.hidden;
@@ -20,9 +16,6 @@ public class VEEnvironBlocks {
         //new Floor("lava-rock");
         //new Floor("volcanic-rock");
         new Prop("bush");
-
-
-
         //其他
         new Floor("accessible-deep-water");
         new Floor("white-ground");
@@ -36,9 +29,6 @@ public class VEEnvironBlocks {
         new Floor("metal-tiles-15ve");
         new Floor("metal-tiles-16ve");
         new IceWalkIce("deepwater-ice");
-
-
-
         //矿
         new OreBlock("ore-salt");
         new OreBlock("ore-aluminium");
@@ -54,9 +44,6 @@ public class VEEnvironBlocks {
         new OreBlock("ore-chromium-maress");
         new OreBlock("ore-wall-aluminium");
         new OreBlock("ore-wall-quartz");
-
-
-
         //赛克兰特
         new StaticTree("tree");
         new Floor("gravel");
@@ -75,9 +62,6 @@ public class VEEnvironBlocks {
         new Floor("semigrass");
         new StaticWall("semigrass-wall");
         new WobbleProp("semigrass-bush");
-
-
-
         //玛瑞斯-荒地
         new Floor("red-soil-floor");
         new Floor("red-soil-finely");
@@ -147,9 +131,6 @@ public class VEEnvironBlocks {
         new Floor("fersteel-floor-7");
         new Floor("fersteel-floor-8");
         new StaticWall("fersteel-wall-1-");
-
-
-
         //西楚洛斯-西瓜地形
         new Floor("melonwater-deep");
         new Floor("melonwater");
@@ -174,17 +155,8 @@ public class VEEnvironBlocks {
         new Floor("zenith-base-lamp-red");
         new Floor("zenith-base-lamp-green");
         new Floor("zenith-base-lamp-purple");
-
-
-
         //加维纳
         new Floor("dysharmony-fluid-floor"){{cacheLayer = VECacheLayer.dysharmony;}};
-
-
-
         //普罗克西玛
-
-
-
     }
 }

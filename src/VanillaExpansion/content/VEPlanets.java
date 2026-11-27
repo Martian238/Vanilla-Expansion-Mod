@@ -1,6 +1,4 @@
 package VanillaExpansion.content;
-
-import VanillaExpansion.VESounds;
 import VanillaExpansion.expand.graphics.AsteroidBeltMesh;
 import VanillaExpansion.expand.graphics.MagneticFluxMesh;
 import VanillaExpansion.expand.graphics.NeutronJetBeamMesh;
@@ -11,31 +9,17 @@ import VanillaExpansion.expand.graphics.ZAxisSkyMesh;
 import VanillaExpansion.expand.maps.NeutronStarPlanetGenerator;
 import VanillaExpansion.expand.maps.ProximaPlanetGenerator;
 import arc.graphics.Color;
-import mindustry.Vars;
 import mindustry.content.Blocks;
 import mindustry.content.Planets;
 import mindustry.gen.Musics;
 import mindustry.graphics.Shaders;
 import mindustry.graphics.g3d.*;
-import mindustry.graphics.g3d.PlanetGrid.Ptile;
 import mindustry.maps.generators.BlankPlanetGenerator;
 import mindustry.type.Planet;
-import mindustry.type.Sector;
 import mindustry.world.meta.Attribute;
 import mindustry.world.meta.Env;
-
-import static mindustry.Vars.content;
-import static mindustry.gen.Musics.game4;
-import static mindustry.gen.Musics.game8;
-
-/**
- * 比邻星内容定义类
- */
 public class VEPlanets {
-
-    /** 星球实例 */
     public static Planet thavina, proxima, neutronStar, bossRush;
-    /** 加载行星定义 */
     public static void load() {
         neutronStar = new Planet("sol4b", Planets.sun, 0.9f, 0) {{
             generator = new NeutronStarPlanetGenerator();
@@ -156,7 +140,6 @@ public class VEPlanets {
                             Color.valueOf("ff3a73"), Color.valueOf("c71f50"))
             );
         }};
-
         proxima = new Planet("proxima", neutronStar, 1f, 3) {{
             generator = new ProximaPlanetGenerator();
             visible = true;
@@ -192,7 +175,6 @@ public class VEPlanets {
             landCloudColor = Color.valueOf("87CEEB").a(0.5f);
         }};
         proxima.solarSystem = neutronStar;
-
         bossRush = new Planet("boss-rush", null, 0.5f, 1){{
             parent = null;
             solarSystem = this;

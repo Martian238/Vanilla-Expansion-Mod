@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.debug.Module;
-
 import VanillaExpansion.expand.world.block.debug.DebugBlock;
 import VanillaExpansion.expand.world.block.debug.DebugModule;
 import arc.Core;
@@ -22,11 +21,9 @@ import mindustry.graphics.Lod;
 import mindustry.graphics.Pal;
 import mindustry.ui.Bar;
 import mindustry.ui.Styles;
-
 public class OverdriveProjectorModule implements DebugModule {
     public static final String ID = "overdrive-projector";
     public static final String CONFIG_PREFIX = "overdrive";
-
     public static final String KEY_RANGE = "range";
     public static final String KEY_RELOAD = "reload";
     public static final String KEY_SPEED = "speed";
@@ -34,10 +31,8 @@ public class OverdriveProjectorModule implements DebugModule {
     public static final String KEY_PHASE_RANGE = "phaserange";
     public static final String KEY_HAS_BOOST = "hasboost";
     public static final String KEY_BOOSTED = "boosted";
-
     public static final String NAME_KEY = "debug.module.overdrive.name";
     public static final String NAME_DEFAULT = "超速投影 / Overdrive Projector";
-
     public static final String KEY_RANGE_LABEL = "debug.module.overdrive.range";
     public static final String RANGE_LABEL = "范围 / Range";
     public static final String KEY_RELOAD_LABEL = "debug.module.overdrive.reload";
@@ -54,18 +49,14 @@ public class OverdriveProjectorModule implements DebugModule {
     public static final String BOOSTED_LABEL = "强化状态 / Phase Boosted";
     public static final String KEY_STATUS = "debug.module.overdrive.status";
     public static final String STATUS = "[lightgray]加速：";
-
     public static final Color BASE_COLOR = Color.valueOf("feb380");
     public static final Color PHASE_COLOR = Color.valueOf("ffd59e");
-
     public static final float MIN_RANGE = 1f, MAX_RANGE = 40f;
     public static final float MIN_RELOAD = 10f, MAX_RELOAD = 600f;
     public static final float MIN_SPEED = 1f, MAX_SPEED = 10f;
     public static final float MIN_SPEED_PHASE = 0f, MAX_SPEED_PHASE = 10f;
     public static final float MIN_PHASE_RANGE = 0f, MAX_PHASE_RANGE = 40f;
     public static final float TOGGLE_HEIGHT = 34f;
-
-    // 范围单位为格
     public float range = 10f;
     public float reload = 60f;
     public float speedBoost = 1.5f;
@@ -77,34 +68,25 @@ public class OverdriveProjectorModule implements DebugModule {
     public float heat = 0f;
     public float charge = 0f;
     public float phaseHeat = 0f;
-
-    // 返回模块唯一标识
     @Override
     public String id() {
         return ID;
     }
-
-    // 返回模块显示名称
     @Override
     public String displayName() {
         return Core.bundle.get(NAME_KEY, NAME_DEFAULT);
     }
-
-    // 模块挂载到建筑
     @Override
     public void attach(DebugBlock.DebugBuild build) {
         heat = 0f;
         charge = 0f;
         phaseHeat = 0f;
     }
-
-    // 随建筑更新加速
     @Override
     public void update(DebugBlock.DebugBuild build) {
         heat = Mathf.lerpDelta(heat, 1f, 0.08f);
         if (hasBoost) phaseHeat = Mathf.lerpDelta(phaseHeat, boosted ? 1f : 0f, 0.1f);
         charge += heat * Time.delta;
-
         if (charge >= reload) {
             charge = 0f;
             float realRange = (range + phaseHeat * phaseRangeBoost) * Vars.tilesize;
@@ -114,18 +96,14 @@ public class OverdriveProjectorModule implements DebugModule {
                     other -> other.applyBoost(boost, reload + 1f));
         }
     }
-
-    // 随建筑绘制加速效果
     @Override
     public void draw(DebugBlock.DebugBuild build) {
         if (!Lod.l2) return;
         float f = 1f - (Time.time / 100f) % 1f;
         float half = build.block.size * Vars.tilesize / 2f;
-
         Draw.color(BASE_COLOR, PHASE_COLOR, phaseHeat);
         Draw.alpha(Lod.alpha2);
         Lines.stroke((2f * f + 0.1f) * heat);
-
         float r = Math.max(0f, Mathf.clamp(2f - f * 2f) * half - f - 0.2f), w = Mathf.clamp(0.5f - f) * half * 2f;
         Lines.beginLine();
         for (int i = 0; i < 4; i++) {
@@ -137,11 +115,8 @@ public class OverdriveProjectorModule implements DebugModule {
             }
         }
         Lines.endLine(true);
-
         Draw.reset();
     }
-
-    // 鼠标悬停时绘制加速范围与名称
     @Override
     public void drawSelect(DebugBlock.DebugBuild build) {
         float rad = (range + phaseHeat * phaseRangeBoost) * Vars.tilesize;
@@ -150,8 +125,6 @@ public class OverdriveProjectorModule implements DebugModule {
         Drawf.dashCircle(build.x, build.y, rad, BASE_COLOR);
         Drawf.text(displayName(), build.x, build.y + rad + 6f, BASE_COLOR, 1f);
     }
-
-    // 处理卡片配置界面
     @Override
     public void buildConfig(DebugBlock.DebugBuild build, Table table, Runnable rebuild) {
         table.add(toggleRow(build, rebuild)).growX().padBottom(4f).row();
@@ -162,14 +135,11 @@ public class OverdriveProjectorModule implements DebugModule {
         addSlider(build, table, label(KEY_PHASE_RANGE_LABEL, PHASE_RANGE_LABEL), KEY_PHASE_RANGE, MIN_PHASE_RANGE, MAX_PHASE_RANGE, 0.5f, phaseRangeBoost, false);
         table.label(this::status).left().padTop(2f).row();
     }
-
-    // 接收配置指令
     @Override
     public boolean configure(DebugBlock.DebugBuild build, Object value) {
         if (!(value instanceof String command)) return false;
         String[] parts = command.split(":");
         if (parts.length != 3 || !parts[0].equals(CONFIG_PREFIX)) return false;
-
         if (parts[1].equals(KEY_HAS_BOOST)) {
             hasBoost = Boolean.parseBoolean(parts[2]);
             if (!hasBoost) phaseHeat = 0f;
@@ -179,14 +149,12 @@ public class OverdriveProjectorModule implements DebugModule {
             boosted = Boolean.parseBoolean(parts[2]);
             return true;
         }
-
         float amount;
         try {
             amount = Float.parseFloat(parts[2]);
         } catch (NumberFormatException e) {
             return false;
         }
-
         switch (parts[1]) {
             case KEY_RANGE -> range = Mathf.clamp(amount, MIN_RANGE, MAX_RANGE);
             case KEY_RELOAD -> reload = Mathf.clamp(amount, MIN_RELOAD, MAX_RELOAD);
@@ -199,8 +167,6 @@ public class OverdriveProjectorModule implements DebugModule {
         }
         return true;
     }
-
-    // 写入模块参数
     @Override
     public void write(DebugBlock.DebugBuild build, Writes write) {
         write.f(range);
@@ -214,8 +180,6 @@ public class OverdriveProjectorModule implements DebugModule {
         write.f(charge);
         write.f(phaseHeat);
     }
-
-    // 读取模块参数
     @Override
     public void read(DebugBlock.DebugBuild build, Reads read, byte revision) {
         range = Mathf.clamp(read.f(), MIN_RANGE, MAX_RANGE);
@@ -236,8 +200,6 @@ public class OverdriveProjectorModule implements DebugModule {
         }
         if (!hasBoost) phaseHeat = 0f;
     }
-
-    // 构建模块状态栏（与 OverdriveProjector 原版一致）
     @Override
     public boolean buildBars(DebugBlock.DebugBuild build, Table table) {
         table.add(new Bar(
@@ -247,13 +209,9 @@ public class OverdriveProjectorModule implements DebugModule {
                 .growX().height(18f).row();
         return true;
     }
-
-    // 返回实际加速倍率
     public float realBoost() {
         return speedBoost + phaseHeat * speedBoostPhase;
     }
-
-    // 构建开关行
     private Table toggleRow(DebugBlock.DebugBuild build, Runnable rebuild) {
         Table row = new Table();
         row.left();
@@ -266,8 +224,6 @@ public class OverdriveProjectorModule implements DebugModule {
                 .checked(b -> boosted);
         return row;
     }
-
-    // 切换是否允许强化
     private void setHasBoost(DebugBlock.DebugBuild build, boolean value, Runnable rebuild) {
         if (hasBoost == value) return;
         hasBoost = value;
@@ -275,16 +231,12 @@ public class OverdriveProjectorModule implements DebugModule {
         build.configure(CONFIG_PREFIX + ":" + KEY_HAS_BOOST + ":" + value);
         if (rebuild != null) rebuild.run();
     }
-
-    // 切换强化状态
     private void setBoosted(DebugBlock.DebugBuild build, boolean value, Runnable rebuild) {
         if (boosted == value) return;
         boosted = value;
         build.configure(CONFIG_PREFIX + ":" + KEY_BOOSTED + ":" + value);
         if (rebuild != null) rebuild.run();
     }
-
-    // 构建参数滑条
     private void addSlider(DebugBlock.DebugBuild build, Table table, String label, String key,
                            float min, float max, float step, float value, boolean integer) {
         Table row = new Table();
@@ -304,8 +256,6 @@ public class OverdriveProjectorModule implements DebugModule {
         row.add(amount).right().width(70f);
         table.add(row).growX().pad(2f).row();
     }
-
-    // 应用滑条数值
     private void applyValue(DebugBlock.DebugBuild build, String key, float value, boolean integer) {
         switch (key) {
             case KEY_RANGE -> range = Mathf.clamp(value, MIN_RANGE, MAX_RANGE);
@@ -316,21 +266,15 @@ public class OverdriveProjectorModule implements DebugModule {
         }
         build.configure(CONFIG_PREFIX + ":" + key + ":" + (integer ? Integer.toString((int) value) : Float.toString(value)));
     }
-
-    // 返回卡片状态文本
     private String status() {
         float realRange = range + phaseHeat * phaseRangeBoost;
         return Core.bundle.get(KEY_STATUS, STATUS) + " [accent]+"
                 + Mathf.round(Math.max(realBoost() * 100f - 100f, 0f)) + "%[] / [accent]"
                 + Strings.fixed(realRange, 1) + "[]";
     }
-
-    // 格式化数值
     private String format(float value, boolean integer) {
         return integer ? Integer.toString((int) value) : Strings.fixed(value, 2);
     }
-
-    // 读取本地化文本
     private String label(String key, String fallback) {
         return Core.bundle.get(key, fallback);
     }

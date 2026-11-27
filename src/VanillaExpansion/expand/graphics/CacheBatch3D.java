@@ -1,18 +1,11 @@
 package VanillaExpansion.expand.graphics;
-
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.struct.*;
-
 public class CacheBatch3D extends Batch{
     public FloatSeq data = new FloatSeq();
     public Seq<Texture> textureSeq = new Seq<>();
-
-    public void begin(){
-        data.clear();
-        textureSeq.clear();
-    }
-
+    public void begin(){data.clear();textureSeq.clear();}
     @Override
     protected void draw(Texture texture, float[] spriteVertices, int offset, int count){
         for(int i = 0; i < 24; i += 6){
@@ -20,12 +13,8 @@ public class CacheBatch3D extends Batch{
         }
         textureSeq.add(texture);
     }
-
     @Override
     protected void draw(TextureRegion region, float x, float y, float originX, float originY, float width, float height, float rotation){}
-
     @Override
-    protected void flush(){
-
-    }
+    protected void flush(){}
 }

@@ -1,5 +1,8 @@
 package VanillaExpansion.ui.bossrush;
 
+import VanillaExpansion.ui.bossrush.card.BossRushCardWidget;
+import VanillaExpansion.ui.bossrush.card.GalleryCardWidget;
+import VanillaExpansion.ui.bossrush.card.LevelCardWidget;
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
@@ -14,13 +17,10 @@ import arc.scene.event.Touchable;
 import arc.scene.ui.Label;
 import arc.scene.ui.layout.Table;
 import arc.util.Align;
-import arc.util.Log;
 import mindustry.Vars;
 import mindustry.gen.Icon;
 import mindustry.graphics.Pal;
 import mindustry.ui.Styles;
-import VanillaExpansion.content.VEPlanets;
-import VanillaExpansion.ui.bossrush.card.*;
 
 public class BossRushView extends Table{
     public final BossRushData data = new BossRushData();

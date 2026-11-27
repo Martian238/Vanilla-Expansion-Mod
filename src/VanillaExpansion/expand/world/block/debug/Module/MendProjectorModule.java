@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.debug.Module;
-
 import VanillaExpansion.expand.world.block.debug.DebugBlock;
 import VanillaExpansion.expand.world.block.debug.DebugModule;
 import arc.Core;
@@ -21,7 +20,6 @@ import mindustry.graphics.Lod;
 import mindustry.graphics.Pal;
 import mindustry.ui.Bar;
 import mindustry.ui.Styles;
-
 public class MendProjectorModule implements DebugModule {
     public static final String ID = "mend-projector";
     public static final String CONFIG_PREFIX = "mend";
@@ -60,40 +58,29 @@ public class MendProjectorModule implements DebugModule {
     public static final float MIN_PHASE_BOOST = 0f, MAX_PHASE_BOOST = 100f;
     public static final float MIN_PHASE_RANGE = 0f, MAX_PHASE_RANGE = 40f;
     public static final float TOGGLE_HEIGHT = 34f;
-
-    // 范围单位为格
     public float range = 7.5f;
     public float reload = 250f;
     public float healPercent = 12f;
     public float phaseBoost = 12f;
     public float phaseRangeBoost = 6.25f;
     public boolean boosted = false;
-
     public float heat = 0f;
     public float charge = 0f;
     public float phaseHeat = 0f;
-
-    // 返回模块唯一标识
     @Override
     public String id() {
         return ID;
     }
-
-    // 返回模块显示名称
     @Override
     public String displayName() {
         return Core.bundle.get(NAME_KEY, NAME_DEFAULT);
     }
-
-    // 模块挂载到建筑
     @Override
     public void attach(DebugBlock.DebugBuild build) {
         heat = 0f;
         charge = 0f;
         phaseHeat = 0f;
     }
-
-    // 随建筑更新修复
     @Override
     public void update(DebugBlock.DebugBuild build) {
         heat = Mathf.lerpDelta(heat, 1f, 0.08f);
@@ -112,8 +99,6 @@ public class MendProjectorModule implements DebugModule {
                     });
         }
     }
-
-    // 随建筑绘制修复效果
     @Override
     public void draw(DebugBlock.DebugBuild build) {
         if (!Lod.l2) return;
@@ -126,8 +111,6 @@ public class MendProjectorModule implements DebugModule {
         Lines.square(build.x, build.y, Math.min(1f + (1f - f) * half, half));
         Draw.reset();
     }
-
-    // 鼠标悬停时绘制修复范围与名称
     @Override
     public void drawSelect(DebugBlock.DebugBuild build) {
         float rad = (range + phaseHeat * phaseRangeBoost) * Vars.tilesize;
@@ -136,8 +119,6 @@ public class MendProjectorModule implements DebugModule {
         Drawf.dashCircle(build.x, build.y, rad, BASE_COLOR);
         Drawf.text(displayName(), build.x, build.y + rad + 6f, BASE_COLOR, 1f);
     }
-
-    // 处理卡片配置界面
     @Override
     public void buildConfig(DebugBlock.DebugBuild build, Table table, Runnable rebuild) {
         table.add(toggleRow(build, rebuild)).growX().padBottom(4f).row();
@@ -148,26 +129,21 @@ public class MendProjectorModule implements DebugModule {
         addSlider(build, table, label(KEY_PHASE_RANGE_LABEL, PHASE_RANGE_LABEL), KEY_PHASE_RANGE, MIN_PHASE_RANGE, MAX_PHASE_RANGE, 0.5f, phaseRangeBoost, false);
         table.label(this::status).left().padTop(2f).row();
     }
-
-    // 接收配置指令
     @Override
     public boolean configure(DebugBlock.DebugBuild build, Object value) {
         if (!(value instanceof String command)) return false;
         String[] parts = command.split(":");
         if (parts.length != 3 || !parts[0].equals(CONFIG_PREFIX)) return false;
-
         if (parts[1].equals(KEY_BOOSTED)) {
             boosted = Boolean.parseBoolean(parts[2]);
             return true;
         }
-
         float amount;
         try {
             amount = Float.parseFloat(parts[2]);
         } catch (NumberFormatException e) {
             return false;
         }
-
         switch (parts[1]) {
             case KEY_RANGE -> range = Mathf.clamp(amount, MIN_RANGE, MAX_RANGE);
             case KEY_RELOAD -> reload = Mathf.clamp(amount, MIN_RELOAD, MAX_RELOAD);
@@ -180,8 +156,6 @@ public class MendProjectorModule implements DebugModule {
         }
         return true;
     }
-
-    // 写入模块参数
     @Override
     public void write(DebugBlock.DebugBuild build, Writes write) {
         write.f(range);
@@ -194,8 +168,6 @@ public class MendProjectorModule implements DebugModule {
         write.f(charge);
         write.f(phaseHeat);
     }
-
-    // 读取模块参数
     @Override
     public void read(DebugBlock.DebugBuild build, Reads read, byte revision) {
         range = Mathf.clamp(read.f(), MIN_RANGE, MAX_RANGE);
@@ -214,8 +186,6 @@ public class MendProjectorModule implements DebugModule {
             phaseHeat = 0f;
         }
     }
-
-    // 构建强化开关行
     private Table toggleRow(DebugBlock.DebugBuild build, Runnable rebuild) {
         Table row = new Table();
         row.left();
@@ -225,37 +195,28 @@ public class MendProjectorModule implements DebugModule {
                 .checked(b -> boosted);
         return row;
     }
-
-    // 切换强化状态
     private void setBoosted(DebugBlock.DebugBuild build, boolean value, Runnable rebuild) {
         if (boosted == value) return;
         boosted = value;
         build.configure(CONFIG_PREFIX + ":" + KEY_BOOSTED + ":" + value);
         if (rebuild != null) rebuild.run();
     }
-
-    // 构建参数滑条
     private void addSlider(DebugBlock.DebugBuild build, Table table, String label, String key,
                            float min, float max, float step, float value, boolean integer) {
         Table row = new Table();
         row.left();
         row.add(label).left().growX().color(Color.lightGray);
-
         Slider slider = new Slider(min, max, step, false);
         slider.setValue(value);
         Label amount = new Label(format(slider.getValue(), integer));
-
         slider.changed(() -> {
             amount.setText(format(slider.getValue(), integer));
             applyValue(build, key, slider.getValue(), integer);
         });
-
         row.add(slider).growX().padLeft(6f).padRight(6f);
         row.add(amount).right().width(70f);
         table.add(row).growX().pad(2f).row();
     }
-
-    // 应用滑条数值
     private void applyValue(DebugBlock.DebugBuild build, String key, float value, boolean integer) {
         switch (key) {
             case KEY_RANGE -> range = Mathf.clamp(value, MIN_RANGE, MAX_RANGE);
@@ -266,21 +227,16 @@ public class MendProjectorModule implements DebugModule {
         }
         build.configure(CONFIG_PREFIX + ":" + key + ":" + (integer ? Integer.toString((int) value) : Float.toString(value)));
     }
-
-    // 返回卡片状态文本
     private String status() {
         float realRange = range + phaseHeat * phaseRangeBoost;
         float amount = healPercent + phaseHeat * phaseBoost;
         return Core.bundle.get(KEY_STATUS, STATUS) + " [accent]" + Strings.fixed(amount, 1) + "%[] / [accent]"
                 + Strings.fixed(realRange, 1) + "[]";
     }
-
-    // 格式化数值
     private String format(float value, boolean integer) {
         return integer ? Integer.toString((int) value) : Strings.fixed(value, 2);
     }
 
-    // 读取本地化文本
     private String label(String key, String fallback) {
         return Core.bundle.get(key, fallback);
     }

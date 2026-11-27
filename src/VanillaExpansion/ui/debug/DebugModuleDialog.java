@@ -49,8 +49,6 @@ public class DebugModuleDialog extends BaseDialog {
     private final DebugBlock.DebugBuild build;
     private final Table list = new Table();
     private final ScrollPane pane = new ScrollPane(list);
-
-    // 构造模块管理界面
     public DebugModuleDialog(DebugBlock.DebugBuild build) {
         super(Core.bundle.get(TITLE_KEY, TITLE_DEFAULT));
         this.build = build;
@@ -71,8 +69,6 @@ public class DebugModuleDialog extends BaseDialog {
         });
         rebuild();
     }
-
-    // 构建标题栏
     private Table header() {
         Table table = new Table();
         table.left();
@@ -80,8 +76,6 @@ public class DebugModuleDialog extends BaseDialog {
         table.add("[lightgray]" + build.moduleSlots.size + " / " + ((DebugBlock) build.block).maxModules + "[]").left();
         return table;
     }
-
-    // 构建底部操作栏
     private Table actionBar() {
         Table table = new Table();
         table.left();
@@ -91,8 +85,6 @@ public class DebugModuleDialog extends BaseDialog {
                 .tooltip(Core.bundle.get(CLEAR_KEY, CLEAR_DEFAULT));
         return table;
     }
-
-    // 重建模块卡片列表
     private void rebuild() {
         list.clear();
         Seq<String> ids = DebugModuleRegistry.ids();
@@ -107,8 +99,6 @@ public class DebugModuleDialog extends BaseDialog {
         ids.sort();
         for (int i = 0; i < ids.size; i++) buildCard(ids.get(i));
     }
-
-    // 构建单个模块卡片
     private void buildCard(String id) {
         DebugBlock.ModuleSlot slot = build.getSlot(id);
         Table body = new Table();
@@ -153,20 +143,14 @@ public class DebugModuleDialog extends BaseDialog {
 
         list.add(card).growX().padBottom(CARD_GAP).row();
     }
-
-    // 返回卡片显示的模块名
     private String moduleName(DebugBlock.ModuleSlot slot, String id) {
         if (slot != null) return slot.module.displayName();
         DebugModule module = DebugModuleRegistry.create(id);
         return module == null ? id : module.displayName();
     }
-
-    // 延迟重建以避开按钮事件
     private void requestRebuild() {
         Core.app.post(this::rebuild);
     }
-
-    // 应用配置并刷新界面
     private void configureAndRebuild(String command) {
         build.configure(command);
         rebuild();

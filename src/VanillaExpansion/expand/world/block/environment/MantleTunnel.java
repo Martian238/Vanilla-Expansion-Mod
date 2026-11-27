@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.environment;
-
 import arc.Core;
 import mindustry.world.blocks.environment.Floor;
 import arc.graphics.*;
@@ -14,9 +13,7 @@ import mindustry.entities.*;
 import mindustry.graphics.*;
 import mindustry.world.*;
 import mindustry.world.meta.*;
-
 import static mindustry.Vars.*;
-
 public class MantleTunnel extends Floor {
     public static final Point2[] offsets = {
             new Point2(0, 0),
@@ -36,18 +33,15 @@ public class MantleTunnel extends Floor {
             new Point2(1, 2),
             new Point2(2, 2),
     };
-
     public Block parent = Blocks.air;
     public Effect effect = Fx.redgeneratespark;
     public Color effectColor = Pal.redSpark;
     public float effectSpacing = 15f;
-
     static{
         for(var p : offsets){
             p.sub(1, 1);
         }
     }
-
     public MantleTunnel(String name){
         super(name);
         variants = 1;
@@ -59,7 +53,6 @@ public class MantleTunnel extends Floor {
         //attributes.set(Attribute.sand, 10f);
         parent = blendGroup = Blocks.darkPanel3;
     }
-
     @Override
     public void drawMain(Tile tile){
         if(parent instanceof Floor floor){
@@ -71,17 +64,14 @@ public class MantleTunnel extends Floor {
             Draw.rect(variantRegions[0], tile.worldx() - tilesize * 2f, tile.worldy() - tilesize * 2f);
         }
     }
-
     @Override
     public boolean updateRender(Tile tile){
         return checkAdjacent(tile);
     }
-
     @Override
     public boolean shouldIndex(Tile tile){
         return isCenterVent(tile);
     }
-
     public boolean isCenterVent(Tile tile){
         for(int x = 0; x < 4; x++){
             for(int y = 0; y < 4; y++){
@@ -90,7 +80,6 @@ public class MantleTunnel extends Floor {
             }
         } return true;
     }
-
     @Override
     public void renderUpdate(UpdateRenderState state){
         if(state.tile.nearby(0, 0) != null && state.tile.nearby(0, 0).block() == Blocks.air && (state.data += Time.delta) >= effectSpacing){
@@ -98,7 +87,6 @@ public class MantleTunnel extends Floor {
             state.data = 0f;
         }
     }
-
     public boolean checkAdjacent(Tile tile){
         for(int x = 0; x < 4; x++){
             for(int y = 0; y < 4; y++){

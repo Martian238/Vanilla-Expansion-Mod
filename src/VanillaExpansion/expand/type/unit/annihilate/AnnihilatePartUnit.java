@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.type.unit.annihilate;
-
 import VanillaExpansion.EntityRegister;
 import VanillaExpansion.content.CustomFx;
 import VanillaExpansion.expand.methods.Drawve;
@@ -30,45 +29,34 @@ import mindustry.world.blocks.environment.Floor;
 import static mindustry.Vars.world;
 import static mindustry.type.UnitType.shadowTX;
 import static mindustry.type.UnitType.shadowTY;
-
 public class AnnihilatePartUnit extends UnitEntity {
-
-    public static UnitEntity create(){
-        return new AnnihilatePartUnit();
-    }
-
+    public static UnitEntity create(){return new AnnihilatePartUnit();}
     public Unit owner = null;
     public boolean ownerDead = false;
-    public boolean targetable = false; // automatically targetable
-    public boolean vulnerable = false; // when true, there's no damage reduction
+    public boolean targetable = false;
+    public boolean vulnerable = false;
     public boolean flip = false;
     protected int partID = 0;
     protected int ownerID = 0;
-
-    /** (-infinite, 0.25]: below building, (0.25, 0.5]: above ground,
-     * (0.5, 0.75]: fly low, (0.75, +infinite): fly high */
     public float partLayer = 0.75f;
     public float partLayerOffset = 0f;
     public float elevationScl = 1f;
     public float defaultElevation = 2f;
-
     public float chargeDelay = 0f;
     public float chargeTime = 0f;
     public int charges = 0;
-    public float interruptThreshold = 1500f; //calculated on rawDamage()
-    public float interruptCooldown = 6f; //constant
+    public float interruptThreshold = 1500f;
+    public float interruptCooldown = 6f;
     public int interrupts = 0;
     public float chargeTimeMax = 0f;
     public float chargeDelayMax = 0f;
     public boolean interrupted = false;
-
     public TextureRegion region = new TextureRegion();
     public TextureRegion shadowRegion = new TextureRegion();
     public Color chargeRingColor1 = Color.valueOf("f25555");
     public Color chargeRingColor2 = chargeRingColor1.cpy().mul(1.25f);
     public Color chargeRingColor3 = chargeRingColor1.cpy().mul(1.5f);
     public Color chargeRingDelayColor = Color.valueOf("ffa665");
-
     public boolean isArm = false;
     public float armLength = 368f / 4f;
     public float armWidth = 138f / 4f;
@@ -88,8 +76,6 @@ public class AnnihilatePartUnit extends UnitEntity {
     public float armRingWidth = 16f;
     public TextureRegion armRegion1 = new TextureRegion();
     public TextureRegion armRegion2 = new TextureRegion();
-    //public float armC = Color.white.toFloatBits();
-
     protected boolean drawInitialized = false;
     protected float interruptCooldownTimer = 0f;
     protected float chargeBright = 0f;
@@ -100,7 +86,6 @@ public class AnnihilatePartUnit extends UnitEntity {
     protected float chargeRot = 0f;
     private float armRot = 0f;
     private float regionWidth, regionHeight;
-
     protected boolean afterReadUpdated = false;
     public void updateAfterRead(){
         afterReadUpdated = true;
@@ -111,7 +96,6 @@ public class AnnihilatePartUnit extends UnitEntity {
             Log.err("Part " + type.name + " owner not found, id: " + ownerID);
         }
     }
-
     @Override
     public void update(){
         if(!afterReadUpdated) updateAfterRead();
@@ -124,17 +108,11 @@ public class AnnihilatePartUnit extends UnitEntity {
             statuses.clear();
         }
     }
-
-    /** Time.delta */
-    public float delta(){
-        return Time.delta;
-    }
-
+    public float delta(){return Time.delta;}
     @Override
     public boolean killable(){
         return owner == null || owner.dead() || ownerDead;
     }
-
     public void armUpdate(){
         armRot += armRotSpeed * (flip ? -1 : 1) * delta();
         if(armRot >= 90f) armRot -= 60f;
@@ -143,7 +121,6 @@ public class AnnihilatePartUnit extends UnitEntity {
         armLightProgress = Mathf.approachDelta(armLightProgress, armLight ? 1f : 0f, 0.03f);
         armRingProgress = Mathf.approachDelta(armRingProgress, armRing ? 1f : 0f, 0.03f);
     }
-
     public void chargeUpdate(){
         if(charges > 0 && interrupts <= 0) interrupted = false;
         if(chargeTimeMax < chargeTime) chargeTimeMax = chargeTime;
@@ -168,7 +145,6 @@ public class AnnihilatePartUnit extends UnitEntity {
             interrupts = 0;
         }
     }
-
     public void interruptEffect(){
         if(type instanceof AnnihilatePartUnitType ap){
             ap.interruptEffect.at(x, y, Mathf.range(5f), chargeRingRadius / 50f);
@@ -179,7 +155,6 @@ public class AnnihilatePartUnit extends UnitEntity {
             Effect.shake(ap.interruptShake, ap.interruptShake * 2f, x, y);
         }
     }
-
     public void dealInterrupt(float damage){
         if(damage >= interruptThreshold && charges > 0 && chargeDelay <= 0 && interruptCooldownTimer <= 0){
             interrupts++;
@@ -187,7 +162,6 @@ public class AnnihilatePartUnit extends UnitEntity {
             interruptEffect();
         }
     }
-
     @Override
     public void draw(){
         if(!drawInitialized){
@@ -208,14 +182,12 @@ public class AnnihilatePartUnit extends UnitEntity {
                 regionHeight = region.height / 4f;
             }
         }
-
         if(shieldAlpha > 0 && !generalTargetable()){
             type.drawShield(this);
         }
         partBody();
         partCharge();
     }
-
     public void partShadow(float ax, float ay){
         float e = elevationScl * defaultElevation;
         float x = ax + shadowTX * e, y = ay + shadowTY * e;
@@ -241,7 +213,6 @@ public class AnnihilatePartUnit extends UnitEntity {
                 x + armNodeX(xr + armOutlineWidth, 0f), y + armNodeY(xr + armOutlineWidth, 0f));
         Draw.color();
     }
-
     public void partSoftShadow(float ax, float ay){
         float sx = ax, sy = ay;
         if(isArm){
@@ -256,7 +227,6 @@ public class AnnihilatePartUnit extends UnitEntity {
                 (region.height + (isArm ? armLength * 4f : 0f)) * region.scl() * rad * 1f, rotation - 90);
         Draw.color();
     }
-
     public void partBody(){
         if(inFogTo(Vars.player.team())) return;
         float ax = x + regionOffsetX * Mathf.cosDeg(rotation - 90f) + regionOffsetY * Mathf.cosDeg(rotation);
@@ -272,7 +242,6 @@ public class AnnihilatePartUnit extends UnitEntity {
         if(isArm) partArm();
         Draw.reset();
     }
-
     public void partArm(){
         float x1 = 0.5f * armWidth * Mathf.cosDeg(armRot - 60f);
         float x2 = 0.5f * armWidth * Mathf.cosDeg(armRot);
@@ -323,7 +292,6 @@ public class AnnihilatePartUnit extends UnitEntity {
         partArmShadow(x4, x1);
         Draw.color();
     }
-
     public void armQuad(float xl, float xr, TextureRegion region){
         float armBit = Color.toFloatBits(Draw.getColor().r, Draw.getColor().g, Draw.getColor().b, Draw.getColor().a);
         Draw.quad(region, armNodeX(xl, 0f), armNodeY(xl, 0f), armBit,
@@ -364,7 +332,6 @@ public class AnnihilatePartUnit extends UnitEntity {
         if(partLayer > 0.25f) return Layer.legUnit + 6f + offset;
         return Layer.block - 0.75f + offset;
     }
-
     public void partCharge(){
         Drawve.chargeRing(charges, chargeTime, chargeTimeMax, chargeDelay, chargeDelayMax,
                 chargeRingColor1, chargeRingColor2, chargeRingColor3, chargeRingDelayColor,
@@ -406,7 +373,6 @@ public class AnnihilatePartUnit extends UnitEntity {
         }
          */
     }
-
     /*
     public void addChargeArc(int amount, float stroke, float alpha, float rotSpeed){
         Draw.alpha(alpha);
@@ -416,31 +382,15 @@ public class AnnihilatePartUnit extends UnitEntity {
         }
     }
      */
-
     @Override
-    public boolean targetable(Team targeter){
-        return generalTargetable();
-    }
-
-    public boolean generalTargetable(){
-        return targetable || (charges > 0 && chargeTime > 0);
-    }
-
+    public boolean targetable(Team targeter){return generalTargetable();}
+    public boolean generalTargetable(){return targetable || (charges > 0 && chargeTime > 0);}
     @Override
-    public void kill(){
-        if(!killable()) return;
-        super.kill();
-    }
-
+    public void kill(){if(!killable()) return;super.kill();}
     @Override
-    public boolean isCommandable(){
-        return false;
-    }
+    public boolean isCommandable(){return false;}
     @Override
-    public boolean allowCommand(){
-        return false;
-    }
-
+    public boolean allowCommand(){return false;}
     @Override
     public void rawDamage(float d){
         dealInterrupt(d);
@@ -459,13 +409,11 @@ public class AnnihilatePartUnit extends UnitEntity {
             if(health < 0) health = 0.0F;
         }
     }
-
     public float damageReduced(float d, float threshold){
         float scale = 0.5f * d / Math.max(threshold, 1f);
         if(scale < 1f) return scale * scale * threshold;
         return (float) ((2 - Math.pow(Math.E, 2 - 2 * scale)) * threshold);
     }
-
     public void anniWrite(Writes write){
         write.s(1);
         write.i(charges);
@@ -519,17 +467,9 @@ public class AnnihilatePartUnit extends UnitEntity {
         }
     }
     @Override
-    public void write(Writes write){
-        super.write(write);
-        anniWrite(write);
-    }
+    public void write(Writes write){super.write(write);anniWrite(write);}
     @Override
-    public void read(Reads read){
-        super.read(read);
-        anniRead(read);
-    }
+    public void read(Reads read){super.read(read);anniRead(read);}
     @Override
-    public int classId() {
-        return EntityRegister.getID(getClass());
-    }
+    public int classId() {return EntityRegister.getID(getClass());}
 }

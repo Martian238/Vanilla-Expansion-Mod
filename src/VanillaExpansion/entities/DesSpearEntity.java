@@ -1,5 +1,4 @@
 package VanillaExpansion.entities;
-
 import arc.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
@@ -13,7 +12,6 @@ import mindustry.game.*;
 import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
-
 public class DesSpearEntity extends DrawEntity{
     public boolean collided;
     public float cx, cy, cr;

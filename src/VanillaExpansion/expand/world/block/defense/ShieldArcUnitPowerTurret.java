@@ -1,6 +1,4 @@
 package VanillaExpansion.expand.world.block.defense;
-
-import VanillaExpansion.expand.world.block.production.ConfigurableHeatProducer;
 import arc.Core;
 import arc.Events;
 import arc.audio.Sound;
@@ -8,12 +6,7 @@ import arc.graphics.g2d.Lines;
 import arc.graphics.g2d.TextureRegion;
 import arc.math.Angles;
 import arc.math.Mathf;
-import arc.math.geom.Vec2;
 import arc.struct.Seq;
-import arc.util.Log;
-import arc.util.Structs;
-import arc.util.Time;
-import arc.util.Tmp;
 import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
@@ -22,29 +15,22 @@ import mindustry.entities.Units;
 import mindustry.entities.abilities.ShieldArcAbility;
 import mindustry.entities.bullet.BasicBulletType;
 import mindustry.game.EventType;
-import mindustry.gen.Groups;
 import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
 import mindustry.graphics.Pal;
 import mindustry.type.Liquid;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
-import mindustry.type.unit.MissileUnitType;
 import mindustry.ui.Bar;
-import mindustry.world.Tile;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
 import mindustry.world.consumers.ConsumeLiquidFilter;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
-
-import static mindustry.Vars.world;
-
 public class ShieldArcUnitPowerTurret extends PowerTurret {
     public ShieldArcUnitPowerTurret(String name){
         super(name);
         suppressable = true;
     }
-
     public float shieldMax = 4000f;
     public float shieldRadius = 80f;
     public float shieldWidth = 12f;
@@ -54,10 +40,8 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
     public float shieldRegen = 1f;
     public float shieldCooldown = 300f;
     public Sound shieldCreateSound = Sounds.none;
-
     public Effect hotEffect = Fx.reactorsmoke;
     public TextureRegion sbcnm;
-
     @Override
     public void load(){
         super.load();
@@ -132,14 +116,12 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
                 }}
         );
     }};
-
     @Override
     public void setBars(){
         super.setBars();
         addBar("shield", (ShieldArcUnitPowerTurretBuild entity) ->
                 new Bar("stat.shieldhealth", Pal.accent, () -> Mathf.clamp(entity.currentShield / shieldMax)));
     }
-
     @Override
     public void setStats(){
         super.setStats();
@@ -147,16 +129,11 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
         stats.add(Stat.regenerationRate, shieldRegen * 60f, StatUnit.perSecond);
         stats.add(Stat.cooldownTime, shieldCooldown / 60f, StatUnit.seconds);
     }
-
     public class ShieldArcUnitPowerTurretBuild extends PowerTurretBuild{
-
         private float currentShield = shieldMax;
         private Unit shieldUnit;
         private float currentRadius = 0f;
         private float lastRadius = 0f;
-
-
-
         @Override
         public void updateTile(){
             super.updateTile();
@@ -227,13 +204,11 @@ public class ShieldArcUnitPowerTurret extends PowerTurret {
 //                        shieldUnit.abilities.length, shieldUnit.abilities);
 //            }
         }
-
         @Override
         public void kill(){
             if(shieldUnit != null) shieldUnit.kill();
             super.kill();
         }
-
         @Override
         public void remove(){
             if(shieldUnit != null) shieldUnit.kill();

@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.type.unit.internal.chargeskill;
-
 import VanillaExpansion.expand.type.unit.annihilate.AnnihilatePartUnitType;
 import arc.graphics.g2d.Draw;
 import arc.math.Mathf;
@@ -7,18 +6,13 @@ import arc.util.Time;
 import mindustry.content.StatusEffects;
 import mindustry.entities.Effect;
 import mindustry.entities.Units;
-
 import static mindustry.Vars.tilesize;
-
 public class ChargeSkillReign extends ChargeSkillMechUnit{
-
     public boolean newspaper = true;
     public float timer = 60;
-
     @Override
     public void update(){
         super.update();
-
         if(charges > 0){
             if(chargeDelay > 0){
                 chargeDelay -= Time.delta;
@@ -28,7 +22,6 @@ public class ChargeSkillReign extends ChargeSkillMechUnit{
                 apply(StatusEffects.disarmed, Time.delta + 2f);
             }
         }
-
         if(timer <= 0){
             timer = Mathf.random(60f * 5f, 60f * 10f);
         }else{
@@ -43,13 +36,8 @@ public class ChargeSkillReign extends ChargeSkillMechUnit{
             }
         }
     }
-
     @Override
-    public void rawDamage(float d){
-        dealInterrupt(d);
-        super.rawDamage(d);
-    }
-
+    public void rawDamage(float d){dealInterrupt(d);super.rawDamage(d);}
     public void interruptEffect(){
         if(type instanceof ChargeSkillUnitType t){
             t.interruptEffect.at(x, y, Mathf.range(5f), chargeRingRadius / 50f);
@@ -60,14 +48,12 @@ public class ChargeSkillReign extends ChargeSkillMechUnit{
             Effect.shake(t.interruptShake, t.interruptShake * 2f, x, y);
         }
     }
-
     public void dealInterrupt(float damage){
         if(damage >= 1000f && charges > 0 && chargeDelay <= 0){
             interrupts++;
             interruptEffect();
         }
     }
-
     @Override
     public void draw(){
         super.draw();

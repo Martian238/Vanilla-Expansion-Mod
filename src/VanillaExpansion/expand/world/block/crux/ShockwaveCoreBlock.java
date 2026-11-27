@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.crux;
-
 import VanillaExpansion.content.CustomFx;
 import arc.Core;
 import arc.audio.Sound;
@@ -32,20 +31,11 @@ import mindustry.world.blocks.environment.Floor;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.draw.DrawBlock;
 import mindustry.world.draw.DrawDefault;
-
-
 import java.util.Arrays;
-
 import static mindustry.Vars.*;
-
 public class ShockwaveCoreBlock extends CoreBlock {
-
-
-
-
     public float shockwaveShake = 35f;
     public float shockwaveShakeGlobal = 15f;
-
     public Sound hitUnitSound = Sounds.explosionPlasmaSmall;
     public float hitUnitShakeBase = 12f;
     public Sound hitBlockSound = Sounds.explosion;
@@ -53,11 +43,9 @@ public class ShockwaveCoreBlock extends CoreBlock {
     public Effect hitBlockEffect = Fx.circleColorSpark;
     public Effect hitBlockSplashEffect = CustomFx.shockwaveSparks;
     public Effect hitTerrainSplashEffect = CustomFx.shockwaveSparksSmall;
-
     public float chargeDuration = 420f;
     public float shockwaveDuration = 90f;
     public float maxWarmup = 60f;
-
     public Sound chargeSound = Sounds.none;
     public float chargeSoundDuration = 420f;
     public float chargeVolumeFrom = 0f;
@@ -73,8 +61,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
     public boolean subChargeSlope = true;
     public Sound startChargeSound = Sounds.none;
     public float startChargeVolume = 0.7f;
-
-
     public Sound shockwaveSound = Sounds.drillImpact;
     public Effect shockwaveEffect = Fx.none;
     public Effect shockwaveGroundEffect = new MultiEffect(
@@ -96,7 +82,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
     public @Nullable Color genericColor;
     public Effect finalChargeEffect = Fx.none;
     public float finalCharge = 126f;
-
     public Effect chargeEffect1 = Fx.none;
     public float chargeEffect1ChanceBase = 0.25f;
     public float chargeEffect1End = 60f;
@@ -105,40 +90,25 @@ public class ShockwaveCoreBlock extends CoreBlock {
     public Effect chargeEffect3 = Fx.none;
     public float chargeEffect3Chance = 0.1f;
     public Sound warnSound = Sounds.none;
-
     public float selfHealPercent = 10;
-
-    /** 为 true 时，护盾保护范围不再覆盖后方的整个地图区域，而是仅限于护盾范围和护盾后方一块较小区域 */
     public boolean safeAreaLimited = true;
-
-
-
     public ShockwaveCoreBlock(String name) {
         super(name);
         clipSize = 80000f;
     }
-
     public DrawBlock drawer = new DrawDefault();
-
     @Override
     public void load(){
         super.load();
 
         drawer.load(this);
     }
-
-
-
     public class ShockwaveCoreBuild extends CoreBuild implements LaunchAnimator{
-
         private float[] safeAngles = new float[3600];
         private float[] safeDistance = new float[3600];
         private float[][] safeTiles = new float[3600][800];
-
         private float shockwaveRadius = 6400;//tilesize * getDistance(0, 0, (float) state.map.width,  (float) state.map.height);
-
         private Color effectColor = genericColor == null? team.color : genericColor;
-
         public WaveEffect shockwaveEffectGlobal = new WaveEffect(){{
             sides = 96;
             strokeFrom = 60f;
@@ -152,54 +122,39 @@ public class ShockwaveCoreBlock extends CoreBlock {
             lifetime = shockwaveDuration * 1.414f;
             clip = 8000;
         }};
-
         @Override
         public void draw(){
-            //draw thrusters when just landed
-
             drawer.draw(this);
             if(thrusterTime > 0){
                 float frame = thrusterTime;
-
                 Draw.alpha(1f);
                 drawThrusters(frame);
                 Draw.rect(block.region, x, y);
                 Draw.alpha(Interp.pow4In.apply(frame));
                 drawThrusters(frame);
                 Draw.reset();
-
                 drawTeamTop();
             }else{
-
-
                 if(enabled && !state.isEditor() && Vars.ui.hudfrag.shown){
                     drawChargeBar();
                     Drawf.light(x, y, 80f, team.color, 1f);
                 }
             }
         }
-
-
-
         private float shockwaveWarmup = 0f, shockwaveCharge = 0f;
         private static ShockwaveCoreBuild core;
         private static ShockwaveCoreBlock coreBlock;
         private Vec2 corePos = new Vec2(x, y);
-
         private boolean finalCharged = false, startCharged = false;
-
-
         @Override
         public void updateTile(){
             iframes -= Time.delta;
             thrusterTime -= Time.delta/90f;
-
             if(enabled && !state.isEditor() && !(thrusterTime > 0)){
                 if(shockwaveWarmup < maxWarmup) {
                     shockwaveWarmup += delta();
                     if(shockwaveWarmup < 0) shockwaveWarmup = 0;
                 }
-
                 shockwaveCharge += delta();
                 if(shockwaveCharge >= 1f && !startCharged){
                     startChargeSound.at(corePos, 1f, startChargeVolume);
@@ -211,7 +166,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 }
                 if(shockwaveCharge >= chargeDuration) {
                     shockwaveRadius = 3200f;//tilesize * getDistance(0, 0, (float) state.map.width,  (float) state.map.height);
-                    //Log.info("Shockwave radius: " + shockwaveRadius);
                     shockwaveRelease();
                     shockwaveCharge = - shockwaveDuration;
                     finalCharged = startCharged = false;
@@ -228,7 +182,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
                         chargeEffect3.at(x, y, Mathf.range(180f));
                     }
                 }
-
                 if(shockwaveCharge > chargeDuration - chargeSoundDuration) {
                     corePos.x = x;
                     corePos.y = y;
@@ -244,14 +197,9 @@ public class ShockwaveCoreBlock extends CoreBlock {
                     shockwaveWarmup -= delta();
                     if(shockwaveWarmup > maxWarmup) shockwaveWarmup = maxWarmup;
                 }
-
                 shockwaveCharge = 0f;
             }
         }
-
-
-
-
         public void shockwaveRelease(){
             shockwaveSound.at(Core.camera.position, 1f, 2f);
             shockwaveSound.at(x, y, 1f, 4f);
@@ -271,7 +219,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
             damageBuildings();
             dustEffects();
         }
-
         public void dustEffects(){
             for(int i = 0; i < state.map.height * state.map.width / 100; i++){
                 float ix = Math.abs(Mathf.range(0, tilesize * state.map.width));
@@ -291,12 +238,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 }
             }
         }
-
-
-
-
-
-
         public void checkSafeArea(){
             Arrays.fill(core.safeAngles, -361f);
             Arrays.fill(core.safeDistance, -1f);
@@ -356,29 +297,24 @@ public class ShockwaveCoreBlock extends CoreBlock {
                                     core.safeTiles[i][iiiR + 1] = safeD + safeRange;
                                 }
                             }
-
                             //Log.info("Safe added: " + dirI + ", " + safeD + ", B=" + angleB + ", C=" + angleC + ", Dist=" + angleDist + ", sinB=" + sinB);
                         }
                     }
                 }
             }
         }
-
         public float angleStandardize(Float a){
             if(a >= 360) return a - 360;
             return a < 0 ? a + 360f : a;
         }
-
         @Override
         public float warmup(){
             return Mathf.clamp(shockwaveWarmup / maxWarmup);
         }
-
         @Override
         public float progress(){
             return 1 - Mathf.clamp(shockwaveCharge / chargeDuration);
         }
-
         public static final Cons<Unit> unitConsumer = u -> {
             if(!core.isProtected(u) && !u.dead()){
                 float d = core.getDistance(core.x, core.y, u.x, u.y);
@@ -407,7 +343,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 });
             }
         };
-
         public void specialKill(Unit u){
             for(Unit ug : Groups.unit){
                 if(ug == u){
@@ -415,7 +350,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 }
             }
         }
-
         public boolean isProtected(Unit u){
             if(u.team == core.team) return true;
             if(u.type.hidden && !u.isMissile()) return true;
@@ -455,7 +389,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
             }
             return true;
         }
-
         public void damageBuildings(){
             for(Building b : Groups.build){
                 if(b.team != core.team && !(b.block instanceof CoreBlock)){
@@ -499,7 +432,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 }
             }
         }
-
         public boolean isProtectedBuilding(Building b){
                 float d = getDistance(b.x, b.y, core.x, core.y);
                 float au = Mathf.radiansToDegrees * Mathf.atan2(b.x - core.x, b.y - core.y);
@@ -528,12 +460,9 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 if(!b1) return false;
             return true;
         }
-
         public float getDistance(float ax, float ay, float bx, float by){
             return Mathf.sqrt(Math.abs((ax - bx) * (ax - bx) + (ay - by) * (ay - by)));
         }
-
-
         public void drawChargeBar(){
             Draw.color(Color.black);
             Draw.alpha(1f);
@@ -557,7 +486,6 @@ public class ShockwaveCoreBlock extends CoreBlock {
                 Fill.rect(Core.camera.position.x, Core.camera.position.y + dy, w, h);
             }
             //Font font = VEFonts.novo;
-
             //font.draw("TEST", Core.camera.position.x,  Core.camera.position.y + dy, Color.white, fs, true, 1);
         }
     }

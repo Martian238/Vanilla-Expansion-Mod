@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.type.unit.annihilate;
-
 import arc.Core;
 import arc.Events;
 import arc.audio.Sound;
@@ -29,19 +28,12 @@ import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.ui.dialogs.BaseDialog;
 import mindustry.world.blocks.environment.Floor;
-
 import java.util.Arrays;
-
 import static mindustry.Vars.*;
 import static mindustry.type.UnitType.shadowTX;
 import static mindustry.type.UnitType.shadowTY;
-
 public class AnnihilateMainUnit extends AnnihilatePartUnit {
-
-    public static UnitEntity create(){
-        return new AnnihilateMainUnit();
-    }
-
+    public static UnitEntity create(){return new AnnihilateMainUnit();}
     public TextureRegion ringRegion = new TextureRegion();
     public TextureRegion ringTopRegion = new TextureRegion();
     public TextureRegion emojiBaseRegion = new TextureRegion();
@@ -50,7 +42,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public TextureRegion emojiPauseRegion = new TextureRegion();
     public TextureRegion emojiPuzzledRegion = new TextureRegion();
     public TextureRegion emojiHurtRegion = new TextureRegion();
-
     public float ringRotSpeed = 2f;
     private float ringRot = 0f;
     public Effect ringEffect = new WaveEffect(){{
@@ -67,18 +58,14 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public float ringEffectRand = 6.5f;
     public float ringEffectInterval = 5f;
     private float ringEffectIntervalTime = 0f;
-
     /** Emoji
      * 0: Empty, 1: Base only, 2: Idle, 3: Normal, 4: Hurt, 5: Pause, 6: Puzzled */
     public int emoji = 3;
     public Color emojiLightColor = Color.valueOf("f25555");
-
     /** Whether the boss is not commandable */
     public boolean auto = false;
-
     protected final boolean debug = true;
     private boolean updateInitialized = false;
-
     public Seq<AnniPart> anniParts = new Seq<>();
     public static class AnniPart {
         public AnniPart(String name){
@@ -104,7 +91,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         /** PartID of the unit */
         public int id;
     }
-
     public AnnihilatePartUnitType partTypeCap = AnnihilateUnitTypes.anniCap;
     public AnnihilatePartUnitType partTypeSideR = AnnihilateUnitTypes.anniSideR;
     public AnnihilatePartUnitType partTypeSideL = AnnihilateUnitTypes.anniSideL;
@@ -116,7 +102,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public AnnihilatePartUnitType partTypeArmFL = AnnihilateUnitTypes.anniArmFL;
     public AnnihilatePartUnitType partTypeArmBR = AnnihilateUnitTypes.anniArmBR;
     public AnnihilatePartUnitType partTypeArmBL = AnnihilateUnitTypes.anniArmBL;
-
     public AnniPart getPart(String name){
         return anniParts.find(p -> p.name.equals(name));
     }
@@ -151,7 +136,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         getPart("armFL").unit.isArm = true;
         getPart("armBR").unit.isArm = true;
         getPart("armBL").unit.isArm = true;
-
         getPart("shieldR").unit.partLayerOffset = 0.1f;
         getPart("shieldL").unit.partLayerOffset = 0.1f;
         getPart("sideR").unit.partLayerOffset = 0.2f;
@@ -160,7 +144,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         getPart("frontR").unit.partLayerOffset = 0.3f;
         getPart("frontL").unit.partLayerOffset = 0.3f;
         partLayerOffset = 0.4f;
-
         partsBackToDefault(true);
     }
     public void partsBackToDefault(boolean withOthers){
@@ -251,7 +234,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             }});
         }
     }
-
     @Override
     public boolean killable(){
         return false;
@@ -271,14 +253,8 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public boolean allowCommand(){
         return !auto;
     }
-    /* —————————————————————————————————————————————————————————————————————————————————— */
-    /* —————————————————————————————————————————————————————————————————————————————————— */
-    /* —————————————————————————————————————————————————————————————————————————————————— */
-
-    /** Update methods (P.S. update() is not here) */
     @Override
     public void updateAfterRead(){
-        /* Find part units by id numbers */
         afterReadUpdated = true;
         for(AnniPart p : anniParts){
             boolean found = false;
@@ -297,8 +273,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             if(!found && debug) Log.err("Part unit as " + p.name + " not found, id: " + p.id);
         }
     }
-
-
     public void ringUpdate(){
         ringRot += ringRotSpeed * delta();
         if(ringRot >= 90) ringRot -= 90f;
@@ -316,8 +290,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             }
         }
     }
-
-
     public void partsUpdate(){
         for(AnniPart p : anniParts){
             if(p.unit != null){
@@ -354,8 +326,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         float da = -7.5f * (Angles.angleDist(p.unit.rotation, u.vel().angle()) / 180f) * (u.vel().len2() / u.speed()) * (p.unit.flip ? -1f : 1f);
         p.unit.rotation(powRot(p.unit.rotation, u.rotation + p.dfRot + da, 15f));
     }
-
-    /** Chiniun Kun part move method */
     public float powMove(float current, float target, float scale){
         return (current * scale + target)/(scale + 1f);
     }
@@ -372,7 +342,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         }
         return (current * scale + target)/(scale + 1f);
     }
-    /** Converts follow position to world position */
     public void setToWorld(AnniPart p){
         p.wx = xToWorld(p.x, p.y);
         p.wy = yToWorld(p.x, p.y);
@@ -385,7 +354,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public float yToWorld(float fx, float fy){
         return y + fx * xSin() + fy * ySin();
     }
-    /** Converts world position to follow position */
     public void setToFollow(AnniPart p){
         p.x = xToFollow(p.wx, p.wy);
         p.y = yToFollow(p.wx, p.wy);
@@ -398,21 +366,10 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public float yToFollow(float wx, float wy){
         return (wx - wy * xCos() / xSin() - x + y * xCos() / xSin()) / (yCos() - xCos() * ySin() / xSin());
     }
-
-    public float xCos(){
-        return Mathf.cosDeg(rotation - 90f);
-    }
-    public float yCos(){
-        return Mathf.cosDeg(rotation);
-    }
-    public float xSin(){
-        return Mathf.sinDeg(rotation - 90f);
-    }
-    public float ySin(){
-        return Mathf.sinDeg(rotation);
-    }
-
-    /** Draw methods */
+    public float xCos(){return Mathf.cosDeg(rotation - 90f);}
+    public float yCos(){return Mathf.cosDeg(rotation);}
+    public float xSin(){return Mathf.sinDeg(rotation - 90f);}
+    public float ySin(){return Mathf.sinDeg(rotation);}
     @Override
     public void draw(){
         if(!drawInitialized){
@@ -431,16 +388,11 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
                 emojiHurtRegion = am.emojiHurtRegion;
             }
         }
-
-        if(shieldAlpha > 0 && !generalTargetable()){
-            type.drawShield(this);
-        }
+        if(shieldAlpha > 0 && !generalTargetable()){type.drawShield(this);}
         partBody();
         partCharge();
         drawEmoji();
-        if(type.buildSpeed > 0f){
-            drawBuilding();
-        }
+        if(type.buildSpeed > 0f){drawBuilding();}
     }
     public void drawEmoji(){
         if(emoji >= 1){
@@ -512,8 +464,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         Draw.rect(ringTopRegion, ax, ay, rotation - 90f);
         Draw.reset();
     }
-
-    /** Save and load */
     @Override
     public void anniWrite(Writes write){
         write.s(3);
@@ -534,11 +484,9 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         write.f(partLayer);
         write.f(partLayerOffset);
         write.f(elevationScl);
-
         write.bool(updateInitialized);
         write.i(emoji);
         write.i(ownerID);
-
         write.s(anniParts.size);
         for(AnniPart p : anniParts){
             write.str(p.name);
@@ -555,7 +503,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             write.bool(p.idle);
             write.i(p.id);
         }
-
         write.str(animation);
         write.f(actualFrame);
     }
@@ -580,11 +527,9 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             partLayer = read.f();
             partLayerOffset = read.f();
             elevationScl = read.f();
-
             updateInitialized = read.bool();
             emoji = read.i();
             ownerID = read.i();
-
             anniParts.clear();
             short anniPartsCount = read.s();
             for(int i = 0; i < anniPartsCount; i++){
@@ -609,11 +554,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             actualFrame = read.f();
         }
     }
-
-
-
-
-    /** Boss actions including updates, animations and attacks */
     @Override
     public void update(){
         super.update();
@@ -625,7 +565,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
             soundLoaded = true;
             loadSounds();
         }
-
         if(debug){
             if(Core.input.keyTap(KeyCode.z)) {
                 for (AnniPart p : anniParts) {
@@ -641,14 +580,12 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
                 animationDebug();
             }
         }
-
         centerPos.x = x;
         centerPos.y = y;
         animationUpdate();
         partsUpdate();
         ringUpdate();
     }
-
     private boolean animationDebugging = false;
     public StringBuilder message = new StringBuilder();
     public void animationDebug(){
@@ -668,8 +605,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         dialog.closeOnBack();
         dialog.show();
     }
-
-    /** Check interruption and switch animation */
     public boolean charging(AnnihilatePartUnit u){
         return u.charges > 0 && u.chargeTime > 0 && u.chargeTimeMax > 0;
     }
@@ -694,16 +629,12 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public void animationInit(){
         partsBackToDefault(true);
     }
-
-    /* Targets used when attacking */
     public Building[] targetedBuildings = new Building[10];
     public Unit[] targetedUnits = new Unit[10];
     public void targetedClear(){
         Arrays.fill(targetedUnits, null);
         Arrays.fill(targetedBuildings, null);
     }
-
-    /* Sounds */
     public void loadSounds(){
         if(type instanceof AnnihilateMainUnitType am){
             chargeSound1 = am.chargeSound1;
@@ -716,17 +647,14 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public Sound chargeSound1, chargeSound2,
             voice1;
 
-    public Team thisTeam = Team.sharded; // Team of the boss itself.
-    public Team targetTeam = Team.sharded; // Team of targeting as enemy.
-    public boolean targetAll = false; // When true, all teams except for its team will be targeted.
-    public Team damageTeam = Team.crux; // Team of being damaged.
-    public boolean damageAll = false; // When true, all teams except for its team will be damaged.
-
+    public Team thisTeam = Team.sharded;
+    public Team targetTeam = Team.sharded;
+    public boolean targetAll = false;
+    public Team damageTeam = Team.crux;
+    public boolean damageAll = false;
     public int frame = -1;
     public float actualFrame = -1f;
-    public String animation = "none"; // An animation includes part animations and damaging enemies.
-
-    /* Team booleans */
+    public String animation = "none";
     public boolean isTarget(Unit t){
         return (t.team != thisTeam && targetAll) || (t.team == targetTeam && !targetAll);
     }
@@ -739,14 +667,12 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
     public boolean shouldDamage(Building t){
         return (t.team != thisTeam && damageAll) || (t.team == damageTeam && !damageAll);
     }
-    /* Animation booleans */
     public boolean frameWithin(float min, float max){
         return (min <= actualFrame) && (actualFrame <= max);
     }
     public boolean frame(int f){
         return frame == f;
     }
-    /* Animation methods */
     public void setCharge(int count, float time, float delay){
         chargeTime = time;
         chargeDelay = delay;
@@ -768,12 +694,10 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         getPart(name).unit.armLight = light;
         getPart(name).unit.armRing = ring;
     }
-    /** Move a part to a followed position with Mathf.lerpDelta. */
     public void movePartLerp(String name, float tx, float ty, float progress){
         getPart(name).x = Mathf.lerpDelta(getPart(name).x, tx, progress);
         getPart(name).y = Mathf.lerpDelta(getPart(name).y, ty, progress);
     }
-    /** Rotate a part to a followed rotation with Mathf.lerpDelta, can lock a unit or a building. */
     public void rotPartLerp(String name, float r, Unit u, Building b, float progress){
         float ar = r;
         if(u != null){
@@ -785,28 +709,16 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         }
         getPart(name).rot = Mathf.lerpDelta(getPart(name).rot, ar, progress);
     }
-
-    /** Frame progress */
     public float fp(float start, float end){
         return Mathf.clamp((actualFrame - start) / (end - start), 0, 1);
     }
-
-    /** Generic animation update method */
     public void animationUpdate(){
-        /* Action frame begins at 0. Charge calculation starts in the next frame. */
         if(!animation.equals("none")){
             actualFrame += delta();
         }
         frame = Mathf.floor(actualFrame);
-
-        /* Test actions */
         actionTestCharge();
     }
-
-    /* Actions ///////////////////////////////////////////////// */
-
-    /* Test actions */
-
     public void actionTestCharge(){
         if(!animation.equals("testCharge")) return;
         if(frame(0)){
@@ -830,9 +742,6 @@ public class AnnihilateMainUnit extends AnnihilatePartUnit {
         }
         endAnimation(222);
     }
-
-    /* Attacks: melee */
-    /** Attack one or two unit(s) by arm sticking */
     public void actionCrossSweep(){
         if(!animation.equals("crossSweep")) return;
         if(frame(0)){

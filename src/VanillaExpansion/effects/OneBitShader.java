@@ -1,11 +1,8 @@
 package VanillaExpansion.effects;
-
 import arc.graphics.gl.Shader;
-
 public class OneBitShader extends Shader {
     public OneBitShader() {
         super(
-                // 顶点着色器：标准全屏四边形
                 """
                 attribute vec4 a_position;
                 attribute vec2 a_texCoord0;
@@ -15,7 +12,6 @@ public class OneBitShader extends Shader {
                     gl_Position = a_position;
                 }
                 """,
-                // 片段着色器：1-bit 二值化
                 """
                 varying vec2 v_texCoords;
                 uniform sampler2D u_texture;
@@ -29,7 +25,6 @@ public class OneBitShader extends Shader {
                 """
         );
     }
-
     public void apply(float threshold) {
         this.bind();
         this.setUniformf("u_threshold", threshold);

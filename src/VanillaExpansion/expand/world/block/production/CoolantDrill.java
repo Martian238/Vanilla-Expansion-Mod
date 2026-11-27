@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.production;
-
 import VanillaExpansion.annotations.Annotations;
 import arc.Core;
 import arc.audio.Sound;
@@ -25,7 +24,6 @@ import arc.math.*;
 import arc.struct.*;
 import arc.util.*;
 import arc.util.io.*;
-
 import mindustry.content.*;
 import mindustry.entities.*;
 import mindustry.entities.units.*;
@@ -39,12 +37,8 @@ import mindustry.world.*;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
-import mindustry.world.Block;
-
 import static mindustry.Vars.*;
-
 public class CoolantDrill extends Drill {
-
     public float coolantMultiplier = 0.5f;
     public float baseHeatCapacity = 0.4f;
     public float consumeSpeed = 0.1f;
@@ -56,24 +50,17 @@ public class CoolantDrill extends Drill {
     public Sound lightningSound = Sounds.none;
     public float lightningVolume = 0.2f;
     public Liquid[] coolants = {};
-
     public CoolantDrill(String name){
         super(name);
     }
-
     @Override
     public void setStats(){
         super.setStats();
-
         stats.remove(Stat.drillTier);
         stats.remove(Stat.drillSpeed);
-
         stats.add(Stat.drillTier, StatValues.drillables(drillTime, hardnessDrillMultiplier, size * size, drillMultipliers, b -> b instanceof Floor f && !f.wallOre && f.itemDrop != null &&
                 f.itemDrop.hardness <= tier && (blockedItems == null || !blockedItems.contains(f.itemDrop)) && (indexer.isBlockPresent(f) || state.isMenu())));
-
         stats.add(Stat.drillSpeed, 60f / drillTime * size * size, StatUnit.itemsSecond);
-
-
         if(liquidBoostIntensity != 1 && findConsumer(f -> f instanceof ConsumeLiquidBase && f.booster) instanceof ConsumeLiquidBase consBase) {
             stats.remove(Stat.booster);
             for (Liquid l : coolants) {
@@ -84,9 +71,6 @@ public class CoolantDrill extends Drill {
                 }
         }
     }
-
-
-
     public class CoolantDrillBuild extends DrillBuild {
 
         @Override
@@ -94,17 +78,14 @@ public class CoolantDrill extends Drill {
             if(timer(timerDump, dumpTime / timeScale)){
                 dump(dominantItem != null && items.has(dominantItem) ? dominantItem : null);
             }
-
             if(dominantItem == null){
                 return;
             }
-
             timeDrilled += warmup * delta();
 
             float delay = getDrillTime(dominantItem);
 
-            Liquid coolantLiquid = liquids.current(); // read the liquid's coolant power and use it
-
+            Liquid coolantLiquid = liquids.current();
             if(items.total() < itemCapacity && dominantItems > 0 && efficiency > 0){
                 float speed = Mathf.lerp(1f, liquidBoostIntensity * (1f + coolantMultiplier * (coolantLiquid.heatCapacity - baseHeatCapacity)), optionalEfficiency) * efficiency;
 

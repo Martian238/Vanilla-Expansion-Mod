@@ -1,55 +1,39 @@
 package VanillaExpansion.expand.world.block.environment;
-
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.TextureRegion;
 import arc.math.Mathf;
 import arc.util.Time;
-import mindustry.entities.Effect;
-import mindustry.entities.effect.ParticleEffect;
 import mindustry.gen.ContentRegions;
 import mindustry.world.Tile;
 import mindustry.world.blocks.environment.WobbleProp;
-
 public class NitroalkossProp extends WobbleProp {
-
-
     public float podShineInterval = 60f;
     public float podShineFrameInterval = 7f;
-
-
     public NitroalkossProp(String name){
         super(name);
         update = true;
         lightColor = Color.valueOf("ff8a67");
         emitLight = true;
     }
-
-
     public TextureRegion[] variantRegionsAnimation0;
     public TextureRegion[] variantRegionsAnimation1;
     public TextureRegion[] variantRegionsAnimation2;
     public TextureRegion[] variantRegionsAnimation3;
     public TextureRegion[] variantRegionsAnimation4;
     public TextureRegion[] variantRegionsAnimation5;
-
     @Override
     public void load(){
         super.load();
-
         region = Core.atlas.find(name);
-
         ContentRegions.loadRegions(this);
-
-
         variantRegionsAnimation0 = new TextureRegion[variants];
         variantRegionsAnimation1 = new TextureRegion[variants];
         variantRegionsAnimation2 = new TextureRegion[variants];
         variantRegionsAnimation3 = new TextureRegion[variants];
         variantRegionsAnimation4 = new TextureRegion[variants];
         variantRegionsAnimation5 = new TextureRegion[variants];
-
             for(int i = 0; i < variants; i++){
                 variantRegionsAnimation0[i] = Core.atlas.find(name + (i + 1) + "-0");
                 variantRegionsAnimation1[i] = Core.atlas.find(name + (i + 1) + "-1");
@@ -59,7 +43,6 @@ public class NitroalkossProp extends WobbleProp {
                 variantRegionsAnimation5[i] = Core.atlas.find(name + (i + 1) + "-5");
             }
             region = variantRegionsAnimation0[0];
-
             if(customShadow){
                 variantShadowRegions = new TextureRegion[variants];
                 for(int i = 0; i < variants; i++){
@@ -68,7 +51,6 @@ public class NitroalkossProp extends WobbleProp {
             }
 
     }
-
     @Override
     public void drawBase(Tile tile){
         float ti = podShineFrameInterval / podShineInterval;

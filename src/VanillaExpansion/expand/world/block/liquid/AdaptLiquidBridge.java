@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.liquid;
-
 import arc.Core;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Fill;
@@ -31,7 +30,6 @@ import mindustry.world.meta.StatUnit;
 import VanillaExpansion.expand.util.MathUtil;
 
 import static mindustry.Vars.*;
-
 public class AdaptLiquidBridge extends LiquidBridge {
     public static final int maxLinks = 3;
     public TextureRegion topRegion;

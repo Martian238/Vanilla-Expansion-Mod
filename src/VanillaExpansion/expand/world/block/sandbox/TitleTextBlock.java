@@ -1,7 +1,6 @@
 package VanillaExpansion.expand.world.block.sandbox;
 
 import VanillaExpansion.VanillaExpansionMod;
-import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import arc.Core;
 import arc.Input;
 import arc.files.Fi;
@@ -23,12 +22,11 @@ import mindustry.ui.Styles;
 import mindustry.ui.dialogs.BaseDialog;
 import mindustry.world.Block;
 import mindustry.world.Tile;
-import mindustry.world.blocks.logic.LogicBlock;
-import mindustry.world.blocks.logic.MessageBlock;
 import mindustry.world.meta.BuildVisibility;
 import mindustry.world.meta.Env;
 
-import static mindustry.Vars.*;
+import static mindustry.Vars.mobile;
+import static mindustry.Vars.state;
 
 public class TitleTextBlock extends Block {
     public int maxTextLength = 50;

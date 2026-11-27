@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.crux;
-
 import arc.Core;
 import arc.graphics.Blending;
 import arc.graphics.Color;
@@ -14,20 +13,16 @@ import arc.util.io.Reads;
 import arc.util.io.Writes;
 import mindustry.gen.Sounds;
 import mindustry.graphics.Layer;
-import mindustry.graphics.Pal;
 import mindustry.world.blocks.production.GenericCrafter;
-
 public class LargeTeamProjector extends GenericCrafter {
     public LargeTeamProjector(String name){
         super(name);
         clipSize = 16000f;
         ambientSound = Sounds.none;
-
         configurable = true;
         consumesTap = true;
         clearOnDoubleTap = true;
         saveConfig = true;
-
         config(Object.class, (LargeTeamProjectorBuild tile, Object f) -> {
             if(tile.configuring == 1) {
                 tile.currentHeightFraction = (float) f;
@@ -40,12 +35,10 @@ public class LargeTeamProjector extends GenericCrafter {
             tile.currentRadiusConfig = (int) defaultRadiusFraction * 10;
         });
     }
-
     public float cameraScale = 1f;
     public float projectionHeight = 200f;
     public float minDisplayHeight = 200f;
     public float fullDisplayHeight = 225f;
-
     public TextureRegion projectionRegion = new TextureRegion();
     public TextureRegion shadowRegion = new TextureRegion();
     public String projectionSuffix = "-projection";
@@ -53,7 +46,6 @@ public class LargeTeamProjector extends GenericCrafter {
     public Color projectionColor = Color.valueOf("f25555");
     public float projectionSize = 128f;
     public float projectionRotation = 0f;
-
     public float ringRadius = 80f;
     public float ringStroke = 16f;
     public float ringAlpha = 0.6f;
@@ -63,33 +55,27 @@ public class LargeTeamProjector extends GenericCrafter {
     public float ringOuterStroke = 6f;
     public float ringOuterRotateSpeed = 1f;
     public float ringOuterFraction = 0.25f;
-
     public float ringEdgeRadius = 107f;
     public float ringEdgeStroke = 6f;
     public float ringEdgeMag = 0.5f;
     public float ringEdgeScl = 30f;
     public float ringEdgeRange = 800f;
-
     public float waveTime = 60f;
     public int waveGroups = 3;
-
     public float defaultHeightFraction = 1f;
     public float defaultRadiusFraction = 1f;
-
     @Override
     public void load(){
         super.load();
         projectionRegion = Core.atlas.find(name + projectionSuffix);
         shadowRegion = Core.atlas.find(shadowSprite);
     }
-
     public class LargeTeamProjectorBuild extends GenericCrafterBuild{
         private float rot;
         private float timer;
         private float currentHeightFraction = defaultHeightFraction;
         private int currentRadiusConfig = (int) (10 * defaultRadiusFraction);
         private int configuring = 1;
-
         @Override
         public void update(){
             super.update();
@@ -99,11 +85,9 @@ public class LargeTeamProjector extends GenericCrafter {
             timer++;
             if(timer >= waveTime) timer = 0;
         }
-
         @Override
         public void draw(){
             super.draw();
-
             float f = currentHeightFraction;
             float rf = currentRadiusConfig * 0.1f;
             float cs = Core.camera.height;
@@ -168,13 +152,10 @@ public class LargeTeamProjector extends GenericCrafter {
                 Draw.color();
             }
         }
-
         @Override
         public void buildConfiguration(Table table){
-
             Slider slider = new Slider(0, 2, 0.1f, false);
             Slider slider2 = new Slider(1, 20, 1, false);
-
             slider.changed(() -> {
                 currentHeightFraction = slider.getValue();
                 configuring = 1;
@@ -193,24 +174,20 @@ public class LargeTeamProjector extends GenericCrafter {
             table.add(slider2).height(40f).width(160f);
             table.image().color(projectionColor).height(40f).width(8f);
         }
-
         @Override
         public Object config(){
             return currentHeightFraction;
         }
-
         @Override
         public byte version(){
             return 3;
         }
-
         @Override
         public void write(Writes write){
             super.write(write);
             write.f(currentHeightFraction);
             write.i(currentRadiusConfig);
         }
-
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);

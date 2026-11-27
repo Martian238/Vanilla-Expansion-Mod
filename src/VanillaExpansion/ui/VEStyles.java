@@ -21,7 +21,6 @@ public class VEStyles {
     public static final Color TOGGLE_COLOR = Color.valueOf("59d6ff");
     public static final Color DIALOG_FILL = Color.valueOf("121212");
     public static final Color DIALOG_BORDER = Color.valueOf("4a4a4a");
-    public static final Color PANEL_FILL = Color.valueOf("181818");
     public static final Color PANEL_BORDER = Color.valueOf("3a3a3a");
     public static final Color CARD_FILL = Color.valueOf("1f1f1f");
     public static final Color CARD_BORDER = Color.valueOf("363636");

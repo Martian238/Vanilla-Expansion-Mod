@@ -1,29 +1,16 @@
 package VanillaExpansion.expand.abilities;
-
 import arc.*;
 import arc.graphics.*;
 import arc.math.*;
 import arc.scene.ui.layout.*;
-import arc.struct.ObjectSet;
-import arc.struct.Seq;
 import arc.util.*;
-import mindustry.Vars;
 import mindustry.content.*;
 import mindustry.entities.*;
-import mindustry.entities.units.UnitController;
-import mindustry.game.Team;
 import mindustry.gen.*;
 import mindustry.graphics.*;
-import mindustry.logic.LAccess;
-import mindustry.mod.Mods;
 import mindustry.type.*;
-
-import static mindustry.Vars.*;
 import mindustry.entities.abilities.StatusFieldAbility;
-import mindustry.ui.Styles;
-
 import java.util.Objects;
-
 public class YourTooSlowHurryUpStatusFieldAbility extends StatusFieldAbility {
     public float targetHealth = 1000000f;
     public String targetName = "new-horizon-nucleoid";
@@ -47,7 +34,6 @@ public class YourTooSlowHurryUpStatusFieldAbility extends StatusFieldAbility {
         applyExtend = false;
         applyEffect = regenApplyEffect;
     }};
-
     public YourTooSlowHurryUpStatusFieldAbility() {
         super(StatusEffects.none, 60f, 60f, 60f);
     }
@@ -58,18 +44,9 @@ public class YourTooSlowHurryUpStatusFieldAbility extends StatusFieldAbility {
         this.range = range;
         this.effect = effect;
     }
-
-
-
-
-
-
     @Override
     public void update(Unit unit){
         timer += Time.delta;
-
-
-
         if(timer >= reload && (!onShoot || unit.isShooting)){
             Units.nearby(unit.team, unit.x, unit.y, range, other -> {
                 other.apply(effect, duration);
@@ -82,20 +59,16 @@ public class YourTooSlowHurryUpStatusFieldAbility extends StatusFieldAbility {
                 }
 
             });
-//other.maxHealth == targetHealth &&
-
             float x = unit.x + Angles.trnsx(unit.rotation, effectY, effectX), y = unit.y + Angles.trnsy(unit.rotation, effectY, effectX);
             activeEffect.at(x, y, effectSizeParam ? range : unit.rotation, color, parentizeEffects ? unit : null);
 
             timer = 0f;
         }
     }
-
     @Override
     public void addStats(Table t){
         super.addStats(t);
         t.row();
-
         //t.add(Core.bundle.format("bullet.range", Strings.autoFixed(range / tilesize, 2)));
         //t.row();
         t.add(abilityStat("hyperspeed.multiplier", Strings.autoFixed(Math.round(speedTo), 2)));

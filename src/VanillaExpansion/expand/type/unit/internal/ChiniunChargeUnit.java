@@ -1,16 +1,11 @@
 package VanillaExpansion.expand.type.unit.internal;
-
 import VanillaExpansion.EntityRegister;
 import mindustry.gen.TimedKillUnit;
-
 public class ChiniunChargeUnit extends TimedKillUnit {
-
     private boolean soundPlayed = false;
-
     @Override
     public void update(){
         super.update();
-
         if(!soundPlayed){
                 if(type instanceof ChiniunChargeUnitType c){
                     c.startChargeSound.at(x, y, 1f, 0.5f);
@@ -18,7 +13,6 @@ public class ChiniunChargeUnit extends TimedKillUnit {
                 soundPlayed = true;
         }
     }
-
     @Override
     public void draw(){
         if(type instanceof ChiniunChargeUnitType c){
@@ -27,7 +21,6 @@ public class ChiniunChargeUnit extends TimedKillUnit {
         }
         super.draw();
     }
-
     @Override
     public int classId() {
         return EntityRegister.getID(getClass());

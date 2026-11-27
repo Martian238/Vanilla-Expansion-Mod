@@ -1,16 +1,11 @@
 package VanillaExpansion.expand.type.unit.annihilate;
-
 public class AnnihilateUnitTypes {
-
     public static AnnihilatePartUnitType
             anniCap, anniSideR, anniSideL, anniShieldR, anniShieldL, anniFrontR, anniFrontL,
             anniArmFR, anniArmFL, anniArmBR, anniArmBL;
     public static AnnihilateMainUnitType anni;
-
     public static float partHealth = 500000f, partArmor = 32f;
-
     public static void load(){
-
         anniCap = new AnnihilatePartUnitType("annihilate-part-cap"){{
             health = partHealth;
             armor = partArmor;

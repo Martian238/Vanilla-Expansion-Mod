@@ -1,13 +1,10 @@
 package VanillaExpansion.expand.effects;
-
 import arc.graphics.Color;
 import arc.math.Interp;
 import mindustry.entities.Effect;
 import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.effect.ParticleEffect;
-
 public class SkyLightningPointEffect extends Effect {
-
     public float pointClip = 2000f;
     public Color color1 = Color.valueOf("8aa3f4aa");
     public Color color2 = Color.valueOf("8aa3f400");
@@ -15,7 +12,6 @@ public class SkyLightningPointEffect extends Effect {
     public float pointWidth = 7f;
     public float pointLife = 62f;
     public float pointStartDelay = -1;
-
     public Effect pointEffect = new MultiEffect(
             new ParticleEffect(){{
                 particles = 1; clip = pointClip; length = 0f; interp = Interp.linear;
@@ -57,7 +53,6 @@ public class SkyLightningPointEffect extends Effect {
         );
         clip = pointClip;
     }
-
     @Override
     public void create(float x, float y, float rotation, Color color, Object data){
         if(!shouldCreate()) return;

@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.abilities;
-
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Lines;
 import arc.math.Mathf;
@@ -10,27 +9,16 @@ import mindustry.gen.Groups;
 import mindustry.gen.Unit;
 import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
-
 import static mindustry.Vars.tilesize;
-
 public class PaintedOctRingAbility extends Ability {
-    public PaintedOctRingAbility(){
-        display = false;
-    }
+    public PaintedOctRingAbility(){display = false;}
     private boolean draw = false;
     private float detectTimer = 0f;
-
     @Override
     public void update(Unit unit){
-        if(Vars.state.enemies <= 0){
-            draw = false;
-            return;
-        }
+        if(Vars.state.enemies <= 0){draw = false;return;}
         detectTimer += Time.delta;
-        if(detectTimer >= 480f){
-            draw = Groups.unit.contains(u -> u.type.name.startsWith("ve-zentack"));
-            detectTimer -= 6f;
-        }
+        if(detectTimer >= 480f){draw = Groups.unit.contains(u -> u.type.name.startsWith("ve-zentack"));detectTimer -= 6f;}
     }
 
     @Override

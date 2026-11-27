@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.type.unit;
-
 import VanillaExpansion.EntityRegister;
 import VanillaExpansion.content.VEJSBlocks;
 import VanillaExpansion.expand.world.block.defense.MelonicArrayPillar;
@@ -28,15 +27,11 @@ import mindustry.world.Tile;
 import mindustry.world.blocks.ConstructBlock;
 import mindustry.world.blocks.defense.BaseShield;
 import mindustry.world.blocks.storage.CoreBlock;
-
 import static mindustry.Vars.*;
-
 public class DayunTankUnit extends TankUnit {
-
     public float crushEnergy = 0f;
     public float crushEnergyMax;
     public float crushEnergyEach;
-
     public float healFraction;
     public @Nullable Color ringColor;
     public float ringRadius = -1;
@@ -44,14 +39,11 @@ public class DayunTankUnit extends TankUnit {
     public float fullSpeedMultiplier;
     public boolean strengthenAfterStart = true;
     public Seq<String> whitelistBlockNames = new Seq<>();
-
     private boolean start = false;
     private boolean keyLoaded = false;
-
     public static TankUnit create(){
         return new DayunTankUnit();
     }
-
     public void loadKeys(){
         if(type instanceof DayunTankUnitType dy){
             crushEnergy = dy.crushEnergy;
@@ -73,14 +65,10 @@ public class DayunTankUnit extends TankUnit {
     }
     @Override
     public void update(){
-
         super.update();
         if(!keyLoaded){
             loadKeys();
         }
-
-
-
         if (type.crushFragile && !disarmed) {
             for (int i = 0; i < 8; i++) {
                 Point2 offset = Geometry.d8[i];
@@ -103,7 +91,6 @@ public class DayunTankUnit extends TankUnit {
                 }
             }
         }
-
         if(!start && crushEnergy >= crushEnergyMax)start = true;
         if(crushEnergy > 0)crushEnergy--;
         if(crushEnergy < 0)crushEnergy = 0;
@@ -134,11 +121,9 @@ public class DayunTankUnit extends TankUnit {
             }
         }
     }
-
     @Override
     public void draw(){
         super.draw();
-
         if(ringRadius != 0) {
             Draw.z(Layer.effect);
             Draw.color(ringColor != null ? ringColor : team.color);
@@ -146,7 +131,6 @@ public class DayunTankUnit extends TankUnit {
             Lines.arc(x, y, ringRadius > 0? ringRadius : type.hitSize, crushEnergy / crushEnergyMax);
         }
     }
-
     public boolean isWhitelisted(Building b){
         if (b instanceof CoreBlock.CoreBuild) return true;
         if (b instanceof BaseShield.BaseShieldBuild && b.efficiency > 0.1f) return true;
@@ -154,7 +138,6 @@ public class DayunTankUnit extends TankUnit {
         if (whitelistBlockNames.contains(b.block.name)) return true;
         return false;
     }
-
     @Override
     public void impulse(float x, float y){
         if(start || !strengthenAfterStart){
@@ -162,7 +145,6 @@ public class DayunTankUnit extends TankUnit {
         }
         super.impulse(x, y);
     }
-
     public void GODIE(Tile t, Building b){
         if(isWhitelisted(b)){
             b.damage(team, type.crushDamage * Time.delta * t.block().crushDamageMultiplier * state.rules.unitDamage(team) * ((speedMultiplier - 1) / 5 + 1));

@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.parts;
-
 import VanillaExpansion.VESettings;
 import arc.Core;
 import arc.graphics.Blending;
@@ -13,17 +12,12 @@ import mindustry.entities.part.DrawPart;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
-
 import java.awt.*;
-
 import static mindustry.Vars.*;
-
 public class HyperbolaLightPart extends DrawPart {
     public HyperbolaLightPart(){}
-
     public float a = tilesize;
     public float b = 2 * tilesize;
-
     public float drawInterval = tilesize;
     public int times = 20;
     public float offset = 0.001f;
@@ -42,51 +36,34 @@ public class HyperbolaLightPart extends DrawPart {
     public float extraSizeMultiplier = 1.4f;
     public boolean shrink = true;
     public boolean mirror = false;
-    /** 抛物线光束 */
     public boolean parabola = false;
     public float c = tilesize;
-    /** 梯形光束 */
     public boolean linear = false;
     public float d = 0.05f;
-    /** 依靠设置项启用 */
     public boolean settingOnly = false;
-
-
     public TextureRegion circleSoft = new TextureRegion();
-
     @Override
     public void load(String name){
         if(headless) return;
         circleSoft = Core.atlas.find("ve-circle-soft");
     }
-
     @Override
     public void draw(PartParams params) {
         if(headless || (!state.rules.lighting && !state.isCampaign()) || (settingOnly && !VESettings.getBool("ve-core-unit-light"))) return;
         float prog = useProgress ? progress.getClamp(params, true) : 1f;
         if(prog <= 0) return;
-
         float colProg = colorTo == null ? 0 : colorProgress.getClamp(params, true);
         Color col = colorTo == null ? color : color.cpy().lerp(colorTo, colProg);
-
         int t = Mathf.ceil(times * prog);
-
         float z = Draw.z();
         Draw.z(Layer.light);
-
         Tmp.v1.set(x, y).rotate(params.rotation - 90f);
         float px = params.x + Tmp.v1.x;
         float py = params.y + Tmp.v1.y;
-
         Draw.blend(Blending.additive);
         Draw.color(col);
-
         if(!parabola && !linear) {
-
-            //双曲线
-
             float b = shrink ? Math.max(this.b * prog, offset) : this.b;
-
             for (int i = 0; i < t; i++) {
                 double x = i * drawInterval + a + offset;
                 double a2 = a * a;
@@ -101,7 +78,6 @@ public class HyperbolaLightPart extends DrawPart {
                 double xR = x + Math.sqrt(R * R - y * y);
                 double xr = x + y / dy;
                 double r = y * Math.sqrt(1 / (dy * dy) + 1);
-
                 float resultD, resultR,
                         resultO = prog * opacity * Mathf.pow((float) (t - i) / t, opacityPow);
                 if (Double.isNaN(r) || r > R) {
@@ -111,14 +87,12 @@ public class HyperbolaLightPart extends DrawPart {
                     resultD = (float) xr;
                     resultR = (float) r;
                 }
-
                 Drawf.light(px + resultD * Mathf.cosDeg(params.rotation + rotation),
                         py + resultD * Mathf.sinDeg(params.rotation + rotation),
                         resultR, col, resultO);
                 if (mirror) Drawf.light(px - resultD * Mathf.cosDeg(params.rotation + rotation),
                         py - resultD * Mathf.sinDeg(params.rotation + rotation),
                         resultR, col, resultO);
-
                 if (extra && extraDrawIntervalMultiplier == 1f) {
                     Draw.alpha(prog * extraAlpha * Mathf.pow((float) (t - i) / t, extraAlphaPow));
                     Draw.rect(circleSoft, px + resultD * Mathf.cosDeg(params.rotation + rotation),
@@ -129,7 +103,6 @@ public class HyperbolaLightPart extends DrawPart {
                             resultR * extraSizeMultiplier, resultR * extraSizeMultiplier);
                 }
             }
-
             if (extra && extraDrawIntervalMultiplier != 1f) {
                 int te = Mathf.ceil(times * prog / extraDrawIntervalMultiplier);
                 for (int i = 0; i < te; i++) {
@@ -146,7 +119,6 @@ public class HyperbolaLightPart extends DrawPart {
                     double xR = x + Math.sqrt(R * R - y * y);
                     double xr = x + y / dy;
                     double r = y * Math.sqrt(1 / (dy * dy) + 1);
-
                     float resultD, resultR;
                     if (Double.isNaN(r) || r > R) {
                         resultD = (float) xR;
@@ -164,13 +136,8 @@ public class HyperbolaLightPart extends DrawPart {
                             resultR * extraSizeMultiplier, resultR * extraSizeMultiplier);
                 }
             }
-
         }else if (!linear){
-
-            //抛物线
-
             float c = shrink ? Math.max(this.c * prog, offset) : this.c;
-
             for (int i = 0; i < t; i++) {
                 double x = i * drawInterval + offset;
                 double tmp1 = Math.sqrt(c * x);
@@ -182,7 +149,6 @@ public class HyperbolaLightPart extends DrawPart {
                 double xR = x + Math.sqrt(R * R - y * y);
                 double xr = x + y / dy;
                 double r = y * Math.sqrt(1 / (dy * dy) + 1);
-
                 float resultD, resultR,
                         resultO = prog * opacity * Mathf.pow((float) (t - i) / t, opacityPow);
                 if (Double.isNaN(r) || r > R) {
@@ -192,14 +158,12 @@ public class HyperbolaLightPart extends DrawPart {
                     resultD = (float) xr;
                     resultR = (float) r;
                 }
-
                 Drawf.light(px + resultD * Mathf.cosDeg(params.rotation + rotation),
                         py + resultD * Mathf.sinDeg(params.rotation + rotation),
                         resultR, col, resultO);
                 if (mirror) Drawf.light(px - resultD * Mathf.cosDeg(params.rotation + rotation),
                         py - resultD * Mathf.sinDeg(params.rotation + rotation),
                         resultR, col, resultO);
-
                 if (extra && extraDrawIntervalMultiplier == 1f) {
                     Draw.alpha(prog * extraAlpha * Mathf.pow((float) (t - i) / t, extraAlphaPow));
                     Draw.rect(circleSoft, px + resultD * Mathf.cosDeg(params.rotation + rotation),
@@ -210,7 +174,6 @@ public class HyperbolaLightPart extends DrawPart {
                             resultR * extraSizeMultiplier, resultR * extraSizeMultiplier);
                 }
             }
-
             if (extra && extraDrawIntervalMultiplier != 1f) {
                 int te = Mathf.ceil(times * prog / extraDrawIntervalMultiplier);
                 for (int i = 0; i < te; i++) {
@@ -224,7 +187,6 @@ public class HyperbolaLightPart extends DrawPart {
                     double xR = x + Math.sqrt(R * R - y * y);
                     double xr = x + y / dy;
                     double r = y * Math.sqrt(1 / (dy * dy) + 1);
-
                     float resultD, resultR;
                     if (Double.isNaN(r) || r > R) {
                         resultD = (float) xR;
@@ -242,11 +204,7 @@ public class HyperbolaLightPart extends DrawPart {
                             resultR * extraSizeMultiplier, resultR * extraSizeMultiplier);
                 }
             }
-
         }else{
-
-            //梯形
-
             for(int i = 0; i < t; i++){
                 float x = i * drawInterval;
                 float r = (x * d + c) * prog;
@@ -267,7 +225,6 @@ public class HyperbolaLightPart extends DrawPart {
                             r * extraSizeMultiplier, r * extraSizeMultiplier);
                 }
             }
-
             if (extra && extraDrawIntervalMultiplier != 1f) {
                 int te = Mathf.ceil(times * prog / extraDrawIntervalMultiplier);
                 for (int i = 0; i < te; i++) {
@@ -283,7 +240,6 @@ public class HyperbolaLightPart extends DrawPart {
                 }
             }
         }
-
         Draw.z(z);
         Draw.blend();
         Draw.color();

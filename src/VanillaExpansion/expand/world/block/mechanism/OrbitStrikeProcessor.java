@@ -1,7 +1,5 @@
 package VanillaExpansion.expand.world.block.mechanism;
-
 import VanillaExpansion.content.CustomFx;
-import VanillaExpansion.content.VEJSUnitTypes;
 import VanillaExpansion.effects.OneBitRenderer;
 import VanillaExpansion.expand.type.unit.internal.OrbitStrikeBeaconUnit;
 import arc.Core;
@@ -22,7 +20,6 @@ import arc.util.Time;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
 import mindustry.Vars;
-import mindustry.entities.Damage;
 import mindustry.entities.Effect;
 import mindustry.entities.Fires;
 import mindustry.entities.Units;
@@ -32,14 +29,11 @@ import mindustry.gen.*;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.type.Category;
-import mindustry.type.UnitType;
 import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.meta.BuildVisibility;
-
 import static mindustry.Vars.*;
 import static mindustry.Vars.state;
-
 public class OrbitStrikeProcessor extends Block {
     public OrbitStrikeProcessor(String name) {
         super(name);
@@ -161,7 +155,6 @@ public class OrbitStrikeProcessor extends Block {
         }
 
         public void orbitStrikeUpdate(){
-            //Add beacons if enabled
             if(working()){
                 checkTimer -= delta();
                 if (checkTimer <= 0) {
@@ -185,7 +178,6 @@ public class OrbitStrikeProcessor extends Block {
                 Log.info(checkTimer + ", " + beacons.count(u -> true));
             }
 
-            //Check whether any beacon is activated
             if(!striking && working()) {
                 for (Unit u2 : beacons) {
                     BeaconPos pos = beaconsPos.find(p -> p.u == u2);

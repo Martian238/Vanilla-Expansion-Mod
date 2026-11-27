@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.liquid;
-
 import VanillaExpansion.expand.world.block.distribution.SideOutputConveyor;
 import arc.func.*;
 import arc.graphics.g2d.*;
@@ -17,16 +16,10 @@ import mindustry.world.*;
 import mindustry.world.blocks.*;
 import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.liquid.*;
-
-
-import static mindustry.Vars.*;
-
 public class SideOutputConduit extends Conduit {
-
     public SideOutputConduit(String name) {
         super(name);
     }
-
     @Override
     public void init() {
         super.init();
@@ -119,10 +112,7 @@ public class SideOutputConduit extends Conduit {
 
             for (Building target : new Building[]{rightSide, leftSide}) {
                 if (target == null || target.team != team || !target.block.hasLiquids) continue;
-                // whitelist: self-type always allowed (with BD loop check below)
-                // exclude other blocks that output fluid (routers, bridges, crafters, etc.)
                 if (!(target.block instanceof SideOutputConduit) && target.block.outputsLiquid) continue;
-                // BD check: disallow only when both sides use side faces
                 if (target.block instanceof SideOutputConduit) {
                     int worldDir = tile.relativeTo(target.tileX(), target.tileY());
                     int mySide = Mathf.mod(worldDir - rotation, 4);

@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.type.unit.internal;
-
 import VanillaExpansion.EntityRegister;
 import VanillaExpansion.VESettings;
 import VanillaExpansion.content.VEJSStatuses;
@@ -22,12 +21,8 @@ import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
 import mindustry.gen.UnitEntity;
 import mindustry.type.UnitType;
-
 import static mindustry.Vars.*;
-
 public class HyperSpawnUnit extends UnitEntity {
-
-
     private float timer = 0;
     private float startX, startY, stopX, stopY;
     private float length, gap;
@@ -37,13 +32,10 @@ public class HyperSpawnUnit extends UnitEntity {
     private float spawnTimer = 0;
     private int metaStep = 0, hyperStep = 0;
     private final boolean debug = false;
-
     @Override
     public void update(){
         super.update();
-
         if(!(type instanceof HyperSpawnUnitType h)) return;
-
         if(timer == 0){
             Sounds.waveSpawn.play(1f);
             if(rotation < 45 && rotation >= -45) rotation = 0;
@@ -80,7 +72,6 @@ public class HyperSpawnUnit extends UnitEntity {
             }
             */
         }
-
         if(timer <= 540f){
             float prog = timer / 420f;
             float prog2 = prog < 0.5f ? prog * (0.9f * (length - gap) / length) : (1 - (1 - prog) * (0.9f * (length - gap) / length));
@@ -121,7 +112,6 @@ public class HyperSpawnUnit extends UnitEntity {
                                 40f * tilesize * Mathf.sinDeg(rotation - 90f));
             }
         }
-
         if(timer >= 540f + 72f){
             camX = x;
             camY = y;
@@ -186,14 +176,9 @@ public class HyperSpawnUnit extends UnitEntity {
                 remove();
             }
         }
-
-
     }
-
     @Override
-    public void draw(){
-    }
-
+    public void draw(){}
     private void spawn(UnitType u, float x, float y){
         Unit su = u.create(team);
         su.set(x, y);

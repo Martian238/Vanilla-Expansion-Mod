@@ -4,55 +4,37 @@ import arc.Core;
 import arc.Events;
 import arc.graphics.Color;
 import arc.graphics.g2d.*;
-import arc.math.Mathf;
 import arc.math.geom.Vec2;
-import arc.scene.ui.ButtonGroup;
-import arc.scene.ui.ImageButton;
 import arc.scene.ui.layout.Scl;
 import arc.scene.ui.layout.Table;
-import arc.util.*;
+import arc.util.Align;
+import arc.util.Nullable;
 import arc.util.io.Reads;
 import arc.util.io.Writes;
 import arc.util.pooling.Pools;
 import mindustry.Vars;
 import mindustry.ai.UnitCommand;
 import mindustry.content.Fx;
-import mindustry.core.UI;
 import mindustry.ctype.UnlockableContent;
 import mindustry.entities.Units;
-import mindustry.entities.bullet.BasicBulletType;
-import mindustry.entities.bullet.BulletType;
 import mindustry.game.EventType;
 import mindustry.game.Team;
 import mindustry.gen.Building;
-import mindustry.gen.Tex;
 import mindustry.gen.Unit;
 import mindustry.graphics.Layer;
-import mindustry.graphics.Pal;
 import mindustry.io.TypeIO;
 import mindustry.type.UnitType;
 import mindustry.ui.Fonts;
-import mindustry.ui.Styles;
 import mindustry.world.Block;
 import mindustry.world.blocks.ItemSelection;
-import mindustry.world.blocks.payloads.BuildPayload;
 import mindustry.world.blocks.payloads.Payload;
 import mindustry.world.blocks.payloads.PayloadBlock;
-import mindustry.world.blocks.payloads.UnitPayload;
-import mindustry.world.draw.DrawBlock;
-import mindustry.world.draw.DrawDefault;
 
 import static mindustry.Vars.*;
 
 public class SpawnEgg extends PayloadBlock {
-
-
     public TextureRegion arrowRegion;
-
     public @Nullable UnitType presetUnitType;
-
-
-
     public SpawnEgg(String name) {
         super(name);
         commandable = true;

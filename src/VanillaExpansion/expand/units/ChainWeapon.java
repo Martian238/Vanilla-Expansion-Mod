@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.units;
-
 import VanillaExpansion.content.VEJSStatuses;
 import arc.Core;
 import arc.audio.Sound;
@@ -29,9 +28,7 @@ import mindustry.gen.Unit;
 import mindustry.graphics.Layer;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
-
 import static mindustry.Vars.tilesize;
-
 public class ChainWeapon extends Weapon {
     public ChainWeapon(){
         useAttackRange = false;
@@ -40,32 +37,17 @@ public class ChainWeapon extends Weapon {
         predictTarget = false;
         bullet = new BulletType(){{ speed = 99999; rangeOverride = 0; damage = 0; }};
     }
-
-    /** 发射时的锁链最大长度 */
     public float maxLength = 52f * tilesize;
-    /** 抓取后的锁链最大长度 */
     public float catchLength = 28f * tilesize;
-    /** 存在时间，每条锁链独立计算，为负时不消失 */
     public float lifetime = -1f;
-    /** 发射速度 */
     public float speed = 8f;
-    /** 位移牵引力度倍率 */
     public float force = 0.5f;
-    /** 旋转牵引力度倍率 */
     public float torqueForce = 0.4f * Mathf.pi;
-    /** 旋转牵引阻力倍率 */
     public float torqueDragMultiplier = 0.25f;
-    /** 额外抓取半径 */
     public float baseCatchRadius = 8f;
-    /** 抓取单位后锁链改变长度时的速度倍率 */
     public float backSpeedMultiplier = 0.2f;
-    /** 不是玩家时自动抓取的检测范围边长 */
     public float autoCatchRange = 24f;
-
-    /** 启用后，电脑端按右键可切断所有锁链 */
     public boolean rightClickCancel = true;
-
-    /** 锁链发射点(Json使用) */
     public static class ChainPoint{
         public float x = 0, y = 0;
         public float rot = 0;
@@ -79,68 +61,46 @@ public class ChainWeapon extends Weapon {
             this.order = order;
         }
     }
-    /** 一个能力项的所有锁链发射点(Json使用) */
     public Seq<ChainPoint> chainPointsAdd = new Seq<>();
-
-    /** 是否能抓取己方单位 */
     public boolean catchSameTeam = true;
-    /** 启用后只在玩家操控时可以抓取己方单位 */
     public boolean catchSameTeamPlayerOnly = true;
-
-    /** 特效颜色，为空时自动使用队伍颜色 */
     public @Nullable Color effectColor;
-    /** 锁链释放时的特效，生成于头部 */
     public Effect releaseEffect = Fx.shockwave;
     public Sound releaseSound = Sounds.shootSalvo;
     public float releaseVolume = 1f;
     public float releaseShake = 2f;
-    /** 锁链延长时的特效，生成于头部 */
     public Effect extendEffect = Fx.none;
     public float extendEffectInterval = 5f;
     public Sound extendSound = Sounds.loopSpray;
     public float extendVolume = 0.5f;
-    /** 启用后，根部也会播放延长音效 */
     public boolean extendSoundRoot = true;
-    /** 锁链抓取到一个单位时的特效，生成于头部 */
     public Effect catchEffect = Fx.hitBulletBig;
     public Sound catchSound = Sounds.payloadPickup;
     public float catchVolume = 1f;
     public float catchShake = 2f;
-    /** 锁链消失时的特效，生成于头部 */
     public Effect breakEffect = Fx.blastExplosion;
     public Sound breakSound = Sounds.unitExplode1;
     public float breakVolume = 1f;
     public float breakShake = 2f;
-
-    /** 贴图所在图层 */
     public float layer = Layer.flyingUnitLow;
     public String headSprite = "ve-chain-claw-head";
     public String rootSprite = "ve-chain-claw-root";
     public String chainSprite = "router";
-    /** 锁链贴图宽度 */
     public float chainSpriteWidth = 4f;
-    /** 锁链单张贴图原长度 */
     public float chainSpriteLength = 12f;
-    /** 启用后，锁链贴图为拉伸的单张贴图，而不是逐个拼接 */
     public boolean chainShrink = false;
-    /** chainShrink为false时，启用后，最靠近根部的一张锁链贴图会被压缩以防反方向超出根部贴图 */
     public boolean chainRootShrink = false;
-    /** 启用后，锁链会被替换为一道激光束 */
     public boolean chainLaser = false;
     public float chainLaserWidth = 1.5f;
     public float chainLaserRootOffset = 31f / 4f;
     public float chainLaserHeadOffset = -3f / 4f;
     public float chainLaserLayer = Layer.bullet - 0.01f;
     public float chainLaserEndOrbRadius = 1.5f;
-    /** 为空自动使用队伍颜色 */
     public @Nullable Color chainLaserColor;
-    /** 启用后，锁链抓住单位时头部切换为另一贴图 */
     public boolean headChange = true;
     public String headCaughtSprite = "ve-chain-claw-head-caught";
-    /** 启用后，锁链发射出去时根部切换为另一贴图 */
     public boolean rootChange = true;
     public String rootReleasedSprite = "ve-chain-claw-root-released";
-
     @Override
     public void addStats(UnitType u, Table t){
         t.row();
@@ -158,15 +118,12 @@ public class ChainWeapon extends Weapon {
             t.add(Core.bundle.format("chainweapon.lifetime", lifetime / 60f));
         }
     }
-
     public TextureRegion headRegion = new TextureRegion();
     public TextureRegion rootRegion = new TextureRegion();
     public TextureRegion chainRegion = new TextureRegion();
     public TextureRegion headCaughtRegion = new TextureRegion();
     public TextureRegion rootReleasedRegion = new TextureRegion();
-
     private final boolean debug = false;
-
     protected class OutChain {
         public Unit unit;
         public int number;
@@ -185,7 +142,6 @@ public class ChainWeapon extends Weapon {
             this.y = y;
         }
     }
-
     protected Color effectColor(Unit u){
         return effectColor == null ? u.team.color : effectColor;
     }
@@ -193,7 +149,6 @@ public class ChainWeapon extends Weapon {
         if(!sin) return x * Mathf.cosDeg(rot - 90f) + y * Mathf.cosDeg(rot);
         return x * Mathf.sinDeg(rot - 90f) + y * Mathf.sinDeg(rot);
     }
-
     public class ChainWeaponMount extends WeaponMount{
         public ChainWeaponMount(Weapon w) {
             super(w);
@@ -203,7 +158,6 @@ public class ChainWeapon extends Weapon {
         protected boolean shootingLast = false;
         protected int currentChainOrder = -1;
         protected boolean init = false;
-
         protected float pointCount(){
             return chainPoints.size;
         }
@@ -217,14 +171,12 @@ public class ChainWeapon extends Weapon {
         protected ChainPoint getChainPoint(OutChain c){
             return chainPoints.find(p -> p.order == c.number);
         }
-
         protected void chainBreak(OutChain c, Unit u){
             breakSound.at(c.x, c.y, 1f, breakVolume);
             breakEffect.at(c.x, c.y, c.rot, effectColor(u));
             Effect.shake(breakShake, breakShake * 2f, c.x, c.y);
             chains.remove(c);
         }
-
         protected void catchUnit(OutChain c, Unit u){
             for(Unit u2 : Groups.unit){
                 if(!((catchSameTeam && (!catchSameTeamPlayerOnly || u.isPlayer())) || u2.team != u.team) || u2 == u) continue;
@@ -248,23 +200,17 @@ public class ChainWeapon extends Weapon {
             }
         }
     }
-
-
     public boolean shooting(Unit u, ChainWeaponMount m){
         if(u.isPlayer())return u.isShooting();
         return u.isShooting() && Units.any(u.aimX - autoCatchRange * 0.5f, u.aimY - autoCatchRange * 0.5f,
                 autoCatchRange, autoCatchRange, unit -> checkNoFlyingChain(m) && !checkCaught(unit, m) && (unit.team != u.team || catchSameTeam));
     }
-
     public boolean checkCaught(Unit u, ChainWeaponMount m){
         return m.chains.contains(o -> o.caught && o.unit == u);
     }
-
     public boolean checkNoFlyingChain(ChainWeaponMount m){
         return m.chains.isEmpty() || !m.chains.contains(o -> !o.caught);
     }
-
-
     @Override
     public void update(Unit u, WeaponMount wm){
         if(!(wm instanceof ChainWeaponMount m)) return;
@@ -313,9 +259,7 @@ public class ChainWeapon extends Weapon {
         }
         m.shootingLast = shooting(u, m);
     }
-
     private float extendEffectTimer = 0;
-
     public void chainUpdate(Unit u, ChainWeaponMount m){
         for(ChainPoint p : m.chainPoints){
             p.realX = u.x + posD(p.x, p.y, u.rotation(), false);
@@ -396,9 +340,6 @@ public class ChainWeapon extends Weapon {
             }
         }
     }
-
-
-
     @Override
     public void draw(Unit u, WeaponMount wm){
         if(!(wm instanceof ChainWeaponMount m) || !m.init) return;

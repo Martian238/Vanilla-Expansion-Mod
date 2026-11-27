@@ -1,8 +1,5 @@
 package VanillaExpansion.expand.bullets;
-
-import mindustry.entities.bullet.BulletType;
 import mindustry.entities.bullet.PointBulletType;
-import VanillaExpansion.expand.world.block.power.RBMKRod;
 import arc.*;
 import arc.audio.*;
 import arc.graphics.*;
@@ -25,17 +22,12 @@ import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.*;
-
 import java.util.Objects;
-
 public class HyperKillBulletType extends PointBulletType {
-
     public String exceptName1 = "new-horizon-nucleoid";
     public String exceptName2 = "new-horizon-pester";
     public ObjectSet<Unit> deathNote = new ObjectSet<>();
-
     public HyperKillBulletType(){}
-
     @Override
     public void hitTile(Bullet b, Building build, float x, float y, float initialHealth, boolean direct){
         build.changeTeam(Team.derelict);
@@ -45,7 +37,6 @@ public class HyperKillBulletType extends PointBulletType {
             }
         }
     }
-
     @Override
     public void hitEntity(Bullet b, Hitboxc entity, float health){
         for(Unit unit : deathNote){
@@ -90,9 +81,6 @@ public class HyperKillBulletType extends PointBulletType {
                 } catch (Exception ignored) {
                 }
             }
-
-
-
     }
     private boolean isFriend(Unit u){
         if(Objects.equals(u.type.name, exceptName1))return true;
@@ -108,8 +96,6 @@ public class HyperKillBulletType extends PointBulletType {
         if(u.type.name.startsWith("ei-dlc-"))return true;
         if(u.type.name.startsWith("vanilla-expansion-"))return true;
         if(u.type.name.startsWith("veee-"))return true;
-
         return false;
     }
-
 }

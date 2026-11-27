@@ -1,5 +1,4 @@
 package VanillaExpansion.entities;
-
 import arc.math.*;
 import arc.math.geom.*;
 import arc.util.*;
@@ -9,13 +8,11 @@ import VanillaExpansion.effects.*;
 import mindustry.entities.*;
 import mindustry.game.*;
 import mindustry.gen.*;
-
 public class ParriedEntity extends BasicEntity implements Poolable{
     float x, y, size;
     int targetId, pierceLast = -1;
     Posc target;
     Team team;
-
     public static void create(Posc target, Team team){
         ParriedEntity e = Pools.obtain(ParriedEntity.class, ParriedEntity::new);
         e.size = 200f;
@@ -24,14 +21,9 @@ public class ParriedEntity extends BasicEntity implements Poolable{
         e.target = target;
         e.targetId = target.id();
         e.team = team;
-
-        if(target instanceof Bullet b){
-            if(!b.collided.isEmpty()) e.pierceLast = b.collided.get(b.collided.size - 1);
-        }
-
+        if(target instanceof Bullet b){if(!b.collided.isEmpty()) e.pierceLast = b.collided.get(b.collided.size - 1);}
         e.add();
     }
-
     void explode(){
         Damage.damage(team, x, y, size, 1000f, true);
         VEFX.empathyParryExplosion.at(x, y, size);
@@ -46,24 +38,13 @@ public class ParriedEntity extends BasicEntity implements Poolable{
         Sounds.unset.at(x, y, Mathf.random(0.9f, 1.1f));
         size *= 0.9f;
     }
-
     @Override
-    public void afterReadAll() {
-
-    }
-
+    public void afterReadAll() {}
     @Override
-    public void beforeWrite() {
-
-    }
-
+    public void beforeWrite() {}
     @Override
     public void update(){
-        if(!target.isAdded() || target.id() != targetId){
-            explode();
-            remove();
-            return;
-        }
+        if(!target.isAdded() || target.id() != targetId){explode();remove();return;}
         x = target.x();
         y = target.y();
         if(target instanceof Bullet b){
@@ -76,7 +57,6 @@ public class ParriedEntity extends BasicEntity implements Poolable{
             }
         }
     }
-
     @Override
     public void reset(){
         x = y = size = 0;
@@ -85,10 +65,6 @@ public class ParriedEntity extends BasicEntity implements Poolable{
         target = null;
         team = null;
     }
-
     @Override
-    protected void removeGroup(){
-        super.removeGroup();
-        Groups.queueFree(this);
-    }
+    protected void removeGroup(){super.removeGroup();Groups.queueFree(this);}
 }

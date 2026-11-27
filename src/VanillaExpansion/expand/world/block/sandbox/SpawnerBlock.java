@@ -1,6 +1,5 @@
 package VanillaExpansion.expand.world.block.sandbox;
 
-import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import arc.Core;
 import arc.Events;
 import arc.Input;

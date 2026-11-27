@@ -1,11 +1,8 @@
 package VanillaExpansion.content;
-
 import VanillaExpansion.MultiCrafter;
-import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.world.block.crux.LargeTeamProjector;
 import VanillaExpansion.expand.world.block.crux.SentryAlertStorer;
 import VanillaExpansion.expand.world.block.defense.MelonicArrayPillar;
-import VanillaExpansion.expand.world.block.defense.ShieldArcPowerTurret;
 import VanillaExpansion.expand.world.block.defense.ShieldArcUnitPowerTurret;
 import VanillaExpansion.expand.world.block.defense.TantalumWall;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
@@ -21,10 +18,8 @@ import VanillaExpansion.expand.world.block.sandbox.AutoBossBarBlock;
 import VanillaExpansion.expand.world.block.sandbox.CutsceneSwitchBlock;
 import VanillaExpansion.expand.world.block.sandbox.SpawnEgg;
 import VanillaExpansion.expand.world.block.sandbox.SpawnerBlock;
-import arc.struct.EnumSet;
 import mindustry.world.blocks.campaign.*;
 import mindustry.world.blocks.distribution.*;
-import mindustry.world.blocks.environment.Floor;
 import mindustry.world.blocks.heat.*;
 import mindustry.world.blocks.liquid.*;
 import mindustry.world.blocks.payloads.*;
@@ -36,14 +31,9 @@ import mindustry.world.blocks.units.*;
 import mindustry.world.blocks.logic.*;
 import mindustry.world.blocks.storage.*;
 import mindustry.world.blocks.sandbox.*;
-import mindustry.world.meta.BlockFlag;
-
 public class VEJSBlocks {
-
     public static CoreBlock isoCore1, isoCore5, genCore;
-
     public static void load() {
-
         // group 0 原版普通新物流元件
         new DuctJunction("duct-junction");
         new DuctBridge("armored-bridge-conveyor");
@@ -52,7 +42,6 @@ public class VEJSBlocks {
         new DuctRouter("armored-router");
         new DirectionalUnloader("armored-unloader");
         new Unloader("phase-unloader");
-
         // group 1 原版重型物流元件
         new Duct("silicide-duct");
         new Duct("silicide-armored-duct");
@@ -67,7 +56,6 @@ public class VEJSBlocks {
         new Unloader("silicide-unloader");
         new ItemSource("silicide-item-source");
         new ItemVoid("silicide-item-void");
-
         // group 2 赛克轨道
         new Conveyor("rail");
         new Junction("rail-junction");
@@ -77,7 +65,6 @@ public class VEJSBlocks {
         new ItemBridge("rail-bridge");
         new DirectionalUnloader("rail-unloader");
         new StackConveyor("stack-rail");
-
         // group 3 赛克重型轨道
         new Conveyor("silicide-rail");
         new Junction("silicide-rail-junction");
@@ -87,7 +74,6 @@ public class VEJSBlocks {
         new ItemBridge("silicide-rail-bridge");
         new DirectionalUnloader("silicide-rail-unloader");
         new StackConveyor("silicide-stack-rail");
-
         // group 4 赛克高级物流
         new ArmoredConveyor("chromium-conveyor");
         new Sorter("chromium-sorter");
@@ -99,7 +85,6 @@ public class VEJSBlocks {
         new MassDriver("mass-launcher");
         new MassDriver("mass-railgun");
         new MassDriver("warp-driver");
-
         // group 5 火瓜物流
         new ArmoredConveyor("ferric-rail");
         new Conveyor("ferric-conveyor");
@@ -114,12 +99,10 @@ public class VEJSBlocks {
         new Unloader("valve-unload");
         new ItemBridge("phase-rail-bridge");
         new StackConveyor("phase-stack-rail");
-
         // group 6 原版新工厂
         new GenericCrafter("cryo-pool");
         new GenericCrafter("dense-smelter");
         new GenericCrafter("quartz-extractor");
-
         // group 7 赛克碳硅系列
         new GenericCrafter("isomorphic-press");
         new GenericCrafter("hydraulic-press");
@@ -131,7 +114,6 @@ public class VEJSBlocks {
         new GenericCrafter("silicide-mixer");
         new GenericCrafter("coal-synthezer");
         new GenericCrafter("carbon-shale-smelter");
-
         // group 8 赛克化工系列
         new GenericCrafter("salt-electrolyzer");
         new GenericCrafter("melting-electrolyzer");
@@ -142,7 +124,6 @@ public class VEJSBlocks {
         new GenericCrafter("cracking-compressor");
         new GenericCrafter("chain-transferer");
         new GenericCrafter("carbonization-chamber");
-
         // group 9 赛克材料系列
         new GenericCrafter("eddy-melter");
         new Separator("decomposer");
@@ -150,7 +131,6 @@ public class VEJSBlocks {
         new Separator("recycler");
         new GenericCrafter("lava-cooler");
         new GenericCrafter("catalyzon-crafter");
-
         // group 10 赛克其他工厂
         new GenericCrafter("isomorphic-kiln");
         new GenericCrafter("isomorphic-pulverizer");
@@ -167,18 +147,15 @@ public class VEJSBlocks {
         new GenericCrafter("phase-loom");
         new GenericCrafter("surge-coagulator");
         new GenericCrafter("warper");
-
         // group 11 火星红尘系列
         new GenericCrafter("blast-furnace");
         new GenericCrafter("multi-furnace");
         new GenericCrafter("centrifuge-kiln");
         new GenericCrafter("reflector-thermolyzer");
         new MultiCrafter("m-reduction-chamber");
-
         // group 11.1 火星碳硅系列
         new GenericCrafter("magnetic-separator");
         new GenericCrafter("magnetic-separator-large");
-
         // group 11.2 火星其他工厂
         new MultiCrafter("config-melter");
         new GenericCrafter("catalyzon-workshop");
@@ -189,7 +166,6 @@ public class VEJSBlocks {
         new HeatButNoHeatCanStillWorkCrafter("pickling-pool");
         new HeatCrafter("pickling-pool-large");
         new MultiCrafter("reinforced-reaction-pool");
-
         // group 11.3 火星热量
         new HeatConductor("heat-conduct-conductor");
         new HeatConductor("heat-conduct-conductor-small");
@@ -198,7 +174,6 @@ public class VEJSBlocks {
         new MultiCrafter("exothermic-heater");
         new HeatProducer("reactor-core");
         new ConfigurableHeatProducer("config-phase-heater");
-
         // group 12 瓜星工厂
         new GenericCrafter("silicon-oxidator");
         new GenericCrafter("eddy-mixer");
@@ -206,7 +181,6 @@ public class VEJSBlocks {
         new GenericCrafter("blender");
         new GenericCrafter("concentrator");
         new GenericCrafter("grinder");
-
         // group 13 原版新墙
         new Wall("copper-wall-huge");
         new Wall("titanium-wall-huge");
@@ -220,7 +194,6 @@ public class VEJSBlocks {
         new Wall("effective-wall");
         new Wall("effective-wall-large");
         new Wall("two-billion-wall");
-
         // group 14 赛克墙
         new Wall("aluminium-wall");
         new Wall("aluminium-wall-large");
@@ -251,7 +224,6 @@ public class VEJSBlocks {
         new BaseShield("blocking-wall");
         new BaseShield("blocking-wall-silicide");
         new ShieldWall("surge-shield-wall");
-
         // group 15 火瓜墙
         new Wall("ferrum-wall");
         new Wall("ferrum-wall-large");
@@ -267,7 +239,6 @@ public class VEJSBlocks {
         new TantalumWall("silicide-tantalum-wall-huge");
         new PowerTurret("crystallon-wall");
         new PowerTurret("crystallon-wall-large");
-
         // group 16 效果1
         new ConsumeGenerator("sweeper");
         new OverdriveProjector("overdriver");
@@ -288,7 +259,6 @@ public class VEJSBlocks {
         new OverdriveProjector("pog-overdriver");
         new ConsumeGenerator("sandbox-blast");
         new BaseShield("force-source");
-
         // group 17 效果2
         new MendProjector("mend-point");
         new MendProjector("menderator");
@@ -308,7 +278,6 @@ public class VEJSBlocks {
         new GenericCrafter("cargo-anchor-gift-nitroalkoss");
         new MultiCrafter("cargo-anchor-crux");
         new PowerTurret("nuke");
-
         // group 18 核心
         new CoreBlock("core-nucleus-root");
         new CoreBlock("core-singularity-root");
@@ -320,7 +289,6 @@ public class VEJSBlocks {
         new CoreBlock("core-quark");
         isoCore5 = new CoreBlock("core-singularity");
         genCore = new CoreBlock("core-general");
-
         // group 19 储存
         new StorageBlock("shelf");
         new StorageBlock("bank");
@@ -330,14 +298,12 @@ public class VEJSBlocks {
         new StorageBlock("warp-disc");
         new StorageBlock("warp-base");
         new StorageBlock("storage-extender");
-
         // group 20 效果3
         new GenericCrafter("lamp");
         new GenericCrafter("lamp-alarm");
         new LandingPad("advanced-landing-pad");
         new Accelerator("isomorphic-accelerator-small");
         new Accelerator("isomorphic-accelerator");
-
         // group 21 流体
         new Pump("isomorphic-pump");
         new Pump("pressure-pump");
@@ -369,7 +335,6 @@ public class VEJSBlocks {
         new LiquidRouter("valve-fluid-distribute");
         new LiquidJunction("valve-fluid-cross");
         new LiquidBridge("silver-bridge");
-
         // group 22 赛克电力
         new PowerNode("isomorphic-node");
         new BeamNode("advanced-node");
@@ -396,14 +361,12 @@ public class VEJSBlocks {
         new NuclearReactor("micro-reactor");
         new NuclearReactor("isomorphic-reactor");
         new ImpactReactor("fusion-reactor");
-
         // group 23 火星电力
         new PowerNode("cluster-node");
         new SolarGenerator("spot-solar-pad");
         new ConsumeGenerator("blast-engine");
         new MultiCrafter("heat-turbine-generator");
         new VariableReactor("thermal-reactor");
-
         // group 24 瓜星电力
         new TileableLogicDisplay("cable");
         new PowerNode("battery-node");
@@ -413,7 +376,6 @@ public class VEJSBlocks {
         new ConsumeGenerator("fermentor");
         new ConsumeGenerator("activator-generator");
         new ShakeGenerator("mect-reactor");
-
         // group 25 原版及赛克钻头和培养机
         new Drill("mechanical-drill-micro");
         new Drill("mechanical-drill-huge");
@@ -435,17 +397,14 @@ public class VEJSBlocks {
         new AttributeCrafter("cultivate-tank");
         new GenericCrafter("nitroalkoss-cultivator");
         new GenericCrafter("nitroalkoss-cultivator-silicide");
-
         // group 26 火星钻头和培养机
         new CoolantDrill("surge-digger");
         new GenericCrafter("reflector-cultivator");
-
         // group 27 瓜星钻头及培养机
         new Drill("collector");
         new Drill("magnetic-digger");
         new SolidPump("mechanical-well");
         new AttributeCrafter("rot-chamber");
-
         // group 28 铝炮硅化物炮
         new ItemTurret("click");
         new ItemTurret("frag");
@@ -456,7 +415,6 @@ public class VEJSBlocks {
         new ItemTurret("beat");
         new ItemTurret("crack");
         new PowerTurret("shock");
-
         // group 29 铬炮钴炮
         new ItemTurret("buffet");
         new ContinuousLiquidTurret("burn");
@@ -465,7 +423,6 @@ public class VEJSBlocks {
         new ItemTurret("snipe");
         new ItemTurret("shell");
         new PowerTurret("halberd");
-
         // group 30 钍炮合金炮
         new ItemTurret("buster");
         new ItemTurret("parasite");
@@ -474,7 +431,6 @@ public class VEJSBlocks {
         new PowerTurret("sweep");
         new ItemTurret("stab");
         new LiquidTurret("sans");
-
         // group 31 铁炮银炮
         new ItemTurret("double");
         new ItemTurret("burst");
@@ -485,20 +441,17 @@ public class VEJSBlocks {
         new PowerTurret("guarden");
         new PowerTurret("incandescence");
         new MelonicArrayPillar("melonic-array-pillar");
-
         //group 31.1 钽炮布炮
         new LiquidTurret("stellar");
         new TractorBeamTurret("disintegrate");
         new ItemTurret("asylum");
         new ShieldArcUnitPowerTurret("blocker");
-
         // group 32 原版单位载荷
         new Reconstructor("light-refabricator");
         new PayloadConveyor("gigantic-payload-conveyor");
         new PayloadConveyor("world-payload-conveyor");
         new SpawnEgg("spawn-egg");
         new SpawnerBlock("spawner-block");
-
         // group 33 赛克单位
         new UnitFactory("ground-fabricator");
         new UnitFactory("air-fabricator");
@@ -521,7 +474,6 @@ public class VEJSBlocks {
         new Reconstructor("junior-refabricator");
         new Reconstructor("senior-refabricator");
         new RepairTurret("isomorphic-repair-point");
-
         // group 34 赛克载荷
         new PayloadConveyor("payload-rail-small");
         new PayloadConveyor("payload-rail");
@@ -544,12 +496,10 @@ public class VEJSBlocks {
         new UnitAssembler("super-assembler");
         new UnitAssembler("ultra-assembler");
         new UnitAssembler("boss-assembler");
-
         // group 34.1 火星单位载荷
         new Reconstructor("junior-reconstruct-pad");
         new Reconstructor("senior-reconstruct-pad");
         new UnitFactory("integrated-imitater");
-        
         // group 35 瓜星单位载荷
         new PayloadConveyor("general-payload-conveyor");
         new UnitFactory("small-unit-constructor");
@@ -565,7 +515,6 @@ public class VEJSBlocks {
         //new GenericCrafter("element-silver");
         //new GenericCrafter("element-melonic");
         //new GenericCrafter("element-effective");
-
         // group 36 逻辑
         new AutoBossBarBlock("auto-boss-bar-block");
         new CutsceneSwitchBlock("cutscene-switch");
@@ -578,7 +527,6 @@ public class VEJSBlocks {
         new MemoryBlock("isomorphic-memory-bank");
         new LogicBlock("quantum-processor");
         new MemoryBlock("quantum-memory-cell");
-
         //group 37 其他
         new SentryAlertStorer("sentry-alert-storer");
         new CanvasBlock("test-superlargecanvas"){{

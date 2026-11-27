@@ -1,10 +1,5 @@
 package VanillaExpansion.expand.graphics;
-
 import mindustry.graphics.CacheLayer;
-import mindustry.graphics.Shaders;
-
-import javax.xml.catalog.CatalogException;
-
 public class VECacheLayer extends CacheLayer {
     public static CacheLayer
 

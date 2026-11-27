@@ -10,22 +10,10 @@ import arc.util.io.*;
 import mindustry.graphics.*;
 import mindustry.ui.Bar;
 import mindustry.ui.Styles;
-
 import static mindustry.Vars.*;
 
-/**
- * <p>
- * 无耗电（区别于 HBM 电动棒的 5000 HE/t）。控制棒状态直接以两条竖向进度条绘制在
- * 方块表面（左=当前棒位，右=目标棒位），不占用地图上方空间、不遮挡视野。
- * 中子流穿越时按  缩放通量，level==0 时完全阻断。
- * 插棒方向（target &lt; level）触发 HBM 浪涌效应：瞬时通量尖峰（AZ-5 结局）。
- */
 public class RBMKControl extends RBMKBase {
-
-    /** 是否被石墨慢化（熔毁碎片类型 + isModerated 语义，对应 HBM rbmk_control_mod） */
     public boolean moderated = false;
-
-    /** 分组颜色（对应 HBM TileEntityRBMKControlManual.RBMKColor，控制台按色批量设定） */
     public static enum RBMKColor {
         RED, YELLOW, GREEN, BLUE, PURPLE;
 
@@ -55,18 +43,11 @@ public class RBMKControl extends RBMKBase {
     }
 
     public class RBMKControlBuild extends RBMKBaseBuild {
-
-        /** 上一结算的棒位（用于 2D 渲染平滑 / 浪涌快照基准） */
         public double lastLevel;
-        /** 当前棒位 [0;1]，0=全插 1=全出 */
         public double level;
-        /** 移动速度（HBM 原值：约 18 秒全行程） */
         public static final double speed = 0.00277D;
-        /** 目标棒位 */
         public double targetLevel;
-        /** 浪涌快照：本次 setTarget 开始时的棒位（对应 HBM startingLevel） */
         public double startingLevel;
-        /** 分组颜色：-1=未分组，0-4=RBMKColor */
         public int color = -1;
 
         @Override
@@ -87,14 +68,10 @@ public class RBMKControl extends RBMKBase {
             }
             super.updateTile();
         }
-
-        /** 设定目标棒位并记录浪涌快照（对应 HBM setTarget） */
         public void setTarget(double target) {
             this.targetLevel = Mathf.clamp(target, 0D, 1D);
             this.startingLevel = this.level;
         }
-
-        /** 中子穿越倍率（对应 HBM getMult：level + 插棒浪涌尖峰） */
         public double getMult() {
             double surge = 0;
 
@@ -105,9 +82,6 @@ public class RBMKControl extends RBMKBase {
 
             return this.level + surge;
         }
-
-        // ---------- 配置 UI（分组 + 目标棒位） ----------
-
         static int pack(int color, int percent) {
             return (color + 1) * 1000 + percent;
         }
@@ -173,38 +147,24 @@ public class RBMKControl extends RBMKBase {
             }
             table.add(buttons).center().pad(4f).row();
         }
-
-        // ---------- 渲染（方块表面绘制两条竖向进度条：左=当前棒位，右=目标棒位） ----------
-
         @Override
         public void draw() {
             super.draw();
-
-            // 进度条几何：两根竖条并排绘制在方块中心两侧。
-            // 按 1 格 = 8px 的比例，2×2 方块视为 16×16px，竖条收进中心 ±8px 内。
             float barW = 3f;
             float barH = 11f;
             float barOffset = 4f;
-
-            // 底槽（灰色）：以方块中心 y 为轴心，高度不超过 ±8px
             Draw.color(Pal.gray);
             Fill.rect(x - barOffset, y, barW, barH);
             Fill.rect(x + barOffset, y, barW, barH);
-
-            // 当前棒位：紫色（底边与底槽底边对齐，向上生长；最小长度 0 无偏移）
             float levelH = barH * (float) level;
             Draw.color(Pal.reactorPurple);
             Fill.rect(x - barOffset, y - barH / 2f + levelH / 2f, barW, levelH);
-
-            // 目标棒位：亮橙
             float target = barH * (float) targetLevel;
             Draw.color(Pal.lightOrange);
             Fill.rect(x + barOffset, y - barH / 2f + target / 2f, barW, target);
 
             Draw.color();
         }
-
-        // ---------- 控制台 API ----------
 
         @Override
         public RBMKType getRBMKType() {
@@ -237,8 +197,6 @@ public class RBMKControl extends RBMKBase {
             return super.consoleValue(screen);
         }
 
-        // ---------- 熔毁（对应 HBM onMelt） ----------
-
         @Override
         public void onMelt(int reduce) {
             if (this.isModerated()) {
@@ -251,8 +209,6 @@ public class RBMKControl extends RBMKBase {
 
             this.standardMelt(reduce);
         }
-
-        // ---------- 序列化 ----------
 
         @Override
         public void write(Writes write) {

@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.special;
-
 import arc.*;
 import arc.files.*;
 import arc.graphics.*;
@@ -9,16 +8,13 @@ import arc.input.*;
 import arc.struct.*;
 import arc.util.*;
 import mindustry.*;
-
 public class SpecialMain{
     public static ObjectMap<String, TextureRegion> regions = new ObjectMap<>();
     public static Seq<TextureRegion> regionSeq = new Seq<>();
     static int offset = 691038;
     static Texture main;
     static SpecialState activeState;
-
     private static int state = 0;
-
     public static void draw(){
         if(activeState != null){
             activeState.draw();
@@ -40,7 +36,6 @@ public class SpecialMain{
             Log.info("Stage: " + state);
         }
     }
-
     public static void increment(){
         increment(true);
     }
@@ -50,29 +45,23 @@ public class SpecialMain{
         Core.settings.put("flame-special", state);
         if(change) loadState();
     }
-
     public static int getStage(){
         return state;
     }
     public static boolean validEmpathySpawn(){
         return state == 0 || state >= 5;
     }
-
     public static void dispose(){
         main.dispose();
-
         activeState = null;
     }
-
     public static void load(){
         state = Core.settings.getInt("flame-special", 0);
-        //loadState();
         if(state > 5) return;
         try{
             Fi file = Vars.tree.get("extras/Vultures.png");
             byte[] bytes = file.readBytes();
             Pixmap map = new Pixmap(bytes, offset, bytes.length);
-            //PixmapTextureData data = new PixmapTextureData(map, false, true);
             main = new Texture(map);
             main.setFilter(TextureFilter.linear);
 
@@ -92,26 +81,20 @@ public class SpecialMain{
             Log.err("Special Flame-Out", e);
         }
         loadState();
-
         if(activeState != null){
             activeState.loadAssets();
         }
     }
     public static void loadClient(){
         //state = Core.settings.getInt("flame-special", 0);
-        
         if(activeState == null) loadState();
-
         if(activeState != null){
             activeState.loadClient();
         }
     }
-
     static void loadRegion(String name, int u, int v, int u2, int v2){
         Texture tex = main;
-
         TextureRegion reg = new TextureRegion(tex, u, v, (u2 + 1) - u, (v2 + 1) - v);
-
         if(name.equals("bunny3")){
             reg.width = (int)(reg.width * 0.75f);
             reg.height = (int)(reg.height * 0.75f);
@@ -124,21 +107,16 @@ public class SpecialMain{
             reg.width = (int)(reg.width * 1.25f);
             reg.height = (int)(reg.height * 1.25f);
         }
-
         //reg.width /= 4;
         //reg.height /= 4;
-
         regions.put(name, reg);
         regionSeq.add(reg);
     }
-
     static void loadState(){
-
         if(activeState != null){
             activeState.init();
         }
     }
-
     public static boolean validChordonSpawn(){
         return state == 0 || state >= 5;
     }

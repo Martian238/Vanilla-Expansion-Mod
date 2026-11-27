@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.ui;
-
 import arc.Core;
 import arc.graphics.Color;
 import arc.scene.Group;
@@ -14,75 +13,43 @@ import arc.scene.ui.layout.Table;
 import mindustry.Vars;
 import mindustry.gen.Icon;
 import mindustry.gen.Tex;
-
 public class AchievementTestUI {
-    // 单例
     public static AchievementTestUI instance;
-    // 根容器
     private Table root;
-    // 主面板
     private Table panel;
-    // 名称输入框
     private TextField nameField;
-    // 描述输入框
     private TextField descField;
-    // 稀有度输入框
     private TextField rarityField;
-    // 默认名称
     private String defaultName = "测试成就";
-    // 默认描述
     private String defaultDesc = "这是一个测试成就描述";
-    // 默认稀有度
     private String defaultRarity = "1";
-    // 面板宽度
     private float panelWidth = 300f;
-    // 面板内边距
     private float panelPad = 8f;
-    // 输入框高度
     private float fieldHeight = 36f;
-    // 按钮高度
     private float buttonHeight = 36f;
-    // 左边距
     private float marginLeft = 16f;
-    // 底边距
     private float marginBottom = 16f;
-    // 提示颜色
-    private Color hintColor = Color.valueOf("aaaaaa");
-    // 是否可见
     private boolean visible = true;
-    // 挂载的父容器
     private Group hostGroup;
-    // 是否正在拖拽
     private boolean dragging = false;
-    // 拖拽偏移X
     private float dragOffsetX;
-    // 拖拽偏移Y
     private float dragOffsetY;
-    // 临时坐标
     private final Vec2 tmp = new Vec2();
-
-    // 初始化
     public static void init() {
         if (instance != null) return;
         instance = new AchievementTestUI();
         instance.build();
     }
-
-    // 销毁
     public static void dispose() {
         if (instance == null) return;
         if (instance.root != null) instance.root.remove();
         instance = null;
     }
-
-    // 设置可见性
     public static void setVisible(boolean v) {
         if (instance == null) return;
         instance.visible = v;
         instance.root.visible = v;
     }
-
-    // 切换可见性
     public static void toggle() {
         if (instance == null) return;
         setVisible(!instance.visible);
@@ -106,35 +73,28 @@ public class AchievementTestUI {
         }
         hostGroup = target;
     }
-
-    // 构建面板
     private void build() {
         root = new Table();
         root.setFillParent(true);
         root.touchable = Touchable.childrenOnly;
         ensureHost();
         root.toFront();
-
         panel = new Table();
         panel.setBackground(Tex.button);
         panel.margin(panelPad);
         panel.touchable = Touchable.enabled;
-
         panel.add("名称").left().padRight(4f);
         nameField = new TextField(defaultName);
         nameField.setMessageText("成就名称");
         panel.add(nameField).width(panelWidth).height(fieldHeight).left().row();
-
         panel.add("描述").left().padRight(4f);
         descField = new TextField(defaultDesc);
         descField.setMessageText("成就描述");
         panel.add(descField).width(panelWidth).height(fieldHeight).left().row();
-
         panel.add("稀有度").left().padRight(4f);
         rarityField = new TextField(defaultRarity);
         rarityField.setMessageText("0/1/2/3");
         panel.add(rarityField).width(panelWidth).height(fieldHeight).left().row();
-
         Table buttons = new Table();
         buttons.button("发送", Icon.ok, this::send).size(120f, buttonHeight).padRight(4f);
         buttons.button("清空队列", Icon.cancel, () -> {
@@ -156,9 +116,7 @@ public class AchievementTestUI {
             AchievementRegistry.clearAll();
             if (AchievementUI.instance != null) AchievementUI.instance.clearQueue();
         }).size(120f, buttonHeight).row();
-
         panel.add(buttons).colspan(2).left().row();
-
         root.addChild(panel);
         panel.pack();
         panel.setPosition(marginLeft, marginBottom);
@@ -175,7 +133,6 @@ public class AchievementTestUI {
                 event.stop();
                 return true;
             }
-
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
                 if (!dragging) return;
@@ -186,7 +143,6 @@ public class AchievementTestUI {
                 clampToScreen();
                 event.stop();
             }
-
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, KeyCode button) {
                 dragging = false;

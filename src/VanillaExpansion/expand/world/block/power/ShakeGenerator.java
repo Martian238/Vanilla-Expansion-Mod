@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.power;
-
 import arc.*;
 import arc.audio.Sound;
 import arc.graphics.*;
@@ -15,13 +14,11 @@ import mindustry.type.*;
 import mindustry.world.blocks.power.ConsumeGenerator;
 import mindustry.world.consumers.*;
 import mindustry.world.meta.*;
-
 public class ShakeGenerator extends ConsumeGenerator {
 
     public float shake = 2f;
     public float shakeDuration = 4f;
     public float minShakeStartWarmup = 0.65f;
-
     public float lightningChance = 0.03f;
     public int lightningLength = 9;
     public int lightningLengthRand = 4;
@@ -29,12 +26,9 @@ public class ShakeGenerator extends ConsumeGenerator {
     public float lightningDamage = 40f;
     public Sound lightningSound = Sounds.none;
     public float lightningVolume = 0.15f;
-
     public ShakeGenerator(String name){
         super(name);
     }
-
-
 
     public class ShakeGeneratorBuild extends GeneratorBuild{
         public float warmup, totalTime, efficiencyMultiplier = 1f, itemDurationMultiplier = 1;
@@ -53,23 +47,16 @@ public class ShakeGenerator extends ConsumeGenerator {
         @Override
         public void updateTile(){
             boolean valid = efficiency > 0;
-
             warmup = Mathf.lerpDelta(warmup, valid ? 1f : 0f, warmupSpeed);
-
             productionEfficiency = efficiency * efficiencyMultiplier;
             totalTime += warmup * Time.delta;
-
-            //randomly produce the effect
             if(valid && Mathf.chanceDelta(effectChance)){
                 generateEffect.at(x + Mathf.range(generateEffectRange), y + Mathf.range(generateEffectRange));
             }
-
-            //make sure the multiplier doesn't change when there is nothing to consume while it's still running
             if(filterItem != null && valid && itemDurationMultipliers.size > 0 && filterItem.getConsumed(this) != null){
                 itemDurationMultiplier = itemDurationMultipliers.get(filterItem.getConsumed(this), 1);
             }
 
-            //take in items periodically
             if(hasItems && valid && generateTime <= 0f){
                 consume();
                 consumeEffect.at(x + Mathf.range(generateEffectRange), y + Mathf.range(generateEffectRange));
@@ -99,11 +86,8 @@ public class ShakeGenerator extends ConsumeGenerator {
                 lightningSound.at(tile, Mathf.random(0.9f, 1.1f), lightningVolume);
 
             }}
-
-            //generation time always goes down, but only at the end so consumeTriggerValid doesn't assume fake items
             generateTime -= delta() / (itemDuration * itemDurationMultiplier);
         }
-
         @Override
         public boolean consumeTriggerValid(){
             return generateTime > 0;
@@ -113,7 +97,6 @@ public class ShakeGenerator extends ConsumeGenerator {
         public float warmup(){
             return warmup;
         }
-
         @Override
         public float totalProgress(){
             return totalTime;
@@ -121,9 +104,7 @@ public class ShakeGenerator extends ConsumeGenerator {
 
         @Override
         public void drawLight(){
-            //???
             drawer.drawLight(this);
-            //TODO hard coded
             Drawf.light(x, y, (60f + Mathf.absin(10f, 5f)) * size, Color.orange, 0.5f * warmup);
         }
     }

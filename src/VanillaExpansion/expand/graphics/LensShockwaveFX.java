@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.graphics;
-
 import arc.Core;
 import arc.Events;
 import arc.graphics.Color;
@@ -18,41 +17,22 @@ import mindustry.game.EventType.Trigger;
 import mindustry.graphics.Layer;
 
 import static mindustry.Vars.headless;
-
-/**
- * GL 透镜冲击波 —— 屏幕空间折射（FrameBuffer 捕获 + shader 折射回屏）。
- *
- * 复用 VESFX.blackhole 的全屏后处理思路（buffer.begin → buffer.end → buffer.blit），
- * 但自包含实现、不依赖尚未初始化的 VESFX/VEShaders 管线：
- *  - 每帧把 scene 捕获进自有 FrameBuffer；
- *  - 用透镜 shader 在环形冲击波带内做径向折射（采样点沿半径偏移），并叠加环带微光；
- *  - 支持最多 {@link #maxShocks} 个同时扩散的冲击波（一次 blit 内渲染，代价恒定）。
- *
- * 纯本地视觉：世界坐标 (x, y) 处生成，随时间扩散、淡出。
- */
 public class LensShockwaveFX{
     public static LensShockwaveFX inst;
-
     public static final int maxShocks = 12;
-
     private final Seq<Shock> shocks = new Seq<>();
     private final BasicPool<Shock> pool = new BasicPool<>(Shock::new);
-
     private FrameBuffer buffer;
     private LensShockShader shader;
     private boolean loaded = false;
-
     protected LensShockwaveFX(){
         Events.run(Trigger.update, this::update);
         Events.run(Trigger.draw, this::draw);
         inst = this;
     }
-
     public static void init(){
         if(inst == null && !headless) inst = new LensShockwaveFX();
     }
-
-    /** 在世界坐标 (x, y) 处生成一个随时间扩散的透镜冲击波。maxRadius 为世界单位。 */
     public void spawnShock(float x, float y, float maxRadius, float lifetime, float strength){
         Shock s = pool.obtain();
         s.x = x;
@@ -63,7 +43,6 @@ public class LensShockwaveFX{
         s.time = 0f;
         shocks.add(s);
     }
-
     void update(){
         if(shocks.isEmpty()) return;
         shocks.removeAll(s -> {
@@ -75,14 +54,10 @@ public class LensShockwaveFX{
             return false;
         });
     }
-
     void draw(){
         if(shocks.isEmpty()) return;
         ensure();
-
         buffer.resize(Core.graphics.getWidth(), Core.graphics.getHeight());
-
-        // 捕获 floor-1 → blockOver+0.1 之间的场景，与 VESFX.blackhole 相同窗口
         Draw.draw(Layer.floor - 1f, () -> buffer.begin(Color.clear));
         Draw.draw(Layer.blockOver + 0.1f, () -> {
             buffer.end();
@@ -90,14 +65,12 @@ public class LensShockwaveFX{
             buffer.blit(shader);
         });
     }
-
     private void ensure(){
         if(loaded) return;
         loaded = true;
         buffer = new FrameBuffer(2, 2);
         shader = new LensShockShader();
     }
-
     static class Shock implements Poolable{
         float x, y, maxRadius, lifetime, strength, time;
 
@@ -106,16 +79,12 @@ public class LensShockwaveFX{
             x = y = maxRadius = lifetime = strength = time = 0f;
         }
     }
-
-    /** 透镜折射 shader：在环形冲击波带内沿半径方向偏移采样点，叠加环带微光 */
     public static class LensShockShader extends Shader{
         private final FloatSeq uniforms = new FloatSeq(maxShocks * 8);
         private int count = 0;
-
         LensShockShader(){
             super(Core.files.internal("shaders/screenspace.vert").readString(), frag);
         }
-
         void setShocks(Seq<Shock> shocks){
             uniforms.clear();
             int n = Math.min(shocks.size, maxShocks);
@@ -138,7 +107,6 @@ public class LensShockwaveFX{
             }
             count = n;
         }
-
         @Override
         public void apply(){
             setUniformf("u_texsize", inst.buffer.getWidth(), inst.buffer.getHeight());
@@ -146,7 +114,6 @@ public class LensShockwaveFX{
             setUniform4fv("u_shocks", uniforms.items, 0, maxShocks * 4);
             setUniform4fv("u_params", uniforms.items, maxShocks * 4, maxShocks * 4);
         }
-
         private static final String frag = """
             uniform sampler2D u_texture;
             uniform vec2 u_texsize;
@@ -171,8 +138,6 @@ public class LensShockwaveFX{
 
                     vec2 delta = gl_FragCoord.xy - center;
                     float dist = length(delta);
-
-                    // 环形冲击波带：带中心(ring)处强度 1，向两侧平滑衰减到 0
                     float band = clamp(1.0 - abs(dist - radius) / thickness, 0.0, 1.0);
                     float wave = sin(band * 3.14159265);
                     vec2 dir = delta / max(dist, 0.001);

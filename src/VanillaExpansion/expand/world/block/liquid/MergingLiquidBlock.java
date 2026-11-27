@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.liquid;
-
 import arc.graphics.g2d.*;
 import arc.struct.*;
 import mindustry.*;
@@ -7,10 +6,8 @@ import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.world.blocks.liquid.*;
 import mindustry.world.modules.*;
-
 public class MergingLiquidBlock extends LiquidBlock {
     public static final Queue<MergingLiquidBuild> buildQueue = new Queue<>();
-    // terrible
     public static final LiquidModule tmpLiquids = new LiquidModule();
 
     public MergingLiquidBlock(String name) {
@@ -25,7 +22,6 @@ public class MergingLiquidBlock extends LiquidBlock {
     public class MergingLiquidBuild extends LiquidBuild {
         public Seq<MergingLiquidBuild> chained = new Seq<>();
         public float totalCapacity;
-        // idk if this is even an issue anymore
         public boolean removing;
 
         @Override
@@ -34,19 +30,15 @@ public class MergingLiquidBlock extends LiquidBlock {
                 moveLiquids();
             }
         }
-
         public void moveLiquids() {
-            // dont bother if its only connected to other pipes
             if (proximity.contains(b -> !(b instanceof MergingLiquidBuild other) || other.chained != chained)) {
                 dumpLiquid(liquids.current());
             }
         }
-
         @Override
         public boolean acceptLiquid(Building source, Liquid liquid) {
             return (!(source instanceof MergingLiquidBuild other) || other.chained != chained) && (liquids.current() == liquid || liquids.currentAmount() < 0.2f);
         }
-
         @Override
         public void handleLiquid(Building source, Liquid liquid, float amount) {
             float frac = amount / totalCapacity;
@@ -54,8 +46,6 @@ public class MergingLiquidBlock extends LiquidBlock {
                 build.liquids.add(liquid, frac * build.block.liquidCapacity);
             }
         }
-
-        // this has truly been a carpe diem
         @Override
         public void dumpLiquid(Liquid liquid, float scaling, int outputDir) {
             int dump = this.cdump;

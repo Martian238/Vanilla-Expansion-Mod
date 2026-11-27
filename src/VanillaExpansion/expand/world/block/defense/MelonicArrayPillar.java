@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.defense;
-
 import arc.Core;
 import arc.func.Cons;
 import arc.graphics.Color;
@@ -21,27 +20,20 @@ import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.world.Tile;
 import mindustry.world.blocks.defense.turrets.PowerTurret;
-
 import java.util.Objects;
 
 import static mindustry.Vars.tilesize;
-
 public class MelonicArrayPillar extends PowerTurret {
     public MelonicArrayPillar(String name) {
         super(name);
         solid = false;
     }
-
     public String shadowName = "ve-melonic-array-pillar-shadowpillar";
     public TextureRegion shadowRegionPillar;
-
     public float minDistance = 12f * tilesize;
-
     public boolean blockAir = true;
-
     protected static MelonicArrayPillarBuild paramBuild;
     protected static MelonicArrayPillar paramBlock;
-
     @Override
     public boolean canPlaceOn(Tile tile, Team team, int rotation){
         if(!Groups.build.contains(b -> Objects.equals(b.block.name, this.name))){
@@ -70,18 +62,15 @@ public class MelonicArrayPillar extends PowerTurret {
         }
         return !bo;
     }
-
     public float getDistance(float ax, float ay, float bx, float by){
         return Mathf.sqrt(Math.abs((ax - bx) * (ax - bx) + (ay - by) * (ay - by)));
     }
-
     protected static final Cons<Bullet> bulletConsumer = bullet -> {
         if(bullet.team != paramBuild.team && bullet.within(paramBuild, paramBlock.size * tilesize/2f)){
             paramBuild.damage(bullet.team, bullet.damage() * bullet.buildingDamageMultiplier());
             bullet.absorb();
         }
     };
-
     protected static final Cons<Unit> unitConsumer = unit -> {
         if(unit.isFlying() && paramBlock.blockAir && !unit.type.hidden) {
             float overlapDst = (unit.hitSize / 2f + paramBlock.size * tilesize / 2f) - unit.dst(paramBuild);
@@ -107,14 +96,11 @@ public class MelonicArrayPillar extends PowerTurret {
             }
         }
     };
-
     @Override
     public void load(){
         super.load();
         shadowRegionPillar = Core.atlas.find(shadowName);
     }
-
-
     public class MelonicArrayPillarBuild extends PowerTurretBuild {
         @Override
         public void updateTile(){

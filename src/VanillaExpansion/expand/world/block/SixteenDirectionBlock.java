@@ -17,19 +17,6 @@ import mindustry.world.blocks.*;
 
 import static mindustry.Vars.*;
 
-/**
- * 16方向放置的方块基类。
- * 
- * 核心设计：
- *   currentFullDir (0-15) = 当前选中的完整16向值
- *   rotation (0-3) = currentFullDir / 4，保持原版管道/逻辑兼容
- *   config   (0-15)= 完整16方向，通过 config/configured 管线传递
- *   原版管道/proximity 只读 rotation（自动截断），视觉/朝向逻辑读 config
- * 
- * 放置输入：
- *   R键/滚动 → currentFullDir ± 1（每次步进 22.5°）
- *   Shift+鼠标 → 根据鼠标角度自动计算 currentFullDir
- */
 public class SixteenDirectionBlock extends Block implements Autotiler {
 
     public static final int DIRECTIONS = 16;
@@ -39,49 +26,29 @@ public class SixteenDirectionBlock extends Block implements Autotiler {
     static {
         for (int i = 0; i < 16; i++) ANGLE_MAP[i] = i * DEG_PER_DIR;
     }
-
-    // ═══════════════ 静态状态：当前完整16方向 ═══════════════
     private static int currentFullDir = 0;
-
     public static int getCurrentFullDir() { return currentFullDir; }
-
     public static void setCurrentFullDir(int dir) {
         currentFullDir = Mathf.mod(dir, 16);
     }
-
     public static void addCurrentFullDir(int delta) {
         currentFullDir = Mathf.mod(currentFullDir + delta, 16);
     }
-
-    /** 返回当前完整16向值 (0-15) */
     public static int fullRotation(int baseRotation) {
         return currentFullDir;
     }
-
-    /** 完整16向值 → 渲染角度 */
     public static float angleFrom(int fullRot) {
         return ANGLE_MAP[Mathf.mod(fullRot, 16)];
     }
-
-    /** 鼠标角度 → 完整16向值 */
     public static int angleToFullRotation(float angleDeg) {
         return Mathf.round(angleDeg / DEG_PER_DIR) % DIRECTIONS;
     }
-
-    /** 是否垂直方向（可与原版方块I/O交互） */
     public static boolean isCardinal(int fullRot) {
         return fullRot % 4 == 0;
     }
-
-    /** 16向值 → 4方向值（仅垂直方向有效） */
     public static int toCardinal(int fullRot) {
         return isCardinal(fullRot) ? fullRot / 4 : -1;
     }
-
-    // ═══════════════ 成员 ═══════════════
-
-    public boolean visual16Direction = true;
-
     public SixteenDirectionBlock(String name) {
         super(name);
         rotate = true;
@@ -92,25 +59,21 @@ public class SixteenDirectionBlock extends Block implements Autotiler {
         });
         buildType = () -> new SixteenDirectionBuild();
     }
-
     @Override
     public boolean canReplace(Block other) {
         if (other == this) return true;
         return super.canReplace(other);
     }
-
     @Override
     public Object nextConfig() {
         return currentFullDir;
     }
-
     @Override
     public void onNewPlan(BuildPlan plan) {
         if (plan.config == null) {
             plan.config = currentFullDir;
         }
     }
-
     @Override
     public int planRotation(int rot) {
         if (Vars.headless || Core.input == null) return rot;
@@ -128,7 +91,6 @@ public class SixteenDirectionBlock extends Block implements Autotiler {
         }
         return rot;
     }
-
     @Override
     public void flipRotation(BuildPlan req, boolean x) {
         if (req.config instanceof Integer full) {
@@ -137,7 +99,6 @@ public class SixteenDirectionBlock extends Block implements Autotiler {
             req.rotation = flipped / 4;
         }
     }
-
     @Override
     public void drawPlanRegion(BuildPlan plan, Eachable<BuildPlan> list) {
         int fullRot = currentFullDir;
@@ -145,20 +106,16 @@ public class SixteenDirectionBlock extends Block implements Autotiler {
             fullRot = Mathf.mod(cfg, 16);
         }
         float angle = angleFrom(fullRot);
-
         TextureRegion reg = getPlanRegion(plan, list);
         float a = Draw.getColorAlpha();
         Draw.rect(reg, plan.drawx(), plan.drawy(), angle);
-
         if (plan.worldContext && player != null && teamRegion != null && teamRegion.found()) {
             if (teamRegions[player.team().id] == teamRegion) Draw.color(player.team().color, a);
             Draw.rect(teamRegions[player.team().id], plan.drawx(), plan.drawy());
             Draw.color(1f, 1f, 1f, a);
         }
-
         drawPlanConfig(plan, list);
     }
-
     @Override
     public void drawPlace(int x, int y, int rotation, boolean valid) {
         if (Core.input.shift()) {
@@ -168,14 +125,12 @@ public class SixteenDirectionBlock extends Block implements Autotiler {
             currentFullDir = angleToFullRotation(angle);
         }
     }
-
     @Override
     public boolean blends(Tile tile, int rotation, int otherx, int othery, int otherrot, Block otherblock) {
         return (otherblock.outputsItems() ||
                 (lookingAt(tile, rotation, otherx, othery, otherblock) && otherblock.hasItems))
             && lookingAtEither(tile, rotation, otherx, othery, otherrot, otherblock);
     }
-
     public boolean lookingAt(Tile tile, int rotation, int otherx, int othery, Block otherblock) {
         return Point2.equals(
             tile.x + Geometry.d4x(rotation),
@@ -183,27 +138,20 @@ public class SixteenDirectionBlock extends Block implements Autotiler {
             otherx, othery
         );
     }
-
     public boolean lookingAtEither(Tile tile, int rotation, int otherx, int othery, int otherrot, Block otherblock) {
         return Point2.equals(tile.x + Geometry.d4x(rotation), tile.y + Geometry.d4y(rotation), otherx, othery)
             || !otherblock.rotatedOutput(otherx, othery, tile)
             || Point2.equals(otherx + Geometry.d4x(otherrot), othery + Geometry.d4y(otherrot), tile.x, tile.y);
     }
-
-    // ═══════════════ Building ═══════════════
-
     public class SixteenDirectionBuild extends Building implements LReadable, LWritable {
         protected int fullRotation = -1;
-
         public int getFullRotation() {
             return fullRotation < 0 ? rotation * 4 : fullRotation;
         }
-
         @Override
         public float drawrot() {
             return angleFrom(getFullRotation());
         }
-
         @Override
         public void configured(@Nullable Unit builder, Object config) {
             if (config instanceof Integer rot) {
@@ -211,30 +159,24 @@ public class SixteenDirectionBlock extends Block implements Autotiler {
                 rotation = fullRotation / 4;
             }
         }
-
         @Override
         public Object config() {
             return getFullRotation();
         }
-
         @Override
         public void write(Writes write) {
             super.write(write);
             write.s(getFullRotation());
         }
-
         @Override
         public void read(Reads read, byte revision) {
             super.read(read, revision);
             fullRotation = read.s();
         }
-
-        // ── LReadable ──
         @Override
         public boolean readable(LExecutor exec) {
             return isValid() && (exec.privileged || (team == exec.team && !block.privileged));
         }
-
         @Override
         public void read(LVar position, LVar output) {
             int addr = position.numi();
@@ -246,8 +188,6 @@ public class SixteenDirectionBlock extends Block implements Autotiler {
                 default -> output.setnum(Double.NaN);
             }
         }
-
-        // ── LWritable ──
         @Override
         public boolean writable(LExecutor exec) {
             return readable(exec);

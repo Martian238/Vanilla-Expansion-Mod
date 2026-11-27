@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.type.unit;
-
 import VanillaExpansion.EntityRegister;
 import VanillaExpansion.expand.world.block.crux.SentryAlertStorer;
 import arc.Events;
@@ -25,16 +24,12 @@ import mindustry.type.UnitType;
 import mindustry.world.Tile;
 import mindustry.world.blocks.defense.Door;
 import mindustry.world.blocks.production.GenericCrafter;
-
 import java.util.Objects;
-
 import static mindustry.Vars.*;
-
 public class SentryUnit extends UnitEntity {
     public static UnitEntity create(){
         return new SentryUnit();
     }
-
     public float visionRadius;
     /** An additional arc area in where a player can make the unit suspecting */
     public float suspectRadius;
@@ -45,7 +40,6 @@ public class SentryUnit extends UnitEntity {
     public float movingWarmupTime;
     /** Time before the unit arrives at the last position or misses the target and back to default status */
     public float suspectTime;
-
     /** Default duration of an arc wave effect */
     public float areaWaveTime;
     public float areaWaveInterval;
@@ -56,13 +50,10 @@ public class SentryUnit extends UnitEntity {
     public Color areaColorDefault = Color.valueOf("98ffa9");
     public Color areaColorSuspect = Color.valueOf("ffd37f");
     public Color areaColorAlert = Color.valueOf("f25555");
-
     /** Whether the unit will continuously attack at the last position before it back to default status */
     public boolean continuousAttack;
-
     /** Target team. Players of other teams won't be scanned */
     public Team playerTeam = Team.sharded;
-
     /** Sound played when notices a suspected player in 0 - 2 global status */
     public Sound suspectSound = Sounds.none;
     /** Sound played when spots a player in 0 - 1 global status */
@@ -72,7 +63,6 @@ public class SentryUnit extends UnitEntity {
     public float exclamationMarkOffset;
     /** Time before directly starting attack when a player is suspected but the unit cannot move towards it */
     public float confirmTime;
-
     public Vec2 defaultPos = new Vec2();
     public float defaultRotation = 0f;
     public class PatrolPoint {
@@ -83,7 +73,6 @@ public class SentryUnit extends UnitEntity {
         public float pause = 0f;
     }
     public Seq<PatrolPoint> patrolPoints = new Seq<>();
-
     public void loadKeys(){
         if(type instanceof SentryUnitType s){
             visionRadius = s.visionRadius;
@@ -106,7 +95,6 @@ public class SentryUnit extends UnitEntity {
             exclamationMarkUnit = s.exclamationMarkUnit;
             exclamationMarkOffset = s.exclamationMarkOffset;
             confirmTime = s.confirmTime;
-
             visionAngleActual = visionAngle;
             stopRange = visionRadius - Math.max(2f * tilesize, 0.25f * visionRadius);
             type.range = tilesize * 0.1f;
@@ -116,7 +104,6 @@ public class SentryUnit extends UnitEntity {
             if(debug) Log.info("Key loaded");
         }
     }
-
     private Unit p = null;
     private SentryAlertStorer.SentryAlertStorerBuild s = null;
     private int status = 0; // 0:default, 1:suspect, 2:alert
@@ -145,7 +132,6 @@ public class SentryUnit extends UnitEntity {
     private float confirmTimer = 0f;
     private boolean confirming = false;
     private float confirmAlpha = 0f;
-
     public void getPlayerCount(){
         playerCount = 0;
         for(Unit u : Groups.unit){
@@ -153,7 +139,6 @@ public class SentryUnit extends UnitEntity {
                 playerCount++;
             }
         }
-        //Log.info("Player count: " + playerCount);
     }
     public void bindPlayer(){
         p = null;
@@ -251,7 +236,6 @@ public class SentryUnit extends UnitEntity {
         if(status == 1 || globalStatus == 2) ringColorTarget = 0.5f;
         if(status == 2 || globalStatus == 3) ringColorTarget = 1f;
     }
-
     public void applyDisarm(){
         float d = getDistance(p.x, p.y, x, y);
         float a = Angles.angleDist(rotation, Mathf.radiansToDegrees * Mathf.atan2(p.x - x, p.y - y));
@@ -262,11 +246,9 @@ public class SentryUnit extends UnitEntity {
         }
         if(!attack) apply(StatusEffects.disarmed, 5f);
     }
-
     public boolean playerVisible(Unit u){
         return !visionBlocked(u) && visionEnabled && visionAngleActual >= visionAngle * 0.9f;
     }
-
     public boolean visionBlocked(Unit u){
         float d = getDistance(u.x, u.y, x, y);
         float t = (int) Math.floor(d * 2);
@@ -292,7 +274,6 @@ public class SentryUnit extends UnitEntity {
         }
         return blocked;
     }
-
     private Vec2 commandPos = new Vec2(x, y);
     public void calculateAreaTimers(){
         if(status == 1) movingWarmup++;
@@ -322,7 +303,6 @@ public class SentryUnit extends UnitEntity {
         if(confirming) confirmTimer ++; stopTrackingTimer = 0;
         if(status == 0) confirmTimer = 0; stopTrackingTimer = 0;
     }
-
     public void commandFix(){
         if(command().hasCommand()){
             if(within(commandPos.x, commandPos.y, type.range) || type.speed <= 0){
@@ -343,7 +323,6 @@ public class SentryUnit extends UnitEntity {
             }
         }
     }
-
     private int currentPatrolPoint;
     private void patrol(){
         if(patrolPoints.isEmpty()){
@@ -359,8 +338,6 @@ public class SentryUnit extends UnitEntity {
             }
         }
     }
-
-
     private float bindTimer = 0f;
     private float bindTime = 60f;
     private boolean keyLoaded = false;
@@ -381,13 +358,11 @@ public class SentryUnit extends UnitEntity {
         if(areaWaveTimer >= areaWaveInterval + areaWaveTime){
             areaWaveTimer -= areaWaveInterval + areaWaveTime;
         }
-
         if(!keyLoaded){
             loadKeys();
             keyLoaded = true;
             bindStorer();
         }
-
         areaColorProgress = Mathf.approachDelta(areaColorProgress, areaColorTarget, 0.03f);
         ringColorProgress = Mathf.approachDelta(ringColorProgress, ringColorTarget, 0.03f);
         confirmAlpha = Mathf.approachDelta(confirmAlpha, confirming? 1 : 0, 0.01f);
@@ -409,9 +384,7 @@ public class SentryUnit extends UnitEntity {
         }else{
             apply(StatusEffects.disarmed, 5f);
         }
-
         calculateAreaTimers();
-
         if(rotateToLastPos){
             if(p != null && getDistance(p.x, p.y, x, y) <= visionRadius + suspectRadius
                     && Angles.angleDist(rotation, Mathf.radiansToDegrees * Mathf.atan2(p.x - x, p.y - y))
@@ -425,16 +398,13 @@ public class SentryUnit extends UnitEntity {
                 }
             }
         }
-
         if(exclamationMarkUnitSpawned != null){
             exclamationMarkUnitSpawned.set(x, y + exclamationMarkOffset);
             if(exclamationMarkUnitSpawned.dead() || !exclamationMarkUnitSpawned.isAdded()){
                 exclamationMarkUnitSpawned = null;
             }
         }
-
         patrol();
-
         if(!rotating && getDistance(commandPos.x, commandPos.y, x, y) > 2 * tilesize){
             rotatingTarget = Mathf.radiansToDegrees * Mathf.atan2(vel.x, vel.y);
             rotating = true;
@@ -458,7 +428,6 @@ public class SentryUnit extends UnitEntity {
 
         if(type.speed <= 0) commandPos.set(x, y);
     }
-
     public void cautionSend(){
         if(s != null) {
             s.caution();
@@ -473,7 +442,6 @@ public class SentryUnit extends UnitEntity {
             if(debug)  Log.info("Alert sending to " + s);
         }
     }
-
     public void drawArea(){
         if(headless) return;
         float fraction = (float) Math.sqrt(Mathf.clamp(visionAngleActual / visionAngle));
@@ -528,17 +496,14 @@ public class SentryUnit extends UnitEntity {
         }
         Draw.color();
     }
-
     @Override
     public void draw(){
         super.draw();
         drawArea();
     }
-
     public float getDistance(float ax, float ay, float bx, float by){
         return Mathf.sqrt(Math.abs((ax - bx) * (ax - bx) + (ay - by) * (ay - by)));
     }
-
     private boolean rotating;
     private float rotatingTarget = 0f;
     public void rotateTo(Unit unit, float x, float y){

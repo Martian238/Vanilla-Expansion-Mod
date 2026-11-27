@@ -1,15 +1,6 @@
 package VanillaExpansion.expand.world.block;
 
 import arc.util.io.*;
-
-/**
- * 16方向数值的纯数据容器。
- * 存储一个 0-15 的旋转值，提供序列化和常见查询。
- * 
- * 注意：新架构下 SixteenDirectionBlock 的 Building 已不再使用此类，
- * 而是将完整16向值直接通过 config/configured 机制传递（全量管线）。
- * 此类保留给需要独立存储16向数据的旧代码或特殊用途。
- */
 public class SixteenDirectionData {
 
     public static final int DIRECTIONS = 16;

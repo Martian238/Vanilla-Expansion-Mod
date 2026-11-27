@@ -1,5 +1,4 @@
 package VanillaExpansion.effects;
-
 import arc.audio.*;
 import arc.func.*;
 import arc.graphics.*;
@@ -17,9 +16,7 @@ import mindustry.gen.*;
 import mindustry.graphics.*;
 import mindustry.type.*;
 import mindustry.world.*;
-
 import java.util.*;
-
 /**
  * @author EyeOfDarkness
  */
@@ -36,7 +33,6 @@ public class Fragmentation{
     public boolean fadeOut = false;
     public float shadowElevation = 0f;
     public float layer = Layer.flyingUnit;
-
     static int[] returnArr = new int[3];
     static boolean[] occupied = new boolean[4];
     static FloatSeq fseq = new FloatSeq();
@@ -49,8 +45,6 @@ public class Fragmentation{
             1, 1,
             0, 1
     };
-
-
     public Fragmentation(TextureRegion region, int width, int height, int fragments){
         if(width > maxDimension) width = maxDimension;
         if(height > maxDimension) height = maxDimension;
@@ -63,40 +57,32 @@ public class Fragmentation{
         if(region != null && region.texture != null){
             this.region.set(region);
         }
-
         drawWidth = width * Draw.scl;
         drawHeight = height * Draw.scl;
-
         for(int x = 0; x < width; x++){
             for(int y = 0; y < height; y++){
                 float fx = x / (width - 1f);
                 float fy = y / (height - 1f);
                 int idx = x + y * width;
-
                 if(x > 0 && x < (width - 1)){
                     fx += Mathf.range(0.1f, 0.4f) / (width - 1f);
                 }
                 if(y > 0 && y < (height - 1)){
                     fy += Mathf.range(0.1f, 0.4f) / (height - 1f);
                 }
-
                 xs[idx] = fx;
                 ys[idx] = fy;
             }
         }
         int size = (width - 1) * (height - 1);
-
         if(size > occupied.length){
             occupied = new boolean[size];
         }else{
             Arrays.fill(occupied, false);
         }
-
         intSeq1.clear();
         intSeq2.clear();
-
         int unoccupied = (width - 1) * (height - 1);
-
         for(int i = 0; i < fragments; i++){
             IntSeq island = new IntSeq();
             int iter = 0;
@@ -104,7 +90,6 @@ public class Fragmentation{
                 int rx = Mathf.random(0, Math.max(width - 2, 0));
                 int ry = Mathf.random(0, Math.max(height - 2, 0));
                 int pos = islandPackPos(rx, ry);
-
                 if(!occupied[pos]){
                     occupied[pos] = true;
                     intSeq1.add(pack(pos, i));
@@ -114,31 +99,24 @@ public class Fragmentation{
                 }
                 iter++;
             }
-
             islands.add(island);
         }
-
         while(!intSeq1.isEmpty()){
             int[] items = intSeq1.items;
             int s = intSeq1.size;
             boolean fragType = unoccupied > ((width - 1) * (height - 1)) / 2;
-            
             float totalWeight = 0f;
             float minimumWeight = 999999f;
             for(IntSeq is : islands){
                 totalWeight += is.size;
                 minimumWeight = Math.min(minimumWeight, is.size);
             }
-
             intSeq2.clear();
             for(int i = 0; i < s; i++){
                 int[] data = unpack(items[i]);
-                
                 int sss = islands.get(data[2]).size;
-                // 单岛（或所有岛大小相同）时避免 0/0 = NaN 导致的死循环：令 chance = 0 使其正常生长
                 float denom = totalWeight - minimumWeight;
                 float chance = denom <= 0f ? 0f : Mathf.clamp((sss - minimumWeight) / denom);
-
                 if(fragType){
                     if(Mathf.chance(0.75f * (1f - chance))){
                         for(int j = 0; j < 4; j++){
@@ -146,7 +124,6 @@ public class Fragmentation{
                             int nx = data[0] + d4.x;
                             int ny = data[1] + d4.y;
                             int pos = islandPackPos(nx, ny);
-
                             if(inboundsIsland(nx, ny) && !occupied[pos]){
                                 occupied[pos] = true;
                                 unoccupied--;
@@ -163,7 +140,6 @@ public class Fragmentation{
                         int nx = data[0] + d4.x;
                         int ny = data[1] + d4.y;
                         int pos = islandPackPos(nx, ny);
-
                         if(inboundsIsland(nx, ny) && !occupied[pos]){
                             occupied[pos] = true;
                             unoccupied--;
@@ -188,8 +164,6 @@ public class Fragmentation{
             intSeq1.clear();
             intSeq1.addAll(intSeq2);
         }
-        
-        //boolean[] unoccupied = new boolean[(width - 1) * (height - 1)];
     }
 
 
@@ -205,7 +179,6 @@ public class Fragmentation{
         int idx = 0;
         for(IntSeq is : frag.islands){
             Vec3 pos = frag.getOffset(is);
-
             Vec2 wpos = tmpVec.trns(rotation, (pos.x - 0.5f) * frag.drawWidth, (pos.y - 0.5f) * frag.drawHeight).add(x, y);
             FragmentEntity fe = new FragmentEntity();
             fe.main = frag;
@@ -219,43 +192,33 @@ public class Fragmentation{
             fe.lifetime = 3f * 60f + Mathf.random(25f);
             fe.calculateArea();
             cons.get(fe);
-
             fe.add();
             idx++;
         }
         return frag;
     }
-
     public Vec3 getOffset(IntSeq island){
         float mx = 0f;
         float my = 0f;
         int count = 0;
-        
         float minWidth = 2f, maxWidth = 0f;
         float minHeight = 2f, maxHeight = 0f;
-
         int size = island.size;
         int[] items = island.items;
-
         for(int t = 0; t < size; t++){
             int pos = items[t];
             int x = pos % (width - 1);
             int y = pos / (width - 1);
-
             for(int i = 0; i < 8; i += 2){
                 int ox = x + arr[i];
                 int oy = y + arr[i + 1];
                 int idx = getIdx(ox, oy);
-                
                 float vx = xs[idx];
                 float vy = ys[idx];
-                
                 minWidth = Math.min(minWidth, vx);
                 maxWidth = Math.max(maxWidth, vx);
-                
                 minHeight = Math.min(minHeight, vx);
                 maxHeight = Math.max(maxHeight, vx);
-
                 mx += vx;
                 my += vy;
                 count++;
@@ -264,10 +227,8 @@ public class Fragmentation{
         float boundX = maxWidth - minWidth;
         float boundY = maxHeight - minHeight;
         float bounds = Math.min(boundX, boundY);
-
         return Tmp.v31.set(mx / count, my / count, bounds);
     }
-
     boolean inboundsIsland(int x, int y){
         return x >= 0 && x < (width - 1) && y >= 0 && y < (height - 1);
     }
@@ -280,18 +241,14 @@ public class Fragmentation{
     int[] unpack(int value){
         int pos = value & 268435455;
         int id = value >>> 28;
-
         returnArr[0] = pos % (width - 1);
         returnArr[1] = pos / (width - 1);
         returnArr[2] = id;
-
         return returnArr;
     }
-
     int getIdx(int x, int y){
         return x + y * width;
     }
-
     public void draw(){
         if(region == null || region.texture == null) return;
         Rand r = Utils.rand;
@@ -300,16 +257,12 @@ public class Fragmentation{
         Draw.z(Layer.flyingUnit);
         TextureRegion region = UnitTypes.eclipse.region;
         //TextureRegion region = Core.atlas.white();
-
         float mcolr = Draw.getMixColor().toFloatBits();
-
         for(IntSeq island : islands){
             Draw.color(Tmp.c1.set(r.nextFloat(), r.nextFloat(), 0.5f));
             float color = Tmp.c1.toFloatBits();
-
             int[] items = island.items;
             int size = island.size;
-
             for(int t = 0; t < size; t++){
                 fseq.clear();
                 int x = items[t] % (width - 1);
@@ -320,10 +273,8 @@ public class Fragmentation{
                     int idx = getIdx(ox, oy);
                     float wx = 250f + xs[idx] * 50f;
                     float wy = 250f + ys[idx] * 50f;
-
                     float u = Mathf.lerp(region.u, region.u2, xs[idx]);
                     float v = Mathf.lerp(region.v2, region.v, ys[idx]);
-
                     fseq.addAll(wx, wy, color, u, v, mcolr);
                 }
                 Draw.vert(region.texture, fseq.items, 0, fseq.size);
@@ -332,62 +283,49 @@ public class Fragmentation{
         Draw.z(lz);
         Draw.color();
     }
-
     public static class FragmentEntity extends DrawEntity{
         public Fragmentation main;
         public int island;
         public boolean impact = false;
         public Cons<FragmentEntity> customUpdate;
-
         public float offsetX = 0f;
         public float offsetY = 0f;
         public float boundSize = 0f;
         public float area = 0f;
-        public float smokeScale = 1f; // 飞行烟雾大小缩放
-
+        public float smokeScale = 1f;
         public float time = 0, lifetime = 0;
-
         public float z = 1f;
         public float rotation = 0f;
         public float vx, vy, vz, vr;
-
         FloatSeq goreLines;
         float gx, gy, gr;
-
         public void calculateArea(){
             int size = main.islands.get(island).size;
             area = Mathf.sqrt((((float)size) / ((main.width - 1f) * (main.height - 1f))) * (Math.abs(main.drawWidth) * Math.abs(main.drawHeight))) * 1.5f;
             //area = (size / Math.min((main.width - 1f), (main.height - 1f))) * Math.min(main.drawWidth, main.drawHeight);
             //area = Mathf.sqrt((size * (main.drawWidth * main.drawHeight)) / ((main.width - 1f) * (main.height - 1f)));
         }
-
         public void generateGore(){
             gx = x;
             gy = y;
             gr = rotation;
-
             int amount = 3 + (int)(boundSize / 8f);
-
             goreLines = new FloatSeq(amount * 4);
             for(int i = 0; i < amount; i++){
                 tmpVec.rnd(Mathf.random(boundSize / 2f));
                 goreLines.add(tmpVec.x, tmpVec.y, Math.max(1.1f, Mathf.random(0.8f, 1.2f) * (boundSize / 12f)), Mathf.random(0.9f, 1.5f));
             }
         }
-
         @Override
         public void update(){
             x += vx * Time.delta;
             y += vy * Time.delta;
             z += vz * Time.delta;
             rotation += vr * Time.delta;
-
             float drag = 0.007f * Time.delta;
-            
             if(z <= 0f){
                 z = 0f;
                 drag = 0.2f * Time.delta;
-
                 if(!impact){
                     Tmp.c1.set(Color.black);
                     Tile tile = Vars.world.tileWorld(x, y);
@@ -400,13 +338,11 @@ public class Fragmentation{
                     impact = true;
                 }
             }
-
             vx *= 1 - drag;
             vy *= 1 - drag;
             vz *= 1 - 0.002f * Time.delta;
             vz -= 0.01f;
             vr *= 1 - drag;
-
             if(Mathf.chance(0.6f) && z > 0){
                 int size = Mathf.clamp((int)((boundSize * boundSize) / 900f), 1, 15);
                 for(int i = 0; i < size; i++){
@@ -414,9 +350,7 @@ public class Fragmentation{
                     main.trailEffect.at(Tmp.v1.x, Tmp.v1.y, Mathf.random(5f, 9f) * smokeScale, main.effectColor);
                 }
             }
-
             if(customUpdate != null) customUpdate.get(this);
-
             if((time += Time.delta) >= lifetime){
                 //if(removed != null) removed.run();
                 if(!main.fadeOut){
@@ -430,24 +364,18 @@ public class Fragmentation{
                 remove();
             }
         }
-
         public void drawFragment(float cx, float cy){
             IntSeq is = main.islands.get(island);
-
             int[] items = is.items;
             int size = is.size;
-
             TextureRegion region = main.region;
             if(region == null || region.texture == null) return;
             float[] xs = main.xs;
             float[] ys = main.ys;
-
             float color = Draw.getColor().toFloatBits();
             float mcolr = Color.clear.toFloatBits();
-
             float cos = Mathf.cosDeg(rotation);
             float sin = Mathf.sinDeg(rotation);
-
             for(int t = 0; t < size; t++){
                 fseq.clear();
                 int x = items[t] % (main.width - 1);
@@ -459,19 +387,15 @@ public class Fragmentation{
                     float wx = (xs[idx] - offsetX) * main.drawWidth;
                     float wy = (ys[idx] - offsetY) * main.drawHeight;
                     //Vec2 vec = Tmp.v1.trns(rotation, wx, wy).add(this.x, this.y);
-
                     float tx = (wx * cos - wy * sin) + cx;
                     float ty = (wx * sin + wy * cos) + cy;
-
                     float u = Mathf.lerp(region.u, region.u2, xs[idx]);
                     float v = Mathf.lerp(region.v2, region.v, ys[idx]);
-
                     fseq.addAll(tx, ty, color, u, v, mcolr);
                 }
                 Draw.vert(region.texture, fseq.items, 0, fseq.size);
             }
         }
-
         @Override
         public void draw(){
             if(region == null || region.texture == null) return;
@@ -481,7 +405,6 @@ public class Fragmentation{
             }
             Draw.z(Math.min(Layer.darkness, zl - 1f));
             Draw.color(Pal.shadow);
-
             if((z * main.shadowElevation) > 0.001f){
                 //float e = Mathf.clamp(unit.elevation, shadowElevation, 1f) * shadowElevationScl * (1f - unit.drownTime);
                 float e = z * main.shadowElevation;
@@ -489,7 +412,6 @@ public class Fragmentation{
                 drawFragment(sx, sy);
             }
             //float z = isPayload ? Draw.z() : unit.elevation > 0.5f ? (lowAltitude ? Layer.flyingUnitLow : Layer.flyingUnit) : groundLayer + Mathf.clamp(hitSize / 4000f, 0, 0.01f);
-
             Draw.color();
             Draw.z(zl);
             if(goreLines != null){
@@ -502,10 +424,8 @@ public class Fragmentation{
                     Vec2 e = Tmp.v2.trns(rotation, arr[i], arr[i + 1]).add(x, y);
                     if(b.within(e, 4f)) continue;
                     float dst = b.dst(e);
-                    
                     float fin = Mathf.clamp(time / lifetime);
                     float fout = Mathf.clamp((lifetime - time) / 32f);
-
                     Lines.stroke(arr[i + 2] * fout * Mathf.clamp(time / 12f) * Mathf.clamp((dst - 4f) / 9f));
                     Lines.beginLine();
                     for(int j = 0; j < 16; j++){
@@ -529,7 +449,6 @@ public class Fragmentation{
             drawFragment(x, y);
             Draw.color();
         }
-
         @Override
         public float clipSize(){
             if(goreLines != null) return 9999999f;

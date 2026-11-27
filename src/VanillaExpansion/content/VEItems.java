@@ -9,15 +9,11 @@ import mindustry.type.*;
 public class VEItems {
     public static Item iron, uranium, manganese, gold;
     public static final Seq<Item> proximaOreItems = new Seq<>();
-    public static RBMKRodItem plutonium238BerylliumSource; // 钚238-铍中子源
-    public static RBMKRodItem heu235UraniumFuel; // HEU-235铀燃料棒
-    public static RBMKRodItem dgammaFuel;
-    //物品栏物品定义部分
+    public static RBMKRodItem plutonium238BerylliumSource,heu235UraniumFuel,dgammaFuel;
+    //物品栏物品
     public static CustomItem test1,test2,test3,test4,test5,test6,test7;
-    //
     public static void load(){
-        //物品栏物品定义部分
-        // 短程测试
+        //短程测试
         test1 = new CustomItem("test1", Color.valueOf("676767"));
         test1.weaponBullet = new BasicBulletType(8f, 35f) {{
             width = 6f;
@@ -32,7 +28,7 @@ public class VEItems {
         test1.weaponShootX = 6f;
         test1.weaponRecoil = 1.2f;
         test1.weaponShake = 1f;
-        // 远程测试
+        //远程测试
         test2 = new CustomItem("test2", Color.valueOf("676767"));
         test2.weaponBullet = new BasicBulletType(10f, 25f) {{
             width = 4f;
@@ -46,13 +42,13 @@ public class VEItems {
         test2.weaponReload = 45f;
         test2.weaponShootCone = 6f;
         test2.weaponShootX = 8f;
-        // 血量测试
+        //血量测试
         test3 = new CustomItem("test3", Color.valueOf("676767"));
         test3.bonusHealth = 300f;
-        // 速度测试
+        //速度测试
         test4 = new CustomItem("test4", Color.valueOf("676767"));
         test4.bonusSpeedMul = 1.5f;
-        // 燃烧测试
+        //燃烧测试
         test5 = new CustomItem("test5", Color.valueOf("676767"));
         test5.weaponBullet = new BasicBulletType(5f, 12f) {{
             width = 8f;
@@ -65,13 +61,12 @@ public class VEItems {
         }};
         test5.weaponReload = 60f;
         test5.weaponShootCone = 15f;
-        // 潮湿效果测试
+        //潮湿效果测试
         test6 = new CustomItem("test6", Color.valueOf("676767"));
         test6.bonusStatus = StatusEffects.wet;
         test6.bonusStatusDuration = 600f;
-        // 纯装饰
+        //纯装饰
         test7 = new CustomItem("test7", Color.valueOf("676767"));
-        //结束
         iron = new Item("iron", Color.valueOf("a8a8a8")){{
             hardness = 2;
             cost = 0.8f;
@@ -97,7 +92,6 @@ public class VEItems {
             databaseTag = "basic-item";
         }};
         proximaOreItems.addAll(iron, uranium, manganese, gold);
-
         plutonium238BerylliumSource = new RBMKRodItem("plutonium238-beryllium-source", new Color(0.2f, 0.3f, 0.8f)){{
             isNeutronSource = true;
             enrichment = 1f;

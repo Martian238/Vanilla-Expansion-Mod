@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.abilities;
-
 import VanillaExpansion.VESettings;
 import VanillaExpansion.expand.effects.WarpParticleEffect;
 import arc.Core;
@@ -28,19 +27,13 @@ import mindustry.gen.Sounds;
 import mindustry.gen.Unit;
 import mindustry.graphics.Drawf;
 import mindustry.type.StatusEffect;
-
 import static mindustry.Vars.tilesize;
-
 public class WarpAbility extends Ability {
-    public WarpAbility() {
-
-    }
-
+    public WarpAbility() {}
     public float warpMinWarmup = 15f;
     public float warpMinWarmupDistance = 800f;
     public float warpBaseWarmup = 15f;
     public float warpCooldown = 30;
-
     public Seq<DrawPart> warpEndParts = new Seq<>();
     public Effect warpEndEffect = Fx.none;
     public Effect warpBeginEffect = Fx.none;
@@ -58,30 +51,28 @@ public class WarpAbility extends Ability {
     public float warpTrailLife = 30f;
     public StatusEffect warpStatus = StatusEffects.none;
     public boolean useAutoWarpEffect = true;
-
-    /** 被指挥时是否自动跃迁 */
+    //指挥时自动跃迁
     public boolean commandAutoWarp = true;
-    /** 任何情况下移动目标超过此距离自动使用跃迁 */
+    //任何情况下移动目标超过此距离自动使用跃迁
     public float commandAutoWarpDistance = 480f;
-    /** 能否用助推姿态触发指挥跃迁 */
+    //能否用助推姿态触发指挥跃迁
     public boolean commandAutoWarpBoost = true;
-    /** 助推姿态下，移动目标超过此距离自动使用跃迁 */
+    //助推姿态下，移动目标超过此距离自动使用跃迁
     public float commandAutoWarpBoostDistance = 160f;
-    /** 能否用载荷指令触发指挥跃迁 */
+    //能否用载荷指令触发指挥跃迁
     public boolean commandAutoWarpPayload = true;
-    /** 载荷指令下，移动目标超过此距离自动使用跃迁 */
+    //载荷指令下，移动目标超过此距离自动使用跃迁
     public float commandAutoWarpPayloadDistance = 80f;
-    /** 能否用辅助指令触发指挥跃迁 */
+    //能否用辅助指令触发指挥跃迁
     public boolean commandAutoWarpSupport = true;
-    /** 辅助指令下，移动目标超过此距离自动使用跃迁 */
+    //辅助指令下，移动目标超过此距离自动使用跃迁
     public float commandAutoWarpSupportDistance = 120f;
-    /** 移动端是否自动跃迁 */
+    //移动端是否自动跃迁
     public boolean mobileAutoWarp = true;
-    /** 在移动端，作为玩家的单位离镜头超过此距离自动使用跃迁 */
+    //在移动端，作为玩家的单位离镜头超过此距离自动使用跃迁
     public float mobileAutoWarpDistance = 240f;
-    /** 在移动端，镜头停止移动超过此时间才能使用跃迁 */
+    //在移动端，镜头停止移动超过此时间才能使用跃迁
     public float mobileAutoWarpTime = 20f;
-
     @Override
     public void addStats(Table t){
         super.addStats(t);
@@ -93,14 +84,12 @@ public class WarpAbility extends Ability {
         }
         t.add(abilityStat("warpcooldown", Strings.autoFixed(warpCooldown / 60f, 2)));
     }
-
     private final KeyCode warpKey = KeyCode.altLeft;
     private final KeyCode warpBanKey = KeyCode.o;
     private float warpWarmup = 0, warpCooldownTimer = 0;
     private float wx, wy, wRot;
     private boolean rotAllowWarp = false, warpCharging = true, autoWarping = false;
     private float mobileAutoWarpTimer, mobileCamXLast, mobileCamYLast;
-
     public boolean tryingWarp(Unit unit){
         autoWarping = false;
         if(Vars.mobile && mobileAutoWarp && VESettings.getBool("ve-mobile-auto-warp") && unit.isPlayer() && mobileAutoWarpTimer >= mobileAutoWarpTime){
@@ -147,7 +136,6 @@ public class WarpAbility extends Ability {
         }
         return unit.isPlayer() && (Core.input.keyDown(warpKey) && !Core.input.keyDown(warpBanKey)) && !unit.isShooting() && warpCooldownTimer <= 0;
     }
-
     @Override
     public void update(Unit unit) {
         if(commandAutoWarpBoost && !unit.type.stances.contains(UnitStance.boost)) unit.type.stances.add(UnitStance.boost);
@@ -188,7 +176,6 @@ public class WarpAbility extends Ability {
             warpCharging = false;
         }
     }
-
     public void warp(Unit unit){
         warpCooldownTimer = warpCooldown;
         float x1 = unit.x, y1 = unit.y;
@@ -231,7 +218,6 @@ public class WarpAbility extends Ability {
         Effect.shake(warpShake, warpShake * 2f, x1, y1);
         Effect.shake(warpShake, warpShake * 2f, x2, y2);
     }
-
     public void rotateToWarp(Unit unit){
         rotAllowWarp = false;
         if(Angles.angleDist(wRot, unit.rotation()) < unit.type.rotateSpeed * unit.speedMultiplier() * Time.delta){
@@ -245,7 +231,6 @@ public class WarpAbility extends Ability {
             unit.rotation(unit.rotation() - unit.type.rotateSpeed * unit.speedMultiplier() * Time.delta);
         }
     }
-
     @Override
     public void draw(Unit unit){
         if(warpCharging){

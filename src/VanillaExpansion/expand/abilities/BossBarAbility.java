@@ -1,35 +1,25 @@
 package VanillaExpansion.expand.abilities;
-
 import VanillaExpansion.content.VEJSStatuses;
 import arc.Core;
 import arc.graphics.Color;
-import arc.graphics.Texture;
 import arc.graphics.g2d.*;
 import arc.math.Mathf;
-import arc.scene.ui.layout.Scl;
 import arc.struct.Seq;
 import arc.util.Align;
 import arc.util.Time;
 import arc.util.pooling.Pools;
 import mindustry.Vars;
 import mindustry.content.StatusEffects;
-import mindustry.content.UnitTypes;
 import mindustry.entities.abilities.Ability;
 import mindustry.gen.Groups;
 import mindustry.gen.Unit;
 import mindustry.graphics.Layer;
 import mindustry.type.Item;
 import mindustry.type.StatusEffect;
-import mindustry.type.UnitType;
 import mindustry.ui.Fonts;
-
 import java.util.Objects;
-
 import static mindustry.Vars.*;
-import static mindustry.logic.FetchType.core;
-
 public class BossBarAbility extends Ability {
-
     public String nameBundle = "";
     public boolean autoSetName = false;
     public boolean subBar = false;
@@ -40,12 +30,10 @@ public class BossBarAbility extends Ability {
     public String iconSprite = "";
     public TextureRegion iconRegion = new TextureRegion();
     public boolean regionLoaded = false;
-
     public float currentFullness = 0;
     public float currentFullnessLast = 0;
     public float currentSubFullness = 0;
     public float currentSubFullnessLast = 0;
-
     public Color white = Color.white;
     public Color black = Color.black;
     public Color mainColor = Color.valueOf("f25555");
@@ -56,13 +44,11 @@ public class BossBarAbility extends Ability {
     public Color subIncreaseColor = subColor.cpy().mul(1f);
     public Color subIncreaseColorTo = subColor.cpy().a(0f);
     public Color subChangeColor = Color.valueOf("ffd37f");
-
     public static class DecreaseRec {
         public float fullness;
         public float start;
         public int order;
         public float timer;
-
         public DecreaseRec(float fullness, int order, float start){
             this.fullness = fullness;
             this.order = order;
@@ -74,10 +60,8 @@ public class BossBarAbility extends Ability {
     public int mainDecreaseOrder = 0;
     public Seq<DecreaseRec> subIncreases = new Seq<>();
     public int subIncreaseOrder = 0;
-
     public float shortenStartTime = 24f;
     public float shortenSpeed = 1f / 120f;
-
     public boolean subShine = false;
     public boolean subFullAutoShine = true;
     public float subShineTimer = 0f;
@@ -87,21 +71,17 @@ public class BossBarAbility extends Ability {
     public boolean shake = true;
     public float shakeTimer = 0;
     public float shakeMag = 0;
-
     /** Can be edited in settings */
     public static float barScale = 1;
-
     public BossBarAbility(){
         display = false;
     }
-
     @Override
     public void draw(Unit unit){
         if (Vars.headless || Vars.ui == null || Core.camera == null) return;
         if(!Vars.ui.hudfrag.shown) return;
         drawBar(unit);
     }
-
     @Override
     public void update(Unit unit){
         if (Vars.headless || Vars.ui == null) return;
@@ -180,7 +160,6 @@ public class BossBarAbility extends Ability {
                 subColorChange = false;
             }
         }
-
         if(Core.settings.getBool("coreitems") && Vars.player.team().core() != null) {
             coreItemRows = 0;
             for (Item item : Vars.content.items()) {
@@ -190,9 +169,7 @@ public class BossBarAbility extends Ability {
             }
         }
     }
-
     private int coreItemRows = 0;
-
     public void drawBar(Unit unit){
         float camW = Core.camera.width * barScale;
         float camH = Core.camera.height;
@@ -216,13 +193,11 @@ public class BossBarAbility extends Ability {
                 y += shakeMagBase * (shakeTimer / 20f) * shakeMag * Mathf.range(1f);
             }
         }
-
         //shadow
         Draw.z(Layer.end - 10f);
         Draw.color(black);
         Draw.alpha(0.25f);
         Draw.rect(unit.type.softShadowRegion, x, y, w * 2.5f, h * 6f);
-
         //main
         Draw.color(black);
         Draw.alpha(0.33f);
@@ -240,7 +215,6 @@ public class BossBarAbility extends Ability {
         }
         Draw.color(mainColor);
         Fill.rect(x - 0.5f * b1w * (1 - currentFullness), y, b1w * currentFullness, b1h);
-
         //frame
         Draw.color(white);
         Draw.alpha(1f);
@@ -259,7 +233,6 @@ public class BossBarAbility extends Ability {
             Lines.line(x1, y - h, x1 + thick, y - h);
             Lines.line(x2, y - h, x2 - thick, y - h);
         }
-
         //sub
         if(subBar){
             float b2dy = h;
@@ -308,7 +281,6 @@ public class BossBarAbility extends Ability {
                         x + b2w * 0.8f, y - b2dy - 0.5f * b2h, colorBits2);
             }
         }
-
         //name
         float nameLen = 0;
         if((!nameBundle.isEmpty()) || autoSetName) {
@@ -324,7 +296,6 @@ public class BossBarAbility extends Ability {
                     text = autoSetName();
                 }
             }
-
             l.setText(font, text, Color.white, 1000000f, Align.left, false);
             float offset = h * 2f;
             Draw.color();
@@ -339,7 +310,6 @@ public class BossBarAbility extends Ability {
             Draw.color();
             Draw.alpha(1f);
         }
-
         //icon
         if(!regionLoaded) loadRegion();
         if(iconRegion != null) {
@@ -357,7 +327,6 @@ public class BossBarAbility extends Ability {
             Draw.rect(iconRegion, iconX,
                     y + h * 2f - iconSize * 0.3f, iconSize, iconSize);
         }
-
         //statuses
         if(drawStatuses){
             float size = h * 1.2f;
@@ -371,11 +340,9 @@ public class BossBarAbility extends Ability {
                 }
             }
         }
-
         Draw.color();
         Draw.alpha(1f);
     }
-
     public String autoSetName(){
         if(Groups.unit.contains(u -> u.type.name.startsWith("ve-fungitron"))){
             return Core.bundle.get("unit.ve-fungitron-phase1.name");
@@ -388,7 +355,6 @@ public class BossBarAbility extends Ability {
         }
         return "";
     }
-
     public void loadRegion(){
         if (Core.atlas == null) return;
         if(autoSetName){

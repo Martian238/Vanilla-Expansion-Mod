@@ -2,10 +2,11 @@ package VanillaExpansion;
 
 import VanillaExpansion.content.*;
 import VanillaExpansion.effects.OneBitRenderer;
+import VanillaExpansion.expand.graphics.LensShockwaveFX;
 import VanillaExpansion.expand.graphics.VECacheLayer;
 import VanillaExpansion.expand.graphics.VEShaders;
+import VanillaExpansion.expand.input.VEInputHandler;
 import VanillaExpansion.expand.type.unit.UnitEventUpdateManager;
-import VanillaExpansion.expand.ui.AchievementRegistry;
 import VanillaExpansion.expand.ui.AchievementTestUI;
 import VanillaExpansion.expand.ui.AchievementUI;
 import VanillaExpansion.expand.ui.HotbarUI;
@@ -18,37 +19,33 @@ import arc.Core;
 import arc.Events;
 import arc.files.Fi;
 import arc.graphics.Color;
+import arc.graphics.g2d.Font;
 import arc.scene.ui.Label;
 import arc.scene.ui.layout.Table;
-import arc.graphics.g2d.Font;
 import arc.util.Log;
 import arc.util.Time;
 import mindustry.Vars;
-import mindustry.ui.Fonts;
 import mindustry.game.EventType;
 import mindustry.mod.Mod;
-import VanillaExpansion.expand.graphics.LensShockwaveFX;
-import VanillaExpansion.expand.input.VEInputHandler;
+import mindustry.ui.Fonts;
 import mindustry.ui.dialogs.BaseDialog;
 import mindustry.world.Block;
 
 import java.util.Arrays;
+
 import static mindustry.Vars.*;
 public class VanillaExpansionMod extends Mod {
-    private final boolean textTest = false; //字体测试开关
+    private final boolean textTest = false;
     public static HotbarUI HotbarUI = new HotbarUI();
     public static MultiCrafterPayloadFragment payloadFragment;
     @Override
     public void init() {
-        ContentOrderGuard.init();
         LensShockwaveFX.init();
-        // 替换输入处理器并测试VEFonts（仅客户端，移动端除外）
         Events.on(EventType.ClientLoadEvent.class, e -> {
             if(!Vars.mobile){
                 control.setInput(new VEInputHandler());
             }
             if(textTest) {
-                // 延迟10秒后显示VEFonts测试UI
                 Time.runTask(10f, () -> {
                     BaseDialog dialog = new BaseDialog("VEFonts测试");
                     Font veFont = VEFonts.novo != null ? VEFonts.novo : Fonts.def;

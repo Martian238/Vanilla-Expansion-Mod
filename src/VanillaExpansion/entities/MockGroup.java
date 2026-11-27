@@ -1,10 +1,8 @@
 package VanillaExpansion.entities;
-
 import arc.func.*;
 import arc.struct.*;
 import mindustry.entities.*;
 import mindustry.gen.*;
-
 public class MockGroup<T extends Entityc> extends EntityGroup<T>{
     static MockGroup<Entityc> all;
     static MockGroup<Building> build;
@@ -12,9 +10,7 @@ public class MockGroup<T extends Entityc> extends EntityGroup<T>{
     static MockGroup<Drawc> draw;
     static MockGroup<Syncc> sync;
     static MockGroup<Unit> unit;
-
     Seq<T> added;
-
     public static void load(){
         all = new MockGroup<>(Entityc.class, false, false, true);
         bullet = new MockGroup<>(Bullet.class, true, false);
@@ -36,13 +32,9 @@ public class MockGroup<T extends Entityc> extends EntityGroup<T>{
         Groups.draw = draw;
         Groups.sync = sync;
         Groups.unit = unit;
-
         action.run();
-        for(Entityc e : all.added){
-            added.get(e);
-        }
+        for(Entityc e : all.added){added.get(e);}
         all.added.clear();
-
         Groups.all = tall;
         Groups.build = tbuild;
         Groups.bullet = tbullet;
@@ -50,28 +42,13 @@ public class MockGroup<T extends Entityc> extends EntityGroup<T>{
         Groups.sync = tsync;
         Groups.unit = tunit;
     }
-
-    public MockGroup(Class<T> type, boolean spatial, boolean mapping, boolean addfunc){
-        super(type, spatial, mapping, null);
-        added = new Seq<>();
-    }
-
+    public MockGroup(Class<T> type, boolean spatial, boolean mapping, boolean addfunc){super(type, spatial, mapping, null);added = new Seq<>();}
     public MockGroup(Class<T> type, boolean spatial, boolean mapping){
         super(type, spatial, mapping, null);
     }
+    @Override
+    public void add(T type){if(added != null){added.add(type);}}
 
     @Override
-    public void add(T type){
-        if(added != null){
-            added.add(type);
-        }
-    }
-
-    @Override
-    public int addIndex(T type){
-        if(added != null){
-            added.add(type);
-        }
-        return -1;
-    }
+    public int addIndex(T type){if(added != null){added.add(type);}return -1;}
 }

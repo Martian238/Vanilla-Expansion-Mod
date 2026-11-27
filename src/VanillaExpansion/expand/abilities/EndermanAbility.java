@@ -1,10 +1,7 @@
 package VanillaExpansion.expand.abilities;
-
 import arc.Events;
 import arc.func.Cons;
 import arc.math.Mathf;
-import arc.util.Log;
-import arc.util.Time;
 import mindustry.Vars;
 import mindustry.entities.Units;
 import mindustry.entities.abilities.Ability;
@@ -14,30 +11,21 @@ import mindustry.type.UnitType;
 import mindustry.world.Tile;
 import mindustry.world.blocks.environment.EmptyFloor;
 import mindustry.world.blocks.environment.Floor;
-
 import static mindustry.Vars.*;
-
 public class EndermanAbility extends Ability {
-    public EndermanAbility(){
-
-    }
-
+    public EndermanAbility(){}
     public float teleportRadius = 32f * tilesize;
     public float teleportCooldown = -1f;
     public UnitType teleportEffectUnit;
-
     public float bulletDetectRadius = 6f * tilesize;
     public float enemyDetectRadius = 14f * tilesize;
-
     private float teleportCooldownTimer = 0f;
     private float healthSaved = 0f;
     private float damageAccumulated = 0f;
     private float damageThreshold = 100f;
-
     @Override
     public void update(Unit unit){
         super.update(unit);
-
         if(teleportCooldown > 0) {
             if (teleportCooldownTimer > 0) teleportCooldownTimer--;
             if (teleportCooldownTimer < 0) teleportCooldownTimer = 0f;
@@ -58,7 +46,6 @@ public class EndermanAbility extends Ability {
             }
         }
     }
-
     public void tryTeleport(Unit unit){
         float originX = unit.x;
         float originY = unit.y;
@@ -77,7 +64,6 @@ public class EndermanAbility extends Ability {
             }
         }
     }
-
     public void doTeleport(Unit unit, float x, float y){
         float ox = unit.x, oy = unit.y;
         spawnEffectUnit(unit, ox, oy);
@@ -85,7 +71,6 @@ public class EndermanAbility extends Ability {
         spawnEffectUnit(unit, x, y);
         teleportCooldownTimer = teleportCooldown;
     }
-
     public void spawnEffectUnit(Unit unit, float x, float y){
         if(teleportEffectUnit != null){
             Unit eu = teleportEffectUnit.create(unit.team);
@@ -98,7 +83,6 @@ public class EndermanAbility extends Ability {
             eu.rotation = 0f;
         }
     }
-
     private boolean tooClose;
     private static EndermanAbility paramField;
     private static Unit paramUnit;
@@ -139,7 +123,6 @@ public class EndermanAbility extends Ability {
             paramField.tooClose = true;
         }
     };
-
     public boolean canTeleport(Unit unit, float x, float y){
         if(!canSpawnUnit(unit.type(), x, y)){
             return false;
@@ -152,11 +135,9 @@ public class EndermanAbility extends Ability {
         Units.nearbyBuildings(x, y, enemyDetectRadius * 1.5f, buildingConsumer2);
         return !tooClose;
     }
-
     public float getDistance(float ax, float ay, float bx, float by){
         return Mathf.sqrt(Math.abs((ax - bx) * (ax - bx) + (ay - by) * (ay - by)));
     }
-
     public boolean canSpawnUnit(UnitType u, float x, float y) {
         Floor floor = world.floorWorld(x, y);
         Tile tile = world.tileWorld(x, y);

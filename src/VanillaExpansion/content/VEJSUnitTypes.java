@@ -1,5 +1,4 @@
 package VanillaExpansion.content;
-
 import VanillaExpansion.expand.type.unit.*;
 import VanillaExpansion.expand.type.unit.annihilate.AnnihilateUnitTypes;
 import VanillaExpansion.expand.type.unit.internal.OrbitStrikeBeaconUnit;
@@ -7,28 +6,23 @@ import VanillaExpansion.expand.type.unit.internal.OrbitStrikeBeaconUnitType;
 import mindustry.content.Fx;
 import mindustry.gen.*;
 import mindustry.type.UnitType;
-
 public class VEJSUnitTypes {
-
     //Core units
     public static UnitType theta, lambda, sigma, deltaUnit, omega;
     public static UnitType zetaUnit, eta;
     public static OmicronUnitType omicron;
     public static UnitType iota, iotaFungikiller, iotaStealth, iotaStg, iotaFinal;
-
     //Cyclant new types
     public static UnitType conscript, arrange, charge, capture;
     public static DayunTankUnitType triumph;
     public static UnitType dust, mist, haze, hurricane, meteorology, flocculate, alleviate;
     public static UnitType smarb, mider, velocite, slidoid, hovopid;
-
     //Strengthened & Remoulded
     public static UnitType blade, hammer, ballistic, firelock, ray;
     public static UnitType stardust, vortex, nebula, galaxy, universe;
     public static UnitType aurora, plasma, solar, magnetic, corona;
     public static UnitType pointUnit, lineUnit, squareUnit, stereo, metaUnit;
     public static UnitType lance, hoe, astrologe, prominence, stringUnit, plain;
-
     //Special
     public static UnitType
             assemblyDrone, assemblyDroneHyper, skibidiBryde,
@@ -39,27 +33,20 @@ public class VEJSUnitTypes {
     public static UnitType frostFortress;
     public static IronGolemType ferricFortress;
     public static UnitType fireBee, octPainted;
-
     //Maress new types
     public static UnitType shimmer, daybreak, sunrise, twilight;
     public static UnitType uprise, soar, hover, ambush, dive;
     public static UnitType stink, termite, stinging;
-
     //Lacuna
     public static UnitType sparkle, plasm, surge, tide, thunder;
     public static UnitType vibrate, shakeUnit, quake;
-
     //Bosses
     public static UnitType thoriumEradicator, hugeDagger, hyper, hyperBoss;
-
     //Minigame elements
     public static SentryUnitType zenithSentry;
-
     //Internal
     public static UnitType textTrigger, orbitStrikeBeacon;
-
     public static void load(){
-
         theta = new UnitType("theta"){{constructor = UnitEntity::create;}};
         lambda = new UnitType("lambda"){{constructor = UnitEntity::create;}};
         sigma = new UnitType("sigma"){{constructor = UnitEntity::create;}};
@@ -200,9 +187,6 @@ public class VEJSUnitTypes {
         orbitStrikeBeacon = new OrbitStrikeBeaconUnitType("orbit-strike-beacon"){{
             constructor = OrbitStrikeBeaconUnit::new;
         }};
-
-
-
         zenithSentry = new SentryUnitType("zenith-sentry"){{constructor = SentryUnit::create;}};
     }
 }

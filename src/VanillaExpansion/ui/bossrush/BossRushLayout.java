@@ -2,7 +2,6 @@ package VanillaExpansion.ui.bossrush;
 
 import arc.math.geom.Rect;
 import arc.struct.Seq;
-import arc.util.Log;
 
 public class BossRushLayout{
     public float nodeWidth = 160f;

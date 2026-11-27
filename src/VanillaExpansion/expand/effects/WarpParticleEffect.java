@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.effects;
-
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Lines;
@@ -9,18 +8,12 @@ import arc.math.Rand;
 import arc.math.geom.Vec2;
 import mindustry.entities.Effect;
 import mindustry.graphics.Drawf;
-
-import static arc.math.Mathf.rand;
-
 public class WarpParticleEffect extends Effect {
-
     public WarpParticleEffect() {
         clip = generalLength * 2f;
     }
-
     private static final Rand rand = new Rand();
     private static final Vec2 rv = new Vec2();
-
     public float width = 24f;
     public float generalLength = 720f;
     public float stroke = 1f;
@@ -33,7 +26,6 @@ public class WarpParticleEffect extends Effect {
     public Interp sizeInterp = Interp.pow2In;
     public Interp colorInterp = Interp.linear;
     public float cone = 0;
-
     @Override
     public void render(EffectContainer e){
         float rawfin = e.fin();
@@ -42,7 +34,6 @@ public class WarpParticleEffect extends Effect {
         Draw.color(colorFrom, colorTo, colFin);
         Lines.stroke(sizeInterp.apply(stroke, 0, rawfin));
         float len = sizeInterp.apply(lengthFrom, lengthTo, rawfin);
-
         rand.setSeed(e.id);
         for(int i = 0; i < particles; i++){
             float l = generalLength * fin;

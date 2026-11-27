@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.bullets;
-
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Fill;
@@ -12,7 +11,6 @@ import mindustry.entities.effect.WrapEffect;
 import mindustry.gen.Bullet;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
-
 public class DarkSlashBulletType extends BasicBulletType {
     public DarkSlashBulletType() {
         absorbable = false;
@@ -23,23 +21,18 @@ public class DarkSlashBulletType extends BasicBulletType {
         speed = 0;
         lifetime = 30f;
     }
-
     public float slashLength = 64f;
     public float slashWidth = 8f;
     public float slashStroke = 2f;
     public boolean slashHorizontallyShrink = true;
-
     public float slashAngleOffset = 90f;
     public float slashAngleRand = 90f;
-
     public float slashDamageInterval = 5;
     public RailBulletType damageDealer = new RailBulletType(){{
         hitEffect = despawnEffect = Fx.none;
         pierceDamageFactor = 0;
         pierceCap = -1;
     }};
-
-
     @Override
     public void init(Bullet b){
         super.init(b);

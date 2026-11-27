@@ -1,8 +1,5 @@
 package VanillaExpansion.content;
-
 import arc.graphics.Color;
-import arc.struct.Seq;
-import mindustry.content.Blocks;
 import mindustry.content.Planets;
 import mindustry.gen.Musics;
 import mindustry.graphics.g3d.HexSkyMesh;
@@ -11,16 +8,11 @@ import mindustry.graphics.g3d.NoiseMesh;
 import mindustry.graphics.g3d.SunMesh;
 import mindustry.maps.generators.BlankPlanetGenerator;
 import mindustry.type.Planet;
-import mindustry.world.blocks.Attributes;
 import mindustry.world.meta.Attribute;
 import mindustry.world.meta.Env;
-
 public class VEJSPlanets {
-
     public static Planet sol2, cyclant, phoon, maress, sitrullus;
-
     public static void load(){
-
         sol2 = new Planet("sol2", Planets.sun, 12f){{
             bloom = true;
             accessible = true;
@@ -32,8 +24,6 @@ public class VEJSPlanets {
             orbitRadius = 300;
             drawOrbit = false;
             orbitTime = 12000;
-            //children = Seq.with(cyclant, maress, sitrullus);
-
             meshLoader = () -> new MultiMesh(
                     new SunMesh(this,
                             6, 5, 0.3, 3, 1.2, 0.8, 1.1f,
@@ -42,7 +32,6 @@ public class VEJSPlanets {
                             Color.valueOf("71e3ff"), Color.valueOf("8eeef4"))
             );
         }};
-
         cyclant = new Planet("cyclant", sol2, 1f, 3){{
             generator = new BlankPlanetGenerator();
             solarSystem = sol2;
@@ -67,8 +56,6 @@ public class VEJSPlanets {
             visible = true;
             minZoom = 0.001f;
             maxZoom = 10f;
-            //children = Seq.with(phoon);
-
             accessible = true;
             allowSelfSectorLaunch = false;
             defaultAttributes.set(Attribute.spores, -1f);
@@ -97,7 +84,6 @@ public class VEJSPlanets {
             launchCapacityMultiplier = 0.5f;
             prebuildBase = true;
             defaultEnv = Env.terrestrial | Env.groundWater | Env.oxygen | Env.groundOil;
-
             cloudMeshLoader = () -> new MultiMesh(
                     new HexSkyMesh(this,
                             9, 2.8f, 0.07f, 5, Color.valueOf("938c9cd0"),
@@ -133,7 +119,6 @@ public class VEJSPlanets {
                             Color.valueOf("ffa665"), Color.valueOf("feb380"))
             );
         }};
-
         phoon = new Planet("phoon", cyclant, 0.2f, 1){{
             generator = new BlankPlanetGenerator();
             solarSystem = sol2;
@@ -155,7 +140,6 @@ public class VEJSPlanets {
             camRadius = 0.25f;
             minZoom = 0.2f;
             maxZoom = 3f;
-
             accessible = true;
             allowSelfSectorLaunch = false;
             defaultAttributes.set(Attribute.spores, -1f);
@@ -184,7 +168,6 @@ public class VEJSPlanets {
             launchCapacityMultiplier = 0.5f;
             prebuildBase = false;
             defaultEnv = Env.terrestrial | Env.groundWater | Env.oxygen | Env.groundOil;
-
             meshLoader = () -> new MultiMesh(
                     new NoiseMesh(this,
                             204, 2, 0.2f, 5, 0.5f, 1f, 0.5f,
@@ -196,7 +179,6 @@ public class VEJSPlanets {
                             4, 0.5f, 0.1f, 0.5f)
             );
         }};
-
         maress = new Planet("maress", sol2, 0.75f, 3){{
             generator = new BlankPlanetGenerator();
             solarSystem = sol2;
@@ -221,7 +203,6 @@ public class VEJSPlanets {
             visible = true;
             minZoom = 0.001f;
             maxZoom = 10f;
-
             accessible = true;
             allowSelfSectorLaunch = false;
             defaultAttributes.set(Attribute.spores, -1f);
@@ -250,7 +231,6 @@ public class VEJSPlanets {
             launchCapacityMultiplier = 0.5f;
             prebuildBase = true;
             defaultEnv = Env.terrestrial | Env.groundWater | Env.oxygen;
-
             cloudMeshLoader = () -> new MultiMesh(
                     new HexSkyMesh(this,
                             78, 1f, 0.12f, 5, Color.valueOf("b6a49933"),
@@ -274,7 +254,6 @@ public class VEJSPlanets {
                             10, 0.5f, 10f, 0.5f)
             );
         }};
-
         sitrullus = new Planet("sitrullus", sol2, 0.6f, 2){{
             generator = new BlankPlanetGenerator();
             solarSystem = sol2;
@@ -299,7 +278,6 @@ public class VEJSPlanets {
             visible = true;
             minZoom = 1.2f;
             maxZoom = 10f;
-
             accessible = true;
             allowSelfSectorLaunch = false;
             defaultAttributes.set(Attribute.spores, 0.5f);
@@ -330,7 +308,6 @@ public class VEJSPlanets {
             launchCapacityMultiplier = 0.25f;
             prebuildBase = true;
             defaultEnv = Env.terrestrial | Env.groundWater | Env.oxygen | Env.spores;
-
             cloudMeshLoader = () -> new MultiMesh(
                     new HexSkyMesh(this,
                             574, 0.3f, 0.08f, 4, Color.valueOf("daf9c840"),
@@ -358,7 +335,5 @@ public class VEJSPlanets {
                             1, 0.5f, 1f, 0.5f)
             );
         }};
-
-
     }
 }

@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.liquid;
-
 import arc.*;
 import arc.func.*;
 import arc.graphics.g2d.*;
@@ -17,23 +16,17 @@ import mindustry.world.*;
 import mindustry.world.blocks.*;
 import mindustry.world.blocks.distribution.ItemBridge;
 import mindustry.world.blocks.liquid.LiquidJunction;
-
 public class Pipe extends MergingLiquidBlock implements Autotiler {
-
     public static final int[][] blendIndices = {
             {0, 0}, {0, 0}, {0, 1}, {1, 3},
             {0, 0}, {0, 0}, {1, 2}, {2, 3},
             {0, 1}, {1, 0}, {0, 1}, {2, 0},
             {1, 1}, {2, 1}, {2, 2}, {3, 0}
     };
-
-
     public static final float rotatePad = 6, hpad = rotatePad / 2f / 4f;
     public static final float[][] rotateOffsets = {{hpad, hpad}, {-hpad, hpad}, {-hpad, -hpad}, {hpad, -hpad}};
-
     public TextureRegion[][] regions;
     public TextureRegion[] bottomRegions;
-
     public TextureRegion[][][] rotateRegions;
 
     public @Nullable Block junctionReplacement;

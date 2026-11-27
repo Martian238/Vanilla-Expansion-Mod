@@ -1,8 +1,6 @@
 package VanillaExpansion.expand.exp;
 
 import arc.math.*;
-
-/** Exp 经验球占位实现，后续随完整 ExpOrbs(BulletType) 移植补充 */
 public class ExpOrbs{
     public static final int expAmount = 10;
 

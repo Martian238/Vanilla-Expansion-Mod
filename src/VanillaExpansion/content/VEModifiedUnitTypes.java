@@ -1,23 +1,16 @@
 package VanillaExpansion.content;
-
 import arc.graphics.Blending;
-import arc.graphics.Color;
 import mindustry.content.UnitTypes;
 import mindustry.entities.part.RegionPart;
 import mindustry.graphics.Pal;
 import mindustry.type.Planet;
 import mindustry.type.UnitType;
-
 public class VEModifiedUnitTypes {
-
     public static void load(){
-
         generalShownPlanetsSettings();
         generalDatabaseTag();
         generalModify();
-
     }
-
     public static void generalModify(){
         UnitType cor = UnitTypes.corvus;
         cor.targetUnderBlocks = false;
@@ -39,7 +32,6 @@ public class VEModifiedUnitTypes {
             colorTo = Pal.heal.cpy().a(0.6f);
         }});
     }
-
     public static void generalDatabaseTag(){
         addDatabaseTag("01core-unit",
                 UnitTypes.alpha, UnitTypes.beta, UnitTypes.gamma,
@@ -61,7 +53,6 @@ public class VEModifiedUnitTypes {
         addDatabaseTag("07erekir-mech-unit",
                 UnitTypes.merui, UnitTypes.cleroi, UnitTypes.anthicus, UnitTypes.tecta, UnitTypes.collaris);
     }
-
     public static void generalShownPlanetsSettings(){
         addShownPlanet(VEJSPlanets.cyclant,
                 UnitTypes.dagger, UnitTypes.mace, UnitTypes.fortress, UnitTypes.scepter, UnitTypes.reign,
@@ -103,7 +94,6 @@ public class VEModifiedUnitTypes {
                 UnitTypes.risso, UnitTypes.minke, UnitTypes.bryde,
                 UnitTypes.retusa, UnitTypes.oxynoe, UnitTypes.cyerce);
     }
-
     public static void addDatabaseTag(String tag, UnitType... types){
         for(UnitType type : types){
             type.databaseTag = tag;

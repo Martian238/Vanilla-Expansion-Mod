@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.production;
-
 import arc.Core;
 import arc.math.Mathf;
 import mindustry.graphics.Pal;
@@ -9,9 +8,7 @@ import mindustry.world.blocks.heat.HeatConsumer;
 import mindustry.world.blocks.production.HeatCrafter;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
-
 public class HeatButNoHeatCanStillWorkCrafter extends HeatCrafter {
-
     public float basicEfficiency = 1f;
 
     public HeatButNoHeatCanStillWorkCrafter(String name) {

@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.abilities;
-
 import arc.Core;
 import arc.audio.Sound;
 import arc.func.Cons;
@@ -12,7 +11,6 @@ import arc.math.Angles;
 import arc.math.Mathf;
 import arc.math.geom.Vec2;
 import arc.struct.Seq;
-import arc.util.Log;
 import arc.util.Nullable;
 import mindustry.Vars;
 import mindustry.content.Fx;
@@ -30,27 +28,14 @@ import mindustry.gen.*;
 import mindustry.graphics.Drawf;
 import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
-import mindustry.type.UnitType;
-import mindustry.world.Block;
 import mindustry.world.Tile;
 import mindustry.world.blocks.environment.EmptyFloor;
 import mindustry.world.blocks.environment.Floor;
-
-import static java.lang.Float.NaN;
 import static mindustry.Vars.world;
 import static mindustry.type.UnitType.shadowTX;
 import static mindustry.type.UnitType.shadowTY;
-
 public class DetainerClawAbility extends Ability {
-
-
-    public DetainerClawAbility(){
-
-    }
-
-    //TODO
-
-
+    public DetainerClawAbility(){}
     public float clawLength = 48f;
     public float clawWidth = 4f;
     public float clawRotateSpeed = 3f;
@@ -58,13 +43,11 @@ public class DetainerClawAbility extends Ability {
     public float clawShadowElevation = 1f;
     public @Nullable Color clawLaserColor;
     public Color clawLaserCenterColor = Color.white;
-
     public boolean clawFollowAim = true;
     public float clawDefaultAngle = 0f;
     public float clawDistanceDefault = 80f;
     public float clawDistanceMax = 160f;
     public float clawDistanceMin = 40f;
-
     public float absorbRadius = 24f;
     public boolean absorbSameTeam = true;
     public float releaseSpeed = 13f;
@@ -73,13 +56,11 @@ public class DetainerClawAbility extends Ability {
     public Effect releaseEffect = Fx.shockwave;
     public Sound releaseSound = Sounds.none;
     public float releaseShake = 6f;
-
     public String clawRegion = "test-claw-outline";
     public String clawBottomRegion = "test-claw-bottom-outline";
     public String clawShadowRegion = "test-claw-full";
     public String clawArmRegion = "test-claw-arm";
     public Seq<DrawPart> clawParts = new Seq<>();
-
     //stereoMode
     public boolean stereoMode = true;
     private boolean aimControlling = false;
@@ -90,7 +71,6 @@ public class DetainerClawAbility extends Ability {
     public float wristAngleDefault = 90f;
     public int armSide = 0; //0 - right, 1 - left, 2 - middle
     public int controlKeyJson = 1;
-
     public String clawSideOuterRegion = "copper-wall";
     public String clawSideInnerRegion = "tungsten-wall";
     public String clawSideSideRegion = "titanium-wall";
@@ -102,7 +82,6 @@ public class DetainerClawAbility extends Ability {
     public String armJointRegion = "scrap-wall1";
     public String armRegion = "surge-wall";
     public String rootRegion = "phase-wall";
-
     public float clawSpriteWidth = 12f;
     public float clawSpriteHeight = 24f;
     public float clawSpriteBeamOffset = 18f;
@@ -113,25 +92,17 @@ public class DetainerClawAbility extends Ability {
     public float wristJointSpriteSize = 16f;
     public float armJointSpriteSize = 16f;
     public float rootSpriteSize = 20f;
-
     public Seq<Integer> otherControlKeys = new Seq<>();
     public Sound controlKeySound = Sounds.click;
     public Effect controlKeyEffect = Fx.spawn;
     public Sound switchModeSound = Sounds.click;
     public boolean switchModeSoundPlayer = true;
-
     public boolean faceControlling = true;
     public boolean outputLaser = false;
     public Effect energyEffect = Fx.none;
     public Sound energyOrbSound = Sounds.shootNavanax;
     public Sound laserShootSound = Sounds.none;
     public Sound laserLoopSound = Sounds.none;
-
-
-
-
-
-
     private float x, y, rot, rotMultiplier = 1f, totalDamage, clawSpeedMultiplier = 0.2f,
             rotZ, armDistance, armDistanceTarget, wristAngle, wristAngleTarget, armNodeOffset, armRot, dvx, dvy, lastX, lastY;
     private final boolean activated = true;
@@ -145,53 +116,28 @@ public class DetainerClawAbility extends Ability {
     private boolean flip = (rootX < 0);
     private int mode;
     private float totalEnergy;
-
-
-
-
-
-
-
     private static Unit paramUnit;
     private static DetainerClawAbility paramField;
     private static Vec2 paramPos = new Vec2();
-
-
-
-
     @Override
     public void created(Unit unit){
         rot = 0f;
         x = clawDistanceDefault * Mathf.cosDeg(clawDefaultAngle + unit.rotation);
         y = clawDistanceDefault * Mathf.sinDeg(clawDefaultAngle + unit.rotation);
-        if(stereoMode){
-            x = rootX;
-            y = rootY;
-        }
+        if(stereoMode){x = rootX;y = rootY;}
         tempBulletNumber = 1;
         armDistance = armDistanceTarget = armLength * armDefaultScale;
         rotZ = unit.rotation;
         wristAngle = wristAngleTarget = wristAngleDefault;
         unit.flag(0);
-
     }
-
-    public float getDistance(float ax, float ay, float bx, float by){
-        return Mathf.sqrt(Math.abs((ax - bx) * (ax - bx) + (ay - by) * (ay - by)));
-    }
-
+    public float getDistance(float ax, float ay, float bx, float by){return Mathf.sqrt(Math.abs((ax - bx) * (ax - bx) + (ay - by) * (ay - by)));}
     public boolean checkBulletRecreate(Bullet b){
-        if(b.type.collidesAir != b.type.collidesGround || !b.type.collidesAir){
-            return true;
-        }
-        if(b.type.drag < 0 || b.type.accel > 0 || b.type.speed < 0.01){
-            return true;
-        }
+        if(b.type.collidesAir != b.type.collidesGround || !b.type.collidesAir){return true;}
+        if(b.type.drag < 0 || b.type.accel > 0 || b.type.speed < 0.01){return true;}
         return !b.type.collides || b.type.scaleLife;
     }
-
     public void clawMove(Unit unit){
-
         if(clawFollowAim) {
             float tx, ty;
             float aimDistance = getDistance(unit.aimX, unit.aimY, unit.x, unit.y);
@@ -216,18 +162,14 @@ public class DetainerClawAbility extends Ability {
         }
 
     }
-
     public void clawMoveStereo(Unit unit){
         float tx = unit.x, ty = unit.y,
                 aimDistance, c, sinA, sinB, tryDistance,
                 d = unit.rotation - 180f, a = 0f;
-
         float rX = rootX * Mathf.cosDeg(unit.rotation - 90f) + rootY * Mathf.cosDeg(unit.rotation);
         float rY = rootX * Mathf.sinDeg(unit.rotation - 90f) + rootY * Mathf.sinDeg(unit.rotation);
-
         aimDistance = getDistance(unit.aimX, unit.aimY, unit.x + rX, unit.y + rY);
         c = Mathf.radiansToDegrees * Mathf.atan2(unit.aimX - unit.x - rX, unit.aimY - unit.y - rY);
-
         if(!aimControlling){
             /*
             sinA = Mathf.sinDeg(wristAngle) * armDistance / aimDistance;
@@ -243,18 +185,14 @@ public class DetainerClawAbility extends Ability {
             }
             armRot = c - Mathf.radiansToDegrees * (float)Math.asin(sinB);
             */
-
                 tx = armLength * armDefaultScale * Mathf.cosDeg(unit.rotation + (armSide == 0? -90f : 90f)) + wristLength * Mathf.cosDeg(unit.rotation);
                 ty = armLength * armDefaultScale * Mathf.sinDeg(unit.rotation + (armSide == 0? -90f : 90f)) + wristLength * Mathf.sinDeg(unit.rotation);
-
             float tempDistance = getDistance(x, y, rX, rY);
-
                 a = (float) (Mathf.radiansToDegrees * Math.asin(armLength * armDefaultScale / clawDistanceDefault));
             armDistanceTarget = (float) Math.sqrt(tempDistance * tempDistance - wristLength * wristLength);
             sinB = Mathf.sinDeg(a) * wristLength / armDistanceTarget;
             wristAngleTarget = wristAngleDefault;
             d = a + c - 180f;
-
             armRot = c - Mathf.radiansToDegrees * (float)Math.asin(sinB);
         }else{
             if(aimDistance <= armLength + wristLength && aimDistance >= clawDistanceMin){
@@ -279,12 +217,9 @@ public class DetainerClawAbility extends Ability {
             }else{
                 d = -a + c - 180f;
             }
-
             armRot = c - Mathf.radiansToDegrees * (float)Math.asin(sinB);
         }
-
         //Log.info("wA:" + wristAngleTarget + ", armRot:" + armRot + ", armD:" + armDistanceTarget + ", a:" + a);
-
         x = Mathf.approachDelta(x, tx + rX, 0.05f + clawSpeedMultiplier * Math.min(absorbRadius, Math.abs(x - tx - rX)) * (!aimControlling? 0.5f : 1f));
         y = Mathf.approachDelta(y, ty + rY, 0.05f + clawSpeedMultiplier * Math.min(absorbRadius, Math.abs(y - ty - rY)) * (!aimControlling? 0.5f : 1f));
         if(Math.abs(x - tx - rX) > 800f) x = tx + rX;
@@ -315,44 +250,23 @@ public class DetainerClawAbility extends Ability {
             armNodeOffset = 0;
         }
     }
-
-
-
     public void unitFaceClaw(Unit unit){
         float angle = Mathf.radiansToDegrees * Mathf.atan2(unit.aimX - unit.x, unit.aimY - unit.y);
         float sin = Mathf.sinDeg(angle - unit.rotation);
         if(Angles.angleDist(unit.rotation, angle) > 45) {
-            if (sin > 0) {
-                unit.rotation(unit.rotation + unit.type.rotateSpeed);
-            } else if (sin < 0) {
-                unit.rotation(unit.rotation - unit.type.rotateSpeed);
-            }
-            if (Angles.angleDist(unit.rotation, angle) <= unit.type.rotateSpeed) {
-                unit.rotation(angle);
-            }
+            if (sin > 0) {unit.rotation(unit.rotation + unit.type.rotateSpeed);
+            } else if (sin < 0) {unit.rotation(unit.rotation - unit.type.rotateSpeed);
+            }if (Angles.angleDist(unit.rotation, angle) <= unit.type.rotateSpeed) {unit.rotation(angle);}
         }
     }
-
     @Override
     public void update(Unit unit){
-        if(rootX > 0){
-            armSide = 0;
-            flip = false;
-        }else if(rootX < 0){
-            armSide = 1;
-            flip = true;
-        }
-
+        if(rootX > 0){armSide = 0;flip = false;
+        }else if(rootX < 0){armSide = 1;flip = true;}
         clawSpeedMultiplier = 0.5f;
-        if(hasBullet){
-            clawSpeedMultiplier = 0.3f;
-        }
-        if(!stereoMode) {
-            clawMove(unit);
-        }else{
-            clawMoveStereo(unit);
-        }
-
+        if(hasBullet){clawSpeedMultiplier = 0.3f;}
+        if(!stereoMode) {clawMove(unit);
+        }else{clawMoveStereo(unit);}
         paramUnit = unit;
         paramField = this;
         paramPos.set(x, y).rotate(unit.rotation - 90f).add(unit);
@@ -360,11 +274,9 @@ public class DetainerClawAbility extends Ability {
         hasBullet = false;
         releaseSoundPlay = false;
         if(mode != 1) totalEnergy = 0f;
-
         Groups.bullet.intersect(unit.x + x - absorbRadius, unit.y + y - absorbRadius, absorbRadius * 2f, absorbRadius * 2f, clawConsumer);
         Units.nearby(unit.x + x - absorbRadius, unit.y + y - absorbRadius, absorbRadius * 2f, absorbRadius * 2f, missileConsumer);
         Units.nearby(unit.x + x - absorbRadius, unit.y + y - absorbRadius, absorbRadius * 2f, absorbRadius * 2f, unitConsumer);
-
         if(releaseSoundPlay){
             releaseEffect.at(unit.x + x, unit.y + y, paramUnit.team.color);
             releaseSound.at(unit.x + x, unit.y + y);
@@ -378,7 +290,6 @@ public class DetainerClawAbility extends Ability {
             totalEnergy -= d;
             Fx.circleColorSpark.at(unit.x + x, unit.y + y, 0f, clawLaserColor == null? unit.team.color : clawLaserColor);
         }
-
         rotMultiplier = 1f;
         if(hasBullet){
             rotMultiplier = Mathf.approachDelta(rotMultiplier, Math.min(10f, 2f * ((totalDamage / 500f) + 1f)), 5f);
@@ -395,26 +306,16 @@ public class DetainerClawAbility extends Ability {
         rot = rot + clawRotateSpeed * rotMultiplier;
         if(rot > 360f) rot -= 360f;
         if(rot < -360f) rot += 360f;
-
-
-
-
-
         controlling(unit);
-
         if(faceControlling && aimControlling && unit.isPlayer()){
             unitFaceClaw(unit);
         }
-
         if(delayShootingTimer > 0) delayShootingTimer -= 1;
-
         //Log.info(x +", "+ y);
-
         dvx = x - lastX;
         dvy = y - lastY;
         lastX = x;
         lastY = y;
-
         laserShooting = false;
         if(unit.flag + totalEnergy > 0 && mode == 1){
             outputModeAttack(unit);
@@ -434,10 +335,6 @@ public class DetainerClawAbility extends Ability {
             orbTimer -= 1;
         }
     }//end update()
-
-
-
-
     public void controlling(Unit unit){
         controlKey = KeyCode.byOrdinal(28 + controlKeyJson);
 
@@ -488,10 +385,8 @@ public class DetainerClawAbility extends Ability {
         rotZ = unit.rotation;
         wristAngleTarget = wristAngleDefault;
     }
-
     private float holdTime, max = 60f, orbTimer;
     private boolean energyCharging, laserShooting;
-
     public void outputModeAttack(Unit unit){
         float limit = 65f;
         if(unit.isShooting() && aimControlling && (holdTime < limit || outputLaser)){
@@ -601,9 +496,6 @@ public class DetainerClawAbility extends Ability {
             }
         }
     }
-
-
-
     @Override
     public void draw(Unit unit){
         if(!stereoMode) {
@@ -618,7 +510,6 @@ public class DetainerClawAbility extends Ability {
             }
         }
     }
-
     public void drawClawDefault(Unit unit){
         Draw.color(Color.white, 1f);
         Draw.z(Layer.flyingUnitLow);
@@ -643,7 +534,6 @@ public class DetainerClawAbility extends Ability {
             drawClawLaser(unit, clawLaserColor, clawLaserCenterColor);
         }
     }
-
     public void drawClawStereo(Unit unit, float rot){
         //basic pos
         float
@@ -696,7 +586,6 @@ public class DetainerClawAbility extends Ability {
                 dyArmBase = (dyArmJoint + dyWristJoint) / 2,
                 dxArm = (dxArmJoint + cx + rx) / 2 - cx,
                 dyArm = (dyArmJoint + cy + ry) / 2 - cy;
-
         Draw.color(Color.white, 1f);
         //claw inner
         Draw.z(Layer.flyingUnitLow - 4f);
@@ -728,7 +617,6 @@ public class DetainerClawAbility extends Ability {
                 (clawLength + 2 * clawSpriteThickness) * Mathf.clamp(Mathf.cosDeg(rot)), clawSpriteThickness, rotZ - 90f, unit);
         drawRectShadow(clawBottomMainRegion, cx + dxBottomMain2, cy + dyBottomMain2,
                 (clawLength + 2 * clawSpriteThickness) * Mathf.clamp(-Mathf.cosDeg(rot)), clawSpriteThickness, rotZ - 90f, unit);
-
             //wrist
             Draw.z(Layer.flyingUnitLow - 0.3f);
         drawRectShadow(wristRegion, cx + dxWrist, cy + dyWrist,
@@ -737,37 +625,29 @@ public class DetainerClawAbility extends Ability {
             Draw.z(Layer.flyingUnitLow - 0.1f);
         drawRectShadow(wristJointRegion, cx + dxWristJoint, cy + dyWristJoint,
                     wristJointSpriteSize, wristJointSpriteSize, 0f, unit);
-
-
             //arm base
             Draw.z(Layer.flyingUnitLow - 0.2f);
         drawRectShadow(armBaseRegion, cx + dxArmBase, cy + dyArmBase,
                 armLength / 2, armBaseSpriteWidth, Mathf.radiansToDegrees * Mathf.atan2(dxWristJoint - dxArmJoint, dyWristJoint - dyArmJoint), unit);
-
             //arm joint
             Draw.z(Layer.flyingUnitLow);
         drawRectShadow(armJointRegion, cx + dxArmJoint, cy + dyArmJoint,
                     armJointSpriteSize, armJointSpriteSize, 0f, unit);
-
             //arm
             Draw.z(Layer.flyingUnitLow - 0.1f);
         drawRectShadow(armRegion, cx + dxArm, cy + dyArm,
                 getDistance(cx + dxArmJoint,cy + dyArmJoint, rx, ry), armBaseSpriteWidth, Mathf.radiansToDegrees * Mathf.atan2(dxArmJoint + cx - rx, dyArmJoint + cy - ry), unit);
-
             //root
             Draw.z(Layer.flyingUnit + 1f);
         drawRectShadow(rootRegion, rx, ry,
                     rootSpriteSize, rootSpriteSize, unit.rotation - 90f, unit);
-
         if(activated){
             if(clawLaserColor == null){
                 clawLaserColor = unit.team.color;
             }
             drawClawLaser(unit, clawLaserColor, clawLaserCenterColor);
         }
-
     }
-
     public void drawClawParts(Unit unit){
         if(clawParts.size > 0){
             DrawPart.params.set(activated? 1f : 0f, hasBullet? 1f : 0f, 0f, 0f, (Angles.angleDist(rot, 0f) + 180f) / 360f, 0f, unit.x + x, unit.y + y, rot);
@@ -777,7 +657,6 @@ public class DetainerClawAbility extends Ability {
             }
         }
     }
-
     public void drawShadow(Unit unit){
         float e = clawShadowElevation;
         float sx = unit.x + x + shadowTX * e, sy = unit.y + y + shadowTY * e;
@@ -790,33 +669,24 @@ public class DetainerClawAbility extends Ability {
         Draw.rect(clawShadowRegion, sx, sy, rot);
         Draw.color();
     }
-
     public void drawRectShadow(String region, float x, float y, float w, float h ,float r, Unit unit){
         Draw.rect(region, x, y, w, h, r);
-
         if(clawShadowElevation > 0) {
-
             float normZ = Draw.z();
             Color normColor = Draw.getColor();
-
             float e = clawShadowElevation;
             float sx = x + shadowTX * e, sy = y + shadowTY * e;
             Floor floor = world.floorWorld(sx, sy);
-
             float dest = floor.canShadow ? 1f : 0f;
             unit.shadowAlpha = unit.shadowAlpha < 0 ? dest : Mathf.approachDelta(unit.shadowAlpha, dest, 0.11f);
             Draw.color(Pal.shadow, Pal.shadow.a * unit.shadowAlpha);
-
             Draw.z(Math.min(Layer.darkness, Layer.flyingUnitLow - 1f));
             Draw.rect(region, sx, sy, w, h, r);
             Draw.color();
-
             Draw.z(normZ);
             Draw.color(normColor);
-
         }
     }
-
     public void drawClawLaser(Unit unit, Color color1, Color color2){
         Draw.z(99.99f);
         Draw.color(color1);
@@ -862,13 +732,9 @@ public class DetainerClawAbility extends Ability {
                     lx + lr * Mathf.cosDeg(rotZ - 90f), ly + lr * Mathf.sinDeg(rotZ - 90f),
                     clawWidth * 0.3f, color2, 0.25f);
         }
-
         Draw.alpha(1.0f);
-        if(mode != 2 && totalEnergy + unit.flag > 0){
-            drawClawEnergy(unit);
-        }
+        if(mode != 2 && totalEnergy + unit.flag > 0){drawClawEnergy(unit);}
     }
-
     public void drawClawEnergy(Unit unit){
         float e = (float) (totalEnergy + unit.flag);
         Draw.z(99.99f);
@@ -882,7 +748,6 @@ public class DetainerClawAbility extends Ability {
         if(Mathf.chanceDelta(r / 48f)){
             energyEffect.at(unit.x + x + Mathf.range(absorbRadius / 2), unit.y + y + Mathf.range(absorbRadius / 2));
         }
-
         if(energyCharging){
             float maxr = absorbRadius;
             float curr = Mathf.clamp(holdTime / max) * maxr;
@@ -893,19 +758,10 @@ public class DetainerClawAbility extends Ability {
             Fill.circle(unit.x + x, unit.y + y, curr);
         }
     }
-
-
-
-
-
-
-
-
     private static final Cons<Bullet> clawConsumer = b -> {
         if(paramField.orbTimer <= 0 && paramField.activated && paramField.mode != 2 && b.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius) && b.type.absorbable
                 && (b.team != paramUnit.team || ((paramField.absorbSameTeam || b.owner == paramUnit) && !paramField.delayedShooting(paramUnit)))
                 && !b.type.killShooter && !b.type.underwater && (b.type instanceof BasicBulletType || b.type instanceof LiquidBulletType)) {
-
             if(b.owner != paramUnit) {
                 paramField.absorbEffect.at(b.x, b.y, paramUnit.team.color);
                 paramField.absorbSound.at(b.x, b.y, Math.abs(Mathf.range(0.8f, 1.1f)), 1f);
@@ -930,7 +786,6 @@ public class DetainerClawAbility extends Ability {
         }
         if(paramField.orbTimer <= 0 && paramField.activated && b.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius / 2f)
                 && (b.team == paramUnit.team && b.owner == paramUnit && (paramField.delayedShooting(paramUnit) || paramField.mode == 2))) {
-
             b.time = 0f;
             float outSpeed = Math.min(Math.max((b.type instanceof BombBulletType)? paramField.releaseSpeed : 3f, 2f * b.type.speed) ,Math.max(b.type.speed, paramField.releaseSpeed));
             if(!paramField.stereoMode) {
@@ -971,12 +826,10 @@ public class DetainerClawAbility extends Ability {
             }
         }
     };
-
     private static final Cons<Unit> missileConsumer = m -> {
         if(paramField.activated && paramField.mode != 2 && m.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius)
                 && (m.team != paramUnit.team || ((paramField.absorbSameTeam || m.flag == 1f) && !paramField.delayedShooting(paramUnit)))
                 && m.isMissile() && m.flag != 2f) {
-
             if(m.flag != 1f) {
                 paramField.absorbEffect.at(m.x, m.y, paramUnit.team.color);
                 paramField.absorbSound.at(m.x, m.y, Math.abs(Mathf.range(0.8f, 1.1f)), 1f);
@@ -996,11 +849,9 @@ public class DetainerClawAbility extends Ability {
             }
             paramField.totalDamage += m.type.estimateDps();
             paramField.hasBullet = true;
-
         }
         if(paramField.activated && m.within(paramUnit.x + paramField.x, paramUnit.y + paramField.y, paramField.absorbRadius)
                 && m.team == paramUnit.team && m.isMissile() && (paramField.delayedShooting(paramUnit) || paramField.mode == 2) && m.flag == 1f) {
-
             if(m instanceof TimedKillc tk){
                 tk.time(0f);
             }
@@ -1036,9 +887,7 @@ public class DetainerClawAbility extends Ability {
 
         }
     };
-
     private float delayShootingTimer;
-
     public boolean delayedShooting(Unit unit) {
         if(unit.isShooting()){
             delayShootingTimer = 15f;
@@ -1050,7 +899,6 @@ public class DetainerClawAbility extends Ability {
         }
         return false;
     }
-
     public boolean canDropUnit(Unit u, float x, float y) {
         Floor floor = world.floorWorld(x, y);
         Tile tile = world.tileWorld(x, y);

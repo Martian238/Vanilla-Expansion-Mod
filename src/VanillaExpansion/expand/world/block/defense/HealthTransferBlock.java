@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.defense;
-
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
 import arc.graphics.g2d.Lines;
@@ -25,24 +24,17 @@ import mindustry.graphics.Layer;
 import mindustry.graphics.Pal;
 import mindustry.world.Block;
 import mindustry.world.Tile;
-import mindustry.world.blocks.defense.RegenProjector;
-import mindustry.world.blocks.power.PowerNode;
 import mindustry.world.draw.DrawBlock;
 import mindustry.world.draw.DrawDefault;
 import mindustry.world.meta.BlockFlag;
 import mindustry.world.meta.BlockGroup;
 import mindustry.world.meta.BlockStatus;
-import mindustry.world.meta.Stat;
-
-import static arc.graphics.Gl.points;
 import static mindustry.Vars.*;
 import static mindustry.gen.Iconc.link;
-
 public class HealthTransferBlock extends Block {
     private static final IntSet taken = new IntSet();
     private static final IntFloatMap mendMap = new IntFloatMap();
     private static long lastUpdateFrame = -1;
-
     public HealthTransferBlock(String name) {
         super(name);
         update = true;
@@ -63,7 +55,6 @@ public class HealthTransferBlock extends Block {
         config(Integer.class, (entity, value) -> {});
         config(Point2[].class, (tile, value) -> {});
     }
-
     public float linkRange = 20f;
     public int healRange = 24;
     public Color healColor = Pal.heal.cpy();
@@ -73,33 +64,21 @@ public class HealthTransferBlock extends Block {
     public float transferSpeed = 5f;
     public Effect effect = Fx.mine;
     public float effectChance = 0.01f;
-
     private final boolean debug = false;
-
     @Override
-    public void setBars(){
-        super.setBars();
-
-    }
-
+    public void setBars(){super.setBars();}
     @Override
-    public void setStats(){
-        super.setStats();
-
-    }
-
+    public void setStats(){super.setStats();}
     @Override
     public void init(){
         super.init();
         clipSize = Math.max(clipSize, linkRange * tilesize);
     }
-
     @Override
     public void load(){
         super.load();
         drawer.load(this);
     }
-
     @Override
     public void drawPlace(int x, int y, int rotation, boolean valid) {
         Tile tile = world.tile(x, y);
@@ -117,23 +96,17 @@ public class HealthTransferBlock extends Block {
             });
         }
     }
-
     @Override
     public float planConfigClipSize(){
         return linkRange * tilesize * 2f + size * tilesize;
     }
-
     public class HealthTransferBuild extends Building {
-
         private Building linked = null;
         private float linkShineTime = 0f;
-
         private Seq<Vec2> healingPos = new Seq<>();
         private float linkWidth = 0f;
-
         private float linkX = 0f;
         private float linkY = 0f;
-
         @Override
         public void draw(){
             drawer.draw(this);
@@ -152,7 +125,6 @@ public class HealthTransferBlock extends Block {
                 }
             }
         }
-
         @Override
         public void drawSelect(){
             super.drawSelect();
@@ -179,7 +151,6 @@ public class HealthTransferBlock extends Block {
                 if(linked != null) {
                     Drawf.square(linked.x, linked.y, linked.block.size * tilesize / 2f + 1f, sacrificeColor);
                 }
-
             float sx1 = tile.x * tilesize;
             float sy1 = tile.y * tilesize;
             sx1 += offset;
@@ -191,19 +162,16 @@ public class HealthTransferBlock extends Block {
 
                 Draw.reset();
         }
-
         public Seq<Building> targets = new Seq<>();
         public int lastChange = -2;
         public float warmup, totalTime, optionalTimer;
         public boolean anyTargets = false;
         public boolean didRegen = false;
-
         public void updateTargets(){
             targets.clear();
             taken.clear();
             indexer.eachBlock(team, Tmp.r1.setCentered(x, y, healRange * tilesize), b -> b != linked, targets::add);
         }
-
         @Override
         public void updateTile() {
             if(linkShineTime > 0) linkShineTime -= delta();
@@ -214,9 +182,7 @@ public class HealthTransferBlock extends Block {
             totalTime += warmup * Time.delta;
             didRegen = false;
             anyTargets = false;
-
             healingPos.clear();
-
             if(linked != null && !linkValid(tile, linked.tile)) {
                 linked = null;
                 linkX = 0;
@@ -235,15 +201,11 @@ public class HealthTransferBlock extends Block {
                     if(debug)Log.info("link recovered from pos (" + linkX + "," + linkY + ")");
                 }
             }
-
             if(checkSuppression() || linked == null || linked.dead()){
                 return;
             }
-
             anyTargets = targets.contains(b -> b.damaged());
-
             if(transferMultiplier <= 0) transferMultiplier = 1;
-
             if(efficiency > 0 && linked != null){
                 for(var build : targets){
                     if(!build.damaged() || build.isHealSuppressed() || build == linked || linked == null || linked.dead()) continue;
@@ -260,7 +222,6 @@ public class HealthTransferBlock extends Block {
                 }
             }
         }
-
         @Override
         public BlockStatus status() {
             if (!enabled || checkSuppression()) {
@@ -274,12 +235,10 @@ public class HealthTransferBlock extends Block {
             }
             return ((state.tick / 30.0F) % 1.0F) < efficiency ? BlockStatus.active : BlockStatus.noInput;
         }
-
         @Override
         public boolean shouldAmbientSound() {
             return anyTargets && linked != null;
         }
-
         @Override
         public boolean onConfigureBuildTapped(Building other){
             //reverse connection
@@ -292,7 +251,6 @@ public class HealthTransferBlock extends Block {
                 if(debug)Log.info("cancel link");
                 return true;
             }
-
             if(this != other && other != null && linkValid(tile, other.tile)){
                 Point2[] out = new Point2[1];
                 out[0] = Point2.unpack(other.pos());
@@ -303,25 +261,21 @@ public class HealthTransferBlock extends Block {
             }
             return true;
         }
-
         @Override
         public Point2[] config(){
             Point2[] out = new Point2[1];
             out[0] = Point2.unpack(link).sub(tile.x, tile.y);
             return out;
         }
-
         public boolean linkValid(Tile tile, Tile other){
             if(tile == null || other == null || other.build == null || other.build.dead()
                     || (other.build.team != tile.build.team && other.build.team != Team.derelict)) return false;
             return ((other.x - tile.x) * (other.x - tile.x) + (other.y - tile.y) * (other.y - tile.y)) <= linkRange * linkRange;
         }
-
         @Override
         public byte version(){
             return 1;
         }
-
         @Override
         public void write(Writes write) {
             super.write(write);
@@ -335,7 +289,6 @@ public class HealthTransferBlock extends Block {
                 if(debug)Log.info("link pos saved as (" + linkX + "," + linkY + ")");
             }
         }
-
         @Override
         public void read(Reads read, byte revision){
             super.read(read, revision);

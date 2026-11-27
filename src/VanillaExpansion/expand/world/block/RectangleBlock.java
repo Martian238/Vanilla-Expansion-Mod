@@ -34,15 +34,13 @@ public class RectangleBlock extends Block {
         solid = true;
         update = true;
     }
-
-    /** 0角度x方向边长 */
     public int width = 1;
-    /** 0角度y方向边长 */
+    //0角度y方向边长
     public int height = 1;
-    /** 特殊输出方式 */
+    //特殊输出方式
     public boolean specialDump = false;
 
-    /** 子方块 */
+    //子方块
     public static class RectangleTile extends Block {
         public RectangleTile(String name){
             super(name);
@@ -194,20 +192,16 @@ public class RectangleBlock extends Block {
             int maxY = tileY() + (h / 2);
             for(int x= minX;x<=maxX;x++){
                 for(int y = minY; y<=maxY;y++){
-                    // 跳过主方块占据的区域
                     if (this==world.tile(x,y).build) continue;
 
                     Tile childTile = world.tile(x,y);
                     if (childTile == null)
                         continue;
-                    // 放置子方块
                     childTile.setBlock(rectTile, team, rotation);
-                    // 确保建筑类型正确，防止存档加载时的类型不匹配
                     if (childTile.build instanceof RectangleTile.RectangleTileBuild tb) {
                         tb.setOwner(this);
                         tiles.add(tb);
                     } else {
-                        // 如果类型不正确，可能是旧存档的建筑，强制替换
                         if (childTile.build != null) {
                             childTile.setAir();
                         }
@@ -216,7 +210,6 @@ public class RectangleBlock extends Block {
                             tb.setOwner(this);
                             tiles.add(tb);
                         } else {
-                            // 如果仍然不是正确类型，记录错误但继续
                             Log.info("RectangleBlock err");
                         }
                     }
@@ -246,27 +239,23 @@ public class RectangleBlock extends Block {
 
             for (int x = minX; x <= maxX; x++) {
                 for (int y = minY; y <= maxY; y++) {
-                    // 跳过主方块自身
                     if (x == tileX() && y == tileY()) continue;
 
                     Tile t = world.tile(x, y);
                     if (t == null) continue;
 
                     Building b = t.build;
-                    // 如果当前建筑已经是正确的子方块，直接保留
                     if (b instanceof RectangleTile.RectangleTileBuild && ((RectangleTile.RectangleTileBuild) b).owner == this) {
                         newTiles.add(b);
                     } else {
-                        createTiles(); // 重新创建子方块
-                        break; // 放置后跳出内层循环，避免重复放置
+                        createTiles();
+                        break;
                     }
                 }
             }
 
             tiles = newTiles;
         }
-
-        // 可选：在绘制时添加整个矩形的边框效果
         @Override
         public void drawConfigure() {
             int w = rotation % 2 == 0 ? width : height;
@@ -293,10 +282,8 @@ public class RectangleBlock extends Block {
         @Override
         public void read(Reads read, byte revision) {
             super.read(read, revision);
-            createTiles(); // 修复子块引用
+            createTiles();
         }
-
-        //获取主方块和子方块的所有相邻方块，排除其中的自身成分并输出序列
         public Seq<Building> rectProximity(){
             Seq<Building> result = proximity;
             if(!tiles.isEmpty()){
@@ -313,8 +300,6 @@ public class RectangleBlock extends Block {
             }
             return result;
         }
-
-        //用新的相邻方块序列重写
         @Override
         public boolean dump(Item todump) {
             Seq<Building> proximity = rectProximity();

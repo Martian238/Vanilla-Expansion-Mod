@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.power;
-
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.Draw;
@@ -30,7 +29,6 @@ import mindustry.ui.Bar;
 import mindustry.ui.Fonts;
 import mindustry.ui.Styles;
 import mindustry.world.Block;
-
 public class RBMKConsole extends Block {
     public static final int GRID = 16;
     public static final int CELLS = 256;
@@ -398,8 +396,6 @@ public class RBMKConsole extends Block {
         public void buildConfiguration(Table table) {
             Table cont = new Table().top().left();
             cont.defaults().left();
-
-            // 顶部横排：标题 | 中心设置
             cont.table(Styles.grayPanel, info -> {
                 info.left().defaults().left();
                 info.add(Core.bundle.get("rbmk.ui.console.title")).row();
@@ -419,8 +415,6 @@ public class RBMKConsole extends Block {
                 center.add(setCenter).size(110.0f, 34.0f).padTop(4.0f);
             }).pad(12.0f);
             cont.row();
-
-            // 中部横排：结构图 | 控制面板组
             cont.table(Styles.grayPanel, structure -> {
                 structure.left().defaults().left();
                 structure.add(Core.bundle.get("rbmk.ui.console.structure")).row();
@@ -493,8 +487,6 @@ public class RBMKConsole extends Block {
             }).growX().pad(4.0f).row();
             cont.add(controls).pad(12.0f);
             cont.row();
-
-            // 底部横排：概览(+紧急) | 通量图
             cont.table(Styles.grayPanel, overview -> {
                 overview.left().defaults().left();
                 overview.add(Core.bundle.get("rbmk.ui.console.overview")).row();
@@ -692,8 +684,6 @@ public class RBMKConsole extends Block {
                     float h = this.getHeight();
                     float x0 = this.x;
                     float y0 = this.y;
-
-                    // 左侧温度竖条：自底部生长，高度按 (heat-20)/maxHeat 归一
                     float frac = Mathf.clamp((float)((c.heat - 20.0f) / c.maxHeat));
                     if (frac >= 0.02f) {
                         float barH = h * frac;
@@ -705,8 +695,6 @@ public class RBMKConsole extends Block {
                             Fill.rect((float)(x0 + 1.5f), (float)(y0 + ((float)i + 0.5f) * sh), 3.0f, sh);
                         }
                     }
-
-                    // 组件专用指示条（同 HBM：底部/顶部窄竖条）
                     RBMKBase.ColumnType type = RBMKBase.ColumnType.values()[c.type];
                     if (type == RBMKBase.ColumnType.FUEL || type == RBMKBase.ColumnType.FUEL_SIM || type == RBMKBase.ColumnType.BREEDER) {
                         if (c.coreHeat >= 0.0f) {
@@ -727,33 +715,27 @@ public class RBMKConsole extends Block {
                         }
                     } else if (type == RBMKBase.ColumnType.CONTROL || type == RBMKBase.ColumnType.CONTROL_AUTO) {
                         if (c.level >= 0.0f) {
-                            // 控制棒位置：从顶部向下，level=0(全插入)长条，level=1(全抽出)消失
                             float fr = (1.0f - Mathf.clamp((float)c.level, 0.0f, 1.0f)) * (h - 2.0f);
                             Draw.color((float)0.95f, (float)0.8f, (float)0.2f);
                             Fill.rect((float)(x0 + w / 2.0f), (float)(y0 + h - fr / 2.0f), 3.0f, fr); // 位置指示条
                         }
                     } else if (type == RBMKBase.ColumnType.BOILER) {
                         if (c.water >= 0.0f) {
-                            // 存水量：自底部生长，按 feedCapacity 归一
                             float fw = Mathf.clamp((float)(c.water / 100.0f)) * (h - 4.0f);
                             Draw.color((float)0.25f, (float)0.55f, (float)0.95f);
                             Fill.rect((float)(x0 + 5.5f), (float)(y0 + 2.0f + fw / 2.0f), 2.0f, fw); // 水
                         }
                         if (c.steam >= 0.0f) {
-                            // 蒸汽量：自底部生长，按 steamCapacity 归一
                             float fs = Mathf.clamp((float)(c.steam / 10000.0f)) * (h - 4.0f);
                             Draw.color((float)0.8f, (float)0.85f, (float)0.9f);
                             Fill.rect((float)(x0 + 9.5f), (float)(y0 + 2.0f + fs / 2.0f), 2.0f, fs); // 蒸汽
                         }
                         if (c.steamTier > 0) {
-                            // 蒸汽等级：从顶部向下小标记，1-4 级递增下移
                             float fy = 1.0f + 2.0f * Mathf.clamp((float)(c.steamTier - 1), 0.0f, 3.0f);
                             Draw.color((float)0.95f, (float)0.7f, (float)0.25f);
                             Fill.rect((float)(x0 + 13.5f), (float)(y0 + h - fy - 1.0f), 2.0f, 2.0f); // 等级标记
                         }
                     }
-
-                    // 选中红框
                     if (RBMKConsoleBuild.this.sel[idx / 16][idx % 16]) {
                         Draw.color(Color.red);
                         Lines.stroke((float)1.7f);
@@ -764,7 +746,6 @@ public class RBMKConsole extends Block {
                 }
             };
         }
-
         private Element buildFluxChart() {
             return new Element() {
                 public void draw() {
@@ -853,24 +834,18 @@ public class RBMKConsole extends Block {
             return t;
         }
 
-        // ---------- 方块表面结构图（复用 view[] 扫描快照，仅显示、不参与选择交互） ----------
-
         @Override
         public void draw() {
             super.draw();
             drawStructureOverlay();
         }
-
-        /** 在方块表面绘制 16×16 结构图，逐格渲染与 UI heatOverlay 完全一致（含温度条/组件指示条，无选择框） */
         public void drawStructureOverlay() {
             float panelSize = block.size * Vars.tilesize - 5f;// 这是在方块面上绘制的结构图留给边框的px大小
             float cellSize = panelSize / GRID;
             float px = x, py = y;
-            float s = cellSize / 16f; // UI 16px 格 → 方块格的缩放系数
+            float s = cellSize / 16f;
 
             Draw.z(Layer.blockOver);
-
-            // 背景
             Draw.color(Color.darkGray);
             Fill.rect(px, py, panelSize, panelSize);
 
@@ -878,8 +853,6 @@ public class RBMKConsole extends Block {
                 Column c = view[i];
                 int gx = i % GRID;
                 int gy = i / GRID;
-
-                // 本格左下角与中心
                 float bx = px - panelSize / 2f + cellSize * gx;
                 float by = py - panelSize / 2f + cellSize * gy;
                 float cx = bx + cellSize / 2f;
@@ -891,14 +864,10 @@ public class RBMKConsole extends Block {
                     Fill.rect(cx, cy, cellSize, cellSize);
                     continue;
                 }
-
-                // 基色 = 类型颜色（与 UI buildBody 相同）
                 Draw.color(typeColor(c.type, c.heat, c.maxHeat));
                 Fill.rect(cx, cy, cellSize, cellSize);
 
                 if (c.maxHeat <= 0f) continue;
-
-                // 左侧温度竖条：自底部生长，红黄渐变分片（与 UI heatOverlay 逐项一致）
                 float frac = Mathf.clamp((c.heat - 20f) / c.maxHeat);
                 if (frac >= 0.02f) {
                     float barH = h * frac;
@@ -910,9 +879,7 @@ public class RBMKConsole extends Block {
                         Fill.rect(bx + 1.5f * s, by + (k + 0.5f) * sh, 3f * s, sh);
                     }
                 }
-
                 RBMKBase.ColumnType type = RBMKBase.ColumnType.values()[c.type];
-
                 if (type == RBMKBase.ColumnType.FUEL || type == RBMKBase.ColumnType.FUEL_SIM || type == RBMKBase.ColumnType.BREEDER) {
                     if (c.coreHeat >= 0f) {
                         float fh = Mathf.clamp((float) Math.ceil((c.coreHeat - 20f) * (h - 4f * s) / c.maxHeat), 0f, h - 4f * s);
@@ -953,8 +920,6 @@ public class RBMKConsole extends Block {
                     }
                 }
             }
-
-            // 绿色网格线覆盖层（与 UI 通量图的网格风格一致）
             Draw.color(0.3f, 0.6f, 0.3f);
             Lines.stroke(0.25f);
             float x0 = px - panelSize / 2f, x1 = px + panelSize / 2f;
@@ -966,8 +931,6 @@ public class RBMKConsole extends Block {
                 Lines.line(x0, posY, x1, posY); // 横线
             }
             Draw.color();
-
-            // 控制台在本网格中的位置标记（以中心格估算）
             if (linked) {
                 int cgx = (tileX() + block.size / 2 - targetX) / 2 + GRID / 2;
                 int cgy = (tileY() + block.size / 2 - targetY) / 2 + GRID / 2;
@@ -982,8 +945,6 @@ public class RBMKConsole extends Block {
                 }
             }
         }
-
-        /** 序列化版本：1 起新增选中态/中心模式/AZ-5/通量环形指针等持久字段 */
         @Override
         public byte version() {
             return 1;
@@ -997,7 +958,6 @@ public class RBMKConsole extends Block {
             for (float f : this.fluxBuf) {
                 write.f(f);
             }
-            // 版本 1：选中标记（16×16 打包为 32 字节）+ 中心设置模式 + AZ-5 状态 + 通量环形指针
             for (int i = 0; i < 16; i++) {
                 for (int j = 0; j < 16; j += 8) {
                     byte packed = 0;

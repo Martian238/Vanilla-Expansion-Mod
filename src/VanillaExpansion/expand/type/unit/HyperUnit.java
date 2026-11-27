@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.type.unit;
-
 import VanillaExpansion.EntityRegister;
 import arc.Core;
 import arc.graphics.Color;
@@ -34,19 +33,13 @@ import mindustry.world.blocks.payloads.BuildPayload;
 import mindustry.world.blocks.payloads.Payload;
 import mindustry.world.blocks.power.PowerGraph;
 import mindustry.world.meta.Env;
-
 import static mindustry.Vars.*;
-
-
 public class HyperUnit extends PayloadUnit {
     private boolean multiMod = false, modFound = false;
     private float statTimer = 0f;
-
-
     public static PayloadUnit create(){
         return new HyperUnit();
     }
-
     private void findOtherModEnemies(){
         multiMod = false;
         for(Unit u : Groups.unit){
@@ -60,7 +53,6 @@ public class HyperUnit extends PayloadUnit {
             }
         }
     }
-
     private void findMods(boolean log){
         multiMod = false;
         if(!mobile) {
@@ -142,29 +134,23 @@ public class HyperUnit extends PayloadUnit {
             Log.info("Re-added into Groups.unit");
         }
     }
-
     private UnitController protectedController;
     private boolean mobile = false;
     private float updateTimer = 0;
     private boolean controllerGot = false;
-
     public boolean publicMultiMod = false;
     public boolean tryRecovery = false;
-
     @Override
     public int classId() {
         return EntityRegister.getID(getClass());
     }
-
     private boolean switchToEventMode = false;
-
     @Override
     public void update(){
         if(!switchToEventMode){
             actualUpdate();
         }
     }
-
     protected void actualUpdate(){
         if(!modFound){
             mobile = Vars.mobile;
@@ -249,7 +235,6 @@ public class HyperUnit extends PayloadUnit {
             tryRecovery = false;
         }
     }
-
     private void overrideUpdate(){
         if (!net.client() || isLocal()) {
             float px = x;
@@ -440,12 +425,10 @@ public class HyperUnit extends PayloadUnit {
             controller = new CommandAI();
         }
     }
-
     @Override
     public void draw() {
         if(!switchToEventMode) actualDraw();
     }
-
     public void actualDraw() {
         if(!state.isEditor() && !state.isPaused()){
             updateTimer++;
@@ -478,7 +461,6 @@ public class HyperUnit extends PayloadUnit {
         publicMultiMod = multiMod;
         super.draw();
     }
-
     @Override
     public boolean collides(Hitboxc other) {
         if(multiMod && other instanceof Bullet b){
@@ -499,7 +481,6 @@ public class HyperUnit extends PayloadUnit {
         }
         return super.collides(other);
     }
-
     private boolean isBulletVanilla(Bullet b){
         boolean c = false;
         if(b.type.getClass() == BulletType.class) c = true;
@@ -524,29 +505,22 @@ public class HyperUnit extends PayloadUnit {
         else if(b.type.getClass() == SpaceLiquidBulletType.class) c = true;
         return c;
     }
-
     @Override
     public boolean killable() {
         return type.killable(this) && !multiMod;
     }
-
     @Override
     public boolean shouldUpdateController() {
         return true;
     }
-
     @Override
     public int cap() {
         return multiMod ? Integer.MAX_VALUE : Units.getCap(team);
     }
-
-
-
     @Override
     public UnitController controller(){
         return controllerGot && multiMod? protectedController : controller;
     }
-
     @Override
     public void controller(UnitController next){
         Log.info("Method: controller(next) with multiMod: "+multiMod);
@@ -555,7 +529,6 @@ public class HyperUnit extends PayloadUnit {
         }
         super.controller(next);
     }
-
     @Override
     public void resetController(){
         Log.info("Method: resetController() with multiMod: "+multiMod);
@@ -565,7 +538,6 @@ public class HyperUnit extends PayloadUnit {
         }
         super.resetController();
     }
-
     @Override
     public void set(Position pos) {
         Log.info("Method: set(pos) with multiMod: "+multiMod);
@@ -574,7 +546,6 @@ public class HyperUnit extends PayloadUnit {
         }
         super.set(pos);
     }
-
     @Override
     public void set(float x, float y) {
         Log.info("Method: set(x, y) with multiMod: "+multiMod);
@@ -583,7 +554,6 @@ public class HyperUnit extends PayloadUnit {
         }
         super.set(x, y);
     }
-
     @Override
     public void set(UnitType def, UnitController controller) {
         Log.info("Method: set(def, controller) with multiMod: "+multiMod);
@@ -592,7 +562,6 @@ public class HyperUnit extends PayloadUnit {
         }
         super.set(def, controller);
     }
-
     @Override
     public void setType(UnitType type) {
         Log.info("Method: setType(type) with multiMod: "+multiMod);
@@ -601,9 +570,6 @@ public class HyperUnit extends PayloadUnit {
         }
         super.setType(type);
     }
-
-
-
     private void keepStats(){
         maxHealth = type.health = 190000f;
         drag = type.drag = 0.025f;
@@ -617,7 +583,6 @@ public class HyperUnit extends PayloadUnit {
         type.bounded = false;
     }
     //a
-
     private boolean statusB(StatusEntry s){
         if (s.effect == StatusEffects.boss) {
             if(StatusEffects.boss.damageMultiplier < 1.3f) StatusEffects.boss.damageMultiplier = 1.3f;
@@ -648,7 +613,6 @@ public class HyperUnit extends PayloadUnit {
         }
         return false;
     }
-
     @Override
     public boolean dead(){
         if(multiMod){
@@ -659,7 +623,6 @@ public class HyperUnit extends PayloadUnit {
         }
         return super.dead();
     }
-
     @Override
     public void dead(boolean d){
         if(multiMod){
@@ -677,11 +640,9 @@ public class HyperUnit extends PayloadUnit {
         }
         super.dead(d);
     }
-
     private void healthSet(float h){
         health = h;
     }
-
     @Override
     public void kill(){
         Log.info("Method: kill() with multiMod: "+multiMod);
@@ -796,7 +757,6 @@ public class HyperUnit extends PayloadUnit {
         }
         super.health(h);
     }
-
     @Override
     public void rawDamage(float d){
         if(multiMod){
@@ -845,7 +805,6 @@ public class HyperUnit extends PayloadUnit {
         }
         super.damage(d, withEffect);
     }
-
     @Override
     public void damagePierce(float d){
         if(multiMod){
@@ -878,7 +837,6 @@ public class HyperUnit extends PayloadUnit {
         }
         super.damagePierce(d, withEffect);
     }
-
     @Override
     public void damageArmorMult(float d, float m){
         if(multiMod){
@@ -959,7 +917,6 @@ public class HyperUnit extends PayloadUnit {
         }
         super.damageContinuousArmorMult(d, m);
     }
-
     @Override
     public void apply(StatusEffect s, float dur){
         if(multiMod && !s.isVanilla() && !s.name.startsWith("ve-") && s != StatusEffects.invincible && s != StatusEffects.boss){

@@ -1,5 +1,4 @@
 package VanillaExpansion.expand.world.block.production;
-
 import arc.Input;
 import arc.math.Mathf;
 import arc.scene.ui.layout.Table;
@@ -38,7 +37,6 @@ import mindustry.world.blocks.logic.MessageBlock;
 import mindustry.world.meta.*;
 
 import static mindustry.Vars.*;
-
 public class ConfigurableHeatProducer extends HeatProducer {
 
     public int maxTextLength = 20;
@@ -128,8 +126,6 @@ public class ConfigurableHeatProducer extends HeatProducer {
         public boolean shouldShowConfigure(Player player){
             return accessible();
         }
-
-        //Icon.settings, Styles.cleari,
         @Override
         public void buildConfiguration(Table table){
             TextButton heatButton = new TextButton(Core.bundle.format("editheater"), Styles.flatTogglet);
@@ -237,13 +233,6 @@ public class ConfigurableHeatProducer extends HeatProducer {
             message.setLength(0);
             message.append(value);
         }
-/*
-        @Override
-        public void updateTableAlign(Table table){
-            Vec2 pos = Core.input.mouseScreen(x, y + size * tilesize / 2f + 1);
-            table.setPosition(pos.x, pos.y, Align.bottom);
-        }
-*/
         @Override
         public String config(){
             return message.toString();
@@ -327,10 +316,6 @@ public class ConfigurableHeatProducer extends HeatProducer {
             }else if(!crazyMode){
                 crazyDamageMultiplier = 1f;
             }
-
-
-
-            //heat approaches target at the same speed regardless of efficiency
             if(!crazyMode) {
                 heat = Mathf.approachDelta(heat, writtenHeat * efficiency, warmupRate * delta());
             }else{
@@ -339,10 +324,6 @@ public class ConfigurableHeatProducer extends HeatProducer {
                 }
                 heat = Math.min(writtenHeat * efficiency * Math.abs(Mathf.random(0f, Mathf.random(0f, Mathf.random(0f, Strings.parseFloat(messageStr, 0f) / Math.min(maxHeat, 1000f))))), 1000f);
             }
-
-
-
-
             if(writtenHeat > 0f) {
                 currentCraftTime = Math.max(defaultCraftTime / (writtenHeat / defaultHeat) - penaltyMultiplier * (writtenHeat - defaultHeat), 1f);
             }else {
@@ -354,7 +335,6 @@ public class ConfigurableHeatProducer extends HeatProducer {
                 progress += getProgressIncrease(currentCraftTime);
                 warmup = Mathf.approachDelta(warmup, warmupTarget(), warmupSpeed);
 
-                //continuously output based on efficiency
                 if(outputLiquids != null){
                     float inc = getProgressIncrease(1f);
                     for(var output : outputLiquids){
@@ -374,12 +354,8 @@ public class ConfigurableHeatProducer extends HeatProducer {
             if(progress >= 1f){
                 craft();
             }
-
             dumpOutputs();
-
-
         }
-
         @Override
         public float heatFrac(){
             return heat / writtenHeat;
@@ -389,13 +365,7 @@ public class ConfigurableHeatProducer extends HeatProducer {
         public float heat(){
             return heat;
         }
-
-
-
-
     }
-
-
     @Override
     public void setStats(){
         super.setStats();
@@ -403,11 +373,9 @@ public class ConfigurableHeatProducer extends HeatProducer {
         stats.add(Stat.output, defaultHeat, StatUnit.heatUnits);
         stats.add(Stat.maxEfficiency, maxHeat,  StatUnit.heatUnits);
     }
-
     @Override
     public void setBars(){
         super.setBars();
-
         removeBar("heat");
         addBar("heat", (ConfigureableHeatProducerBuild entity) -> new Bar("bar.heat", Pal.lightOrange, () -> entity.heat / entity.writtenHeat));
         addBar("writtenEfficiency", (ConfigureableHeatProducerBuild entity) -> new Bar(
