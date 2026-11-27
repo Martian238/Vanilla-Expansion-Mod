@@ -1,4 +1,5 @@
 # Vanilla Expansion
+Please delete Release v2132 of this mod if you have one in your mod folder. That version has anti-cheat code that will delete save files without any permission, extremely dangerous.
 ![preview.png](assets/preview.png)
 ## INFO
 A Json mod with a few Java contents, extends Serpulo's story and campaign with 4 new planets and their own contents.\
