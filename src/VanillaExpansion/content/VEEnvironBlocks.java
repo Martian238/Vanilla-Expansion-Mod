@@ -13,8 +13,6 @@ public class VEEnvironBlocks {
             buildVisibility = BuildVisibility.hidden;
         }};
         new StaticWall("dark-metal-repaired");
-        //new Floor("lava-rock");
-        //new Floor("volcanic-rock");
         new Prop("bush");
         //其他
         new Floor("accessible-deep-water");

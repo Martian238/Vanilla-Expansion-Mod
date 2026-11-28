@@ -55,7 +55,7 @@ public class Fragmentation{
         this.height = height;
         //this.region = region;
         if(region != null && region.texture != null){
-            this.region.set(region);
+            Fragmentation.region.set(region);
         }
         drawWidth = width * Draw.scl;
         drawHeight = height * Draw.scl;
@@ -302,8 +302,6 @@ public class Fragmentation{
         public void calculateArea(){
             int size = main.islands.get(island).size;
             area = Mathf.sqrt((((float)size) / ((main.width - 1f) * (main.height - 1f))) * (Math.abs(main.drawWidth) * Math.abs(main.drawHeight))) * 1.5f;
-            //area = (size / Math.min((main.width - 1f), (main.height - 1f))) * Math.min(main.drawWidth, main.drawHeight);
-            //area = Mathf.sqrt((size * (main.drawWidth * main.drawHeight)) / ((main.width - 1f) * (main.height - 1f)));
         }
         public void generateGore(){
             gx = x;
@@ -368,7 +366,7 @@ public class Fragmentation{
             IntSeq is = main.islands.get(island);
             int[] items = is.items;
             int size = is.size;
-            TextureRegion region = main.region;
+            TextureRegion region = Fragmentation.region;
             if(region == null || region.texture == null) return;
             float[] xs = main.xs;
             float[] ys = main.ys;
@@ -452,8 +450,8 @@ public class Fragmentation{
         @Override
         public float clipSize(){
             if(goreLines != null) return 9999999f;
-            if(main.region == null || main.region.texture == null) return 64f;
-            int max = Math.max(main.region.width, main.region.height);
+            if(region == null || region.texture == null) return 64f;
+            int max = Math.max(region.width, region.height);
             return max * Draw.scl * 1.5f;
         }
     }

@@ -23,10 +23,8 @@ public class VEPlanets {
     public static void load() {
         neutronStar = new Planet("sol4b", Planets.sun, 0.9f, 0) {{
             generator = new NeutronStarPlanetGenerator();
-            meshLoader = () -> new RotatingMesh(new MultiMesh(new GenericMesh[]{
-                new SunMesh(this, 8, 5d, 0.3d, 3d, 1.2d, 0.8d, 1.1f, new Color[]{Color.valueOf("88bbff"), Color.valueOf("88ddff"), Color.valueOf("aaccff"), Color.valueOf("ccddff"), Color.valueOf("eeeeff"), Color.valueOf("ffffff")}),
-                new MagneticFluxMesh(this)
-            }), 720f);
+            meshLoader = () -> new RotatingMesh(new MultiMesh(new SunMesh(this, 8, 5d, 0.3d, 3d, 1.2d, 0.8d, 1.1f, Color.valueOf("88bbff"), Color.valueOf("88ddff"), Color.valueOf("aaccff"), Color.valueOf("ccddff"), Color.valueOf("eeeeff"), Color.valueOf("ffffff")),
+                    new MagneticFluxMesh(this)), 720f);
             cloudMeshLoader = () -> new MultiMesh(
                 new NeutronJetParticleMesh(this, 400),
                 new NeutronJetBeamMesh(this, 6f, 0.4f, 0.15f){{
@@ -55,9 +53,7 @@ public class VEPlanets {
             clipRadius = 1.5f;
             startSector = 0;
             drawOrbit = false;
-            ruleSetter = r -> {
-                r.waves = false;
-            };
+            ruleSetter = r -> r.waves = false;
             allowWaves = false;
             allowSectorInvasion = false;
             allowLaunchToNumbered = false;

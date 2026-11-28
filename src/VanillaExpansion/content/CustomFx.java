@@ -39,7 +39,7 @@ public class CustomFx{
                 }
             }
             e.scaled(10f, c -> {color(c2);stroke(c.fout() * 2f + 0.2f);circle(e.x, e.y, c.fin() * 30f);});
-            e.scaled(12f, c -> {color(c2);randLenVectors(e.id, 25, 5f + e.fin() * 80f, e.rotation, 60f, (x, y) -> {Fill.square(e.x + x, e.y + y, c.fout() * 3f, 45f);});});
+            e.scaled(12f, c -> {color(c2);randLenVectors(e.id, 25, 5f + e.fin() * 80f, e.rotation, 60f, (x, y) -> Fill.square(e.x + x, e.y + y, c.fout() * 3f, 45f));});
         }),
     instBombColor = new Effect(15f, 100f, e -> {
         Color c2 = e.color;
@@ -150,9 +150,7 @@ public class CustomFx{
         e.scaled(20f, c -> {
             color(e.color, 0.9f);
             stroke(c.fout() * 12f + 0.1f);
-            randLenVectors(e.id, (int)(radius * 1.2f), radius/2f + c.finpow() * radius*1.25f, (x, y) -> {
-                lineAngle(c.x + x, c.y + y, Mathf.angle(x, y), c.fout() * 5 + 1f);
-            });
+            randLenVectors(e.id, (int)(radius * 1.2f), radius/2f + c.finpow() * radius*1.25f, (x, y) -> lineAngle(c.x + x, c.y + y, Mathf.angle(x, y), c.fout() * 5 + 1f));
         });
         color(e.color, e.fout() * 0.9f);
         stroke(e.fout() * 6f);

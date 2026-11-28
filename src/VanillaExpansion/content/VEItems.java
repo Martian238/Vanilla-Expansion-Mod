@@ -1,7 +1,6 @@
 package VanillaExpansion.content;
 import arc.graphics.*;
 import arc.struct.*;
-import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.BasicBulletType;

@@ -105,8 +105,6 @@ public class VanillaExpansionMod extends Mod {
         }
         //铁堡垒生成
         InitFerricFortress.init();
-        //简易反作弊
-        InitAntiCheat.init();
         //黑白闪屏渲染
         OneBitRenderer.init();
 

@@ -42,7 +42,7 @@ public class RBMKRodItem extends Item {
     public RBMKRodItem setDangerous(boolean dangerous) {this.dangerous = dangerous;return this;}
     public enum NType {
         FAST, SLOW, ANY;
-        public String unlocalized;
+        public final String unlocalized;
         NType() {
             this.unlocalized = "trait.rbmk.neutron." + name().toLowerCase();
         }
@@ -65,19 +65,18 @@ public class RBMKRodItem extends Item {
     }
     public double reactivityFunc(double in, double enrichment) {
         double flux = in * reactivityModByEnrichment(enrichment);
-        switch (function) {
-            case PASSIVE: return selfRate * enrichment;
-            case LOG_TEN: return Math.log10(flux + 1) * 0.5 * reactivity;
-            case PLATEU: return (1 - Math.pow(Math.E, -flux / 25D)) * reactivity;
-            case ARCH: return Math.max((flux - flux * flux / 10000D) / 100D * reactivity, 0D);
-            case SIGMOID: return reactivity / (1 + Math.pow(Math.E, -(flux - 50D) / 10D));
-            case SQUARE_ROOT: return Math.sqrt(flux) * reactivity / 10D;
-            case LINEAR: return flux / 100D * reactivity;
-            case QUADRATIC: return flux * flux / 10000D * reactivity;
-            case SLOW_LINEAR: return Math.sqrt(2 * flux + 30) / 10 * reactivity / 2.5;
-            case EXPERIMENTAL: return flux * (Math.sin(flux) + 1) * reactivity;
-        }
-        return 0;
+        return switch (function) {
+            case PASSIVE -> selfRate * enrichment;
+            case LOG_TEN -> Math.log10(flux + 1) * 0.5 * reactivity;
+            case PLATEU -> (1 - Math.pow(Math.E, -flux / 25D)) * reactivity;
+            case ARCH -> Math.max((flux - flux * flux / 10000D) / 100D * reactivity, 0D);
+            case SIGMOID -> reactivity / (1 + Math.pow(Math.E, -(flux - 50D) / 10D));
+            case SQUARE_ROOT -> Math.sqrt(flux) * reactivity / 10D;
+            case LINEAR -> flux / 100D * reactivity;
+            case QUADRATIC -> flux * flux / 10000D * reactivity;
+            case SLOW_LINEAR -> Math.sqrt(2 * flux + 30) / 10 * reactivity / 2.5;
+            case EXPERIMENTAL -> flux * (Math.sin(flux) + 1) * reactivity;
+        };
     }
     public enum EnumDepleteFunc {
         LINEAR,            //旧函数，直降
@@ -88,15 +87,14 @@ public class RBMKRodItem extends Item {
         CF_SLOPE           //锎积累，约 60% 耗竭处峰值 ~193%
     }
     public double reactivityModByEnrichment(double enrichment) {
-        switch (depFunc) {
-            default:
-            case LINEAR: return enrichment;
-            case STATIC: return 1D;
-            case BOOSTED_SLOPE: return enrichment + Math.sin((enrichment - 1) * (enrichment - 1) * Math.PI);
-            case RAISING_SLOPE: return enrichment + (Math.sin(enrichment * Math.PI) / 2D);
-            case GENTLE_SLOPE: return enrichment + (Math.sin(enrichment * Math.PI) / 3D);
-            case CF_SLOPE: return enrichment + (Math.sin(enrichment * Math.PI)) * 1.4;
-        }
+        return switch (depFunc) {
+            case STATIC -> 1D;
+            case BOOSTED_SLOPE -> enrichment + Math.sin((enrichment - 1) * (enrichment - 1) * Math.PI);
+            case RAISING_SLOPE -> enrichment + (Math.sin(enrichment * Math.PI) / 2D);
+            case GENTLE_SLOPE -> enrichment + (Math.sin(enrichment * Math.PI) / 3D);
+            case CF_SLOPE -> enrichment + (Math.sin(enrichment * Math.PI)) * 1.4;
+            default -> enrichment;
+        };
     }
     public double xenonGenFunc(double flux) {
         return flux * xGen;

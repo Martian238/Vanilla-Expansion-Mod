@@ -138,26 +138,7 @@ public class Severation extends DrawEntity implements QuadTreeObject{
                 Draw.vert(region.texture, verts, 0, 24);
             }
         }
-        /*
-        Draw.color(Color.green);
-        for(CutTri t : tris){
-            float[] pos = t.pos;
-            Lines.beginLine();
-            for(int i = 0; i < 6; i += 2){
-                //float x = pos[i], y = pos[i + 1];
-                
-                float vx = (pos[i] - centerX) * width;
-                float vy = (pos[i + 1] - centerY) * height;
-                float tx = (vx * cos - vy * sin) + x;
-                float ty = (vx * sin + vy * cos) + y;
-                
-                Lines.linePoint(tx, ty);
-            }
-            Lines.endLine(true);
-        }
-        */
         Draw.color();
-
         Draw.z(oz);
     }
     @Override

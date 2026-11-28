@@ -49,8 +49,6 @@ public class Disintegration implements Poolable{
     }
 
     public static Disintegration generate(TextureRegion region, float x, float y, float rotation, float width, float height, int iwidth, int iheight, Cons<DisintegrationEntity> cons){
-        //int modW = (int)((20f / 320f) * Math.abs(width / Draw.scl));
-        //int modH = (int)((20f / 320f) * Math.abs(height / Draw.scl));
 
         float cos = Mathf.cosDeg(rotation);
         float sin = Mathf.sinDeg(rotation);

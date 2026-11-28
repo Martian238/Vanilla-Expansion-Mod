@@ -24,19 +24,6 @@ public class RBMKFuelData {
     }
     private static final ObjectMap<Item, RBMKRodItem> fuelDataMap = new ObjectMap<>();
     public static void registerFuel(Item item, RBMKRodItem rod) {if (item != null && rod != null) {fuelDataMap.put(item, rod);}}
-    public static RBMKRodItem getFuelProperties(Item item) {
-        return fuelDataMap.get(item);
-    }
-    //die方法，读是否是燃料
-    public static boolean isFuel(Item item) {
-        return item != null && fuelDataMap.containsKey(item);
-    }
-
-    //mors方法,为新燃料棒创建一个运行时状态
-    public static RodState newState(Item item) {
-        RBMKRodItem rod = getFuelProperties(item);
-        return rod == null ? null : RodState.create(rod);
-    }
     //初始化
     public static void initDefaultFuels() {
         if (VEItems.plutonium238BerylliumSource != null) registerFuel(VEItems.plutonium238BerylliumSource, VEItems.plutonium238BerylliumSource);
