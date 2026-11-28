@@ -22,6 +22,7 @@ public class VESettings {
     public static final String coreUnitLight = "ve-core-unit-light"; // 核心单位探照灯
     public static final Seq<Category> categories = new Seq<>();
     public static boolean changed = false;
+    public static boolean fcf = false;
     public static TextureRegionDrawable buttonIcon = new TextureRegionDrawable();
     public static TextureRegion buttonIconRegion = new TextureRegion();
 
@@ -66,6 +67,14 @@ public class VESettings {
                         VESettings::show
                 ));
             }
+            Vars.ui.settings.addCategory("@setting.ve", buttonIcon, table -> table.update(() -> {
+                if (table.visible && table.getScene() != null) {
+                    if (fcf) return;
+                    Vars.ui.settings.hide();
+                    new VESettingsDialog().show();
+                    fcf = true;
+                }
+            }));
         });
     }
     //艾滋贼UI整个那么大个icon干什么，又要写自适应
@@ -147,12 +156,6 @@ public class VESettings {
 
         public Category slider(String key, float def, float min, float max, float step) {
             settings.add(new Setting(key, SettingType.slider, false, def, min, max, step));
-            return this;
-        }
-
-        public Category slider(String key, float def, float min, float max, float step, boolean restart) {
-            settings.add(new Setting(key, SettingType.slider, false, def, min, max, step));
-            settings.peek().restart = restart;
             return this;
         }
     }

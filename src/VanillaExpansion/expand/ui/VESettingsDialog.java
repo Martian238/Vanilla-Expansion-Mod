@@ -1,4 +1,3 @@
-// VESettingsDialog.java (修改后)
 package VanillaExpansion.expand.ui;
 
 import VanillaExpansion.VESettings;
@@ -10,13 +9,7 @@ import arc.math.Mathf;
 import arc.math.geom.Vec2;
 import arc.scene.actions.Actions;
 import arc.scene.event.Touchable;
-import arc.scene.ui.ButtonGroup;
-import arc.scene.ui.CheckBox;
-import arc.scene.ui.Image;
-import arc.scene.ui.Label;
-import arc.scene.ui.ScrollPane;
-import arc.scene.ui.Slider;
-import arc.scene.ui.TextButton;
+import arc.scene.ui.*;
 import arc.scene.ui.layout.Scl;
 import arc.scene.ui.layout.Stack;
 import arc.scene.ui.layout.Table;
@@ -34,6 +27,7 @@ public class VESettingsDialog extends BaseDialog {
     private final Vec2 tmpA = new Vec2();
     private TextButton archiveBtn;
     private boolean archiveView = false;
+    private arc.scene.event.InputListener escListener;
     public VESettingsDialog() {
         super("");
         this.title.setText("");
@@ -161,6 +155,7 @@ public class VESettingsDialog extends BaseDialog {
         for (VESettings.Setting setting : currentCategory.settings) {
             Stack stack = new Stack();
             Table card = new Table();
+            card.background(VEStyles.card);
             card.margin(10f);
             card.left();
             card.defaults().left().padRight(10f);
@@ -205,4 +200,8 @@ public class VESettingsDialog extends BaseDialog {
         settingsList.add().height(20f).row();
         scrollPane.setScrollY(0f);
     }
+    @Override//esc关闭的覆写，可以拿去给其他UI用
+    public Dialog show() {super.show();if (escListener == null) {escListener = new arc.scene.event.InputListener() {@Override public boolean keyDown(arc.scene.event.InputEvent event, arc.input.KeyCode keycode) {if (keycode == arc.input.KeyCode.escape) {hide();event.stop();return true;}return false;}};}Core.scene.addListener(escListener);return this;}
+    @Override
+    public void hide() {super.hide();if (escListener != null) Core.scene.removeListener(escListener);VESettings.fcf = false;}
 }

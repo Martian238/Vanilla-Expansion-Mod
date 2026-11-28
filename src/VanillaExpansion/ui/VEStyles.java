@@ -22,7 +22,6 @@ public class VEStyles {
     public static final Color DIALOG_FILL = Color.valueOf("121212");
     public static final Color DIALOG_BORDER = Color.valueOf("4a4a4a");
     public static final Color PANEL_BORDER = Color.valueOf("3a3a3a");
-    public static final Color CARD_FILL = Color.valueOf("1f1f1f");
     public static final Color CARD_BORDER = Color.valueOf("363636");
     public static final Color BUTTON_FILL = Color.valueOf("242424");
     public static final Color BUTTON_HOVER = Color.valueOf("343434");
@@ -39,7 +38,7 @@ public class VEStyles {
     public static final Color SLIDER_KNOB = Color.valueOf("ffd37f");
     public static final float DIALOG_BORDER_WIDTH = 3f;
     public static final float PANEL_BORDER_WIDTH = 2f;
-    public static final float BUTTON_BORDER_WIDTH = 1.5f;
+    public static final float BUTTON_BORDER_WIDTH = 2f;
     public static final float FRAME_WIDTH = 2f;
     public static final float FRAME_PAD = 2f;
 
@@ -78,7 +77,7 @@ public class VEStyles {
 
         dialog = new RectDrawable(DIALOG_FILL, DIALOG_BORDER, DIALOG_BORDER_WIDTH);
         panel = new RectDrawable(Color.clear, PANEL_BORDER, PANEL_BORDER_WIDTH);
-        card = new RectDrawable(CARD_FILL, CARD_BORDER, BUTTON_BORDER_WIDTH);
+        card = new RectDrawable(Color.clear, CARD_BORDER, BUTTON_BORDER_WIDTH);
 
         buttonUp = new RectDrawable(BUTTON_FILL, BUTTON_BORDER, BUTTON_BORDER_WIDTH);
         buttonOver = new RectDrawable(BUTTON_HOVER, BUTTON_HOVER_BORDER, BUTTON_BORDER_WIDTH);
