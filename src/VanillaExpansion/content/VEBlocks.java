@@ -1,36 +1,32 @@
 package VanillaExpansion.content;
+
+import VanillaExpansion.expand.world.block.SixteenDirectionBlock;
 import VanillaExpansion.expand.world.block.debug.DebugBlock;
 import VanillaExpansion.expand.world.block.debug.Module.DebugModules;
-import VanillaExpansion.expand.world.block.distribution.*;
+import VanillaExpansion.expand.world.block.distribution.AdaptItemBridge;
+import VanillaExpansion.expand.world.block.distribution.CableCar;
+import VanillaExpansion.expand.world.block.distribution.Junction;
+import VanillaExpansion.expand.world.block.distribution.SideOutputConveyor;
 import VanillaExpansion.expand.world.block.liquid.AdaptLiquidBridge;
 import VanillaExpansion.expand.world.block.liquid.LiquidOverflowGate;
 import VanillaExpansion.expand.world.block.liquid.LiquidSorter;
 import VanillaExpansion.expand.world.block.liquid.SideOutputConduit;
-import VanillaExpansion.expand.exp.EField;
-import VanillaExpansion.expand.exp.ExpTurret;
-import VanillaExpansion.expand.exp.ExpLaserBulletType;
-import VanillaExpansion.expand.exp.ExpWall;
 import VanillaExpansion.expand.world.block.power.*;
 import VanillaExpansion.expand.world.block.production.CoolantDrill;
 import VanillaExpansion.expand.world.block.sandbox.TitleTextBlock;
-import arc.struct.*;
-import arc.math.Mathf;
-import arc.util.Strings;
-import mindustry.content.*;
-import mindustry.entities.pattern.ShootPattern;
-import mindustry.gen.Sounds;
-import mindustry.graphics.Pal;
-import mindustry.type.*;
-import mindustry.world.*;
+import arc.struct.ObjectSet;
+import arc.struct.Seq;
+import mindustry.content.Items;
+import mindustry.content.Liquids;
+import mindustry.type.Category;
+import mindustry.type.ItemStack;
+import mindustry.type.Liquid;
+import mindustry.world.Block;
 import mindustry.world.blocks.distribution.DuctRouter;
 import mindustry.world.blocks.distribution.OverflowGate;
 import mindustry.world.blocks.distribution.Sorter;
-import mindustry.world.blocks.environment.*;
-import mindustry.world.consumers.ConsumeLiquid;
+import mindustry.world.blocks.environment.OreBlock;
 import mindustry.world.meta.BuildVisibility;
-import mindustry.world.meta.Stat;
-import VanillaExpansion.expand.world.block.*;
-import static mindustry.Vars.tilesize;
 public class VEBlocks {
     //矿
     public static Block oreIron, oreUranium, oreManganese, oreQuartz;
@@ -44,7 +40,7 @@ public class VEBlocks {
     // RBMK
     public static Block rbmkRod,rbmkControl,rbmkControlModerated,rbmkControlAuto,rbmkControlAutoModerated,rbmkWreckage,rbmkCooler,rbmkBoiler,rbmkReflector,rbmkModerator,rbmkAbsorber,rbmkConsole;
     //测试玩意
-    public static Block rockCoreDrill,test16Dir,testCoolantDrill,TitleTextBlock,cableCar,expTurret,expWall;
+    public static Block rockCoreDrill,test16Dir,testCoolantDrill,TitleTextBlock,cableCar;
     public static DebugBlock debug;
 
     public static void load(){
@@ -339,40 +335,6 @@ public class VEBlocks {
             buildVisibility = BuildVisibility.shown;
             alwaysUnlocked = true;
             health = 500;
-            shownPlanets = ObjectSet.with(VEPlanets.proxima);
-        }};
-        expTurret = new ExpTurret("exp-laser-turret"){{
-            requirements(Category.turret, ItemStack.with(Items.copper, 90, Items.silicon, 40, Items.titanium, 15));
-            size = 2;
-            health = 600;
-            reload = 35f;
-            range = 140f;
-            targetAir = false;
-            shootSound = Sounds.shootLaser;
-            consumePower(2f);
-            maxLevel = 10;
-            expFields = new EField[]{
-                new EField.ELinear(v -> range = v, 120f, 2f, Stat.shootRange, v -> Strings.autoFixed(v / tilesize, 2) + " blocks"),
-                new EField.EBool(v -> targetAir = v, false, 5, Stat.targetsAir)
-            };
-            shoot = new ShootPattern(){{shotDelay = 12f;shots = 2;}};
-            shootType = new ExpLaserBulletType(140f, 25f){{
-                damageInc = 7f;
-                expGain = buildingExpGain = 2;
-                fromColor = Pal.accent;
-                toColor = Pal.lancerLaser;
-            }};
-            shownPlanets = ObjectSet.with(VEPlanets.proxima);
-        }};
-        expWall = new ExpWall("exp-wall"){{
-            requirements(Category.defense, ItemStack.with(Items.titanium, 24, Items.silicon, 24));
-            size = 2;
-            health = 3240;
-            maxLevel = 12;
-            damageExp = 1 / 20f;
-            expFields = new EField[]{
-                new EField.ELinear(v -> damageReduction = v, 0.1f, 0.02f, Stat.armor, f -> Strings.autoFixed(Mathf.roundPositive(f * 10000f) / 100f, 2) + "%")
-            };
             shownPlanets = ObjectSet.with(VEPlanets.proxima);
         }};
         TitleTextBlock = new TitleTextBlock("TitleTextBlock"){{

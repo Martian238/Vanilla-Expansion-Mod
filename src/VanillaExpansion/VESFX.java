@@ -10,7 +10,6 @@ import arc.struct.*;
 import arc.util.*;
 import arc.util.pooling.Pool.*;
 import VanillaExpansion.Utils.*;
-import VanillaExpansion.effects.*;
 import VanillaExpansion.expand.graphics.*;
 import VanillaExpansion.expand.special.*;
 import mindustry.*;
@@ -238,31 +237,6 @@ public class VESFX implements ApplicationListener{
                 ImpactBatch.endSwap();
             });
         }
-    }
-
-    public void drawOrderPortal(float x, float y, float width, float height){
-        Draw.draw(Layer.flyingUnitLow - 0.5f, () -> {
-            VEShaders.orderShader.width = width;
-            VEShaders.orderShader.height = height;
-            VEShaders.orderShader.srcX = x;
-            VEShaders.orderShader.srcY = y;
-
-            Draw.shader(VEShaders.orderShader);
-            Draw.shader();
-        });
-    }
-    public void drawChaosPortal(float x, float y, float width, float height){
-        Draw.draw(Layer.flyingUnitLow - 0.5f, () -> {
-            VEShaders.chaosShader.width = width;
-            VEShaders.chaosShader.height = height;
-            VEShaders.chaosShader.srcX = x;
-            VEShaders.chaosShader.srcY = y;
-
-            //Draw.flush();
-            Draw.shader(VEShaders.chaosShader);
-            //Draw.flush();
-            Draw.shader();
-        });
     }
 
     public void blackHole(float x, float y, float strength, float rotation){
